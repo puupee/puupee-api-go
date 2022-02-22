@@ -1,4 +1,4 @@
-module github.com/jerloo/doggy-sdk-go/doggy
+module github.com/jerloo/doggy-sdk-go
 
 go 1.13
 
