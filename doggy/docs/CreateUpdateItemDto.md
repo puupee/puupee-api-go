@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **FileUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
+**Thumb** | Pointer to [**CreateThumbDto**](CreateThumbDto.md) |  | [optional] 
 
 ## Methods
 
@@ -544,6 +545,31 @@ HasFileUpdatedAt returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetFileUpdatedAt()`
 
 UnsetFileUpdatedAt ensures that no value is present for FileUpdatedAt, not even an explicit nil
+### GetThumb
+
+`func (o *CreateUpdateItemDto) GetThumb() CreateThumbDto`
+
+GetThumb returns the Thumb field if non-nil, zero value otherwise.
+
+### GetThumbOk
+
+`func (o *CreateUpdateItemDto) GetThumbOk() (*CreateThumbDto, bool)`
+
+GetThumbOk returns a tuple with the Thumb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumb
+
+`func (o *CreateUpdateItemDto) SetThumb(v CreateThumbDto)`
+
+SetThumb sets Thumb field to given value.
+
+### HasThumb
+
+`func (o *CreateUpdateItemDto) HasThumb() bool`
+
+HasThumb returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

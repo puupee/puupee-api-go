@@ -32,6 +32,7 @@ type CreateUpdateItemDto struct {
 	StorageClass NullableString `json:"storageClass,omitempty"`
 	FileCreatedAt NullableTime `json:"fileCreatedAt,omitempty"`
 	FileUpdatedAt NullableTime `json:"fileUpdatedAt,omitempty"`
+	Thumb *CreateThumbDto `json:"thumb,omitempty"`
 }
 
 // NewCreateUpdateItemDto instantiates a new CreateUpdateItemDto object
@@ -652,6 +653,38 @@ func (o *CreateUpdateItemDto) UnsetFileUpdatedAt() {
 	o.FileUpdatedAt.Unset()
 }
 
+// GetThumb returns the Thumb field value if set, zero value otherwise.
+func (o *CreateUpdateItemDto) GetThumb() CreateThumbDto {
+	if o == nil || o.Thumb == nil {
+		var ret CreateThumbDto
+		return ret
+	}
+	return *o.Thumb
+}
+
+// GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateItemDto) GetThumbOk() (*CreateThumbDto, bool) {
+	if o == nil || o.Thumb == nil {
+		return nil, false
+	}
+	return o.Thumb, true
+}
+
+// HasThumb returns a boolean if a field has been set.
+func (o *CreateUpdateItemDto) HasThumb() bool {
+	if o != nil && o.Thumb != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetThumb gets a reference to the given CreateThumbDto and assigns it to the Thumb field.
+func (o *CreateUpdateItemDto) SetThumb(v CreateThumbDto) {
+	o.Thumb = &v
+}
+
 func (o CreateUpdateItemDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name.IsSet() {
@@ -698,6 +731,9 @@ func (o CreateUpdateItemDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.FileUpdatedAt.IsSet() {
 		toSerialize["fileUpdatedAt"] = o.FileUpdatedAt.Get()
+	}
+	if o.Thumb != nil {
+		toSerialize["thumb"] = o.Thumb
 	}
 	return json.Marshal(toSerialize)
 }
