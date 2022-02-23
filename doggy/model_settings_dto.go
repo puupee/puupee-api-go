@@ -16,7 +16,7 @@ import (
 
 // SettingsDto struct for SettingsDto
 type SettingsDto struct {
-	AppThemes *AppThemePlatformSettings `json:"appThemes,omitempty"`
+	AppTheme *AppTheme `json:"appTheme,omitempty"`
 }
 
 // NewSettingsDto instantiates a new SettingsDto object
@@ -36,42 +36,42 @@ func NewSettingsDtoWithDefaults() *SettingsDto {
 	return &this
 }
 
-// GetAppThemes returns the AppThemes field value if set, zero value otherwise.
-func (o *SettingsDto) GetAppThemes() AppThemePlatformSettings {
-	if o == nil || o.AppThemes == nil {
-		var ret AppThemePlatformSettings
+// GetAppTheme returns the AppTheme field value if set, zero value otherwise.
+func (o *SettingsDto) GetAppTheme() AppTheme {
+	if o == nil || o.AppTheme == nil {
+		var ret AppTheme
 		return ret
 	}
-	return *o.AppThemes
+	return *o.AppTheme
 }
 
-// GetAppThemesOk returns a tuple with the AppThemes field value if set, nil otherwise
+// GetAppThemeOk returns a tuple with the AppTheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettingsDto) GetAppThemesOk() (*AppThemePlatformSettings, bool) {
-	if o == nil || o.AppThemes == nil {
+func (o *SettingsDto) GetAppThemeOk() (*AppTheme, bool) {
+	if o == nil || o.AppTheme == nil {
 		return nil, false
 	}
-	return o.AppThemes, true
+	return o.AppTheme, true
 }
 
-// HasAppThemes returns a boolean if a field has been set.
-func (o *SettingsDto) HasAppThemes() bool {
-	if o != nil && o.AppThemes != nil {
+// HasAppTheme returns a boolean if a field has been set.
+func (o *SettingsDto) HasAppTheme() bool {
+	if o != nil && o.AppTheme != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAppThemes gets a reference to the given AppThemePlatformSettings and assigns it to the AppThemes field.
-func (o *SettingsDto) SetAppThemes(v AppThemePlatformSettings) {
-	o.AppThemes = &v
+// SetAppTheme gets a reference to the given AppTheme and assigns it to the AppTheme field.
+func (o *SettingsDto) SetAppTheme(v AppTheme) {
+	o.AppTheme = &v
 }
 
 func (o SettingsDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AppThemes != nil {
-		toSerialize["appThemes"] = o.AppThemes
+	if o.AppTheme != nil {
+		toSerialize["appTheme"] = o.AppTheme
 	}
 	return json.Marshal(toSerialize)
 }

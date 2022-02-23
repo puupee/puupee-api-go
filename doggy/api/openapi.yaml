@@ -4527,23 +4527,6 @@ components:
       - Light
       - Dark
       type: string
-    AppThemePlatformSettings:
-      additionalProperties: false
-      example: {}
-      properties:
-        android:
-          $ref: '#/components/schemas/AppTheme'
-        iOS:
-          $ref: '#/components/schemas/AppTheme'
-        web:
-          $ref: '#/components/schemas/AppTheme'
-        windows:
-          $ref: '#/components/schemas/AppTheme'
-        macos:
-          $ref: '#/components/schemas/AppTheme'
-        linux:
-          $ref: '#/components/schemas/AppTheme'
-      type: object
     BooleanKeyValue:
       additionalProperties: false
       example:
@@ -6771,11 +6754,10 @@ components:
       type: object
     SettingsDto:
       additionalProperties: false
-      example:
-        appThemes: {}
+      example: {}
       properties:
-        appThemes:
-          $ref: '#/components/schemas/AppThemePlatformSettings'
+        appTheme:
+          $ref: '#/components/schemas/AppTheme'
       type: object
     SpecialItemDto:
       additionalProperties: false

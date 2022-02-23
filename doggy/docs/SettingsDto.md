@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppThemes** | Pointer to [**AppThemePlatformSettings**](AppThemePlatformSettings.md) |  | [optional] 
+**AppTheme** | Pointer to [**AppTheme**](AppTheme.md) |  | [optional] 
 
 ## Methods
 
@@ -25,30 +25,30 @@ NewSettingsDtoWithDefaults instantiates a new SettingsDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAppThemes
+### GetAppTheme
 
-`func (o *SettingsDto) GetAppThemes() AppThemePlatformSettings`
+`func (o *SettingsDto) GetAppTheme() AppTheme`
 
-GetAppThemes returns the AppThemes field if non-nil, zero value otherwise.
+GetAppTheme returns the AppTheme field if non-nil, zero value otherwise.
 
-### GetAppThemesOk
+### GetAppThemeOk
 
-`func (o *SettingsDto) GetAppThemesOk() (*AppThemePlatformSettings, bool)`
+`func (o *SettingsDto) GetAppThemeOk() (*AppTheme, bool)`
 
-GetAppThemesOk returns a tuple with the AppThemes field if it's non-nil, zero value otherwise
+GetAppThemeOk returns a tuple with the AppTheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAppThemes
+### SetAppTheme
 
-`func (o *SettingsDto) SetAppThemes(v AppThemePlatformSettings)`
+`func (o *SettingsDto) SetAppTheme(v AppTheme)`
 
-SetAppThemes sets AppThemes field to given value.
+SetAppTheme sets AppTheme field to given value.
 
-### HasAppThemes
+### HasAppTheme
 
-`func (o *SettingsDto) HasAppThemes() bool`
+`func (o *SettingsDto) HasAppTheme() bool`
 
-HasAppThemes returns a boolean if a field has been set.
+HasAppTheme returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

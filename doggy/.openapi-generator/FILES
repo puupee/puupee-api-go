@@ -19,7 +19,6 @@ docs/AbpLoginResult.md
 docs/AccountApi.md
 docs/ActionApiDescriptionModel.md
 docs/AppTheme.md
-docs/AppThemePlatformSettings.md
 docs/ApplicationApiDescriptionModel.md
 docs/ApplicationAuthConfigurationDto.md
 docs/ApplicationConfigurationDto.md
@@ -154,7 +153,6 @@ go.sum
 model_abp_login_result.go
 model_action_api_description_model.go
 model_app_theme.go
-model_app_theme_platform_settings.go
 model_application_api_description_model.go
 model_application_auth_configuration_dto.go
 model_application_configuration_dto.go
