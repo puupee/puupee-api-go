@@ -23,6 +23,7 @@ type CreateUpdateItemDto struct {
 	ParentItemId NullableString `json:"parentItemId,omitempty"`
 	TagIds []string `json:"tagIds,omitempty"`
 	ThumbId NullableString `json:"thumbId,omitempty"`
+	ThumbItemId NullableString `json:"thumbItemId,omitempty"`
 	Key NullableString `json:"key,omitempty"`
 	Md5 NullableString `json:"md5,omitempty"`
 	ContentType NullableString `json:"contentType,omitempty"`
@@ -32,7 +33,6 @@ type CreateUpdateItemDto struct {
 	StorageClass NullableString `json:"storageClass,omitempty"`
 	FileCreatedAt NullableTime `json:"fileCreatedAt,omitempty"`
 	FileUpdatedAt NullableTime `json:"fileUpdatedAt,omitempty"`
-	Thumb *CreateThumbDto `json:"thumb,omitempty"`
 }
 
 // NewCreateUpdateItemDto instantiates a new CreateUpdateItemDto object
@@ -293,6 +293,48 @@ func (o *CreateUpdateItemDto) SetThumbIdNil() {
 // UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
 func (o *CreateUpdateItemDto) UnsetThumbId() {
 	o.ThumbId.Unset()
+}
+
+// GetThumbItemId returns the ThumbItemId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpdateItemDto) GetThumbItemId() string {
+	if o == nil || o.ThumbItemId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ThumbItemId.Get()
+}
+
+// GetThumbItemIdOk returns a tuple with the ThumbItemId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpdateItemDto) GetThumbItemIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ThumbItemId.Get(), o.ThumbItemId.IsSet()
+}
+
+// HasThumbItemId returns a boolean if a field has been set.
+func (o *CreateUpdateItemDto) HasThumbItemId() bool {
+	if o != nil && o.ThumbItemId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetThumbItemId gets a reference to the given NullableString and assigns it to the ThumbItemId field.
+func (o *CreateUpdateItemDto) SetThumbItemId(v string) {
+	o.ThumbItemId.Set(&v)
+}
+// SetThumbItemIdNil sets the value for ThumbItemId to be an explicit nil
+func (o *CreateUpdateItemDto) SetThumbItemIdNil() {
+	o.ThumbItemId.Set(nil)
+}
+
+// UnsetThumbItemId ensures that no value is present for ThumbItemId, not even an explicit nil
+func (o *CreateUpdateItemDto) UnsetThumbItemId() {
+	o.ThumbItemId.Unset()
 }
 
 // GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -653,38 +695,6 @@ func (o *CreateUpdateItemDto) UnsetFileUpdatedAt() {
 	o.FileUpdatedAt.Unset()
 }
 
-// GetThumb returns the Thumb field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetThumb() CreateThumbDto {
-	if o == nil || o.Thumb == nil {
-		var ret CreateThumbDto
-		return ret
-	}
-	return *o.Thumb
-}
-
-// GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetThumbOk() (*CreateThumbDto, bool) {
-	if o == nil || o.Thumb == nil {
-		return nil, false
-	}
-	return o.Thumb, true
-}
-
-// HasThumb returns a boolean if a field has been set.
-func (o *CreateUpdateItemDto) HasThumb() bool {
-	if o != nil && o.Thumb != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetThumb gets a reference to the given CreateThumbDto and assigns it to the Thumb field.
-func (o *CreateUpdateItemDto) SetThumb(v CreateThumbDto) {
-	o.Thumb = &v
-}
-
 func (o CreateUpdateItemDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name.IsSet() {
@@ -704,6 +714,9 @@ func (o CreateUpdateItemDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.ThumbId.IsSet() {
 		toSerialize["thumbId"] = o.ThumbId.Get()
+	}
+	if o.ThumbItemId.IsSet() {
+		toSerialize["thumbItemId"] = o.ThumbItemId.Get()
 	}
 	if o.Key.IsSet() {
 		toSerialize["key"] = o.Key.Get()
@@ -731,9 +744,6 @@ func (o CreateUpdateItemDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.FileUpdatedAt.IsSet() {
 		toSerialize["fileUpdatedAt"] = o.FileUpdatedAt.Get()
-	}
-	if o.Thumb != nil {
-		toSerialize["thumb"] = o.Thumb
 	}
 	return json.Marshal(toSerialize)
 }

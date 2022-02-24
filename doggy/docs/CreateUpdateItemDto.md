@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ParentItemId** | Pointer to **NullableString** |  | [optional] 
 **TagIds** | Pointer to **[]string** |  | [optional] 
 **ThumbId** | Pointer to **NullableString** |  | [optional] 
+**ThumbItemId** | Pointer to **NullableString** |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +20,6 @@ Name | Type | Description | Notes
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **FileUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
-**Thumb** | Pointer to [**CreateThumbDto**](CreateThumbDto.md) |  | [optional] 
 
 ## Methods
 
@@ -250,6 +250,41 @@ HasThumbId returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetThumbId()`
 
 UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
+### GetThumbItemId
+
+`func (o *CreateUpdateItemDto) GetThumbItemId() string`
+
+GetThumbItemId returns the ThumbItemId field if non-nil, zero value otherwise.
+
+### GetThumbItemIdOk
+
+`func (o *CreateUpdateItemDto) GetThumbItemIdOk() (*string, bool)`
+
+GetThumbItemIdOk returns a tuple with the ThumbItemId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumbItemId
+
+`func (o *CreateUpdateItemDto) SetThumbItemId(v string)`
+
+SetThumbItemId sets ThumbItemId field to given value.
+
+### HasThumbItemId
+
+`func (o *CreateUpdateItemDto) HasThumbItemId() bool`
+
+HasThumbItemId returns a boolean if a field has been set.
+
+### SetThumbItemIdNil
+
+`func (o *CreateUpdateItemDto) SetThumbItemIdNil(b bool)`
+
+ SetThumbItemIdNil sets the value for ThumbItemId to be an explicit nil
+
+### UnsetThumbItemId
+`func (o *CreateUpdateItemDto) UnsetThumbItemId()`
+
+UnsetThumbItemId ensures that no value is present for ThumbItemId, not even an explicit nil
 ### GetKey
 
 `func (o *CreateUpdateItemDto) GetKey() string`
@@ -545,31 +580,6 @@ HasFileUpdatedAt returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetFileUpdatedAt()`
 
 UnsetFileUpdatedAt ensures that no value is present for FileUpdatedAt, not even an explicit nil
-### GetThumb
-
-`func (o *CreateUpdateItemDto) GetThumb() CreateThumbDto`
-
-GetThumb returns the Thumb field if non-nil, zero value otherwise.
-
-### GetThumbOk
-
-`func (o *CreateUpdateItemDto) GetThumbOk() (*CreateThumbDto, bool)`
-
-GetThumbOk returns a tuple with the Thumb field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetThumb
-
-`func (o *CreateUpdateItemDto) SetThumb(v CreateThumbDto)`
-
-SetThumb sets Thumb field to given value.
-
-### HasThumb
-
-`func (o *CreateUpdateItemDto) HasThumb() bool`
-
-HasThumb returns a boolean if a field has been set.
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

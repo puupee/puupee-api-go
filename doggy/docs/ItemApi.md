@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppItemCreateOrGetFilePost**](ItemApi.md#ApiAppItemCreateOrGetFilePost) | **Post** /api/app/item/create-or-get-file | 
 [**ApiAppItemGet**](ItemApi.md#ApiAppItemGet) | **Get** /api/app/item | 
 [**ApiAppItemIdDelete**](ItemApi.md#ApiAppItemIdDelete) | **Delete** /api/app/item/{id} | 
 [**ApiAppItemIdGet**](ItemApi.md#ApiAppItemIdGet) | **Get** /api/app/item/{id} | 
@@ -12,70 +11,6 @@ Method | HTTP request | Description
 [**ApiAppItemPost**](ItemApi.md#ApiAppItemPost) | **Post** /api/app/item | 
 [**ApiAppItemSpecialItemsGet**](ItemApi.md#ApiAppItemSpecialItemsGet) | **Get** /api/app/item/special-items | 
 
-
-
-## ApiAppItemCreateOrGetFilePost
-
-> File ApiAppItemCreateOrGetFilePost(ctx).CreateThumbDto(createThumbDto).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    createThumbDto := *openapiclient.NewCreateThumbDto() // CreateThumbDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ItemApi.ApiAppItemCreateOrGetFilePost(context.Background()).CreateThumbDto(createThumbDto).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemApi.ApiAppItemCreateOrGetFilePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppItemCreateOrGetFilePost`: File
-    fmt.Fprintf(os.Stdout, "Response from `ItemApi.ApiAppItemCreateOrGetFilePost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppItemCreateOrGetFilePostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createThumbDto** | [**CreateThumbDto**](CreateThumbDto.md) |  | 
-
-### Return type
-
-[**File**](File.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/_*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## ApiAppItemGet

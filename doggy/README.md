@@ -83,7 +83,6 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**ApiAccountSendPasswordResetCodePost**](docs/AccountApi.md#apiaccountsendpasswordresetcodepost) | **Post** /api/account/send-password-reset-code | 
 *FileApi* | [**ApiAppFilePreSignUrlPost**](docs/FileApi.md#apiappfilepresignurlpost) | **Post** /api/app/file/pre-sign-url | 
 *FileApi* | [**ApiAppFileUploadCredentialsGet**](docs/FileApi.md#apiappfileuploadcredentialsget) | **Get** /api/app/file/upload-credentials | 
-*ItemApi* | [**ApiAppItemCreateOrGetFilePost**](docs/ItemApi.md#apiappitemcreateorgetfilepost) | **Post** /api/app/item/create-or-get-file | 
 *ItemApi* | [**ApiAppItemGet**](docs/ItemApi.md#apiappitemget) | **Get** /api/app/item | 
 *ItemApi* | [**ApiAppItemIdDelete**](docs/ItemApi.md#apiappitemiddelete) | **Delete** /api/app/item/{id} | 
 *ItemApi* | [**ApiAppItemIdGet**](docs/ItemApi.md#apiappitemidget) | **Get** /api/app/item/{id} | 
@@ -142,7 +141,6 @@ Class | Method | HTTP request | Description
  - [ClockDto](docs/ClockDto.md)
  - [ControllerApiDescriptionModel](docs/ControllerApiDescriptionModel.md)
  - [ControllerInterfaceApiDescriptionModel](docs/ControllerInterfaceApiDescriptionModel.md)
- - [CreateThumbDto](docs/CreateThumbDto.md)
  - [CreateUpdateItemDto](docs/CreateUpdateItemDto.md)
  - [CreateUpdateTagDto](docs/CreateUpdateTagDto.md)
  - [CreateUpdateTodoDto](docs/CreateUpdateTodoDto.md)
@@ -174,7 +172,6 @@ Class | Method | HTTP request | Description
  - [FeatureDto](docs/FeatureDto.md)
  - [FeatureGroupDto](docs/FeatureGroupDto.md)
  - [FeatureProviderDto](docs/FeatureProviderDto.md)
- - [File](docs/File.md)
  - [FileDto](docs/FileDto.md)
  - [FindTenantResultDto](docs/FindTenantResultDto.md)
  - [GetFeatureListResultDto](docs/GetFeatureListResultDto.md)
@@ -187,24 +184,15 @@ Class | Method | HTTP request | Description
  - [IdentityRoleDtoListResultDto](docs/IdentityRoleDtoListResultDto.md)
  - [IdentityRoleDtoPagedResultDto](docs/IdentityRoleDtoPagedResultDto.md)
  - [IdentityRoleUpdateDto](docs/IdentityRoleUpdateDto.md)
- - [IdentityUser](docs/IdentityUser.md)
- - [IdentityUserClaim](docs/IdentityUserClaim.md)
  - [IdentityUserCreateDto](docs/IdentityUserCreateDto.md)
  - [IdentityUserDto](docs/IdentityUserDto.md)
  - [IdentityUserDtoPagedResultDto](docs/IdentityUserDtoPagedResultDto.md)
- - [IdentityUserLogin](docs/IdentityUserLogin.md)
- - [IdentityUserOrganizationUnit](docs/IdentityUserOrganizationUnit.md)
- - [IdentityUserRole](docs/IdentityUserRole.md)
- - [IdentityUserToken](docs/IdentityUserToken.md)
  - [IdentityUserUpdateDto](docs/IdentityUserUpdateDto.md)
  - [IdentityUserUpdateRolesDto](docs/IdentityUserUpdateRolesDto.md)
  - [Int32KeyValue](docs/Int32KeyValue.md)
  - [Int32SetKeyValueDto](docs/Int32SetKeyValueDto.md)
- - [Item](docs/Item.md)
  - [ItemDto](docs/ItemDto.md)
  - [ItemDtoPagedResultDto](docs/ItemDtoPagedResultDto.md)
- - [ItemTag](docs/ItemTag.md)
- - [ItemThumb](docs/ItemThumb.md)
  - [ItemThumbDto](docs/ItemThumbDto.md)
  - [ItemType](docs/ItemType.md)
  - [LanguageInfo](docs/LanguageInfo.md)
@@ -237,7 +225,6 @@ Class | Method | HTTP request | Description
  - [SpecialItems](docs/SpecialItems.md)
  - [StringKeyValue](docs/StringKeyValue.md)
  - [StringSetKeyValueDto](docs/StringSetKeyValueDto.md)
- - [Tag](docs/Tag.md)
  - [TagDto](docs/TagDto.md)
  - [TagDtoPagedResultDto](docs/TagDtoPagedResultDto.md)
  - [TenantCreateDto](docs/TenantCreateDto.md)
@@ -246,10 +233,8 @@ Class | Method | HTTP request | Description
  - [TenantUpdateDto](docs/TenantUpdateDto.md)
  - [TimeZone](docs/TimeZone.md)
  - [TimingDto](docs/TimingDto.md)
- - [Todo](docs/Todo.md)
  - [TodoDto](docs/TodoDto.md)
  - [TodoDtoPagedResultDto](docs/TodoDtoPagedResultDto.md)
- - [TodoTag](docs/TodoTag.md)
  - [TypeApiDescriptionModel](docs/TypeApiDescriptionModel.md)
  - [UpdateEmailSettingsDto](docs/UpdateEmailSettingsDto.md)
  - [UpdateFeatureDto](docs/UpdateFeatureDto.md)
