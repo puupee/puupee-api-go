@@ -81,8 +81,8 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**ApiAccountRegisterPost**](docs/AccountApi.md#apiaccountregisterpost) | **Post** /api/account/register | 
 *AccountApi* | [**ApiAccountResetPasswordPost**](docs/AccountApi.md#apiaccountresetpasswordpost) | **Post** /api/account/reset-password | 
 *AccountApi* | [**ApiAccountSendPasswordResetCodePost**](docs/AccountApi.md#apiaccountsendpasswordresetcodepost) | **Post** /api/account/send-password-reset-code | 
+*FileApi* | [**ApiAppFileFileOrCredentialsCreatorIdGet**](docs/FileApi.md#apiappfilefileorcredentialscreatoridget) | **Get** /api/app/file/file-or-credentials/{creatorId} | 
 *FileApi* | [**ApiAppFilePreSignUrlPost**](docs/FileApi.md#apiappfilepresignurlpost) | **Post** /api/app/file/pre-sign-url | 
-*FileApi* | [**ApiAppFileUploadCredentialsGet**](docs/FileApi.md#apiappfileuploadcredentialsget) | **Get** /api/app/file/upload-credentials | 
 *ItemApi* | [**ApiAppItemGet**](docs/ItemApi.md#apiappitemget) | **Get** /api/app/item | 
 *ItemApi* | [**ApiAppItemIdDelete**](docs/ItemApi.md#apiappitemiddelete) | **Delete** /api/app/item/{id} | 
 *ItemApi* | [**ApiAppItemIdGet**](docs/ItemApi.md#apiappitemidget) | **Get** /api/app/item/{id} | 
@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *LoginApi* | [**ApiAccountCheckPasswordPost**](docs/LoginApi.md#apiaccountcheckpasswordpost) | **Post** /api/account/check-password | 
 *LoginApi* | [**ApiAccountLoginPost**](docs/LoginApi.md#apiaccountloginpost) | **Post** /api/account/login | 
 *LoginApi* | [**ApiAccountLogoutGet**](docs/LoginApi.md#apiaccountlogoutget) | **Get** /api/account/logout | 
+*MemberApi* | [**ApiAppMemberGet**](docs/MemberApi.md#apiappmemberget) | **Get** /api/app/member | 
 *NoteApi* | [**ApiAppNoteNoteSpecsGet**](docs/NoteApi.md#apiappnotenotespecsget) | **Get** /api/app/note/note-specs | 
 *ProfileApi* | [**ApiAccountMyProfileChangePasswordPost**](docs/ProfileApi.md#apiaccountmyprofilechangepasswordpost) | **Post** /api/account/my-profile/change-password | 
 *ProfileApi* | [**ApiAccountMyProfileGet**](docs/ProfileApi.md#apiaccountmyprofileget) | **Get** /api/account/my-profile | 
@@ -112,11 +113,16 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**ApiAppSettingsSetPost**](docs/SettingsApi.md#apiappsettingssetpost) | **Post** /api/app/settings/set | 
 *SmsApi* | [**ApiAppSmsSendChangePhoneCodePost**](docs/SmsApi.md#apiappsmssendchangephonecodepost) | **Post** /api/app/sms/send-change-phone-code | 
 *SmsApi* | [**ApiAppSmsSendLoginCodePost**](docs/SmsApi.md#apiappsmssendlogincodepost) | **Post** /api/app/sms/send-login-code | 
+*StorageApi* | [**ApiAppStorageGet**](docs/StorageApi.md#apiappstorageget) | **Get** /api/app/storage | 
 *TagApi* | [**ApiAppTagGet**](docs/TagApi.md#apiapptagget) | **Get** /api/app/tag | 
 *TagApi* | [**ApiAppTagIdDelete**](docs/TagApi.md#apiapptagiddelete) | **Delete** /api/app/tag/{id} | 
 *TagApi* | [**ApiAppTagIdGet**](docs/TagApi.md#apiapptagidget) | **Get** /api/app/tag/{id} | 
 *TagApi* | [**ApiAppTagIdPut**](docs/TagApi.md#apiapptagidput) | **Put** /api/app/tag/{id} | 
 *TagApi* | [**ApiAppTagPost**](docs/TagApi.md#apiapptagpost) | **Post** /api/app/tag | 
+*ThumbApi* | [**ApiAppThumbGet**](docs/ThumbApi.md#apiappthumbget) | **Get** /api/app/thumb | 
+*ThumbApi* | [**ApiAppThumbIdDelete**](docs/ThumbApi.md#apiappthumbiddelete) | **Delete** /api/app/thumb/{id} | 
+*ThumbApi* | [**ApiAppThumbIdGet**](docs/ThumbApi.md#apiappthumbidget) | **Get** /api/app/thumb/{id} | 
+*ThumbApi* | [**ApiAppThumbPost**](docs/ThumbApi.md#apiappthumbpost) | **Post** /api/app/thumb | 
 *TodoApi* | [**ApiAppTodoGet**](docs/TodoApi.md#apiapptodoget) | **Get** /api/app/todo | 
 *TodoApi* | [**ApiAppTodoIdDelete**](docs/TodoApi.md#apiapptodoiddelete) | **Delete** /api/app/todo/{id} | 
 *TodoApi* | [**ApiAppTodoIdGet**](docs/TodoApi.md#apiapptodoidget) | **Get** /api/app/todo/{id} | 
@@ -143,6 +149,7 @@ Class | Method | HTTP request | Description
  - [ControllerInterfaceApiDescriptionModel](docs/ControllerInterfaceApiDescriptionModel.md)
  - [CreateUpdateItemDto](docs/CreateUpdateItemDto.md)
  - [CreateUpdateTagDto](docs/CreateUpdateTagDto.md)
+ - [CreateUpdateThumbDto](docs/CreateUpdateThumbDto.md)
  - [CreateUpdateTodoDto](docs/CreateUpdateTodoDto.md)
  - [CurrentCultureDto](docs/CurrentCultureDto.md)
  - [CurrentTenantDto](docs/CurrentTenantDto.md)
@@ -173,6 +180,7 @@ Class | Method | HTTP request | Description
  - [FeatureGroupDto](docs/FeatureGroupDto.md)
  - [FeatureProviderDto](docs/FeatureProviderDto.md)
  - [FileDto](docs/FileDto.md)
+ - [FileOrCredentialsDto](docs/FileOrCredentialsDto.md)
  - [FindTenantResultDto](docs/FindTenantResultDto.md)
  - [GetFeatureListResultDto](docs/GetFeatureListResultDto.md)
  - [GetPermissionListResultDto](docs/GetPermissionListResultDto.md)
@@ -193,11 +201,12 @@ Class | Method | HTTP request | Description
  - [Int32SetKeyValueDto](docs/Int32SetKeyValueDto.md)
  - [ItemDto](docs/ItemDto.md)
  - [ItemDtoPagedResultDto](docs/ItemDtoPagedResultDto.md)
- - [ItemThumbDto](docs/ItemThumbDto.md)
  - [ItemType](docs/ItemType.md)
  - [LanguageInfo](docs/LanguageInfo.md)
  - [LocalizableStringDto](docs/LocalizableStringDto.md)
  - [LoginResultType](docs/LoginResultType.md)
+ - [MemberDto](docs/MemberDto.md)
+ - [MemberLevel](docs/MemberLevel.md)
  - [MethodParameterApiDescriptionModel](docs/MethodParameterApiDescriptionModel.md)
  - [ModuleApiDescriptionModel](docs/ModuleApiDescriptionModel.md)
  - [ModuleExtensionDto](docs/ModuleExtensionDto.md)
@@ -231,6 +240,8 @@ Class | Method | HTTP request | Description
  - [TenantDto](docs/TenantDto.md)
  - [TenantDtoPagedResultDto](docs/TenantDtoPagedResultDto.md)
  - [TenantUpdateDto](docs/TenantUpdateDto.md)
+ - [ThumbDto](docs/ThumbDto.md)
+ - [ThumbDtoPagedResultDto](docs/ThumbDtoPagedResultDto.md)
  - [TimeZone](docs/TimeZone.md)
  - [TimingDto](docs/TimingDto.md)
  - [TodoDto](docs/TodoDto.md)
@@ -246,6 +257,7 @@ Class | Method | HTTP request | Description
  - [UserData](docs/UserData.md)
  - [UserDataListResultDto](docs/UserDataListResultDto.md)
  - [UserLoginInfo](docs/UserLoginInfo.md)
+ - [UserStorageDto](docs/UserStorageDto.md)
  - [WindowsTimeZone](docs/WindowsTimeZone.md)
 
 

@@ -18,6 +18,8 @@ import (
 type ControllerApiDescriptionModel struct {
 	ControllerName NullableString `json:"controllerName,omitempty"`
 	ControllerGroupName NullableString `json:"controllerGroupName,omitempty"`
+	IsRemoteService *bool `json:"isRemoteService,omitempty"`
+	ApiVersion NullableString `json:"apiVersion,omitempty"`
 	Type NullableString `json:"type,omitempty"`
 	Interfaces []ControllerInterfaceApiDescriptionModel `json:"interfaces,omitempty"`
 	Actions map[string]ActionApiDescriptionModel `json:"actions,omitempty"`
@@ -122,6 +124,80 @@ func (o *ControllerApiDescriptionModel) SetControllerGroupNameNil() {
 // UnsetControllerGroupName ensures that no value is present for ControllerGroupName, not even an explicit nil
 func (o *ControllerApiDescriptionModel) UnsetControllerGroupName() {
 	o.ControllerGroupName.Unset()
+}
+
+// GetIsRemoteService returns the IsRemoteService field value if set, zero value otherwise.
+func (o *ControllerApiDescriptionModel) GetIsRemoteService() bool {
+	if o == nil || o.IsRemoteService == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsRemoteService
+}
+
+// GetIsRemoteServiceOk returns a tuple with the IsRemoteService field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ControllerApiDescriptionModel) GetIsRemoteServiceOk() (*bool, bool) {
+	if o == nil || o.IsRemoteService == nil {
+		return nil, false
+	}
+	return o.IsRemoteService, true
+}
+
+// HasIsRemoteService returns a boolean if a field has been set.
+func (o *ControllerApiDescriptionModel) HasIsRemoteService() bool {
+	if o != nil && o.IsRemoteService != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsRemoteService gets a reference to the given bool and assigns it to the IsRemoteService field.
+func (o *ControllerApiDescriptionModel) SetIsRemoteService(v bool) {
+	o.IsRemoteService = &v
+}
+
+// GetApiVersion returns the ApiVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ControllerApiDescriptionModel) GetApiVersion() string {
+	if o == nil || o.ApiVersion.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ApiVersion.Get()
+}
+
+// GetApiVersionOk returns a tuple with the ApiVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ControllerApiDescriptionModel) GetApiVersionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ApiVersion.Get(), o.ApiVersion.IsSet()
+}
+
+// HasApiVersion returns a boolean if a field has been set.
+func (o *ControllerApiDescriptionModel) HasApiVersion() bool {
+	if o != nil && o.ApiVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApiVersion gets a reference to the given NullableString and assigns it to the ApiVersion field.
+func (o *ControllerApiDescriptionModel) SetApiVersion(v string) {
+	o.ApiVersion.Set(&v)
+}
+// SetApiVersionNil sets the value for ApiVersion to be an explicit nil
+func (o *ControllerApiDescriptionModel) SetApiVersionNil() {
+	o.ApiVersion.Set(nil)
+}
+
+// UnsetApiVersion ensures that no value is present for ApiVersion, not even an explicit nil
+func (o *ControllerApiDescriptionModel) UnsetApiVersion() {
+	o.ApiVersion.Unset()
 }
 
 // GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -239,6 +315,12 @@ func (o ControllerApiDescriptionModel) MarshalJSON() ([]byte, error) {
 	}
 	if o.ControllerGroupName.IsSet() {
 		toSerialize["controllerGroupName"] = o.ControllerGroupName.Get()
+	}
+	if o.IsRemoteService != nil {
+		toSerialize["isRemoteService"] = o.IsRemoteService
+	}
+	if o.ApiVersion.IsSet() {
+		toSerialize["apiVersion"] = o.ApiVersion.Get()
 	}
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()

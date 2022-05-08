@@ -287,20 +287,36 @@ paths:
           description: Server Error
       tags:
       - Account
-  /api/app/file/upload-credentials:
+  /api/app/file/file-or-credentials/{creatorId}:
     get:
+      parameters:
+      - explode: false
+        in: path
+        name: creatorId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: rapidCode
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/UploadCredentials'
+                $ref: '#/components/schemas/FileOrCredentialsDto'
             application/json:
               schema:
-                $ref: '#/components/schemas/UploadCredentials'
+                $ref: '#/components/schemas/FileOrCredentialsDto'
             text/json:
               schema:
-                $ref: '#/components/schemas/UploadCredentials'
+                $ref: '#/components/schemas/FileOrCredentialsDto'
           description: Success
         "403":
           content:
@@ -2571,6 +2587,104 @@ paths:
           description: Server Error
       tags:
       - Login
+  /api/app/member:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: creatorId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MemberDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MemberDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Member
   /api/app/note/note-specs:
     get:
       responses:
@@ -3297,6 +3411,104 @@ paths:
           description: Server Error
       tags:
       - Sms
+  /api/app/storage:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: creatorId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserStorageDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStorageDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserStorageDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Storage
   /api/app/tag:
     get:
       parameters:
@@ -3819,6 +4031,412 @@ paths:
           description: Server Error
       tags:
       - Tag
+  /api/app/thumb:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: SearchKey
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: MaxResultCount
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Sorting
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SkipCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ThumbDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThumbDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ThumbDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Thumb
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateThumbDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateThumbDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateThumbDto'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ThumbDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThumbDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ThumbDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Thumb
+  /api/app/thumb/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Thumb
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ThumbDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThumbDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ThumbDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Thumb
   /api/app/todo:
     get:
       parameters:
@@ -4597,6 +5215,11 @@ components:
         controllerGroupName:
           nullable: true
           type: string
+        isRemoteService:
+          type: boolean
+        apiVersion:
+          nullable: true
+          type: string
         type:
           nullable: true
           type: string
@@ -4621,7 +5244,6 @@ components:
     CreateUpdateItemDto:
       additionalProperties: false
       example:
-        thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         extension: extension
         tagIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -4632,6 +5254,8 @@ components:
         parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+        rapidCode: rapidCode
+        sliceMd5: sliceMd5
         fileCreatedAt: 2000-01-23T04:56:07.000+00:00
         contentType: contentType
         key: key
@@ -4661,14 +5285,16 @@ components:
           format: uuid
           nullable: true
           type: string
-        thumbItemId:
-          format: uuid
-          nullable: true
-          type: string
         key:
           nullable: true
           type: string
         md5:
+          nullable: true
+          type: string
+        sliceMd5:
+          nullable: true
+          type: string
+        rapidCode:
           nullable: true
           type: string
         contentType:
@@ -4704,6 +5330,35 @@ components:
           type: string
         parentTagId:
           format: uuid
+          nullable: true
+          type: string
+      type: object
+    CreateUpdateThumbDto:
+      additionalProperties: false
+      example:
+        extension: extension
+        storageClass: storageClass
+        size: 0
+        contentType: contentType
+        key: key
+        md5: md5
+      properties:
+        key:
+          nullable: true
+          type: string
+        size:
+          format: int32
+          type: integer
+        md5:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        extension:
+          nullable: true
+          type: string
+        storageClass:
           nullable: true
           type: string
       type: object
@@ -5204,9 +5859,152 @@ components:
     FileDto:
       additionalProperties: false
       example:
+        extension: extension
         folders:
-        - null
-        - null
+        - extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          thumb:
+            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            url: url
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          totalCount: 6
+          password: password
+          storageClass: storageClass
+          isDeleted: true
+          parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          children:
+          - null
+          - null
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          contentType: contentType
+          key: key
+          url: url
+          tags:
+          - fullPath: fullPath
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            parentTagId: parentTagId
+            children:
+            - null
+            - null
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tagCount: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - fullPath: fullPath
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            parentTagId: parentTagId
+            children:
+            - null
+            - null
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tagCount: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          size: 5
+          name: name
+          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          md5: md5
+          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          thumb:
+            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            url: url
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          totalCount: 6
+          password: password
+          storageClass: storageClass
+          isDeleted: true
+          parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          children:
+          - null
+          - null
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          contentType: contentType
+          key: key
+          url: url
+          tags:
+          - fullPath: fullPath
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            parentTagId: parentTagId
+            children:
+            - null
+            - null
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tagCount: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - fullPath: fullPath
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            parentTagId: parentTagId
+            children:
+            - null
+            - null
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tagCount: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          size: 5
+          name: name
+          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          md5: md5
+          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5225,7 +6023,7 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
@@ -5240,12 +6038,12 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         storageClass: storageClass
         isDeleted: true
-        size: 5
+        size: 0
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5303,6 +6101,9 @@ components:
         contentType:
           nullable: true
           type: string
+        extension:
+          nullable: true
+          type: string
         storageClass:
           nullable: true
           type: string
@@ -5330,6 +6131,224 @@ components:
             $ref: '#/components/schemas/TagDto'
           nullable: true
           type: array
+      type: object
+    FileOrCredentialsDto:
+      additionalProperties: false
+      example:
+        file:
+          extension: extension
+          folders:
+          - extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            thumb:
+              creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              creationTime: 2000-01-23T04:56:07.000+00:00
+              isDeleted: true
+              lastModificationTime: 2000-01-23T04:56:07.000+00:00
+              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deletionTime: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              url: url
+              fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            totalCount: 6
+            password: password
+            storageClass: storageClass
+            isDeleted: true
+            parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            children:
+            - null
+            - null
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            contentType: contentType
+            key: key
+            url: url
+            tags:
+            - fullPath: fullPath
+              creationTime: 2000-01-23T04:56:07.000+00:00
+              lastModificationTime: 2000-01-23T04:56:07.000+00:00
+              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deletionTime: 2000-01-23T04:56:07.000+00:00
+              isDeleted: true
+              parentTagId: parentTagId
+              children:
+              - null
+              - null
+              name: name
+              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              tagCount: 1
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - fullPath: fullPath
+              creationTime: 2000-01-23T04:56:07.000+00:00
+              lastModificationTime: 2000-01-23T04:56:07.000+00:00
+              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deletionTime: 2000-01-23T04:56:07.000+00:00
+              isDeleted: true
+              parentTagId: parentTagId
+              children:
+              - null
+              - null
+              name: name
+              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              tagCount: 1
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            size: 5
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            md5: md5
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            thumb:
+              creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              creationTime: 2000-01-23T04:56:07.000+00:00
+              isDeleted: true
+              lastModificationTime: 2000-01-23T04:56:07.000+00:00
+              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deletionTime: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              url: url
+              fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            totalCount: 6
+            password: password
+            storageClass: storageClass
+            isDeleted: true
+            parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            children:
+            - null
+            - null
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            contentType: contentType
+            key: key
+            url: url
+            tags:
+            - fullPath: fullPath
+              creationTime: 2000-01-23T04:56:07.000+00:00
+              lastModificationTime: 2000-01-23T04:56:07.000+00:00
+              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deletionTime: 2000-01-23T04:56:07.000+00:00
+              isDeleted: true
+              parentTagId: parentTagId
+              children:
+              - null
+              - null
+              name: name
+              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              tagCount: 1
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - fullPath: fullPath
+              creationTime: 2000-01-23T04:56:07.000+00:00
+              lastModificationTime: 2000-01-23T04:56:07.000+00:00
+              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deletionTime: 2000-01-23T04:56:07.000+00:00
+              isDeleted: true
+              parentTagId: parentTagId
+              children:
+              - null
+              - null
+              name: name
+              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              tagCount: 1
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            size: 5
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            md5: md5
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          url: url
+          tags:
+          - fullPath: fullPath
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            parentTagId: parentTagId
+            children:
+            - null
+            - null
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tagCount: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - fullPath: fullPath
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            parentTagId: parentTagId
+            children:
+            - null
+            - null
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tagCount: 1
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          storageClass: storageClass
+          isDeleted: true
+          size: 0
+          name: name
+          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+          contentType: contentType
+          key: key
+          md5: md5
+          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        credentials:
+          securityToken: securityToken
+          accessKeyId: accessKeyId
+          endPoint: endPoint
+          bucketName: bucketName
+          storageClass: storageClass
+          accessKeySecret: accessKeySecret
+          regionId: regionId
+          prefix: prefix
+          appId: appId
+          expiration: expiration
+          protocal: protocal
+          expiredTime: 5
+      properties:
+        file:
+          $ref: '#/components/schemas/FileDto'
+        credentials:
+          $ref: '#/components/schemas/UploadCredentials'
       type: object
     FindTenantResultDto:
       additionalProperties: false
@@ -5739,8 +6758,7 @@ components:
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         thumb:
-          thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          itemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           creationTime: 2000-01-23T04:56:07.000+00:00
           isDeleted: true
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -5749,72 +6767,23 @@ components:
           deletionTime: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          url: url
+          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        totalCount: 0
+        totalCount: 6
         password: password
         storageClass: storageClass
-        file:
-          folders:
-          - null
-          - null
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          url: url
-          tags:
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          storageClass: storageClass
-          isDeleted: true
-          size: 5
-          name: name
-          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          contentType: contentType
-          key: key
-          md5: md5
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isDeleted: true
         parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         children:
         - null
         - null
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        sliceMd5: sliceMd5
         contentType: contentType
         key: key
         url: url
@@ -5831,7 +6800,7 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
@@ -5846,10 +6815,10 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        size: 1
+        size: 5
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5907,7 +6876,7 @@ components:
           nullable: true
           type: string
         thumb:
-          $ref: '#/components/schemas/ItemThumbDto'
+          $ref: '#/components/schemas/ThumbDto'
         children:
           items:
             $ref: '#/components/schemas/ItemDto'
@@ -5928,6 +6897,12 @@ components:
           format: int32
           type: integer
         md5:
+          nullable: true
+          type: string
+        sliceMd5:
+          nullable: true
+          type: string
+        rapidCode:
           nullable: true
           type: string
         contentType:
@@ -5961,14 +6936,13 @@ components:
     ItemDtoPagedResultDto:
       additionalProperties: false
       example:
-        totalCount: 5
+        totalCount: 0
         items:
         - extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            itemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             creationTime: 2000-01-23T04:56:07.000+00:00
             isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -5977,72 +6951,23 @@ components:
             deletionTime: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            url: url
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 0
+          totalCount: 6
           password: password
           storageClass: storageClass
-          file:
-            folders:
-            - null
-            - null
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            url: url
-            tags:
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            storageClass: storageClass
-            isDeleted: true
-            size: 5
-            name: name
-            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-            contentType: contentType
-            key: key
-            md5: md5
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
           - null
           - null
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
           contentType: contentType
           key: key
           url: url
@@ -6059,7 +6984,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
@@ -6074,10 +6999,10 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 1
+          size: 5
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -6089,8 +7014,7 @@ components:
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            itemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             creationTime: 2000-01-23T04:56:07.000+00:00
             isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -6099,72 +7023,23 @@ components:
             deletionTime: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            url: url
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 0
+          totalCount: 6
           password: password
           storageClass: storageClass
-          file:
-            folders:
-            - null
-            - null
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            url: url
-            tags:
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            storageClass: storageClass
-            isDeleted: true
-            size: 5
-            name: name
-            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-            contentType: contentType
-            key: key
-            md5: md5
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
           - null
           - null
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
           contentType: contentType
           key: key
           url: url
@@ -6181,7 +7056,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
@@ -6196,10 +7071,10 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 1
+          size: 5
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -6217,61 +7092,10 @@ components:
           format: int64
           type: integer
       type: object
-    ItemThumbDto:
-      additionalProperties: false
-      example:
-        thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        itemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        creationTime: 2000-01-23T04:56:07.000+00:00
-        isDeleted: true
-        lastModificationTime: 2000-01-23T04:56:07.000+00:00
-        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deletionTime: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        id:
-          format: uuid
-          type: string
-        creationTime:
-          format: date-time
-          type: string
-        creatorId:
-          format: uuid
-          nullable: true
-          type: string
-        lastModificationTime:
-          format: date-time
-          nullable: true
-          type: string
-        lastModifierId:
-          format: uuid
-          nullable: true
-          type: string
-        isDeleted:
-          type: boolean
-        deleterId:
-          format: uuid
-          nullable: true
-          type: string
-        deletionTime:
-          format: date-time
-          nullable: true
-          type: string
-        itemId:
-          format: uuid
-          type: string
-        thumbItemId:
-          format: uuid
-          type: string
-        thumbItem:
-          $ref: '#/components/schemas/ItemDto'
-      type: object
     ItemType:
       enum:
       - Folder
-      - Picture
+      - Image
       - Video
       - Audio
       - Word
@@ -6331,6 +7155,26 @@ components:
       - NotAllowed
       - LockedOut
       - RequiresTwoFactor
+      type: string
+    MemberDto:
+      additionalProperties: false
+      example:
+        expiredAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        expiredAt:
+          format: date-time
+          nullable: true
+          type: string
+        level:
+          $ref: '#/components/schemas/MemberLevel'
+      type: object
+    MemberLevel:
+      enum:
+      - None
+      - Monthly
+      - Quarterly
+      - Annual
+      - Unlimited
       type: string
     MethodParameterApiDescriptionModel:
       additionalProperties: false
@@ -6772,8 +7616,7 @@ components:
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            itemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             creationTime: 2000-01-23T04:56:07.000+00:00
             isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -6782,72 +7625,23 @@ components:
             deletionTime: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            url: url
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 0
+          totalCount: 6
           password: password
           storageClass: storageClass
-          file:
-            folders:
-            - null
-            - null
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            url: url
-            tags:
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            storageClass: storageClass
-            isDeleted: true
-            size: 5
-            name: name
-            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-            contentType: contentType
-            key: key
-            md5: md5
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
           - null
           - null
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
           contentType: contentType
           key: key
           url: url
@@ -6864,7 +7658,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
@@ -6879,10 +7673,10 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 1
+          size: 5
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -6894,8 +7688,7 @@ components:
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            thumbItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            itemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             creationTime: 2000-01-23T04:56:07.000+00:00
             isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -6904,72 +7697,23 @@ components:
             deletionTime: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            url: url
+            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 0
+          totalCount: 6
           password: password
           storageClass: storageClass
-          file:
-            folders:
-            - null
-            - null
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            url: url
-            tags:
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 6
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            storageClass: storageClass
-            isDeleted: true
-            size: 5
-            name: name
-            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-            contentType: contentType
-            key: key
-            md5: md5
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
           - null
           - null
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
           contentType: contentType
           key: key
           url: url
@@ -6986,7 +7730,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
@@ -7001,10 +7745,10 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 1
+          size: 5
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7082,7 +7826,7 @@ components:
         - null
         name: name
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        tagCount: 6
+        tagCount: 1
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -7151,7 +7895,7 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
@@ -7166,7 +7910,7 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -7251,6 +7995,99 @@ components:
       required:
       - name
       type: object
+    ThumbDto:
+      additionalProperties: false
+      example:
+        creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        url: url
+        fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          nullable: true
+          type: string
+        lastModifierId:
+          format: uuid
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          nullable: true
+          type: string
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
+        fileId:
+          format: uuid
+          type: string
+        file:
+          $ref: '#/components/schemas/FileDto'
+        creator:
+          format: uuid
+          type: string
+        url:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ThumbDtoPagedResultDto:
+      additionalProperties: false
+      example:
+        totalCount: 0
+        items:
+        - creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          url: url
+          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          url: url
+          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ThumbDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int64
+          type: integer
+      type: object
     TimeZone:
       additionalProperties: false
       properties:
@@ -7288,7 +8125,7 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
@@ -7303,7 +8140,7 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 6
+          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isDeleted: true
@@ -7389,7 +8226,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
@@ -7404,7 +8241,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
@@ -7434,7 +8271,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
@@ -7449,7 +8286,7 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 6
+            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
@@ -7630,9 +8467,10 @@ components:
         accessKeySecret: accessKeySecret
         regionId: regionId
         prefix: prefix
+        appId: appId
         expiration: expiration
         protocal: protocal
-        expiredTime: 0
+        expiredTime: 5
       properties:
         storageClass:
           nullable: true
@@ -7667,6 +8505,9 @@ components:
         expiredTime:
           format: int64
           type: integer
+        appId:
+          nullable: true
+          type: string
       type: object
     UserData:
       additionalProperties: false
@@ -7728,6 +8569,75 @@ components:
       required:
       - password
       - userNameOrEmailAddress
+      type: object
+    UserStorageDto:
+      additionalProperties: false
+      example:
+        imageCount: 2
+        audioSize: 3
+        noteCount: 5
+        otherCount: 6
+        maxSize: 0
+        totalCount: 7
+        noteSize: 1
+        videoSize: 7
+        currentSize: 6
+        videoCount: 9
+        otherSize: 1
+        totalSize: 4
+        audioCount: 2
+        thumbSize: 1
+        imageSize: 5
+        thumbCount: 1
+      properties:
+        maxSize:
+          format: int64
+          type: integer
+        currentSize:
+          format: int64
+          type: integer
+        noteSize:
+          format: int64
+          type: integer
+        noteCount:
+          format: int32
+          type: integer
+        imageSize:
+          format: int64
+          type: integer
+        imageCount:
+          format: int32
+          type: integer
+        videoSize:
+          format: int64
+          type: integer
+        videoCount:
+          format: int32
+          type: integer
+        audioSize:
+          format: int64
+          type: integer
+        audioCount:
+          format: int32
+          type: integer
+        totalSize:
+          format: int64
+          type: integer
+        totalCount:
+          format: int32
+          type: integer
+        thumbSize:
+          format: int64
+          type: integer
+        thumbCount:
+          format: int32
+          type: integer
+        otherSize:
+          format: int64
+          type: integer
+        otherCount:
+          format: int32
+          type: integer
       type: object
     WindowsTimeZone:
       additionalProperties: false

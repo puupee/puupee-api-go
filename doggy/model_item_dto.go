@@ -31,13 +31,15 @@ type ItemDto struct {
 	Password NullableString `json:"password,omitempty"`
 	ParentItemId NullableString `json:"parentItemId,omitempty"`
 	ThumbId NullableString `json:"thumbId,omitempty"`
-	Thumb *ItemThumbDto `json:"thumb,omitempty"`
+	Thumb *ThumbDto `json:"thumb,omitempty"`
 	Children []ItemDto `json:"children,omitempty"`
 	Tags []TagDto `json:"tags,omitempty"`
 	Key NullableString `json:"key,omitempty"`
 	Url NullableString `json:"url,omitempty"`
 	Size *int32 `json:"size,omitempty"`
 	Md5 NullableString `json:"md5,omitempty"`
+	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
+	RapidCode NullableString `json:"rapidCode,omitempty"`
 	ContentType NullableString `json:"contentType,omitempty"`
 	Type *ItemType `json:"type,omitempty"`
 	DisplayStyle *DisplayStyle `json:"displayStyle,omitempty"`
@@ -615,9 +617,9 @@ func (o *ItemDto) UnsetThumbId() {
 }
 
 // GetThumb returns the Thumb field value if set, zero value otherwise.
-func (o *ItemDto) GetThumb() ItemThumbDto {
+func (o *ItemDto) GetThumb() ThumbDto {
 	if o == nil || o.Thumb == nil {
-		var ret ItemThumbDto
+		var ret ThumbDto
 		return ret
 	}
 	return *o.Thumb
@@ -625,7 +627,7 @@ func (o *ItemDto) GetThumb() ItemThumbDto {
 
 // GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetThumbOk() (*ItemThumbDto, bool) {
+func (o *ItemDto) GetThumbOk() (*ThumbDto, bool) {
 	if o == nil || o.Thumb == nil {
 		return nil, false
 	}
@@ -641,8 +643,8 @@ func (o *ItemDto) HasThumb() bool {
 	return false
 }
 
-// SetThumb gets a reference to the given ItemThumbDto and assigns it to the Thumb field.
-func (o *ItemDto) SetThumb(v ItemThumbDto) {
+// SetThumb gets a reference to the given ThumbDto and assigns it to the Thumb field.
+func (o *ItemDto) SetThumb(v ThumbDto) {
 	o.Thumb = &v
 }
 
@@ -868,6 +870,90 @@ func (o *ItemDto) SetMd5Nil() {
 // UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
 func (o *ItemDto) UnsetMd5() {
 	o.Md5.Unset()
+}
+
+// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetSliceMd5() string {
+	if o == nil || o.SliceMd5.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.SliceMd5.Get()
+}
+
+// GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetSliceMd5Ok() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.SliceMd5.Get(), o.SliceMd5.IsSet()
+}
+
+// HasSliceMd5 returns a boolean if a field has been set.
+func (o *ItemDto) HasSliceMd5() bool {
+	if o != nil && o.SliceMd5.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSliceMd5 gets a reference to the given NullableString and assigns it to the SliceMd5 field.
+func (o *ItemDto) SetSliceMd5(v string) {
+	o.SliceMd5.Set(&v)
+}
+// SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+func (o *ItemDto) SetSliceMd5Nil() {
+	o.SliceMd5.Set(nil)
+}
+
+// UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
+func (o *ItemDto) UnsetSliceMd5() {
+	o.SliceMd5.Unset()
+}
+
+// GetRapidCode returns the RapidCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetRapidCode() string {
+	if o == nil || o.RapidCode.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.RapidCode.Get()
+}
+
+// GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetRapidCodeOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.RapidCode.Get(), o.RapidCode.IsSet()
+}
+
+// HasRapidCode returns a boolean if a field has been set.
+func (o *ItemDto) HasRapidCode() bool {
+	if o != nil && o.RapidCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRapidCode gets a reference to the given NullableString and assigns it to the RapidCode field.
+func (o *ItemDto) SetRapidCode(v string) {
+	o.RapidCode.Set(&v)
+}
+// SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+func (o *ItemDto) SetRapidCodeNil() {
+	o.RapidCode.Set(nil)
+}
+
+// UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
+func (o *ItemDto) UnsetRapidCode() {
+	o.RapidCode.Unset()
 }
 
 // GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1282,6 +1368,12 @@ func (o ItemDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.Md5.IsSet() {
 		toSerialize["md5"] = o.Md5.Get()
+	}
+	if o.SliceMd5.IsSet() {
+		toSerialize["sliceMd5"] = o.SliceMd5.Get()
+	}
+	if o.RapidCode.IsSet() {
+		toSerialize["rapidCode"] = o.RapidCode.Get()
 	}
 	if o.ContentType.IsSet() {
 		toSerialize["contentType"] = o.ContentType.Get()

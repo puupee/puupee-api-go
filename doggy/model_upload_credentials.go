@@ -27,6 +27,7 @@ type UploadCredentials struct {
 	AccessKeySecret NullableString `json:"accessKeySecret,omitempty"`
 	Expiration NullableString `json:"expiration,omitempty"`
 	ExpiredTime *int64 `json:"expiredTime,omitempty"`
+	AppId NullableString `json:"appId,omitempty"`
 }
 
 // NewUploadCredentials instantiates a new UploadCredentials object
@@ -498,6 +499,48 @@ func (o *UploadCredentials) SetExpiredTime(v int64) {
 	o.ExpiredTime = &v
 }
 
+// GetAppId returns the AppId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UploadCredentials) GetAppId() string {
+	if o == nil || o.AppId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.AppId.Get()
+}
+
+// GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UploadCredentials) GetAppIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.AppId.Get(), o.AppId.IsSet()
+}
+
+// HasAppId returns a boolean if a field has been set.
+func (o *UploadCredentials) HasAppId() bool {
+	if o != nil && o.AppId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAppId gets a reference to the given NullableString and assigns it to the AppId field.
+func (o *UploadCredentials) SetAppId(v string) {
+	o.AppId.Set(&v)
+}
+// SetAppIdNil sets the value for AppId to be an explicit nil
+func (o *UploadCredentials) SetAppIdNil() {
+	o.AppId.Set(nil)
+}
+
+// UnsetAppId ensures that no value is present for AppId, not even an explicit nil
+func (o *UploadCredentials) UnsetAppId() {
+	o.AppId.Unset()
+}
+
 func (o UploadCredentials) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.StorageClass.IsSet() {
@@ -532,6 +575,9 @@ func (o UploadCredentials) MarshalJSON() ([]byte, error) {
 	}
 	if o.ExpiredTime != nil {
 		toSerialize["expiredTime"] = o.ExpiredTime
+	}
+	if o.AppId.IsSet() {
+		toSerialize["appId"] = o.AppId.Get()
 	}
 	return json.Marshal(toSerialize)
 }

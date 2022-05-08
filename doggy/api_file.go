@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,59 +27,63 @@ var (
 // FileApiService FileApi service
 type FileApiService service
 
-type ApiApiAppFilePreSignUrlPostRequest struct {
+type ApiApiAppFileFileOrCredentialsCreatorIdGetRequest struct {
 	ctx _context.Context
 	ApiService *FileApiService
-	key *string
+	creatorId string
+	rapidCode *string
 }
 
-func (r ApiApiAppFilePreSignUrlPostRequest) Key(key string) ApiApiAppFilePreSignUrlPostRequest {
-	r.key = &key
+func (r ApiApiAppFileFileOrCredentialsCreatorIdGetRequest) RapidCode(rapidCode string) ApiApiAppFileFileOrCredentialsCreatorIdGetRequest {
+	r.rapidCode = &rapidCode
 	return r
 }
 
-func (r ApiApiAppFilePreSignUrlPostRequest) Execute() (string, *_nethttp.Response, error) {
-	return r.ApiService.ApiAppFilePreSignUrlPostExecute(r)
+func (r ApiApiAppFileFileOrCredentialsCreatorIdGetRequest) Execute() (FileOrCredentialsDto, *_nethttp.Response, error) {
+	return r.ApiService.ApiAppFileFileOrCredentialsCreatorIdGetExecute(r)
 }
 
 /*
-ApiAppFilePreSignUrlPost Method for ApiAppFilePreSignUrlPost
+ApiAppFileFileOrCredentialsCreatorIdGet Method for ApiAppFileFileOrCredentialsCreatorIdGet
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppFilePreSignUrlPostRequest
+ @param creatorId
+ @return ApiApiAppFileFileOrCredentialsCreatorIdGetRequest
 */
-func (a *FileApiService) ApiAppFilePreSignUrlPost(ctx _context.Context) ApiApiAppFilePreSignUrlPostRequest {
-	return ApiApiAppFilePreSignUrlPostRequest{
+func (a *FileApiService) ApiAppFileFileOrCredentialsCreatorIdGet(ctx _context.Context, creatorId string) ApiApiAppFileFileOrCredentialsCreatorIdGetRequest {
+	return ApiApiAppFileFileOrCredentialsCreatorIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
+		creatorId: creatorId,
 	}
 }
 
 // Execute executes the request
-//  @return string
-func (a *FileApiService) ApiAppFilePreSignUrlPostExecute(r ApiApiAppFilePreSignUrlPostRequest) (string, *_nethttp.Response, error) {
+//  @return FileOrCredentialsDto
+func (a *FileApiService) ApiAppFileFileOrCredentialsCreatorIdGetExecute(r ApiApiAppFileFileOrCredentialsCreatorIdGetRequest) (FileOrCredentialsDto, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarReturnValue  FileOrCredentialsDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileApiService.ApiAppFilePreSignUrlPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileApiService.ApiAppFileFileOrCredentialsCreatorIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/file/pre-sign-url"
+	localVarPath := localBasePath + "/api/app/file/file-or-credentials/{creatorId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"creatorId"+"}", _neturl.PathEscape(parameterToString(r.creatorId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.key != nil {
-		localVarQueryParams.Add("key", parameterToString(*r.key, ""))
+	if r.rapidCode != nil {
+		localVarQueryParams.Add("rapidCode", parameterToString(*r.rapidCode, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -193,52 +198,60 @@ func (a *FileApiService) ApiAppFilePreSignUrlPostExecute(r ApiApiAppFilePreSignU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppFileUploadCredentialsGetRequest struct {
+type ApiApiAppFilePreSignUrlPostRequest struct {
 	ctx _context.Context
 	ApiService *FileApiService
+	key *string
 }
 
+func (r ApiApiAppFilePreSignUrlPostRequest) Key(key string) ApiApiAppFilePreSignUrlPostRequest {
+	r.key = &key
+	return r
+}
 
-func (r ApiApiAppFileUploadCredentialsGetRequest) Execute() (UploadCredentials, *_nethttp.Response, error) {
-	return r.ApiService.ApiAppFileUploadCredentialsGetExecute(r)
+func (r ApiApiAppFilePreSignUrlPostRequest) Execute() (string, *_nethttp.Response, error) {
+	return r.ApiService.ApiAppFilePreSignUrlPostExecute(r)
 }
 
 /*
-ApiAppFileUploadCredentialsGet Method for ApiAppFileUploadCredentialsGet
+ApiAppFilePreSignUrlPost Method for ApiAppFilePreSignUrlPost
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppFileUploadCredentialsGetRequest
+ @return ApiApiAppFilePreSignUrlPostRequest
 */
-func (a *FileApiService) ApiAppFileUploadCredentialsGet(ctx _context.Context) ApiApiAppFileUploadCredentialsGetRequest {
-	return ApiApiAppFileUploadCredentialsGetRequest{
+func (a *FileApiService) ApiAppFilePreSignUrlPost(ctx _context.Context) ApiApiAppFilePreSignUrlPostRequest {
+	return ApiApiAppFilePreSignUrlPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UploadCredentials
-func (a *FileApiService) ApiAppFileUploadCredentialsGetExecute(r ApiApiAppFileUploadCredentialsGetRequest) (UploadCredentials, *_nethttp.Response, error) {
+//  @return string
+func (a *FileApiService) ApiAppFilePreSignUrlPostExecute(r ApiApiAppFilePreSignUrlPostRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  UploadCredentials
+		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileApiService.ApiAppFileUploadCredentialsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileApiService.ApiAppFilePreSignUrlPost")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/file/upload-credentials"
+	localVarPath := localBasePath + "/api/app/file/pre-sign-url"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.key != nil {
+		localVarQueryParams.Add("key", parameterToString(*r.key, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

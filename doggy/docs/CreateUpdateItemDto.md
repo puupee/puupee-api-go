@@ -10,9 +10,10 @@ Name | Type | Description | Notes
 **ParentItemId** | Pointer to **NullableString** |  | [optional] 
 **TagIds** | Pointer to **[]string** |  | [optional] 
 **ThumbId** | Pointer to **NullableString** |  | [optional] 
-**ThumbItemId** | Pointer to **NullableString** |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
+**SliceMd5** | Pointer to **NullableString** |  | [optional] 
+**RapidCode** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to [**ItemType**](ItemType.md) |  | [optional] 
 **DisplayStyle** | Pointer to [**DisplayStyle**](DisplayStyle.md) |  | [optional] 
@@ -250,41 +251,6 @@ HasThumbId returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetThumbId()`
 
 UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
-### GetThumbItemId
-
-`func (o *CreateUpdateItemDto) GetThumbItemId() string`
-
-GetThumbItemId returns the ThumbItemId field if non-nil, zero value otherwise.
-
-### GetThumbItemIdOk
-
-`func (o *CreateUpdateItemDto) GetThumbItemIdOk() (*string, bool)`
-
-GetThumbItemIdOk returns a tuple with the ThumbItemId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetThumbItemId
-
-`func (o *CreateUpdateItemDto) SetThumbItemId(v string)`
-
-SetThumbItemId sets ThumbItemId field to given value.
-
-### HasThumbItemId
-
-`func (o *CreateUpdateItemDto) HasThumbItemId() bool`
-
-HasThumbItemId returns a boolean if a field has been set.
-
-### SetThumbItemIdNil
-
-`func (o *CreateUpdateItemDto) SetThumbItemIdNil(b bool)`
-
- SetThumbItemIdNil sets the value for ThumbItemId to be an explicit nil
-
-### UnsetThumbItemId
-`func (o *CreateUpdateItemDto) UnsetThumbItemId()`
-
-UnsetThumbItemId ensures that no value is present for ThumbItemId, not even an explicit nil
 ### GetKey
 
 `func (o *CreateUpdateItemDto) GetKey() string`
@@ -355,6 +321,76 @@ HasMd5 returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetMd5()`
 
 UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
+### GetSliceMd5
+
+`func (o *CreateUpdateItemDto) GetSliceMd5() string`
+
+GetSliceMd5 returns the SliceMd5 field if non-nil, zero value otherwise.
+
+### GetSliceMd5Ok
+
+`func (o *CreateUpdateItemDto) GetSliceMd5Ok() (*string, bool)`
+
+GetSliceMd5Ok returns a tuple with the SliceMd5 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSliceMd5
+
+`func (o *CreateUpdateItemDto) SetSliceMd5(v string)`
+
+SetSliceMd5 sets SliceMd5 field to given value.
+
+### HasSliceMd5
+
+`func (o *CreateUpdateItemDto) HasSliceMd5() bool`
+
+HasSliceMd5 returns a boolean if a field has been set.
+
+### SetSliceMd5Nil
+
+`func (o *CreateUpdateItemDto) SetSliceMd5Nil(b bool)`
+
+ SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+
+### UnsetSliceMd5
+`func (o *CreateUpdateItemDto) UnsetSliceMd5()`
+
+UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
+### GetRapidCode
+
+`func (o *CreateUpdateItemDto) GetRapidCode() string`
+
+GetRapidCode returns the RapidCode field if non-nil, zero value otherwise.
+
+### GetRapidCodeOk
+
+`func (o *CreateUpdateItemDto) GetRapidCodeOk() (*string, bool)`
+
+GetRapidCodeOk returns a tuple with the RapidCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRapidCode
+
+`func (o *CreateUpdateItemDto) SetRapidCode(v string)`
+
+SetRapidCode sets RapidCode field to given value.
+
+### HasRapidCode
+
+`func (o *CreateUpdateItemDto) HasRapidCode() bool`
+
+HasRapidCode returns a boolean if a field has been set.
+
+### SetRapidCodeNil
+
+`func (o *CreateUpdateItemDto) SetRapidCodeNil(b bool)`
+
+ SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+
+### UnsetRapidCode
+`func (o *CreateUpdateItemDto) UnsetRapidCode()`
+
+UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
 ### GetContentType
 
 `func (o *CreateUpdateItemDto) GetContentType() string`

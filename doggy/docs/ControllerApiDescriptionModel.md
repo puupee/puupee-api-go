@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ControllerName** | Pointer to **NullableString** |  | [optional] 
 **ControllerGroupName** | Pointer to **NullableString** |  | [optional] 
+**IsRemoteService** | Pointer to **bool** |  | [optional] 
+**ApiVersion** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **Interfaces** | Pointer to [**[]ControllerInterfaceApiDescriptionModel**](ControllerInterfaceApiDescriptionModel.md) |  | [optional] 
 **Actions** | Pointer to [**map[string]ActionApiDescriptionModel**](ActionApiDescriptionModel.md) |  | [optional] 
@@ -99,6 +101,66 @@ HasControllerGroupName returns a boolean if a field has been set.
 `func (o *ControllerApiDescriptionModel) UnsetControllerGroupName()`
 
 UnsetControllerGroupName ensures that no value is present for ControllerGroupName, not even an explicit nil
+### GetIsRemoteService
+
+`func (o *ControllerApiDescriptionModel) GetIsRemoteService() bool`
+
+GetIsRemoteService returns the IsRemoteService field if non-nil, zero value otherwise.
+
+### GetIsRemoteServiceOk
+
+`func (o *ControllerApiDescriptionModel) GetIsRemoteServiceOk() (*bool, bool)`
+
+GetIsRemoteServiceOk returns a tuple with the IsRemoteService field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsRemoteService
+
+`func (o *ControllerApiDescriptionModel) SetIsRemoteService(v bool)`
+
+SetIsRemoteService sets IsRemoteService field to given value.
+
+### HasIsRemoteService
+
+`func (o *ControllerApiDescriptionModel) HasIsRemoteService() bool`
+
+HasIsRemoteService returns a boolean if a field has been set.
+
+### GetApiVersion
+
+`func (o *ControllerApiDescriptionModel) GetApiVersion() string`
+
+GetApiVersion returns the ApiVersion field if non-nil, zero value otherwise.
+
+### GetApiVersionOk
+
+`func (o *ControllerApiDescriptionModel) GetApiVersionOk() (*string, bool)`
+
+GetApiVersionOk returns a tuple with the ApiVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiVersion
+
+`func (o *ControllerApiDescriptionModel) SetApiVersion(v string)`
+
+SetApiVersion sets ApiVersion field to given value.
+
+### HasApiVersion
+
+`func (o *ControllerApiDescriptionModel) HasApiVersion() bool`
+
+HasApiVersion returns a boolean if a field has been set.
+
+### SetApiVersionNil
+
+`func (o *ControllerApiDescriptionModel) SetApiVersionNil(b bool)`
+
+ SetApiVersionNil sets the value for ApiVersion to be an explicit nil
+
+### UnsetApiVersion
+`func (o *ControllerApiDescriptionModel) UnsetApiVersion()`
+
+UnsetApiVersion ensures that no value is present for ApiVersion, not even an explicit nil
 ### GetType
 
 `func (o *ControllerApiDescriptionModel) GetType() string`

@@ -5,7 +5,7 @@
 
 * `FOLDER` (value: `"Folder"`)
 
-* `PICTURE` (value: `"Picture"`)
+* `IMAGE` (value: `"Image"`)
 
 * `VIDEO` (value: `"Video"`)
 

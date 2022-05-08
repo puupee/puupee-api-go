@@ -21,7 +21,7 @@ type ItemType string
 // List of ItemType
 const (
 	FOLDER ItemType = "Folder"
-	PICTURE ItemType = "Picture"
+	IMAGE ItemType = "Image"
 	VIDEO ItemType = "Video"
 	AUDIO ItemType = "Audio"
 	WORD ItemType = "Word"
@@ -35,7 +35,7 @@ const (
 // All allowed values of ItemType enum
 var AllowedItemTypeEnumValues = []ItemType{
 	"Folder",
-	"Picture",
+	"Image",
 	"Video",
 	"Audio",
 	"Word",

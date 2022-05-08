@@ -7,11 +7,14 @@ api_file.go
 api_item.go
 api_key_value.go
 api_login.go
+api_member.go
 api_note.go
 api_profile.go
 api_settings.go
 api_sms.go
+api_storage.go
 api_tag.go
+api_thumb.go
 api_todo.go
 client.go
 configuration.go
@@ -33,6 +36,7 @@ docs/ControllerApiDescriptionModel.md
 docs/ControllerInterfaceApiDescriptionModel.md
 docs/CreateUpdateItemDto.md
 docs/CreateUpdateTagDto.md
+docs/CreateUpdateThumbDto.md
 docs/CreateUpdateTodoDto.md
 docs/CurrentCultureDto.md
 docs/CurrentTenantDto.md
@@ -64,6 +68,7 @@ docs/FeatureGroupDto.md
 docs/FeatureProviderDto.md
 docs/FileApi.md
 docs/FileDto.md
+docs/FileOrCredentialsDto.md
 docs/FindTenantResultDto.md
 docs/GetFeatureListResultDto.md
 docs/GetPermissionListResultDto.md
@@ -85,13 +90,15 @@ docs/Int32SetKeyValueDto.md
 docs/ItemApi.md
 docs/ItemDto.md
 docs/ItemDtoPagedResultDto.md
-docs/ItemThumbDto.md
 docs/ItemType.md
 docs/KeyValueApi.md
 docs/LanguageInfo.md
 docs/LocalizableStringDto.md
 docs/LoginApi.md
 docs/LoginResultType.md
+docs/MemberApi.md
+docs/MemberDto.md
+docs/MemberLevel.md
 docs/MethodParameterApiDescriptionModel.md
 docs/ModuleApiDescriptionModel.md
 docs/ModuleExtensionDto.md
@@ -121,6 +128,7 @@ docs/SettingsDto.md
 docs/SmsApi.md
 docs/SpecialItemDto.md
 docs/SpecialItems.md
+docs/StorageApi.md
 docs/StringKeyValue.md
 docs/StringSetKeyValueDto.md
 docs/TagApi.md
@@ -130,6 +138,9 @@ docs/TenantCreateDto.md
 docs/TenantDto.md
 docs/TenantDtoPagedResultDto.md
 docs/TenantUpdateDto.md
+docs/ThumbApi.md
+docs/ThumbDto.md
+docs/ThumbDtoPagedResultDto.md
 docs/TimeZone.md
 docs/TimingDto.md
 docs/TodoApi.md
@@ -146,6 +157,7 @@ docs/UploadCredentials.md
 docs/UserData.md
 docs/UserDataListResultDto.md
 docs/UserLoginInfo.md
+docs/UserStorageDto.md
 docs/WindowsTimeZone.md
 git_push.sh
 go.mod
@@ -167,6 +179,7 @@ model_controller_api_description_model.go
 model_controller_interface_api_description_model.go
 model_create_update_item_dto.go
 model_create_update_tag_dto.go
+model_create_update_thumb_dto.go
 model_create_update_todo_dto.go
 model_current_culture_dto.go
 model_current_tenant_dto.go
@@ -197,6 +210,7 @@ model_feature_dto.go
 model_feature_group_dto.go
 model_feature_provider_dto.go
 model_file_dto.go
+model_file_or_credentials_dto.go
 model_find_tenant_result_dto.go
 model_get_feature_list_result_dto.go
 model_get_permission_list_result_dto.go
@@ -217,11 +231,12 @@ model_int32_key_value.go
 model_int32_set_key_value_dto.go
 model_item_dto.go
 model_item_dto_paged_result_dto.go
-model_item_thumb_dto.go
 model_item_type.go
 model_language_info.go
 model_localizable_string_dto.go
 model_login_result_type.go
+model_member_dto.go
+model_member_level.go
 model_method_parameter_api_description_model.go
 model_module_api_description_model.go
 model_module_extension_dto.go
@@ -255,6 +270,8 @@ model_tenant_create_dto.go
 model_tenant_dto.go
 model_tenant_dto_paged_result_dto.go
 model_tenant_update_dto.go
+model_thumb_dto.go
+model_thumb_dto_paged_result_dto.go
 model_time_zone.go
 model_timing_dto.go
 model_todo_dto.go
@@ -270,6 +287,7 @@ model_upload_credentials.go
 model_user_data.go
 model_user_data_list_result_dto.go
 model_user_login_info.go
+model_user_storage_dto.go
 model_windows_time_zone.go
 response.go
 utils.go

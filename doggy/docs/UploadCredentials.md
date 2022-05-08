@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **AccessKeySecret** | Pointer to **NullableString** |  | [optional] 
 **Expiration** | Pointer to **NullableString** |  | [optional] 
 **ExpiredTime** | Pointer to **int64** |  | [optional] 
+**AppId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -410,6 +411,41 @@ SetExpiredTime sets ExpiredTime field to given value.
 
 HasExpiredTime returns a boolean if a field has been set.
 
+### GetAppId
+
+`func (o *UploadCredentials) GetAppId() string`
+
+GetAppId returns the AppId field if non-nil, zero value otherwise.
+
+### GetAppIdOk
+
+`func (o *UploadCredentials) GetAppIdOk() (*string, bool)`
+
+GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppId
+
+`func (o *UploadCredentials) SetAppId(v string)`
+
+SetAppId sets AppId field to given value.
+
+### HasAppId
+
+`func (o *UploadCredentials) HasAppId() bool`
+
+HasAppId returns a boolean if a field has been set.
+
+### SetAppIdNil
+
+`func (o *UploadCredentials) SetAppIdNil(b bool)`
+
+ SetAppIdNil sets the value for AppId to be an explicit nil
+
+### UnsetAppId
+`func (o *UploadCredentials) UnsetAppId()`
+
+UnsetAppId ensures that no value is present for AppId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

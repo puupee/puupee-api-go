@@ -18,13 +18,15 @@ Name | Type | Description | Notes
 **Password** | Pointer to **NullableString** |  | [optional] 
 **ParentItemId** | Pointer to **NullableString** |  | [optional] 
 **ThumbId** | Pointer to **NullableString** |  | [optional] 
-**Thumb** | Pointer to [**ItemThumbDto**](ItemThumbDto.md) |  | [optional] 
+**Thumb** | Pointer to [**ThumbDto**](ThumbDto.md) |  | [optional] 
 **Children** | Pointer to [**[]ItemDto**](ItemDto.md) |  | [optional] 
 **Tags** | Pointer to [**[]TagDto**](TagDto.md) |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 **Size** | Pointer to **int32** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
+**SliceMd5** | Pointer to **NullableString** |  | [optional] 
+**RapidCode** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to [**ItemType**](ItemType.md) |  | [optional] 
 **DisplayStyle** | Pointer to [**DisplayStyle**](DisplayStyle.md) |  | [optional] 
@@ -506,20 +508,20 @@ HasThumbId returns a boolean if a field has been set.
 UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
 ### GetThumb
 
-`func (o *ItemDto) GetThumb() ItemThumbDto`
+`func (o *ItemDto) GetThumb() ThumbDto`
 
 GetThumb returns the Thumb field if non-nil, zero value otherwise.
 
 ### GetThumbOk
 
-`func (o *ItemDto) GetThumbOk() (*ItemThumbDto, bool)`
+`func (o *ItemDto) GetThumbOk() (*ThumbDto, bool)`
 
 GetThumbOk returns a tuple with the Thumb field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetThumb
 
-`func (o *ItemDto) SetThumb(v ItemThumbDto)`
+`func (o *ItemDto) SetThumb(v ThumbDto)`
 
 SetThumb sets Thumb field to given value.
 
@@ -729,6 +731,76 @@ HasMd5 returns a boolean if a field has been set.
 `func (o *ItemDto) UnsetMd5()`
 
 UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
+### GetSliceMd5
+
+`func (o *ItemDto) GetSliceMd5() string`
+
+GetSliceMd5 returns the SliceMd5 field if non-nil, zero value otherwise.
+
+### GetSliceMd5Ok
+
+`func (o *ItemDto) GetSliceMd5Ok() (*string, bool)`
+
+GetSliceMd5Ok returns a tuple with the SliceMd5 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSliceMd5
+
+`func (o *ItemDto) SetSliceMd5(v string)`
+
+SetSliceMd5 sets SliceMd5 field to given value.
+
+### HasSliceMd5
+
+`func (o *ItemDto) HasSliceMd5() bool`
+
+HasSliceMd5 returns a boolean if a field has been set.
+
+### SetSliceMd5Nil
+
+`func (o *ItemDto) SetSliceMd5Nil(b bool)`
+
+ SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+
+### UnsetSliceMd5
+`func (o *ItemDto) UnsetSliceMd5()`
+
+UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
+### GetRapidCode
+
+`func (o *ItemDto) GetRapidCode() string`
+
+GetRapidCode returns the RapidCode field if non-nil, zero value otherwise.
+
+### GetRapidCodeOk
+
+`func (o *ItemDto) GetRapidCodeOk() (*string, bool)`
+
+GetRapidCodeOk returns a tuple with the RapidCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRapidCode
+
+`func (o *ItemDto) SetRapidCode(v string)`
+
+SetRapidCode sets RapidCode field to given value.
+
+### HasRapidCode
+
+`func (o *ItemDto) HasRapidCode() bool`
+
+HasRapidCode returns a boolean if a field has been set.
+
+### SetRapidCodeNil
+
+`func (o *ItemDto) SetRapidCodeNil(b bool)`
+
+ SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+
+### UnsetRapidCode
+`func (o *ItemDto) UnsetRapidCode()`
+
+UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
 ### GetContentType
 
 `func (o *ItemDto) GetContentType() string`

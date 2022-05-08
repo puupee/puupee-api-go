@@ -59,6 +59,8 @@ type APIClient struct {
 
 	LoginApi *LoginApiService
 
+	MemberApi *MemberApiService
+
 	NoteApi *NoteApiService
 
 	ProfileApi *ProfileApiService
@@ -67,7 +69,11 @@ type APIClient struct {
 
 	SmsApi *SmsApiService
 
+	StorageApi *StorageApiService
+
 	TagApi *TagApiService
+
+	ThumbApi *ThumbApiService
 
 	TodoApi *TodoApiService
 }
@@ -93,11 +99,14 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ItemApi = (*ItemApiService)(&c.common)
 	c.KeyValueApi = (*KeyValueApiService)(&c.common)
 	c.LoginApi = (*LoginApiService)(&c.common)
+	c.MemberApi = (*MemberApiService)(&c.common)
 	c.NoteApi = (*NoteApiService)(&c.common)
 	c.ProfileApi = (*ProfileApiService)(&c.common)
 	c.SettingsApi = (*SettingsApiService)(&c.common)
 	c.SmsApi = (*SmsApiService)(&c.common)
+	c.StorageApi = (*StorageApiService)(&c.common)
 	c.TagApi = (*TagApiService)(&c.common)
+	c.ThumbApi = (*ThumbApiService)(&c.common)
 	c.TodoApi = (*TodoApiService)(&c.common)
 
 	return c

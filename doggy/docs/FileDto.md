@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int32** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
+**Extension** | Pointer to **NullableString** |  | [optional] 
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **FileUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
@@ -495,6 +496,41 @@ HasContentType returns a boolean if a field has been set.
 `func (o *FileDto) UnsetContentType()`
 
 UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
+### GetExtension
+
+`func (o *FileDto) GetExtension() string`
+
+GetExtension returns the Extension field if non-nil, zero value otherwise.
+
+### GetExtensionOk
+
+`func (o *FileDto) GetExtensionOk() (*string, bool)`
+
+GetExtensionOk returns a tuple with the Extension field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtension
+
+`func (o *FileDto) SetExtension(v string)`
+
+SetExtension sets Extension field to given value.
+
+### HasExtension
+
+`func (o *FileDto) HasExtension() bool`
+
+HasExtension returns a boolean if a field has been set.
+
+### SetExtensionNil
+
+`func (o *FileDto) SetExtensionNil(b bool)`
+
+ SetExtensionNil sets the value for Extension to be an explicit nil
+
+### UnsetExtension
+`func (o *FileDto) UnsetExtension()`
+
+UnsetExtension ensures that no value is present for Extension, not even an explicit nil
 ### GetStorageClass
 
 `func (o *FileDto) GetStorageClass() string`

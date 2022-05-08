@@ -31,6 +31,7 @@ type FileDto struct {
 	Size *int32 `json:"size,omitempty"`
 	Md5 NullableString `json:"md5,omitempty"`
 	ContentType NullableString `json:"contentType,omitempty"`
+	Extension NullableString `json:"extension,omitempty"`
 	StorageClass NullableString `json:"storageClass,omitempty"`
 	FileCreatedAt NullableTime `json:"fileCreatedAt,omitempty"`
 	FileUpdatedAt NullableTime `json:"fileUpdatedAt,omitempty"`
@@ -605,6 +606,48 @@ func (o *FileDto) UnsetContentType() {
 	o.ContentType.Unset()
 }
 
+// GetExtension returns the Extension field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FileDto) GetExtension() string {
+	if o == nil || o.Extension.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Extension.Get()
+}
+
+// GetExtensionOk returns a tuple with the Extension field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FileDto) GetExtensionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Extension.Get(), o.Extension.IsSet()
+}
+
+// HasExtension returns a boolean if a field has been set.
+func (o *FileDto) HasExtension() bool {
+	if o != nil && o.Extension.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExtension gets a reference to the given NullableString and assigns it to the Extension field.
+func (o *FileDto) SetExtension(v string) {
+	o.Extension.Set(&v)
+}
+// SetExtensionNil sets the value for Extension to be an explicit nil
+func (o *FileDto) SetExtensionNil() {
+	o.Extension.Set(nil)
+}
+
+// UnsetExtension ensures that no value is present for Extension, not even an explicit nil
+func (o *FileDto) UnsetExtension() {
+	o.Extension.Unset()
+}
+
 // GetStorageClass returns the StorageClass field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FileDto) GetStorageClass() string {
 	if o == nil || o.StorageClass.Get() == nil {
@@ -914,6 +957,9 @@ func (o FileDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.ContentType.IsSet() {
 		toSerialize["contentType"] = o.ContentType.Get()
+	}
+	if o.Extension.IsSet() {
+		toSerialize["extension"] = o.Extension.Get()
 	}
 	if o.StorageClass.IsSet() {
 		toSerialize["storageClass"] = o.StorageClass.Get()
