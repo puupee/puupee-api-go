@@ -26,11 +26,12 @@ type TagDto struct {
 	DeleterId NullableString `json:"deleterId,omitempty"`
 	DeletionTime NullableTime `json:"deletionTime,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	TagCount *int32 `json:"tagCount,omitempty"`
+	RefCount *int32 `json:"refCount,omitempty"`
 	ParentTagId NullableString `json:"parentTagId,omitempty"`
 	ParentTag *TagDto `json:"parentTag,omitempty"`
 	Children []TagDto `json:"children,omitempty"`
 	FullPath NullableString `json:"fullPath,omitempty"`
+	SyncVersion *int64 `json:"syncVersion,omitempty"`
 }
 
 // NewTagDto instantiates a new TagDto object
@@ -398,36 +399,36 @@ func (o *TagDto) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetTagCount returns the TagCount field value if set, zero value otherwise.
-func (o *TagDto) GetTagCount() int32 {
-	if o == nil || o.TagCount == nil {
+// GetRefCount returns the RefCount field value if set, zero value otherwise.
+func (o *TagDto) GetRefCount() int32 {
+	if o == nil || o.RefCount == nil {
 		var ret int32
 		return ret
 	}
-	return *o.TagCount
+	return *o.RefCount
 }
 
-// GetTagCountOk returns a tuple with the TagCount field value if set, nil otherwise
+// GetRefCountOk returns a tuple with the RefCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TagDto) GetTagCountOk() (*int32, bool) {
-	if o == nil || o.TagCount == nil {
+func (o *TagDto) GetRefCountOk() (*int32, bool) {
+	if o == nil || o.RefCount == nil {
 		return nil, false
 	}
-	return o.TagCount, true
+	return o.RefCount, true
 }
 
-// HasTagCount returns a boolean if a field has been set.
-func (o *TagDto) HasTagCount() bool {
-	if o != nil && o.TagCount != nil {
+// HasRefCount returns a boolean if a field has been set.
+func (o *TagDto) HasRefCount() bool {
+	if o != nil && o.RefCount != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTagCount gets a reference to the given int32 and assigns it to the TagCount field.
-func (o *TagDto) SetTagCount(v int32) {
-	o.TagCount = &v
+// SetRefCount gets a reference to the given int32 and assigns it to the RefCount field.
+func (o *TagDto) SetRefCount(v int32) {
+	o.RefCount = &v
 }
 
 // GetParentTagId returns the ParentTagId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -579,6 +580,38 @@ func (o *TagDto) UnsetFullPath() {
 	o.FullPath.Unset()
 }
 
+// GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
+func (o *TagDto) GetSyncVersion() int64 {
+	if o == nil || o.SyncVersion == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SyncVersion
+}
+
+// GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TagDto) GetSyncVersionOk() (*int64, bool) {
+	if o == nil || o.SyncVersion == nil {
+		return nil, false
+	}
+	return o.SyncVersion, true
+}
+
+// HasSyncVersion returns a boolean if a field has been set.
+func (o *TagDto) HasSyncVersion() bool {
+	if o != nil && o.SyncVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSyncVersion gets a reference to the given int64 and assigns it to the SyncVersion field.
+func (o *TagDto) SetSyncVersion(v int64) {
+	o.SyncVersion = &v
+}
+
 func (o TagDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -608,8 +641,8 @@ func (o TagDto) MarshalJSON() ([]byte, error) {
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.TagCount != nil {
-		toSerialize["tagCount"] = o.TagCount
+	if o.RefCount != nil {
+		toSerialize["refCount"] = o.RefCount
 	}
 	if o.ParentTagId.IsSet() {
 		toSerialize["parentTagId"] = o.ParentTagId.Get()
@@ -622,6 +655,9 @@ func (o TagDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.FullPath.IsSet() {
 		toSerialize["fullPath"] = o.FullPath.Get()
+	}
+	if o.SyncVersion != nil {
+		toSerialize["syncVersion"] = o.SyncVersion
 	}
 	return json.Marshal(toSerialize)
 }

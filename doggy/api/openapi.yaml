@@ -7,297 +7,304 @@ servers:
 security:
 - oauth2: []
 paths:
-  /api/account/register:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegisterDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/RegisterDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/RegisterDto'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/IdentityUserDto'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentityUserDto'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/IdentityUserDto'
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Account
-  /api/account/send-password-reset-code:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SendPasswordResetCodeDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/SendPasswordResetCodeDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/SendPasswordResetCodeDto'
-      responses:
-        "200":
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Account
-  /api/account/reset-password:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ResetPasswordDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/ResetPasswordDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/ResetPasswordDto'
-      responses:
-        "200":
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Account
-  /api/app/file/file-or-credentials/{creatorId}:
+  /api/app/device:
     get:
+      parameters:
+      - explode: true
+        in: query
+        name: Sorting
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SkipCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: MaxResultCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DeviceDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DeviceDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Device
+  /api/app/device/refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshDeviceStatusDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RefreshDeviceStatusDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RefreshDeviceStatusDto'
+      responses:
+        "200":
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Device
+  /api/app/device/{id}:
+    delete:
       parameters:
       - explode: false
         in: path
-        name: creatorId
+        name: id
         required: true
         schema:
           format: uuid
           type: string
         style: simple
+      responses:
+        "200":
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Device
+  /api/app/file/file-or-credentials:
+    get:
+      parameters:
       - explode: true
         in: query
         name: rapidCode
@@ -1063,6 +1070,122 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/SpecialItemDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Item
+  /api/app/item/sync:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: afterVersion
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skipCount
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: maxResultCount
+        required: false
+        schema:
+          default: 100
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ItemDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ItemDtoPagedResultDto'
           description: Success
         "403":
           content:
@@ -2308,285 +2431,6 @@ paths:
           description: Server Error
       tags:
       - KeyValue
-  /api/account/login:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserLoginInfo'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/UserLoginInfo'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/UserLoginInfo'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/AbpLoginResult'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AbpLoginResult'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/AbpLoginResult'
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Login
-  /api/account/logout:
-    get:
-      responses:
-        "200":
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Login
-  /api/account/check-password:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserLoginInfo'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/UserLoginInfo'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/UserLoginInfo'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/AbpLoginResult'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AbpLoginResult'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/AbpLoginResult'
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Login
   /api/app/member:
     get:
       parameters:
@@ -2774,20 +2618,77 @@ paths:
           description: Server Error
       tags:
       - Note
-  /api/account/my-profile:
+  /api/app/notification/bark/{apiKey}/{message}:
     get:
+      parameters:
+      - explode: false
+        in: path
+        name: apiKey
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: message
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: automaticallyCopy
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: copy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: isArchive
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: group
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: icon
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: level
+        required: false
+        schema:
+          default: active
+          type: string
+        style: form
       responses:
         "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ProfileDto'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProfileDto'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ProfileDto'
           description: Success
         "403":
           content:
@@ -2862,31 +2763,49 @@ paths:
                 $ref: '#/components/schemas/RemoteServiceErrorResponse'
           description: Server Error
       tags:
-      - Profile
-    put:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateProfileDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/UpdateProfileDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/UpdateProfileDto'
+      - Notification
+  /api/app/notification:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: Sorting
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SkipCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: MaxResultCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/ProfileDto'
+                $ref: '#/components/schemas/NotificationInfoDtoPagedResultDto'
             application/json:
               schema:
-                $ref: '#/components/schemas/ProfileDto'
+                $ref: '#/components/schemas/NotificationInfoDtoPagedResultDto'
             text/json:
               schema:
-                $ref: '#/components/schemas/ProfileDto'
+                $ref: '#/components/schemas/NotificationInfoDtoPagedResultDto'
           description: Success
         "403":
           content:
@@ -2961,20 +2880,20 @@ paths:
                 $ref: '#/components/schemas/RemoteServiceErrorResponse'
           description: Server Error
       tags:
-      - Profile
-  /api/account/my-profile/change-password:
+      - Notification
+  /api/app/notification/push:
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChangePasswordInput'
+              $ref: '#/components/schemas/CreatePushNotificationDto'
           text/json:
             schema:
-              $ref: '#/components/schemas/ChangePasswordInput'
+              $ref: '#/components/schemas/CreatePushNotificationDto'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/ChangePasswordInput'
+              $ref: '#/components/schemas/CreatePushNotificationDto'
       responses:
         "200":
           description: Success
@@ -3051,7 +2970,7 @@ paths:
                 $ref: '#/components/schemas/RemoteServiceErrorResponse'
           description: Server Error
       tags:
-      - Profile
+      - Notification
   /api/app/settings:
     get:
       responses:
@@ -3231,6 +3150,415 @@ paths:
           description: Server Error
       tags:
       - Settings
+  /api/app/simple-data/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - SimpleData
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - SimpleData
+  /api/app/simple-data:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: Collection
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Sorting
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SkipCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: MaxResultCount
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - SimpleData
+  /api/app/simple-data/save:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimpleDataDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SimpleDataDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SimpleDataDto'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimpleDataDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - SimpleData
   /api/app/sms/send-change-phone-code:
     post:
       requestBody:
@@ -3413,15 +3741,6 @@ paths:
       - Sms
   /api/app/storage:
     get:
-      parameters:
-      - explode: true
-        in: query
-        name: creatorId
-        required: false
-        schema:
-          format: uuid
-          type: string
-        style: form
       responses:
         "200":
           content:
@@ -3509,6 +3828,95 @@ paths:
           description: Server Error
       tags:
       - Storage
+  /api/app/sync-state:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SyncStateDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncStateDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SyncStateDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - SyncState
   /api/app/tag:
     get:
       parameters:
@@ -4031,39 +4439,33 @@ paths:
           description: Server Error
       tags:
       - Tag
-  /api/app/thumb:
+  /api/app/tag/sync:
     get:
       parameters:
       - explode: true
         in: query
-        name: SearchKey
+        name: afterVersion
         required: false
         schema:
-          type: string
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
-        name: MaxResultCount
+        name: skipCount
         required: false
         schema:
+          default: 0
           format: int32
           type: integer
         style: form
       - explode: true
         in: query
-        name: Sorting
+        name: maxResultCount
         required: false
         schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: SkipCount
-        required: false
-        schema:
+          default: 100
           format: int32
-          maximum: 2147483647
-          minimum: 0
           type: integer
         style: form
       responses:
@@ -4071,13 +4473,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/ThumbDtoPagedResultDto'
+                $ref: '#/components/schemas/TagDtoPagedResultDto'
             application/json:
               schema:
-                $ref: '#/components/schemas/ThumbDtoPagedResultDto'
+                $ref: '#/components/schemas/TagDtoPagedResultDto'
             text/json:
               schema:
-                $ref: '#/components/schemas/ThumbDtoPagedResultDto'
+                $ref: '#/components/schemas/TagDtoPagedResultDto'
           description: Success
         "403":
           content:
@@ -4152,291 +4554,7 @@ paths:
                 $ref: '#/components/schemas/RemoteServiceErrorResponse'
           description: Server Error
       tags:
-      - Thumb
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateUpdateThumbDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreateUpdateThumbDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CreateUpdateThumbDto'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ThumbDto'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ThumbDto'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ThumbDto'
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Thumb
-  /api/app/thumb/{id}:
-    delete:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Thumb
-    get:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ThumbDto'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ThumbDto'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ThumbDto'
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - Thumb
+      - Tag
   /api/app/todo:
     get:
       parameters:
@@ -4981,12 +5099,126 @@ paths:
           description: Server Error
       tags:
       - Todo
+  /api/app/todo/sync:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: afterVersion
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skipCount
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: maxResultCount
+        required: false
+        schema:
+          default: 100
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/TodoDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TodoDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Todo
 components:
   schemas:
     AbpLoginResult:
       additionalProperties: false
-      example:
-        description: description
       properties:
         result:
           $ref: '#/components/schemas/LoginResultType'
@@ -5183,9 +5415,6 @@ components:
       type: object
     ChangePasswordInput:
       additionalProperties: false
-      example:
-        newPassword: newPassword
-        currentPassword: currentPassword
       properties:
         currentPassword:
           maxLength: 128
@@ -5241,17 +5470,56 @@ components:
           nullable: true
           type: string
       type: object
+    CreatePushNotificationDto:
+      additionalProperties: false
+      example:
+        bodyType: bodyType
+        userIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
+        title: title
+        body: body
+        url: url
+      properties:
+        userIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        bodyType:
+          nullable: true
+          type: string
+        body:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+      type: object
     CreateUpdateItemDto:
       additionalProperties: false
       example:
+        syncVersion: 0
         extension: extension
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         tagIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
+        deletionTime: 2000-01-23T04:56:07.000+00:00
         password: password
         storageClass: storageClass
         parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDeleted: true
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
         rapidCode: rapidCode
@@ -5259,7 +5527,6 @@ components:
         fileCreatedAt: 2000-01-23T04:56:07.000+00:00
         contentType: contentType
         key: key
-        thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         md5: md5
       properties:
         name:
@@ -5281,10 +5548,6 @@ components:
             type: string
           nullable: true
           type: array
-        thumbId:
-          format: uuid
-          nullable: true
-          type: string
         key:
           nullable: true
           type: string
@@ -5318,12 +5581,62 @@ components:
           format: date-time
           nullable: true
           type: string
+        syncVersion:
+          format: int64
+          type: integer
+        isDeleted:
+          type: boolean
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+      type: object
+    CreateUpdateNotificationDto:
+      additionalProperties: false
+      properties:
+        userId:
+          format: uuid
+          type: string
+        notificationInfoId:
+          format: uuid
+          type: string
+        notificationMethod:
+          nullable: true
+          type: string
+        success:
+          nullable: true
+          type: boolean
+        completionTime:
+          format: date-time
+          nullable: true
+          type: string
+        failureReason:
+          nullable: true
+          type: string
+        retryNotificationId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    CreateUpdateNotificationInfoDto:
+      additionalProperties: false
       type: object
     CreateUpdateTagDto:
       additionalProperties: false
       example:
+        syncVersion: 0
         parentTagId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDeleted: true
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         name: name
+        deletionTime: 2000-01-23T04:56:07.000+00:00
       properties:
         name:
           nullable: true
@@ -5332,42 +5645,34 @@ components:
           format: uuid
           nullable: true
           type: string
-      type: object
-    CreateUpdateThumbDto:
-      additionalProperties: false
-      example:
-        extension: extension
-        storageClass: storageClass
-        size: 0
-        contentType: contentType
-        key: key
-        md5: md5
-      properties:
-        key:
-          nullable: true
-          type: string
-        size:
-          format: int32
+        syncVersion:
+          format: int64
           type: integer
-        md5:
+        isDeleted:
+          type: boolean
+        deletionTime:
+          format: date-time
           nullable: true
           type: string
-        contentType:
-          nullable: true
+        creationTime:
+          format: date-time
           type: string
-        extension:
-          nullable: true
-          type: string
-        storageClass:
-          nullable: true
+        lastModificationTime:
+          format: date-time
           type: string
       type: object
     CreateUpdateTodoDto:
       additionalProperties: false
       example:
+        syncVersion: 0
+        doneAt: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         tagIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
         title: title
         endAt: 2000-01-23T04:56:07.000+00:00
         isDone: true
@@ -5393,6 +5698,25 @@ components:
         endAt:
           format: date-time
           nullable: true
+          type: string
+        syncVersion:
+          format: int64
+          type: integer
+        doneAt:
+          format: date-time
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        lastModificationTime:
+          format: date-time
           type: string
       type: object
     CurrentCultureDto:
@@ -5590,8 +5914,113 @@ components:
           nullable: true
           type: number
       type: object
+    DeviceDto:
+      additionalProperties: false
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        systemVersion: systemVersion
+        token: token
+        isDeleted: true
+        name: name
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        brand: brand
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          nullable: true
+          type: string
+        lastModifierId:
+          format: uuid
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          nullable: true
+          type: string
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
+        token:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/Platform'
+        brand:
+          nullable: true
+          type: string
+        systemVersion:
+          nullable: true
+          type: string
+      type: object
+    DeviceDtoPagedResultDto:
+      additionalProperties: false
+      example:
+        totalCount: 0
+        items:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          systemVersion: systemVersion
+          token: token
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          brand: brand
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          systemVersion: systemVersion
+          token: token
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          brand: brand
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/DeviceDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int64
+          type: integer
+      type: object
+    DeviceStatus:
+      enum:
+      - None
+      - Online
+      - Offline
+      type: string
     DisplayStyle:
       enum:
+      - None
       - ListItem
       - LargeThumbnail
       type: string
@@ -5859,201 +6288,27 @@ components:
     FileDto:
       additionalProperties: false
       example:
+        syncVersion: 6
         extension: extension
-        folders:
-        - extension: extension
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          thumb:
-            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            url: url
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 6
-          password: password
-          storageClass: storageClass
-          isDeleted: true
-          parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          children:
-          - null
-          - null
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          rapidCode: rapidCode
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          sliceMd5: sliceMd5
-          contentType: contentType
-          key: key
-          url: url
-          tags:
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 5
-          name: name
-          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          md5: md5
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - extension: extension
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          thumb:
-            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            url: url
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 6
-          password: password
-          storageClass: storageClass
-          isDeleted: true
-          parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          children:
-          - null
-          - null
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          rapidCode: rapidCode
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          sliceMd5: sliceMd5
-          contentType: contentType
-          key: key
-          url: url
-          tags:
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 5
-          name: name
-          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          md5: md5
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
         url: url
-        tags:
-        - fullPath: fullPath
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
-          parentTagId: parentTagId
-          children:
-          - null
-          - null
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - fullPath: fullPath
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
-          parentTagId: parentTagId
-          children:
-          - null
-          - null
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         storageClass: storageClass
         isDeleted: true
         size: 0
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        sliceMd5: sliceMd5
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         fileCreatedAt: 2000-01-23T04:56:07.000+00:00
         contentType: contentType
         key: key
         md5: md5
-        fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
           format: uuid
@@ -6098,6 +6353,12 @@ components:
         md5:
           nullable: true
           type: string
+        sliceMd5:
+          nullable: true
+          type: string
+        rapidCode:
+          nullable: true
+          type: string
         contentType:
           nullable: true
           type: string
@@ -6115,222 +6376,35 @@ components:
           format: date-time
           nullable: true
           type: string
-        fileId:
-          format: uuid
-          nullable: true
-          type: string
-        file:
-          $ref: '#/components/schemas/FileDto'
-        folders:
-          items:
-            $ref: '#/components/schemas/ItemDto'
-          nullable: true
-          type: array
-        tags:
-          items:
-            $ref: '#/components/schemas/TagDto'
-          nullable: true
-          type: array
+        syncVersion:
+          format: int64
+          type: integer
       type: object
     FileOrCredentialsDto:
       additionalProperties: false
       example:
         file:
+          syncVersion: 6
           extension: extension
-          folders:
-          - extension: extension
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            thumb:
-              creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              url: url
-              fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            totalCount: 6
-            password: password
-            storageClass: storageClass
-            isDeleted: true
-            parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            children:
-            - null
-            - null
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            rapidCode: rapidCode
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            sliceMd5: sliceMd5
-            contentType: contentType
-            key: key
-            url: url
-            tags:
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 1
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 1
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 5
-            name: name
-            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-            thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            md5: md5
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - extension: extension
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            thumb:
-              creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              url: url
-              fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            totalCount: 6
-            password: password
-            storageClass: storageClass
-            isDeleted: true
-            parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            children:
-            - null
-            - null
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            rapidCode: rapidCode
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            sliceMd5: sliceMd5
-            contentType: contentType
-            key: key
-            url: url
-            tags:
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 1
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - fullPath: fullPath
-              creationTime: 2000-01-23T04:56:07.000+00:00
-              lastModificationTime: 2000-01-23T04:56:07.000+00:00
-              creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deletionTime: 2000-01-23T04:56:07.000+00:00
-              isDeleted: true
-              parentTagId: parentTagId
-              children:
-              - null
-              - null
-              name: name
-              lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              tagCount: 1
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 5
-            name: name
-            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-            thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            md5: md5
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
           url: url
-          tags:
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - fullPath: fullPath
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
-            parentTagId: parentTagId
-            children:
-            - null
-            - null
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           storageClass: storageClass
           isDeleted: true
           size: 0
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
           contentType: contentType
           key: key
           md5: md5
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         credentials:
           securityToken: securityToken
           accessKeyId: accessKeyId
@@ -6343,7 +6417,7 @@ components:
           appId: appId
           expiration: expiration
           protocal: protocal
-          expiredTime: 5
+          expiredTime: 1
       properties:
         file:
           $ref: '#/components/schemas/FileDto'
@@ -6531,29 +6605,6 @@ components:
       type: object
     IdentityUserDto:
       additionalProperties: false
-      example:
-        creationTime: 2000-01-23T04:56:07.000+00:00
-        emailConfirmed: true
-        lastModificationTime: 2000-01-23T04:56:07.000+00:00
-        lockoutEnabled: true
-        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        extraProperties:
-          key: ""
-        deletionTime: 2000-01-23T04:56:07.000+00:00
-        userName: userName
-        isActive: true
-        phoneNumberConfirmed: true
-        phoneNumber: phoneNumber
-        isDeleted: true
-        surname: surname
-        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        name: name
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        concurrencyStamp: concurrencyStamp
-        email: email
-        lockoutEnd: 2000-01-23T04:56:07.000+00:00
       properties:
         extraProperties:
           additionalProperties: {}
@@ -6758,23 +6809,55 @@ components:
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         thumb:
-          creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          syncVersion: 6
+          extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          storageClass: storageClass
+          isDeleted: true
+          size: 0
+          name: name
+          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+          contentType: contentType
+          key: key
+          md5: md5
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        totalCount: 6
+        totalCount: 0
         password: password
         storageClass: storageClass
+        file:
+          syncVersion: 6
+          extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          url: url
+          storageClass: storageClass
+          isDeleted: true
+          size: 0
+          name: name
+          fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+          contentType: contentType
+          key: key
+          md5: md5
         isDeleted: true
         parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         children:
@@ -6786,13 +6869,16 @@ components:
         sliceMd5: sliceMd5
         contentType: contentType
         key: key
+        syncVersion: 5
         url: url
         tags:
         - fullPath: fullPath
+          syncVersion: 1
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          refCount: 6
           isDeleted: true
           parentTagId: parentTagId
           children:
@@ -6800,14 +6886,15 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
+          syncVersion: 1
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          refCount: 6
           isDeleted: true
           parentTagId: parentTagId
           children:
@@ -6815,7 +6902,6 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         size: 5
@@ -6823,7 +6909,6 @@ components:
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-        thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         md5: md5
         fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -6871,12 +6956,6 @@ components:
           format: uuid
           nullable: true
           type: string
-        thumbId:
-          format: uuid
-          nullable: true
-          type: string
-        thumb:
-          $ref: '#/components/schemas/ThumbDto'
         children:
           items:
             $ref: '#/components/schemas/ItemDto'
@@ -6932,33 +7011,70 @@ components:
           type: string
         file:
           $ref: '#/components/schemas/FileDto'
+        thumb:
+          $ref: '#/components/schemas/FileDto'
+        syncVersion:
+          format: int64
+          type: integer
       type: object
     ItemDtoPagedResultDto:
       additionalProperties: false
       example:
-        totalCount: 0
+        totalCount: 2
         items:
         - extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            syncVersion: 6
+            extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             url: url
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 6
+          totalCount: 0
           password: password
           storageClass: storageClass
+          file:
+            syncVersion: 6
+            extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            url: url
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
@@ -6970,13 +7086,16 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           key: key
+          syncVersion: 5
           url: url
           tags:
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -6984,14 +7103,15 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -6999,7 +7119,6 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 5
@@ -7007,30 +7126,61 @@ components:
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
           fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            syncVersion: 6
+            extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             url: url
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 6
+          totalCount: 0
           password: password
           storageClass: storageClass
+          file:
+            syncVersion: 6
+            extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            url: url
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
@@ -7042,13 +7192,16 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           key: key
+          syncVersion: 5
           url: url
           tags:
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -7056,14 +7209,15 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -7071,7 +7225,6 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 5
@@ -7079,7 +7232,6 @@ components:
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
           fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -7297,6 +7449,127 @@ components:
           nullable: true
           type: string
       type: object
+    NotificationDto:
+      additionalProperties: false
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        userId:
+          format: uuid
+          type: string
+        notificationInfoId:
+          format: uuid
+          type: string
+        notificationMethod:
+          nullable: true
+          type: string
+        success:
+          nullable: true
+          type: boolean
+        completionTime:
+          format: date-time
+          nullable: true
+          type: string
+        failureReason:
+          nullable: true
+          type: string
+        retryNotificationId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    NotificationDtoPagedResultDto:
+      additionalProperties: false
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/NotificationDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int64
+          type: integer
+      type: object
+    NotificationInfoDto:
+      additionalProperties: false
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          nullable: true
+          type: string
+        lastModifierId:
+          format: uuid
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          nullable: true
+          type: string
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    NotificationInfoDtoPagedResultDto:
+      additionalProperties: false
+      example:
+        totalCount: 0
+        items:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/NotificationInfoDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int64
+          type: integer
+      type: object
     ObjectExtensionsDto:
       additionalProperties: false
       properties:
@@ -7385,6 +7658,18 @@ components:
           nullable: true
           type: array
       type: object
+    Platform:
+      enum:
+      - None
+      - Unknow
+      - Android
+      - IOS
+      - Windows
+      - Macos
+      - Linux
+      - Web
+      - Other
+      type: string
     Priority:
       enum:
       - UrgentImportant
@@ -7394,17 +7679,6 @@ components:
       type: string
     ProfileDto:
       additionalProperties: false
-      example:
-        phoneNumber: phoneNumber
-        isExternal: true
-        surname: surname
-        name: name
-        extraProperties:
-          key: ""
-        hasPassword: true
-        userName: userName
-        concurrencyStamp: concurrencyStamp
-        email: email
       properties:
         extraProperties:
           additionalProperties: {}
@@ -7462,15 +7736,20 @@ components:
           nullable: true
           type: string
       type: object
-    RegisterDto:
+    RefreshDeviceStatusDto:
       additionalProperties: false
       example:
-        emailAddress: emailAddress
-        password: password
-        appName: appName
-        extraProperties:
-          key: ""
-        userName: userName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/DeviceStatus'
+      type: object
+    RegisterDto:
+      additionalProperties: false
       properties:
         extraProperties:
           additionalProperties: {}
@@ -7541,10 +7820,6 @@ components:
       type: object
     ResetPasswordDto:
       additionalProperties: false
-      example:
-        password: password
-        resetToken: resetToken
-        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         userId:
           format: uuid
@@ -7569,11 +7844,6 @@ components:
       type: object
     SendPasswordResetCodeDto:
       additionalProperties: false
-      example:
-        returnUrlHash: returnUrlHash
-        appName: appName
-        returnUrl: returnUrl
-        email: email
       properties:
         email:
           format: email
@@ -7608,6 +7878,62 @@ components:
         appTheme:
           $ref: '#/components/schemas/AppTheme'
       type: object
+    SimpleDataDto:
+      additionalProperties: false
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        extraProperties:
+          key: ""
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        collection: collection
+      properties:
+        extraProperties:
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+          type: object
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        collection:
+          nullable: true
+          type: string
+      type: object
+    SimpleDataDtoPagedResultDto:
+      additionalProperties: false
+      example:
+        totalCount: 0
+        items:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extraProperties:
+            key: ""
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          collection: collection
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extraProperties:
+            key: ""
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          collection: collection
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/SimpleDataDto'
+          nullable: true
+          type: array
+        totalCount:
+          format: int64
+          type: integer
+      type: object
     SpecialItemDto:
       additionalProperties: false
       example:
@@ -7616,23 +7942,55 @@ components:
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            syncVersion: 6
+            extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             url: url
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 6
+          totalCount: 0
           password: password
           storageClass: storageClass
+          file:
+            syncVersion: 6
+            extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            url: url
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
@@ -7644,13 +8002,16 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           key: key
+          syncVersion: 5
           url: url
           tags:
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -7658,14 +8019,15 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -7673,7 +8035,6 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 5
@@ -7681,30 +8042,61 @@ components:
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
           fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
-            creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            syncVersion: 6
+            extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
-            isDeleted: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             url: url
-            fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          totalCount: 6
+          totalCount: 0
           password: password
           storageClass: storageClass
+          file:
+            syncVersion: 6
+            extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            url: url
+            storageClass: storageClass
+            isDeleted: true
+            size: 0
+            name: name
+            fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileCreatedAt: 2000-01-23T04:56:07.000+00:00
+            contentType: contentType
+            key: key
+            md5: md5
           isDeleted: true
           parentItemId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           children:
@@ -7716,13 +8108,16 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           key: key
+          syncVersion: 5
           url: url
           tags:
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -7730,14 +8125,15 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -7745,7 +8141,6 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 5
@@ -7753,7 +8148,6 @@ components:
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
-          thumbId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
           fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -7811,14 +8205,37 @@ components:
           nullable: true
           type: number
       type: object
+    SyncStateDto:
+      additionalProperties: false
+      example:
+        tagVersion: 0
+        lastSyncAt: 2000-01-23T04:56:07.000+00:00
+        todoVersion: 1
+        itemVersion: 6
+      properties:
+        lastSyncAt:
+          format: date-time
+          type: string
+        tagVersion:
+          format: int64
+          type: integer
+        itemVersion:
+          format: int64
+          type: integer
+        todoVersion:
+          format: int64
+          type: integer
+      type: object
     TagDto:
       additionalProperties: false
       example:
         fullPath: fullPath
+        syncVersion: 1
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
+        refCount: 6
         isDeleted: true
         parentTagId: parentTagId
         children:
@@ -7826,7 +8243,6 @@ components:
         - null
         name: name
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        tagCount: 1
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -7861,7 +8277,7 @@ components:
         name:
           nullable: true
           type: string
-        tagCount:
+        refCount:
           format: int32
           type: integer
         parentTagId:
@@ -7877,6 +8293,9 @@ components:
         fullPath:
           nullable: true
           type: string
+        syncVersion:
+          format: int64
+          type: integer
       type: object
     TagDtoPagedResultDto:
       additionalProperties: false
@@ -7884,10 +8303,12 @@ components:
         totalCount: 0
         items:
         - fullPath: fullPath
+          syncVersion: 1
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          refCount: 6
           isDeleted: true
           parentTagId: parentTagId
           children:
@@ -7895,14 +8316,15 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
+          syncVersion: 1
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          refCount: 6
           isDeleted: true
           parentTagId: parentTagId
           children:
@@ -7910,7 +8332,6 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -7995,99 +8416,6 @@ components:
       required:
       - name
       type: object
-    ThumbDto:
-      additionalProperties: false
-      example:
-        creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        creationTime: 2000-01-23T04:56:07.000+00:00
-        isDeleted: true
-        lastModificationTime: 2000-01-23T04:56:07.000+00:00
-        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deletionTime: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        url: url
-        fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        id:
-          format: uuid
-          type: string
-        creationTime:
-          format: date-time
-          type: string
-        creatorId:
-          format: uuid
-          nullable: true
-          type: string
-        lastModificationTime:
-          format: date-time
-          nullable: true
-          type: string
-        lastModifierId:
-          format: uuid
-          nullable: true
-          type: string
-        isDeleted:
-          type: boolean
-        deleterId:
-          format: uuid
-          nullable: true
-          type: string
-        deletionTime:
-          format: date-time
-          nullable: true
-          type: string
-        fileId:
-          format: uuid
-          type: string
-        file:
-          $ref: '#/components/schemas/FileDto'
-        creator:
-          format: uuid
-          type: string
-        url:
-          nullable: true
-          readOnly: true
-          type: string
-      type: object
-    ThumbDtoPagedResultDto:
-      additionalProperties: false
-      example:
-        totalCount: 0
-        items:
-        - creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          url: url
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - creator: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          url: url
-          fileId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/ThumbDto'
-          nullable: true
-          type: array
-        totalCount:
-          format: int64
-          type: integer
-      type: object
     TimeZone:
       additionalProperties: false
       properties:
@@ -8106,18 +8434,23 @@ components:
       additionalProperties: false
       example:
         doneAt: 2000-01-23T04:56:07.000+00:00
+        syncVersion: 0
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
         title: title
+        endAt: 2000-01-23T04:56:07.000+00:00
         isDone: true
+        parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         tags:
         - fullPath: fullPath
+          syncVersion: 1
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          refCount: 6
           isDeleted: true
           parentTagId: parentTagId
           children:
@@ -8125,14 +8458,15 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - fullPath: fullPath
+          syncVersion: 1
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          refCount: 6
           isDeleted: true
           parentTagId: parentTagId
           children:
@@ -8140,7 +8474,6 @@ components:
           - null
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          tagCount: 1
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isDeleted: true
@@ -8200,25 +8533,41 @@ components:
             $ref: '#/components/schemas/TodoDto'
           nullable: true
           type: array
+        syncVersion:
+          format: int64
+          type: integer
+        parentId:
+          format: uuid
+          nullable: true
+          type: string
+        endAt:
+          format: date-time
+          nullable: true
+          type: string
       type: object
     TodoDtoPagedResultDto:
       additionalProperties: false
       example:
-        totalCount: 0
+        totalCount: 6
         items:
         - doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 0
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
           title: title
+          endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
+          parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           tags:
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -8226,14 +8575,15 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -8241,7 +8591,6 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
@@ -8252,18 +8601,23 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 0
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
           title: title
+          endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
+          parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           tags:
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -8271,14 +8625,15 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - fullPath: fullPath
+            syncVersion: 1
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deletionTime: 2000-01-23T04:56:07.000+00:00
+            refCount: 6
             isDeleted: true
             parentTagId: parentTagId
             children:
@@ -8286,7 +8641,6 @@ components:
             - null
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            tagCount: 1
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isDeleted: true
@@ -8412,15 +8766,6 @@ components:
       type: object
     UpdateProfileDto:
       additionalProperties: false
-      example:
-        phoneNumber: phoneNumber
-        surname: surname
-        name: name
-        extraProperties:
-          key: ""
-        userName: userName
-        concurrencyStamp: concurrencyStamp
-        email: email
       properties:
         extraProperties:
           additionalProperties: {}
@@ -8470,7 +8815,7 @@ components:
         appId: appId
         expiration: expiration
         protocal: protocal
-        expiredTime: 5
+        expiredTime: 1
       properties:
         storageClass:
           nullable: true
@@ -8550,10 +8895,6 @@ components:
       type: object
     UserLoginInfo:
       additionalProperties: false
-      example:
-        password: password
-        userNameOrEmailAddress: userNameOrEmailAddress
-        rememberMe: true
       properties:
         userNameOrEmailAddress:
           maxLength: 255
@@ -8573,22 +8914,18 @@ components:
     UserStorageDto:
       additionalProperties: false
       example:
-        imageCount: 2
-        audioSize: 3
-        noteCount: 5
-        otherCount: 6
         maxSize: 0
-        totalCount: 7
-        noteSize: 1
-        videoSize: 7
+        totalCount: 1
+        items:
+        - size: 5
+          name: name
+          count: 5
+          title: title
+        - size: 5
+          name: name
+          count: 5
+          title: title
         currentSize: 6
-        videoCount: 9
-        otherSize: 1
-        totalSize: 4
-        audioCount: 2
-        thumbSize: 1
-        imageSize: 5
-        thumbCount: 1
       properties:
         maxSize:
           format: int64
@@ -8596,47 +8933,34 @@ components:
         currentSize:
           format: int64
           type: integer
-        noteSize:
-          format: int64
-          type: integer
-        noteCount:
-          format: int32
-          type: integer
-        imageSize:
-          format: int64
-          type: integer
-        imageCount:
-          format: int32
-          type: integer
-        videoSize:
-          format: int64
-          type: integer
-        videoCount:
-          format: int32
-          type: integer
-        audioSize:
-          format: int64
-          type: integer
-        audioCount:
-          format: int32
-          type: integer
-        totalSize:
-          format: int64
-          type: integer
         totalCount:
           format: int32
           type: integer
-        thumbSize:
-          format: int64
-          type: integer
-        thumbCount:
+        items:
+          items:
+            $ref: '#/components/schemas/UserStorageItemDto'
+          nullable: true
+          type: array
+      type: object
+    UserStorageItemDto:
+      additionalProperties: false
+      example:
+        size: 5
+        name: name
+        count: 5
+        title: title
+      properties:
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        count:
           format: int32
           type: integer
-        otherSize:
+        size:
           format: int64
-          type: integer
-        otherCount:
-          format: int32
           type: integer
       type: object
     WindowsTimeZone:
@@ -8650,8 +8974,8 @@ components:
     oauth2:
       flows:
         authorizationCode:
-          authorizationUrl: https://api.doggy.code2code.cn/connect/authorize
+          authorizationUrl: https://localhost:44306/connect/authorize
           scopes:
             Doggy: Doggy API
-          tokenUrl: https://api.doggy.code2code.cn/connect/token
+          tokenUrl: https://localhost:44306/connect/token
       type: oauth2

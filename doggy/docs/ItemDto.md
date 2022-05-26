@@ -17,8 +17,6 @@ Name | Type | Description | Notes
 **TotalCount** | Pointer to **int32** |  | [optional] 
 **Password** | Pointer to **NullableString** |  | [optional] 
 **ParentItemId** | Pointer to **NullableString** |  | [optional] 
-**ThumbId** | Pointer to **NullableString** |  | [optional] 
-**Thumb** | Pointer to [**ThumbDto**](ThumbDto.md) |  | [optional] 
 **Children** | Pointer to [**[]ItemDto**](ItemDto.md) |  | [optional] 
 **Tags** | Pointer to [**[]TagDto**](TagDto.md) |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
@@ -36,6 +34,8 @@ Name | Type | Description | Notes
 **FileUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
 **FileId** | Pointer to **NullableString** |  | [optional] 
 **File** | Pointer to [**FileDto**](FileDto.md) |  | [optional] 
+**Thumb** | Pointer to [**FileDto**](FileDto.md) |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -471,66 +471,6 @@ HasParentItemId returns a boolean if a field has been set.
 `func (o *ItemDto) UnsetParentItemId()`
 
 UnsetParentItemId ensures that no value is present for ParentItemId, not even an explicit nil
-### GetThumbId
-
-`func (o *ItemDto) GetThumbId() string`
-
-GetThumbId returns the ThumbId field if non-nil, zero value otherwise.
-
-### GetThumbIdOk
-
-`func (o *ItemDto) GetThumbIdOk() (*string, bool)`
-
-GetThumbIdOk returns a tuple with the ThumbId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetThumbId
-
-`func (o *ItemDto) SetThumbId(v string)`
-
-SetThumbId sets ThumbId field to given value.
-
-### HasThumbId
-
-`func (o *ItemDto) HasThumbId() bool`
-
-HasThumbId returns a boolean if a field has been set.
-
-### SetThumbIdNil
-
-`func (o *ItemDto) SetThumbIdNil(b bool)`
-
- SetThumbIdNil sets the value for ThumbId to be an explicit nil
-
-### UnsetThumbId
-`func (o *ItemDto) UnsetThumbId()`
-
-UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
-### GetThumb
-
-`func (o *ItemDto) GetThumb() ThumbDto`
-
-GetThumb returns the Thumb field if non-nil, zero value otherwise.
-
-### GetThumbOk
-
-`func (o *ItemDto) GetThumbOk() (*ThumbDto, bool)`
-
-GetThumbOk returns a tuple with the Thumb field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetThumb
-
-`func (o *ItemDto) SetThumb(v ThumbDto)`
-
-SetThumb sets Thumb field to given value.
-
-### HasThumb
-
-`func (o *ItemDto) HasThumb() bool`
-
-HasThumb returns a boolean if a field has been set.
-
 ### GetChildren
 
 `func (o *ItemDto) GetChildren() []ItemDto`
@@ -1085,6 +1025,56 @@ SetFile sets File field to given value.
 `func (o *ItemDto) HasFile() bool`
 
 HasFile returns a boolean if a field has been set.
+
+### GetThumb
+
+`func (o *ItemDto) GetThumb() FileDto`
+
+GetThumb returns the Thumb field if non-nil, zero value otherwise.
+
+### GetThumbOk
+
+`func (o *ItemDto) GetThumbOk() (*FileDto, bool)`
+
+GetThumbOk returns a tuple with the Thumb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThumb
+
+`func (o *ItemDto) SetThumb(v FileDto)`
+
+SetThumb sets Thumb field to given value.
+
+### HasThumb
+
+`func (o *ItemDto) HasThumb() bool`
+
+HasThumb returns a boolean if a field has been set.
+
+### GetSyncVersion
+
+`func (o *ItemDto) GetSyncVersion() int64`
+
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
+
+### GetSyncVersionOk
+
+`func (o *ItemDto) GetSyncVersionOk() (*int64, bool)`
+
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncVersion
+
+`func (o *ItemDto) SetSyncVersion(v int64)`
+
+SetSyncVersion sets SyncVersion field to given value.
+
+### HasSyncVersion
+
+`func (o *ItemDto) HasSyncVersion() bool`
+
+HasSyncVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

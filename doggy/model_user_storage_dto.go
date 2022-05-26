@@ -18,20 +18,8 @@ import (
 type UserStorageDto struct {
 	MaxSize *int64 `json:"maxSize,omitempty"`
 	CurrentSize *int64 `json:"currentSize,omitempty"`
-	NoteSize *int64 `json:"noteSize,omitempty"`
-	NoteCount *int32 `json:"noteCount,omitempty"`
-	ImageSize *int64 `json:"imageSize,omitempty"`
-	ImageCount *int32 `json:"imageCount,omitempty"`
-	VideoSize *int64 `json:"videoSize,omitempty"`
-	VideoCount *int32 `json:"videoCount,omitempty"`
-	AudioSize *int64 `json:"audioSize,omitempty"`
-	AudioCount *int32 `json:"audioCount,omitempty"`
-	TotalSize *int64 `json:"totalSize,omitempty"`
 	TotalCount *int32 `json:"totalCount,omitempty"`
-	ThumbSize *int64 `json:"thumbSize,omitempty"`
-	ThumbCount *int32 `json:"thumbCount,omitempty"`
-	OtherSize *int64 `json:"otherSize,omitempty"`
-	OtherCount *int32 `json:"otherCount,omitempty"`
+	Items []UserStorageItemDto `json:"items,omitempty"`
 }
 
 // NewUserStorageDto instantiates a new UserStorageDto object
@@ -115,294 +103,6 @@ func (o *UserStorageDto) SetCurrentSize(v int64) {
 	o.CurrentSize = &v
 }
 
-// GetNoteSize returns the NoteSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetNoteSize() int64 {
-	if o == nil || o.NoteSize == nil {
-		var ret int64
-		return ret
-	}
-	return *o.NoteSize
-}
-
-// GetNoteSizeOk returns a tuple with the NoteSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetNoteSizeOk() (*int64, bool) {
-	if o == nil || o.NoteSize == nil {
-		return nil, false
-	}
-	return o.NoteSize, true
-}
-
-// HasNoteSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasNoteSize() bool {
-	if o != nil && o.NoteSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetNoteSize gets a reference to the given int64 and assigns it to the NoteSize field.
-func (o *UserStorageDto) SetNoteSize(v int64) {
-	o.NoteSize = &v
-}
-
-// GetNoteCount returns the NoteCount field value if set, zero value otherwise.
-func (o *UserStorageDto) GetNoteCount() int32 {
-	if o == nil || o.NoteCount == nil {
-		var ret int32
-		return ret
-	}
-	return *o.NoteCount
-}
-
-// GetNoteCountOk returns a tuple with the NoteCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetNoteCountOk() (*int32, bool) {
-	if o == nil || o.NoteCount == nil {
-		return nil, false
-	}
-	return o.NoteCount, true
-}
-
-// HasNoteCount returns a boolean if a field has been set.
-func (o *UserStorageDto) HasNoteCount() bool {
-	if o != nil && o.NoteCount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetNoteCount gets a reference to the given int32 and assigns it to the NoteCount field.
-func (o *UserStorageDto) SetNoteCount(v int32) {
-	o.NoteCount = &v
-}
-
-// GetImageSize returns the ImageSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetImageSize() int64 {
-	if o == nil || o.ImageSize == nil {
-		var ret int64
-		return ret
-	}
-	return *o.ImageSize
-}
-
-// GetImageSizeOk returns a tuple with the ImageSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetImageSizeOk() (*int64, bool) {
-	if o == nil || o.ImageSize == nil {
-		return nil, false
-	}
-	return o.ImageSize, true
-}
-
-// HasImageSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasImageSize() bool {
-	if o != nil && o.ImageSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetImageSize gets a reference to the given int64 and assigns it to the ImageSize field.
-func (o *UserStorageDto) SetImageSize(v int64) {
-	o.ImageSize = &v
-}
-
-// GetImageCount returns the ImageCount field value if set, zero value otherwise.
-func (o *UserStorageDto) GetImageCount() int32 {
-	if o == nil || o.ImageCount == nil {
-		var ret int32
-		return ret
-	}
-	return *o.ImageCount
-}
-
-// GetImageCountOk returns a tuple with the ImageCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetImageCountOk() (*int32, bool) {
-	if o == nil || o.ImageCount == nil {
-		return nil, false
-	}
-	return o.ImageCount, true
-}
-
-// HasImageCount returns a boolean if a field has been set.
-func (o *UserStorageDto) HasImageCount() bool {
-	if o != nil && o.ImageCount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetImageCount gets a reference to the given int32 and assigns it to the ImageCount field.
-func (o *UserStorageDto) SetImageCount(v int32) {
-	o.ImageCount = &v
-}
-
-// GetVideoSize returns the VideoSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetVideoSize() int64 {
-	if o == nil || o.VideoSize == nil {
-		var ret int64
-		return ret
-	}
-	return *o.VideoSize
-}
-
-// GetVideoSizeOk returns a tuple with the VideoSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetVideoSizeOk() (*int64, bool) {
-	if o == nil || o.VideoSize == nil {
-		return nil, false
-	}
-	return o.VideoSize, true
-}
-
-// HasVideoSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasVideoSize() bool {
-	if o != nil && o.VideoSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetVideoSize gets a reference to the given int64 and assigns it to the VideoSize field.
-func (o *UserStorageDto) SetVideoSize(v int64) {
-	o.VideoSize = &v
-}
-
-// GetVideoCount returns the VideoCount field value if set, zero value otherwise.
-func (o *UserStorageDto) GetVideoCount() int32 {
-	if o == nil || o.VideoCount == nil {
-		var ret int32
-		return ret
-	}
-	return *o.VideoCount
-}
-
-// GetVideoCountOk returns a tuple with the VideoCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetVideoCountOk() (*int32, bool) {
-	if o == nil || o.VideoCount == nil {
-		return nil, false
-	}
-	return o.VideoCount, true
-}
-
-// HasVideoCount returns a boolean if a field has been set.
-func (o *UserStorageDto) HasVideoCount() bool {
-	if o != nil && o.VideoCount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetVideoCount gets a reference to the given int32 and assigns it to the VideoCount field.
-func (o *UserStorageDto) SetVideoCount(v int32) {
-	o.VideoCount = &v
-}
-
-// GetAudioSize returns the AudioSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetAudioSize() int64 {
-	if o == nil || o.AudioSize == nil {
-		var ret int64
-		return ret
-	}
-	return *o.AudioSize
-}
-
-// GetAudioSizeOk returns a tuple with the AudioSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetAudioSizeOk() (*int64, bool) {
-	if o == nil || o.AudioSize == nil {
-		return nil, false
-	}
-	return o.AudioSize, true
-}
-
-// HasAudioSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasAudioSize() bool {
-	if o != nil && o.AudioSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAudioSize gets a reference to the given int64 and assigns it to the AudioSize field.
-func (o *UserStorageDto) SetAudioSize(v int64) {
-	o.AudioSize = &v
-}
-
-// GetAudioCount returns the AudioCount field value if set, zero value otherwise.
-func (o *UserStorageDto) GetAudioCount() int32 {
-	if o == nil || o.AudioCount == nil {
-		var ret int32
-		return ret
-	}
-	return *o.AudioCount
-}
-
-// GetAudioCountOk returns a tuple with the AudioCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetAudioCountOk() (*int32, bool) {
-	if o == nil || o.AudioCount == nil {
-		return nil, false
-	}
-	return o.AudioCount, true
-}
-
-// HasAudioCount returns a boolean if a field has been set.
-func (o *UserStorageDto) HasAudioCount() bool {
-	if o != nil && o.AudioCount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAudioCount gets a reference to the given int32 and assigns it to the AudioCount field.
-func (o *UserStorageDto) SetAudioCount(v int32) {
-	o.AudioCount = &v
-}
-
-// GetTotalSize returns the TotalSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetTotalSize() int64 {
-	if o == nil || o.TotalSize == nil {
-		var ret int64
-		return ret
-	}
-	return *o.TotalSize
-}
-
-// GetTotalSizeOk returns a tuple with the TotalSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetTotalSizeOk() (*int64, bool) {
-	if o == nil || o.TotalSize == nil {
-		return nil, false
-	}
-	return o.TotalSize, true
-}
-
-// HasTotalSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasTotalSize() bool {
-	if o != nil && o.TotalSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalSize gets a reference to the given int64 and assigns it to the TotalSize field.
-func (o *UserStorageDto) SetTotalSize(v int64) {
-	o.TotalSize = &v
-}
-
 // GetTotalCount returns the TotalCount field value if set, zero value otherwise.
 func (o *UserStorageDto) GetTotalCount() int32 {
 	if o == nil || o.TotalCount == nil {
@@ -435,132 +135,37 @@ func (o *UserStorageDto) SetTotalCount(v int32) {
 	o.TotalCount = &v
 }
 
-// GetThumbSize returns the ThumbSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetThumbSize() int64 {
-	if o == nil || o.ThumbSize == nil {
-		var ret int64
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UserStorageDto) GetItems() []UserStorageItemDto {
+	if o == nil  {
+		var ret []UserStorageItemDto
 		return ret
 	}
-	return *o.ThumbSize
+	return o.Items
 }
 
-// GetThumbSizeOk returns a tuple with the ThumbSize field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetThumbSizeOk() (*int64, bool) {
-	if o == nil || o.ThumbSize == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UserStorageDto) GetItemsOk() (*[]UserStorageItemDto, bool) {
+	if o == nil || o.Items == nil {
 		return nil, false
 	}
-	return o.ThumbSize, true
+	return &o.Items, true
 }
 
-// HasThumbSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasThumbSize() bool {
-	if o != nil && o.ThumbSize != nil {
+// HasItems returns a boolean if a field has been set.
+func (o *UserStorageDto) HasItems() bool {
+	if o != nil && o.Items != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetThumbSize gets a reference to the given int64 and assigns it to the ThumbSize field.
-func (o *UserStorageDto) SetThumbSize(v int64) {
-	o.ThumbSize = &v
-}
-
-// GetThumbCount returns the ThumbCount field value if set, zero value otherwise.
-func (o *UserStorageDto) GetThumbCount() int32 {
-	if o == nil || o.ThumbCount == nil {
-		var ret int32
-		return ret
-	}
-	return *o.ThumbCount
-}
-
-// GetThumbCountOk returns a tuple with the ThumbCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetThumbCountOk() (*int32, bool) {
-	if o == nil || o.ThumbCount == nil {
-		return nil, false
-	}
-	return o.ThumbCount, true
-}
-
-// HasThumbCount returns a boolean if a field has been set.
-func (o *UserStorageDto) HasThumbCount() bool {
-	if o != nil && o.ThumbCount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetThumbCount gets a reference to the given int32 and assigns it to the ThumbCount field.
-func (o *UserStorageDto) SetThumbCount(v int32) {
-	o.ThumbCount = &v
-}
-
-// GetOtherSize returns the OtherSize field value if set, zero value otherwise.
-func (o *UserStorageDto) GetOtherSize() int64 {
-	if o == nil || o.OtherSize == nil {
-		var ret int64
-		return ret
-	}
-	return *o.OtherSize
-}
-
-// GetOtherSizeOk returns a tuple with the OtherSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetOtherSizeOk() (*int64, bool) {
-	if o == nil || o.OtherSize == nil {
-		return nil, false
-	}
-	return o.OtherSize, true
-}
-
-// HasOtherSize returns a boolean if a field has been set.
-func (o *UserStorageDto) HasOtherSize() bool {
-	if o != nil && o.OtherSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOtherSize gets a reference to the given int64 and assigns it to the OtherSize field.
-func (o *UserStorageDto) SetOtherSize(v int64) {
-	o.OtherSize = &v
-}
-
-// GetOtherCount returns the OtherCount field value if set, zero value otherwise.
-func (o *UserStorageDto) GetOtherCount() int32 {
-	if o == nil || o.OtherCount == nil {
-		var ret int32
-		return ret
-	}
-	return *o.OtherCount
-}
-
-// GetOtherCountOk returns a tuple with the OtherCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UserStorageDto) GetOtherCountOk() (*int32, bool) {
-	if o == nil || o.OtherCount == nil {
-		return nil, false
-	}
-	return o.OtherCount, true
-}
-
-// HasOtherCount returns a boolean if a field has been set.
-func (o *UserStorageDto) HasOtherCount() bool {
-	if o != nil && o.OtherCount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOtherCount gets a reference to the given int32 and assigns it to the OtherCount field.
-func (o *UserStorageDto) SetOtherCount(v int32) {
-	o.OtherCount = &v
+// SetItems gets a reference to the given []UserStorageItemDto and assigns it to the Items field.
+func (o *UserStorageDto) SetItems(v []UserStorageItemDto) {
+	o.Items = v
 }
 
 func (o UserStorageDto) MarshalJSON() ([]byte, error) {
@@ -571,47 +176,11 @@ func (o UserStorageDto) MarshalJSON() ([]byte, error) {
 	if o.CurrentSize != nil {
 		toSerialize["currentSize"] = o.CurrentSize
 	}
-	if o.NoteSize != nil {
-		toSerialize["noteSize"] = o.NoteSize
-	}
-	if o.NoteCount != nil {
-		toSerialize["noteCount"] = o.NoteCount
-	}
-	if o.ImageSize != nil {
-		toSerialize["imageSize"] = o.ImageSize
-	}
-	if o.ImageCount != nil {
-		toSerialize["imageCount"] = o.ImageCount
-	}
-	if o.VideoSize != nil {
-		toSerialize["videoSize"] = o.VideoSize
-	}
-	if o.VideoCount != nil {
-		toSerialize["videoCount"] = o.VideoCount
-	}
-	if o.AudioSize != nil {
-		toSerialize["audioSize"] = o.AudioSize
-	}
-	if o.AudioCount != nil {
-		toSerialize["audioCount"] = o.AudioCount
-	}
-	if o.TotalSize != nil {
-		toSerialize["totalSize"] = o.TotalSize
-	}
 	if o.TotalCount != nil {
 		toSerialize["totalCount"] = o.TotalCount
 	}
-	if o.ThumbSize != nil {
-		toSerialize["thumbSize"] = o.ThumbSize
-	}
-	if o.ThumbCount != nil {
-		toSerialize["thumbCount"] = o.ThumbCount
-	}
-	if o.OtherSize != nil {
-		toSerialize["otherSize"] = o.OtherSize
-	}
-	if o.OtherCount != nil {
-		toSerialize["otherCount"] = o.OtherCount
+	if o.Items != nil {
+		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)
 }

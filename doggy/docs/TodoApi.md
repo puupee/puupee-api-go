@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ApiAppTodoIdGet**](TodoApi.md#ApiAppTodoIdGet) | **Get** /api/app/todo/{id} | 
 [**ApiAppTodoIdPut**](TodoApi.md#ApiAppTodoIdPut) | **Put** /api/app/todo/{id} | 
 [**ApiAppTodoPost**](TodoApi.md#ApiAppTodoPost) | **Post** /api/app/todo | 
+[**ApiAppTodoSyncGet**](TodoApi.md#ApiAppTodoSyncGet) | **Get** /api/app/todo/sync | 
 
 
 
@@ -351,6 +352,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppTodoSyncGet
+
+> TodoDtoPagedResultDto ApiAppTodoSyncGet(ctx).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    afterVersion := int64(789) // int64 |  (optional)
+    skipCount := int32(56) // int32 |  (optional) (default to 0)
+    maxResultCount := int32(56) // int32 |  (optional) (default to 100)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TodoApi.ApiAppTodoSyncGet(context.Background()).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TodoApi.ApiAppTodoSyncGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppTodoSyncGet`: TodoDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `TodoApi.ApiAppTodoSyncGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppTodoSyncGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **afterVersion** | **int64** |  | 
+ **skipCount** | **int32** |  | [default to 0]
+ **maxResultCount** | **int32** |  | [default to 100]
+
+### Return type
+
+[**TodoDtoPagedResultDto**](TodoDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

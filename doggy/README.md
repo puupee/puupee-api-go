@@ -78,10 +78,10 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountApi* | [**ApiAccountRegisterPost**](docs/AccountApi.md#apiaccountregisterpost) | **Post** /api/account/register | 
-*AccountApi* | [**ApiAccountResetPasswordPost**](docs/AccountApi.md#apiaccountresetpasswordpost) | **Post** /api/account/reset-password | 
-*AccountApi* | [**ApiAccountSendPasswordResetCodePost**](docs/AccountApi.md#apiaccountsendpasswordresetcodepost) | **Post** /api/account/send-password-reset-code | 
-*FileApi* | [**ApiAppFileFileOrCredentialsCreatorIdGet**](docs/FileApi.md#apiappfilefileorcredentialscreatoridget) | **Get** /api/app/file/file-or-credentials/{creatorId} | 
+*DeviceApi* | [**ApiAppDeviceGet**](docs/DeviceApi.md#apiappdeviceget) | **Get** /api/app/device | 
+*DeviceApi* | [**ApiAppDeviceIdDelete**](docs/DeviceApi.md#apiappdeviceiddelete) | **Delete** /api/app/device/{id} | 
+*DeviceApi* | [**ApiAppDeviceRefreshPost**](docs/DeviceApi.md#apiappdevicerefreshpost) | **Post** /api/app/device/refresh | 
+*FileApi* | [**ApiAppFileFileOrCredentialsGet**](docs/FileApi.md#apiappfilefileorcredentialsget) | **Get** /api/app/file/file-or-credentials | 
 *FileApi* | [**ApiAppFilePreSignUrlPost**](docs/FileApi.md#apiappfilepresignurlpost) | **Post** /api/app/file/pre-sign-url | 
 *ItemApi* | [**ApiAppItemGet**](docs/ItemApi.md#apiappitemget) | **Get** /api/app/item | 
 *ItemApi* | [**ApiAppItemIdDelete**](docs/ItemApi.md#apiappitemiddelete) | **Delete** /api/app/item/{id} | 
@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**ApiAppItemIdPut**](docs/ItemApi.md#apiappitemidput) | **Put** /api/app/item/{id} | 
 *ItemApi* | [**ApiAppItemPost**](docs/ItemApi.md#apiappitempost) | **Post** /api/app/item | 
 *ItemApi* | [**ApiAppItemSpecialItemsGet**](docs/ItemApi.md#apiappitemspecialitemsget) | **Get** /api/app/item/special-items | 
+*ItemApi* | [**ApiAppItemSyncGet**](docs/ItemApi.md#apiappitemsyncget) | **Get** /api/app/item/sync | 
 *KeyValueApi* | [**ApiAppKeyValueBoolGet**](docs/KeyValueApi.md#apiappkeyvalueboolget) | **Get** /api/app/key-value/bool | 
 *KeyValueApi* | [**ApiAppKeyValueDateTimeGet**](docs/KeyValueApi.md#apiappkeyvaluedatetimeget) | **Get** /api/app/key-value/date-time | 
 *KeyValueApi* | [**ApiAppKeyValueDecimalGet**](docs/KeyValueApi.md#apiappkeyvaluedecimalget) | **Get** /api/app/key-value/decimal | 
@@ -101,33 +102,33 @@ Class | Method | HTTP request | Description
 *KeyValueApi* | [**ApiAppKeyValueSetIntPost**](docs/KeyValueApi.md#apiappkeyvaluesetintpost) | **Post** /api/app/key-value/set-int | 
 *KeyValueApi* | [**ApiAppKeyValueSetStringPost**](docs/KeyValueApi.md#apiappkeyvaluesetstringpost) | **Post** /api/app/key-value/set-string | 
 *KeyValueApi* | [**ApiAppKeyValueStringGet**](docs/KeyValueApi.md#apiappkeyvaluestringget) | **Get** /api/app/key-value/string | 
-*LoginApi* | [**ApiAccountCheckPasswordPost**](docs/LoginApi.md#apiaccountcheckpasswordpost) | **Post** /api/account/check-password | 
-*LoginApi* | [**ApiAccountLoginPost**](docs/LoginApi.md#apiaccountloginpost) | **Post** /api/account/login | 
-*LoginApi* | [**ApiAccountLogoutGet**](docs/LoginApi.md#apiaccountlogoutget) | **Get** /api/account/logout | 
 *MemberApi* | [**ApiAppMemberGet**](docs/MemberApi.md#apiappmemberget) | **Get** /api/app/member | 
 *NoteApi* | [**ApiAppNoteNoteSpecsGet**](docs/NoteApi.md#apiappnotenotespecsget) | **Get** /api/app/note/note-specs | 
-*ProfileApi* | [**ApiAccountMyProfileChangePasswordPost**](docs/ProfileApi.md#apiaccountmyprofilechangepasswordpost) | **Post** /api/account/my-profile/change-password | 
-*ProfileApi* | [**ApiAccountMyProfileGet**](docs/ProfileApi.md#apiaccountmyprofileget) | **Get** /api/account/my-profile | 
-*ProfileApi* | [**ApiAccountMyProfilePut**](docs/ProfileApi.md#apiaccountmyprofileput) | **Put** /api/account/my-profile | 
+*NotificationApi* | [**ApiAppNotificationBarkApiKeyMessageGet**](docs/NotificationApi.md#apiappnotificationbarkapikeymessageget) | **Get** /api/app/notification/bark/{apiKey}/{message} | 
+*NotificationApi* | [**ApiAppNotificationGet**](docs/NotificationApi.md#apiappnotificationget) | **Get** /api/app/notification | 
+*NotificationApi* | [**ApiAppNotificationPushPost**](docs/NotificationApi.md#apiappnotificationpushpost) | **Post** /api/app/notification/push | 
 *SettingsApi* | [**ApiAppSettingsGet**](docs/SettingsApi.md#apiappsettingsget) | **Get** /api/app/settings | 
 *SettingsApi* | [**ApiAppSettingsSetPost**](docs/SettingsApi.md#apiappsettingssetpost) | **Post** /api/app/settings/set | 
+*SimpleDataApi* | [**ApiAppSimpleDataGet**](docs/SimpleDataApi.md#apiappsimpledataget) | **Get** /api/app/simple-data | 
+*SimpleDataApi* | [**ApiAppSimpleDataIdDelete**](docs/SimpleDataApi.md#apiappsimpledataiddelete) | **Delete** /api/app/simple-data/{id} | 
+*SimpleDataApi* | [**ApiAppSimpleDataIdGet**](docs/SimpleDataApi.md#apiappsimpledataidget) | **Get** /api/app/simple-data/{id} | 
+*SimpleDataApi* | [**ApiAppSimpleDataSavePost**](docs/SimpleDataApi.md#apiappsimpledatasavepost) | **Post** /api/app/simple-data/save | 
 *SmsApi* | [**ApiAppSmsSendChangePhoneCodePost**](docs/SmsApi.md#apiappsmssendchangephonecodepost) | **Post** /api/app/sms/send-change-phone-code | 
 *SmsApi* | [**ApiAppSmsSendLoginCodePost**](docs/SmsApi.md#apiappsmssendlogincodepost) | **Post** /api/app/sms/send-login-code | 
 *StorageApi* | [**ApiAppStorageGet**](docs/StorageApi.md#apiappstorageget) | **Get** /api/app/storage | 
+*SyncStateApi* | [**ApiAppSyncStateGet**](docs/SyncStateApi.md#apiappsyncstateget) | **Get** /api/app/sync-state | 
 *TagApi* | [**ApiAppTagGet**](docs/TagApi.md#apiapptagget) | **Get** /api/app/tag | 
 *TagApi* | [**ApiAppTagIdDelete**](docs/TagApi.md#apiapptagiddelete) | **Delete** /api/app/tag/{id} | 
 *TagApi* | [**ApiAppTagIdGet**](docs/TagApi.md#apiapptagidget) | **Get** /api/app/tag/{id} | 
 *TagApi* | [**ApiAppTagIdPut**](docs/TagApi.md#apiapptagidput) | **Put** /api/app/tag/{id} | 
 *TagApi* | [**ApiAppTagPost**](docs/TagApi.md#apiapptagpost) | **Post** /api/app/tag | 
-*ThumbApi* | [**ApiAppThumbGet**](docs/ThumbApi.md#apiappthumbget) | **Get** /api/app/thumb | 
-*ThumbApi* | [**ApiAppThumbIdDelete**](docs/ThumbApi.md#apiappthumbiddelete) | **Delete** /api/app/thumb/{id} | 
-*ThumbApi* | [**ApiAppThumbIdGet**](docs/ThumbApi.md#apiappthumbidget) | **Get** /api/app/thumb/{id} | 
-*ThumbApi* | [**ApiAppThumbPost**](docs/ThumbApi.md#apiappthumbpost) | **Post** /api/app/thumb | 
+*TagApi* | [**ApiAppTagSyncGet**](docs/TagApi.md#apiapptagsyncget) | **Get** /api/app/tag/sync | 
 *TodoApi* | [**ApiAppTodoGet**](docs/TodoApi.md#apiapptodoget) | **Get** /api/app/todo | 
 *TodoApi* | [**ApiAppTodoIdDelete**](docs/TodoApi.md#apiapptodoiddelete) | **Delete** /api/app/todo/{id} | 
 *TodoApi* | [**ApiAppTodoIdGet**](docs/TodoApi.md#apiapptodoidget) | **Get** /api/app/todo/{id} | 
 *TodoApi* | [**ApiAppTodoIdPut**](docs/TodoApi.md#apiapptodoidput) | **Put** /api/app/todo/{id} | 
 *TodoApi* | [**ApiAppTodoPost**](docs/TodoApi.md#apiapptodopost) | **Post** /api/app/todo | 
+*TodoApi* | [**ApiAppTodoSyncGet**](docs/TodoApi.md#apiapptodosyncget) | **Get** /api/app/todo/sync | 
 
 
 ## Documentation For Models
@@ -147,9 +148,10 @@ Class | Method | HTTP request | Description
  - [ClockDto](docs/ClockDto.md)
  - [ControllerApiDescriptionModel](docs/ControllerApiDescriptionModel.md)
  - [ControllerInterfaceApiDescriptionModel](docs/ControllerInterfaceApiDescriptionModel.md)
+ - [CreatePushNotificationDto](docs/CreatePushNotificationDto.md)
  - [CreateUpdateItemDto](docs/CreateUpdateItemDto.md)
+ - [CreateUpdateNotificationDto](docs/CreateUpdateNotificationDto.md)
  - [CreateUpdateTagDto](docs/CreateUpdateTagDto.md)
- - [CreateUpdateThumbDto](docs/CreateUpdateThumbDto.md)
  - [CreateUpdateTodoDto](docs/CreateUpdateTodoDto.md)
  - [CurrentCultureDto](docs/CurrentCultureDto.md)
  - [CurrentTenantDto](docs/CurrentTenantDto.md)
@@ -159,6 +161,9 @@ Class | Method | HTTP request | Description
  - [DateTimeSetKeyValueDto](docs/DateTimeSetKeyValueDto.md)
  - [DecimalKeyValue](docs/DecimalKeyValue.md)
  - [DecimalSetKeyValueDto](docs/DecimalSetKeyValueDto.md)
+ - [DeviceDto](docs/DeviceDto.md)
+ - [DeviceDtoPagedResultDto](docs/DeviceDtoPagedResultDto.md)
+ - [DeviceStatus](docs/DeviceStatus.md)
  - [DisplayStyle](docs/DisplayStyle.md)
  - [DoubleKeyValue](docs/DoubleKeyValue.md)
  - [DoubleSetKeyValueDto](docs/DoubleSetKeyValueDto.md)
@@ -213,14 +218,20 @@ Class | Method | HTTP request | Description
  - [MultiTenancyInfoDto](docs/MultiTenancyInfoDto.md)
  - [NameValue](docs/NameValue.md)
  - [NoteSpecDto](docs/NoteSpecDto.md)
+ - [NotificationDto](docs/NotificationDto.md)
+ - [NotificationDtoPagedResultDto](docs/NotificationDtoPagedResultDto.md)
+ - [NotificationInfoDto](docs/NotificationInfoDto.md)
+ - [NotificationInfoDtoPagedResultDto](docs/NotificationInfoDtoPagedResultDto.md)
  - [ObjectExtensionsDto](docs/ObjectExtensionsDto.md)
  - [ParameterApiDescriptionModel](docs/ParameterApiDescriptionModel.md)
  - [PermissionGrantInfoDto](docs/PermissionGrantInfoDto.md)
  - [PermissionGroupDto](docs/PermissionGroupDto.md)
+ - [Platform](docs/Platform.md)
  - [Priority](docs/Priority.md)
  - [ProfileDto](docs/ProfileDto.md)
  - [PropertyApiDescriptionModel](docs/PropertyApiDescriptionModel.md)
  - [ProviderInfoDto](docs/ProviderInfoDto.md)
+ - [RefreshDeviceStatusDto](docs/RefreshDeviceStatusDto.md)
  - [RegisterDto](docs/RegisterDto.md)
  - [RemoteServiceErrorInfo](docs/RemoteServiceErrorInfo.md)
  - [RemoteServiceErrorResponse](docs/RemoteServiceErrorResponse.md)
@@ -230,18 +241,19 @@ Class | Method | HTTP request | Description
  - [SendPasswordResetCodeDto](docs/SendPasswordResetCodeDto.md)
  - [SendSmsCodeDto](docs/SendSmsCodeDto.md)
  - [SettingsDto](docs/SettingsDto.md)
+ - [SimpleDataDto](docs/SimpleDataDto.md)
+ - [SimpleDataDtoPagedResultDto](docs/SimpleDataDtoPagedResultDto.md)
  - [SpecialItemDto](docs/SpecialItemDto.md)
  - [SpecialItems](docs/SpecialItems.md)
  - [StringKeyValue](docs/StringKeyValue.md)
  - [StringSetKeyValueDto](docs/StringSetKeyValueDto.md)
+ - [SyncStateDto](docs/SyncStateDto.md)
  - [TagDto](docs/TagDto.md)
  - [TagDtoPagedResultDto](docs/TagDtoPagedResultDto.md)
  - [TenantCreateDto](docs/TenantCreateDto.md)
  - [TenantDto](docs/TenantDto.md)
  - [TenantDtoPagedResultDto](docs/TenantDtoPagedResultDto.md)
  - [TenantUpdateDto](docs/TenantUpdateDto.md)
- - [ThumbDto](docs/ThumbDto.md)
- - [ThumbDtoPagedResultDto](docs/ThumbDtoPagedResultDto.md)
  - [TimeZone](docs/TimeZone.md)
  - [TimingDto](docs/TimingDto.md)
  - [TodoDto](docs/TodoDto.md)
@@ -258,6 +270,7 @@ Class | Method | HTTP request | Description
  - [UserDataListResultDto](docs/UserDataListResultDto.md)
  - [UserLoginInfo](docs/UserLoginInfo.md)
  - [UserStorageDto](docs/UserStorageDto.md)
+ - [UserStorageItemDto](docs/UserStorageItemDto.md)
  - [WindowsTimeZone](docs/WindowsTimeZone.md)
 
 
@@ -270,7 +283,7 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://api.doggy.code2code.cn/connect/authorize
+- **Authorization URL**: https://localhost:44306/connect/authorize
 - **Scopes**: 
  - **Doggy**: Doggy API
 

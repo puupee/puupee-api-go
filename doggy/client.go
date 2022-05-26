@@ -49,7 +49,7 @@ type APIClient struct {
 
 	// API Services
 
-	AccountApi *AccountApiService
+	DeviceApi *DeviceApiService
 
 	FileApi *FileApiService
 
@@ -57,23 +57,23 @@ type APIClient struct {
 
 	KeyValueApi *KeyValueApiService
 
-	LoginApi *LoginApiService
-
 	MemberApi *MemberApiService
 
 	NoteApi *NoteApiService
 
-	ProfileApi *ProfileApiService
+	NotificationApi *NotificationApiService
 
 	SettingsApi *SettingsApiService
+
+	SimpleDataApi *SimpleDataApiService
 
 	SmsApi *SmsApiService
 
 	StorageApi *StorageApiService
 
-	TagApi *TagApiService
+	SyncStateApi *SyncStateApiService
 
-	ThumbApi *ThumbApiService
+	TagApi *TagApiService
 
 	TodoApi *TodoApiService
 }
@@ -94,19 +94,19 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AccountApi = (*AccountApiService)(&c.common)
+	c.DeviceApi = (*DeviceApiService)(&c.common)
 	c.FileApi = (*FileApiService)(&c.common)
 	c.ItemApi = (*ItemApiService)(&c.common)
 	c.KeyValueApi = (*KeyValueApiService)(&c.common)
-	c.LoginApi = (*LoginApiService)(&c.common)
 	c.MemberApi = (*MemberApiService)(&c.common)
 	c.NoteApi = (*NoteApiService)(&c.common)
-	c.ProfileApi = (*ProfileApiService)(&c.common)
+	c.NotificationApi = (*NotificationApiService)(&c.common)
 	c.SettingsApi = (*SettingsApiService)(&c.common)
+	c.SimpleDataApi = (*SimpleDataApiService)(&c.common)
 	c.SmsApi = (*SmsApiService)(&c.common)
 	c.StorageApi = (*StorageApiService)(&c.common)
+	c.SyncStateApi = (*SyncStateApiService)(&c.common)
 	c.TagApi = (*TagApiService)(&c.common)
-	c.ThumbApi = (*ThumbApiService)(&c.common)
 	c.TodoApi = (*TodoApiService)(&c.common)
 
 	return c

@@ -18,6 +18,9 @@ Name | Type | Description | Notes
 **DoneAt** | Pointer to **NullableTime** |  | [optional] 
 **IsDone** | Pointer to **bool** |  | [optional] 
 **Children** | Pointer to [**[]TodoDto**](TodoDto.md) |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
+**ParentId** | Pointer to **NullableString** |  | [optional] 
+**EndAt** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
@@ -478,6 +481,101 @@ HasChildren returns a boolean if a field has been set.
 `func (o *TodoDto) UnsetChildren()`
 
 UnsetChildren ensures that no value is present for Children, not even an explicit nil
+### GetSyncVersion
+
+`func (o *TodoDto) GetSyncVersion() int64`
+
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
+
+### GetSyncVersionOk
+
+`func (o *TodoDto) GetSyncVersionOk() (*int64, bool)`
+
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncVersion
+
+`func (o *TodoDto) SetSyncVersion(v int64)`
+
+SetSyncVersion sets SyncVersion field to given value.
+
+### HasSyncVersion
+
+`func (o *TodoDto) HasSyncVersion() bool`
+
+HasSyncVersion returns a boolean if a field has been set.
+
+### GetParentId
+
+`func (o *TodoDto) GetParentId() string`
+
+GetParentId returns the ParentId field if non-nil, zero value otherwise.
+
+### GetParentIdOk
+
+`func (o *TodoDto) GetParentIdOk() (*string, bool)`
+
+GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentId
+
+`func (o *TodoDto) SetParentId(v string)`
+
+SetParentId sets ParentId field to given value.
+
+### HasParentId
+
+`func (o *TodoDto) HasParentId() bool`
+
+HasParentId returns a boolean if a field has been set.
+
+### SetParentIdNil
+
+`func (o *TodoDto) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *TodoDto) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+### GetEndAt
+
+`func (o *TodoDto) GetEndAt() time.Time`
+
+GetEndAt returns the EndAt field if non-nil, zero value otherwise.
+
+### GetEndAtOk
+
+`func (o *TodoDto) GetEndAtOk() (*time.Time, bool)`
+
+GetEndAtOk returns a tuple with the EndAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndAt
+
+`func (o *TodoDto) SetEndAt(v time.Time)`
+
+SetEndAt sets EndAt field to given value.
+
+### HasEndAt
+
+`func (o *TodoDto) HasEndAt() bool`
+
+HasEndAt returns a boolean if a field has been set.
+
+### SetEndAtNil
+
+`func (o *TodoDto) SetEndAtNil(b bool)`
+
+ SetEndAtNil sets the value for EndAt to be an explicit nil
+
+### UnsetEndAt
+`func (o *TodoDto) UnsetEndAt()`
+
+UnsetEndAt ensures that no value is present for EndAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ApiAppTagIdGet**](TagApi.md#ApiAppTagIdGet) | **Get** /api/app/tag/{id} | 
 [**ApiAppTagIdPut**](TagApi.md#ApiAppTagIdPut) | **Put** /api/app/tag/{id} | 
 [**ApiAppTagPost**](TagApi.md#ApiAppTagPost) | **Post** /api/app/tag | 
+[**ApiAppTagSyncGet**](TagApi.md#ApiAppTagSyncGet) | **Get** /api/app/tag/sync | 
 
 
 
@@ -345,6 +346,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppTagSyncGet
+
+> TagDtoPagedResultDto ApiAppTagSyncGet(ctx).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    afterVersion := int64(789) // int64 |  (optional)
+    skipCount := int32(56) // int32 |  (optional) (default to 0)
+    maxResultCount := int32(56) // int32 |  (optional) (default to 100)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TagApi.ApiAppTagSyncGet(context.Background()).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TagApi.ApiAppTagSyncGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppTagSyncGet`: TagDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `TagApi.ApiAppTagSyncGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppTagSyncGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **afterVersion** | **int64** |  | 
+ **skipCount** | **int32** |  | [default to 0]
+ **maxResultCount** | **int32** |  | [default to 100]
+
+### Return type
+
+[**TagDtoPagedResultDto**](TagDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

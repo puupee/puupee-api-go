@@ -30,15 +30,14 @@ type FileDto struct {
 	Url NullableString `json:"url,omitempty"`
 	Size *int32 `json:"size,omitempty"`
 	Md5 NullableString `json:"md5,omitempty"`
+	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
+	RapidCode NullableString `json:"rapidCode,omitempty"`
 	ContentType NullableString `json:"contentType,omitempty"`
 	Extension NullableString `json:"extension,omitempty"`
 	StorageClass NullableString `json:"storageClass,omitempty"`
 	FileCreatedAt NullableTime `json:"fileCreatedAt,omitempty"`
 	FileUpdatedAt NullableTime `json:"fileUpdatedAt,omitempty"`
-	FileId NullableString `json:"fileId,omitempty"`
-	File *FileDto `json:"file,omitempty"`
-	Folders []ItemDto `json:"folders,omitempty"`
-	Tags []TagDto `json:"tags,omitempty"`
+	SyncVersion *int64 `json:"syncVersion,omitempty"`
 }
 
 // NewFileDto instantiates a new FileDto object
@@ -564,6 +563,90 @@ func (o *FileDto) UnsetMd5() {
 	o.Md5.Unset()
 }
 
+// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FileDto) GetSliceMd5() string {
+	if o == nil || o.SliceMd5.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.SliceMd5.Get()
+}
+
+// GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FileDto) GetSliceMd5Ok() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.SliceMd5.Get(), o.SliceMd5.IsSet()
+}
+
+// HasSliceMd5 returns a boolean if a field has been set.
+func (o *FileDto) HasSliceMd5() bool {
+	if o != nil && o.SliceMd5.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSliceMd5 gets a reference to the given NullableString and assigns it to the SliceMd5 field.
+func (o *FileDto) SetSliceMd5(v string) {
+	o.SliceMd5.Set(&v)
+}
+// SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+func (o *FileDto) SetSliceMd5Nil() {
+	o.SliceMd5.Set(nil)
+}
+
+// UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
+func (o *FileDto) UnsetSliceMd5() {
+	o.SliceMd5.Unset()
+}
+
+// GetRapidCode returns the RapidCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FileDto) GetRapidCode() string {
+	if o == nil || o.RapidCode.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.RapidCode.Get()
+}
+
+// GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FileDto) GetRapidCodeOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.RapidCode.Get(), o.RapidCode.IsSet()
+}
+
+// HasRapidCode returns a boolean if a field has been set.
+func (o *FileDto) HasRapidCode() bool {
+	if o != nil && o.RapidCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRapidCode gets a reference to the given NullableString and assigns it to the RapidCode field.
+func (o *FileDto) SetRapidCode(v string) {
+	o.RapidCode.Set(&v)
+}
+// SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+func (o *FileDto) SetRapidCodeNil() {
+	o.RapidCode.Set(nil)
+}
+
+// UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
+func (o *FileDto) UnsetRapidCode() {
+	o.RapidCode.Unset()
+}
+
 // GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FileDto) GetContentType() string {
 	if o == nil || o.ContentType.Get() == nil {
@@ -774,144 +857,36 @@ func (o *FileDto) UnsetFileUpdatedAt() {
 	o.FileUpdatedAt.Unset()
 }
 
-// GetFileId returns the FileId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileDto) GetFileId() string {
-	if o == nil || o.FileId.Get() == nil {
-		var ret string
+// GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
+func (o *FileDto) GetSyncVersion() int64 {
+	if o == nil || o.SyncVersion == nil {
+		var ret int64
 		return ret
 	}
-	return *o.FileId.Get()
+	return *o.SyncVersion
 }
 
-// GetFileIdOk returns a tuple with the FileId field value if set, nil otherwise
+// GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileDto) GetFileIdOk() (*string, bool) {
-	if o == nil  {
+func (o *FileDto) GetSyncVersionOk() (*int64, bool) {
+	if o == nil || o.SyncVersion == nil {
 		return nil, false
 	}
-	return o.FileId.Get(), o.FileId.IsSet()
+	return o.SyncVersion, true
 }
 
-// HasFileId returns a boolean if a field has been set.
-func (o *FileDto) HasFileId() bool {
-	if o != nil && o.FileId.IsSet() {
+// HasSyncVersion returns a boolean if a field has been set.
+func (o *FileDto) HasSyncVersion() bool {
+	if o != nil && o.SyncVersion != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetFileId gets a reference to the given NullableString and assigns it to the FileId field.
-func (o *FileDto) SetFileId(v string) {
-	o.FileId.Set(&v)
-}
-// SetFileIdNil sets the value for FileId to be an explicit nil
-func (o *FileDto) SetFileIdNil() {
-	o.FileId.Set(nil)
-}
-
-// UnsetFileId ensures that no value is present for FileId, not even an explicit nil
-func (o *FileDto) UnsetFileId() {
-	o.FileId.Unset()
-}
-
-// GetFile returns the File field value if set, zero value otherwise.
-func (o *FileDto) GetFile() FileDto {
-	if o == nil || o.File == nil {
-		var ret FileDto
-		return ret
-	}
-	return *o.File
-}
-
-// GetFileOk returns a tuple with the File field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FileDto) GetFileOk() (*FileDto, bool) {
-	if o == nil || o.File == nil {
-		return nil, false
-	}
-	return o.File, true
-}
-
-// HasFile returns a boolean if a field has been set.
-func (o *FileDto) HasFile() bool {
-	if o != nil && o.File != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFile gets a reference to the given FileDto and assigns it to the File field.
-func (o *FileDto) SetFile(v FileDto) {
-	o.File = &v
-}
-
-// GetFolders returns the Folders field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileDto) GetFolders() []ItemDto {
-	if o == nil  {
-		var ret []ItemDto
-		return ret
-	}
-	return o.Folders
-}
-
-// GetFoldersOk returns a tuple with the Folders field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileDto) GetFoldersOk() (*[]ItemDto, bool) {
-	if o == nil || o.Folders == nil {
-		return nil, false
-	}
-	return &o.Folders, true
-}
-
-// HasFolders returns a boolean if a field has been set.
-func (o *FileDto) HasFolders() bool {
-	if o != nil && o.Folders != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFolders gets a reference to the given []ItemDto and assigns it to the Folders field.
-func (o *FileDto) SetFolders(v []ItemDto) {
-	o.Folders = v
-}
-
-// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileDto) GetTags() []TagDto {
-	if o == nil  {
-		var ret []TagDto
-		return ret
-	}
-	return o.Tags
-}
-
-// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileDto) GetTagsOk() (*[]TagDto, bool) {
-	if o == nil || o.Tags == nil {
-		return nil, false
-	}
-	return &o.Tags, true
-}
-
-// HasTags returns a boolean if a field has been set.
-func (o *FileDto) HasTags() bool {
-	if o != nil && o.Tags != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTags gets a reference to the given []TagDto and assigns it to the Tags field.
-func (o *FileDto) SetTags(v []TagDto) {
-	o.Tags = v
+// SetSyncVersion gets a reference to the given int64 and assigns it to the SyncVersion field.
+func (o *FileDto) SetSyncVersion(v int64) {
+	o.SyncVersion = &v
 }
 
 func (o FileDto) MarshalJSON() ([]byte, error) {
@@ -955,6 +930,12 @@ func (o FileDto) MarshalJSON() ([]byte, error) {
 	if o.Md5.IsSet() {
 		toSerialize["md5"] = o.Md5.Get()
 	}
+	if o.SliceMd5.IsSet() {
+		toSerialize["sliceMd5"] = o.SliceMd5.Get()
+	}
+	if o.RapidCode.IsSet() {
+		toSerialize["rapidCode"] = o.RapidCode.Get()
+	}
 	if o.ContentType.IsSet() {
 		toSerialize["contentType"] = o.ContentType.Get()
 	}
@@ -970,17 +951,8 @@ func (o FileDto) MarshalJSON() ([]byte, error) {
 	if o.FileUpdatedAt.IsSet() {
 		toSerialize["fileUpdatedAt"] = o.FileUpdatedAt.Get()
 	}
-	if o.FileId.IsSet() {
-		toSerialize["fileId"] = o.FileId.Get()
-	}
-	if o.File != nil {
-		toSerialize["file"] = o.File
-	}
-	if o.Folders != nil {
-		toSerialize["folders"] = o.Folders
-	}
-	if o.Tags != nil {
-		toSerialize["tags"] = o.Tags
+	if o.SyncVersion != nil {
+		toSerialize["syncVersion"] = o.SyncVersion
 	}
 	return json.Marshal(toSerialize)
 }

@@ -23,6 +23,12 @@ type CreateUpdateTodoDto struct {
 	IsDone *bool `json:"isDone,omitempty"`
 	ParentId NullableString `json:"parentId,omitempty"`
 	EndAt NullableTime `json:"endAt,omitempty"`
+	SyncVersion *int64 `json:"syncVersion,omitempty"`
+	DoneAt NullableTime `json:"doneAt,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	DeletionTime NullableTime `json:"deletionTime,omitempty"`
+	CreationTime *time.Time `json:"creationTime,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
 }
 
 // NewCreateUpdateTodoDto instantiates a new CreateUpdateTodoDto object
@@ -265,6 +271,218 @@ func (o *CreateUpdateTodoDto) UnsetEndAt() {
 	o.EndAt.Unset()
 }
 
+// GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
+func (o *CreateUpdateTodoDto) GetSyncVersion() int64 {
+	if o == nil || o.SyncVersion == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SyncVersion
+}
+
+// GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTodoDto) GetSyncVersionOk() (*int64, bool) {
+	if o == nil || o.SyncVersion == nil {
+		return nil, false
+	}
+	return o.SyncVersion, true
+}
+
+// HasSyncVersion returns a boolean if a field has been set.
+func (o *CreateUpdateTodoDto) HasSyncVersion() bool {
+	if o != nil && o.SyncVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSyncVersion gets a reference to the given int64 and assigns it to the SyncVersion field.
+func (o *CreateUpdateTodoDto) SetSyncVersion(v int64) {
+	o.SyncVersion = &v
+}
+
+// GetDoneAt returns the DoneAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpdateTodoDto) GetDoneAt() time.Time {
+	if o == nil || o.DoneAt.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.DoneAt.Get()
+}
+
+// GetDoneAtOk returns a tuple with the DoneAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpdateTodoDto) GetDoneAtOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DoneAt.Get(), o.DoneAt.IsSet()
+}
+
+// HasDoneAt returns a boolean if a field has been set.
+func (o *CreateUpdateTodoDto) HasDoneAt() bool {
+	if o != nil && o.DoneAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDoneAt gets a reference to the given NullableTime and assigns it to the DoneAt field.
+func (o *CreateUpdateTodoDto) SetDoneAt(v time.Time) {
+	o.DoneAt.Set(&v)
+}
+// SetDoneAtNil sets the value for DoneAt to be an explicit nil
+func (o *CreateUpdateTodoDto) SetDoneAtNil() {
+	o.DoneAt.Set(nil)
+}
+
+// UnsetDoneAt ensures that no value is present for DoneAt, not even an explicit nil
+func (o *CreateUpdateTodoDto) UnsetDoneAt() {
+	o.DoneAt.Unset()
+}
+
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *CreateUpdateTodoDto) GetIsDeleted() bool {
+	if o == nil || o.IsDeleted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTodoDto) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || o.IsDeleted == nil {
+		return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *CreateUpdateTodoDto) HasIsDeleted() bool {
+	if o != nil && o.IsDeleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *CreateUpdateTodoDto) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpdateTodoDto) GetDeletionTime() time.Time {
+	if o == nil || o.DeletionTime.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeletionTime.Get()
+}
+
+// GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpdateTodoDto) GetDeletionTimeOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+}
+
+// HasDeletionTime returns a boolean if a field has been set.
+func (o *CreateUpdateTodoDto) HasDeletionTime() bool {
+	if o != nil && o.DeletionTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+func (o *CreateUpdateTodoDto) SetDeletionTime(v time.Time) {
+	o.DeletionTime.Set(&v)
+}
+// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+func (o *CreateUpdateTodoDto) SetDeletionTimeNil() {
+	o.DeletionTime.Set(nil)
+}
+
+// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+func (o *CreateUpdateTodoDto) UnsetDeletionTime() {
+	o.DeletionTime.Unset()
+}
+
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise.
+func (o *CreateUpdateTodoDto) GetCreationTime() time.Time {
+	if o == nil || o.CreationTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreationTime
+}
+
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTodoDto) GetCreationTimeOk() (*time.Time, bool) {
+	if o == nil || o.CreationTime == nil {
+		return nil, false
+	}
+	return o.CreationTime, true
+}
+
+// HasCreationTime returns a boolean if a field has been set.
+func (o *CreateUpdateTodoDto) HasCreationTime() bool {
+	if o != nil && o.CreationTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
+func (o *CreateUpdateTodoDto) SetCreationTime(v time.Time) {
+	o.CreationTime = &v
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+func (o *CreateUpdateTodoDto) GetLastModificationTime() time.Time {
+	if o == nil || o.LastModificationTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastModificationTime
+}
+
+// GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTodoDto) GetLastModificationTimeOk() (*time.Time, bool) {
+	if o == nil || o.LastModificationTime == nil {
+		return nil, false
+	}
+	return o.LastModificationTime, true
+}
+
+// HasLastModificationTime returns a boolean if a field has been set.
+func (o *CreateUpdateTodoDto) HasLastModificationTime() bool {
+	if o != nil && o.LastModificationTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+func (o *CreateUpdateTodoDto) SetLastModificationTime(v time.Time) {
+	o.LastModificationTime = &v
+}
+
 func (o CreateUpdateTodoDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Title.IsSet() {
@@ -284,6 +502,24 @@ func (o CreateUpdateTodoDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.EndAt.IsSet() {
 		toSerialize["endAt"] = o.EndAt.Get()
+	}
+	if o.SyncVersion != nil {
+		toSerialize["syncVersion"] = o.SyncVersion
+	}
+	if o.DoneAt.IsSet() {
+		toSerialize["doneAt"] = o.DoneAt.Get()
+	}
+	if o.IsDeleted != nil {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if o.DeletionTime.IsSet() {
+		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	}
+	if o.CreationTime != nil {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if o.LastModificationTime != nil {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
 	return json.Marshal(toSerialize)
 }

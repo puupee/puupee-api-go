@@ -16,7 +16,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 )
 
 // Linger please
@@ -27,40 +26,37 @@ var (
 // FileApiService FileApi service
 type FileApiService service
 
-type ApiApiAppFileFileOrCredentialsCreatorIdGetRequest struct {
+type ApiApiAppFileFileOrCredentialsGetRequest struct {
 	ctx _context.Context
 	ApiService *FileApiService
-	creatorId string
 	rapidCode *string
 }
 
-func (r ApiApiAppFileFileOrCredentialsCreatorIdGetRequest) RapidCode(rapidCode string) ApiApiAppFileFileOrCredentialsCreatorIdGetRequest {
+func (r ApiApiAppFileFileOrCredentialsGetRequest) RapidCode(rapidCode string) ApiApiAppFileFileOrCredentialsGetRequest {
 	r.rapidCode = &rapidCode
 	return r
 }
 
-func (r ApiApiAppFileFileOrCredentialsCreatorIdGetRequest) Execute() (FileOrCredentialsDto, *_nethttp.Response, error) {
-	return r.ApiService.ApiAppFileFileOrCredentialsCreatorIdGetExecute(r)
+func (r ApiApiAppFileFileOrCredentialsGetRequest) Execute() (FileOrCredentialsDto, *_nethttp.Response, error) {
+	return r.ApiService.ApiAppFileFileOrCredentialsGetExecute(r)
 }
 
 /*
-ApiAppFileFileOrCredentialsCreatorIdGet Method for ApiAppFileFileOrCredentialsCreatorIdGet
+ApiAppFileFileOrCredentialsGet Method for ApiAppFileFileOrCredentialsGet
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param creatorId
- @return ApiApiAppFileFileOrCredentialsCreatorIdGetRequest
+ @return ApiApiAppFileFileOrCredentialsGetRequest
 */
-func (a *FileApiService) ApiAppFileFileOrCredentialsCreatorIdGet(ctx _context.Context, creatorId string) ApiApiAppFileFileOrCredentialsCreatorIdGetRequest {
-	return ApiApiAppFileFileOrCredentialsCreatorIdGetRequest{
+func (a *FileApiService) ApiAppFileFileOrCredentialsGet(ctx _context.Context) ApiApiAppFileFileOrCredentialsGetRequest {
+	return ApiApiAppFileFileOrCredentialsGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		creatorId: creatorId,
 	}
 }
 
 // Execute executes the request
 //  @return FileOrCredentialsDto
-func (a *FileApiService) ApiAppFileFileOrCredentialsCreatorIdGetExecute(r ApiApiAppFileFileOrCredentialsCreatorIdGetRequest) (FileOrCredentialsDto, *_nethttp.Response, error) {
+func (a *FileApiService) ApiAppFileFileOrCredentialsGetExecute(r ApiApiAppFileFileOrCredentialsGetRequest) (FileOrCredentialsDto, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -70,13 +66,12 @@ func (a *FileApiService) ApiAppFileFileOrCredentialsCreatorIdGetExecute(r ApiApi
 		localVarReturnValue  FileOrCredentialsDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileApiService.ApiAppFileFileOrCredentialsCreatorIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileApiService.ApiAppFileFileOrCredentialsGet")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/file/file-or-credentials/{creatorId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"creatorId"+"}", _neturl.PathEscape(parameterToString(r.creatorId, "")), -1)
+	localVarPath := localBasePath + "/api/app/file/file-or-credentials"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

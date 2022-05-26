@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppFileFileOrCredentialsCreatorIdGet**](FileApi.md#ApiAppFileFileOrCredentialsCreatorIdGet) | **Get** /api/app/file/file-or-credentials/{creatorId} | 
+[**ApiAppFileFileOrCredentialsGet**](FileApi.md#ApiAppFileFileOrCredentialsGet) | **Get** /api/app/file/file-or-credentials | 
 [**ApiAppFilePreSignUrlPost**](FileApi.md#ApiAppFilePreSignUrlPost) | **Post** /api/app/file/pre-sign-url | 
 
 
 
-## ApiAppFileFileOrCredentialsCreatorIdGet
+## ApiAppFileFileOrCredentialsGet
 
-> FileOrCredentialsDto ApiAppFileFileOrCredentialsCreatorIdGet(ctx, creatorId).RapidCode(rapidCode).Execute()
+> FileOrCredentialsDto ApiAppFileFileOrCredentialsGet(ctx).RapidCode(rapidCode).Execute()
 
 
 
@@ -28,37 +28,31 @@ import (
 )
 
 func main() {
-    creatorId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
     rapidCode := "rapidCode_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FileApi.ApiAppFileFileOrCredentialsCreatorIdGet(context.Background(), creatorId).RapidCode(rapidCode).Execute()
+    resp, r, err := api_client.FileApi.ApiAppFileFileOrCredentialsGet(context.Background()).RapidCode(rapidCode).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FileApi.ApiAppFileFileOrCredentialsCreatorIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FileApi.ApiAppFileFileOrCredentialsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppFileFileOrCredentialsCreatorIdGet`: FileOrCredentialsDto
-    fmt.Fprintf(os.Stdout, "Response from `FileApi.ApiAppFileFileOrCredentialsCreatorIdGet`: %v\n", resp)
+    // response from `ApiAppFileFileOrCredentialsGet`: FileOrCredentialsDto
+    fmt.Fprintf(os.Stdout, "Response from `FileApi.ApiAppFileFileOrCredentialsGet`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**creatorId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppFileFileOrCredentialsCreatorIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiApiAppFileFileOrCredentialsGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **rapidCode** | **string** |  | 
 
 ### Return type

@@ -17,15 +17,14 @@ Name | Type | Description | Notes
 **Url** | Pointer to **NullableString** |  | [optional] 
 **Size** | Pointer to **int32** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
+**SliceMd5** | Pointer to **NullableString** |  | [optional] 
+**RapidCode** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
 **Extension** | Pointer to **NullableString** |  | [optional] 
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **FileUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
-**FileId** | Pointer to **NullableString** |  | [optional] 
-**File** | Pointer to [**FileDto**](FileDto.md) |  | [optional] 
-**Folders** | Pointer to [**[]ItemDto**](ItemDto.md) |  | [optional] 
-**Tags** | Pointer to [**[]TagDto**](TagDto.md) |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -461,6 +460,76 @@ HasMd5 returns a boolean if a field has been set.
 `func (o *FileDto) UnsetMd5()`
 
 UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
+### GetSliceMd5
+
+`func (o *FileDto) GetSliceMd5() string`
+
+GetSliceMd5 returns the SliceMd5 field if non-nil, zero value otherwise.
+
+### GetSliceMd5Ok
+
+`func (o *FileDto) GetSliceMd5Ok() (*string, bool)`
+
+GetSliceMd5Ok returns a tuple with the SliceMd5 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSliceMd5
+
+`func (o *FileDto) SetSliceMd5(v string)`
+
+SetSliceMd5 sets SliceMd5 field to given value.
+
+### HasSliceMd5
+
+`func (o *FileDto) HasSliceMd5() bool`
+
+HasSliceMd5 returns a boolean if a field has been set.
+
+### SetSliceMd5Nil
+
+`func (o *FileDto) SetSliceMd5Nil(b bool)`
+
+ SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+
+### UnsetSliceMd5
+`func (o *FileDto) UnsetSliceMd5()`
+
+UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
+### GetRapidCode
+
+`func (o *FileDto) GetRapidCode() string`
+
+GetRapidCode returns the RapidCode field if non-nil, zero value otherwise.
+
+### GetRapidCodeOk
+
+`func (o *FileDto) GetRapidCodeOk() (*string, bool)`
+
+GetRapidCodeOk returns a tuple with the RapidCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRapidCode
+
+`func (o *FileDto) SetRapidCode(v string)`
+
+SetRapidCode sets RapidCode field to given value.
+
+### HasRapidCode
+
+`func (o *FileDto) HasRapidCode() bool`
+
+HasRapidCode returns a boolean if a field has been set.
+
+### SetRapidCodeNil
+
+`func (o *FileDto) SetRapidCodeNil(b bool)`
+
+ SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+
+### UnsetRapidCode
+`func (o *FileDto) UnsetRapidCode()`
+
+UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
 ### GetContentType
 
 `func (o *FileDto) GetContentType() string`
@@ -636,136 +705,31 @@ HasFileUpdatedAt returns a boolean if a field has been set.
 `func (o *FileDto) UnsetFileUpdatedAt()`
 
 UnsetFileUpdatedAt ensures that no value is present for FileUpdatedAt, not even an explicit nil
-### GetFileId
+### GetSyncVersion
 
-`func (o *FileDto) GetFileId() string`
+`func (o *FileDto) GetSyncVersion() int64`
 
-GetFileId returns the FileId field if non-nil, zero value otherwise.
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
 
-### GetFileIdOk
+### GetSyncVersionOk
 
-`func (o *FileDto) GetFileIdOk() (*string, bool)`
+`func (o *FileDto) GetSyncVersionOk() (*int64, bool)`
 
-GetFileIdOk returns a tuple with the FileId field if it's non-nil, zero value otherwise
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFileId
+### SetSyncVersion
 
-`func (o *FileDto) SetFileId(v string)`
+`func (o *FileDto) SetSyncVersion(v int64)`
 
-SetFileId sets FileId field to given value.
+SetSyncVersion sets SyncVersion field to given value.
 
-### HasFileId
+### HasSyncVersion
 
-`func (o *FileDto) HasFileId() bool`
+`func (o *FileDto) HasSyncVersion() bool`
 
-HasFileId returns a boolean if a field has been set.
+HasSyncVersion returns a boolean if a field has been set.
 
-### SetFileIdNil
-
-`func (o *FileDto) SetFileIdNil(b bool)`
-
- SetFileIdNil sets the value for FileId to be an explicit nil
-
-### UnsetFileId
-`func (o *FileDto) UnsetFileId()`
-
-UnsetFileId ensures that no value is present for FileId, not even an explicit nil
-### GetFile
-
-`func (o *FileDto) GetFile() FileDto`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *FileDto) GetFileOk() (*FileDto, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *FileDto) SetFile(v FileDto)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *FileDto) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### GetFolders
-
-`func (o *FileDto) GetFolders() []ItemDto`
-
-GetFolders returns the Folders field if non-nil, zero value otherwise.
-
-### GetFoldersOk
-
-`func (o *FileDto) GetFoldersOk() (*[]ItemDto, bool)`
-
-GetFoldersOk returns a tuple with the Folders field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFolders
-
-`func (o *FileDto) SetFolders(v []ItemDto)`
-
-SetFolders sets Folders field to given value.
-
-### HasFolders
-
-`func (o *FileDto) HasFolders() bool`
-
-HasFolders returns a boolean if a field has been set.
-
-### SetFoldersNil
-
-`func (o *FileDto) SetFoldersNil(b bool)`
-
- SetFoldersNil sets the value for Folders to be an explicit nil
-
-### UnsetFolders
-`func (o *FileDto) UnsetFolders()`
-
-UnsetFolders ensures that no value is present for Folders, not even an explicit nil
-### GetTags
-
-`func (o *FileDto) GetTags() []TagDto`
-
-GetTags returns the Tags field if non-nil, zero value otherwise.
-
-### GetTagsOk
-
-`func (o *FileDto) GetTagsOk() (*[]TagDto, bool)`
-
-GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTags
-
-`func (o *FileDto) SetTags(v []TagDto)`
-
-SetTags sets Tags field to given value.
-
-### HasTags
-
-`func (o *FileDto) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
-
-### SetTagsNil
-
-`func (o *FileDto) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *FileDto) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

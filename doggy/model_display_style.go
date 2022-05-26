@@ -20,12 +20,14 @@ type DisplayStyle string
 
 // List of DisplayStyle
 const (
+	NONE DisplayStyle = "None"
 	LIST_ITEM DisplayStyle = "ListItem"
 	LARGE_THUMBNAIL DisplayStyle = "LargeThumbnail"
 )
 
 // All allowed values of DisplayStyle enum
 var AllowedDisplayStyleEnumValues = []DisplayStyle{
+	"None",
 	"ListItem",
 	"LargeThumbnail",
 }

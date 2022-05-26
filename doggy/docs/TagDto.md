@@ -13,11 +13,12 @@ Name | Type | Description | Notes
 **DeleterId** | Pointer to **NullableString** |  | [optional] 
 **DeletionTime** | Pointer to **NullableTime** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**TagCount** | Pointer to **int32** |  | [optional] 
+**RefCount** | Pointer to **int32** |  | [optional] 
 **ParentTagId** | Pointer to **NullableString** |  | [optional] 
 **ParentTag** | Pointer to [**TagDto**](TagDto.md) |  | [optional] 
 **Children** | Pointer to [**[]TagDto**](TagDto.md) |  | [optional] 
 **FullPath** | Pointer to **NullableString** |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -323,30 +324,30 @@ HasName returns a boolean if a field has been set.
 `func (o *TagDto) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetTagCount
+### GetRefCount
 
-`func (o *TagDto) GetTagCount() int32`
+`func (o *TagDto) GetRefCount() int32`
 
-GetTagCount returns the TagCount field if non-nil, zero value otherwise.
+GetRefCount returns the RefCount field if non-nil, zero value otherwise.
 
-### GetTagCountOk
+### GetRefCountOk
 
-`func (o *TagDto) GetTagCountOk() (*int32, bool)`
+`func (o *TagDto) GetRefCountOk() (*int32, bool)`
 
-GetTagCountOk returns a tuple with the TagCount field if it's non-nil, zero value otherwise
+GetRefCountOk returns a tuple with the RefCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTagCount
+### SetRefCount
 
-`func (o *TagDto) SetTagCount(v int32)`
+`func (o *TagDto) SetRefCount(v int32)`
 
-SetTagCount sets TagCount field to given value.
+SetRefCount sets RefCount field to given value.
 
-### HasTagCount
+### HasRefCount
 
-`func (o *TagDto) HasTagCount() bool`
+`func (o *TagDto) HasRefCount() bool`
 
-HasTagCount returns a boolean if a field has been set.
+HasRefCount returns a boolean if a field has been set.
 
 ### GetParentTagId
 
@@ -478,6 +479,31 @@ HasFullPath returns a boolean if a field has been set.
 `func (o *TagDto) UnsetFullPath()`
 
 UnsetFullPath ensures that no value is present for FullPath, not even an explicit nil
+### GetSyncVersion
+
+`func (o *TagDto) GetSyncVersion() int64`
+
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
+
+### GetSyncVersionOk
+
+`func (o *TagDto) GetSyncVersionOk() (*int64, bool)`
+
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncVersion
+
+`func (o *TagDto) SetSyncVersion(v int64)`
+
+SetSyncVersion sets SyncVersion field to given value.
+
+### HasSyncVersion
+
+`func (o *TagDto) HasSyncVersion() bool`
+
+HasSyncVersion returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

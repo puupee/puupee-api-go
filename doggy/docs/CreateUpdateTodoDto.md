@@ -10,6 +10,12 @@ Name | Type | Description | Notes
 **IsDone** | Pointer to **bool** |  | [optional] 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **EndAt** | Pointer to **NullableTime** |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
+**DoneAt** | Pointer to **NullableTime** |  | [optional] 
+**IsDeleted** | Pointer to **bool** |  | [optional] 
+**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
+**CreationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -220,6 +226,176 @@ HasEndAt returns a boolean if a field has been set.
 `func (o *CreateUpdateTodoDto) UnsetEndAt()`
 
 UnsetEndAt ensures that no value is present for EndAt, not even an explicit nil
+### GetSyncVersion
+
+`func (o *CreateUpdateTodoDto) GetSyncVersion() int64`
+
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
+
+### GetSyncVersionOk
+
+`func (o *CreateUpdateTodoDto) GetSyncVersionOk() (*int64, bool)`
+
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncVersion
+
+`func (o *CreateUpdateTodoDto) SetSyncVersion(v int64)`
+
+SetSyncVersion sets SyncVersion field to given value.
+
+### HasSyncVersion
+
+`func (o *CreateUpdateTodoDto) HasSyncVersion() bool`
+
+HasSyncVersion returns a boolean if a field has been set.
+
+### GetDoneAt
+
+`func (o *CreateUpdateTodoDto) GetDoneAt() time.Time`
+
+GetDoneAt returns the DoneAt field if non-nil, zero value otherwise.
+
+### GetDoneAtOk
+
+`func (o *CreateUpdateTodoDto) GetDoneAtOk() (*time.Time, bool)`
+
+GetDoneAtOk returns a tuple with the DoneAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDoneAt
+
+`func (o *CreateUpdateTodoDto) SetDoneAt(v time.Time)`
+
+SetDoneAt sets DoneAt field to given value.
+
+### HasDoneAt
+
+`func (o *CreateUpdateTodoDto) HasDoneAt() bool`
+
+HasDoneAt returns a boolean if a field has been set.
+
+### SetDoneAtNil
+
+`func (o *CreateUpdateTodoDto) SetDoneAtNil(b bool)`
+
+ SetDoneAtNil sets the value for DoneAt to be an explicit nil
+
+### UnsetDoneAt
+`func (o *CreateUpdateTodoDto) UnsetDoneAt()`
+
+UnsetDoneAt ensures that no value is present for DoneAt, not even an explicit nil
+### GetIsDeleted
+
+`func (o *CreateUpdateTodoDto) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *CreateUpdateTodoDto) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *CreateUpdateTodoDto) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
+
+### HasIsDeleted
+
+`func (o *CreateUpdateTodoDto) HasIsDeleted() bool`
+
+HasIsDeleted returns a boolean if a field has been set.
+
+### GetDeletionTime
+
+`func (o *CreateUpdateTodoDto) GetDeletionTime() time.Time`
+
+GetDeletionTime returns the DeletionTime field if non-nil, zero value otherwise.
+
+### GetDeletionTimeOk
+
+`func (o *CreateUpdateTodoDto) GetDeletionTimeOk() (*time.Time, bool)`
+
+GetDeletionTimeOk returns a tuple with the DeletionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeletionTime
+
+`func (o *CreateUpdateTodoDto) SetDeletionTime(v time.Time)`
+
+SetDeletionTime sets DeletionTime field to given value.
+
+### HasDeletionTime
+
+`func (o *CreateUpdateTodoDto) HasDeletionTime() bool`
+
+HasDeletionTime returns a boolean if a field has been set.
+
+### SetDeletionTimeNil
+
+`func (o *CreateUpdateTodoDto) SetDeletionTimeNil(b bool)`
+
+ SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+
+### UnsetDeletionTime
+`func (o *CreateUpdateTodoDto) UnsetDeletionTime()`
+
+UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+### GetCreationTime
+
+`func (o *CreateUpdateTodoDto) GetCreationTime() time.Time`
+
+GetCreationTime returns the CreationTime field if non-nil, zero value otherwise.
+
+### GetCreationTimeOk
+
+`func (o *CreateUpdateTodoDto) GetCreationTimeOk() (*time.Time, bool)`
+
+GetCreationTimeOk returns a tuple with the CreationTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreationTime
+
+`func (o *CreateUpdateTodoDto) SetCreationTime(v time.Time)`
+
+SetCreationTime sets CreationTime field to given value.
+
+### HasCreationTime
+
+`func (o *CreateUpdateTodoDto) HasCreationTime() bool`
+
+HasCreationTime returns a boolean if a field has been set.
+
+### GetLastModificationTime
+
+`func (o *CreateUpdateTodoDto) GetLastModificationTime() time.Time`
+
+GetLastModificationTime returns the LastModificationTime field if non-nil, zero value otherwise.
+
+### GetLastModificationTimeOk
+
+`func (o *CreateUpdateTodoDto) GetLastModificationTimeOk() (*time.Time, bool)`
+
+GetLastModificationTimeOk returns a tuple with the LastModificationTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModificationTime
+
+`func (o *CreateUpdateTodoDto) SetLastModificationTime(v time.Time)`
+
+SetLastModificationTime sets LastModificationTime field to given value.
+
+### HasLastModificationTime
+
+`func (o *CreateUpdateTodoDto) HasLastModificationTime() bool`
+
+HasLastModificationTime returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,6 +31,9 @@ type TodoDto struct {
 	DoneAt NullableTime `json:"doneAt,omitempty"`
 	IsDone *bool `json:"isDone,omitempty"`
 	Children []TodoDto `json:"children,omitempty"`
+	SyncVersion *int64 `json:"syncVersion,omitempty"`
+	ParentId NullableString `json:"parentId,omitempty"`
+	EndAt NullableTime `json:"endAt,omitempty"`
 }
 
 // NewTodoDto instantiates a new TodoDto object
@@ -570,6 +573,122 @@ func (o *TodoDto) SetChildren(v []TodoDto) {
 	o.Children = v
 }
 
+// GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
+func (o *TodoDto) GetSyncVersion() int64 {
+	if o == nil || o.SyncVersion == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SyncVersion
+}
+
+// GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TodoDto) GetSyncVersionOk() (*int64, bool) {
+	if o == nil || o.SyncVersion == nil {
+		return nil, false
+	}
+	return o.SyncVersion, true
+}
+
+// HasSyncVersion returns a boolean if a field has been set.
+func (o *TodoDto) HasSyncVersion() bool {
+	if o != nil && o.SyncVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSyncVersion gets a reference to the given int64 and assigns it to the SyncVersion field.
+func (o *TodoDto) SetSyncVersion(v int64) {
+	o.SyncVersion = &v
+}
+
+// GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TodoDto) GetParentId() string {
+	if o == nil || o.ParentId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ParentId.Get()
+}
+
+// GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TodoDto) GetParentIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ParentId.Get(), o.ParentId.IsSet()
+}
+
+// HasParentId returns a boolean if a field has been set.
+func (o *TodoDto) HasParentId() bool {
+	if o != nil && o.ParentId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetParentId gets a reference to the given NullableString and assigns it to the ParentId field.
+func (o *TodoDto) SetParentId(v string) {
+	o.ParentId.Set(&v)
+}
+// SetParentIdNil sets the value for ParentId to be an explicit nil
+func (o *TodoDto) SetParentIdNil() {
+	o.ParentId.Set(nil)
+}
+
+// UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+func (o *TodoDto) UnsetParentId() {
+	o.ParentId.Unset()
+}
+
+// GetEndAt returns the EndAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TodoDto) GetEndAt() time.Time {
+	if o == nil || o.EndAt.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.EndAt.Get()
+}
+
+// GetEndAtOk returns a tuple with the EndAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TodoDto) GetEndAtOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.EndAt.Get(), o.EndAt.IsSet()
+}
+
+// HasEndAt returns a boolean if a field has been set.
+func (o *TodoDto) HasEndAt() bool {
+	if o != nil && o.EndAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEndAt gets a reference to the given NullableTime and assigns it to the EndAt field.
+func (o *TodoDto) SetEndAt(v time.Time) {
+	o.EndAt.Set(&v)
+}
+// SetEndAtNil sets the value for EndAt to be an explicit nil
+func (o *TodoDto) SetEndAtNil() {
+	o.EndAt.Set(nil)
+}
+
+// UnsetEndAt ensures that no value is present for EndAt, not even an explicit nil
+func (o *TodoDto) UnsetEndAt() {
+	o.EndAt.Unset()
+}
+
 func (o TodoDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -613,6 +732,15 @@ func (o TodoDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.Children != nil {
 		toSerialize["children"] = o.Children
+	}
+	if o.SyncVersion != nil {
+		toSerialize["syncVersion"] = o.SyncVersion
+	}
+	if o.ParentId.IsSet() {
+		toSerialize["parentId"] = o.ParentId.Get()
+	}
+	if o.EndAt.IsSet() {
+		toSerialize["endAt"] = o.EndAt.Get()
 	}
 	return json.Marshal(toSerialize)
 }

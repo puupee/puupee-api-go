@@ -3,6 +3,8 @@
 ## Enum
 
 
+* `NONE` (value: `"None"`)
+
 * `LIST_ITEM` (value: `"ListItem"`)
 
 * `LARGE_THUMBNAIL` (value: `"LargeThumbnail"`)

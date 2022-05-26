@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ApiAppStorageGet
 
-> UserStorageDto ApiAppStorageGet(ctx).CreatorId(creatorId).Execute()
+> UserStorageDto ApiAppStorageGet(ctx).Execute()
 
 
 
@@ -27,11 +27,10 @@ import (
 )
 
 func main() {
-    creatorId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StorageApi.ApiAppStorageGet(context.Background()).CreatorId(creatorId).Execute()
+    resp, r, err := api_client.StorageApi.ApiAppStorageGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.ApiAppStorageGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -43,16 +42,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApiAppStorageGetRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **creatorId** | **string** |  | 
 
 ### Return type
 

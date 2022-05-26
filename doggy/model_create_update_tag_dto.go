@@ -12,12 +12,18 @@ package doggy
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // CreateUpdateTagDto struct for CreateUpdateTagDto
 type CreateUpdateTagDto struct {
 	Name NullableString `json:"name,omitempty"`
 	ParentTagId NullableString `json:"parentTagId,omitempty"`
+	SyncVersion *int64 `json:"syncVersion,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	DeletionTime NullableTime `json:"deletionTime,omitempty"`
+	CreationTime *time.Time `json:"creationTime,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
 }
 
 // NewCreateUpdateTagDto instantiates a new CreateUpdateTagDto object
@@ -121,6 +127,176 @@ func (o *CreateUpdateTagDto) UnsetParentTagId() {
 	o.ParentTagId.Unset()
 }
 
+// GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
+func (o *CreateUpdateTagDto) GetSyncVersion() int64 {
+	if o == nil || o.SyncVersion == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SyncVersion
+}
+
+// GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTagDto) GetSyncVersionOk() (*int64, bool) {
+	if o == nil || o.SyncVersion == nil {
+		return nil, false
+	}
+	return o.SyncVersion, true
+}
+
+// HasSyncVersion returns a boolean if a field has been set.
+func (o *CreateUpdateTagDto) HasSyncVersion() bool {
+	if o != nil && o.SyncVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSyncVersion gets a reference to the given int64 and assigns it to the SyncVersion field.
+func (o *CreateUpdateTagDto) SetSyncVersion(v int64) {
+	o.SyncVersion = &v
+}
+
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *CreateUpdateTagDto) GetIsDeleted() bool {
+	if o == nil || o.IsDeleted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTagDto) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || o.IsDeleted == nil {
+		return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *CreateUpdateTagDto) HasIsDeleted() bool {
+	if o != nil && o.IsDeleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *CreateUpdateTagDto) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpdateTagDto) GetDeletionTime() time.Time {
+	if o == nil || o.DeletionTime.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeletionTime.Get()
+}
+
+// GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpdateTagDto) GetDeletionTimeOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+}
+
+// HasDeletionTime returns a boolean if a field has been set.
+func (o *CreateUpdateTagDto) HasDeletionTime() bool {
+	if o != nil && o.DeletionTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+func (o *CreateUpdateTagDto) SetDeletionTime(v time.Time) {
+	o.DeletionTime.Set(&v)
+}
+// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+func (o *CreateUpdateTagDto) SetDeletionTimeNil() {
+	o.DeletionTime.Set(nil)
+}
+
+// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+func (o *CreateUpdateTagDto) UnsetDeletionTime() {
+	o.DeletionTime.Unset()
+}
+
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise.
+func (o *CreateUpdateTagDto) GetCreationTime() time.Time {
+	if o == nil || o.CreationTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreationTime
+}
+
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTagDto) GetCreationTimeOk() (*time.Time, bool) {
+	if o == nil || o.CreationTime == nil {
+		return nil, false
+	}
+	return o.CreationTime, true
+}
+
+// HasCreationTime returns a boolean if a field has been set.
+func (o *CreateUpdateTagDto) HasCreationTime() bool {
+	if o != nil && o.CreationTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
+func (o *CreateUpdateTagDto) SetCreationTime(v time.Time) {
+	o.CreationTime = &v
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+func (o *CreateUpdateTagDto) GetLastModificationTime() time.Time {
+	if o == nil || o.LastModificationTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastModificationTime
+}
+
+// GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateTagDto) GetLastModificationTimeOk() (*time.Time, bool) {
+	if o == nil || o.LastModificationTime == nil {
+		return nil, false
+	}
+	return o.LastModificationTime, true
+}
+
+// HasLastModificationTime returns a boolean if a field has been set.
+func (o *CreateUpdateTagDto) HasLastModificationTime() bool {
+	if o != nil && o.LastModificationTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+func (o *CreateUpdateTagDto) SetLastModificationTime(v time.Time) {
+	o.LastModificationTime = &v
+}
+
 func (o CreateUpdateTagDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name.IsSet() {
@@ -128,6 +304,21 @@ func (o CreateUpdateTagDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.ParentTagId.IsSet() {
 		toSerialize["parentTagId"] = o.ParentTagId.Get()
+	}
+	if o.SyncVersion != nil {
+		toSerialize["syncVersion"] = o.SyncVersion
+	}
+	if o.IsDeleted != nil {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if o.DeletionTime.IsSet() {
+		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	}
+	if o.CreationTime != nil {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if o.LastModificationTime != nil {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
 	return json.Marshal(toSerialize)
 }

@@ -30,8 +30,6 @@ type ItemDto struct {
 	TotalCount *int32 `json:"totalCount,omitempty"`
 	Password NullableString `json:"password,omitempty"`
 	ParentItemId NullableString `json:"parentItemId,omitempty"`
-	ThumbId NullableString `json:"thumbId,omitempty"`
-	Thumb *ThumbDto `json:"thumb,omitempty"`
 	Children []ItemDto `json:"children,omitempty"`
 	Tags []TagDto `json:"tags,omitempty"`
 	Key NullableString `json:"key,omitempty"`
@@ -49,6 +47,8 @@ type ItemDto struct {
 	FileUpdatedAt NullableTime `json:"fileUpdatedAt,omitempty"`
 	FileId NullableString `json:"fileId,omitempty"`
 	File *FileDto `json:"file,omitempty"`
+	Thumb *FileDto `json:"thumb,omitempty"`
+	SyncVersion *int64 `json:"syncVersion,omitempty"`
 }
 
 // NewItemDto instantiates a new ItemDto object
@@ -572,80 +572,6 @@ func (o *ItemDto) SetParentItemIdNil() {
 // UnsetParentItemId ensures that no value is present for ParentItemId, not even an explicit nil
 func (o *ItemDto) UnsetParentItemId() {
 	o.ParentItemId.Unset()
-}
-
-// GetThumbId returns the ThumbId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemDto) GetThumbId() string {
-	if o == nil || o.ThumbId.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.ThumbId.Get()
-}
-
-// GetThumbIdOk returns a tuple with the ThumbId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemDto) GetThumbIdOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.ThumbId.Get(), o.ThumbId.IsSet()
-}
-
-// HasThumbId returns a boolean if a field has been set.
-func (o *ItemDto) HasThumbId() bool {
-	if o != nil && o.ThumbId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetThumbId gets a reference to the given NullableString and assigns it to the ThumbId field.
-func (o *ItemDto) SetThumbId(v string) {
-	o.ThumbId.Set(&v)
-}
-// SetThumbIdNil sets the value for ThumbId to be an explicit nil
-func (o *ItemDto) SetThumbIdNil() {
-	o.ThumbId.Set(nil)
-}
-
-// UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
-func (o *ItemDto) UnsetThumbId() {
-	o.ThumbId.Unset()
-}
-
-// GetThumb returns the Thumb field value if set, zero value otherwise.
-func (o *ItemDto) GetThumb() ThumbDto {
-	if o == nil || o.Thumb == nil {
-		var ret ThumbDto
-		return ret
-	}
-	return *o.Thumb
-}
-
-// GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ItemDto) GetThumbOk() (*ThumbDto, bool) {
-	if o == nil || o.Thumb == nil {
-		return nil, false
-	}
-	return o.Thumb, true
-}
-
-// HasThumb returns a boolean if a field has been set.
-func (o *ItemDto) HasThumb() bool {
-	if o != nil && o.Thumb != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetThumb gets a reference to the given ThumbDto and assigns it to the Thumb field.
-func (o *ItemDto) SetThumb(v ThumbDto) {
-	o.Thumb = &v
 }
 
 // GetChildren returns the Children field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1304,6 +1230,70 @@ func (o *ItemDto) SetFile(v FileDto) {
 	o.File = &v
 }
 
+// GetThumb returns the Thumb field value if set, zero value otherwise.
+func (o *ItemDto) GetThumb() FileDto {
+	if o == nil || o.Thumb == nil {
+		var ret FileDto
+		return ret
+	}
+	return *o.Thumb
+}
+
+// GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemDto) GetThumbOk() (*FileDto, bool) {
+	if o == nil || o.Thumb == nil {
+		return nil, false
+	}
+	return o.Thumb, true
+}
+
+// HasThumb returns a boolean if a field has been set.
+func (o *ItemDto) HasThumb() bool {
+	if o != nil && o.Thumb != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetThumb gets a reference to the given FileDto and assigns it to the Thumb field.
+func (o *ItemDto) SetThumb(v FileDto) {
+	o.Thumb = &v
+}
+
+// GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
+func (o *ItemDto) GetSyncVersion() int64 {
+	if o == nil || o.SyncVersion == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SyncVersion
+}
+
+// GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemDto) GetSyncVersionOk() (*int64, bool) {
+	if o == nil || o.SyncVersion == nil {
+		return nil, false
+	}
+	return o.SyncVersion, true
+}
+
+// HasSyncVersion returns a boolean if a field has been set.
+func (o *ItemDto) HasSyncVersion() bool {
+	if o != nil && o.SyncVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSyncVersion gets a reference to the given int64 and assigns it to the SyncVersion field.
+func (o *ItemDto) SetSyncVersion(v int64) {
+	o.SyncVersion = &v
+}
+
 func (o ItemDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -1344,12 +1334,6 @@ func (o ItemDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.ParentItemId.IsSet() {
 		toSerialize["parentItemId"] = o.ParentItemId.Get()
-	}
-	if o.ThumbId.IsSet() {
-		toSerialize["thumbId"] = o.ThumbId.Get()
-	}
-	if o.Thumb != nil {
-		toSerialize["thumb"] = o.Thumb
 	}
 	if o.Children != nil {
 		toSerialize["children"] = o.Children
@@ -1401,6 +1385,12 @@ func (o ItemDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.File != nil {
 		toSerialize["file"] = o.File
+	}
+	if o.Thumb != nil {
+		toSerialize["thumb"] = o.Thumb
+	}
+	if o.SyncVersion != nil {
+		toSerialize["syncVersion"] = o.SyncVersion
 	}
 	return json.Marshal(toSerialize)
 }

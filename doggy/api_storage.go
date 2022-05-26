@@ -29,13 +29,8 @@ type StorageApiService service
 type ApiApiAppStorageGetRequest struct {
 	ctx _context.Context
 	ApiService *StorageApiService
-	creatorId *string
 }
 
-func (r ApiApiAppStorageGetRequest) CreatorId(creatorId string) ApiApiAppStorageGetRequest {
-	r.creatorId = &creatorId
-	return r
-}
 
 func (r ApiApiAppStorageGetRequest) Execute() (UserStorageDto, *_nethttp.Response, error) {
 	return r.ApiService.ApiAppStorageGetExecute(r)
@@ -77,9 +72,6 @@ func (a *StorageApiService) ApiAppStorageGetExecute(r ApiApiAppStorageGetRequest
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.creatorId != nil {
-		localVarQueryParams.Add("creatorId", parameterToString(*r.creatorId, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Password** | Pointer to **NullableString** |  | [optional] 
 **ParentItemId** | Pointer to **NullableString** |  | [optional] 
 **TagIds** | Pointer to **[]string** |  | [optional] 
-**ThumbId** | Pointer to **NullableString** |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
 **SliceMd5** | Pointer to **NullableString** |  | [optional] 
@@ -21,6 +20,11 @@ Name | Type | Description | Notes
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **FileUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
+**IsDeleted** | Pointer to **bool** |  | [optional] 
+**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
+**CreationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -216,41 +220,6 @@ HasTagIds returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetTagIds()`
 
 UnsetTagIds ensures that no value is present for TagIds, not even an explicit nil
-### GetThumbId
-
-`func (o *CreateUpdateItemDto) GetThumbId() string`
-
-GetThumbId returns the ThumbId field if non-nil, zero value otherwise.
-
-### GetThumbIdOk
-
-`func (o *CreateUpdateItemDto) GetThumbIdOk() (*string, bool)`
-
-GetThumbIdOk returns a tuple with the ThumbId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetThumbId
-
-`func (o *CreateUpdateItemDto) SetThumbId(v string)`
-
-SetThumbId sets ThumbId field to given value.
-
-### HasThumbId
-
-`func (o *CreateUpdateItemDto) HasThumbId() bool`
-
-HasThumbId returns a boolean if a field has been set.
-
-### SetThumbIdNil
-
-`func (o *CreateUpdateItemDto) SetThumbIdNil(b bool)`
-
- SetThumbIdNil sets the value for ThumbId to be an explicit nil
-
-### UnsetThumbId
-`func (o *CreateUpdateItemDto) UnsetThumbId()`
-
-UnsetThumbId ensures that no value is present for ThumbId, not even an explicit nil
 ### GetKey
 
 `func (o *CreateUpdateItemDto) GetKey() string`
@@ -616,6 +585,141 @@ HasFileUpdatedAt returns a boolean if a field has been set.
 `func (o *CreateUpdateItemDto) UnsetFileUpdatedAt()`
 
 UnsetFileUpdatedAt ensures that no value is present for FileUpdatedAt, not even an explicit nil
+### GetSyncVersion
+
+`func (o *CreateUpdateItemDto) GetSyncVersion() int64`
+
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
+
+### GetSyncVersionOk
+
+`func (o *CreateUpdateItemDto) GetSyncVersionOk() (*int64, bool)`
+
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncVersion
+
+`func (o *CreateUpdateItemDto) SetSyncVersion(v int64)`
+
+SetSyncVersion sets SyncVersion field to given value.
+
+### HasSyncVersion
+
+`func (o *CreateUpdateItemDto) HasSyncVersion() bool`
+
+HasSyncVersion returns a boolean if a field has been set.
+
+### GetIsDeleted
+
+`func (o *CreateUpdateItemDto) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *CreateUpdateItemDto) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *CreateUpdateItemDto) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
+
+### HasIsDeleted
+
+`func (o *CreateUpdateItemDto) HasIsDeleted() bool`
+
+HasIsDeleted returns a boolean if a field has been set.
+
+### GetDeletionTime
+
+`func (o *CreateUpdateItemDto) GetDeletionTime() time.Time`
+
+GetDeletionTime returns the DeletionTime field if non-nil, zero value otherwise.
+
+### GetDeletionTimeOk
+
+`func (o *CreateUpdateItemDto) GetDeletionTimeOk() (*time.Time, bool)`
+
+GetDeletionTimeOk returns a tuple with the DeletionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeletionTime
+
+`func (o *CreateUpdateItemDto) SetDeletionTime(v time.Time)`
+
+SetDeletionTime sets DeletionTime field to given value.
+
+### HasDeletionTime
+
+`func (o *CreateUpdateItemDto) HasDeletionTime() bool`
+
+HasDeletionTime returns a boolean if a field has been set.
+
+### SetDeletionTimeNil
+
+`func (o *CreateUpdateItemDto) SetDeletionTimeNil(b bool)`
+
+ SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+
+### UnsetDeletionTime
+`func (o *CreateUpdateItemDto) UnsetDeletionTime()`
+
+UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+### GetCreationTime
+
+`func (o *CreateUpdateItemDto) GetCreationTime() time.Time`
+
+GetCreationTime returns the CreationTime field if non-nil, zero value otherwise.
+
+### GetCreationTimeOk
+
+`func (o *CreateUpdateItemDto) GetCreationTimeOk() (*time.Time, bool)`
+
+GetCreationTimeOk returns a tuple with the CreationTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreationTime
+
+`func (o *CreateUpdateItemDto) SetCreationTime(v time.Time)`
+
+SetCreationTime sets CreationTime field to given value.
+
+### HasCreationTime
+
+`func (o *CreateUpdateItemDto) HasCreationTime() bool`
+
+HasCreationTime returns a boolean if a field has been set.
+
+### GetLastModificationTime
+
+`func (o *CreateUpdateItemDto) GetLastModificationTime() time.Time`
+
+GetLastModificationTime returns the LastModificationTime field if non-nil, zero value otherwise.
+
+### GetLastModificationTimeOk
+
+`func (o *CreateUpdateItemDto) GetLastModificationTimeOk() (*time.Time, bool)`
+
+GetLastModificationTimeOk returns a tuple with the LastModificationTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModificationTime
+
+`func (o *CreateUpdateItemDto) SetLastModificationTime(v time.Time)`
+
+SetLastModificationTime sets LastModificationTime field to given value.
+
+### HasLastModificationTime
+
+`func (o *CreateUpdateItemDto) HasLastModificationTime() bool`
+
+HasLastModificationTime returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
