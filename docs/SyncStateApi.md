@@ -1,0 +1,128 @@
+# \SyncStateApi
+
+All URIs are relative to *http://localhost*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**ApiAppSyncStateGet**](SyncStateApi.md#ApiAppSyncStateGet) | **Get** /api/app/sync-state | 
+[**ApiAppSyncStateItemChangedEtoPost**](SyncStateApi.md#ApiAppSyncStateItemChangedEtoPost) | **Post** /api/app/sync-state/item-changed-eto | 
+
+
+
+## ApiAppSyncStateGet
+
+> SyncStateDto ApiAppSyncStateGet(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SyncStateApi.ApiAppSyncStateGet(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SyncStateApi.ApiAppSyncStateGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppSyncStateGet`: SyncStateDto
+    fmt.Fprintf(os.Stdout, "Response from `SyncStateApi.ApiAppSyncStateGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppSyncStateGetRequest struct via the builder pattern
+
+
+### Return type
+
+[**SyncStateDto**](SyncStateDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppSyncStateItemChangedEtoPost
+
+> SyncItemChangedEto ApiAppSyncStateItemChangedEtoPost(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SyncStateApi.ApiAppSyncStateItemChangedEtoPost(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SyncStateApi.ApiAppSyncStateItemChangedEtoPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppSyncStateItemChangedEtoPost`: SyncItemChangedEto
+    fmt.Fprintf(os.Stdout, "Response from `SyncStateApi.ApiAppSyncStateItemChangedEtoPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppSyncStateItemChangedEtoPostRequest struct via the builder pattern
+
+
+### Return type
+
+[**SyncItemChangedEto**](SyncItemChangedEto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
