@@ -26,6 +26,8 @@ const (
 	FRAMEWORK_NATIVE_ANDROID Framework = "NativeAndroid"
 	FRAMEWORK_IONIC Framework = "Ionic"
 	FRAMEWORK_CORDOVA Framework = "Cordova"
+	FRAMEWORK_REACT Framework = "React"
+	FRAMEWORK_ASP_NET_CORE Framework = "AspNetCore"
 )
 
 // All allowed values of Framework enum
@@ -36,6 +38,8 @@ var AllowedFrameworkEnumValues = []Framework{
 	"NativeAndroid",
 	"Ionic",
 	"Cordova",
+	"React",
+	"AspNetCore",
 }
 
 func (v *Framework) UnmarshalJSON(src []byte) error {

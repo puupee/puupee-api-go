@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
  - [AppReleaseDto](docs/AppReleaseDto.md)
  - [AppReleaseDtoPagedResultDto](docs/AppReleaseDtoPagedResultDto.md)
  - [AppTheme](docs/AppTheme.md)
+ - [AppType](docs/AppType.md)
  - [ApplicationApiDescriptionModel](docs/ApplicationApiDescriptionModel.md)
  - [ApplicationAuthConfigurationDto](docs/ApplicationAuthConfigurationDto.md)
  - [ApplicationConfigurationDto](docs/ApplicationConfigurationDto.md)

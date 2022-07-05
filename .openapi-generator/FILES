@@ -27,6 +27,7 @@ docs/AppReleaseApi.md
 docs/AppReleaseDto.md
 docs/AppReleaseDtoPagedResultDto.md
 docs/AppTheme.md
+docs/AppType.md
 docs/ApplicationApiDescriptionModel.md
 docs/ApplicationAuthConfigurationDto.md
 docs/ApplicationConfigurationDto.md
@@ -190,6 +191,7 @@ model_app_dto_paged_result_dto.go
 model_app_release_dto.go
 model_app_release_dto_paged_result_dto.go
 model_app_theme.go
+model_app_type.go
 model_application_api_description_model.go
 model_application_auth_configuration_dto.go
 model_application_configuration_dto.go

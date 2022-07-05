@@ -4870,6 +4870,8 @@ components:
           type: string
         fromework:
           $ref: '#/components/schemas/Framework'
+        appType:
+          $ref: '#/components/schemas/AppType'
         description:
           nullable: true
           type: string
@@ -5149,6 +5151,12 @@ components:
       - Light
       - Dark
       type: string
+    AppType:
+      enum:
+      - Client
+      - Service
+      - Web
+      type: string
     BooleanKeyValue:
       additionalProperties: false
       example:
@@ -5259,6 +5267,8 @@ components:
           type: string
         fromework:
           $ref: '#/components/schemas/Framework'
+        appType:
+          $ref: '#/components/schemas/AppType'
         description:
           nullable: true
           type: string
@@ -5393,10 +5403,8 @@ components:
       properties:
         id:
           format: uuid
-          nullable: true
           type: string
         name:
-          nullable: true
           type: string
         isHidden:
           type: boolean
@@ -5487,6 +5495,9 @@ components:
           format: date-time
           nullable: true
           type: string
+      required:
+      - id
+      - name
       type: object
     CreateUpdateNotificationDto:
       additionalProperties: false
@@ -6245,6 +6256,8 @@ components:
       - NativeAndroid
       - Ionic
       - Cordova
+      - React
+      - AspNetCore
       type: string
     GetFeatureListResultDto:
       additionalProperties: false

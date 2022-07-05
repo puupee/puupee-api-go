@@ -19,6 +19,7 @@ type CreateOrUpdateAppDto struct {
 	Name NullableString `json:"name,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
 	Fromework *Framework `json:"fromework,omitempty"`
+	AppType *AppType `json:"appType,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
 	GitRepository NullableString `json:"gitRepository,omitempty"`
@@ -156,6 +157,38 @@ func (o *CreateOrUpdateAppDto) HasFromework() bool {
 // SetFromework gets a reference to the given Framework and assigns it to the Fromework field.
 func (o *CreateOrUpdateAppDto) SetFromework(v Framework) {
 	o.Fromework = &v
+}
+
+// GetAppType returns the AppType field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppDto) GetAppType() AppType {
+	if o == nil || o.AppType == nil {
+		var ret AppType
+		return ret
+	}
+	return *o.AppType
+}
+
+// GetAppTypeOk returns a tuple with the AppType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*AppType, bool) {
+	if o == nil || o.AppType == nil {
+		return nil, false
+	}
+	return o.AppType, true
+}
+
+// HasAppType returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppDto) HasAppType() bool {
+	if o != nil && o.AppType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAppType gets a reference to the given AppType and assigns it to the AppType field.
+func (o *CreateOrUpdateAppDto) SetAppType(v AppType) {
+	o.AppType = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -326,6 +359,9 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.Fromework != nil {
 		toSerialize["fromework"] = o.Fromework
+	}
+	if o.AppType != nil {
+		toSerialize["appType"] = o.AppType
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()

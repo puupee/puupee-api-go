@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
 **Fromework** | Pointer to [**Framework**](Framework.md) |  | [optional] 
+**AppType** | Pointer to [**AppType**](AppType.md) |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **GitRepository** | Pointer to **NullableString** |  | [optional] 
@@ -125,6 +126,31 @@ SetFromework sets Fromework field to given value.
 `func (o *CreateOrUpdateAppDto) HasFromework() bool`
 
 HasFromework returns a boolean if a field has been set.
+
+### GetAppType
+
+`func (o *CreateOrUpdateAppDto) GetAppType() AppType`
+
+GetAppType returns the AppType field if non-nil, zero value otherwise.
+
+### GetAppTypeOk
+
+`func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*AppType, bool)`
+
+GetAppTypeOk returns a tuple with the AppType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppType
+
+`func (o *CreateOrUpdateAppDto) SetAppType(v AppType)`
+
+SetAppType sets AppType field to given value.
+
+### HasAppType
+
+`func (o *CreateOrUpdateAppDto) HasAppType() bool`
+
+HasAppType returns a boolean if a field has been set.
 
 ### GetDescription
 

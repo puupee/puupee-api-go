@@ -97,7 +97,7 @@ import (
 )
 
 func main() {
-    createUpdateItemDto := *openapiclient.NewCreateUpdateItemDto() // CreateUpdateItemDto |  (optional)
+    createUpdateItemDto := *openapiclient.NewCreateUpdateItemDto("Id_example", "Name_example") // CreateUpdateItemDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

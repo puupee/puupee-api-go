@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
 **IsHidden** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Password** | Pointer to **NullableString** |  | [optional] 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewCreateUpdateItemDto
 
-`func NewCreateUpdateItemDto() *CreateUpdateItemDto`
+`func NewCreateUpdateItemDto(id string, name string, ) *CreateUpdateItemDto`
 
 NewCreateUpdateItemDto instantiates a new CreateUpdateItemDto object
 This constructor will assign default values to properties that have it defined,
@@ -75,22 +75,7 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *CreateUpdateItemDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### SetIdNil
-
-`func (o *CreateUpdateItemDto) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *CreateUpdateItemDto) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *CreateUpdateItemDto) GetName() string`
@@ -110,22 +95,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *CreateUpdateItemDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *CreateUpdateItemDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CreateUpdateItemDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsHidden
 
 `func (o *CreateUpdateItemDto) GetIsHidden() bool`
