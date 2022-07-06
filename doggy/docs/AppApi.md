@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiAppAppByNameGet**](AppApi.md#ApiAppAppByNameGet) | **Get** /api/app/app/by-name | 
 [**ApiAppAppFileOrCredentialsGet**](AppApi.md#ApiAppAppFileOrCredentialsGet) | **Get** /api/app/app/file-or-credentials | 
 [**ApiAppAppGet**](AppApi.md#ApiAppAppGet) | **Get** /api/app/app | 
 [**ApiAppAppIdDelete**](AppApi.md#ApiAppAppIdDelete) | **Delete** /api/app/app/{id} | 
@@ -11,6 +12,70 @@ Method | HTTP request | Description
 [**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
 
+
+
+## ApiAppAppByNameGet
+
+> AppDto ApiAppAppByNameGet(ctx).Name(name).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    name := "name_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AppApi.ApiAppAppByNameGet(context.Background()).Name(name).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByNameGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppByNameGet`: AppDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppByNameGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppByNameGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string** |  | 
+
+### Return type
+
+[**AppDto**](AppDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiAppAppFileOrCredentialsGet

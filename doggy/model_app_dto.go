@@ -12,10 +12,19 @@ package doggy
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // AppDto struct for AppDto
 type AppDto struct {
+	Id *string `json:"id,omitempty"`
+	CreationTime *time.Time `json:"creationTime,omitempty"`
+	CreatorId NullableString `json:"creatorId,omitempty"`
+	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
+	LastModifierId NullableString `json:"lastModifierId,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	DeleterId NullableString `json:"deleterId,omitempty"`
+	DeletionTime NullableTime `json:"deletionTime,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
 	Fromework NullableString `json:"fromework,omitempty"`
@@ -42,6 +51,312 @@ func NewAppDto() *AppDto {
 func NewAppDtoWithDefaults() *AppDto {
 	this := AppDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *AppDto) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetIdOk() (*string, bool) {
+	if o == nil || o.Id == nil {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *AppDto) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *AppDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise.
+func (o *AppDto) GetCreationTime() time.Time {
+	if o == nil || o.CreationTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreationTime
+}
+
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetCreationTimeOk() (*time.Time, bool) {
+	if o == nil || o.CreationTime == nil {
+		return nil, false
+	}
+	return o.CreationTime, true
+}
+
+// HasCreationTime returns a boolean if a field has been set.
+func (o *AppDto) HasCreationTime() bool {
+	if o != nil && o.CreationTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
+func (o *AppDto) SetCreationTime(v time.Time) {
+	o.CreationTime = &v
+}
+
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppDto) GetCreatorId() string {
+	if o == nil || o.CreatorId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.CreatorId.Get()
+}
+
+// GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppDto) GetCreatorIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.CreatorId.Get(), o.CreatorId.IsSet()
+}
+
+// HasCreatorId returns a boolean if a field has been set.
+func (o *AppDto) HasCreatorId() bool {
+	if o != nil && o.CreatorId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+func (o *AppDto) SetCreatorId(v string) {
+	o.CreatorId.Set(&v)
+}
+// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
+func (o *AppDto) SetCreatorIdNil() {
+	o.CreatorId.Set(nil)
+}
+
+// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
+func (o *AppDto) UnsetCreatorId() {
+	o.CreatorId.Unset()
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppDto) GetLastModificationTime() time.Time {
+	if o == nil || o.LastModificationTime.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastModificationTime.Get()
+}
+
+// GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppDto) GetLastModificationTimeOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
+}
+
+// HasLastModificationTime returns a boolean if a field has been set.
+func (o *AppDto) HasLastModificationTime() bool {
+	if o != nil && o.LastModificationTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
+func (o *AppDto) SetLastModificationTime(v time.Time) {
+	o.LastModificationTime.Set(&v)
+}
+// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
+func (o *AppDto) SetLastModificationTimeNil() {
+	o.LastModificationTime.Set(nil)
+}
+
+// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
+func (o *AppDto) UnsetLastModificationTime() {
+	o.LastModificationTime.Unset()
+}
+
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppDto) GetLastModifierId() string {
+	if o == nil || o.LastModifierId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.LastModifierId.Get()
+}
+
+// GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppDto) GetLastModifierIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
+}
+
+// HasLastModifierId returns a boolean if a field has been set.
+func (o *AppDto) HasLastModifierId() bool {
+	if o != nil && o.LastModifierId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
+func (o *AppDto) SetLastModifierId(v string) {
+	o.LastModifierId.Set(&v)
+}
+// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
+func (o *AppDto) SetLastModifierIdNil() {
+	o.LastModifierId.Set(nil)
+}
+
+// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
+func (o *AppDto) UnsetLastModifierId() {
+	o.LastModifierId.Unset()
+}
+
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *AppDto) GetIsDeleted() bool {
+	if o == nil || o.IsDeleted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || o.IsDeleted == nil {
+		return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *AppDto) HasIsDeleted() bool {
+	if o != nil && o.IsDeleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *AppDto) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppDto) GetDeleterId() string {
+	if o == nil || o.DeleterId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.DeleterId.Get()
+}
+
+// GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppDto) GetDeleterIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DeleterId.Get(), o.DeleterId.IsSet()
+}
+
+// HasDeleterId returns a boolean if a field has been set.
+func (o *AppDto) HasDeleterId() bool {
+	if o != nil && o.DeleterId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
+func (o *AppDto) SetDeleterId(v string) {
+	o.DeleterId.Set(&v)
+}
+// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
+func (o *AppDto) SetDeleterIdNil() {
+	o.DeleterId.Set(nil)
+}
+
+// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
+func (o *AppDto) UnsetDeleterId() {
+	o.DeleterId.Unset()
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppDto) GetDeletionTime() time.Time {
+	if o == nil || o.DeletionTime.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeletionTime.Get()
+}
+
+// GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppDto) GetDeletionTimeOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+}
+
+// HasDeletionTime returns a boolean if a field has been set.
+func (o *AppDto) HasDeletionTime() bool {
+	if o != nil && o.DeletionTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+func (o *AppDto) SetDeletionTime(v time.Time) {
+	o.DeletionTime.Set(&v)
+}
+// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+func (o *AppDto) SetDeletionTimeNil() {
+	o.DeletionTime.Set(nil)
+}
+
+// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+func (o *AppDto) UnsetDeletionTime() {
+	o.DeletionTime.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -414,6 +729,30 @@ func (o *AppDto) SetLatestRelease(v AppReleaseDto) {
 
 func (o AppDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Id != nil {
+		toSerialize["id"] = o.Id
+	}
+	if o.CreationTime != nil {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if o.CreatorId.IsSet() {
+		toSerialize["creatorId"] = o.CreatorId.Get()
+	}
+	if o.LastModificationTime.IsSet() {
+		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
+	}
+	if o.LastModifierId.IsSet() {
+		toSerialize["lastModifierId"] = o.LastModifierId.Get()
+	}
+	if o.IsDeleted != nil {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if o.DeleterId.IsSet() {
+		toSerialize["deleterId"] = o.DeleterId.Get()
+	}
+	if o.DeletionTime.IsSet() {
+		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}

@@ -4,6 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **string** |  | [optional] 
+**CreationTime** | Pointer to **time.Time** |  | [optional] 
+**CreatorId** | Pointer to **NullableString** |  | [optional] 
+**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
+**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**IsDeleted** | Pointer to **bool** |  | [optional] 
+**DeleterId** | Pointer to **NullableString** |  | [optional] 
+**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
 **Version** | Pointer to **NullableString** |  | [optional] 
 **Notes** | Pointer to **NullableString** |  | [optional] 
 **Platform** | Pointer to **NullableString** |  | [optional] 
@@ -39,6 +47,256 @@ NewAppReleaseDtoWithDefaults instantiates a new AppReleaseDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetId
+
+`func (o *AppReleaseDto) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AppReleaseDto) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AppReleaseDto) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *AppReleaseDto) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### GetCreationTime
+
+`func (o *AppReleaseDto) GetCreationTime() time.Time`
+
+GetCreationTime returns the CreationTime field if non-nil, zero value otherwise.
+
+### GetCreationTimeOk
+
+`func (o *AppReleaseDto) GetCreationTimeOk() (*time.Time, bool)`
+
+GetCreationTimeOk returns a tuple with the CreationTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreationTime
+
+`func (o *AppReleaseDto) SetCreationTime(v time.Time)`
+
+SetCreationTime sets CreationTime field to given value.
+
+### HasCreationTime
+
+`func (o *AppReleaseDto) HasCreationTime() bool`
+
+HasCreationTime returns a boolean if a field has been set.
+
+### GetCreatorId
+
+`func (o *AppReleaseDto) GetCreatorId() string`
+
+GetCreatorId returns the CreatorId field if non-nil, zero value otherwise.
+
+### GetCreatorIdOk
+
+`func (o *AppReleaseDto) GetCreatorIdOk() (*string, bool)`
+
+GetCreatorIdOk returns a tuple with the CreatorId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatorId
+
+`func (o *AppReleaseDto) SetCreatorId(v string)`
+
+SetCreatorId sets CreatorId field to given value.
+
+### HasCreatorId
+
+`func (o *AppReleaseDto) HasCreatorId() bool`
+
+HasCreatorId returns a boolean if a field has been set.
+
+### SetCreatorIdNil
+
+`func (o *AppReleaseDto) SetCreatorIdNil(b bool)`
+
+ SetCreatorIdNil sets the value for CreatorId to be an explicit nil
+
+### UnsetCreatorId
+`func (o *AppReleaseDto) UnsetCreatorId()`
+
+UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
+### GetLastModificationTime
+
+`func (o *AppReleaseDto) GetLastModificationTime() time.Time`
+
+GetLastModificationTime returns the LastModificationTime field if non-nil, zero value otherwise.
+
+### GetLastModificationTimeOk
+
+`func (o *AppReleaseDto) GetLastModificationTimeOk() (*time.Time, bool)`
+
+GetLastModificationTimeOk returns a tuple with the LastModificationTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModificationTime
+
+`func (o *AppReleaseDto) SetLastModificationTime(v time.Time)`
+
+SetLastModificationTime sets LastModificationTime field to given value.
+
+### HasLastModificationTime
+
+`func (o *AppReleaseDto) HasLastModificationTime() bool`
+
+HasLastModificationTime returns a boolean if a field has been set.
+
+### SetLastModificationTimeNil
+
+`func (o *AppReleaseDto) SetLastModificationTimeNil(b bool)`
+
+ SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
+
+### UnsetLastModificationTime
+`func (o *AppReleaseDto) UnsetLastModificationTime()`
+
+UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
+### GetLastModifierId
+
+`func (o *AppReleaseDto) GetLastModifierId() string`
+
+GetLastModifierId returns the LastModifierId field if non-nil, zero value otherwise.
+
+### GetLastModifierIdOk
+
+`func (o *AppReleaseDto) GetLastModifierIdOk() (*string, bool)`
+
+GetLastModifierIdOk returns a tuple with the LastModifierId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModifierId
+
+`func (o *AppReleaseDto) SetLastModifierId(v string)`
+
+SetLastModifierId sets LastModifierId field to given value.
+
+### HasLastModifierId
+
+`func (o *AppReleaseDto) HasLastModifierId() bool`
+
+HasLastModifierId returns a boolean if a field has been set.
+
+### SetLastModifierIdNil
+
+`func (o *AppReleaseDto) SetLastModifierIdNil(b bool)`
+
+ SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
+
+### UnsetLastModifierId
+`func (o *AppReleaseDto) UnsetLastModifierId()`
+
+UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
+### GetIsDeleted
+
+`func (o *AppReleaseDto) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *AppReleaseDto) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *AppReleaseDto) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
+
+### HasIsDeleted
+
+`func (o *AppReleaseDto) HasIsDeleted() bool`
+
+HasIsDeleted returns a boolean if a field has been set.
+
+### GetDeleterId
+
+`func (o *AppReleaseDto) GetDeleterId() string`
+
+GetDeleterId returns the DeleterId field if non-nil, zero value otherwise.
+
+### GetDeleterIdOk
+
+`func (o *AppReleaseDto) GetDeleterIdOk() (*string, bool)`
+
+GetDeleterIdOk returns a tuple with the DeleterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeleterId
+
+`func (o *AppReleaseDto) SetDeleterId(v string)`
+
+SetDeleterId sets DeleterId field to given value.
+
+### HasDeleterId
+
+`func (o *AppReleaseDto) HasDeleterId() bool`
+
+HasDeleterId returns a boolean if a field has been set.
+
+### SetDeleterIdNil
+
+`func (o *AppReleaseDto) SetDeleterIdNil(b bool)`
+
+ SetDeleterIdNil sets the value for DeleterId to be an explicit nil
+
+### UnsetDeleterId
+`func (o *AppReleaseDto) UnsetDeleterId()`
+
+UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
+### GetDeletionTime
+
+`func (o *AppReleaseDto) GetDeletionTime() time.Time`
+
+GetDeletionTime returns the DeletionTime field if non-nil, zero value otherwise.
+
+### GetDeletionTimeOk
+
+`func (o *AppReleaseDto) GetDeletionTimeOk() (*time.Time, bool)`
+
+GetDeletionTimeOk returns a tuple with the DeletionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeletionTime
+
+`func (o *AppReleaseDto) SetDeletionTime(v time.Time)`
+
+SetDeletionTime sets DeletionTime field to given value.
+
+### HasDeletionTime
+
+`func (o *AppReleaseDto) HasDeletionTime() bool`
+
+HasDeletionTime returns a boolean if a field has been set.
+
+### SetDeletionTimeNil
+
+`func (o *AppReleaseDto) SetDeletionTimeNil(b bool)`
+
+ SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+
+### UnsetDeletionTime
+`func (o *AppReleaseDto) UnsetDeletionTime()`
+
+UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetVersion
 
 `func (o *AppReleaseDto) GetVersion() string`

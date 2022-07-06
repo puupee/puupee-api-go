@@ -78,6 +78,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AppApi* | [**ApiAppAppByNameGet**](docs/AppApi.md#apiappappbynameget) | **Get** /api/app/app/by-name | 
 *AppApi* | [**ApiAppAppFileOrCredentialsGet**](docs/AppApi.md#apiappappfileorcredentialsget) | **Get** /api/app/app/file-or-credentials | 
 *AppApi* | [**ApiAppAppGet**](docs/AppApi.md#apiappappget) | **Get** /api/app/app | 
 *AppApi* | [**ApiAppAppIdDelete**](docs/AppApi.md#apiappappiddelete) | **Delete** /api/app/app/{id} | 

@@ -524,6 +524,103 @@ paths:
           description: Server Error
       tags:
       - App
+  /api/app/app/by-name:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - App
   /api/app/app/file-or-credentials:
     get:
       parameters:
@@ -4855,31 +4952,75 @@ components:
     AppDto:
       additionalProperties: false
       example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        displayName: displayName
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        icon: icon
+        fromework: fromework
+        description: description
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        gitRepositoryType: gitRepositoryType
         latestRelease:
           notes: notes
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           downloadUrl: downloadUrl
           channel: channel
+          deletionTime: 2000-01-23T04:56:07.000+00:00
           version: version
           platform: platform
           environment: environment
+          isDeleted: true
           size: 0
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
           isForceUpdate: true
           md5: md5
         gitRepository: gitRepository
-        displayName: displayName
+        isDeleted: true
         appType: appType
         name: name
-        icon: icon
-        fromework: fromework
-        description: description
-        gitRepositoryType: gitRepositoryType
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          nullable: true
+          type: string
+        lastModifierId:
+          format: uuid
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          nullable: true
+          type: string
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
         name:
           nullable: true
           type: string
@@ -4912,54 +5053,86 @@ components:
       example:
         totalCount: 6
         items:
-        - latestRelease:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          icon: icon
+          fromework: fromework
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          gitRepositoryType: gitRepositoryType
+          latestRelease:
             notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             downloadUrl: downloadUrl
             channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
             version: version
             platform: platform
             environment: environment
+            isDeleted: true
             size: 0
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isEnabled: true
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
             productType: productType
             isForceUpdate: true
             md5: md5
           gitRepository: gitRepository
-          displayName: displayName
+          isDeleted: true
           appType: appType
           name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
           fromework: fromework
           description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
           gitRepositoryType: gitRepositoryType
-        - latestRelease:
+          latestRelease:
             notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             downloadUrl: downloadUrl
             channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
             version: version
             platform: platform
             environment: environment
+            isDeleted: true
             size: 0
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isEnabled: true
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
             productType: productType
             isForceUpdate: true
             md5: md5
           gitRepository: gitRepository
-          displayName: displayName
+          isDeleted: true
           appType: appType
           name: name
-          icon: icon
-          fromework: fromework
-          description: description
-          gitRepositoryType: gitRepositoryType
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         items:
           items:
@@ -5079,21 +5252,57 @@ components:
       additionalProperties: false
       example:
         notes: notes
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         downloadUrl: downloadUrl
         channel: channel
+        deletionTime: 2000-01-23T04:56:07.000+00:00
         version: version
         platform: platform
         environment: environment
+        isDeleted: true
         size: 0
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isEnabled: true
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         sliceMd5: sliceMd5
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         key: key
         productType: productType
         isForceUpdate: true
         md5: md5
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          nullable: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          nullable: true
+          type: string
+        lastModifierId:
+          format: uuid
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          nullable: true
+          type: string
+        deletionTime:
+          format: date-time
+          nullable: true
+          type: string
         version:
           nullable: true
           type: string
@@ -5145,31 +5354,47 @@ components:
         totalCount: 0
         items:
         - notes: notes
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           downloadUrl: downloadUrl
           channel: channel
+          deletionTime: 2000-01-23T04:56:07.000+00:00
           version: version
           platform: platform
           environment: environment
+          isDeleted: true
           size: 0
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
           isForceUpdate: true
           md5: md5
         - notes: notes
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           downloadUrl: downloadUrl
           channel: channel
+          deletionTime: 2000-01-23T04:56:07.000+00:00
           version: version
           platform: platform
           environment: environment
+          isDeleted: true
           size: 0
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
           isForceUpdate: true
