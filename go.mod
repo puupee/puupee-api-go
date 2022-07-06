@@ -1,4 +1,4 @@
-module github.com/mr-doggy/doggy-sdk-go
+module github.com/mr-doggy/doggy-sdk-go/doggy
 
 go 1.13
 
