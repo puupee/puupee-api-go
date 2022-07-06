@@ -27,7 +27,8 @@ type DeviceDto struct {
 	DeletionTime NullableTime `json:"deletionTime,omitempty"`
 	Token NullableString `json:"token,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	Type *Platform `json:"type,omitempty"`
+	// None, Unknow, Android, IOS, Windows, Linux, Web, Other
+	Type *map[string]interface{} `json:"type,omitempty"`
 	Brand NullableString `json:"brand,omitempty"`
 	SystemVersion NullableString `json:"systemVersion,omitempty"`
 }
@@ -440,9 +441,9 @@ func (o *DeviceDto) UnsetName() {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *DeviceDto) GetType() Platform {
+func (o *DeviceDto) GetType() map[string]interface{} {
 	if o == nil || o.Type == nil {
-		var ret Platform
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Type
@@ -450,7 +451,7 @@ func (o *DeviceDto) GetType() Platform {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeviceDto) GetTypeOk() (*Platform, bool) {
+func (o *DeviceDto) GetTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -466,8 +467,8 @@ func (o *DeviceDto) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given Platform and assigns it to the Type field.
-func (o *DeviceDto) SetType(v Platform) {
+// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
+func (o *DeviceDto) SetType(v map[string]interface{}) {
 	o.Type = &v
 }
 

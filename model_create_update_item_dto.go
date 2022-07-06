@@ -28,8 +28,10 @@ type CreateUpdateItemDto struct {
 	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
 	RapidCode NullableString `json:"rapidCode,omitempty"`
 	ContentType NullableString `json:"contentType,omitempty"`
-	Type *ItemType `json:"type,omitempty"`
-	DisplayStyle *DisplayStyle `json:"displayStyle,omitempty"`
+	// Folder, Image, Video, Audio, Document, Note, Todo, Other
+	Type *map[string]interface{} `json:"type,omitempty"`
+	// None, ListItem, LargeThumbnail, Table, Other
+	DisplayStyle *map[string]interface{} `json:"displayStyle,omitempty"`
 	Extension NullableString `json:"extension,omitempty"`
 	StorageClass NullableString `json:"storageClass,omitempty"`
 	FileCreatedAt NullableTime `json:"fileCreatedAt,omitempty"`
@@ -39,14 +41,18 @@ type CreateUpdateItemDto struct {
 	DeletionTime NullableTime `json:"deletionTime,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
 	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
-	Priority *Priority `json:"priority,omitempty"`
+	// UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent
+	Priority *map[string]interface{} `json:"priority,omitempty"`
 	StartAt NullableTime `json:"startAt,omitempty"`
 	EndAt NullableTime `json:"endAt,omitempty"`
 	NotifyAt NullableTime `json:"notifyAt,omitempty"`
-	NotifyTimingType *TodoNotifyTimingType `json:"notifyTimingType,omitempty"`
-	NotifyTimingUnit *TodoNotifyTimingUnit `json:"notifyTimingUnit,omitempty"`
+	// None, Before, After
+	NotifyTimingType *map[string]interface{} `json:"notifyTimingType,omitempty"`
+	// None, Minute, Hour, Day, Month, Year, Custom
+	NotifyTimingUnit *map[string]interface{} `json:"notifyTimingUnit,omitempty"`
 	NotifyTimingValue *int32 `json:"notifyTimingValue,omitempty"`
-	Repeat *TodoRepeat `json:"repeat,omitempty"`
+	// Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay, EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom
+	Repeat *map[string]interface{} `json:"repeat,omitempty"`
 	IsDone *bool `json:"isDone,omitempty"`
 	DoneAt NullableTime `json:"doneAt,omitempty"`
 }
@@ -487,9 +493,9 @@ func (o *CreateUpdateItemDto) UnsetContentType() {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetType() ItemType {
+func (o *CreateUpdateItemDto) GetType() map[string]interface{} {
 	if o == nil || o.Type == nil {
-		var ret ItemType
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Type
@@ -497,7 +503,7 @@ func (o *CreateUpdateItemDto) GetType() ItemType {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetTypeOk() (*ItemType, bool) {
+func (o *CreateUpdateItemDto) GetTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -513,15 +519,15 @@ func (o *CreateUpdateItemDto) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given ItemType and assigns it to the Type field.
-func (o *CreateUpdateItemDto) SetType(v ItemType) {
+// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
+func (o *CreateUpdateItemDto) SetType(v map[string]interface{}) {
 	o.Type = &v
 }
 
 // GetDisplayStyle returns the DisplayStyle field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetDisplayStyle() DisplayStyle {
+func (o *CreateUpdateItemDto) GetDisplayStyle() map[string]interface{} {
 	if o == nil || o.DisplayStyle == nil {
-		var ret DisplayStyle
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.DisplayStyle
@@ -529,7 +535,7 @@ func (o *CreateUpdateItemDto) GetDisplayStyle() DisplayStyle {
 
 // GetDisplayStyleOk returns a tuple with the DisplayStyle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetDisplayStyleOk() (*DisplayStyle, bool) {
+func (o *CreateUpdateItemDto) GetDisplayStyleOk() (*map[string]interface{}, bool) {
 	if o == nil || o.DisplayStyle == nil {
 		return nil, false
 	}
@@ -545,8 +551,8 @@ func (o *CreateUpdateItemDto) HasDisplayStyle() bool {
 	return false
 }
 
-// SetDisplayStyle gets a reference to the given DisplayStyle and assigns it to the DisplayStyle field.
-func (o *CreateUpdateItemDto) SetDisplayStyle(v DisplayStyle) {
+// SetDisplayStyle gets a reference to the given map[string]interface{} and assigns it to the DisplayStyle field.
+func (o *CreateUpdateItemDto) SetDisplayStyle(v map[string]interface{}) {
 	o.DisplayStyle = &v
 }
 
@@ -889,9 +895,9 @@ func (o *CreateUpdateItemDto) SetLastModificationTime(v time.Time) {
 }
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetPriority() Priority {
+func (o *CreateUpdateItemDto) GetPriority() map[string]interface{} {
 	if o == nil || o.Priority == nil {
-		var ret Priority
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Priority
@@ -899,7 +905,7 @@ func (o *CreateUpdateItemDto) GetPriority() Priority {
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetPriorityOk() (*Priority, bool) {
+func (o *CreateUpdateItemDto) GetPriorityOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Priority == nil {
 		return nil, false
 	}
@@ -915,8 +921,8 @@ func (o *CreateUpdateItemDto) HasPriority() bool {
 	return false
 }
 
-// SetPriority gets a reference to the given Priority and assigns it to the Priority field.
-func (o *CreateUpdateItemDto) SetPriority(v Priority) {
+// SetPriority gets a reference to the given map[string]interface{} and assigns it to the Priority field.
+func (o *CreateUpdateItemDto) SetPriority(v map[string]interface{}) {
 	o.Priority = &v
 }
 
@@ -1047,9 +1053,9 @@ func (o *CreateUpdateItemDto) UnsetNotifyAt() {
 }
 
 // GetNotifyTimingType returns the NotifyTimingType field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetNotifyTimingType() TodoNotifyTimingType {
+func (o *CreateUpdateItemDto) GetNotifyTimingType() map[string]interface{} {
 	if o == nil || o.NotifyTimingType == nil {
-		var ret TodoNotifyTimingType
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.NotifyTimingType
@@ -1057,7 +1063,7 @@ func (o *CreateUpdateItemDto) GetNotifyTimingType() TodoNotifyTimingType {
 
 // GetNotifyTimingTypeOk returns a tuple with the NotifyTimingType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetNotifyTimingTypeOk() (*TodoNotifyTimingType, bool) {
+func (o *CreateUpdateItemDto) GetNotifyTimingTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.NotifyTimingType == nil {
 		return nil, false
 	}
@@ -1073,15 +1079,15 @@ func (o *CreateUpdateItemDto) HasNotifyTimingType() bool {
 	return false
 }
 
-// SetNotifyTimingType gets a reference to the given TodoNotifyTimingType and assigns it to the NotifyTimingType field.
-func (o *CreateUpdateItemDto) SetNotifyTimingType(v TodoNotifyTimingType) {
+// SetNotifyTimingType gets a reference to the given map[string]interface{} and assigns it to the NotifyTimingType field.
+func (o *CreateUpdateItemDto) SetNotifyTimingType(v map[string]interface{}) {
 	o.NotifyTimingType = &v
 }
 
 // GetNotifyTimingUnit returns the NotifyTimingUnit field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetNotifyTimingUnit() TodoNotifyTimingUnit {
+func (o *CreateUpdateItemDto) GetNotifyTimingUnit() map[string]interface{} {
 	if o == nil || o.NotifyTimingUnit == nil {
-		var ret TodoNotifyTimingUnit
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.NotifyTimingUnit
@@ -1089,7 +1095,7 @@ func (o *CreateUpdateItemDto) GetNotifyTimingUnit() TodoNotifyTimingUnit {
 
 // GetNotifyTimingUnitOk returns a tuple with the NotifyTimingUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetNotifyTimingUnitOk() (*TodoNotifyTimingUnit, bool) {
+func (o *CreateUpdateItemDto) GetNotifyTimingUnitOk() (*map[string]interface{}, bool) {
 	if o == nil || o.NotifyTimingUnit == nil {
 		return nil, false
 	}
@@ -1105,8 +1111,8 @@ func (o *CreateUpdateItemDto) HasNotifyTimingUnit() bool {
 	return false
 }
 
-// SetNotifyTimingUnit gets a reference to the given TodoNotifyTimingUnit and assigns it to the NotifyTimingUnit field.
-func (o *CreateUpdateItemDto) SetNotifyTimingUnit(v TodoNotifyTimingUnit) {
+// SetNotifyTimingUnit gets a reference to the given map[string]interface{} and assigns it to the NotifyTimingUnit field.
+func (o *CreateUpdateItemDto) SetNotifyTimingUnit(v map[string]interface{}) {
 	o.NotifyTimingUnit = &v
 }
 
@@ -1143,9 +1149,9 @@ func (o *CreateUpdateItemDto) SetNotifyTimingValue(v int32) {
 }
 
 // GetRepeat returns the Repeat field value if set, zero value otherwise.
-func (o *CreateUpdateItemDto) GetRepeat() TodoRepeat {
+func (o *CreateUpdateItemDto) GetRepeat() map[string]interface{} {
 	if o == nil || o.Repeat == nil {
-		var ret TodoRepeat
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Repeat
@@ -1153,7 +1159,7 @@ func (o *CreateUpdateItemDto) GetRepeat() TodoRepeat {
 
 // GetRepeatOk returns a tuple with the Repeat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateItemDto) GetRepeatOk() (*TodoRepeat, bool) {
+func (o *CreateUpdateItemDto) GetRepeatOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Repeat == nil {
 		return nil, false
 	}
@@ -1169,8 +1175,8 @@ func (o *CreateUpdateItemDto) HasRepeat() bool {
 	return false
 }
 
-// SetRepeat gets a reference to the given TodoRepeat and assigns it to the Repeat field.
-func (o *CreateUpdateItemDto) SetRepeat(v TodoRepeat) {
+// SetRepeat gets a reference to the given map[string]interface{} and assigns it to the Repeat field.
+func (o *CreateUpdateItemDto) SetRepeat(v map[string]interface{}) {
 	o.Repeat = &v
 }
 

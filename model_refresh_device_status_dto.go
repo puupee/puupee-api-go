@@ -17,7 +17,8 @@ import (
 // RefreshDeviceStatusDto struct for RefreshDeviceStatusDto
 type RefreshDeviceStatusDto struct {
 	Id NullableString `json:"id,omitempty"`
-	Status *DeviceStatus `json:"status,omitempty"`
+	// None, Unknow, Online, Offline
+	Status *map[string]interface{} `json:"status,omitempty"`
 }
 
 // NewRefreshDeviceStatusDto instantiates a new RefreshDeviceStatusDto object
@@ -80,9 +81,9 @@ func (o *RefreshDeviceStatusDto) UnsetId() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *RefreshDeviceStatusDto) GetStatus() DeviceStatus {
+func (o *RefreshDeviceStatusDto) GetStatus() map[string]interface{} {
 	if o == nil || o.Status == nil {
-		var ret DeviceStatus
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Status
@@ -90,7 +91,7 @@ func (o *RefreshDeviceStatusDto) GetStatus() DeviceStatus {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RefreshDeviceStatusDto) GetStatusOk() (*DeviceStatus, bool) {
+func (o *RefreshDeviceStatusDto) GetStatusOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Status == nil {
 		return nil, false
 	}
@@ -106,8 +107,8 @@ func (o *RefreshDeviceStatusDto) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given DeviceStatus and assigns it to the Status field.
-func (o *RefreshDeviceStatusDto) SetStatus(v DeviceStatus) {
+// SetStatus gets a reference to the given map[string]interface{} and assigns it to the Status field.
+func (o *RefreshDeviceStatusDto) SetStatus(v map[string]interface{}) {
 	o.Status = &v
 }
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]ItemDto**](ItemDto.md) |  | [optional] 
-**Names** | Pointer to [**SpecialItems**](SpecialItems.md) |  | [optional] 
+**Names** | Pointer to **map[string]interface{}** | NoteFolder, AlbumFolder, MediaFolder, MusicFolder, DocumentFolder, TodoFolder | [optional] 
 
 ## Methods
 
@@ -63,20 +63,20 @@ HasItems returns a boolean if a field has been set.
 UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetNames
 
-`func (o *SpecialItemDto) GetNames() SpecialItems`
+`func (o *SpecialItemDto) GetNames() map[string]interface{}`
 
 GetNames returns the Names field if non-nil, zero value otherwise.
 
 ### GetNamesOk
 
-`func (o *SpecialItemDto) GetNamesOk() (*SpecialItems, bool)`
+`func (o *SpecialItemDto) GetNamesOk() (*map[string]interface{}, bool)`
 
 GetNamesOk returns a tuple with the Names field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNames
 
-`func (o *SpecialItemDto) SetNames(v SpecialItems)`
+`func (o *SpecialItemDto) SetNames(v map[string]interface{})`
 
 SetNames sets Names field to given value.
 

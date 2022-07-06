@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | Pointer to **NullableString** |  | [optional] 
 **Notes** | Pointer to **NullableString** |  | [optional] 
-**Platform** | Pointer to [**Platform**](Platform.md) |  | [optional] 
+**Platform** | Pointer to **map[string]interface{}** | None, Unknow, Android, IOS, Windows, Linux, Web, Other | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **RapidCode** | Pointer to **NullableString** |  | [optional] 
 **Size** | Pointer to **NullableInt64** |  | [optional] 
 **Md5** | Pointer to **NullableString** |  | [optional] 
 **SliceMd5** | Pointer to **NullableString** |  | [optional] 
 **DownloadUrl** | Pointer to **NullableString** |  | [optional] 
-**ProductType** | Pointer to [**ProductType**](ProductType.md) |  | [optional] 
+**ProductType** | Pointer to **map[string]interface{}** | Apk, Ipa, Exe, Web, Other | [optional] 
 **IsForceUpdate** | Pointer to **bool** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
@@ -111,20 +111,20 @@ HasNotes returns a boolean if a field has been set.
 UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetPlatform
 
-`func (o *AppReleaseDto) GetPlatform() Platform`
+`func (o *AppReleaseDto) GetPlatform() map[string]interface{}`
 
 GetPlatform returns the Platform field if non-nil, zero value otherwise.
 
 ### GetPlatformOk
 
-`func (o *AppReleaseDto) GetPlatformOk() (*Platform, bool)`
+`func (o *AppReleaseDto) GetPlatformOk() (*map[string]interface{}, bool)`
 
 GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlatform
 
-`func (o *AppReleaseDto) SetPlatform(v Platform)`
+`func (o *AppReleaseDto) SetPlatform(v map[string]interface{})`
 
 SetPlatform sets Platform field to given value.
 
@@ -346,20 +346,20 @@ HasDownloadUrl returns a boolean if a field has been set.
 UnsetDownloadUrl ensures that no value is present for DownloadUrl, not even an explicit nil
 ### GetProductType
 
-`func (o *AppReleaseDto) GetProductType() ProductType`
+`func (o *AppReleaseDto) GetProductType() map[string]interface{}`
 
 GetProductType returns the ProductType field if non-nil, zero value otherwise.
 
 ### GetProductTypeOk
 
-`func (o *AppReleaseDto) GetProductTypeOk() (*ProductType, bool)`
+`func (o *AppReleaseDto) GetProductTypeOk() (*map[string]interface{}, bool)`
 
 GetProductTypeOk returns a tuple with the ProductType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProductType
 
-`func (o *AppReleaseDto) SetProductType(v ProductType)`
+`func (o *AppReleaseDto) SetProductType(v map[string]interface{})`
 
 SetProductType sets ProductType field to given value.
 

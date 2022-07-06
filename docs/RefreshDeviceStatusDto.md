@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to [**DeviceStatus**](DeviceStatus.md) |  | [optional] 
+**Status** | Pointer to **map[string]interface{}** | None, Unknow, Online, Offline | [optional] 
 
 ## Methods
 
@@ -63,20 +63,20 @@ HasId returns a boolean if a field has been set.
 UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetStatus
 
-`func (o *RefreshDeviceStatusDto) GetStatus() DeviceStatus`
+`func (o *RefreshDeviceStatusDto) GetStatus() map[string]interface{}`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RefreshDeviceStatusDto) GetStatusOk() (*DeviceStatus, bool)`
+`func (o *RefreshDeviceStatusDto) GetStatusOk() (*map[string]interface{}, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RefreshDeviceStatusDto) SetStatus(v DeviceStatus)`
+`func (o *RefreshDeviceStatusDto) SetStatus(v map[string]interface{})`
 
 SetStatus sets Status field to given value.
 

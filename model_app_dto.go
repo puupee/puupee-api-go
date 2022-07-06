@@ -18,12 +18,15 @@ import (
 type AppDto struct {
 	Name NullableString `json:"name,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
-	Fromework *Framework `json:"fromework,omitempty"`
-	AppType *AppType `json:"appType,omitempty"`
+	// Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows, NativeMacOS, Ionic, AspNetCore
+	Fromework *map[string]interface{} `json:"fromework,omitempty"`
+	// Client, Service, Web
+	AppType *map[string]interface{} `json:"appType,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
 	GitRepository NullableString `json:"gitRepository,omitempty"`
-	GitRepositoryType *GitRepositoryType `json:"gitRepositoryType,omitempty"`
+	// GitHub, GitLab, BitBucket, Other
+	GitRepositoryType *map[string]interface{} `json:"gitRepositoryType,omitempty"`
 	LatestRelease *AppReleaseDto `json:"latestRelease,omitempty"`
 }
 
@@ -129,9 +132,9 @@ func (o *AppDto) UnsetDisplayName() {
 }
 
 // GetFromework returns the Fromework field value if set, zero value otherwise.
-func (o *AppDto) GetFromework() Framework {
+func (o *AppDto) GetFromework() map[string]interface{} {
 	if o == nil || o.Fromework == nil {
-		var ret Framework
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Fromework
@@ -139,7 +142,7 @@ func (o *AppDto) GetFromework() Framework {
 
 // GetFromeworkOk returns a tuple with the Fromework field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetFromeworkOk() (*Framework, bool) {
+func (o *AppDto) GetFromeworkOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Fromework == nil {
 		return nil, false
 	}
@@ -155,15 +158,15 @@ func (o *AppDto) HasFromework() bool {
 	return false
 }
 
-// SetFromework gets a reference to the given Framework and assigns it to the Fromework field.
-func (o *AppDto) SetFromework(v Framework) {
+// SetFromework gets a reference to the given map[string]interface{} and assigns it to the Fromework field.
+func (o *AppDto) SetFromework(v map[string]interface{}) {
 	o.Fromework = &v
 }
 
 // GetAppType returns the AppType field value if set, zero value otherwise.
-func (o *AppDto) GetAppType() AppType {
+func (o *AppDto) GetAppType() map[string]interface{} {
 	if o == nil || o.AppType == nil {
-		var ret AppType
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.AppType
@@ -171,7 +174,7 @@ func (o *AppDto) GetAppType() AppType {
 
 // GetAppTypeOk returns a tuple with the AppType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetAppTypeOk() (*AppType, bool) {
+func (o *AppDto) GetAppTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.AppType == nil {
 		return nil, false
 	}
@@ -187,8 +190,8 @@ func (o *AppDto) HasAppType() bool {
 	return false
 }
 
-// SetAppType gets a reference to the given AppType and assigns it to the AppType field.
-func (o *AppDto) SetAppType(v AppType) {
+// SetAppType gets a reference to the given map[string]interface{} and assigns it to the AppType field.
+func (o *AppDto) SetAppType(v map[string]interface{}) {
 	o.AppType = &v
 }
 
@@ -319,9 +322,9 @@ func (o *AppDto) UnsetGitRepository() {
 }
 
 // GetGitRepositoryType returns the GitRepositoryType field value if set, zero value otherwise.
-func (o *AppDto) GetGitRepositoryType() GitRepositoryType {
+func (o *AppDto) GetGitRepositoryType() map[string]interface{} {
 	if o == nil || o.GitRepositoryType == nil {
-		var ret GitRepositoryType
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.GitRepositoryType
@@ -329,7 +332,7 @@ func (o *AppDto) GetGitRepositoryType() GitRepositoryType {
 
 // GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetGitRepositoryTypeOk() (*GitRepositoryType, bool) {
+func (o *AppDto) GetGitRepositoryTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.GitRepositoryType == nil {
 		return nil, false
 	}
@@ -345,8 +348,8 @@ func (o *AppDto) HasGitRepositoryType() bool {
 	return false
 }
 
-// SetGitRepositoryType gets a reference to the given GitRepositoryType and assigns it to the GitRepositoryType field.
-func (o *AppDto) SetGitRepositoryType(v GitRepositoryType) {
+// SetGitRepositoryType gets a reference to the given map[string]interface{} and assigns it to the GitRepositoryType field.
+func (o *AppDto) SetGitRepositoryType(v map[string]interface{}) {
 	o.GitRepositoryType = &v
 }
 

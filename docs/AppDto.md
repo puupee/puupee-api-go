@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**Fromework** | Pointer to [**Framework**](Framework.md) |  | [optional] 
-**AppType** | Pointer to [**AppType**](AppType.md) |  | [optional] 
+**Fromework** | Pointer to **map[string]interface{}** | Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows, NativeMacOS, Ionic, AspNetCore | [optional] 
+**AppType** | Pointer to **map[string]interface{}** | Client, Service, Web | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **GitRepository** | Pointer to **NullableString** |  | [optional] 
-**GitRepositoryType** | Pointer to [**GitRepositoryType**](GitRepositoryType.md) |  | [optional] 
+**GitRepositoryType** | Pointer to **map[string]interface{}** | GitHub, GitLab, BitBucket, Other | [optional] 
 **LatestRelease** | Pointer to [**AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
 
 ## Methods
@@ -105,20 +105,20 @@ HasDisplayName returns a boolean if a field has been set.
 UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetFromework
 
-`func (o *AppDto) GetFromework() Framework`
+`func (o *AppDto) GetFromework() map[string]interface{}`
 
 GetFromework returns the Fromework field if non-nil, zero value otherwise.
 
 ### GetFromeworkOk
 
-`func (o *AppDto) GetFromeworkOk() (*Framework, bool)`
+`func (o *AppDto) GetFromeworkOk() (*map[string]interface{}, bool)`
 
 GetFromeworkOk returns a tuple with the Fromework field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromework
 
-`func (o *AppDto) SetFromework(v Framework)`
+`func (o *AppDto) SetFromework(v map[string]interface{})`
 
 SetFromework sets Fromework field to given value.
 
@@ -130,20 +130,20 @@ HasFromework returns a boolean if a field has been set.
 
 ### GetAppType
 
-`func (o *AppDto) GetAppType() AppType`
+`func (o *AppDto) GetAppType() map[string]interface{}`
 
 GetAppType returns the AppType field if non-nil, zero value otherwise.
 
 ### GetAppTypeOk
 
-`func (o *AppDto) GetAppTypeOk() (*AppType, bool)`
+`func (o *AppDto) GetAppTypeOk() (*map[string]interface{}, bool)`
 
 GetAppTypeOk returns a tuple with the AppType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppType
 
-`func (o *AppDto) SetAppType(v AppType)`
+`func (o *AppDto) SetAppType(v map[string]interface{})`
 
 SetAppType sets AppType field to given value.
 
@@ -260,20 +260,20 @@ HasGitRepository returns a boolean if a field has been set.
 UnsetGitRepository ensures that no value is present for GitRepository, not even an explicit nil
 ### GetGitRepositoryType
 
-`func (o *AppDto) GetGitRepositoryType() GitRepositoryType`
+`func (o *AppDto) GetGitRepositoryType() map[string]interface{}`
 
 GetGitRepositoryType returns the GitRepositoryType field if non-nil, zero value otherwise.
 
 ### GetGitRepositoryTypeOk
 
-`func (o *AppDto) GetGitRepositoryTypeOk() (*GitRepositoryType, bool)`
+`func (o *AppDto) GetGitRepositoryTypeOk() (*map[string]interface{}, bool)`
 
 GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGitRepositoryType
 
-`func (o *AppDto) SetGitRepositoryType(v GitRepositoryType)`
+`func (o *AppDto) SetGitRepositoryType(v map[string]interface{})`
 
 SetGitRepositoryType sets GitRepositoryType field to given value.
 

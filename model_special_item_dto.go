@@ -17,7 +17,8 @@ import (
 // SpecialItemDto struct for SpecialItemDto
 type SpecialItemDto struct {
 	Items []ItemDto `json:"items,omitempty"`
-	Names *SpecialItems `json:"names,omitempty"`
+	// NoteFolder, AlbumFolder, MediaFolder, MusicFolder, DocumentFolder, TodoFolder
+	Names *map[string]interface{} `json:"names,omitempty"`
 }
 
 // NewSpecialItemDto instantiates a new SpecialItemDto object
@@ -71,9 +72,9 @@ func (o *SpecialItemDto) SetItems(v []ItemDto) {
 }
 
 // GetNames returns the Names field value if set, zero value otherwise.
-func (o *SpecialItemDto) GetNames() SpecialItems {
+func (o *SpecialItemDto) GetNames() map[string]interface{} {
 	if o == nil || o.Names == nil {
-		var ret SpecialItems
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Names
@@ -81,7 +82,7 @@ func (o *SpecialItemDto) GetNames() SpecialItems {
 
 // GetNamesOk returns a tuple with the Names field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SpecialItemDto) GetNamesOk() (*SpecialItems, bool) {
+func (o *SpecialItemDto) GetNamesOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Names == nil {
 		return nil, false
 	}
@@ -97,8 +98,8 @@ func (o *SpecialItemDto) HasNames() bool {
 	return false
 }
 
-// SetNames gets a reference to the given SpecialItems and assigns it to the Names field.
-func (o *SpecialItemDto) SetNames(v SpecialItems) {
+// SetNames gets a reference to the given map[string]interface{} and assigns it to the Names field.
+func (o *SpecialItemDto) SetNames(v map[string]interface{}) {
 	o.Names = &v
 }
 

@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **NoteExpiredAt** | Pointer to **NullableTime** |  | [optional] 
 **AlbumExpiredAt** | Pointer to **NullableTime** |  | [optional] 
 **FileExpiredAt** | Pointer to **NullableTime** |  | [optional] 
-**Level** | Pointer to [**MemberLevel**](MemberLevel.md) |  | [optional] 
-**TodoLevel** | Pointer to [**MemberLevel**](MemberLevel.md) |  | [optional] 
-**NoteLevel** | Pointer to [**MemberLevel**](MemberLevel.md) |  | [optional] 
-**AlbumLevel** | Pointer to [**MemberLevel**](MemberLevel.md) |  | [optional] 
-**FileLevel** | Pointer to [**MemberLevel**](MemberLevel.md) |  | [optional] 
+**Level** | Pointer to **map[string]interface{}** | None, Monthly, Quarterly, Annual, Unlimited | [optional] 
+**TodoLevel** | Pointer to **map[string]interface{}** | None, Monthly, Quarterly, Annual, Unlimited | [optional] 
+**NoteLevel** | Pointer to **map[string]interface{}** | None, Monthly, Quarterly, Annual, Unlimited | [optional] 
+**AlbumLevel** | Pointer to **map[string]interface{}** | None, Monthly, Quarterly, Annual, Unlimited | [optional] 
+**FileLevel** | Pointer to **map[string]interface{}** | None, Monthly, Quarterly, Annual, Unlimited | [optional] 
 
 ## Methods
 
@@ -211,20 +211,20 @@ HasFileExpiredAt returns a boolean if a field has been set.
 UnsetFileExpiredAt ensures that no value is present for FileExpiredAt, not even an explicit nil
 ### GetLevel
 
-`func (o *MemberDto) GetLevel() MemberLevel`
+`func (o *MemberDto) GetLevel() map[string]interface{}`
 
 GetLevel returns the Level field if non-nil, zero value otherwise.
 
 ### GetLevelOk
 
-`func (o *MemberDto) GetLevelOk() (*MemberLevel, bool)`
+`func (o *MemberDto) GetLevelOk() (*map[string]interface{}, bool)`
 
 GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLevel
 
-`func (o *MemberDto) SetLevel(v MemberLevel)`
+`func (o *MemberDto) SetLevel(v map[string]interface{})`
 
 SetLevel sets Level field to given value.
 
@@ -236,20 +236,20 @@ HasLevel returns a boolean if a field has been set.
 
 ### GetTodoLevel
 
-`func (o *MemberDto) GetTodoLevel() MemberLevel`
+`func (o *MemberDto) GetTodoLevel() map[string]interface{}`
 
 GetTodoLevel returns the TodoLevel field if non-nil, zero value otherwise.
 
 ### GetTodoLevelOk
 
-`func (o *MemberDto) GetTodoLevelOk() (*MemberLevel, bool)`
+`func (o *MemberDto) GetTodoLevelOk() (*map[string]interface{}, bool)`
 
 GetTodoLevelOk returns a tuple with the TodoLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTodoLevel
 
-`func (o *MemberDto) SetTodoLevel(v MemberLevel)`
+`func (o *MemberDto) SetTodoLevel(v map[string]interface{})`
 
 SetTodoLevel sets TodoLevel field to given value.
 
@@ -261,20 +261,20 @@ HasTodoLevel returns a boolean if a field has been set.
 
 ### GetNoteLevel
 
-`func (o *MemberDto) GetNoteLevel() MemberLevel`
+`func (o *MemberDto) GetNoteLevel() map[string]interface{}`
 
 GetNoteLevel returns the NoteLevel field if non-nil, zero value otherwise.
 
 ### GetNoteLevelOk
 
-`func (o *MemberDto) GetNoteLevelOk() (*MemberLevel, bool)`
+`func (o *MemberDto) GetNoteLevelOk() (*map[string]interface{}, bool)`
 
 GetNoteLevelOk returns a tuple with the NoteLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNoteLevel
 
-`func (o *MemberDto) SetNoteLevel(v MemberLevel)`
+`func (o *MemberDto) SetNoteLevel(v map[string]interface{})`
 
 SetNoteLevel sets NoteLevel field to given value.
 
@@ -286,20 +286,20 @@ HasNoteLevel returns a boolean if a field has been set.
 
 ### GetAlbumLevel
 
-`func (o *MemberDto) GetAlbumLevel() MemberLevel`
+`func (o *MemberDto) GetAlbumLevel() map[string]interface{}`
 
 GetAlbumLevel returns the AlbumLevel field if non-nil, zero value otherwise.
 
 ### GetAlbumLevelOk
 
-`func (o *MemberDto) GetAlbumLevelOk() (*MemberLevel, bool)`
+`func (o *MemberDto) GetAlbumLevelOk() (*map[string]interface{}, bool)`
 
 GetAlbumLevelOk returns a tuple with the AlbumLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAlbumLevel
 
-`func (o *MemberDto) SetAlbumLevel(v MemberLevel)`
+`func (o *MemberDto) SetAlbumLevel(v map[string]interface{})`
 
 SetAlbumLevel sets AlbumLevel field to given value.
 
@@ -311,20 +311,20 @@ HasAlbumLevel returns a boolean if a field has been set.
 
 ### GetFileLevel
 
-`func (o *MemberDto) GetFileLevel() MemberLevel`
+`func (o *MemberDto) GetFileLevel() map[string]interface{}`
 
 GetFileLevel returns the FileLevel field if non-nil, zero value otherwise.
 
 ### GetFileLevelOk
 
-`func (o *MemberDto) GetFileLevelOk() (*MemberLevel, bool)`
+`func (o *MemberDto) GetFileLevelOk() (*map[string]interface{}, bool)`
 
 GetFileLevelOk returns a tuple with the FileLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFileLevel
 
-`func (o *MemberDto) SetFileLevel(v MemberLevel)`
+`func (o *MemberDto) SetFileLevel(v map[string]interface{})`
 
 SetFileLevel sets FileLevel field to given value.
 

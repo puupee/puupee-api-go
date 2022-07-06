@@ -22,11 +22,16 @@ type MemberDto struct {
 	NoteExpiredAt NullableTime `json:"noteExpiredAt,omitempty"`
 	AlbumExpiredAt NullableTime `json:"albumExpiredAt,omitempty"`
 	FileExpiredAt NullableTime `json:"fileExpiredAt,omitempty"`
-	Level *MemberLevel `json:"level,omitempty"`
-	TodoLevel *MemberLevel `json:"todoLevel,omitempty"`
-	NoteLevel *MemberLevel `json:"noteLevel,omitempty"`
-	AlbumLevel *MemberLevel `json:"albumLevel,omitempty"`
-	FileLevel *MemberLevel `json:"fileLevel,omitempty"`
+	// None, Monthly, Quarterly, Annual, Unlimited
+	Level *map[string]interface{} `json:"level,omitempty"`
+	// None, Monthly, Quarterly, Annual, Unlimited
+	TodoLevel *map[string]interface{} `json:"todoLevel,omitempty"`
+	// None, Monthly, Quarterly, Annual, Unlimited
+	NoteLevel *map[string]interface{} `json:"noteLevel,omitempty"`
+	// None, Monthly, Quarterly, Annual, Unlimited
+	AlbumLevel *map[string]interface{} `json:"albumLevel,omitempty"`
+	// None, Monthly, Quarterly, Annual, Unlimited
+	FileLevel *map[string]interface{} `json:"fileLevel,omitempty"`
 }
 
 // NewMemberDto instantiates a new MemberDto object
@@ -257,9 +262,9 @@ func (o *MemberDto) UnsetFileExpiredAt() {
 }
 
 // GetLevel returns the Level field value if set, zero value otherwise.
-func (o *MemberDto) GetLevel() MemberLevel {
+func (o *MemberDto) GetLevel() map[string]interface{} {
 	if o == nil || o.Level == nil {
-		var ret MemberLevel
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Level
@@ -267,7 +272,7 @@ func (o *MemberDto) GetLevel() MemberLevel {
 
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetLevelOk() (*MemberLevel, bool) {
+func (o *MemberDto) GetLevelOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Level == nil {
 		return nil, false
 	}
@@ -283,15 +288,15 @@ func (o *MemberDto) HasLevel() bool {
 	return false
 }
 
-// SetLevel gets a reference to the given MemberLevel and assigns it to the Level field.
-func (o *MemberDto) SetLevel(v MemberLevel) {
+// SetLevel gets a reference to the given map[string]interface{} and assigns it to the Level field.
+func (o *MemberDto) SetLevel(v map[string]interface{}) {
 	o.Level = &v
 }
 
 // GetTodoLevel returns the TodoLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetTodoLevel() MemberLevel {
+func (o *MemberDto) GetTodoLevel() map[string]interface{} {
 	if o == nil || o.TodoLevel == nil {
-		var ret MemberLevel
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.TodoLevel
@@ -299,7 +304,7 @@ func (o *MemberDto) GetTodoLevel() MemberLevel {
 
 // GetTodoLevelOk returns a tuple with the TodoLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetTodoLevelOk() (*MemberLevel, bool) {
+func (o *MemberDto) GetTodoLevelOk() (*map[string]interface{}, bool) {
 	if o == nil || o.TodoLevel == nil {
 		return nil, false
 	}
@@ -315,15 +320,15 @@ func (o *MemberDto) HasTodoLevel() bool {
 	return false
 }
 
-// SetTodoLevel gets a reference to the given MemberLevel and assigns it to the TodoLevel field.
-func (o *MemberDto) SetTodoLevel(v MemberLevel) {
+// SetTodoLevel gets a reference to the given map[string]interface{} and assigns it to the TodoLevel field.
+func (o *MemberDto) SetTodoLevel(v map[string]interface{}) {
 	o.TodoLevel = &v
 }
 
 // GetNoteLevel returns the NoteLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetNoteLevel() MemberLevel {
+func (o *MemberDto) GetNoteLevel() map[string]interface{} {
 	if o == nil || o.NoteLevel == nil {
-		var ret MemberLevel
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.NoteLevel
@@ -331,7 +336,7 @@ func (o *MemberDto) GetNoteLevel() MemberLevel {
 
 // GetNoteLevelOk returns a tuple with the NoteLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetNoteLevelOk() (*MemberLevel, bool) {
+func (o *MemberDto) GetNoteLevelOk() (*map[string]interface{}, bool) {
 	if o == nil || o.NoteLevel == nil {
 		return nil, false
 	}
@@ -347,15 +352,15 @@ func (o *MemberDto) HasNoteLevel() bool {
 	return false
 }
 
-// SetNoteLevel gets a reference to the given MemberLevel and assigns it to the NoteLevel field.
-func (o *MemberDto) SetNoteLevel(v MemberLevel) {
+// SetNoteLevel gets a reference to the given map[string]interface{} and assigns it to the NoteLevel field.
+func (o *MemberDto) SetNoteLevel(v map[string]interface{}) {
 	o.NoteLevel = &v
 }
 
 // GetAlbumLevel returns the AlbumLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetAlbumLevel() MemberLevel {
+func (o *MemberDto) GetAlbumLevel() map[string]interface{} {
 	if o == nil || o.AlbumLevel == nil {
-		var ret MemberLevel
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.AlbumLevel
@@ -363,7 +368,7 @@ func (o *MemberDto) GetAlbumLevel() MemberLevel {
 
 // GetAlbumLevelOk returns a tuple with the AlbumLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetAlbumLevelOk() (*MemberLevel, bool) {
+func (o *MemberDto) GetAlbumLevelOk() (*map[string]interface{}, bool) {
 	if o == nil || o.AlbumLevel == nil {
 		return nil, false
 	}
@@ -379,15 +384,15 @@ func (o *MemberDto) HasAlbumLevel() bool {
 	return false
 }
 
-// SetAlbumLevel gets a reference to the given MemberLevel and assigns it to the AlbumLevel field.
-func (o *MemberDto) SetAlbumLevel(v MemberLevel) {
+// SetAlbumLevel gets a reference to the given map[string]interface{} and assigns it to the AlbumLevel field.
+func (o *MemberDto) SetAlbumLevel(v map[string]interface{}) {
 	o.AlbumLevel = &v
 }
 
 // GetFileLevel returns the FileLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetFileLevel() MemberLevel {
+func (o *MemberDto) GetFileLevel() map[string]interface{} {
 	if o == nil || o.FileLevel == nil {
-		var ret MemberLevel
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.FileLevel
@@ -395,7 +400,7 @@ func (o *MemberDto) GetFileLevel() MemberLevel {
 
 // GetFileLevelOk returns a tuple with the FileLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetFileLevelOk() (*MemberLevel, bool) {
+func (o *MemberDto) GetFileLevelOk() (*map[string]interface{}, bool) {
 	if o == nil || o.FileLevel == nil {
 		return nil, false
 	}
@@ -411,8 +416,8 @@ func (o *MemberDto) HasFileLevel() bool {
 	return false
 }
 
-// SetFileLevel gets a reference to the given MemberLevel and assigns it to the FileLevel field.
-func (o *MemberDto) SetFileLevel(v MemberLevel) {
+// SetFileLevel gets a reference to the given map[string]interface{} and assigns it to the FileLevel field.
+func (o *MemberDto) SetFileLevel(v map[string]interface{}) {
 	o.FileLevel = &v
 }
 

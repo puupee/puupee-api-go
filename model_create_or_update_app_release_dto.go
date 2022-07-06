@@ -18,13 +18,15 @@ import (
 type CreateOrUpdateAppReleaseDto struct {
 	Version NullableString `json:"version,omitempty"`
 	Notes NullableString `json:"notes,omitempty"`
-	Platform *Platform `json:"platform,omitempty"`
+	// None, Unknow, Android, IOS, Windows, Linux, Web, Other
+	Platform *map[string]interface{} `json:"platform,omitempty"`
 	Key NullableString `json:"key,omitempty"`
 	RapidCode NullableString `json:"rapidCode,omitempty"`
 	Size NullableInt64 `json:"size,omitempty"`
 	Md5 NullableString `json:"md5,omitempty"`
 	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
-	ProductType *ProductType `json:"productType,omitempty"`
+	// Apk, Ipa, Exe, Web, Other
+	ProductType *map[string]interface{} `json:"productType,omitempty"`
 	IsForceUpdate *bool `json:"isForceUpdate,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	IsEnabled *bool `json:"isEnabled,omitempty"`
@@ -134,9 +136,9 @@ func (o *CreateOrUpdateAppReleaseDto) UnsetNotes() {
 }
 
 // GetPlatform returns the Platform field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppReleaseDto) GetPlatform() Platform {
+func (o *CreateOrUpdateAppReleaseDto) GetPlatform() map[string]interface{} {
 	if o == nil || o.Platform == nil {
-		var ret Platform
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Platform
@@ -144,7 +146,7 @@ func (o *CreateOrUpdateAppReleaseDto) GetPlatform() Platform {
 
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppReleaseDto) GetPlatformOk() (*Platform, bool) {
+func (o *CreateOrUpdateAppReleaseDto) GetPlatformOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Platform == nil {
 		return nil, false
 	}
@@ -160,8 +162,8 @@ func (o *CreateOrUpdateAppReleaseDto) HasPlatform() bool {
 	return false
 }
 
-// SetPlatform gets a reference to the given Platform and assigns it to the Platform field.
-func (o *CreateOrUpdateAppReleaseDto) SetPlatform(v Platform) {
+// SetPlatform gets a reference to the given map[string]interface{} and assigns it to the Platform field.
+func (o *CreateOrUpdateAppReleaseDto) SetPlatform(v map[string]interface{}) {
 	o.Platform = &v
 }
 
@@ -376,9 +378,9 @@ func (o *CreateOrUpdateAppReleaseDto) UnsetSliceMd5() {
 }
 
 // GetProductType returns the ProductType field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppReleaseDto) GetProductType() ProductType {
+func (o *CreateOrUpdateAppReleaseDto) GetProductType() map[string]interface{} {
 	if o == nil || o.ProductType == nil {
-		var ret ProductType
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.ProductType
@@ -386,7 +388,7 @@ func (o *CreateOrUpdateAppReleaseDto) GetProductType() ProductType {
 
 // GetProductTypeOk returns a tuple with the ProductType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppReleaseDto) GetProductTypeOk() (*ProductType, bool) {
+func (o *CreateOrUpdateAppReleaseDto) GetProductTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.ProductType == nil {
 		return nil, false
 	}
@@ -402,8 +404,8 @@ func (o *CreateOrUpdateAppReleaseDto) HasProductType() bool {
 	return false
 }
 
-// SetProductType gets a reference to the given ProductType and assigns it to the ProductType field.
-func (o *CreateOrUpdateAppReleaseDto) SetProductType(v ProductType) {
+// SetProductType gets a reference to the given map[string]interface{} and assigns it to the ProductType field.
+func (o *CreateOrUpdateAppReleaseDto) SetProductType(v map[string]interface{}) {
 	o.ProductType = &v
 }
 

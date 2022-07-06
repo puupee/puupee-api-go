@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **DeletionTime** | Pointer to **NullableTime** |  | [optional] 
 **Token** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to [**Platform**](Platform.md) |  | [optional] 
+**Type** | Pointer to **map[string]interface{}** | None, Unknow, Android, IOS, Windows, Linux, Web, Other | [optional] 
 **Brand** | Pointer to **NullableString** |  | [optional] 
 **SystemVersion** | Pointer to **NullableString** |  | [optional] 
 
@@ -359,20 +359,20 @@ HasName returns a boolean if a field has been set.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetType
 
-`func (o *DeviceDto) GetType() Platform`
+`func (o *DeviceDto) GetType() map[string]interface{}`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *DeviceDto) GetTypeOk() (*Platform, bool)`
+`func (o *DeviceDto) GetTypeOk() (*map[string]interface{}, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *DeviceDto) SetType(v Platform)`
+`func (o *DeviceDto) SetType(v map[string]interface{})`
 
 SetType sets Type field to given value.
 

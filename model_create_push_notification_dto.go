@@ -19,7 +19,8 @@ type CreatePushNotificationDto struct {
 	UserIds []string `json:"userIds,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	BodyType *NotificationBodyType `json:"bodyType,omitempty"`
+	// Text, Markdown, Html, Other
+	BodyType *map[string]interface{} `json:"bodyType,omitempty"`
 	Body NullableString `json:"body,omitempty"`
 	Url NullableString `json:"url,omitempty"`
 }
@@ -159,9 +160,9 @@ func (o *CreatePushNotificationDto) UnsetDescription() {
 }
 
 // GetBodyType returns the BodyType field value if set, zero value otherwise.
-func (o *CreatePushNotificationDto) GetBodyType() NotificationBodyType {
+func (o *CreatePushNotificationDto) GetBodyType() map[string]interface{} {
 	if o == nil || o.BodyType == nil {
-		var ret NotificationBodyType
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.BodyType
@@ -169,7 +170,7 @@ func (o *CreatePushNotificationDto) GetBodyType() NotificationBodyType {
 
 // GetBodyTypeOk returns a tuple with the BodyType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreatePushNotificationDto) GetBodyTypeOk() (*NotificationBodyType, bool) {
+func (o *CreatePushNotificationDto) GetBodyTypeOk() (*map[string]interface{}, bool) {
 	if o == nil || o.BodyType == nil {
 		return nil, false
 	}
@@ -185,8 +186,8 @@ func (o *CreatePushNotificationDto) HasBodyType() bool {
 	return false
 }
 
-// SetBodyType gets a reference to the given NotificationBodyType and assigns it to the BodyType field.
-func (o *CreatePushNotificationDto) SetBodyType(v NotificationBodyType) {
+// SetBodyType gets a reference to the given map[string]interface{} and assigns it to the BodyType field.
+func (o *CreatePushNotificationDto) SetBodyType(v map[string]interface{}) {
 	o.BodyType = &v
 }
 

@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **SliceMd5** | Pointer to **NullableString** |  | [optional] 
 **RapidCode** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to [**ItemType**](ItemType.md) |  | [optional] 
-**DisplayStyle** | Pointer to [**DisplayStyle**](DisplayStyle.md) |  | [optional] 
+**Type** | Pointer to **map[string]interface{}** | Folder, Image, Video, Audio, Document, Note, Todo, Other | [optional] 
+**DisplayStyle** | Pointer to **map[string]interface{}** | None, ListItem, LargeThumbnail, Table, Other | [optional] 
 **Extension** | Pointer to **NullableString** |  | [optional] 
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
@@ -33,16 +33,16 @@ Name | Type | Description | Notes
 **FileId** | Pointer to **NullableString** |  | [optional] 
 **File** | Pointer to [**FileDto**](FileDto.md) |  | [optional] 
 **Thumb** | Pointer to [**FileDto**](FileDto.md) |  | [optional] 
-**Priority** | Pointer to [**Priority**](Priority.md) |  | [optional] 
+**Priority** | Pointer to **map[string]interface{}** | UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent | [optional] 
 **DoneAt** | Pointer to **NullableTime** |  | [optional] 
 **IsDone** | Pointer to **bool** |  | [optional] 
 **StartAt** | Pointer to **NullableTime** |  | [optional] 
 **EndAt** | Pointer to **NullableTime** |  | [optional] 
 **NotifyAt** | Pointer to **NullableTime** |  | [optional] 
-**NotifyTimingType** | Pointer to [**TodoNotifyTimingType**](TodoNotifyTimingType.md) |  | [optional] 
-**NotifyTimingUnit** | Pointer to [**TodoNotifyTimingUnit**](TodoNotifyTimingUnit.md) |  | [optional] 
+**NotifyTimingType** | Pointer to **map[string]interface{}** | None, Before, After | [optional] 
+**NotifyTimingUnit** | Pointer to **map[string]interface{}** | None, Minute, Hour, Day, Month, Year, Custom | [optional] 
 **NotifyTimingValue** | Pointer to **int32** |  | [optional] 
-**Repeat** | Pointer to [**TodoRepeat**](TodoRepeat.md) |  | [optional] 
+**Repeat** | Pointer to **map[string]interface{}** | Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay, EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom | [optional] 
 **SyncVersion** | Pointer to **int64** |  | [optional] 
 **IsSpecialFolder** | Pointer to **bool** |  | [optional] [readonly] 
 
@@ -717,20 +717,20 @@ HasContentType returns a boolean if a field has been set.
 UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetType
 
-`func (o *ItemDto) GetType() ItemType`
+`func (o *ItemDto) GetType() map[string]interface{}`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ItemDto) GetTypeOk() (*ItemType, bool)`
+`func (o *ItemDto) GetTypeOk() (*map[string]interface{}, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ItemDto) SetType(v ItemType)`
+`func (o *ItemDto) SetType(v map[string]interface{})`
 
 SetType sets Type field to given value.
 
@@ -742,20 +742,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetDisplayStyle
 
-`func (o *ItemDto) GetDisplayStyle() DisplayStyle`
+`func (o *ItemDto) GetDisplayStyle() map[string]interface{}`
 
 GetDisplayStyle returns the DisplayStyle field if non-nil, zero value otherwise.
 
 ### GetDisplayStyleOk
 
-`func (o *ItemDto) GetDisplayStyleOk() (*DisplayStyle, bool)`
+`func (o *ItemDto) GetDisplayStyleOk() (*map[string]interface{}, bool)`
 
 GetDisplayStyleOk returns a tuple with the DisplayStyle field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisplayStyle
 
-`func (o *ItemDto) SetDisplayStyle(v DisplayStyle)`
+`func (o *ItemDto) SetDisplayStyle(v map[string]interface{})`
 
 SetDisplayStyle sets DisplayStyle field to given value.
 
@@ -992,20 +992,20 @@ HasThumb returns a boolean if a field has been set.
 
 ### GetPriority
 
-`func (o *ItemDto) GetPriority() Priority`
+`func (o *ItemDto) GetPriority() map[string]interface{}`
 
 GetPriority returns the Priority field if non-nil, zero value otherwise.
 
 ### GetPriorityOk
 
-`func (o *ItemDto) GetPriorityOk() (*Priority, bool)`
+`func (o *ItemDto) GetPriorityOk() (*map[string]interface{}, bool)`
 
 GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriority
 
-`func (o *ItemDto) SetPriority(v Priority)`
+`func (o *ItemDto) SetPriority(v map[string]interface{})`
 
 SetPriority sets Priority field to given value.
 
@@ -1182,20 +1182,20 @@ HasNotifyAt returns a boolean if a field has been set.
 UnsetNotifyAt ensures that no value is present for NotifyAt, not even an explicit nil
 ### GetNotifyTimingType
 
-`func (o *ItemDto) GetNotifyTimingType() TodoNotifyTimingType`
+`func (o *ItemDto) GetNotifyTimingType() map[string]interface{}`
 
 GetNotifyTimingType returns the NotifyTimingType field if non-nil, zero value otherwise.
 
 ### GetNotifyTimingTypeOk
 
-`func (o *ItemDto) GetNotifyTimingTypeOk() (*TodoNotifyTimingType, bool)`
+`func (o *ItemDto) GetNotifyTimingTypeOk() (*map[string]interface{}, bool)`
 
 GetNotifyTimingTypeOk returns a tuple with the NotifyTimingType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotifyTimingType
 
-`func (o *ItemDto) SetNotifyTimingType(v TodoNotifyTimingType)`
+`func (o *ItemDto) SetNotifyTimingType(v map[string]interface{})`
 
 SetNotifyTimingType sets NotifyTimingType field to given value.
 
@@ -1207,20 +1207,20 @@ HasNotifyTimingType returns a boolean if a field has been set.
 
 ### GetNotifyTimingUnit
 
-`func (o *ItemDto) GetNotifyTimingUnit() TodoNotifyTimingUnit`
+`func (o *ItemDto) GetNotifyTimingUnit() map[string]interface{}`
 
 GetNotifyTimingUnit returns the NotifyTimingUnit field if non-nil, zero value otherwise.
 
 ### GetNotifyTimingUnitOk
 
-`func (o *ItemDto) GetNotifyTimingUnitOk() (*TodoNotifyTimingUnit, bool)`
+`func (o *ItemDto) GetNotifyTimingUnitOk() (*map[string]interface{}, bool)`
 
 GetNotifyTimingUnitOk returns a tuple with the NotifyTimingUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotifyTimingUnit
 
-`func (o *ItemDto) SetNotifyTimingUnit(v TodoNotifyTimingUnit)`
+`func (o *ItemDto) SetNotifyTimingUnit(v map[string]interface{})`
 
 SetNotifyTimingUnit sets NotifyTimingUnit field to given value.
 
@@ -1257,20 +1257,20 @@ HasNotifyTimingValue returns a boolean if a field has been set.
 
 ### GetRepeat
 
-`func (o *ItemDto) GetRepeat() TodoRepeat`
+`func (o *ItemDto) GetRepeat() map[string]interface{}`
 
 GetRepeat returns the Repeat field if non-nil, zero value otherwise.
 
 ### GetRepeatOk
 
-`func (o *ItemDto) GetRepeatOk() (*TodoRepeat, bool)`
+`func (o *ItemDto) GetRepeatOk() (*map[string]interface{}, bool)`
 
 GetRepeatOk returns a tuple with the Repeat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRepeat
 
-`func (o *ItemDto) SetRepeat(v TodoRepeat)`
+`func (o *ItemDto) SetRepeat(v map[string]interface{})`
 
 SetRepeat sets Repeat field to given value.
 
