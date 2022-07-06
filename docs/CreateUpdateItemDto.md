@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **SliceMd5** | Pointer to **NullableString** |  | [optional] 
 **RapidCode** | Pointer to **NullableString** |  | [optional] 
 **ContentType** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to **map[string]interface{}** | Folder, Image, Video, Audio, Document, Note, Todo, Other | [optional] 
-**DisplayStyle** | Pointer to **map[string]interface{}** | None, ListItem, LargeThumbnail, Table, Other | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
+**DisplayStyle** | Pointer to **NullableString** |  | [optional] 
 **Extension** | Pointer to **NullableString** |  | [optional] 
 **StorageClass** | Pointer to **NullableString** |  | [optional] 
 **FileCreatedAt** | Pointer to **NullableTime** |  | [optional] 
@@ -26,14 +26,14 @@ Name | Type | Description | Notes
 **DeletionTime** | Pointer to **NullableTime** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
 **LastModificationTime** | Pointer to **time.Time** |  | [optional] 
-**Priority** | Pointer to **map[string]interface{}** | UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent | [optional] 
+**Priority** | Pointer to **NullableString** |  | [optional] 
 **StartAt** | Pointer to **NullableTime** |  | [optional] 
 **EndAt** | Pointer to **NullableTime** |  | [optional] 
 **NotifyAt** | Pointer to **NullableTime** |  | [optional] 
-**NotifyTimingType** | Pointer to **map[string]interface{}** | None, Before, After | [optional] 
-**NotifyTimingUnit** | Pointer to **map[string]interface{}** | None, Minute, Hour, Day, Month, Year, Custom | [optional] 
+**NotifyTimingType** | Pointer to **NullableString** |  | [optional] 
+**NotifyTimingUnit** | Pointer to **NullableString** |  | [optional] 
 **NotifyTimingValue** | Pointer to **int32** |  | [optional] 
-**Repeat** | Pointer to **map[string]interface{}** | Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay, EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom | [optional] 
+**Repeat** | Pointer to **NullableString** |  | [optional] 
 **IsDone** | Pointer to **bool** |  | [optional] 
 **DoneAt** | Pointer to **NullableTime** |  | [optional] 
 
@@ -403,20 +403,20 @@ HasContentType returns a boolean if a field has been set.
 UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetType
 
-`func (o *CreateUpdateItemDto) GetType() map[string]interface{}`
+`func (o *CreateUpdateItemDto) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *CreateUpdateItemDto) GetTypeOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateItemDto) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *CreateUpdateItemDto) SetType(v map[string]interface{})`
+`func (o *CreateUpdateItemDto) SetType(v string)`
 
 SetType sets Type field to given value.
 
@@ -426,22 +426,32 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *CreateUpdateItemDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *CreateUpdateItemDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetDisplayStyle
 
-`func (o *CreateUpdateItemDto) GetDisplayStyle() map[string]interface{}`
+`func (o *CreateUpdateItemDto) GetDisplayStyle() string`
 
 GetDisplayStyle returns the DisplayStyle field if non-nil, zero value otherwise.
 
 ### GetDisplayStyleOk
 
-`func (o *CreateUpdateItemDto) GetDisplayStyleOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateItemDto) GetDisplayStyleOk() (*string, bool)`
 
 GetDisplayStyleOk returns a tuple with the DisplayStyle field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisplayStyle
 
-`func (o *CreateUpdateItemDto) SetDisplayStyle(v map[string]interface{})`
+`func (o *CreateUpdateItemDto) SetDisplayStyle(v string)`
 
 SetDisplayStyle sets DisplayStyle field to given value.
 
@@ -451,6 +461,16 @@ SetDisplayStyle sets DisplayStyle field to given value.
 
 HasDisplayStyle returns a boolean if a field has been set.
 
+### SetDisplayStyleNil
+
+`func (o *CreateUpdateItemDto) SetDisplayStyleNil(b bool)`
+
+ SetDisplayStyleNil sets the value for DisplayStyle to be an explicit nil
+
+### UnsetDisplayStyle
+`func (o *CreateUpdateItemDto) UnsetDisplayStyle()`
+
+UnsetDisplayStyle ensures that no value is present for DisplayStyle, not even an explicit nil
 ### GetExtension
 
 `func (o *CreateUpdateItemDto) GetExtension() string`
@@ -728,20 +748,20 @@ HasLastModificationTime returns a boolean if a field has been set.
 
 ### GetPriority
 
-`func (o *CreateUpdateItemDto) GetPriority() map[string]interface{}`
+`func (o *CreateUpdateItemDto) GetPriority() string`
 
 GetPriority returns the Priority field if non-nil, zero value otherwise.
 
 ### GetPriorityOk
 
-`func (o *CreateUpdateItemDto) GetPriorityOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateItemDto) GetPriorityOk() (*string, bool)`
 
 GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriority
 
-`func (o *CreateUpdateItemDto) SetPriority(v map[string]interface{})`
+`func (o *CreateUpdateItemDto) SetPriority(v string)`
 
 SetPriority sets Priority field to given value.
 
@@ -751,6 +771,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *CreateUpdateItemDto) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *CreateUpdateItemDto) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetStartAt
 
 `func (o *CreateUpdateItemDto) GetStartAt() time.Time`
@@ -858,20 +888,20 @@ HasNotifyAt returns a boolean if a field has been set.
 UnsetNotifyAt ensures that no value is present for NotifyAt, not even an explicit nil
 ### GetNotifyTimingType
 
-`func (o *CreateUpdateItemDto) GetNotifyTimingType() map[string]interface{}`
+`func (o *CreateUpdateItemDto) GetNotifyTimingType() string`
 
 GetNotifyTimingType returns the NotifyTimingType field if non-nil, zero value otherwise.
 
 ### GetNotifyTimingTypeOk
 
-`func (o *CreateUpdateItemDto) GetNotifyTimingTypeOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateItemDto) GetNotifyTimingTypeOk() (*string, bool)`
 
 GetNotifyTimingTypeOk returns a tuple with the NotifyTimingType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotifyTimingType
 
-`func (o *CreateUpdateItemDto) SetNotifyTimingType(v map[string]interface{})`
+`func (o *CreateUpdateItemDto) SetNotifyTimingType(v string)`
 
 SetNotifyTimingType sets NotifyTimingType field to given value.
 
@@ -881,22 +911,32 @@ SetNotifyTimingType sets NotifyTimingType field to given value.
 
 HasNotifyTimingType returns a boolean if a field has been set.
 
+### SetNotifyTimingTypeNil
+
+`func (o *CreateUpdateItemDto) SetNotifyTimingTypeNil(b bool)`
+
+ SetNotifyTimingTypeNil sets the value for NotifyTimingType to be an explicit nil
+
+### UnsetNotifyTimingType
+`func (o *CreateUpdateItemDto) UnsetNotifyTimingType()`
+
+UnsetNotifyTimingType ensures that no value is present for NotifyTimingType, not even an explicit nil
 ### GetNotifyTimingUnit
 
-`func (o *CreateUpdateItemDto) GetNotifyTimingUnit() map[string]interface{}`
+`func (o *CreateUpdateItemDto) GetNotifyTimingUnit() string`
 
 GetNotifyTimingUnit returns the NotifyTimingUnit field if non-nil, zero value otherwise.
 
 ### GetNotifyTimingUnitOk
 
-`func (o *CreateUpdateItemDto) GetNotifyTimingUnitOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateItemDto) GetNotifyTimingUnitOk() (*string, bool)`
 
 GetNotifyTimingUnitOk returns a tuple with the NotifyTimingUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotifyTimingUnit
 
-`func (o *CreateUpdateItemDto) SetNotifyTimingUnit(v map[string]interface{})`
+`func (o *CreateUpdateItemDto) SetNotifyTimingUnit(v string)`
 
 SetNotifyTimingUnit sets NotifyTimingUnit field to given value.
 
@@ -906,6 +946,16 @@ SetNotifyTimingUnit sets NotifyTimingUnit field to given value.
 
 HasNotifyTimingUnit returns a boolean if a field has been set.
 
+### SetNotifyTimingUnitNil
+
+`func (o *CreateUpdateItemDto) SetNotifyTimingUnitNil(b bool)`
+
+ SetNotifyTimingUnitNil sets the value for NotifyTimingUnit to be an explicit nil
+
+### UnsetNotifyTimingUnit
+`func (o *CreateUpdateItemDto) UnsetNotifyTimingUnit()`
+
+UnsetNotifyTimingUnit ensures that no value is present for NotifyTimingUnit, not even an explicit nil
 ### GetNotifyTimingValue
 
 `func (o *CreateUpdateItemDto) GetNotifyTimingValue() int32`
@@ -933,20 +983,20 @@ HasNotifyTimingValue returns a boolean if a field has been set.
 
 ### GetRepeat
 
-`func (o *CreateUpdateItemDto) GetRepeat() map[string]interface{}`
+`func (o *CreateUpdateItemDto) GetRepeat() string`
 
 GetRepeat returns the Repeat field if non-nil, zero value otherwise.
 
 ### GetRepeatOk
 
-`func (o *CreateUpdateItemDto) GetRepeatOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateItemDto) GetRepeatOk() (*string, bool)`
 
 GetRepeatOk returns a tuple with the Repeat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRepeat
 
-`func (o *CreateUpdateItemDto) SetRepeat(v map[string]interface{})`
+`func (o *CreateUpdateItemDto) SetRepeat(v string)`
 
 SetRepeat sets Repeat field to given value.
 
@@ -956,6 +1006,16 @@ SetRepeat sets Repeat field to given value.
 
 HasRepeat returns a boolean if a field has been set.
 
+### SetRepeatNil
+
+`func (o *CreateUpdateItemDto) SetRepeatNil(b bool)`
+
+ SetRepeatNil sets the value for Repeat to be an explicit nil
+
+### UnsetRepeat
+`func (o *CreateUpdateItemDto) UnsetRepeat()`
+
+UnsetRepeat ensures that no value is present for Repeat, not even an explicit nil
 ### GetIsDone
 
 `func (o *CreateUpdateItemDto) GetIsDone() bool`

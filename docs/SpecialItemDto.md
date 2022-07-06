@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]ItemDto**](ItemDto.md) |  | [optional] 
-**Names** | Pointer to **map[string]interface{}** | NoteFolder, AlbumFolder, MediaFolder, MusicFolder, DocumentFolder, TodoFolder | [optional] 
+**Names** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -63,20 +63,20 @@ HasItems returns a boolean if a field has been set.
 UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetNames
 
-`func (o *SpecialItemDto) GetNames() map[string]interface{}`
+`func (o *SpecialItemDto) GetNames() string`
 
 GetNames returns the Names field if non-nil, zero value otherwise.
 
 ### GetNamesOk
 
-`func (o *SpecialItemDto) GetNamesOk() (*map[string]interface{}, bool)`
+`func (o *SpecialItemDto) GetNamesOk() (*string, bool)`
 
 GetNamesOk returns a tuple with the Names field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNames
 
-`func (o *SpecialItemDto) SetNames(v map[string]interface{})`
+`func (o *SpecialItemDto) SetNames(v string)`
 
 SetNames sets Names field to given value.
 
@@ -86,6 +86,16 @@ SetNames sets Names field to given value.
 
 HasNames returns a boolean if a field has been set.
 
+### SetNamesNil
+
+`func (o *SpecialItemDto) SetNamesNil(b bool)`
+
+ SetNamesNil sets the value for Names to be an explicit nil
+
+### UnsetNames
+`func (o *SpecialItemDto) UnsetNames()`
+
+UnsetNames ensures that no value is present for Names, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

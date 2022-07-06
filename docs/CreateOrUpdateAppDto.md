@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**Framework** | Pointer to **map[string]interface{}** | Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows, NativeMacOS, Ionic, AspNetCore | [optional] 
-**AppType** | Pointer to **map[string]interface{}** | Client, Service, Web | [optional] 
+**Framework** | Pointer to **NullableString** |  | [optional] 
+**AppType** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
 **GitRepository** | Pointer to **NullableString** |  | [optional] 
-**GitRepositoryType** | Pointer to **map[string]interface{}** | GitHub, GitLab, BitBucket, Other | [optional] 
+**GitRepositoryType** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -104,20 +104,20 @@ HasDisplayName returns a boolean if a field has been set.
 UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetFramework
 
-`func (o *CreateOrUpdateAppDto) GetFramework() map[string]interface{}`
+`func (o *CreateOrUpdateAppDto) GetFramework() string`
 
 GetFramework returns the Framework field if non-nil, zero value otherwise.
 
 ### GetFrameworkOk
 
-`func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*map[string]interface{}, bool)`
+`func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*string, bool)`
 
 GetFrameworkOk returns a tuple with the Framework field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFramework
 
-`func (o *CreateOrUpdateAppDto) SetFramework(v map[string]interface{})`
+`func (o *CreateOrUpdateAppDto) SetFramework(v string)`
 
 SetFramework sets Framework field to given value.
 
@@ -127,22 +127,32 @@ SetFramework sets Framework field to given value.
 
 HasFramework returns a boolean if a field has been set.
 
+### SetFrameworkNil
+
+`func (o *CreateOrUpdateAppDto) SetFrameworkNil(b bool)`
+
+ SetFrameworkNil sets the value for Framework to be an explicit nil
+
+### UnsetFramework
+`func (o *CreateOrUpdateAppDto) UnsetFramework()`
+
+UnsetFramework ensures that no value is present for Framework, not even an explicit nil
 ### GetAppType
 
-`func (o *CreateOrUpdateAppDto) GetAppType() map[string]interface{}`
+`func (o *CreateOrUpdateAppDto) GetAppType() string`
 
 GetAppType returns the AppType field if non-nil, zero value otherwise.
 
 ### GetAppTypeOk
 
-`func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*map[string]interface{}, bool)`
+`func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*string, bool)`
 
 GetAppTypeOk returns a tuple with the AppType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppType
 
-`func (o *CreateOrUpdateAppDto) SetAppType(v map[string]interface{})`
+`func (o *CreateOrUpdateAppDto) SetAppType(v string)`
 
 SetAppType sets AppType field to given value.
 
@@ -152,6 +162,16 @@ SetAppType sets AppType field to given value.
 
 HasAppType returns a boolean if a field has been set.
 
+### SetAppTypeNil
+
+`func (o *CreateOrUpdateAppDto) SetAppTypeNil(b bool)`
+
+ SetAppTypeNil sets the value for AppType to be an explicit nil
+
+### UnsetAppType
+`func (o *CreateOrUpdateAppDto) UnsetAppType()`
+
+UnsetAppType ensures that no value is present for AppType, not even an explicit nil
 ### GetDescription
 
 `func (o *CreateOrUpdateAppDto) GetDescription() string`
@@ -259,20 +279,20 @@ HasGitRepository returns a boolean if a field has been set.
 UnsetGitRepository ensures that no value is present for GitRepository, not even an explicit nil
 ### GetGitRepositoryType
 
-`func (o *CreateOrUpdateAppDto) GetGitRepositoryType() map[string]interface{}`
+`func (o *CreateOrUpdateAppDto) GetGitRepositoryType() string`
 
 GetGitRepositoryType returns the GitRepositoryType field if non-nil, zero value otherwise.
 
 ### GetGitRepositoryTypeOk
 
-`func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*map[string]interface{}, bool)`
+`func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*string, bool)`
 
 GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGitRepositoryType
 
-`func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v map[string]interface{})`
+`func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v string)`
 
 SetGitRepositoryType sets GitRepositoryType field to given value.
 
@@ -282,6 +302,16 @@ SetGitRepositoryType sets GitRepositoryType field to given value.
 
 HasGitRepositoryType returns a boolean if a field has been set.
 
+### SetGitRepositoryTypeNil
+
+`func (o *CreateOrUpdateAppDto) SetGitRepositoryTypeNil(b bool)`
+
+ SetGitRepositoryTypeNil sets the value for GitRepositoryType to be an explicit nil
+
+### UnsetGitRepositoryType
+`func (o *CreateOrUpdateAppDto) UnsetGitRepositoryType()`
+
+UnsetGitRepositoryType ensures that no value is present for GitRepositoryType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

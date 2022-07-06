@@ -18,15 +18,12 @@ import (
 type CreateOrUpdateAppDto struct {
 	Name NullableString `json:"name,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
-	// Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows, NativeMacOS, Ionic, AspNetCore
-	Framework *map[string]interface{} `json:"framework,omitempty"`
-	// Client, Service, Web
-	AppType *map[string]interface{} `json:"appType,omitempty"`
+	Framework NullableString `json:"framework,omitempty"`
+	AppType NullableString `json:"appType,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
 	GitRepository NullableString `json:"gitRepository,omitempty"`
-	// GitHub, GitLab, BitBucket, Other
-	GitRepositoryType *map[string]interface{} `json:"gitRepositoryType,omitempty"`
+	GitRepositoryType NullableString `json:"gitRepositoryType,omitempty"`
 }
 
 // NewCreateOrUpdateAppDto instantiates a new CreateOrUpdateAppDto object
@@ -130,68 +127,88 @@ func (o *CreateOrUpdateAppDto) UnsetDisplayName() {
 	o.DisplayName.Unset()
 }
 
-// GetFramework returns the Framework field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppDto) GetFramework() map[string]interface{} {
-	if o == nil || o.Framework == nil {
-		var ret map[string]interface{}
+// GetFramework returns the Framework field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateOrUpdateAppDto) GetFramework() string {
+	if o == nil || o.Framework.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Framework
+	return *o.Framework.Get()
 }
 
 // GetFrameworkOk returns a tuple with the Framework field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Framework == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Framework, true
+	return o.Framework.Get(), o.Framework.IsSet()
 }
 
 // HasFramework returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasFramework() bool {
-	if o != nil && o.Framework != nil {
+	if o != nil && o.Framework.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFramework gets a reference to the given map[string]interface{} and assigns it to the Framework field.
-func (o *CreateOrUpdateAppDto) SetFramework(v map[string]interface{}) {
-	o.Framework = &v
+// SetFramework gets a reference to the given NullableString and assigns it to the Framework field.
+func (o *CreateOrUpdateAppDto) SetFramework(v string) {
+	o.Framework.Set(&v)
+}
+// SetFrameworkNil sets the value for Framework to be an explicit nil
+func (o *CreateOrUpdateAppDto) SetFrameworkNil() {
+	o.Framework.Set(nil)
 }
 
-// GetAppType returns the AppType field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppDto) GetAppType() map[string]interface{} {
-	if o == nil || o.AppType == nil {
-		var ret map[string]interface{}
+// UnsetFramework ensures that no value is present for Framework, not even an explicit nil
+func (o *CreateOrUpdateAppDto) UnsetFramework() {
+	o.Framework.Unset()
+}
+
+// GetAppType returns the AppType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateOrUpdateAppDto) GetAppType() string {
+	if o == nil || o.AppType.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.AppType
+	return *o.AppType.Get()
 }
 
 // GetAppTypeOk returns a tuple with the AppType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*map[string]interface{}, bool) {
-	if o == nil || o.AppType == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.AppType, true
+	return o.AppType.Get(), o.AppType.IsSet()
 }
 
 // HasAppType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasAppType() bool {
-	if o != nil && o.AppType != nil {
+	if o != nil && o.AppType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAppType gets a reference to the given map[string]interface{} and assigns it to the AppType field.
-func (o *CreateOrUpdateAppDto) SetAppType(v map[string]interface{}) {
-	o.AppType = &v
+// SetAppType gets a reference to the given NullableString and assigns it to the AppType field.
+func (o *CreateOrUpdateAppDto) SetAppType(v string) {
+	o.AppType.Set(&v)
+}
+// SetAppTypeNil sets the value for AppType to be an explicit nil
+func (o *CreateOrUpdateAppDto) SetAppTypeNil() {
+	o.AppType.Set(nil)
+}
+
+// UnsetAppType ensures that no value is present for AppType, not even an explicit nil
+func (o *CreateOrUpdateAppDto) UnsetAppType() {
+	o.AppType.Unset()
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -320,36 +337,46 @@ func (o *CreateOrUpdateAppDto) UnsetGitRepository() {
 	o.GitRepository.Unset()
 }
 
-// GetGitRepositoryType returns the GitRepositoryType field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppDto) GetGitRepositoryType() map[string]interface{} {
-	if o == nil || o.GitRepositoryType == nil {
-		var ret map[string]interface{}
+// GetGitRepositoryType returns the GitRepositoryType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateOrUpdateAppDto) GetGitRepositoryType() string {
+	if o == nil || o.GitRepositoryType.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.GitRepositoryType
+	return *o.GitRepositoryType.Get()
 }
 
 // GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*map[string]interface{}, bool) {
-	if o == nil || o.GitRepositoryType == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.GitRepositoryType, true
+	return o.GitRepositoryType.Get(), o.GitRepositoryType.IsSet()
 }
 
 // HasGitRepositoryType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasGitRepositoryType() bool {
-	if o != nil && o.GitRepositoryType != nil {
+	if o != nil && o.GitRepositoryType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetGitRepositoryType gets a reference to the given map[string]interface{} and assigns it to the GitRepositoryType field.
-func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v map[string]interface{}) {
-	o.GitRepositoryType = &v
+// SetGitRepositoryType gets a reference to the given NullableString and assigns it to the GitRepositoryType field.
+func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v string) {
+	o.GitRepositoryType.Set(&v)
+}
+// SetGitRepositoryTypeNil sets the value for GitRepositoryType to be an explicit nil
+func (o *CreateOrUpdateAppDto) SetGitRepositoryTypeNil() {
+	o.GitRepositoryType.Set(nil)
+}
+
+// UnsetGitRepositoryType ensures that no value is present for GitRepositoryType, not even an explicit nil
+func (o *CreateOrUpdateAppDto) UnsetGitRepositoryType() {
+	o.GitRepositoryType.Unset()
 }
 
 func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
@@ -360,11 +387,11 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	if o.DisplayName.IsSet() {
 		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if o.Framework != nil {
-		toSerialize["framework"] = o.Framework
+	if o.Framework.IsSet() {
+		toSerialize["framework"] = o.Framework.Get()
 	}
-	if o.AppType != nil {
-		toSerialize["appType"] = o.AppType
+	if o.AppType.IsSet() {
+		toSerialize["appType"] = o.AppType.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
@@ -375,8 +402,8 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	if o.GitRepository.IsSet() {
 		toSerialize["gitRepository"] = o.GitRepository.Get()
 	}
-	if o.GitRepositoryType != nil {
-		toSerialize["gitRepositoryType"] = o.GitRepositoryType
+	if o.GitRepositoryType.IsSet() {
+		toSerialize["gitRepositoryType"] = o.GitRepositoryType.Get()
 	}
 	return json.Marshal(toSerialize)
 }

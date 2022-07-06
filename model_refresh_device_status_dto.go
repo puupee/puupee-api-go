@@ -17,8 +17,7 @@ import (
 // RefreshDeviceStatusDto struct for RefreshDeviceStatusDto
 type RefreshDeviceStatusDto struct {
 	Id NullableString `json:"id,omitempty"`
-	// None, Unknow, Online, Offline
-	Status *map[string]interface{} `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 }
 
 // NewRefreshDeviceStatusDto instantiates a new RefreshDeviceStatusDto object
@@ -80,36 +79,46 @@ func (o *RefreshDeviceStatusDto) UnsetId() {
 	o.Id.Unset()
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *RefreshDeviceStatusDto) GetStatus() map[string]interface{} {
-	if o == nil || o.Status == nil {
-		var ret map[string]interface{}
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RefreshDeviceStatusDto) GetStatus() string {
+	if o == nil || o.Status.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RefreshDeviceStatusDto) GetStatusOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Status == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RefreshDeviceStatusDto) GetStatusOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *RefreshDeviceStatusDto) HasStatus() bool {
-	if o != nil && o.Status != nil {
+	if o != nil && o.Status.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given map[string]interface{} and assigns it to the Status field.
-func (o *RefreshDeviceStatusDto) SetStatus(v map[string]interface{}) {
-	o.Status = &v
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
+func (o *RefreshDeviceStatusDto) SetStatus(v string) {
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *RefreshDeviceStatusDto) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *RefreshDeviceStatusDto) UnsetStatus() {
+	o.Status.Unset()
 }
 
 func (o RefreshDeviceStatusDto) MarshalJSON() ([]byte, error) {
@@ -117,8 +126,8 @@ func (o RefreshDeviceStatusDto) MarshalJSON() ([]byte, error) {
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
 	}
-	if o.Status != nil {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
 	return json.Marshal(toSerialize)
 }

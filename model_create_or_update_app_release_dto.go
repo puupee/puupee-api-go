@@ -18,15 +18,13 @@ import (
 type CreateOrUpdateAppReleaseDto struct {
 	Version NullableString `json:"version,omitempty"`
 	Notes NullableString `json:"notes,omitempty"`
-	// None, Unknow, Android, IOS, Windows, Linux, Web, Other
-	Platform *map[string]interface{} `json:"platform,omitempty"`
+	Platform NullableString `json:"platform,omitempty"`
 	Key NullableString `json:"key,omitempty"`
 	RapidCode NullableString `json:"rapidCode,omitempty"`
 	Size NullableInt64 `json:"size,omitempty"`
 	Md5 NullableString `json:"md5,omitempty"`
 	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
-	// Apk, Ipa, Exe, Web, Other
-	ProductType *map[string]interface{} `json:"productType,omitempty"`
+	ProductType NullableString `json:"productType,omitempty"`
 	IsForceUpdate *bool `json:"isForceUpdate,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	IsEnabled *bool `json:"isEnabled,omitempty"`
@@ -135,36 +133,46 @@ func (o *CreateOrUpdateAppReleaseDto) UnsetNotes() {
 	o.Notes.Unset()
 }
 
-// GetPlatform returns the Platform field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppReleaseDto) GetPlatform() map[string]interface{} {
-	if o == nil || o.Platform == nil {
-		var ret map[string]interface{}
+// GetPlatform returns the Platform field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateOrUpdateAppReleaseDto) GetPlatform() string {
+	if o == nil || o.Platform.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Platform
+	return *o.Platform.Get()
 }
 
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppReleaseDto) GetPlatformOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Platform == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateOrUpdateAppReleaseDto) GetPlatformOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Platform, true
+	return o.Platform.Get(), o.Platform.IsSet()
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasPlatform() bool {
-	if o != nil && o.Platform != nil {
+	if o != nil && o.Platform.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatform gets a reference to the given map[string]interface{} and assigns it to the Platform field.
-func (o *CreateOrUpdateAppReleaseDto) SetPlatform(v map[string]interface{}) {
-	o.Platform = &v
+// SetPlatform gets a reference to the given NullableString and assigns it to the Platform field.
+func (o *CreateOrUpdateAppReleaseDto) SetPlatform(v string) {
+	o.Platform.Set(&v)
+}
+// SetPlatformNil sets the value for Platform to be an explicit nil
+func (o *CreateOrUpdateAppReleaseDto) SetPlatformNil() {
+	o.Platform.Set(nil)
+}
+
+// UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
+func (o *CreateOrUpdateAppReleaseDto) UnsetPlatform() {
+	o.Platform.Unset()
 }
 
 // GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -377,36 +385,46 @@ func (o *CreateOrUpdateAppReleaseDto) UnsetSliceMd5() {
 	o.SliceMd5.Unset()
 }
 
-// GetProductType returns the ProductType field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppReleaseDto) GetProductType() map[string]interface{} {
-	if o == nil || o.ProductType == nil {
-		var ret map[string]interface{}
+// GetProductType returns the ProductType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateOrUpdateAppReleaseDto) GetProductType() string {
+	if o == nil || o.ProductType.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.ProductType
+	return *o.ProductType.Get()
 }
 
 // GetProductTypeOk returns a tuple with the ProductType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppReleaseDto) GetProductTypeOk() (*map[string]interface{}, bool) {
-	if o == nil || o.ProductType == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateOrUpdateAppReleaseDto) GetProductTypeOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.ProductType, true
+	return o.ProductType.Get(), o.ProductType.IsSet()
 }
 
 // HasProductType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasProductType() bool {
-	if o != nil && o.ProductType != nil {
+	if o != nil && o.ProductType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProductType gets a reference to the given map[string]interface{} and assigns it to the ProductType field.
-func (o *CreateOrUpdateAppReleaseDto) SetProductType(v map[string]interface{}) {
-	o.ProductType = &v
+// SetProductType gets a reference to the given NullableString and assigns it to the ProductType field.
+func (o *CreateOrUpdateAppReleaseDto) SetProductType(v string) {
+	o.ProductType.Set(&v)
+}
+// SetProductTypeNil sets the value for ProductType to be an explicit nil
+func (o *CreateOrUpdateAppReleaseDto) SetProductTypeNil() {
+	o.ProductType.Set(nil)
+}
+
+// UnsetProductType ensures that no value is present for ProductType, not even an explicit nil
+func (o *CreateOrUpdateAppReleaseDto) UnsetProductType() {
+	o.ProductType.Unset()
 }
 
 // GetIsForceUpdate returns the IsForceUpdate field value if set, zero value otherwise.
@@ -597,8 +615,8 @@ func (o CreateOrUpdateAppReleaseDto) MarshalJSON() ([]byte, error) {
 	if o.Notes.IsSet() {
 		toSerialize["notes"] = o.Notes.Get()
 	}
-	if o.Platform != nil {
-		toSerialize["platform"] = o.Platform
+	if o.Platform.IsSet() {
+		toSerialize["platform"] = o.Platform.Get()
 	}
 	if o.Key.IsSet() {
 		toSerialize["key"] = o.Key.Get()
@@ -615,8 +633,8 @@ func (o CreateOrUpdateAppReleaseDto) MarshalJSON() ([]byte, error) {
 	if o.SliceMd5.IsSet() {
 		toSerialize["sliceMd5"] = o.SliceMd5.Get()
 	}
-	if o.ProductType != nil {
-		toSerialize["productType"] = o.ProductType
+	if o.ProductType.IsSet() {
+		toSerialize["productType"] = o.ProductType.Get()
 	}
 	if o.IsForceUpdate != nil {
 		toSerialize["isForceUpdate"] = o.IsForceUpdate

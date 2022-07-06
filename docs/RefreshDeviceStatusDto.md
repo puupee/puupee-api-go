@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to **map[string]interface{}** | None, Unknow, Online, Offline | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -63,20 +63,20 @@ HasId returns a boolean if a field has been set.
 UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetStatus
 
-`func (o *RefreshDeviceStatusDto) GetStatus() map[string]interface{}`
+`func (o *RefreshDeviceStatusDto) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RefreshDeviceStatusDto) GetStatusOk() (*map[string]interface{}, bool)`
+`func (o *RefreshDeviceStatusDto) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RefreshDeviceStatusDto) SetStatus(v map[string]interface{})`
+`func (o *RefreshDeviceStatusDto) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 
@@ -86,6 +86,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *RefreshDeviceStatusDto) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *RefreshDeviceStatusDto) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

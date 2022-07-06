@@ -37,10 +37,8 @@ type ItemDto struct {
 	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
 	RapidCode NullableString `json:"rapidCode,omitempty"`
 	ContentType NullableString `json:"contentType,omitempty"`
-	// Folder, Image, Video, Audio, Document, Note, Todo, Other
-	Type *map[string]interface{} `json:"type,omitempty"`
-	// None, ListItem, LargeThumbnail, Table, Other
-	DisplayStyle *map[string]interface{} `json:"displayStyle,omitempty"`
+	Type NullableString `json:"type,omitempty"`
+	DisplayStyle NullableString `json:"displayStyle,omitempty"`
 	Extension NullableString `json:"extension,omitempty"`
 	StorageClass NullableString `json:"storageClass,omitempty"`
 	FileCreatedAt NullableTime `json:"fileCreatedAt,omitempty"`
@@ -48,20 +46,16 @@ type ItemDto struct {
 	FileId NullableString `json:"fileId,omitempty"`
 	File *FileDto `json:"file,omitempty"`
 	Thumb *FileDto `json:"thumb,omitempty"`
-	// UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent
-	Priority *map[string]interface{} `json:"priority,omitempty"`
+	Priority NullableString `json:"priority,omitempty"`
 	DoneAt NullableTime `json:"doneAt,omitempty"`
 	IsDone *bool `json:"isDone,omitempty"`
 	StartAt NullableTime `json:"startAt,omitempty"`
 	EndAt NullableTime `json:"endAt,omitempty"`
 	NotifyAt NullableTime `json:"notifyAt,omitempty"`
-	// None, Before, After
-	NotifyTimingType *map[string]interface{} `json:"notifyTimingType,omitempty"`
-	// None, Minute, Hour, Day, Month, Year, Custom
-	NotifyTimingUnit *map[string]interface{} `json:"notifyTimingUnit,omitempty"`
+	NotifyTimingType NullableString `json:"notifyTimingType,omitempty"`
+	NotifyTimingUnit NullableString `json:"notifyTimingUnit,omitempty"`
 	NotifyTimingValue *int32 `json:"notifyTimingValue,omitempty"`
-	// Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay, EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom
-	Repeat *map[string]interface{} `json:"repeat,omitempty"`
+	Repeat NullableString `json:"repeat,omitempty"`
 	SyncVersion *int64 `json:"syncVersion,omitempty"`
 	IsSpecialFolder *bool `json:"isSpecialFolder,omitempty"`
 }
@@ -873,68 +867,88 @@ func (o *ItemDto) UnsetContentType() {
 	o.ContentType.Unset()
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *ItemDto) GetType() map[string]interface{} {
-	if o == nil || o.Type == nil {
-		var ret map[string]interface{}
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetType() string {
+	if o == nil || o.Type.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetTypeOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Type == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetTypeOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ItemDto) HasType() bool {
-	if o != nil && o.Type != nil {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
-func (o *ItemDto) SetType(v map[string]interface{}) {
-	o.Type = &v
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
+func (o *ItemDto) SetType(v string) {
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *ItemDto) SetTypeNil() {
+	o.Type.Set(nil)
 }
 
-// GetDisplayStyle returns the DisplayStyle field value if set, zero value otherwise.
-func (o *ItemDto) GetDisplayStyle() map[string]interface{} {
-	if o == nil || o.DisplayStyle == nil {
-		var ret map[string]interface{}
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *ItemDto) UnsetType() {
+	o.Type.Unset()
+}
+
+// GetDisplayStyle returns the DisplayStyle field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetDisplayStyle() string {
+	if o == nil || o.DisplayStyle.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.DisplayStyle
+	return *o.DisplayStyle.Get()
 }
 
 // GetDisplayStyleOk returns a tuple with the DisplayStyle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetDisplayStyleOk() (*map[string]interface{}, bool) {
-	if o == nil || o.DisplayStyle == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetDisplayStyleOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.DisplayStyle, true
+	return o.DisplayStyle.Get(), o.DisplayStyle.IsSet()
 }
 
 // HasDisplayStyle returns a boolean if a field has been set.
 func (o *ItemDto) HasDisplayStyle() bool {
-	if o != nil && o.DisplayStyle != nil {
+	if o != nil && o.DisplayStyle.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayStyle gets a reference to the given map[string]interface{} and assigns it to the DisplayStyle field.
-func (o *ItemDto) SetDisplayStyle(v map[string]interface{}) {
-	o.DisplayStyle = &v
+// SetDisplayStyle gets a reference to the given NullableString and assigns it to the DisplayStyle field.
+func (o *ItemDto) SetDisplayStyle(v string) {
+	o.DisplayStyle.Set(&v)
+}
+// SetDisplayStyleNil sets the value for DisplayStyle to be an explicit nil
+func (o *ItemDto) SetDisplayStyleNil() {
+	o.DisplayStyle.Set(nil)
+}
+
+// UnsetDisplayStyle ensures that no value is present for DisplayStyle, not even an explicit nil
+func (o *ItemDto) UnsetDisplayStyle() {
+	o.DisplayStyle.Unset()
 }
 
 // GetExtension returns the Extension field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1211,36 +1225,46 @@ func (o *ItemDto) SetThumb(v FileDto) {
 	o.Thumb = &v
 }
 
-// GetPriority returns the Priority field value if set, zero value otherwise.
-func (o *ItemDto) GetPriority() map[string]interface{} {
-	if o == nil || o.Priority == nil {
-		var ret map[string]interface{}
+// GetPriority returns the Priority field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetPriority() string {
+	if o == nil || o.Priority.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Priority
+	return *o.Priority.Get()
 }
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetPriorityOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Priority == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetPriorityOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Priority, true
+	return o.Priority.Get(), o.Priority.IsSet()
 }
 
 // HasPriority returns a boolean if a field has been set.
 func (o *ItemDto) HasPriority() bool {
-	if o != nil && o.Priority != nil {
+	if o != nil && o.Priority.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPriority gets a reference to the given map[string]interface{} and assigns it to the Priority field.
-func (o *ItemDto) SetPriority(v map[string]interface{}) {
-	o.Priority = &v
+// SetPriority gets a reference to the given NullableString and assigns it to the Priority field.
+func (o *ItemDto) SetPriority(v string) {
+	o.Priority.Set(&v)
+}
+// SetPriorityNil sets the value for Priority to be an explicit nil
+func (o *ItemDto) SetPriorityNil() {
+	o.Priority.Set(nil)
+}
+
+// UnsetPriority ensures that no value is present for Priority, not even an explicit nil
+func (o *ItemDto) UnsetPriority() {
+	o.Priority.Unset()
 }
 
 // GetDoneAt returns the DoneAt field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1443,68 +1467,88 @@ func (o *ItemDto) UnsetNotifyAt() {
 	o.NotifyAt.Unset()
 }
 
-// GetNotifyTimingType returns the NotifyTimingType field value if set, zero value otherwise.
-func (o *ItemDto) GetNotifyTimingType() map[string]interface{} {
-	if o == nil || o.NotifyTimingType == nil {
-		var ret map[string]interface{}
+// GetNotifyTimingType returns the NotifyTimingType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetNotifyTimingType() string {
+	if o == nil || o.NotifyTimingType.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.NotifyTimingType
+	return *o.NotifyTimingType.Get()
 }
 
 // GetNotifyTimingTypeOk returns a tuple with the NotifyTimingType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetNotifyTimingTypeOk() (*map[string]interface{}, bool) {
-	if o == nil || o.NotifyTimingType == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetNotifyTimingTypeOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.NotifyTimingType, true
+	return o.NotifyTimingType.Get(), o.NotifyTimingType.IsSet()
 }
 
 // HasNotifyTimingType returns a boolean if a field has been set.
 func (o *ItemDto) HasNotifyTimingType() bool {
-	if o != nil && o.NotifyTimingType != nil {
+	if o != nil && o.NotifyTimingType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNotifyTimingType gets a reference to the given map[string]interface{} and assigns it to the NotifyTimingType field.
-func (o *ItemDto) SetNotifyTimingType(v map[string]interface{}) {
-	o.NotifyTimingType = &v
+// SetNotifyTimingType gets a reference to the given NullableString and assigns it to the NotifyTimingType field.
+func (o *ItemDto) SetNotifyTimingType(v string) {
+	o.NotifyTimingType.Set(&v)
+}
+// SetNotifyTimingTypeNil sets the value for NotifyTimingType to be an explicit nil
+func (o *ItemDto) SetNotifyTimingTypeNil() {
+	o.NotifyTimingType.Set(nil)
 }
 
-// GetNotifyTimingUnit returns the NotifyTimingUnit field value if set, zero value otherwise.
-func (o *ItemDto) GetNotifyTimingUnit() map[string]interface{} {
-	if o == nil || o.NotifyTimingUnit == nil {
-		var ret map[string]interface{}
+// UnsetNotifyTimingType ensures that no value is present for NotifyTimingType, not even an explicit nil
+func (o *ItemDto) UnsetNotifyTimingType() {
+	o.NotifyTimingType.Unset()
+}
+
+// GetNotifyTimingUnit returns the NotifyTimingUnit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetNotifyTimingUnit() string {
+	if o == nil || o.NotifyTimingUnit.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.NotifyTimingUnit
+	return *o.NotifyTimingUnit.Get()
 }
 
 // GetNotifyTimingUnitOk returns a tuple with the NotifyTimingUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetNotifyTimingUnitOk() (*map[string]interface{}, bool) {
-	if o == nil || o.NotifyTimingUnit == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetNotifyTimingUnitOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.NotifyTimingUnit, true
+	return o.NotifyTimingUnit.Get(), o.NotifyTimingUnit.IsSet()
 }
 
 // HasNotifyTimingUnit returns a boolean if a field has been set.
 func (o *ItemDto) HasNotifyTimingUnit() bool {
-	if o != nil && o.NotifyTimingUnit != nil {
+	if o != nil && o.NotifyTimingUnit.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNotifyTimingUnit gets a reference to the given map[string]interface{} and assigns it to the NotifyTimingUnit field.
-func (o *ItemDto) SetNotifyTimingUnit(v map[string]interface{}) {
-	o.NotifyTimingUnit = &v
+// SetNotifyTimingUnit gets a reference to the given NullableString and assigns it to the NotifyTimingUnit field.
+func (o *ItemDto) SetNotifyTimingUnit(v string) {
+	o.NotifyTimingUnit.Set(&v)
+}
+// SetNotifyTimingUnitNil sets the value for NotifyTimingUnit to be an explicit nil
+func (o *ItemDto) SetNotifyTimingUnitNil() {
+	o.NotifyTimingUnit.Set(nil)
+}
+
+// UnsetNotifyTimingUnit ensures that no value is present for NotifyTimingUnit, not even an explicit nil
+func (o *ItemDto) UnsetNotifyTimingUnit() {
+	o.NotifyTimingUnit.Unset()
 }
 
 // GetNotifyTimingValue returns the NotifyTimingValue field value if set, zero value otherwise.
@@ -1539,36 +1583,46 @@ func (o *ItemDto) SetNotifyTimingValue(v int32) {
 	o.NotifyTimingValue = &v
 }
 
-// GetRepeat returns the Repeat field value if set, zero value otherwise.
-func (o *ItemDto) GetRepeat() map[string]interface{} {
-	if o == nil || o.Repeat == nil {
-		var ret map[string]interface{}
+// GetRepeat returns the Repeat field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemDto) GetRepeat() string {
+	if o == nil || o.Repeat.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Repeat
+	return *o.Repeat.Get()
 }
 
 // GetRepeatOk returns a tuple with the Repeat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemDto) GetRepeatOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Repeat == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDto) GetRepeatOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Repeat, true
+	return o.Repeat.Get(), o.Repeat.IsSet()
 }
 
 // HasRepeat returns a boolean if a field has been set.
 func (o *ItemDto) HasRepeat() bool {
-	if o != nil && o.Repeat != nil {
+	if o != nil && o.Repeat.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRepeat gets a reference to the given map[string]interface{} and assigns it to the Repeat field.
-func (o *ItemDto) SetRepeat(v map[string]interface{}) {
-	o.Repeat = &v
+// SetRepeat gets a reference to the given NullableString and assigns it to the Repeat field.
+func (o *ItemDto) SetRepeat(v string) {
+	o.Repeat.Set(&v)
+}
+// SetRepeatNil sets the value for Repeat to be an explicit nil
+func (o *ItemDto) SetRepeatNil() {
+	o.Repeat.Set(nil)
+}
+
+// UnsetRepeat ensures that no value is present for Repeat, not even an explicit nil
+func (o *ItemDto) UnsetRepeat() {
+	o.Repeat.Unset()
 }
 
 // GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
@@ -1697,11 +1751,11 @@ func (o ItemDto) MarshalJSON() ([]byte, error) {
 	if o.ContentType.IsSet() {
 		toSerialize["contentType"] = o.ContentType.Get()
 	}
-	if o.Type != nil {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
-	if o.DisplayStyle != nil {
-		toSerialize["displayStyle"] = o.DisplayStyle
+	if o.DisplayStyle.IsSet() {
+		toSerialize["displayStyle"] = o.DisplayStyle.Get()
 	}
 	if o.Extension.IsSet() {
 		toSerialize["extension"] = o.Extension.Get()
@@ -1724,8 +1778,8 @@ func (o ItemDto) MarshalJSON() ([]byte, error) {
 	if o.Thumb != nil {
 		toSerialize["thumb"] = o.Thumb
 	}
-	if o.Priority != nil {
-		toSerialize["priority"] = o.Priority
+	if o.Priority.IsSet() {
+		toSerialize["priority"] = o.Priority.Get()
 	}
 	if o.DoneAt.IsSet() {
 		toSerialize["doneAt"] = o.DoneAt.Get()
@@ -1742,17 +1796,17 @@ func (o ItemDto) MarshalJSON() ([]byte, error) {
 	if o.NotifyAt.IsSet() {
 		toSerialize["notifyAt"] = o.NotifyAt.Get()
 	}
-	if o.NotifyTimingType != nil {
-		toSerialize["notifyTimingType"] = o.NotifyTimingType
+	if o.NotifyTimingType.IsSet() {
+		toSerialize["notifyTimingType"] = o.NotifyTimingType.Get()
 	}
-	if o.NotifyTimingUnit != nil {
-		toSerialize["notifyTimingUnit"] = o.NotifyTimingUnit
+	if o.NotifyTimingUnit.IsSet() {
+		toSerialize["notifyTimingUnit"] = o.NotifyTimingUnit.Get()
 	}
 	if o.NotifyTimingValue != nil {
 		toSerialize["notifyTimingValue"] = o.NotifyTimingValue
 	}
-	if o.Repeat != nil {
-		toSerialize["repeat"] = o.Repeat
+	if o.Repeat.IsSet() {
+		toSerialize["repeat"] = o.Repeat.Get()
 	}
 	if o.SyncVersion != nil {
 		toSerialize["syncVersion"] = o.SyncVersion

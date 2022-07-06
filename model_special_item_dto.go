@@ -17,8 +17,7 @@ import (
 // SpecialItemDto struct for SpecialItemDto
 type SpecialItemDto struct {
 	Items []ItemDto `json:"items,omitempty"`
-	// NoteFolder, AlbumFolder, MediaFolder, MusicFolder, DocumentFolder, TodoFolder
-	Names *map[string]interface{} `json:"names,omitempty"`
+	Names NullableString `json:"names,omitempty"`
 }
 
 // NewSpecialItemDto instantiates a new SpecialItemDto object
@@ -71,36 +70,46 @@ func (o *SpecialItemDto) SetItems(v []ItemDto) {
 	o.Items = v
 }
 
-// GetNames returns the Names field value if set, zero value otherwise.
-func (o *SpecialItemDto) GetNames() map[string]interface{} {
-	if o == nil || o.Names == nil {
-		var ret map[string]interface{}
+// GetNames returns the Names field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SpecialItemDto) GetNames() string {
+	if o == nil || o.Names.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Names
+	return *o.Names.Get()
 }
 
 // GetNamesOk returns a tuple with the Names field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SpecialItemDto) GetNamesOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Names == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SpecialItemDto) GetNamesOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Names, true
+	return o.Names.Get(), o.Names.IsSet()
 }
 
 // HasNames returns a boolean if a field has been set.
 func (o *SpecialItemDto) HasNames() bool {
-	if o != nil && o.Names != nil {
+	if o != nil && o.Names.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNames gets a reference to the given map[string]interface{} and assigns it to the Names field.
-func (o *SpecialItemDto) SetNames(v map[string]interface{}) {
-	o.Names = &v
+// SetNames gets a reference to the given NullableString and assigns it to the Names field.
+func (o *SpecialItemDto) SetNames(v string) {
+	o.Names.Set(&v)
+}
+// SetNamesNil sets the value for Names to be an explicit nil
+func (o *SpecialItemDto) SetNamesNil() {
+	o.Names.Set(nil)
+}
+
+// UnsetNames ensures that no value is present for Names, not even an explicit nil
+func (o *SpecialItemDto) UnsetNames() {
+	o.Names.Unset()
 }
 
 func (o SpecialItemDto) MarshalJSON() ([]byte, error) {
@@ -108,8 +117,8 @@ func (o SpecialItemDto) MarshalJSON() ([]byte, error) {
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-	if o.Names != nil {
-		toSerialize["names"] = o.Names
+	if o.Names.IsSet() {
+		toSerialize["names"] = o.Names.Get()
 	}
 	return json.Marshal(toSerialize)
 }

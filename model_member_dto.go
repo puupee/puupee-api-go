@@ -22,16 +22,11 @@ type MemberDto struct {
 	NoteExpiredAt NullableTime `json:"noteExpiredAt,omitempty"`
 	AlbumExpiredAt NullableTime `json:"albumExpiredAt,omitempty"`
 	FileExpiredAt NullableTime `json:"fileExpiredAt,omitempty"`
-	// None, Monthly, Quarterly, Annual, Unlimited
-	Level *map[string]interface{} `json:"level,omitempty"`
-	// None, Monthly, Quarterly, Annual, Unlimited
-	TodoLevel *map[string]interface{} `json:"todoLevel,omitempty"`
-	// None, Monthly, Quarterly, Annual, Unlimited
-	NoteLevel *map[string]interface{} `json:"noteLevel,omitempty"`
-	// None, Monthly, Quarterly, Annual, Unlimited
-	AlbumLevel *map[string]interface{} `json:"albumLevel,omitempty"`
-	// None, Monthly, Quarterly, Annual, Unlimited
-	FileLevel *map[string]interface{} `json:"fileLevel,omitempty"`
+	Level NullableString `json:"level,omitempty"`
+	TodoLevel NullableString `json:"todoLevel,omitempty"`
+	NoteLevel NullableString `json:"noteLevel,omitempty"`
+	AlbumLevel NullableString `json:"albumLevel,omitempty"`
+	FileLevel NullableString `json:"fileLevel,omitempty"`
 }
 
 // NewMemberDto instantiates a new MemberDto object
@@ -261,164 +256,214 @@ func (o *MemberDto) UnsetFileExpiredAt() {
 	o.FileExpiredAt.Unset()
 }
 
-// GetLevel returns the Level field value if set, zero value otherwise.
-func (o *MemberDto) GetLevel() map[string]interface{} {
-	if o == nil || o.Level == nil {
-		var ret map[string]interface{}
+// GetLevel returns the Level field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MemberDto) GetLevel() string {
+	if o == nil || o.Level.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Level
+	return *o.Level.Get()
 }
 
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetLevelOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Level == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MemberDto) GetLevelOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Level, true
+	return o.Level.Get(), o.Level.IsSet()
 }
 
 // HasLevel returns a boolean if a field has been set.
 func (o *MemberDto) HasLevel() bool {
-	if o != nil && o.Level != nil {
+	if o != nil && o.Level.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLevel gets a reference to the given map[string]interface{} and assigns it to the Level field.
-func (o *MemberDto) SetLevel(v map[string]interface{}) {
-	o.Level = &v
+// SetLevel gets a reference to the given NullableString and assigns it to the Level field.
+func (o *MemberDto) SetLevel(v string) {
+	o.Level.Set(&v)
+}
+// SetLevelNil sets the value for Level to be an explicit nil
+func (o *MemberDto) SetLevelNil() {
+	o.Level.Set(nil)
 }
 
-// GetTodoLevel returns the TodoLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetTodoLevel() map[string]interface{} {
-	if o == nil || o.TodoLevel == nil {
-		var ret map[string]interface{}
+// UnsetLevel ensures that no value is present for Level, not even an explicit nil
+func (o *MemberDto) UnsetLevel() {
+	o.Level.Unset()
+}
+
+// GetTodoLevel returns the TodoLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MemberDto) GetTodoLevel() string {
+	if o == nil || o.TodoLevel.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.TodoLevel
+	return *o.TodoLevel.Get()
 }
 
 // GetTodoLevelOk returns a tuple with the TodoLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetTodoLevelOk() (*map[string]interface{}, bool) {
-	if o == nil || o.TodoLevel == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MemberDto) GetTodoLevelOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.TodoLevel, true
+	return o.TodoLevel.Get(), o.TodoLevel.IsSet()
 }
 
 // HasTodoLevel returns a boolean if a field has been set.
 func (o *MemberDto) HasTodoLevel() bool {
-	if o != nil && o.TodoLevel != nil {
+	if o != nil && o.TodoLevel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTodoLevel gets a reference to the given map[string]interface{} and assigns it to the TodoLevel field.
-func (o *MemberDto) SetTodoLevel(v map[string]interface{}) {
-	o.TodoLevel = &v
+// SetTodoLevel gets a reference to the given NullableString and assigns it to the TodoLevel field.
+func (o *MemberDto) SetTodoLevel(v string) {
+	o.TodoLevel.Set(&v)
+}
+// SetTodoLevelNil sets the value for TodoLevel to be an explicit nil
+func (o *MemberDto) SetTodoLevelNil() {
+	o.TodoLevel.Set(nil)
 }
 
-// GetNoteLevel returns the NoteLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetNoteLevel() map[string]interface{} {
-	if o == nil || o.NoteLevel == nil {
-		var ret map[string]interface{}
+// UnsetTodoLevel ensures that no value is present for TodoLevel, not even an explicit nil
+func (o *MemberDto) UnsetTodoLevel() {
+	o.TodoLevel.Unset()
+}
+
+// GetNoteLevel returns the NoteLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MemberDto) GetNoteLevel() string {
+	if o == nil || o.NoteLevel.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.NoteLevel
+	return *o.NoteLevel.Get()
 }
 
 // GetNoteLevelOk returns a tuple with the NoteLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetNoteLevelOk() (*map[string]interface{}, bool) {
-	if o == nil || o.NoteLevel == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MemberDto) GetNoteLevelOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.NoteLevel, true
+	return o.NoteLevel.Get(), o.NoteLevel.IsSet()
 }
 
 // HasNoteLevel returns a boolean if a field has been set.
 func (o *MemberDto) HasNoteLevel() bool {
-	if o != nil && o.NoteLevel != nil {
+	if o != nil && o.NoteLevel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNoteLevel gets a reference to the given map[string]interface{} and assigns it to the NoteLevel field.
-func (o *MemberDto) SetNoteLevel(v map[string]interface{}) {
-	o.NoteLevel = &v
+// SetNoteLevel gets a reference to the given NullableString and assigns it to the NoteLevel field.
+func (o *MemberDto) SetNoteLevel(v string) {
+	o.NoteLevel.Set(&v)
+}
+// SetNoteLevelNil sets the value for NoteLevel to be an explicit nil
+func (o *MemberDto) SetNoteLevelNil() {
+	o.NoteLevel.Set(nil)
 }
 
-// GetAlbumLevel returns the AlbumLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetAlbumLevel() map[string]interface{} {
-	if o == nil || o.AlbumLevel == nil {
-		var ret map[string]interface{}
+// UnsetNoteLevel ensures that no value is present for NoteLevel, not even an explicit nil
+func (o *MemberDto) UnsetNoteLevel() {
+	o.NoteLevel.Unset()
+}
+
+// GetAlbumLevel returns the AlbumLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MemberDto) GetAlbumLevel() string {
+	if o == nil || o.AlbumLevel.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.AlbumLevel
+	return *o.AlbumLevel.Get()
 }
 
 // GetAlbumLevelOk returns a tuple with the AlbumLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetAlbumLevelOk() (*map[string]interface{}, bool) {
-	if o == nil || o.AlbumLevel == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MemberDto) GetAlbumLevelOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.AlbumLevel, true
+	return o.AlbumLevel.Get(), o.AlbumLevel.IsSet()
 }
 
 // HasAlbumLevel returns a boolean if a field has been set.
 func (o *MemberDto) HasAlbumLevel() bool {
-	if o != nil && o.AlbumLevel != nil {
+	if o != nil && o.AlbumLevel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAlbumLevel gets a reference to the given map[string]interface{} and assigns it to the AlbumLevel field.
-func (o *MemberDto) SetAlbumLevel(v map[string]interface{}) {
-	o.AlbumLevel = &v
+// SetAlbumLevel gets a reference to the given NullableString and assigns it to the AlbumLevel field.
+func (o *MemberDto) SetAlbumLevel(v string) {
+	o.AlbumLevel.Set(&v)
+}
+// SetAlbumLevelNil sets the value for AlbumLevel to be an explicit nil
+func (o *MemberDto) SetAlbumLevelNil() {
+	o.AlbumLevel.Set(nil)
 }
 
-// GetFileLevel returns the FileLevel field value if set, zero value otherwise.
-func (o *MemberDto) GetFileLevel() map[string]interface{} {
-	if o == nil || o.FileLevel == nil {
-		var ret map[string]interface{}
+// UnsetAlbumLevel ensures that no value is present for AlbumLevel, not even an explicit nil
+func (o *MemberDto) UnsetAlbumLevel() {
+	o.AlbumLevel.Unset()
+}
+
+// GetFileLevel returns the FileLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MemberDto) GetFileLevel() string {
+	if o == nil || o.FileLevel.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.FileLevel
+	return *o.FileLevel.Get()
 }
 
 // GetFileLevelOk returns a tuple with the FileLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MemberDto) GetFileLevelOk() (*map[string]interface{}, bool) {
-	if o == nil || o.FileLevel == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MemberDto) GetFileLevelOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.FileLevel, true
+	return o.FileLevel.Get(), o.FileLevel.IsSet()
 }
 
 // HasFileLevel returns a boolean if a field has been set.
 func (o *MemberDto) HasFileLevel() bool {
-	if o != nil && o.FileLevel != nil {
+	if o != nil && o.FileLevel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFileLevel gets a reference to the given map[string]interface{} and assigns it to the FileLevel field.
-func (o *MemberDto) SetFileLevel(v map[string]interface{}) {
-	o.FileLevel = &v
+// SetFileLevel gets a reference to the given NullableString and assigns it to the FileLevel field.
+func (o *MemberDto) SetFileLevel(v string) {
+	o.FileLevel.Set(&v)
+}
+// SetFileLevelNil sets the value for FileLevel to be an explicit nil
+func (o *MemberDto) SetFileLevelNil() {
+	o.FileLevel.Set(nil)
+}
+
+// UnsetFileLevel ensures that no value is present for FileLevel, not even an explicit nil
+func (o *MemberDto) UnsetFileLevel() {
+	o.FileLevel.Unset()
 }
 
 func (o MemberDto) MarshalJSON() ([]byte, error) {
@@ -438,20 +483,20 @@ func (o MemberDto) MarshalJSON() ([]byte, error) {
 	if o.FileExpiredAt.IsSet() {
 		toSerialize["fileExpiredAt"] = o.FileExpiredAt.Get()
 	}
-	if o.Level != nil {
-		toSerialize["level"] = o.Level
+	if o.Level.IsSet() {
+		toSerialize["level"] = o.Level.Get()
 	}
-	if o.TodoLevel != nil {
-		toSerialize["todoLevel"] = o.TodoLevel
+	if o.TodoLevel.IsSet() {
+		toSerialize["todoLevel"] = o.TodoLevel.Get()
 	}
-	if o.NoteLevel != nil {
-		toSerialize["noteLevel"] = o.NoteLevel
+	if o.NoteLevel.IsSet() {
+		toSerialize["noteLevel"] = o.NoteLevel.Get()
 	}
-	if o.AlbumLevel != nil {
-		toSerialize["albumLevel"] = o.AlbumLevel
+	if o.AlbumLevel.IsSet() {
+		toSerialize["albumLevel"] = o.AlbumLevel.Get()
 	}
-	if o.FileLevel != nil {
-		toSerialize["fileLevel"] = o.FileLevel
+	if o.FileLevel.IsSet() {
+		toSerialize["fileLevel"] = o.FileLevel.Get()
 	}
 	return json.Marshal(toSerialize)
 }

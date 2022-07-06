@@ -4860,7 +4860,7 @@ components:
           downloadUrl: downloadUrl
           channel: channel
           version: version
-          platform: '{}'
+          platform: platform
           environment: environment
           size: 0
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -4868,17 +4868,17 @@ components:
           rapidCode: rapidCode
           sliceMd5: sliceMd5
           key: key
-          productType: '{}'
+          productType: productType
           isForceUpdate: true
           md5: md5
         gitRepository: gitRepository
         displayName: displayName
-        appType: '{}'
+        appType: appType
         name: name
         icon: icon
-        fromework: '{}'
+        fromework: fromework
         description: description
-        gitRepositoryType: '{}'
+        gitRepositoryType: gitRepositoryType
       properties:
         name:
           nullable: true
@@ -4887,14 +4887,11 @@ components:
           nullable: true
           type: string
         fromework:
-          additionalProperties: false
-          description: Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows,
-            NativeMacOS, Ionic, AspNetCore
-          type: object
+          nullable: true
+          type: string
         appType:
-          additionalProperties: false
-          description: Client, Service, Web
-          type: object
+          nullable: true
+          type: string
         description:
           nullable: true
           type: string
@@ -4905,9 +4902,8 @@ components:
           nullable: true
           type: string
         gitRepositoryType:
-          additionalProperties: false
-          description: GitHub, GitLab, BitBucket, Other
-          type: object
+          nullable: true
+          type: string
         latestRelease:
           $ref: '#/components/schemas/AppReleaseDto'
       type: object
@@ -4921,7 +4917,7 @@ components:
             downloadUrl: downloadUrl
             channel: channel
             version: version
-            platform: '{}'
+            platform: platform
             environment: environment
             size: 0
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -4929,23 +4925,23 @@ components:
             rapidCode: rapidCode
             sliceMd5: sliceMd5
             key: key
-            productType: '{}'
+            productType: productType
             isForceUpdate: true
             md5: md5
           gitRepository: gitRepository
           displayName: displayName
-          appType: '{}'
+          appType: appType
           name: name
           icon: icon
-          fromework: '{}'
+          fromework: fromework
           description: description
-          gitRepositoryType: '{}'
+          gitRepositoryType: gitRepositoryType
         - latestRelease:
             notes: notes
             downloadUrl: downloadUrl
             channel: channel
             version: version
-            platform: '{}'
+            platform: platform
             environment: environment
             size: 0
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -4953,17 +4949,17 @@ components:
             rapidCode: rapidCode
             sliceMd5: sliceMd5
             key: key
-            productType: '{}'
+            productType: productType
             isForceUpdate: true
             md5: md5
           gitRepository: gitRepository
           displayName: displayName
-          appType: '{}'
+          appType: appType
           name: name
           icon: icon
-          fromework: '{}'
+          fromework: fromework
           description: description
-          gitRepositoryType: '{}'
+          gitRepositoryType: gitRepositoryType
       properties:
         items:
           items:
@@ -5086,7 +5082,7 @@ components:
         downloadUrl: downloadUrl
         channel: channel
         version: version
-        platform: '{}'
+        platform: platform
         environment: environment
         size: 0
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5094,7 +5090,7 @@ components:
         rapidCode: rapidCode
         sliceMd5: sliceMd5
         key: key
-        productType: '{}'
+        productType: productType
         isForceUpdate: true
         md5: md5
       properties:
@@ -5105,9 +5101,8 @@ components:
           nullable: true
           type: string
         platform:
-          additionalProperties: false
-          description: None, Unknow, Android, IOS, Windows, Linux, Web, Other
-          type: object
+          nullable: true
+          type: string
         key:
           nullable: true
           type: string
@@ -5128,9 +5123,8 @@ components:
           nullable: true
           type: string
         productType:
-          additionalProperties: false
-          description: Apk, Ipa, Exe, Web, Other
-          type: object
+          nullable: true
+          type: string
         isForceUpdate:
           type: boolean
         appId:
@@ -5154,7 +5148,7 @@ components:
           downloadUrl: downloadUrl
           channel: channel
           version: version
-          platform: '{}'
+          platform: platform
           environment: environment
           size: 0
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5162,14 +5156,14 @@ components:
           rapidCode: rapidCode
           sliceMd5: sliceMd5
           key: key
-          productType: '{}'
+          productType: productType
           isForceUpdate: true
           md5: md5
         - notes: notes
           downloadUrl: downloadUrl
           channel: channel
           version: version
-          platform: '{}'
+          platform: platform
           environment: environment
           size: 0
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5177,7 +5171,7 @@ components:
           rapidCode: rapidCode
           sliceMd5: sliceMd5
           key: key
-          productType: '{}'
+          productType: productType
           isForceUpdate: true
           md5: md5
       properties:
@@ -5196,10 +5190,6 @@ components:
       - Light
       - Dark
       type: string
-    AppType:
-      additionalProperties: false
-      description: Client, Service, Web
-      type: object
     BooleanKeyValue:
       additionalProperties: false
       example:
@@ -5297,13 +5287,13 @@ components:
       additionalProperties: false
       example:
         gitRepository: gitRepository
-        framework: '{}'
+        framework: framework
         displayName: displayName
-        appType: '{}'
+        appType: appType
         name: name
         icon: icon
         description: description
-        gitRepositoryType: '{}'
+        gitRepositoryType: gitRepositoryType
       properties:
         name:
           nullable: true
@@ -5312,14 +5302,11 @@ components:
           nullable: true
           type: string
         framework:
-          additionalProperties: false
-          description: Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows,
-            NativeMacOS, Ionic, AspNetCore
-          type: object
+          nullable: true
+          type: string
         appType:
-          additionalProperties: false
-          description: Client, Service, Web
-          type: object
+          nullable: true
+          type: string
         description:
           nullable: true
           type: string
@@ -5330,9 +5317,8 @@ components:
           nullable: true
           type: string
         gitRepositoryType:
-          additionalProperties: false
-          description: GitHub, GitLab, BitBucket, Other
-          type: object
+          nullable: true
+          type: string
       type: object
     CreateOrUpdateAppReleaseDto:
       additionalProperties: false
@@ -5340,7 +5326,7 @@ components:
         notes: notes
         channel: channel
         version: version
-        platform: '{}'
+        platform: platform
         environment: environment
         size: 0
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5348,7 +5334,7 @@ components:
         rapidCode: rapidCode
         sliceMd5: sliceMd5
         key: key
-        productType: '{}'
+        productType: productType
         isForceUpdate: true
         md5: md5
       properties:
@@ -5359,9 +5345,8 @@ components:
           nullable: true
           type: string
         platform:
-          additionalProperties: false
-          description: None, Unknow, Android, IOS, Windows, Linux, Web, Other
-          type: object
+          nullable: true
+          type: string
         key:
           nullable: true
           type: string
@@ -5379,9 +5364,8 @@ components:
           nullable: true
           type: string
         productType:
-          additionalProperties: false
-          description: Apk, Ipa, Exe, Web, Other
-          type: object
+          nullable: true
+          type: string
         isForceUpdate:
           type: boolean
         appId:
@@ -5399,7 +5383,7 @@ components:
     CreatePushNotificationDto:
       additionalProperties: false
       example:
-        bodyType: '{}'
+        bodyType: bodyType
         userIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5421,9 +5405,8 @@ components:
           nullable: true
           type: string
         bodyType:
-          additionalProperties: false
-          description: Text, Markdown, Html, Other
-          type: object
+          nullable: true
+          type: string
         body:
           nullable: true
           type: string
@@ -5439,12 +5422,12 @@ components:
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        type: '{}'
-        displayStyle: '{}'
+        type: type
+        displayStyle: displayStyle
         password: password
         storageClass: storageClass
         isDeleted: true
-        repeat: '{}'
+        repeat: repeat
         rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         sliceMd5: sliceMd5
@@ -5454,8 +5437,8 @@ components:
         syncVersion: 0
         doneAt: 2000-01-23T04:56:07.000+00:00
         notifyAt: 2000-01-23T04:56:07.000+00:00
-        notifyTimingType: '{}'
-        priority: '{}'
+        notifyTimingType: notifyTimingType
+        priority: priority
         endAt: 2000-01-23T04:56:07.000+00:00
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5463,7 +5446,7 @@ components:
         notifyTimingValue: 6
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-        notifyTimingUnit: '{}'
+        notifyTimingUnit: notifyTimingUnit
         fileCreatedAt: 2000-01-23T04:56:07.000+00:00
         md5: md5
       properties:
@@ -5500,13 +5483,11 @@ components:
           nullable: true
           type: string
         type:
-          additionalProperties: false
-          description: Folder, Image, Video, Audio, Document, Note, Todo, Other
-          type: object
+          nullable: true
+          type: string
         displayStyle:
-          additionalProperties: false
-          description: None, ListItem, LargeThumbnail, Table, Other
-          type: object
+          nullable: true
+          type: string
         extension:
           nullable: true
           type: string
@@ -5537,9 +5518,8 @@ components:
           format: date-time
           type: string
         priority:
-          additionalProperties: false
-          description: UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent
-          type: object
+          nullable: true
+          type: string
         startAt:
           format: date-time
           nullable: true
@@ -5553,21 +5533,17 @@ components:
           nullable: true
           type: string
         notifyTimingType:
-          additionalProperties: false
-          description: None, Before, After
-          type: object
+          nullable: true
+          type: string
         notifyTimingUnit:
-          additionalProperties: false
-          description: None, Minute, Hour, Day, Month, Year, Custom
-          type: object
+          nullable: true
+          type: string
         notifyTimingValue:
           format: int32
           type: integer
         repeat:
-          additionalProperties: false
-          description: Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay,
-            EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom
-          type: object
+          nullable: true
+          type: string
         isDone:
           type: boolean
         doneAt:
@@ -5810,7 +5786,7 @@ components:
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        type: '{}'
+        type: type
         systemVersion: systemVersion
         token: token
         isDeleted: true
@@ -5855,9 +5831,8 @@ components:
           nullable: true
           type: string
         type:
-          additionalProperties: false
-          description: None, Unknow, Android, IOS, Windows, Linux, Web, Other
-          type: object
+          nullable: true
+          type: string
         brand:
           nullable: true
           type: string
@@ -5874,7 +5849,7 @@ components:
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          type: '{}'
+          type: type
           systemVersion: systemVersion
           token: token
           isDeleted: true
@@ -5887,7 +5862,7 @@ components:
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          type: '{}'
+          type: type
           systemVersion: systemVersion
           token: token
           isDeleted: true
@@ -5905,14 +5880,6 @@ components:
         totalCount:
           format: int64
           type: integer
-      type: object
-    DeviceStatus:
-      additionalProperties: false
-      description: None, Unknow, Online, Offline
-      type: object
-    DisplayStyle:
-      additionalProperties: false
-      description: None, ListItem, LargeThumbnail, Table, Other
       type: object
     DoubleKeyValue:
       additionalProperties: false
@@ -6328,11 +6295,6 @@ components:
         isActive:
           type: boolean
       type: object
-    Framework:
-      additionalProperties: false
-      description: Flutter, ReactNative, React, NativeIOS, NativeAndroid, NativeWindows,
-        NativeMacOS, Ionic, AspNetCore
-      type: object
     GetFeatureListResultDto:
       additionalProperties: false
       properties:
@@ -6353,10 +6315,6 @@ components:
             $ref: '#/components/schemas/PermissionGroupDto'
           nullable: true
           type: array
-      type: object
-    GitRepositoryType:
-      additionalProperties: false
-      description: GitHub, GitLab, BitBucket, Other
       type: object
     IanaTimeZone:
       additionalProperties: false
@@ -6733,8 +6691,8 @@ components:
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
         totalCount: 0
-        type: '{}'
-        displayStyle: '{}'
+        type: type
+        displayStyle: displayStyle
         password: password
         storageClass: storageClass
         file:
@@ -6760,7 +6718,7 @@ components:
           key: key
           md5: md5
         isDeleted: true
-        repeat: '{}'
+        repeat: repeat
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -6771,8 +6729,8 @@ components:
         doneAt: 2000-01-23T04:56:07.000+00:00
         syncVersion: 5
         notifyAt: 2000-01-23T04:56:07.000+00:00
-        notifyTimingType: '{}'
-        priority: '{}'
+        notifyTimingType: notifyTimingType
+        priority: priority
         endAt: 2000-01-23T04:56:07.000+00:00
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -6781,7 +6739,7 @@ components:
         size: 6
         name: name
         fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-        notifyTimingUnit: '{}'
+        notifyTimingUnit: notifyTimingUnit
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         fileCreatedAt: 2000-01-23T04:56:07.000+00:00
         md5: md5
@@ -6853,13 +6811,11 @@ components:
           nullable: true
           type: string
         type:
-          additionalProperties: false
-          description: Folder, Image, Video, Audio, Document, Note, Todo, Other
-          type: object
+          nullable: true
+          type: string
         displayStyle:
-          additionalProperties: false
-          description: None, ListItem, LargeThumbnail, Table, Other
-          type: object
+          nullable: true
+          type: string
         extension:
           nullable: true
           type: string
@@ -6883,9 +6839,8 @@ components:
         thumb:
           $ref: '#/components/schemas/FileDto'
         priority:
-          additionalProperties: false
-          description: UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent
-          type: object
+          nullable: true
+          type: string
         doneAt:
           format: date-time
           nullable: true
@@ -6905,21 +6860,17 @@ components:
           nullable: true
           type: string
         notifyTimingType:
-          additionalProperties: false
-          description: None, Before, After
-          type: object
+          nullable: true
+          type: string
         notifyTimingUnit:
-          additionalProperties: false
-          description: None, Minute, Hour, Day, Month, Year, Custom
-          type: object
+          nullable: true
+          type: string
         notifyTimingValue:
           format: int32
           type: integer
         repeat:
-          additionalProperties: false
-          description: Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay,
-            EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom
-          type: object
+          nullable: true
+          type: string
         syncVersion:
           format: int64
           type: integer
@@ -6962,8 +6913,8 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           totalCount: 0
-          type: '{}'
-          displayStyle: '{}'
+          type: type
+          displayStyle: displayStyle
           password: password
           storageClass: storageClass
           file:
@@ -6989,7 +6940,7 @@ components:
             key: key
             md5: md5
           isDeleted: true
-          repeat: '{}'
+          repeat: repeat
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7000,8 +6951,8 @@ components:
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 5
           notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: '{}'
-          priority: '{}'
+          notifyTimingType: notifyTimingType
+          priority: priority
           endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7010,7 +6961,7 @@ components:
           size: 6
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingUnit: '{}'
+          notifyTimingUnit: notifyTimingUnit
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
           md5: md5
@@ -7045,8 +6996,8 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           totalCount: 0
-          type: '{}'
-          displayStyle: '{}'
+          type: type
+          displayStyle: displayStyle
           password: password
           storageClass: storageClass
           file:
@@ -7072,7 +7023,7 @@ components:
             key: key
             md5: md5
           isDeleted: true
-          repeat: '{}'
+          repeat: repeat
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7083,8 +7034,8 @@ components:
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 5
           notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: '{}'
-          priority: '{}'
+          notifyTimingType: notifyTimingType
+          priority: priority
           endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7093,7 +7044,7 @@ components:
           size: 6
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingUnit: '{}'
+          notifyTimingUnit: notifyTimingUnit
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
           md5: md5
@@ -7107,10 +7058,6 @@ components:
         totalCount:
           format: int64
           type: integer
-      type: object
-    ItemType:
-      additionalProperties: false
-      description: Folder, Image, Video, Audio, Document, Note, Todo, Other
       type: object
     IValueValidator:
       additionalProperties: false
@@ -7166,12 +7113,12 @@ components:
     MemberDto:
       additionalProperties: false
       example:
-        fileLevel: '{}'
+        fileLevel: fileLevel
         expiredAt: 2000-01-23T04:56:07.000+00:00
-        todoLevel: '{}'
-        level: '{}'
-        noteLevel: '{}'
-        albumLevel: '{}'
+        todoLevel: todoLevel
+        level: level
+        noteLevel: noteLevel
+        albumLevel: albumLevel
         todoExpiredAt: 2000-01-23T04:56:07.000+00:00
         albumExpiredAt: 2000-01-23T04:56:07.000+00:00
         fileExpiredAt: 2000-01-23T04:56:07.000+00:00
@@ -7198,29 +7145,25 @@ components:
           nullable: true
           type: string
         level:
-          additionalProperties: false
-          description: None, Monthly, Quarterly, Annual, Unlimited
-          type: object
+          nullable: true
+          readOnly: true
+          type: string
         todoLevel:
-          additionalProperties: false
-          description: None, Monthly, Quarterly, Annual, Unlimited
-          type: object
+          nullable: true
+          readOnly: true
+          type: string
         noteLevel:
-          additionalProperties: false
-          description: None, Monthly, Quarterly, Annual, Unlimited
-          type: object
+          nullable: true
+          readOnly: true
+          type: string
         albumLevel:
-          additionalProperties: false
-          description: None, Monthly, Quarterly, Annual, Unlimited
-          type: object
+          nullable: true
+          readOnly: true
+          type: string
         fileLevel:
-          additionalProperties: false
-          description: None, Monthly, Quarterly, Annual, Unlimited
-          type: object
-      type: object
-    MemberLevel:
-      additionalProperties: false
-      description: None, Monthly, Quarterly, Annual, Unlimited
+          nullable: true
+          readOnly: true
+          type: string
       type: object
     MethodParameterApiDescriptionModel:
       additionalProperties: false
@@ -7342,10 +7285,6 @@ components:
         website:
           nullable: true
           type: string
-      type: object
-    NotificationBodyType:
-      additionalProperties: false
-      description: Text, Markdown, Html, Other
       type: object
     NotificationDto:
       additionalProperties: false
@@ -7556,18 +7495,6 @@ components:
           nullable: true
           type: array
       type: object
-    Platform:
-      additionalProperties: false
-      description: None, Unknow, Android, IOS, Windows, Linux, Web, Other
-      type: object
-    Priority:
-      additionalProperties: false
-      description: UrgentImportant, ImportantNotUrgent, UrgentNotImportant, NotImportantNotUrgent
-      type: object
-    ProductType:
-      additionalProperties: false
-      description: Apk, Ipa, Exe, Web, Other
-      type: object
     ProfileDto:
       additionalProperties: false
       properties:
@@ -7631,16 +7558,15 @@ components:
       additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        status: '{}'
+        status: status
       properties:
         id:
           format: uuid
           nullable: true
           type: string
         status:
-          additionalProperties: false
-          description: None, Unknow, Online, Offline
-          type: object
+          nullable: true
+          type: string
       type: object
     RegisterDto:
       additionalProperties: false
@@ -7840,7 +7766,7 @@ components:
     SpecialItemDto:
       additionalProperties: false
       example:
-        names: '{}'
+        names: names
         items:
         - extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
@@ -7872,8 +7798,8 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           totalCount: 0
-          type: '{}'
-          displayStyle: '{}'
+          type: type
+          displayStyle: displayStyle
           password: password
           storageClass: storageClass
           file:
@@ -7899,7 +7825,7 @@ components:
             key: key
             md5: md5
           isDeleted: true
-          repeat: '{}'
+          repeat: repeat
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7910,8 +7836,8 @@ components:
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 5
           notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: '{}'
-          priority: '{}'
+          notifyTimingType: notifyTimingType
+          priority: priority
           endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7920,7 +7846,7 @@ components:
           size: 6
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingUnit: '{}'
+          notifyTimingUnit: notifyTimingUnit
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
           md5: md5
@@ -7955,8 +7881,8 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           totalCount: 0
-          type: '{}'
-          displayStyle: '{}'
+          type: type
+          displayStyle: displayStyle
           password: password
           storageClass: storageClass
           file:
@@ -7982,7 +7908,7 @@ components:
             key: key
             md5: md5
           isDeleted: true
-          repeat: '{}'
+          repeat: repeat
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7993,8 +7919,8 @@ components:
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 5
           notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: '{}'
-          priority: '{}'
+          notifyTimingType: notifyTimingType
+          priority: priority
           endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -8003,7 +7929,7 @@ components:
           size: 6
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingUnit: '{}'
+          notifyTimingUnit: notifyTimingUnit
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
           md5: md5
@@ -8015,15 +7941,8 @@ components:
           nullable: true
           type: array
         names:
-          additionalProperties: false
-          description: NoteFolder, AlbumFolder, MediaFolder, MusicFolder, DocumentFolder,
-            TodoFolder
-          type: object
-      type: object
-    SpecialItems:
-      additionalProperties: false
-      description: NoteFolder, AlbumFolder, MediaFolder, MusicFolder, DocumentFolder,
-        TodoFolder
+          nullable: true
+          type: string
       type: object
     StringKeyValue:
       additionalProperties: false
@@ -8097,8 +8016,8 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           totalCount: 0
-          type: '{}'
-          displayStyle: '{}'
+          type: type
+          displayStyle: displayStyle
           password: password
           storageClass: storageClass
           file:
@@ -8124,7 +8043,7 @@ components:
             key: key
             md5: md5
           isDeleted: true
-          repeat: '{}'
+          repeat: repeat
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -8135,8 +8054,8 @@ components:
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 5
           notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: '{}'
-          priority: '{}'
+          notifyTimingType: notifyTimingType
+          priority: priority
           endAt: 2000-01-23T04:56:07.000+00:00
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -8145,7 +8064,7 @@ components:
           size: 6
           name: name
           fileUpdatedAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingUnit: '{}'
+          notifyTimingUnit: notifyTimingUnit
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileCreatedAt: 2000-01-23T04:56:07.000+00:00
           md5: md5
@@ -8253,14 +8172,6 @@ components:
         timeZone:
           $ref: '#/components/schemas/TimeZone'
       type: object
-    TodoNotifyTimingType:
-      additionalProperties: false
-      description: None, Before, After
-      type: object
-    TodoNotifyTimingUnit:
-      additionalProperties: false
-      description: None, Minute, Hour, Day, Month, Year, Custom
-      type: object
     TodoOrderBy:
       enum:
       - CreationTime
@@ -8274,11 +8185,6 @@ components:
       - Tag
       - TagDesc
       type: string
-    TodoRepeat:
-      additionalProperties: false
-      description: Never, EveryDay, EveryWeekday, EveryWorkDay, EveryWeek, EveryMonthThisDay,
-        EveryMonthThisWeekday, EveryYearThisDay, EveryYearThisLunarDay, Custom
-      type: object
     TodoSettingsDto:
       additionalProperties: false
       example:

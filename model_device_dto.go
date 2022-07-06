@@ -27,8 +27,7 @@ type DeviceDto struct {
 	DeletionTime NullableTime `json:"deletionTime,omitempty"`
 	Token NullableString `json:"token,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	// None, Unknow, Android, IOS, Windows, Linux, Web, Other
-	Type *map[string]interface{} `json:"type,omitempty"`
+	Type NullableString `json:"type,omitempty"`
 	Brand NullableString `json:"brand,omitempty"`
 	SystemVersion NullableString `json:"systemVersion,omitempty"`
 }
@@ -440,36 +439,46 @@ func (o *DeviceDto) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *DeviceDto) GetType() map[string]interface{} {
-	if o == nil || o.Type == nil {
-		var ret map[string]interface{}
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeviceDto) GetType() string {
+	if o == nil || o.Type.Get() == nil {
+		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeviceDto) GetTypeOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Type == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeviceDto) GetTypeOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *DeviceDto) HasType() bool {
-	if o != nil && o.Type != nil {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given map[string]interface{} and assigns it to the Type field.
-func (o *DeviceDto) SetType(v map[string]interface{}) {
-	o.Type = &v
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
+func (o *DeviceDto) SetType(v string) {
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *DeviceDto) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *DeviceDto) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetBrand returns the Brand field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -588,8 +597,8 @@ func (o DeviceDto) MarshalJSON() ([]byte, error) {
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Type != nil {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	if o.Brand.IsSet() {
 		toSerialize["brand"] = o.Brand.Get()
