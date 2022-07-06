@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.5
 	github.com/matoous/go-nanoid/v2 v2.0.0
-	github.com/mr-doggy/doggy-sdk-go/doggy v0.0.0-20220706091423-c6dbbb0c70e3
+	github.com/mr-doggy/doggy-sdk-go/doggy v0.0.0-20220706093130-de4e3bee2a3f
 	github.com/spf13/cobra v1.5.0
 )
 
@@ -27,7 +27,7 @@ require (
 	github.com/subosito/gotenv v1.3.0 // indirect
 	golang.org/x/net v0.0.0-20220630215102-69896b714898 // indirect
 	golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0 // indirect
-	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
+	golang.org/x/sys v0.0.0-20220610221304-9f5ed59c137d // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
