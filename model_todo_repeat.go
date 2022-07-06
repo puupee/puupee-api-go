@@ -12,81 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// TodoRepeat the model 'TodoRepeat'
-type TodoRepeat string
-
-// List of TodoRepeat
-const (
-	TODOREPEAT_NEVER TodoRepeat = "Never"
-	TODOREPEAT_EVERY_DAY TodoRepeat = "EveryDay"
-	TODOREPEAT_EVERY_WEEKDAY TodoRepeat = "EveryWeekday"
-	TODOREPEAT_EVERY_WORK_DAY TodoRepeat = "EveryWorkDay"
-	TODOREPEAT_EVERY_WEEK TodoRepeat = "EveryWeek"
-	TODOREPEAT_EVERY_MONTH_THIS_DAY TodoRepeat = "EveryMonthThisDay"
-	TODOREPEAT_EVERY_MONTH_THIS_WEEKDAY TodoRepeat = "EveryMonthThisWeekday"
-	TODOREPEAT_EVERY_YEAR_THIS_DAY TodoRepeat = "EveryYearThisDay"
-	TODOREPEAT_EVERY_YEAR_THIS_LUNAR_DAY TodoRepeat = "EveryYearThisLunarDay"
-	TODOREPEAT_CUSTOM TodoRepeat = "Custom"
-)
-
-// All allowed values of TodoRepeat enum
-var AllowedTodoRepeatEnumValues = []TodoRepeat{
-	"Never",
-	"EveryDay",
-	"EveryWeekday",
-	"EveryWorkDay",
-	"EveryWeek",
-	"EveryMonthThisDay",
-	"EveryMonthThisWeekday",
-	"EveryYearThisDay",
-	"EveryYearThisLunarDay",
-	"Custom",
+// TodoRepeat struct for TodoRepeat
+type TodoRepeat struct {
 }
 
-func (v *TodoRepeat) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := TodoRepeat(value)
-	for _, existing := range AllowedTodoRepeatEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TodoRepeat", value)
+// NewTodoRepeat instantiates a new TodoRepeat object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewTodoRepeat() *TodoRepeat {
+	this := TodoRepeat{}
+	return &this
 }
 
-// NewTodoRepeatFromValue returns a pointer to a valid TodoRepeat
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewTodoRepeatFromValue(v string) (*TodoRepeat, error) {
-	ev := TodoRepeat(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for TodoRepeat: valid values are %v", v, AllowedTodoRepeatEnumValues)
-	}
+// NewTodoRepeatWithDefaults instantiates a new TodoRepeat object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewTodoRepeatWithDefaults() *TodoRepeat {
+	this := TodoRepeat{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v TodoRepeat) IsValid() bool {
-	for _, existing := range AllowedTodoRepeatEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to TodoRepeat value
-func (v TodoRepeat) Ptr() *TodoRepeat {
-	return &v
+func (o TodoRepeat) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableTodoRepeat struct {
@@ -124,4 +75,5 @@ func (v *NullableTodoRepeat) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

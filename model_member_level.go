@@ -12,71 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// MemberLevel the model 'MemberLevel'
-type MemberLevel string
-
-// List of MemberLevel
-const (
-	MEMBERLEVEL_NONE MemberLevel = "None"
-	MEMBERLEVEL_MONTHLY MemberLevel = "Monthly"
-	MEMBERLEVEL_QUARTERLY MemberLevel = "Quarterly"
-	MEMBERLEVEL_ANNUAL MemberLevel = "Annual"
-	MEMBERLEVEL_UNLIMITED MemberLevel = "Unlimited"
-)
-
-// All allowed values of MemberLevel enum
-var AllowedMemberLevelEnumValues = []MemberLevel{
-	"None",
-	"Monthly",
-	"Quarterly",
-	"Annual",
-	"Unlimited",
+// MemberLevel struct for MemberLevel
+type MemberLevel struct {
 }
 
-func (v *MemberLevel) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := MemberLevel(value)
-	for _, existing := range AllowedMemberLevelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MemberLevel", value)
+// NewMemberLevel instantiates a new MemberLevel object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewMemberLevel() *MemberLevel {
+	this := MemberLevel{}
+	return &this
 }
 
-// NewMemberLevelFromValue returns a pointer to a valid MemberLevel
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewMemberLevelFromValue(v string) (*MemberLevel, error) {
-	ev := MemberLevel(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for MemberLevel: valid values are %v", v, AllowedMemberLevelEnumValues)
-	}
+// NewMemberLevelWithDefaults instantiates a new MemberLevel object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewMemberLevelWithDefaults() *MemberLevel {
+	this := MemberLevel{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v MemberLevel) IsValid() bool {
-	for _, existing := range AllowedMemberLevelEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to MemberLevel value
-func (v MemberLevel) Ptr() *MemberLevel {
-	return &v
+func (o MemberLevel) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableMemberLevel struct {
@@ -114,4 +75,5 @@ func (v *NullableMemberLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

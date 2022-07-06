@@ -12,71 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// ProductType the model 'ProductType'
-type ProductType string
-
-// List of ProductType
-const (
-	PRODUCTTYPE_APK ProductType = "Apk"
-	PRODUCTTYPE_IPA ProductType = "Ipa"
-	PRODUCTTYPE_EXE ProductType = "Exe"
-	PRODUCTTYPE_WEB ProductType = "Web"
-	PRODUCTTYPE_OTHER ProductType = "Other"
-)
-
-// All allowed values of ProductType enum
-var AllowedProductTypeEnumValues = []ProductType{
-	"Apk",
-	"Ipa",
-	"Exe",
-	"Web",
-	"Other",
+// ProductType struct for ProductType
+type ProductType struct {
 }
 
-func (v *ProductType) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := ProductType(value)
-	for _, existing := range AllowedProductTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProductType", value)
+// NewProductType instantiates a new ProductType object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewProductType() *ProductType {
+	this := ProductType{}
+	return &this
 }
 
-// NewProductTypeFromValue returns a pointer to a valid ProductType
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewProductTypeFromValue(v string) (*ProductType, error) {
-	ev := ProductType(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for ProductType: valid values are %v", v, AllowedProductTypeEnumValues)
-	}
+// NewProductTypeWithDefaults instantiates a new ProductType object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewProductTypeWithDefaults() *ProductType {
+	this := ProductType{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v ProductType) IsValid() bool {
-	for _, existing := range AllowedProductTypeEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to ProductType value
-func (v ProductType) Ptr() *ProductType {
-	return &v
+func (o ProductType) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableProductType struct {
@@ -114,4 +75,5 @@ func (v *NullableProductType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

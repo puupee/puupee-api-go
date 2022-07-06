@@ -32,7 +32,8 @@ type ApiApiAppAppReleaseGetRequest struct {
 	ApiService *AppReleaseApiService
 	appId *string
 	environment *string
-	platform *Platform
+	platformName *string
+	platformValue *string
 	sorting *string
 	skipCount *int32
 	maxResultCount *int32
@@ -46,8 +47,12 @@ func (r ApiApiAppAppReleaseGetRequest) Environment(environment string) ApiApiApp
 	r.environment = &environment
 	return r
 }
-func (r ApiApiAppAppReleaseGetRequest) Platform(platform Platform) ApiApiAppAppReleaseGetRequest {
-	r.platform = &platform
+func (r ApiApiAppAppReleaseGetRequest) PlatformName(platformName string) ApiApiAppAppReleaseGetRequest {
+	r.platformName = &platformName
+	return r
+}
+func (r ApiApiAppAppReleaseGetRequest) PlatformValue(platformValue string) ApiApiAppAppReleaseGetRequest {
+	r.platformValue = &platformValue
 	return r
 }
 func (r ApiApiAppAppReleaseGetRequest) Sorting(sorting string) ApiApiAppAppReleaseGetRequest {
@@ -109,8 +114,11 @@ func (a *AppReleaseApiService) ApiAppAppReleaseGetExecute(r ApiApiAppAppReleaseG
 	if r.environment != nil {
 		localVarQueryParams.Add("Environment", parameterToString(*r.environment, ""))
 	}
-	if r.platform != nil {
-		localVarQueryParams.Add("Platform", parameterToString(*r.platform, ""))
+	if r.platformName != nil {
+		localVarQueryParams.Add("Platform.Name", parameterToString(*r.platformName, ""))
+	}
+	if r.platformValue != nil {
+		localVarQueryParams.Add("Platform.Value", parameterToString(*r.platformValue, ""))
 	}
 	if r.sorting != nil {
 		localVarQueryParams.Add("Sorting", parameterToString(*r.sorting, ""))

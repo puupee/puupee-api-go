@@ -19,7 +19,7 @@ type CreatePushNotificationDto struct {
 	UserIds []string `json:"userIds,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
-	BodyType NullableString `json:"bodyType,omitempty"`
+	BodyType *NotificationBodyType `json:"bodyType,omitempty"`
 	Body NullableString `json:"body,omitempty"`
 	Url NullableString `json:"url,omitempty"`
 }
@@ -158,46 +158,36 @@ func (o *CreatePushNotificationDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetBodyType returns the BodyType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreatePushNotificationDto) GetBodyType() string {
-	if o == nil || o.BodyType.Get() == nil {
-		var ret string
+// GetBodyType returns the BodyType field value if set, zero value otherwise.
+func (o *CreatePushNotificationDto) GetBodyType() NotificationBodyType {
+	if o == nil || o.BodyType == nil {
+		var ret NotificationBodyType
 		return ret
 	}
-	return *o.BodyType.Get()
+	return *o.BodyType
 }
 
 // GetBodyTypeOk returns a tuple with the BodyType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreatePushNotificationDto) GetBodyTypeOk() (*string, bool) {
-	if o == nil  {
+func (o *CreatePushNotificationDto) GetBodyTypeOk() (*NotificationBodyType, bool) {
+	if o == nil || o.BodyType == nil {
 		return nil, false
 	}
-	return o.BodyType.Get(), o.BodyType.IsSet()
+	return o.BodyType, true
 }
 
 // HasBodyType returns a boolean if a field has been set.
 func (o *CreatePushNotificationDto) HasBodyType() bool {
-	if o != nil && o.BodyType.IsSet() {
+	if o != nil && o.BodyType != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetBodyType gets a reference to the given NullableString and assigns it to the BodyType field.
-func (o *CreatePushNotificationDto) SetBodyType(v string) {
-	o.BodyType.Set(&v)
-}
-// SetBodyTypeNil sets the value for BodyType to be an explicit nil
-func (o *CreatePushNotificationDto) SetBodyTypeNil() {
-	o.BodyType.Set(nil)
-}
-
-// UnsetBodyType ensures that no value is present for BodyType, not even an explicit nil
-func (o *CreatePushNotificationDto) UnsetBodyType() {
-	o.BodyType.Unset()
+// SetBodyType gets a reference to the given NotificationBodyType and assigns it to the BodyType field.
+func (o *CreatePushNotificationDto) SetBodyType(v NotificationBodyType) {
+	o.BodyType = &v
 }
 
 // GetBody returns the Body field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -295,8 +285,8 @@ func (o CreatePushNotificationDto) MarshalJSON() ([]byte, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.BodyType.IsSet() {
-		toSerialize["bodyType"] = o.BodyType.Get()
+	if o.BodyType != nil {
+		toSerialize["bodyType"] = o.BodyType
 	}
 	if o.Body.IsSet() {
 		toSerialize["body"] = o.Body.Get()

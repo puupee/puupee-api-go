@@ -12,69 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// Priority the model 'Priority'
-type Priority string
-
-// List of Priority
-const (
-	PRIORITY_URGENT_IMPORTANT Priority = "UrgentImportant"
-	PRIORITY_IMPORTANT_NOT_URGENT Priority = "ImportantNotUrgent"
-	PRIORITY_URGENT_NOT_IMPORTANT Priority = "UrgentNotImportant"
-	PRIORITY_NOT_IMPORTANT_NOT_URGENT Priority = "NotImportantNotUrgent"
-)
-
-// All allowed values of Priority enum
-var AllowedPriorityEnumValues = []Priority{
-	"UrgentImportant",
-	"ImportantNotUrgent",
-	"UrgentNotImportant",
-	"NotImportantNotUrgent",
+// Priority struct for Priority
+type Priority struct {
 }
 
-func (v *Priority) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := Priority(value)
-	for _, existing := range AllowedPriorityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid Priority", value)
+// NewPriority instantiates a new Priority object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewPriority() *Priority {
+	this := Priority{}
+	return &this
 }
 
-// NewPriorityFromValue returns a pointer to a valid Priority
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewPriorityFromValue(v string) (*Priority, error) {
-	ev := Priority(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for Priority: valid values are %v", v, AllowedPriorityEnumValues)
-	}
+// NewPriorityWithDefaults instantiates a new Priority object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewPriorityWithDefaults() *Priority {
+	this := Priority{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v Priority) IsValid() bool {
-	for _, existing := range AllowedPriorityEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to Priority value
-func (v Priority) Ptr() *Priority {
-	return &v
+func (o Priority) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullablePriority struct {
@@ -112,4 +75,5 @@ func (v *NullablePriority) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

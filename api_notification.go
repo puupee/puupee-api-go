@@ -38,7 +38,8 @@ type ApiApiAppNotificationBarkApiKeyMessageGetRequest struct {
 	isArchive *string
 	group *string
 	icon *string
-	level *string
+	name *string
+	value *string
 }
 
 func (r ApiApiAppNotificationBarkApiKeyMessageGetRequest) AutomaticallyCopy(automaticallyCopy int32) ApiApiAppNotificationBarkApiKeyMessageGetRequest {
@@ -65,8 +66,12 @@ func (r ApiApiAppNotificationBarkApiKeyMessageGetRequest) Icon(icon string) ApiA
 	r.icon = &icon
 	return r
 }
-func (r ApiApiAppNotificationBarkApiKeyMessageGetRequest) Level(level string) ApiApiAppNotificationBarkApiKeyMessageGetRequest {
-	r.level = &level
+func (r ApiApiAppNotificationBarkApiKeyMessageGetRequest) Name(name string) ApiApiAppNotificationBarkApiKeyMessageGetRequest {
+	r.name = &name
+	return r
+}
+func (r ApiApiAppNotificationBarkApiKeyMessageGetRequest) Value(value string) ApiApiAppNotificationBarkApiKeyMessageGetRequest {
+	r.value = &value
 	return r
 }
 
@@ -132,8 +137,11 @@ func (a *NotificationApiService) ApiAppNotificationBarkApiKeyMessageGetExecute(r
 	if r.icon != nil {
 		localVarQueryParams.Add("icon", parameterToString(*r.icon, ""))
 	}
-	if r.level != nil {
-		localVarQueryParams.Add("level", parameterToString(*r.level, ""))
+	if r.name != nil {
+		localVarQueryParams.Add("Name", parameterToString(*r.name, ""))
+	}
+	if r.value != nil {
+		localVarQueryParams.Add("Value", parameterToString(*r.value, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

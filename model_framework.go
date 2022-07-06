@@ -12,77 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// Framework the model 'Framework'
-type Framework string
-
-// List of Framework
-const (
-	FRAMEWORK_FLUTTER Framework = "Flutter"
-	FRAMEWORK_REACT_NATIVE Framework = "ReactNative"
-	FRAMEWORK_NATIVE_IOS Framework = "NativeIOS"
-	FRAMEWORK_NATIVE_ANDROID Framework = "NativeAndroid"
-	FRAMEWORK_IONIC Framework = "Ionic"
-	FRAMEWORK_CORDOVA Framework = "Cordova"
-	FRAMEWORK_REACT Framework = "React"
-	FRAMEWORK_ASP_NET_CORE Framework = "AspNetCore"
-)
-
-// All allowed values of Framework enum
-var AllowedFrameworkEnumValues = []Framework{
-	"Flutter",
-	"ReactNative",
-	"NativeIOS",
-	"NativeAndroid",
-	"Ionic",
-	"Cordova",
-	"React",
-	"AspNetCore",
+// Framework struct for Framework
+type Framework struct {
 }
 
-func (v *Framework) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := Framework(value)
-	for _, existing := range AllowedFrameworkEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid Framework", value)
+// NewFramework instantiates a new Framework object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewFramework() *Framework {
+	this := Framework{}
+	return &this
 }
 
-// NewFrameworkFromValue returns a pointer to a valid Framework
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewFrameworkFromValue(v string) (*Framework, error) {
-	ev := Framework(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for Framework: valid values are %v", v, AllowedFrameworkEnumValues)
-	}
+// NewFrameworkWithDefaults instantiates a new Framework object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewFrameworkWithDefaults() *Framework {
+	this := Framework{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v Framework) IsValid() bool {
-	for _, existing := range AllowedFrameworkEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to Framework value
-func (v Framework) Ptr() *Framework {
-	return &v
+func (o Framework) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableFramework struct {
@@ -120,4 +75,5 @@ func (v *NullableFramework) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

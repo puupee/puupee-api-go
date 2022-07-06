@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ApiAppAppReleaseGet
 
-> AppReleaseDtoPagedResultDto ApiAppAppReleaseGet(ctx).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppReleaseDtoPagedResultDto ApiAppAppReleaseGet(ctx).AppId(appId).Environment(environment).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -33,14 +33,15 @@ import (
 func main() {
     appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
     environment := "environment_example" // string |  (optional)
-    platform := openapiclient.Platform("None") // Platform |  (optional)
+    platformName := "platformName_example" // string |  (optional)
+    platformValue := "platformValue_example" // string |  (optional)
     sorting := "sorting_example" // string |  (optional)
     skipCount := int32(56) // int32 |  (optional)
     maxResultCount := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppReleaseApi.ApiAppAppReleaseGet(context.Background()).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := api_client.AppReleaseApi.ApiAppAppReleaseGet(context.Background()).AppId(appId).Environment(environment).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,7 +64,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string** |  | 
  **environment** | **string** |  | 
- **platform** | [**Platform**](Platform.md) |  | 
+ **platformName** | **string** |  | 
+ **platformValue** | **string** |  | 
  **sorting** | **string** |  | 
  **skipCount** | **int32** |  | 
  **maxResultCount** | **int32** |  | 

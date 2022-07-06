@@ -12,75 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// TodoNotifyTimingUnit the model 'TodoNotifyTimingUnit'
-type TodoNotifyTimingUnit string
-
-// List of TodoNotifyTimingUnit
-const (
-	TODONOTIFYTIMINGUNIT_NONE TodoNotifyTimingUnit = "None"
-	TODONOTIFYTIMINGUNIT_MINUTE TodoNotifyTimingUnit = "Minute"
-	TODONOTIFYTIMINGUNIT_HOUR TodoNotifyTimingUnit = "Hour"
-	TODONOTIFYTIMINGUNIT_DAY TodoNotifyTimingUnit = "Day"
-	TODONOTIFYTIMINGUNIT_MONTH TodoNotifyTimingUnit = "Month"
-	TODONOTIFYTIMINGUNIT_YEAR TodoNotifyTimingUnit = "Year"
-	TODONOTIFYTIMINGUNIT_CUSTOM TodoNotifyTimingUnit = "Custom"
-)
-
-// All allowed values of TodoNotifyTimingUnit enum
-var AllowedTodoNotifyTimingUnitEnumValues = []TodoNotifyTimingUnit{
-	"None",
-	"Minute",
-	"Hour",
-	"Day",
-	"Month",
-	"Year",
-	"Custom",
+// TodoNotifyTimingUnit struct for TodoNotifyTimingUnit
+type TodoNotifyTimingUnit struct {
 }
 
-func (v *TodoNotifyTimingUnit) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := TodoNotifyTimingUnit(value)
-	for _, existing := range AllowedTodoNotifyTimingUnitEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TodoNotifyTimingUnit", value)
+// NewTodoNotifyTimingUnit instantiates a new TodoNotifyTimingUnit object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewTodoNotifyTimingUnit() *TodoNotifyTimingUnit {
+	this := TodoNotifyTimingUnit{}
+	return &this
 }
 
-// NewTodoNotifyTimingUnitFromValue returns a pointer to a valid TodoNotifyTimingUnit
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewTodoNotifyTimingUnitFromValue(v string) (*TodoNotifyTimingUnit, error) {
-	ev := TodoNotifyTimingUnit(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for TodoNotifyTimingUnit: valid values are %v", v, AllowedTodoNotifyTimingUnitEnumValues)
-	}
+// NewTodoNotifyTimingUnitWithDefaults instantiates a new TodoNotifyTimingUnit object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewTodoNotifyTimingUnitWithDefaults() *TodoNotifyTimingUnit {
+	this := TodoNotifyTimingUnit{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v TodoNotifyTimingUnit) IsValid() bool {
-	for _, existing := range AllowedTodoNotifyTimingUnitEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to TodoNotifyTimingUnit value
-func (v TodoNotifyTimingUnit) Ptr() *TodoNotifyTimingUnit {
-	return &v
+func (o TodoNotifyTimingUnit) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableTodoNotifyTimingUnit struct {
@@ -118,4 +75,5 @@ func (v *NullableTodoNotifyTimingUnit) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

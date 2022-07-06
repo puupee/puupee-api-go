@@ -12,67 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// DisplayStyle the model 'DisplayStyle'
-type DisplayStyle string
-
-// List of DisplayStyle
-const (
-	DISPLAYSTYLE_NONE DisplayStyle = "None"
-	DISPLAYSTYLE_LIST_ITEM DisplayStyle = "ListItem"
-	DISPLAYSTYLE_LARGE_THUMBNAIL DisplayStyle = "LargeThumbnail"
-)
-
-// All allowed values of DisplayStyle enum
-var AllowedDisplayStyleEnumValues = []DisplayStyle{
-	"None",
-	"ListItem",
-	"LargeThumbnail",
+// DisplayStyle struct for DisplayStyle
+type DisplayStyle struct {
 }
 
-func (v *DisplayStyle) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := DisplayStyle(value)
-	for _, existing := range AllowedDisplayStyleEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DisplayStyle", value)
+// NewDisplayStyle instantiates a new DisplayStyle object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewDisplayStyle() *DisplayStyle {
+	this := DisplayStyle{}
+	return &this
 }
 
-// NewDisplayStyleFromValue returns a pointer to a valid DisplayStyle
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewDisplayStyleFromValue(v string) (*DisplayStyle, error) {
-	ev := DisplayStyle(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for DisplayStyle: valid values are %v", v, AllowedDisplayStyleEnumValues)
-	}
+// NewDisplayStyleWithDefaults instantiates a new DisplayStyle object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewDisplayStyleWithDefaults() *DisplayStyle {
+	this := DisplayStyle{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v DisplayStyle) IsValid() bool {
-	for _, existing := range AllowedDisplayStyleEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to DisplayStyle value
-func (v DisplayStyle) Ptr() *DisplayStyle {
-	return &v
+func (o DisplayStyle) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableDisplayStyle struct {
@@ -110,4 +75,5 @@ func (v *NullableDisplayStyle) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

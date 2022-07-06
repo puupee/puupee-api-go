@@ -12,67 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// AppType the model 'AppType'
-type AppType string
-
-// List of AppType
-const (
-	APPTYPE_CLIENT AppType = "Client"
-	APPTYPE_SERVICE AppType = "Service"
-	APPTYPE_WEB AppType = "Web"
-)
-
-// All allowed values of AppType enum
-var AllowedAppTypeEnumValues = []AppType{
-	"Client",
-	"Service",
-	"Web",
+// AppType struct for AppType
+type AppType struct {
 }
 
-func (v *AppType) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := AppType(value)
-	for _, existing := range AllowedAppTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppType", value)
+// NewAppType instantiates a new AppType object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewAppType() *AppType {
+	this := AppType{}
+	return &this
 }
 
-// NewAppTypeFromValue returns a pointer to a valid AppType
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewAppTypeFromValue(v string) (*AppType, error) {
-	ev := AppType(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for AppType: valid values are %v", v, AllowedAppTypeEnumValues)
-	}
+// NewAppTypeWithDefaults instantiates a new AppType object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewAppTypeWithDefaults() *AppType {
+	this := AppType{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v AppType) IsValid() bool {
-	for _, existing := range AllowedAppTypeEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to AppType value
-func (v AppType) Ptr() *AppType {
-	return &v
+func (o AppType) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableAppType struct {
@@ -110,4 +75,5 @@ func (v *NullableAppType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

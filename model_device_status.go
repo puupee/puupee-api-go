@@ -12,67 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// DeviceStatus the model 'DeviceStatus'
-type DeviceStatus string
-
-// List of DeviceStatus
-const (
-	DEVICESTATUS_NONE DeviceStatus = "None"
-	DEVICESTATUS_ONLINE DeviceStatus = "Online"
-	DEVICESTATUS_OFFLINE DeviceStatus = "Offline"
-)
-
-// All allowed values of DeviceStatus enum
-var AllowedDeviceStatusEnumValues = []DeviceStatus{
-	"None",
-	"Online",
-	"Offline",
+// DeviceStatus struct for DeviceStatus
+type DeviceStatus struct {
 }
 
-func (v *DeviceStatus) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := DeviceStatus(value)
-	for _, existing := range AllowedDeviceStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeviceStatus", value)
+// NewDeviceStatus instantiates a new DeviceStatus object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewDeviceStatus() *DeviceStatus {
+	this := DeviceStatus{}
+	return &this
 }
 
-// NewDeviceStatusFromValue returns a pointer to a valid DeviceStatus
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewDeviceStatusFromValue(v string) (*DeviceStatus, error) {
-	ev := DeviceStatus(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for DeviceStatus: valid values are %v", v, AllowedDeviceStatusEnumValues)
-	}
+// NewDeviceStatusWithDefaults instantiates a new DeviceStatus object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewDeviceStatusWithDefaults() *DeviceStatus {
+	this := DeviceStatus{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v DeviceStatus) IsValid() bool {
-	for _, existing := range AllowedDeviceStatusEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to DeviceStatus value
-func (v DeviceStatus) Ptr() *DeviceStatus {
-	return &v
+func (o DeviceStatus) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableDeviceStatus struct {
@@ -110,4 +75,5 @@ func (v *NullableDeviceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

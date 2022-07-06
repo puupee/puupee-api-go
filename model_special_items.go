@@ -12,73 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// SpecialItems the model 'SpecialItems'
-type SpecialItems string
-
-// List of SpecialItems
-const (
-	SPECIALITEMS_NOTE_FOLDER SpecialItems = "NoteFolder"
-	SPECIALITEMS_ALBUM_FOLDER SpecialItems = "AlbumFolder"
-	SPECIALITEMS_MEDIA_FOLDER SpecialItems = "MediaFolder"
-	SPECIALITEMS_MUSIC_FOLDER SpecialItems = "MusicFolder"
-	SPECIALITEMS_DOCUMENT_FOLDER SpecialItems = "DocumentFolder"
-	SPECIALITEMS_TODO_FOLDER SpecialItems = "TodoFolder"
-)
-
-// All allowed values of SpecialItems enum
-var AllowedSpecialItemsEnumValues = []SpecialItems{
-	"NoteFolder",
-	"AlbumFolder",
-	"MediaFolder",
-	"MusicFolder",
-	"DocumentFolder",
-	"TodoFolder",
+// SpecialItems struct for SpecialItems
+type SpecialItems struct {
 }
 
-func (v *SpecialItems) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := SpecialItems(value)
-	for _, existing := range AllowedSpecialItemsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SpecialItems", value)
+// NewSpecialItems instantiates a new SpecialItems object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewSpecialItems() *SpecialItems {
+	this := SpecialItems{}
+	return &this
 }
 
-// NewSpecialItemsFromValue returns a pointer to a valid SpecialItems
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewSpecialItemsFromValue(v string) (*SpecialItems, error) {
-	ev := SpecialItems(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for SpecialItems: valid values are %v", v, AllowedSpecialItemsEnumValues)
-	}
+// NewSpecialItemsWithDefaults instantiates a new SpecialItems object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewSpecialItemsWithDefaults() *SpecialItems {
+	this := SpecialItems{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v SpecialItems) IsValid() bool {
-	for _, existing := range AllowedSpecialItemsEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to SpecialItems value
-func (v SpecialItems) Ptr() *SpecialItems {
-	return &v
+func (o SpecialItems) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableSpecialItems struct {
@@ -116,4 +75,5 @@ func (v *NullableSpecialItems) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

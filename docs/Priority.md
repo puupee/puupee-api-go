@@ -1,15 +1,28 @@
 # Priority
 
-## Enum
+## Properties
 
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
-* `URGENT_IMPORTANT` (value: `"UrgentImportant"`)
+## Methods
 
-* `IMPORTANT_NOT_URGENT` (value: `"ImportantNotUrgent"`)
+### NewPriority
 
-* `URGENT_NOT_IMPORTANT` (value: `"UrgentNotImportant"`)
+`func NewPriority() *Priority`
 
-* `NOT_IMPORTANT_NOT_URGENT` (value: `"NotImportantNotUrgent"`)
+NewPriority instantiates a new Priority object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewPriorityWithDefaults
+
+`func NewPriorityWithDefaults() *Priority`
+
+NewPriorityWithDefaults instantiates a new Priority object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

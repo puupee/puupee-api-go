@@ -119,6 +119,7 @@ docs/NameValue.md
 docs/NoteApi.md
 docs/NoteSpecDto.md
 docs/NotificationApi.md
+docs/NotificationBodyType.md
 docs/NotificationDto.md
 docs/NotificationDtoPagedResultDto.md
 docs/NotificationInfoDto.md
@@ -276,6 +277,7 @@ model_module_extension_dto.go
 model_multi_tenancy_info_dto.go
 model_name_value.go
 model_note_spec_dto.go
+model_notification_body_type.go
 model_notification_dto.go
 model_notification_dto_paged_result_dto.go
 model_notification_info_dto.go

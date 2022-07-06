@@ -1,17 +1,28 @@
 # ProductType
 
-## Enum
+## Properties
 
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
-* `APK` (value: `"Apk"`)
+## Methods
 
-* `IPA` (value: `"Ipa"`)
+### NewProductType
 
-* `EXE` (value: `"Exe"`)
+`func NewProductType() *ProductType`
 
-* `WEB` (value: `"Web"`)
+NewProductType instantiates a new ProductType object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
 
-* `OTHER` (value: `"Other"`)
+### NewProductTypeWithDefaults
+
+`func NewProductTypeWithDefaults() *ProductType`
+
+NewProductTypeWithDefaults instantiates a new ProductType object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

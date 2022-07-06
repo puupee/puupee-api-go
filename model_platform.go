@@ -12,79 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// Platform the model 'Platform'
-type Platform string
-
-// List of Platform
-const (
-	PLATFORM_NONE Platform = "None"
-	PLATFORM_UNKNOW Platform = "Unknow"
-	PLATFORM_ANDROID Platform = "Android"
-	PLATFORM_IOS Platform = "IOS"
-	PLATFORM_WINDOWS Platform = "Windows"
-	PLATFORM_MACOS Platform = "Macos"
-	PLATFORM_LINUX Platform = "Linux"
-	PLATFORM_WEB Platform = "Web"
-	PLATFORM_OTHER Platform = "Other"
-)
-
-// All allowed values of Platform enum
-var AllowedPlatformEnumValues = []Platform{
-	"None",
-	"Unknow",
-	"Android",
-	"IOS",
-	"Windows",
-	"Macos",
-	"Linux",
-	"Web",
-	"Other",
+// Platform struct for Platform
+type Platform struct {
 }
 
-func (v *Platform) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := Platform(value)
-	for _, existing := range AllowedPlatformEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid Platform", value)
+// NewPlatform instantiates a new Platform object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewPlatform() *Platform {
+	this := Platform{}
+	return &this
 }
 
-// NewPlatformFromValue returns a pointer to a valid Platform
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewPlatformFromValue(v string) (*Platform, error) {
-	ev := Platform(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for Platform: valid values are %v", v, AllowedPlatformEnumValues)
-	}
+// NewPlatformWithDefaults instantiates a new Platform object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewPlatformWithDefaults() *Platform {
+	this := Platform{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v Platform) IsValid() bool {
-	for _, existing := range AllowedPlatformEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to Platform value
-func (v Platform) Ptr() *Platform {
-	return &v
+func (o Platform) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullablePlatform struct {
@@ -122,4 +75,5 @@ func (v *NullablePlatform) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

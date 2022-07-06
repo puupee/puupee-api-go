@@ -12,67 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// TodoNotifyTimingType the model 'TodoNotifyTimingType'
-type TodoNotifyTimingType string
-
-// List of TodoNotifyTimingType
-const (
-	TODONOTIFYTIMINGTYPE_NONE TodoNotifyTimingType = "None"
-	TODONOTIFYTIMINGTYPE_BEFORE TodoNotifyTimingType = "Before"
-	TODONOTIFYTIMINGTYPE_AFTER TodoNotifyTimingType = "After"
-)
-
-// All allowed values of TodoNotifyTimingType enum
-var AllowedTodoNotifyTimingTypeEnumValues = []TodoNotifyTimingType{
-	"None",
-	"Before",
-	"After",
+// TodoNotifyTimingType struct for TodoNotifyTimingType
+type TodoNotifyTimingType struct {
 }
 
-func (v *TodoNotifyTimingType) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := TodoNotifyTimingType(value)
-	for _, existing := range AllowedTodoNotifyTimingTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TodoNotifyTimingType", value)
+// NewTodoNotifyTimingType instantiates a new TodoNotifyTimingType object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewTodoNotifyTimingType() *TodoNotifyTimingType {
+	this := TodoNotifyTimingType{}
+	return &this
 }
 
-// NewTodoNotifyTimingTypeFromValue returns a pointer to a valid TodoNotifyTimingType
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewTodoNotifyTimingTypeFromValue(v string) (*TodoNotifyTimingType, error) {
-	ev := TodoNotifyTimingType(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for TodoNotifyTimingType: valid values are %v", v, AllowedTodoNotifyTimingTypeEnumValues)
-	}
+// NewTodoNotifyTimingTypeWithDefaults instantiates a new TodoNotifyTimingType object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewTodoNotifyTimingTypeWithDefaults() *TodoNotifyTimingType {
+	this := TodoNotifyTimingType{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v TodoNotifyTimingType) IsValid() bool {
-	for _, existing := range AllowedTodoNotifyTimingTypeEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to TodoNotifyTimingType value
-func (v TodoNotifyTimingType) Ptr() *TodoNotifyTimingType {
-	return &v
+func (o TodoNotifyTimingType) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableTodoNotifyTimingType struct {
@@ -110,4 +75,5 @@ func (v *NullableTodoNotifyTimingType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

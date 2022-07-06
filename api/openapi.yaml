@@ -648,10 +648,17 @@ paths:
         style: form
       - explode: true
         in: query
-        name: Platform
+        name: Platform.Name
         required: false
         schema:
-          $ref: '#/components/schemas/Platform'
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Platform.Value
+        required: false
+        schema:
+          type: string
         style: form
       - explode: true
         in: query
@@ -3463,10 +3470,16 @@ paths:
         style: form
       - explode: true
         in: query
-        name: level
+        name: Name
         required: false
         schema:
-          default: active
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: Value
+        required: false
+        schema:
           type: string
         style: form
       responses:
@@ -5152,11 +5165,12 @@ components:
       - Dark
       type: string
     AppType:
+      additionalProperties: false
       enum:
       - Client
       - Service
       - Web
-      type: string
+      type: object
     BooleanKeyValue:
       additionalProperties: false
       example:
@@ -5265,7 +5279,7 @@ components:
         displayName:
           nullable: true
           type: string
-        fromework:
+        framework:
           $ref: '#/components/schemas/Framework'
         appType:
           $ref: '#/components/schemas/AppType'
@@ -5340,7 +5354,6 @@ components:
     CreatePushNotificationDto:
       additionalProperties: false
       example:
-        bodyType: bodyType
         userIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5362,8 +5375,7 @@ components:
           nullable: true
           type: string
         bodyType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/NotificationBodyType'
         body:
           nullable: true
           type: string
@@ -5823,17 +5835,22 @@ components:
           type: integer
       type: object
     DeviceStatus:
+      additionalProperties: false
       enum:
       - None
+      - Unknow
       - Online
       - Offline
-      type: string
+      type: object
     DisplayStyle:
+      additionalProperties: false
       enum:
       - None
       - ListItem
       - LargeThumbnail
-      type: string
+      - Table
+      - Other
+      type: object
     DoubleKeyValue:
       additionalProperties: false
       example:
@@ -6249,16 +6266,18 @@ components:
           type: boolean
       type: object
     Framework:
+      additionalProperties: false
       enum:
       - Flutter
       - ReactNative
+      - React
       - NativeIOS
       - NativeAndroid
+      - NativeWindows
+      - NativeMacOS
       - Ionic
-      - Cordova
-      - React
       - AspNetCore
-      type: string
+      type: object
     GetFeatureListResultDto:
       additionalProperties: false
       properties:
@@ -6281,12 +6300,13 @@ components:
           type: array
       type: object
     GitRepositoryType:
+      additionalProperties: false
       enum:
       - GitHub
       - GitLab
       - BitBucket
       - Other
-      type: string
+      type: object
     IanaTimeZone:
       additionalProperties: false
       properties:
@@ -7007,6 +7027,7 @@ components:
           type: integer
       type: object
     ItemType:
+      additionalProperties: false
       enum:
       - Folder
       - Image
@@ -7014,9 +7035,9 @@ components:
       - Audio
       - Document
       - Note
-      - Other
       - Todo
-      type: string
+      - Other
+      type: object
     IValueValidator:
       additionalProperties: false
       properties:
@@ -7109,13 +7130,14 @@ components:
           $ref: '#/components/schemas/MemberLevel'
       type: object
     MemberLevel:
+      additionalProperties: false
       enum:
       - None
       - Monthly
       - Quarterly
       - Annual
       - Unlimited
-      type: string
+      type: object
     MethodParameterApiDescriptionModel:
       additionalProperties: false
       properties:
@@ -7236,6 +7258,14 @@ components:
         website:
           nullable: true
           type: string
+      type: object
+    NotificationBodyType:
+      additionalProperties: false
+      enum:
+      - Text
+      - Markdown
+      - Html
+      - Other
       type: object
     NotificationDto:
       additionalProperties: false
@@ -7447,32 +7477,34 @@ components:
           type: array
       type: object
     Platform:
+      additionalProperties: false
       enum:
       - None
       - Unknow
       - Android
       - IOS
       - Windows
-      - Macos
       - Linux
       - Web
       - Other
-      type: string
+      type: object
     Priority:
+      additionalProperties: false
       enum:
       - UrgentImportant
       - ImportantNotUrgent
       - UrgentNotImportant
       - NotImportantNotUrgent
-      type: string
+      type: object
     ProductType:
+      additionalProperties: false
       enum:
       - Apk
       - Ipa
       - Exe
       - Web
       - Other
-      type: string
+      type: object
     ProfileDto:
       additionalProperties: false
       properties:
@@ -7907,6 +7939,7 @@ components:
           $ref: '#/components/schemas/SpecialItems'
       type: object
     SpecialItems:
+      additionalProperties: false
       enum:
       - NoteFolder
       - AlbumFolder
@@ -7914,7 +7947,7 @@ components:
       - MusicFolder
       - DocumentFolder
       - TodoFolder
-      type: string
+      type: object
     StringKeyValue:
       additionalProperties: false
       example:
@@ -8138,12 +8171,14 @@ components:
           $ref: '#/components/schemas/TimeZone'
       type: object
     TodoNotifyTimingType:
+      additionalProperties: false
       enum:
       - None
       - Before
       - After
-      type: string
+      type: object
     TodoNotifyTimingUnit:
+      additionalProperties: false
       enum:
       - None
       - Minute
@@ -8152,7 +8187,7 @@ components:
       - Month
       - Year
       - Custom
-      type: string
+      type: object
     TodoOrderBy:
       enum:
       - CreationTime
@@ -8167,6 +8202,7 @@ components:
       - TagDesc
       type: string
     TodoRepeat:
+      additionalProperties: false
       enum:
       - Never
       - EveryDay
@@ -8178,7 +8214,7 @@ components:
       - EveryYearThisDay
       - EveryYearThisLunarDay
       - Custom
-      type: string
+      type: object
     TodoSettingsDto:
       additionalProperties: false
       example:

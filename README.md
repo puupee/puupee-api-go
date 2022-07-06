@@ -222,6 +222,7 @@ Class | Method | HTTP request | Description
  - [MultiTenancyInfoDto](docs/MultiTenancyInfoDto.md)
  - [NameValue](docs/NameValue.md)
  - [NoteSpecDto](docs/NoteSpecDto.md)
+ - [NotificationBodyType](docs/NotificationBodyType.md)
  - [NotificationDto](docs/NotificationDto.md)
  - [NotificationDtoPagedResultDto](docs/NotificationDtoPagedResultDto.md)
  - [NotificationInfoDto](docs/NotificationInfoDto.md)

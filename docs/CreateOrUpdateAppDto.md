@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**Fromework** | Pointer to [**Framework**](Framework.md) |  | [optional] 
+**Framework** | Pointer to [**Framework**](Framework.md) |  | [optional] 
 **AppType** | Pointer to [**AppType**](AppType.md) |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Icon** | Pointer to **NullableString** |  | [optional] 
@@ -102,30 +102,30 @@ HasDisplayName returns a boolean if a field has been set.
 `func (o *CreateOrUpdateAppDto) UnsetDisplayName()`
 
 UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-### GetFromework
+### GetFramework
 
-`func (o *CreateOrUpdateAppDto) GetFromework() Framework`
+`func (o *CreateOrUpdateAppDto) GetFramework() Framework`
 
-GetFromework returns the Fromework field if non-nil, zero value otherwise.
+GetFramework returns the Framework field if non-nil, zero value otherwise.
 
-### GetFromeworkOk
+### GetFrameworkOk
 
-`func (o *CreateOrUpdateAppDto) GetFromeworkOk() (*Framework, bool)`
+`func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*Framework, bool)`
 
-GetFromeworkOk returns a tuple with the Fromework field if it's non-nil, zero value otherwise
+GetFrameworkOk returns a tuple with the Framework field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFromework
+### SetFramework
 
-`func (o *CreateOrUpdateAppDto) SetFromework(v Framework)`
+`func (o *CreateOrUpdateAppDto) SetFramework(v Framework)`
 
-SetFromework sets Fromework field to given value.
+SetFramework sets Framework field to given value.
 
-### HasFromework
+### HasFramework
 
-`func (o *CreateOrUpdateAppDto) HasFromework() bool`
+`func (o *CreateOrUpdateAppDto) HasFramework() bool`
 
-HasFromework returns a boolean if a field has been set.
+HasFramework returns a boolean if a field has been set.
 
 ### GetAppType
 

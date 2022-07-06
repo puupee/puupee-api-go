@@ -12,77 +12,32 @@ package doggy
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// ItemType the model 'ItemType'
-type ItemType string
-
-// List of ItemType
-const (
-	ITEMTYPE_FOLDER ItemType = "Folder"
-	ITEMTYPE_IMAGE ItemType = "Image"
-	ITEMTYPE_VIDEO ItemType = "Video"
-	ITEMTYPE_AUDIO ItemType = "Audio"
-	ITEMTYPE_DOCUMENT ItemType = "Document"
-	ITEMTYPE_NOTE ItemType = "Note"
-	ITEMTYPE_OTHER ItemType = "Other"
-	ITEMTYPE_TODO ItemType = "Todo"
-)
-
-// All allowed values of ItemType enum
-var AllowedItemTypeEnumValues = []ItemType{
-	"Folder",
-	"Image",
-	"Video",
-	"Audio",
-	"Document",
-	"Note",
-	"Other",
-	"Todo",
+// ItemType struct for ItemType
+type ItemType struct {
 }
 
-func (v *ItemType) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := ItemType(value)
-	for _, existing := range AllowedItemTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ItemType", value)
+// NewItemType instantiates a new ItemType object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewItemType() *ItemType {
+	this := ItemType{}
+	return &this
 }
 
-// NewItemTypeFromValue returns a pointer to a valid ItemType
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewItemTypeFromValue(v string) (*ItemType, error) {
-	ev := ItemType(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for ItemType: valid values are %v", v, AllowedItemTypeEnumValues)
-	}
+// NewItemTypeWithDefaults instantiates a new ItemType object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewItemTypeWithDefaults() *ItemType {
+	this := ItemType{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v ItemType) IsValid() bool {
-	for _, existing := range AllowedItemTypeEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
-}
-
-// Ptr returns reference to ItemType value
-func (v ItemType) Ptr() *ItemType {
-	return &v
+func (o ItemType) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	return json.Marshal(toSerialize)
 }
 
 type NullableItemType struct {
@@ -120,4 +75,5 @@ func (v *NullableItemType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

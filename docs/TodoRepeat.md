@@ -1,27 +1,28 @@
 # TodoRepeat
 
-## Enum
+## Properties
 
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
-* `NEVER` (value: `"Never"`)
+## Methods
 
-* `EVERY_DAY` (value: `"EveryDay"`)
+### NewTodoRepeat
 
-* `EVERY_WEEKDAY` (value: `"EveryWeekday"`)
+`func NewTodoRepeat() *TodoRepeat`
 
-* `EVERY_WORK_DAY` (value: `"EveryWorkDay"`)
+NewTodoRepeat instantiates a new TodoRepeat object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
 
-* `EVERY_WEEK` (value: `"EveryWeek"`)
+### NewTodoRepeatWithDefaults
 
-* `EVERY_MONTH_THIS_DAY` (value: `"EveryMonthThisDay"`)
+`func NewTodoRepeatWithDefaults() *TodoRepeat`
 
-* `EVERY_MONTH_THIS_WEEKDAY` (value: `"EveryMonthThisWeekday"`)
-
-* `EVERY_YEAR_THIS_DAY` (value: `"EveryYearThisDay"`)
-
-* `EVERY_YEAR_THIS_LUNAR_DAY` (value: `"EveryYearThisLunarDay"`)
-
-* `CUSTOM` (value: `"Custom"`)
+NewTodoRepeatWithDefaults instantiates a new TodoRepeat object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

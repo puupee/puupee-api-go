@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ApiAppNotificationBarkApiKeyMessageGet
 
-> ApiAppNotificationBarkApiKeyMessageGet(ctx, apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Level(level).Execute()
+> ApiAppNotificationBarkApiKeyMessageGet(ctx, apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Name(name).Value(value).Execute()
 
 
 
@@ -37,11 +37,12 @@ func main() {
     isArchive := "isArchive_example" // string |  (optional)
     group := "group_example" // string |  (optional)
     icon := "icon_example" // string |  (optional)
-    level := "level_example" // string |  (optional) (default to "active")
+    name := "name_example" // string |  (optional)
+    value := "value_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.NotificationApi.ApiAppNotificationBarkApiKeyMessageGet(context.Background(), apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Level(level).Execute()
+    resp, r, err := api_client.NotificationApi.ApiAppNotificationBarkApiKeyMessageGet(context.Background(), apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Name(name).Value(value).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationBarkApiKeyMessageGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -73,7 +74,8 @@ Name | Type | Description  | Notes
  **isArchive** | **string** |  | 
  **group** | **string** |  | 
  **icon** | **string** |  | 
- **level** | **string** |  | [default to &quot;active&quot;]
+ **name** | **string** |  | 
+ **value** | **string** |  | 
 
 ### Return type
 

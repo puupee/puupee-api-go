@@ -18,7 +18,7 @@ import (
 type CreateOrUpdateAppDto struct {
 	Name NullableString `json:"name,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
-	Fromework *Framework `json:"fromework,omitempty"`
+	Framework *Framework `json:"framework,omitempty"`
 	AppType *AppType `json:"appType,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Icon NullableString `json:"icon,omitempty"`
@@ -127,36 +127,36 @@ func (o *CreateOrUpdateAppDto) UnsetDisplayName() {
 	o.DisplayName.Unset()
 }
 
-// GetFromework returns the Fromework field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppDto) GetFromework() Framework {
-	if o == nil || o.Fromework == nil {
+// GetFramework returns the Framework field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppDto) GetFramework() Framework {
+	if o == nil || o.Framework == nil {
 		var ret Framework
 		return ret
 	}
-	return *o.Fromework
+	return *o.Framework
 }
 
-// GetFromeworkOk returns a tuple with the Fromework field value if set, nil otherwise
+// GetFrameworkOk returns a tuple with the Framework field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppDto) GetFromeworkOk() (*Framework, bool) {
-	if o == nil || o.Fromework == nil {
+func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*Framework, bool) {
+	if o == nil || o.Framework == nil {
 		return nil, false
 	}
-	return o.Fromework, true
+	return o.Framework, true
 }
 
-// HasFromework returns a boolean if a field has been set.
-func (o *CreateOrUpdateAppDto) HasFromework() bool {
-	if o != nil && o.Fromework != nil {
+// HasFramework returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppDto) HasFramework() bool {
+	if o != nil && o.Framework != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetFromework gets a reference to the given Framework and assigns it to the Fromework field.
-func (o *CreateOrUpdateAppDto) SetFromework(v Framework) {
-	o.Fromework = &v
+// SetFramework gets a reference to the given Framework and assigns it to the Framework field.
+func (o *CreateOrUpdateAppDto) SetFramework(v Framework) {
+	o.Framework = &v
 }
 
 // GetAppType returns the AppType field value if set, zero value otherwise.
@@ -357,8 +357,8 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	if o.DisplayName.IsSet() {
 		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if o.Fromework != nil {
-		toSerialize["fromework"] = o.Fromework
+	if o.Framework != nil {
+		toSerialize["framework"] = o.Framework
 	}
 	if o.AppType != nil {
 		toSerialize["appType"] = o.AppType

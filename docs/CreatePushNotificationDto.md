@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **UserIds** | Pointer to **[]string** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**BodyType** | Pointer to **NullableString** |  | [optional] 
+**BodyType** | Pointer to [**NotificationBodyType**](NotificationBodyType.md) |  | [optional] 
 **Body** | Pointer to **NullableString** |  | [optional] 
 **Url** | Pointer to **NullableString** |  | [optional] 
 
@@ -137,20 +137,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetBodyType
 
-`func (o *CreatePushNotificationDto) GetBodyType() string`
+`func (o *CreatePushNotificationDto) GetBodyType() NotificationBodyType`
 
 GetBodyType returns the BodyType field if non-nil, zero value otherwise.
 
 ### GetBodyTypeOk
 
-`func (o *CreatePushNotificationDto) GetBodyTypeOk() (*string, bool)`
+`func (o *CreatePushNotificationDto) GetBodyTypeOk() (*NotificationBodyType, bool)`
 
 GetBodyTypeOk returns a tuple with the BodyType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBodyType
 
-`func (o *CreatePushNotificationDto) SetBodyType(v string)`
+`func (o *CreatePushNotificationDto) SetBodyType(v NotificationBodyType)`
 
 SetBodyType sets BodyType field to given value.
 
@@ -160,16 +160,6 @@ SetBodyType sets BodyType field to given value.
 
 HasBodyType returns a boolean if a field has been set.
 
-### SetBodyTypeNil
-
-`func (o *CreatePushNotificationDto) SetBodyTypeNil(b bool)`
-
- SetBodyTypeNil sets the value for BodyType to be an explicit nil
-
-### UnsetBodyType
-`func (o *CreatePushNotificationDto) UnsetBodyType()`
-
-UnsetBodyType ensures that no value is present for BodyType, not even an explicit nil
 ### GetBody
 
 `func (o *CreatePushNotificationDto) GetBody() string`
