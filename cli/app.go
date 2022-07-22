@@ -36,3 +36,13 @@ func (op *AppOp) List() error {
 	fmt.Println(string(bts))
 	return nil
 }
+
+func (op *AppOp) Get(appName string) error {
+	appDto, _, err := op.api.AppApi.ApiAppAppByNameGet(context.Background()).Name(appName).Execute()
+	if err != nil {
+		return err
+	}
+	bts, _ := json.MarshalIndent(appDto, "", "  ")
+	fmt.Println(string(bts))
+	return nil
+}

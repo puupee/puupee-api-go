@@ -54,7 +54,8 @@ type DoggyCli struct {
 	session *Session
 	config  *Config
 
-	AppOp *AppOp
+	AppOp     *AppOp
+	ReleaseOp *ReleaseOp
 }
 
 func NewDoggyCli() *DoggyCli {
@@ -76,10 +77,11 @@ func NewDoggyCli() *DoggyCli {
 		api.GetConfig().AddDefaultHeader("Authorization", cliCfg.Session.TokenType+" "+cliCfg.Session.AccessToken)
 	}
 	return &DoggyCli{
-		api:     api,
-		session: cliCfg.Session,
-		config:  cliCfg,
-		AppOp:   NewAppOp(api),
+		api:       api,
+		session:   cliCfg.Session,
+		config:    cliCfg,
+		AppOp:     NewAppOp(api),
+		ReleaseOp: NewReleaseOp(api),
 	}
 }
 

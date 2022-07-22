@@ -5,17 +5,17 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/mr-doggy/doggy-sdk-go/cli"
 	"github.com/spf13/cobra"
 )
 
 // releaseCmd represents the release command
 var releaseCmd = &cobra.Command{
 	Use:   "release",
-	Short: "A brief description of your command",
+	Short: "获取AppRelease列表",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("release called")
+		err := cli.NewDoggyCli().ReleaseOp.List(cmd.Flag("name").Value.String())
+		cobra.CheckErr(err)
 	},
 }
 

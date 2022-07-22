@@ -5,8 +5,7 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/mr-doggy/doggy-sdk-go/cli"
 	"github.com/spf13/cobra"
 )
 
@@ -15,7 +14,8 @@ var getCmd = &cobra.Command{
 	Use:   "get",
 	Short: "获取单个App信息",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("get called")
+		err := cli.NewDoggyCli().AppOp.Get(cmd.Flag("name").Value.String())
+		cobra.CheckErr(err)
 	},
 }
 
@@ -31,4 +31,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// getCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	getCmd.Flags().StringP("name", "n", "", "name of the app")
 }
