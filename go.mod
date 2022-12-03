@@ -1,4 +1,4 @@
-module github.com/puupee/puupee-api-go/puupee
+module github.com/puupee/puupee-api-go
 
 go 1.13
 
