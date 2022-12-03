@@ -1,12 +1,11 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
-	"github.com/mr-doggy/doggy-sdk-go/cli"
-	"github.com/mr-doggy/doggy-sdk-go/doggy"
+	"github.com/puupee/puupee-api-go/cli"
+	"github.com/puupee/puupee-api-go/puupee"
 	"github.com/spf13/cobra"
 )
 
@@ -15,7 +14,7 @@ var newCmd = &cobra.Command{
 	Use:   "new",
 	Short: "新建App",
 	Run: func(cmd *cobra.Command, args []string) {
-		dto := doggy.NewCreateOrUpdateAppDto()
+		dto := puupee.NewCreateOrUpdateAppDto()
 		dto.SetName(cmd.Flag("name").Value.String())
 		dto.SetDisplayName(cmd.Flag("displayName").Value.String())
 		dto.SetFramework(cmd.Flag("framework").Value.String())
@@ -24,7 +23,7 @@ var newCmd = &cobra.Command{
 		dto.SetIcon(cmd.Flag("icon").Value.String())
 		dto.SetGitRepository(cmd.Flag("git-repo").Value.String())
 		dto.SetGitRepository(cmd.Flag("git-repo-type").Value.String())
-		err := cli.NewDoggyCli().AppOp.Create(*dto)
+		err := cli.NewpuupeeCli().AppOp.Create(*dto)
 		cobra.CheckErr(err)
 	},
 }

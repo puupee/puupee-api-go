@@ -1,11 +1,10 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
-	"github.com/mr-doggy/doggy-sdk-go/cli"
+	"github.com/puupee/puupee-api-go/cli"
 	"github.com/spf13/cobra"
 )
 
@@ -14,7 +13,7 @@ var logoutCmd = &cobra.Command{
 	Use:   "logout",
 	Short: "退出",
 	Run: func(cmd *cobra.Command, args []string) {
-		c := cli.NewDoggyCli()
+		c := cli.NewpuupeeCli()
 		err := c.Logout()
 		cobra.CheckErr(err)
 	},

@@ -1,11 +1,10 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
-	"github.com/mr-doggy/doggy-sdk-go/cli"
+	"github.com/puupee/puupee-api-go/cli"
 	"github.com/spf13/cobra"
 )
 
@@ -14,7 +13,7 @@ var releaseCmd = &cobra.Command{
 	Use:   "release",
 	Short: "获取AppRelease列表",
 	Run: func(cmd *cobra.Command, args []string) {
-		err := cli.NewDoggyCli().ReleaseOp.List(cmd.Flag("name").Value.String())
+		err := cli.NewpuupeeCli().ReleaseOp.List(cmd.Flag("name").Value.String())
 		cobra.CheckErr(err)
 	},
 }

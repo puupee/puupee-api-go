@@ -1,14 +1,12 @@
 package cli
 
-import (
-	"github.com/mr-doggy/doggy-sdk-go/doggy"
-)
+import "github.com/puupee/puupee-api-go/puupee"
 
 type TodoOp struct {
-	api *doggy.APIClient
+	api *puupee.APIClient
 }
 
-func NewTodoOp(api *doggy.APIClient) *TodoOp {
+func NewTodoOp(api *puupee.APIClient) *TodoOp {
 	return &TodoOp{
 		api: api,
 	}

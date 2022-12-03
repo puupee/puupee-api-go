@@ -5,20 +5,20 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/mr-doggy/doggy-sdk-go/doggy"
+	"github.com/puupee/puupee-api-go"
 )
 
 type AppOp struct {
-	api *doggy.APIClient
+	api *puupee.APIClient
 }
 
-func NewAppOp(api *doggy.APIClient) *AppOp {
+func NewAppOp(api *puupee.APIClient) *AppOp {
 	return &AppOp{
 		api: api,
 	}
 }
 
-func (op *AppOp) Create(dto doggy.CreateOrUpdateAppDto) error {
+func (op *AppOp) Create(dto puupee.CreateOrUpdateAppDto) error {
 	resp, _, err := op.api.AppApi.ApiAppAppPost(context.Background()).CreateOrUpdateAppDto(dto).Execute()
 	if err != nil {
 		return err

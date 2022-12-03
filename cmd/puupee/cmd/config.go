@@ -1,11 +1,10 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
-	"github.com/mr-doggy/doggy-sdk-go/cli"
+	"github.com/puupee/puupee-api-go/cli"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

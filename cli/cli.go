@@ -11,7 +11,7 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	gonanoid "github.com/matoous/go-nanoid/v2"
-	"github.com/mr-doggy/doggy-sdk-go/doggy"
+	"github.com/puupee/puupee-api-go/puupee"
 	"github.com/spf13/viper"
 )
 
@@ -31,7 +31,7 @@ type Config struct {
 
 func NewConfig() *Config {
 	return &Config{
-		Host:    "api.doggy.code2code.cn",
+		Host:    "api.puupee.code2code.cn",
 		Session: &Session{},
 	}
 }
@@ -49,8 +49,8 @@ func (session *Session) Valid() bool {
 	return session.CreatedAt+session.ExpiresIn > time.Now().Unix()
 }
 
-type DoggyCli struct {
-	api     *doggy.APIClient
+type puupeeCli struct {
+	api     *puupee.APIClient
 	session *Session
 	config  *Config
 
@@ -58,14 +58,14 @@ type DoggyCli struct {
 	ReleaseOp *ReleaseOp
 }
 
-func NewDoggyCli() *DoggyCli {
+func NewpuupeeCli() *puupeeCli {
 	cliCfg := NewConfig()
 	err := viper.Unmarshal(&cliCfg)
 
-	doggyCfg := doggy.NewConfiguration()
-	doggyCfg.Scheme = "https"
-	doggyCfg.Host = cliCfg.Host
-	api := doggy.NewAPIClient(doggyCfg)
+	puupeeCfg := puupee.NewConfiguration()
+	puupeeCfg.Scheme = "https"
+	puupeeCfg.Host = cliCfg.Host
+	api := puupee.NewAPIClient(puupeeCfg)
 
 	if err != nil {
 		panic(err)
@@ -76,7 +76,7 @@ func NewDoggyCli() *DoggyCli {
 	if cliCfg.Session.Valid() {
 		api.GetConfig().AddDefaultHeader("Authorization", cliCfg.Session.TokenType+" "+cliCfg.Session.AccessToken)
 	}
-	return &DoggyCli{
+	return &puupeeCli{
 		api:       api,
 		session:   cliCfg.Session,
 		config:    cliCfg,
@@ -85,7 +85,7 @@ func NewDoggyCli() *DoggyCli {
 	}
 }
 
-func (cli *DoggyCli) Login() error {
+func (cli *puupeeCli) Login() error {
 	if cli.session.Valid() {
 		return fmt.Errorf("已经登录， 无需重复登录")
 	}
@@ -97,8 +97,8 @@ func (cli *DoggyCli) Login() error {
 		phoneNumber = "+86" + phoneNumber
 	}
 	_, err := cli.api.SmsApi.ApiAppSmsSendLoginCodePost(context.Background()).
-		SendSmsCodeDto(doggy.SendSmsCodeDto{
-			PhoneNumber: *doggy.NewNullableString(&phoneNumber),
+		SendSmsCodeDto(puupee.SendSmsCodeDto{
+			PhoneNumber: *puupee.NewNullableString(&phoneNumber),
 		}).Execute()
 	if err != nil {
 		return err
@@ -114,15 +114,15 @@ func (cli *DoggyCli) Login() error {
 	deviceToken := id
 	v := url.Values{}
 	v.Set("grant_type", "sms")
-	v.Set("scope", "Doggy")
-	v.Set("client_id", "Doggy_Sms_GrantType")
+	v.Set("scope", "puupee")
+	v.Set("client_id", "puupee_Sms_GrantType")
 	v.Set("client_secret", "1q2w3e*")
 	v.Set("phone_number", phoneNumber)
 	v.Set("sms_code", smsCode)
 	v.Set("device_token", deviceToken)
-	v.Set("device_name", "doggy-cli")
+	v.Set("device_name", "puupee-cli")
 	v.Set("device_platform_type", "other")
-	v.Set("device_brand", "doggy-cli")
+	v.Set("device_brand", "puupee-cli")
 	v.Set("device_system_version", "1.0.0")
 
 	rsp, err := cli.api.GetConfig().HTTPClient.PostForm(cli.api.GetConfig().Scheme+"://"+cli.api.GetConfig().Host+"/connect/token", v)
@@ -149,7 +149,7 @@ func (cli *DoggyCli) Login() error {
 	return viper.WriteConfig()
 }
 
-func (cli *DoggyCli) Logout() error {
+func (cli *puupeeCli) Logout() error {
 	viper.Set("session", nil)
 	return viper.WriteConfig()
 }

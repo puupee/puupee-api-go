@@ -1,18 +1,17 @@
 package cli
 
-import "github.com/mr-doggy/doggy-sdk-go/doggy"
+import "github.com/puupee/puupee-api-go/puupee"
 
-type SettingsOp struct {
-}
+type SettingsOp struct{}
 
 func NewSettingsOp() *SettingsOp {
 	return &SettingsOp{}
 }
 
-func (op *SettingsOp) Set(value doggy.SettingsDto) error {
+func (op *SettingsOp) Set(value puupee.SettingsDto) error {
 	return nil
 }
 
-func (op *SettingsOp) Get() (doggy.SettingsDto, error) {
-	return doggy.SettingsDto{}, nil
+func (op *SettingsOp) Get() (puupee.SettingsDto, error) {
+	return puupee.SettingsDto{}, nil
 }

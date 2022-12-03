@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -14,7 +13,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "doggy",
+	Use:   "puupee",
 	Short: "小汪助理的命令行版本",
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
@@ -37,11 +36,11 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.doggy.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.puupee.yaml)")
 
 	home, err := os.UserHomeDir()
 	cobra.CheckErr(err)
-	viper.SetConfigFile(filepath.Join(home, ".doggy.yaml"))
+	viper.SetConfigFile(filepath.Join(home, ".puupee.yaml"))
 
 	if err := viper.ReadInConfig(); err != nil {
 		// if _, ok := err.(viper.ConfigFileNotFoundError); ok {

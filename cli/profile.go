@@ -1,15 +1,13 @@
 package cli
 
-import "github.com/mr-doggy/doggy-sdk-go/doggy"
+import "github.com/puupee/puupee-api-go/puupee"
 
-type ProfileOp struct {
-}
+type ProfileOp struct{}
 
 func NewProfileOp() *ProfileOp {
 	return &ProfileOp{}
 }
 
-func (op *ProfileOp) Update(value doggy.ProfileDto) error {
-
+func (op *ProfileOp) Update(value puupee.ProfileDto) error {
 	return nil
 }
