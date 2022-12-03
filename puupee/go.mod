@@ -1,4 +1,4 @@
-module github.com/jiejie-dev/puupee-api-go/doggy
+module github.com/jiejie-dev/puupee-api-go/puupee
 
 go 1.13
 

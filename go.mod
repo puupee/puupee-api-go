@@ -1,11 +1,10 @@
-module github.com/mr-doggy/doggy-sdk-go
+module github.com/puupee/puupee-api-go
 
 go 1.18
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.5
 	github.com/matoous/go-nanoid/v2 v2.0.0
-	github.com/mr-doggy/doggy-sdk-go/doggy v0.0.0-20220706093130-de4e3bee2a3f
 	github.com/spf13/cobra v1.5.0
 )
 
