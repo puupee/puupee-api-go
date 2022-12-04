@@ -61,6 +61,7 @@ type CreateUpdatePuupeeDto struct {
 	Url *string `json:"url,omitempty"`
 	Size *int64 `json:"size,omitempty"`
 	LastModifierDeviceToken *string `json:"lastModifierDeviceToken,omitempty"`
+	LastModifierDevice *string `json:"lastModifierDevice,omitempty"`
 }
 
 // NewCreateUpdatePuupeeDto instantiates a new CreateUpdatePuupeeDto object
@@ -1474,6 +1475,38 @@ func (o *CreateUpdatePuupeeDto) SetLastModifierDeviceToken(v string) {
 	o.LastModifierDeviceToken = &v
 }
 
+// GetLastModifierDevice returns the LastModifierDevice field value if set, zero value otherwise.
+func (o *CreateUpdatePuupeeDto) GetLastModifierDevice() string {
+	if o == nil || isNil(o.LastModifierDevice) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifierDevice
+}
+
+// GetLastModifierDeviceOk returns a tuple with the LastModifierDevice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdatePuupeeDto) GetLastModifierDeviceOk() (*string, bool) {
+	if o == nil || isNil(o.LastModifierDevice) {
+    return nil, false
+	}
+	return o.LastModifierDevice, true
+}
+
+// HasLastModifierDevice returns a boolean if a field has been set.
+func (o *CreateUpdatePuupeeDto) HasLastModifierDevice() bool {
+	if o != nil && !isNil(o.LastModifierDevice) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifierDevice gets a reference to the given string and assigns it to the LastModifierDevice field.
+func (o *CreateUpdatePuupeeDto) SetLastModifierDevice(v string) {
+	o.LastModifierDevice = &v
+}
+
 func (o CreateUpdatePuupeeDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -1607,6 +1640,9 @@ func (o CreateUpdatePuupeeDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.LastModifierDeviceToken) {
 		toSerialize["lastModifierDeviceToken"] = o.LastModifierDeviceToken
+	}
+	if !isNil(o.LastModifierDevice) {
+		toSerialize["lastModifierDevice"] = o.LastModifierDevice
 	}
 	return json.Marshal(toSerialize)
 }

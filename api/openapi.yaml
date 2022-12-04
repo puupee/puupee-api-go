@@ -10156,43 +10156,12 @@ components:
       type: object
     BindDeviceDto:
       example:
-        creationTime: 2000-01-23T04:56:07.000+00:00
-        lastModificationTime: 2000-01-23T04:56:07.000+00:00
-        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deletionTime: 2000-01-23T04:56:07.000+00:00
+        name: name
         type: type
+        brand: brand
         systemVersion: systemVersion
         token: token
-        isDeleted: true
-        name: name
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        brand: brand
       properties:
-        id:
-          format: uuid
-          type: string
-        creationTime:
-          format: date-time
-          type: string
-        creatorId:
-          format: uuid
-          type: string
-        lastModificationTime:
-          format: date-time
-          type: string
-        lastModifierId:
-          format: uuid
-          type: string
-        isDeleted:
-          type: boolean
-        deleterId:
-          format: uuid
-          type: string
-        deletionTime:
-          format: date-time
-          type: string
         token:
           type: string
         name:
@@ -10573,6 +10542,7 @@ components:
         storageClass: storageClass
         isDeleted: true
         repeat: repeat
+        lastModifierDevice: lastModifierDevice
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10710,6 +10680,8 @@ components:
           type: integer
         lastModifierDeviceToken:
           format: uuid
+          type: string
+        lastModifierDevice:
           type: string
       required:
       - id
@@ -12664,6 +12636,7 @@ components:
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
+          lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -12765,6 +12738,7 @@ components:
         storageClass: storageClass
         isDeleted: true
         repeat: repeat
+        lastModifierDevice: lastModifierDevice
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -12934,6 +12908,8 @@ components:
         lastModifierDeviceToken:
           format: uuid
           type: string
+        lastModifierDevice:
+          type: string
       type: object
     PuupeeDtoPagedResultDto:
       example:
@@ -12977,6 +12953,7 @@ components:
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
+          lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -13068,6 +13045,7 @@ components:
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
+          lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
