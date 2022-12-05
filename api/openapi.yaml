@@ -7594,6 +7594,23 @@ paths:
           description: Server Error
       tags:
       - Tenant
+  /api/Test/datetime:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/TestDateTime'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestDateTime'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TestDateTime'
+          description: Success
+      tags:
+      - Test
   /api/identity/users/{id}:
     delete:
       parameters:
@@ -9284,7 +9301,6 @@ components:
         gitRepository: gitRepository
         isDeleted: true
         appType: appType
-        appId: appId
         name: name
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9312,8 +9328,6 @@ components:
           type: string
         deletionTime:
           format: date-time
-          type: string
-        appId:
           type: string
         name:
           type: string
@@ -9374,7 +9388,6 @@ components:
           gitRepository: gitRepository
           isDeleted: true
           appType: appType
-          appId: appId
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9415,7 +9428,6 @@ components:
           gitRepository: gitRepository
           isDeleted: true
           appType: appType
-          appId: appId
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10438,14 +10450,11 @@ components:
         framework: framework
         displayName: displayName
         appType: appType
-        appId: appId
         name: name
         icon: icon
         description: description
         gitRepositoryType: gitRepositoryType
       properties:
-        appId:
-          type: string
         name:
           type: string
         displayName:
@@ -10560,7 +10569,7 @@ components:
         format: format
         priority: 6
         endAt: 2000-01-23T04:56:07.000+00:00
-        lastModifierDeviceToken: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierDeviceToken: lastModifierDeviceToken
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         url: url
@@ -10679,7 +10688,6 @@ components:
           format: int64
           type: integer
         lastModifierDeviceToken:
-          format: uuid
           type: string
         lastModifierDevice:
           type: string
@@ -12677,7 +12685,7 @@ components:
           format: format
           priority: 6
           endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -12779,7 +12787,7 @@ components:
         format: format
         priority: 6
         endAt: 2000-01-23T04:56:07.000+00:00
-        lastModifierDeviceToken: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierDeviceToken: lastModifierDeviceToken
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         url: url
@@ -12906,7 +12914,6 @@ components:
         tagging:
           type: string
         lastModifierDeviceToken:
-          format: uuid
           type: string
         lastModifierDevice:
           type: string
@@ -12994,7 +13001,7 @@ components:
           format: format
           priority: 6
           endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -13086,7 +13093,7 @@ components:
           format: format
           priority: 6
           endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -13633,6 +13640,109 @@ components:
           type: string
       required:
       - name
+      type: object
+    TestDateTime:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        puupee:
+          tagging: tagging
+          extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          repeatOffTimes: 5
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          thumb:
+            storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+            syncVersion: 6
+            extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            url: url
+            storageClass: storageClass
+            password: password
+            isDeleted: true
+            size: 0
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            contentType: contentType
+            storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            key: key
+            md5: md5
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          title: title
+          type: type
+          displayStyle: displayStyle
+          password: password
+          storageClass: storageClass
+          isDeleted: true
+          repeat: repeat
+          lastModifierDevice: lastModifierDevice
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          text: text
+          sliceMd5: sliceMd5
+          contentType: contentType
+          storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
+          key: key
+          startAt: 2000-01-23T04:56:07.000+00:00
+          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+          storageObject:
+            storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+            syncVersion: 6
+            extension: extension
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            url: url
+            storageClass: storageClass
+            password: password
+            isDeleted: true
+            size: 0
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            contentType: contentType
+            storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
+            key: key
+            md5: md5
+          doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 5
+          notifyAt: 2000-01-23T04:56:07.000+00:00
+          notifyTimingType: notifyTimingType
+          format: format
+          priority: 6
+          endAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierDeviceToken: lastModifierDeviceToken
+          isDone: true
+          parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          url: url
+          isHidden: true
+          notifyTimingValue: 1
+          size: 0
+          repeatOffAt: 2000-01-23T04:56:07.000+00:00
+          name: name
+          notifyTimingUnit: notifyTimingUnit
+          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          md5: md5
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        puupee:
+          $ref: '#/components/schemas/PuupeeDto'
       type: object
     TimeZone:
       example:

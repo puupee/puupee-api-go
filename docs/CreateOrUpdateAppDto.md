@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
 **Framework** | Pointer to **string** |  | [optional] 
@@ -32,31 +31,6 @@ will change when the set of required properties is changed
 NewCreateOrUpdateAppDtoWithDefaults instantiates a new CreateOrUpdateAppDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAppId
-
-`func (o *CreateOrUpdateAppDto) GetAppId() string`
-
-GetAppId returns the AppId field if non-nil, zero value otherwise.
-
-### GetAppIdOk
-
-`func (o *CreateOrUpdateAppDto) GetAppIdOk() (*string, bool)`
-
-GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAppId
-
-`func (o *CreateOrUpdateAppDto) SetAppId(v string)`
-
-SetAppId sets AppId field to given value.
-
-### HasAppId
-
-`func (o *CreateOrUpdateAppDto) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
 
 ### GetName
 

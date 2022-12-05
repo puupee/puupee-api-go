@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
 **Fromework** | Pointer to **string** |  | [optional] 
@@ -241,31 +240,6 @@ SetDeletionTime sets DeletionTime field to given value.
 `func (o *AppDto) HasDeletionTime() bool`
 
 HasDeletionTime returns a boolean if a field has been set.
-
-### GetAppId
-
-`func (o *AppDto) GetAppId() string`
-
-GetAppId returns the AppId field if non-nil, zero value otherwise.
-
-### GetAppIdOk
-
-`func (o *AppDto) GetAppIdOk() (*string, bool)`
-
-GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAppId
-
-`func (o *AppDto) SetAppId(v string)`
-
-SetAppId sets AppId field to given value.
-
-### HasAppId
-
-`func (o *AppDto) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
 
 ### GetName
 

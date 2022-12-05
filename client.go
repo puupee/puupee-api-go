@@ -93,6 +93,8 @@ type APIClient struct {
 
 	TenantApi *TenantApiService
 
+	TestApi *TestApiService
+
 	UserApi *UserApiService
 
 	UserLookupApi *UserLookupApiService
@@ -140,6 +142,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.StorageObjectApi = (*StorageObjectApiService)(&c.common)
 	c.SyncStateApi = (*SyncStateApiService)(&c.common)
 	c.TenantApi = (*TenantApiService)(&c.common)
+	c.TestApi = (*TestApiService)(&c.common)
 	c.UserApi = (*UserApiService)(&c.common)
 	c.UserLookupApi = (*UserLookupApiService)(&c.common)
 	c.UserStorageApi = (*UserStorageApiService)(&c.common)

@@ -25,7 +25,6 @@ type AppDto struct {
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	AppId *string `json:"appId,omitempty"`
 	Name *string `json:"name,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
 	Fromework *string `json:"fromework,omitempty"`
@@ -308,38 +307,6 @@ func (o *AppDto) HasDeletionTime() bool {
 // SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
 func (o *AppDto) SetDeletionTime(v time.Time) {
 	o.DeletionTime = &v
-}
-
-// GetAppId returns the AppId field value if set, zero value otherwise.
-func (o *AppDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
-		var ret string
-		return ret
-	}
-	return *o.AppId
-}
-
-// GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AppDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
-	}
-	return o.AppId, true
-}
-
-// HasAppId returns a boolean if a field has been set.
-func (o *AppDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
-		return true
-	}
-
-	return false
-}
-
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
-func (o *AppDto) SetAppId(v string) {
-	o.AppId = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -655,9 +622,6 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.DeletionTime) {
 		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
 	}
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
