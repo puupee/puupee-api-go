@@ -33,7 +33,7 @@ type AppDto struct {
 	Icon *string `json:"icon,omitempty"`
 	GitRepository *string `json:"gitRepository,omitempty"`
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
-	LatestRelease *AppReleaseDto `json:"latestRelease,omitempty"`
+	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
 }
 
 // NewAppDto instantiates a new AppDto object
@@ -565,36 +565,36 @@ func (o *AppDto) SetGitRepositoryType(v string) {
 	o.GitRepositoryType = &v
 }
 
-// GetLatestRelease returns the LatestRelease field value if set, zero value otherwise.
-func (o *AppDto) GetLatestRelease() AppReleaseDto {
-	if o == nil || isNil(o.LatestRelease) {
-		var ret AppReleaseDto
+// GetLatestReleases returns the LatestReleases field value if set, zero value otherwise.
+func (o *AppDto) GetLatestReleases() []AppReleaseDto {
+	if o == nil || isNil(o.LatestReleases) {
+		var ret []AppReleaseDto
 		return ret
 	}
-	return *o.LatestRelease
+	return o.LatestReleases
 }
 
-// GetLatestReleaseOk returns a tuple with the LatestRelease field value if set, nil otherwise
+// GetLatestReleasesOk returns a tuple with the LatestReleases field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetLatestReleaseOk() (*AppReleaseDto, bool) {
-	if o == nil || isNil(o.LatestRelease) {
+func (o *AppDto) GetLatestReleasesOk() ([]AppReleaseDto, bool) {
+	if o == nil || isNil(o.LatestReleases) {
     return nil, false
 	}
-	return o.LatestRelease, true
+	return o.LatestReleases, true
 }
 
-// HasLatestRelease returns a boolean if a field has been set.
-func (o *AppDto) HasLatestRelease() bool {
-	if o != nil && !isNil(o.LatestRelease) {
+// HasLatestReleases returns a boolean if a field has been set.
+func (o *AppDto) HasLatestReleases() bool {
+	if o != nil && !isNil(o.LatestReleases) {
 		return true
 	}
 
 	return false
 }
 
-// SetLatestRelease gets a reference to the given AppReleaseDto and assigns it to the LatestRelease field.
-func (o *AppDto) SetLatestRelease(v AppReleaseDto) {
-	o.LatestRelease = &v
+// SetLatestReleases gets a reference to the given []AppReleaseDto and assigns it to the LatestReleases field.
+func (o *AppDto) SetLatestReleases(v []AppReleaseDto) {
+	o.LatestReleases = v
 }
 
 func (o AppDto) MarshalJSON() ([]byte, error) {
@@ -647,8 +647,8 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.GitRepositoryType) {
 		toSerialize["gitRepositoryType"] = o.GitRepositoryType
 	}
-	if !isNil(o.LatestRelease) {
-		toSerialize["latestRelease"] = o.LatestRelease
+	if !isNil(o.LatestReleases) {
+		toSerialize["latestReleases"] = o.LatestReleases
 	}
 	return json.Marshal(toSerialize)
 }

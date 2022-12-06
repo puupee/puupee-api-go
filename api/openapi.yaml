@@ -1571,6 +1571,100 @@ paths:
           description: Server Error
       tags:
       - App
+  /api/app/app/by-developer:
+    get:
+      parameters:
+      - in: query
+        name: developerAccount
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - App
   /api/app/app-release:
     get:
       parameters:
@@ -9274,8 +9368,15 @@ components:
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
         gitRepositoryType: gitRepositoryType
-        latestRelease:
-          notes: notes
+        gitRepository: gitRepository
+        isDeleted: true
+        appType: appType
+        name: name
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        latestReleases:
+        - notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9298,13 +9399,29 @@ components:
           productType: productType
           isForceUpdate: true
           md5: md5
-        gitRepository: gitRepository
-        isDeleted: true
-        appType: appType
-        name: name
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - notes: notes
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          downloadUrl: downloadUrl
+          channel: channel
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          version: version
+          platform: platform
+          environment: environment
+          isDeleted: true
+          size: 0
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isEnabled: true
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          key: key
+          productType: productType
+          isForceUpdate: true
+          md5: md5
       properties:
         id:
           format: uuid
@@ -9345,8 +9462,10 @@ components:
           type: string
         gitRepositoryType:
           type: string
-        latestRelease:
-          $ref: '#/components/schemas/AppReleaseDto'
+        latestReleases:
+          items:
+            $ref: '#/components/schemas/AppReleaseDto'
+          type: array
       type: object
     AppDtoPagedResultDto:
       example:
@@ -9361,8 +9480,15 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           gitRepositoryType: gitRepositoryType
-          latestRelease:
-            notes: notes
+          gitRepository: gitRepository
+          isDeleted: true
+          appType: appType
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          latestReleases:
+          - notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9385,13 +9511,29 @@ components:
             productType: productType
             isForceUpdate: true
             md5: md5
-          gitRepository: gitRepository
-          isDeleted: true
-          appType: appType
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            downloadUrl: downloadUrl
+            channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            version: version
+            platform: platform
+            environment: environment
+            isDeleted: true
+            size: 0
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isEnabled: true
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            key: key
+            productType: productType
+            isForceUpdate: true
+            md5: md5
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           displayName: displayName
@@ -9401,8 +9543,15 @@ components:
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           gitRepositoryType: gitRepositoryType
-          latestRelease:
-            notes: notes
+          gitRepository: gitRepository
+          isDeleted: true
+          appType: appType
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          latestReleases:
+          - notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9425,13 +9574,29 @@ components:
             productType: productType
             isForceUpdate: true
             md5: md5
-          gitRepository: gitRepository
-          isDeleted: true
-          appType: appType
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            downloadUrl: downloadUrl
+            channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            version: version
+            platform: platform
+            environment: environment
+            isDeleted: true
+            size: 0
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isEnabled: true
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            key: key
+            productType: productType
+            isForceUpdate: true
+            md5: md5
       properties:
         items:
           items:

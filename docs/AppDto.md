@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Icon** | Pointer to **string** |  | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
-**LatestRelease** | Pointer to [**AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
+**LatestReleases** | Pointer to [**[]AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
 
 ## Methods
 
@@ -441,30 +441,30 @@ SetGitRepositoryType sets GitRepositoryType field to given value.
 
 HasGitRepositoryType returns a boolean if a field has been set.
 
-### GetLatestRelease
+### GetLatestReleases
 
-`func (o *AppDto) GetLatestRelease() AppReleaseDto`
+`func (o *AppDto) GetLatestReleases() []AppReleaseDto`
 
-GetLatestRelease returns the LatestRelease field if non-nil, zero value otherwise.
+GetLatestReleases returns the LatestReleases field if non-nil, zero value otherwise.
 
-### GetLatestReleaseOk
+### GetLatestReleasesOk
 
-`func (o *AppDto) GetLatestReleaseOk() (*AppReleaseDto, bool)`
+`func (o *AppDto) GetLatestReleasesOk() (*[]AppReleaseDto, bool)`
 
-GetLatestReleaseOk returns a tuple with the LatestRelease field if it's non-nil, zero value otherwise
+GetLatestReleasesOk returns a tuple with the LatestReleases field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLatestRelease
+### SetLatestReleases
 
-`func (o *AppDto) SetLatestRelease(v AppReleaseDto)`
+`func (o *AppDto) SetLatestReleases(v []AppReleaseDto)`
 
-SetLatestRelease sets LatestRelease field to given value.
+SetLatestReleases sets LatestReleases field to given value.
 
-### HasLatestRelease
+### HasLatestReleases
 
-`func (o *AppDto) HasLatestRelease() bool`
+`func (o *AppDto) HasLatestReleases() bool`
 
-HasLatestRelease returns a boolean if a field has been set.
+HasLatestReleases returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

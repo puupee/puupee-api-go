@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiAppAppByDeveloperGet**](AppApi.md#ApiAppAppByDeveloperGet) | **Get** /api/app/app/by-developer | 
 [**ApiAppAppByNameGet**](AppApi.md#ApiAppAppByNameGet) | **Get** /api/app/app/by-name | 
 [**ApiAppAppGet**](AppApi.md#ApiAppAppGet) | **Get** /api/app/app | 
 [**ApiAppAppIdDelete**](AppApi.md#ApiAppAppIdDelete) | **Delete** /api/app/app/{id} | 
@@ -12,6 +13,70 @@ Method | HTTP request | Description
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
 [**ApiAppAppStorageObjectOrCredentialsGet**](AppApi.md#ApiAppAppStorageObjectOrCredentialsGet) | **Get** /api/app/app/storage-object-or-credentials | 
 
+
+
+## ApiAppAppByDeveloperGet
+
+> AppDtoPagedResultDto ApiAppAppByDeveloperGet(ctx).DeveloperAccount(developerAccount).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    developerAccount := "developerAccount_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppAppByDeveloperGet(context.Background()).DeveloperAccount(developerAccount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByDeveloperGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppByDeveloperGet`: AppDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppByDeveloperGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppByDeveloperGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **developerAccount** | **string** |  | 
+
+### Return type
+
+[**AppDtoPagedResultDto**](AppDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiAppAppByNameGet
