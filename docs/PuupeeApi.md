@@ -96,7 +96,7 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateUpdatePuupeeDto("Id_example", "Name_example") // CreateUpdatePuupeeDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdatePuupeeDto("Id_example", "Name_example") // CreateOrUpdatePuupeeDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -121,7 +121,7 @@ Other parameters are passed through a pointer to a apiApiAppPuupeePushPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateUpdatePuupeeDto**](CreateUpdatePuupeeDto.md) |  | 
+ **body** | [**CreateOrUpdatePuupeeDto**](CreateOrUpdatePuupeeDto.md) |  | 
 
 ### Return type
 

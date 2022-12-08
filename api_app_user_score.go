@@ -25,10 +25,10 @@ type AppUserScoreApiService service
 type ApiApiAppAppUserScorePostRequest struct {
 	ctx context.Context
 	ApiService *AppUserScoreApiService
-	body *CreateUpdateAppUserScoreDto
+	body *CreateOrUpdateAppUserScoreDto
 }
 
-func (r ApiApiAppAppUserScorePostRequest) Body(body CreateUpdateAppUserScoreDto) ApiApiAppAppUserScorePostRequest {
+func (r ApiApiAppAppUserScorePostRequest) Body(body CreateOrUpdateAppUserScoreDto) ApiApiAppAppUserScorePostRequest {
 	r.body = &body
 	return r
 }

@@ -34,6 +34,7 @@ type AppDto struct {
 	GitRepository *string `json:"gitRepository,omitempty"`
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
+	Creator *IdentityUserDto `json:"creator,omitempty"`
 }
 
 // NewAppDto instantiates a new AppDto object
@@ -597,6 +598,38 @@ func (o *AppDto) SetLatestReleases(v []AppReleaseDto) {
 	o.LatestReleases = v
 }
 
+// GetCreator returns the Creator field value if set, zero value otherwise.
+func (o *AppDto) GetCreator() IdentityUserDto {
+	if o == nil || isNil(o.Creator) {
+		var ret IdentityUserDto
+		return ret
+	}
+	return *o.Creator
+}
+
+// GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetCreatorOk() (*IdentityUserDto, bool) {
+	if o == nil || isNil(o.Creator) {
+    return nil, false
+	}
+	return o.Creator, true
+}
+
+// HasCreator returns a boolean if a field has been set.
+func (o *AppDto) HasCreator() bool {
+	if o != nil && !isNil(o.Creator) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreator gets a reference to the given IdentityUserDto and assigns it to the Creator field.
+func (o *AppDto) SetCreator(v IdentityUserDto) {
+	o.Creator = &v
+}
+
 func (o AppDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -649,6 +682,9 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.LatestReleases) {
 		toSerialize["latestReleases"] = o.LatestReleases
+	}
+	if !isNil(o.Creator) {
+		toSerialize["creator"] = o.Creator
 	}
 	return json.Marshal(toSerialize)
 }

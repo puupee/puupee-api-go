@@ -214,10 +214,10 @@ func (a *PuupeeApiService) ApiAppPuupeePullGetExecute(r ApiApiAppPuupeePullGetRe
 type ApiApiAppPuupeePushPostRequest struct {
 	ctx context.Context
 	ApiService *PuupeeApiService
-	body *CreateUpdatePuupeeDto
+	body *CreateOrUpdatePuupeeDto
 }
 
-func (r ApiApiAppPuupeePushPostRequest) Body(body CreateUpdatePuupeeDto) ApiApiAppPuupeePushPostRequest {
+func (r ApiApiAppPuupeePushPostRequest) Body(body CreateOrUpdatePuupeeDto) ApiApiAppPuupeePushPostRequest {
 	r.body = &body
 	return r
 }

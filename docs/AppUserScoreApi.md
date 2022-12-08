@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateUpdateAppUserScoreDto() // CreateUpdateAppUserScoreDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppUserScoreDto() // CreateOrUpdateAppUserScoreDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -52,7 +52,7 @@ Other parameters are passed through a pointer to a apiApiAppAppUserScorePostRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateUpdateAppUserScoreDto**](CreateUpdateAppUserScoreDto.md) |  | 
+ **body** | [**CreateOrUpdateAppUserScoreDto**](CreateOrUpdateAppUserScoreDto.md) |  | 
 
 ### Return type
 

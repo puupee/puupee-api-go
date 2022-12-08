@@ -1665,6 +1665,396 @@ paths:
           description: Server Error
       tags:
       - App
+  /api/app/app-feature:
+    get:
+      parameters:
+      - in: query
+        name: appId
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppFeatureDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppFeatureDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppFeatureDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppFeature
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppFeatureDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppFeatureDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppFeatureDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppFeatureDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppFeatureDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppFeatureDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppFeature
+      x-codegen-request-body-name: body
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppFeatureDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppFeatureDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppFeatureDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppFeatureDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppFeatureDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppFeatureDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppFeature
+      x-codegen-request-body-name: body
+  /api/app/app-feature/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppFeature
   /api/app/app-release:
     get:
       parameters:
@@ -2181,19 +2571,403 @@ paths:
       tags:
       - AppRelease
       x-codegen-request-body-name: body
+  /api/app/app-sdk:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppSdkDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppSdkDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppSdkDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppSdk
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppSdkDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppSdkDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppSdkDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppSdkDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppSdkDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppSdkDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppSdk
+      x-codegen-request-body-name: body
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppSdkDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppSdkDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppSdkDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppSdkDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppSdkDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppSdkDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppSdk
+      x-codegen-request-body-name: body
+  /api/app/app-sdk/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppSdk
   /api/app/app-user-score:
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUpdateAppUserScoreDto'
+              $ref: '#/components/schemas/CreateOrUpdateAppUserScoreDto'
           text/json:
             schema:
-              $ref: '#/components/schemas/CreateUpdateAppUserScoreDto'
+              $ref: '#/components/schemas/CreateOrUpdateAppUserScoreDto'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/CreateUpdateAppUserScoreDto'
+              $ref: '#/components/schemas/CreateOrUpdateAppUserScoreDto'
         required: false
       responses:
         "200":
@@ -5251,13 +6025,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUpdatePuupeeDto'
+              $ref: '#/components/schemas/CreateOrUpdatePuupeeDto'
           text/json:
             schema:
-              $ref: '#/components/schemas/CreateUpdatePuupeeDto'
+              $ref: '#/components/schemas/CreateOrUpdatePuupeeDto'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/CreateUpdatePuupeeDto'
+              $ref: '#/components/schemas/CreateOrUpdatePuupeeDto'
         required: false
       responses:
         "200":
@@ -9359,6 +10133,29 @@ components:
       type: object
     AppDto:
       example:
+        creator:
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          emailConfirmed: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          lockoutEnabled: true
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extraProperties:
+            key: "{}"
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          userName: userName
+          isActive: true
+          phoneNumberConfirmed: true
+          phoneNumber: phoneNumber
+          isDeleted: true
+          surname: surname
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          concurrencyStamp: concurrencyStamp
+          email: email
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         displayName: displayName
@@ -9466,12 +10263,37 @@ components:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
           type: array
+        creator:
+          $ref: '#/components/schemas/IdentityUserDto'
       type: object
     AppDtoPagedResultDto:
       example:
         totalCount: 6
         items:
-        - creationTime: 2000-01-23T04:56:07.000+00:00
+        - creator:
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            emailConfirmed: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            lockoutEnabled: true
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            extraProperties:
+              key: "{}"
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            userName: userName
+            isActive: true
+            phoneNumberConfirmed: true
+            phoneNumber: phoneNumber
+            isDeleted: true
+            surname: surname
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            concurrencyStamp: concurrencyStamp
+            email: email
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9534,7 +10356,30 @@ components:
             productType: productType
             isForceUpdate: true
             md5: md5
-        - creationTime: 2000-01-23T04:56:07.000+00:00
+        - creator:
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            emailConfirmed: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            lockoutEnabled: true
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            extraProperties:
+              key: "{}"
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            userName: userName
+            isActive: true
+            phoneNumberConfirmed: true
+            phoneNumber: phoneNumber
+            isDeleted: true
+            surname: surname
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            concurrencyStamp: concurrencyStamp
+            email: email
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9605,6 +10450,25 @@ components:
         totalCount:
           format: int64
           type: integer
+      type: object
+    AppFeatureDto:
+      example:
+        displayName: displayName
+        name: name
+        description: description
+        details: details
+        screenshotKeys: screenshotKeys
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        details:
+          type: string
+        screenshotKeys:
+          type: string
       type: object
     AppReleaseDto:
       example:
@@ -9746,6 +10610,25 @@ components:
         totalCount:
           format: int64
           type: integer
+      type: object
+    AppSdkDto:
+      example:
+        privacyUrl: privacyUrl
+        name: name
+        description: description
+        privacy: privacy
+        homePage: homePage
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        privacy:
+          type: string
+        privacyUrl:
+          type: string
+        homePage:
+          type: string
       type: object
     AppTheme:
       example:
@@ -10637,6 +11520,25 @@ components:
         gitRepositoryType:
           type: string
       type: object
+    CreateOrUpdateAppFeatureDto:
+      example:
+        displayName: displayName
+        name: name
+        description: description
+        details: details
+        screenshotKeys: screenshotKeys
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        details:
+          type: string
+        screenshotKeys:
+          type: string
+      type: object
     CreateOrUpdateAppReleaseDto:
       example:
         notes: notes
@@ -10685,7 +11587,26 @@ components:
         environment:
           type: string
       type: object
-    CreateUpdateAppUserScoreDto:
+    CreateOrUpdateAppSdkDto:
+      example:
+        privacyUrl: privacyUrl
+        name: name
+        description: description
+        privacy: privacy
+        homePage: homePage
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        privacy:
+          type: string
+        privacyUrl:
+          type: string
+        homePage:
+          type: string
+      type: object
+    CreateOrUpdateAppUserScoreDto:
       example:
         score: 0
         appId: appId
@@ -10699,7 +11620,7 @@ components:
         comment:
           type: string
       type: object
-    CreateUpdatePuupeeDto:
+    CreateOrUpdatePuupeeDto:
       example:
         tagging: tagging
         extension: extension

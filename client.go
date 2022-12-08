@@ -61,7 +61,11 @@ type APIClient struct {
 
 	AppApi *AppApiService
 
+	AppFeatureApi *AppFeatureApiService
+
 	AppReleaseApi *AppReleaseApiService
+
+	AppSdkApi *AppSdkApiService
 
 	AppUserScoreApi *AppUserScoreApiService
 
@@ -126,7 +130,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AbpTenantApi = (*AbpTenantApiService)(&c.common)
 	c.AccountApi = (*AccountApiService)(&c.common)
 	c.AppApi = (*AppApiService)(&c.common)
+	c.AppFeatureApi = (*AppFeatureApiService)(&c.common)
 	c.AppReleaseApi = (*AppReleaseApiService)(&c.common)
+	c.AppSdkApi = (*AppSdkApiService)(&c.common)
 	c.AppUserScoreApi = (*AppUserScoreApiService)(&c.common)
 	c.DeviceApi = (*DeviceApiService)(&c.common)
 	c.EmailSettingsApi = (*EmailSettingsApiService)(&c.common)
