@@ -10453,12 +10453,43 @@ components:
       type: object
     AppFeatureDto:
       example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         displayName: displayName
-        name: name
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        name: name
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         details: details
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         screenshotKeys: screenshotKeys
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
         name:
           type: string
         displayName:
@@ -10614,11 +10645,42 @@ components:
     AppSdkDto:
       example:
         privacyUrl: privacyUrl
-        name: name
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         privacy: privacy
+        deletionTime: 2000-01-23T04:56:07.000+00:00
         homePage: homePage
+        isDeleted: true
+        name: name
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
         name:
           type: string
         description:

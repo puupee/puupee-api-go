@@ -12,10 +12,19 @@ package puupee
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // AppFeatureDto struct for AppFeatureDto
 type AppFeatureDto struct {
+	Id *string `json:"id,omitempty"`
+	CreationTime *time.Time `json:"creationTime,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
 	Name *string `json:"name,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -38,6 +47,262 @@ func NewAppFeatureDto() *AppFeatureDto {
 func NewAppFeatureDtoWithDefaults() *AppFeatureDto {
 	this := AppFeatureDto{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetId() string {
+	if o == nil || isNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetIdOk() (*string, bool) {
+	if o == nil || isNil(o.Id) {
+    return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasId() bool {
+	if o != nil && !isNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *AppFeatureDto) SetId(v string) {
+	o.Id = &v
+}
+
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetCreationTime() time.Time {
+	if o == nil || isNil(o.CreationTime) {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreationTime
+}
+
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetCreationTimeOk() (*time.Time, bool) {
+	if o == nil || isNil(o.CreationTime) {
+    return nil, false
+	}
+	return o.CreationTime, true
+}
+
+// HasCreationTime returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasCreationTime() bool {
+	if o != nil && !isNil(o.CreationTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
+func (o *AppFeatureDto) SetCreationTime(v time.Time) {
+	o.CreationTime = &v
+}
+
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetCreatorId() string {
+	if o == nil || isNil(o.CreatorId) {
+		var ret string
+		return ret
+	}
+	return *o.CreatorId
+}
+
+// GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetCreatorIdOk() (*string, bool) {
+	if o == nil || isNil(o.CreatorId) {
+    return nil, false
+	}
+	return o.CreatorId, true
+}
+
+// HasCreatorId returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasCreatorId() bool {
+	if o != nil && !isNil(o.CreatorId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
+func (o *AppFeatureDto) SetCreatorId(v string) {
+	o.CreatorId = &v
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetLastModificationTime() time.Time {
+	if o == nil || isNil(o.LastModificationTime) {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastModificationTime
+}
+
+// GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetLastModificationTimeOk() (*time.Time, bool) {
+	if o == nil || isNil(o.LastModificationTime) {
+    return nil, false
+	}
+	return o.LastModificationTime, true
+}
+
+// HasLastModificationTime returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasLastModificationTime() bool {
+	if o != nil && !isNil(o.LastModificationTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+func (o *AppFeatureDto) SetLastModificationTime(v time.Time) {
+	o.LastModificationTime = &v
+}
+
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetLastModifierId() string {
+	if o == nil || isNil(o.LastModifierId) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifierId
+}
+
+// GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetLastModifierIdOk() (*string, bool) {
+	if o == nil || isNil(o.LastModifierId) {
+    return nil, false
+	}
+	return o.LastModifierId, true
+}
+
+// HasLastModifierId returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasLastModifierId() bool {
+	if o != nil && !isNil(o.LastModifierId) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
+func (o *AppFeatureDto) SetLastModifierId(v string) {
+	o.LastModifierId = &v
+}
+
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetIsDeleted() bool {
+	if o == nil || isNil(o.IsDeleted) {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || isNil(o.IsDeleted) {
+    return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasIsDeleted() bool {
+	if o != nil && !isNil(o.IsDeleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *AppFeatureDto) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetDeleterId() string {
+	if o == nil || isNil(o.DeleterId) {
+		var ret string
+		return ret
+	}
+	return *o.DeleterId
+}
+
+// GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetDeleterIdOk() (*string, bool) {
+	if o == nil || isNil(o.DeleterId) {
+    return nil, false
+	}
+	return o.DeleterId, true
+}
+
+// HasDeleterId returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasDeleterId() bool {
+	if o != nil && !isNil(o.DeleterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
+func (o *AppFeatureDto) SetDeleterId(v string) {
+	o.DeleterId = &v
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
+func (o *AppFeatureDto) GetDeletionTime() time.Time {
+	if o == nil || isNil(o.DeletionTime) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeletionTime
+}
+
+// GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppFeatureDto) GetDeletionTimeOk() (*time.Time, bool) {
+	if o == nil || isNil(o.DeletionTime) {
+    return nil, false
+	}
+	return o.DeletionTime, true
+}
+
+// HasDeletionTime returns a boolean if a field has been set.
+func (o *AppFeatureDto) HasDeletionTime() bool {
+	if o != nil && !isNil(o.DeletionTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
+func (o *AppFeatureDto) SetDeletionTime(v time.Time) {
+	o.DeletionTime = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -202,6 +467,30 @@ func (o *AppFeatureDto) SetScreenshotKeys(v string) {
 
 func (o AppFeatureDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if !isNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !isNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !isNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !isNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !isNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !isNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !isNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !isNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
