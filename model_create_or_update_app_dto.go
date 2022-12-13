@@ -24,6 +24,8 @@ type CreateOrUpdateAppDto struct {
 	Icon *string `json:"icon,omitempty"`
 	GitRepository *string `json:"gitRepository,omitempty"`
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
+	Features []AppFeatureDto `json:"features,omitempty"`
+	Sdks []AppSdkDto `json:"sdks,omitempty"`
 }
 
 // NewCreateOrUpdateAppDto instantiates a new CreateOrUpdateAppDto object
@@ -299,6 +301,70 @@ func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v string) {
 	o.GitRepositoryType = &v
 }
 
+// GetFeatures returns the Features field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppDto) GetFeatures() []AppFeatureDto {
+	if o == nil || isNil(o.Features) {
+		var ret []AppFeatureDto
+		return ret
+	}
+	return o.Features
+}
+
+// GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppDto) GetFeaturesOk() ([]AppFeatureDto, bool) {
+	if o == nil || isNil(o.Features) {
+    return nil, false
+	}
+	return o.Features, true
+}
+
+// HasFeatures returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppDto) HasFeatures() bool {
+	if o != nil && !isNil(o.Features) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeatures gets a reference to the given []AppFeatureDto and assigns it to the Features field.
+func (o *CreateOrUpdateAppDto) SetFeatures(v []AppFeatureDto) {
+	o.Features = v
+}
+
+// GetSdks returns the Sdks field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppDto) GetSdks() []AppSdkDto {
+	if o == nil || isNil(o.Sdks) {
+		var ret []AppSdkDto
+		return ret
+	}
+	return o.Sdks
+}
+
+// GetSdksOk returns a tuple with the Sdks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppDto) GetSdksOk() ([]AppSdkDto, bool) {
+	if o == nil || isNil(o.Sdks) {
+    return nil, false
+	}
+	return o.Sdks, true
+}
+
+// HasSdks returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppDto) HasSdks() bool {
+	if o != nil && !isNil(o.Sdks) {
+		return true
+	}
+
+	return false
+}
+
+// SetSdks gets a reference to the given []AppSdkDto and assigns it to the Sdks field.
+func (o *CreateOrUpdateAppDto) SetSdks(v []AppSdkDto) {
+	o.Sdks = v
+}
+
 func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Name) {
@@ -324,6 +390,12 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.GitRepositoryType) {
 		toSerialize["gitRepositoryType"] = o.GitRepositoryType
+	}
+	if !isNil(o.Features) {
+		toSerialize["features"] = o.Features
+	}
+	if !isNil(o.Sdks) {
+		toSerialize["sdks"] = o.Sdks
 	}
 	return json.Marshal(toSerialize)
 }

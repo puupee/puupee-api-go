@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**ApiAppAppIdGet**](AppApi.md#ApiAppAppIdGet) | **Get** /api/app/app/{id} | 
 [**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
-[**ApiAppAppStorageObjectOrCredentialsGet**](AppApi.md#ApiAppAppStorageObjectOrCredentialsGet) | **Get** /api/app/app/storage-object-or-credentials | 
+[**ApiAppAppUploadCredentialsGet**](AppApi.md#ApiAppAppUploadCredentialsGet) | **Get** /api/app/app/upload-credentials | 
 
 
 
@@ -481,9 +481,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppStorageObjectOrCredentialsGet
+## ApiAppAppUploadCredentialsGet
 
-> StorageObjectOrCredentialsDto ApiAppAppStorageObjectOrCredentialsGet(ctx).RapidCode(rapidCode).Key(key).Execute()
+> StorageObjectCredentials ApiAppAppUploadCredentialsGet(ctx).Key(key).Execute()
 
 
 
@@ -500,18 +500,17 @@ import (
 )
 
 func main() {
-    rapidCode := "rapidCode_example" // string |  (optional)
     key := "key_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppStorageObjectOrCredentialsGet(context.Background()).RapidCode(rapidCode).Key(key).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppUploadCredentialsGet(context.Background()).Key(key).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppStorageObjectOrCredentialsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppUploadCredentialsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppStorageObjectOrCredentialsGet`: StorageObjectOrCredentialsDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppStorageObjectOrCredentialsGet`: %v\n", resp)
+    // response from `ApiAppAppUploadCredentialsGet`: StorageObjectCredentials
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppUploadCredentialsGet`: %v\n", resp)
 }
 ```
 
@@ -521,17 +520,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppStorageObjectOrCredentialsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiApiAppAppUploadCredentialsGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rapidCode** | **string** |  | 
  **key** | **string** |  | 
 
 ### Return type
 
-[**StorageObjectOrCredentialsDto**](StorageObjectOrCredentialsDto.md)
+[**StorageObjectCredentials**](StorageObjectCredentials.md)
 
 ### Authorization
 

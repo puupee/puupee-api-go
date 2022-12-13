@@ -340,50 +340,54 @@ func (a *AppSdkApiService) ApiAppAppSdkIdDeleteExecute(r ApiApiAppAppSdkIdDelete
 	return localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppSdkPostRequest struct {
+type ApiApiAppAppSdkIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppSdkApiService
+	id string
 	body *CreateOrUpdateAppSdkDto
 }
 
-func (r ApiApiAppAppSdkPostRequest) Body(body CreateOrUpdateAppSdkDto) ApiApiAppAppSdkPostRequest {
+func (r ApiApiAppAppSdkIdPutRequest) Body(body CreateOrUpdateAppSdkDto) ApiApiAppAppSdkIdPutRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppAppSdkPostRequest) Execute() (*AppSdkDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppSdkPostExecute(r)
+func (r ApiApiAppAppSdkIdPutRequest) Execute() (*AppSdkDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppSdkIdPutExecute(r)
 }
 
 /*
-ApiAppAppSdkPost Method for ApiAppAppSdkPost
+ApiAppAppSdkIdPut Method for ApiAppAppSdkIdPut
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppSdkPostRequest
+ @param id
+ @return ApiApiAppAppSdkIdPutRequest
 */
-func (a *AppSdkApiService) ApiAppAppSdkPost(ctx context.Context) ApiApiAppAppSdkPostRequest {
-	return ApiApiAppAppSdkPostRequest{
+func (a *AppSdkApiService) ApiAppAppSdkIdPut(ctx context.Context, id string) ApiApiAppAppSdkIdPutRequest {
+	return ApiApiAppAppSdkIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
 //  @return AppSdkDto
-func (a *AppSdkApiService) ApiAppAppSdkPostExecute(r ApiApiAppAppSdkPostRequest) (*AppSdkDto, *http.Response, error) {
+func (a *AppSdkApiService) ApiAppAppSdkIdPutExecute(r ApiApiAppAppSdkIdPutRequest) (*AppSdkDto, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *AppSdkDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppSdkApiService.ApiAppAppSdkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppSdkApiService.ApiAppAppSdkIdPut")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app-sdk"
+	localVarPath := localBasePath + "/api/app/app-sdk/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -510,29 +514,29 @@ func (a *AppSdkApiService) ApiAppAppSdkPostExecute(r ApiApiAppAppSdkPostRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppSdkPutRequest struct {
+type ApiApiAppAppSdkPostRequest struct {
 	ctx context.Context
 	ApiService *AppSdkApiService
 	body *CreateOrUpdateAppSdkDto
 }
 
-func (r ApiApiAppAppSdkPutRequest) Body(body CreateOrUpdateAppSdkDto) ApiApiAppAppSdkPutRequest {
+func (r ApiApiAppAppSdkPostRequest) Body(body CreateOrUpdateAppSdkDto) ApiApiAppAppSdkPostRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppAppSdkPutRequest) Execute() (*AppSdkDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppSdkPutExecute(r)
+func (r ApiApiAppAppSdkPostRequest) Execute() (*AppSdkDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppSdkPostExecute(r)
 }
 
 /*
-ApiAppAppSdkPut Method for ApiAppAppSdkPut
+ApiAppAppSdkPost Method for ApiAppAppSdkPost
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppSdkPutRequest
+ @return ApiApiAppAppSdkPostRequest
 */
-func (a *AppSdkApiService) ApiAppAppSdkPut(ctx context.Context) ApiApiAppAppSdkPutRequest {
-	return ApiApiAppAppSdkPutRequest{
+func (a *AppSdkApiService) ApiAppAppSdkPost(ctx context.Context) ApiApiAppAppSdkPostRequest {
+	return ApiApiAppAppSdkPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -540,15 +544,15 @@ func (a *AppSdkApiService) ApiAppAppSdkPut(ctx context.Context) ApiApiAppAppSdkP
 
 // Execute executes the request
 //  @return AppSdkDto
-func (a *AppSdkApiService) ApiAppAppSdkPutExecute(r ApiApiAppAppSdkPutRequest) (*AppSdkDto, *http.Response, error) {
+func (a *AppSdkApiService) ApiAppAppSdkPostExecute(r ApiApiAppAppSdkPostRequest) (*AppSdkDto, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *AppSdkDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppSdkApiService.ApiAppAppSdkPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppSdkApiService.ApiAppAppSdkPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

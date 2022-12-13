@@ -94,11 +94,11 @@ Class | Method | HTTP request | Description
 *AppApi* | [**ApiAppAppIdGet**](docs/AppApi.md#apiappappidget) | **Get** /api/app/app/{id} | 
 *AppApi* | [**ApiAppAppIdPut**](docs/AppApi.md#apiappappidput) | **Put** /api/app/app/{id} | 
 *AppApi* | [**ApiAppAppPost**](docs/AppApi.md#apiappapppost) | **Post** /api/app/app | 
-*AppApi* | [**ApiAppAppStorageObjectOrCredentialsGet**](docs/AppApi.md#apiappappstorageobjectorcredentialsget) | **Get** /api/app/app/storage-object-or-credentials | 
+*AppApi* | [**ApiAppAppUploadCredentialsGet**](docs/AppApi.md#apiappappuploadcredentialsget) | **Get** /api/app/app/upload-credentials | 
 *AppFeatureApi* | [**ApiAppAppFeatureGet**](docs/AppFeatureApi.md#apiappappfeatureget) | **Get** /api/app/app-feature | 
 *AppFeatureApi* | [**ApiAppAppFeatureIdDelete**](docs/AppFeatureApi.md#apiappappfeatureiddelete) | **Delete** /api/app/app-feature/{id} | 
+*AppFeatureApi* | [**ApiAppAppFeatureIdPut**](docs/AppFeatureApi.md#apiappappfeatureidput) | **Put** /api/app/app-feature/{id} | 
 *AppFeatureApi* | [**ApiAppAppFeaturePost**](docs/AppFeatureApi.md#apiappappfeaturepost) | **Post** /api/app/app-feature | 
-*AppFeatureApi* | [**ApiAppAppFeaturePut**](docs/AppFeatureApi.md#apiappappfeatureput) | **Put** /api/app/app-feature | 
 *AppReleaseApi* | [**ApiAppAppReleaseGet**](docs/AppReleaseApi.md#apiappappreleaseget) | **Get** /api/app/app-release | 
 *AppReleaseApi* | [**ApiAppAppReleaseIdDelete**](docs/AppReleaseApi.md#apiappappreleaseiddelete) | **Delete** /api/app/app-release/{id} | 
 *AppReleaseApi* | [**ApiAppAppReleaseIdGet**](docs/AppReleaseApi.md#apiappappreleaseidget) | **Get** /api/app/app-release/{id} | 
@@ -106,8 +106,8 @@ Class | Method | HTTP request | Description
 *AppReleaseApi* | [**ApiAppAppReleasePost**](docs/AppReleaseApi.md#apiappappreleasepost) | **Post** /api/app/app-release | 
 *AppSdkApi* | [**ApiAppAppSdkGet**](docs/AppSdkApi.md#apiappappsdkget) | **Get** /api/app/app-sdk | 
 *AppSdkApi* | [**ApiAppAppSdkIdDelete**](docs/AppSdkApi.md#apiappappsdkiddelete) | **Delete** /api/app/app-sdk/{id} | 
+*AppSdkApi* | [**ApiAppAppSdkIdPut**](docs/AppSdkApi.md#apiappappsdkidput) | **Put** /api/app/app-sdk/{id} | 
 *AppSdkApi* | [**ApiAppAppSdkPost**](docs/AppSdkApi.md#apiappappsdkpost) | **Post** /api/app/app-sdk | 
-*AppSdkApi* | [**ApiAppAppSdkPut**](docs/AppSdkApi.md#apiappappsdkput) | **Put** /api/app/app-sdk | 
 *AppUserScoreApi* | [**ApiAppAppUserScorePost**](docs/AppUserScoreApi.md#apiappappuserscorepost) | **Post** /api/app/app-user-score | 
 *DeviceApi* | [**ApiAppDeviceBindPost**](docs/DeviceApi.md#apiappdevicebindpost) | **Post** /api/app/device/bind | 
 *DeviceApi* | [**ApiAppDeviceDelete**](docs/DeviceApi.md#apiappdevicedelete) | **Delete** /api/app/device | 

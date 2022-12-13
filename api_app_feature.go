@@ -26,12 +26,6 @@ type AppFeatureApiService service
 type ApiApiAppAppFeatureGetRequest struct {
 	ctx context.Context
 	ApiService *AppFeatureApiService
-	appId *string
-}
-
-func (r ApiApiAppAppFeatureGetRequest) AppId(appId string) ApiApiAppAppFeatureGetRequest {
-	r.appId = &appId
-	return r
 }
 
 func (r ApiApiAppAppFeatureGetRequest) Execute() ([]AppFeatureDto, *http.Response, error) {
@@ -72,9 +66,6 @@ func (a *AppFeatureApiService) ApiAppAppFeatureGetExecute(r ApiApiAppAppFeatureG
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.appId != nil {
-		localVarQueryParams.Add("appId", parameterToString(*r.appId, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -349,50 +340,54 @@ func (a *AppFeatureApiService) ApiAppAppFeatureIdDeleteExecute(r ApiApiAppAppFea
 	return localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppFeaturePostRequest struct {
+type ApiApiAppAppFeatureIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppFeatureApiService
+	id string
 	body *CreateOrUpdateAppFeatureDto
 }
 
-func (r ApiApiAppAppFeaturePostRequest) Body(body CreateOrUpdateAppFeatureDto) ApiApiAppAppFeaturePostRequest {
+func (r ApiApiAppAppFeatureIdPutRequest) Body(body CreateOrUpdateAppFeatureDto) ApiApiAppAppFeatureIdPutRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppAppFeaturePostRequest) Execute() (*AppFeatureDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppFeaturePostExecute(r)
+func (r ApiApiAppAppFeatureIdPutRequest) Execute() (*AppFeatureDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppFeatureIdPutExecute(r)
 }
 
 /*
-ApiAppAppFeaturePost Method for ApiAppAppFeaturePost
+ApiAppAppFeatureIdPut Method for ApiAppAppFeatureIdPut
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppFeaturePostRequest
+ @param id
+ @return ApiApiAppAppFeatureIdPutRequest
 */
-func (a *AppFeatureApiService) ApiAppAppFeaturePost(ctx context.Context) ApiApiAppAppFeaturePostRequest {
-	return ApiApiAppAppFeaturePostRequest{
+func (a *AppFeatureApiService) ApiAppAppFeatureIdPut(ctx context.Context, id string) ApiApiAppAppFeatureIdPutRequest {
+	return ApiApiAppAppFeatureIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
+		id: id,
 	}
 }
 
 // Execute executes the request
 //  @return AppFeatureDto
-func (a *AppFeatureApiService) ApiAppAppFeaturePostExecute(r ApiApiAppAppFeaturePostRequest) (*AppFeatureDto, *http.Response, error) {
+func (a *AppFeatureApiService) ApiAppAppFeatureIdPutExecute(r ApiApiAppAppFeatureIdPutRequest) (*AppFeatureDto, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *AppFeatureDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppFeatureApiService.ApiAppAppFeaturePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppFeatureApiService.ApiAppAppFeatureIdPut")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app-feature"
+	localVarPath := localBasePath + "/api/app/app-feature/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -519,29 +514,29 @@ func (a *AppFeatureApiService) ApiAppAppFeaturePostExecute(r ApiApiAppAppFeature
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppFeaturePutRequest struct {
+type ApiApiAppAppFeaturePostRequest struct {
 	ctx context.Context
 	ApiService *AppFeatureApiService
 	body *CreateOrUpdateAppFeatureDto
 }
 
-func (r ApiApiAppAppFeaturePutRequest) Body(body CreateOrUpdateAppFeatureDto) ApiApiAppAppFeaturePutRequest {
+func (r ApiApiAppAppFeaturePostRequest) Body(body CreateOrUpdateAppFeatureDto) ApiApiAppAppFeaturePostRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppAppFeaturePutRequest) Execute() (*AppFeatureDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppFeaturePutExecute(r)
+func (r ApiApiAppAppFeaturePostRequest) Execute() (*AppFeatureDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppFeaturePostExecute(r)
 }
 
 /*
-ApiAppAppFeaturePut Method for ApiAppAppFeaturePut
+ApiAppAppFeaturePost Method for ApiAppAppFeaturePost
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppFeaturePutRequest
+ @return ApiApiAppAppFeaturePostRequest
 */
-func (a *AppFeatureApiService) ApiAppAppFeaturePut(ctx context.Context) ApiApiAppAppFeaturePutRequest {
-	return ApiApiAppAppFeaturePutRequest{
+func (a *AppFeatureApiService) ApiAppAppFeaturePost(ctx context.Context) ApiApiAppAppFeaturePostRequest {
+	return ApiApiAppAppFeaturePostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -549,15 +544,15 @@ func (a *AppFeatureApiService) ApiAppAppFeaturePut(ctx context.Context) ApiApiAp
 
 // Execute executes the request
 //  @return AppFeatureDto
-func (a *AppFeatureApiService) ApiAppAppFeaturePutExecute(r ApiApiAppAppFeaturePutRequest) (*AppFeatureDto, *http.Response, error) {
+func (a *AppFeatureApiService) ApiAppAppFeaturePostExecute(r ApiApiAppAppFeaturePostRequest) (*AppFeatureDto, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *AppFeatureDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppFeatureApiService.ApiAppAppFeaturePut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppFeatureApiService.ApiAppAppFeaturePost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

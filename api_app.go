@@ -1228,64 +1228,55 @@ func (a *AppApiService) ApiAppAppPostExecute(r ApiApiAppAppPostRequest) (*AppDto
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppStorageObjectOrCredentialsGetRequest struct {
+type ApiApiAppAppUploadCredentialsGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	rapidCode *string
 	key *string
 }
 
-func (r ApiApiAppAppStorageObjectOrCredentialsGetRequest) RapidCode(rapidCode string) ApiApiAppAppStorageObjectOrCredentialsGetRequest {
-	r.rapidCode = &rapidCode
-	return r
-}
-
-func (r ApiApiAppAppStorageObjectOrCredentialsGetRequest) Key(key string) ApiApiAppAppStorageObjectOrCredentialsGetRequest {
+func (r ApiApiAppAppUploadCredentialsGetRequest) Key(key string) ApiApiAppAppUploadCredentialsGetRequest {
 	r.key = &key
 	return r
 }
 
-func (r ApiApiAppAppStorageObjectOrCredentialsGetRequest) Execute() (*StorageObjectOrCredentialsDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppStorageObjectOrCredentialsGetExecute(r)
+func (r ApiApiAppAppUploadCredentialsGetRequest) Execute() (*StorageObjectCredentials, *http.Response, error) {
+	return r.ApiService.ApiAppAppUploadCredentialsGetExecute(r)
 }
 
 /*
-ApiAppAppStorageObjectOrCredentialsGet Method for ApiAppAppStorageObjectOrCredentialsGet
+ApiAppAppUploadCredentialsGet Method for ApiAppAppUploadCredentialsGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppStorageObjectOrCredentialsGetRequest
+ @return ApiApiAppAppUploadCredentialsGetRequest
 */
-func (a *AppApiService) ApiAppAppStorageObjectOrCredentialsGet(ctx context.Context) ApiApiAppAppStorageObjectOrCredentialsGetRequest {
-	return ApiApiAppAppStorageObjectOrCredentialsGetRequest{
+func (a *AppApiService) ApiAppAppUploadCredentialsGet(ctx context.Context) ApiApiAppAppUploadCredentialsGetRequest {
+	return ApiApiAppAppUploadCredentialsGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return StorageObjectOrCredentialsDto
-func (a *AppApiService) ApiAppAppStorageObjectOrCredentialsGetExecute(r ApiApiAppAppStorageObjectOrCredentialsGetRequest) (*StorageObjectOrCredentialsDto, *http.Response, error) {
+//  @return StorageObjectCredentials
+func (a *AppApiService) ApiAppAppUploadCredentialsGetExecute(r ApiApiAppAppUploadCredentialsGetRequest) (*StorageObjectCredentials, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StorageObjectOrCredentialsDto
+		localVarReturnValue  *StorageObjectCredentials
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppStorageObjectOrCredentialsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppUploadCredentialsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/storage-object-or-credentials"
+	localVarPath := localBasePath + "/api/app/app/upload-credentials"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.rapidCode != nil {
-		localVarQueryParams.Add("rapidCode", parameterToString(*r.rapidCode, ""))
-	}
 	if r.key != nil {
 		localVarQueryParams.Add("key", parameterToString(*r.key, ""))
 	}

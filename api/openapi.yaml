@@ -1473,13 +1473,9 @@ paths:
           description: Server Error
       tags:
       - App
-  /api/app/app/storage-object-or-credentials:
+  /api/app/app/upload-credentials:
     get:
       parameters:
-      - in: query
-        name: rapidCode
-        schema:
-          type: string
       - in: query
         name: key
         schema:
@@ -1489,13 +1485,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/StorageObjectOrCredentialsDto'
+                $ref: '#/components/schemas/StorageObjectCredentials'
             application/json:
               schema:
-                $ref: '#/components/schemas/StorageObjectOrCredentialsDto'
+                $ref: '#/components/schemas/StorageObjectCredentials'
             text/json:
               schema:
-                $ref: '#/components/schemas/StorageObjectOrCredentialsDto'
+                $ref: '#/components/schemas/StorageObjectCredentials'
           description: Success
         "403":
           content:
@@ -1667,12 +1663,6 @@ paths:
       - App
   /api/app/app-feature:
     get:
-      parameters:
-      - in: query
-        name: appId
-        schema:
-          format: uuid
-          type: string
       responses:
         "200":
           content:
@@ -1867,7 +1857,101 @@ paths:
       tags:
       - AppFeature
       x-codegen-request-body-name: body
+  /api/app/app-feature/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppFeature
     put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
       requestBody:
         content:
           application/json:
@@ -1968,93 +2052,6 @@ paths:
       tags:
       - AppFeature
       x-codegen-request-body-name: body
-  /api/app/app-feature/{id}:
-    delete:
-      parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - AppFeature
   /api/app/app-release:
     get:
       parameters:
@@ -2767,7 +2764,101 @@ paths:
       tags:
       - AppSdk
       x-codegen-request-body-name: body
+  /api/app/app-sdk/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppSdk
     put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
       requestBody:
         content:
           application/json:
@@ -2868,93 +2959,6 @@ paths:
       tags:
       - AppSdk
       x-codegen-request-body-name: body
-  /api/app/app-sdk/{id}:
-    delete:
-      parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - AppSdk
   /api/app/app-user-score:
     post:
       requestBody:
@@ -10161,11 +10165,65 @@ components:
         displayName: displayName
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         icon: icon
-        fromework: fromework
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
+        sdks:
+        - privacyUrl: privacyUrl
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          privacy: privacy
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          homePage: homePage
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - privacyUrl: privacyUrl
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          privacy: privacy
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          homePage: homePage
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         gitRepositoryType: gitRepositoryType
+        features:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
         gitRepository: gitRepository
+        framework: framework
         isDeleted: true
         appType: appType
         name: name
@@ -10247,7 +10305,7 @@ components:
           type: string
         displayName:
           type: string
-        fromework:
+        framework:
           type: string
         appType:
           type: string
@@ -10265,6 +10323,14 @@ components:
           type: array
         creator:
           $ref: '#/components/schemas/IdentityUserDto'
+        features:
+          items:
+            $ref: '#/components/schemas/AppFeatureDto'
+          type: array
+        sdks:
+          items:
+            $ref: '#/components/schemas/AppSdkDto'
+          type: array
       type: object
     AppDtoPagedResultDto:
       example:
@@ -10298,11 +10364,65 @@ components:
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
-          fromework: fromework
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          sdks:
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           gitRepositoryType: gitRepositoryType
+          features:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
           gitRepository: gitRepository
+          framework: framework
           isDeleted: true
           appType: appType
           name: name
@@ -10384,11 +10504,65 @@ components:
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
-          fromework: fromework
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          sdks:
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           gitRepositoryType: gitRepositoryType
+          features:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
           gitRepository: gitRepository
+          framework: framework
           isDeleted: true
           appType: appType
           name: name
@@ -11556,6 +11730,33 @@ components:
       type: object
     CreateOrUpdateAppDto:
       example:
+        features:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
         gitRepository: gitRepository
         framework: framework
         displayName: displayName
@@ -11563,6 +11764,33 @@ components:
         name: name
         icon: icon
         description: description
+        sdks:
+        - privacyUrl: privacyUrl
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          privacy: privacy
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          homePage: homePage
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - privacyUrl: privacyUrl
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          privacy: privacy
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          homePage: homePage
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         gitRepositoryType: gitRepositoryType
       properties:
         name:
@@ -11581,6 +11809,14 @@ components:
           type: string
         gitRepositoryType:
           type: string
+        features:
+          items:
+            $ref: '#/components/schemas/AppFeatureDto'
+          type: array
+        sdks:
+          items:
+            $ref: '#/components/schemas/AppSdkDto'
+          type: array
       type: object
     CreateOrUpdateAppFeatureDto:
       example:
@@ -13757,11 +13993,11 @@ components:
           tagging: tagging
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
-          repeatOffTimes: 5
+          repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13771,7 +14007,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -13805,7 +14041,7 @@ components:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13815,7 +14051,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -13827,18 +14063,18 @@ components:
             key: key
             md5: md5
           doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 5
+          syncVersion: 7
           notifyAt: 2000-01-23T04:56:07.000+00:00
           notifyTimingType: notifyTimingType
           format: format
-          priority: 6
+          priority: 5
           endAt: 2000-01-23T04:56:07.000+00:00
           lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 1
+          notifyTimingValue: 5
           size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
           name: name
@@ -13859,11 +14095,11 @@ components:
         tagging: tagging
         extension: extension
         creationTime: 2000-01-23T04:56:07.000+00:00
-        repeatOffTimes: 5
+        repeatOffTimes: 2
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         thumb:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 6
+          syncVersion: 1
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13873,7 +14109,7 @@ components:
           storageClass: storageClass
           password: password
           isDeleted: true
-          size: 0
+          size: 6
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
@@ -13907,7 +14143,7 @@ components:
         storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
         storageObject:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 6
+          syncVersion: 1
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13917,7 +14153,7 @@ components:
           storageClass: storageClass
           password: password
           isDeleted: true
-          size: 0
+          size: 6
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
@@ -13929,18 +14165,18 @@ components:
           key: key
           md5: md5
         doneAt: 2000-01-23T04:56:07.000+00:00
-        syncVersion: 5
+        syncVersion: 7
         notifyAt: 2000-01-23T04:56:07.000+00:00
         notifyTimingType: notifyTimingType
         format: format
-        priority: 6
+        priority: 5
         endAt: 2000-01-23T04:56:07.000+00:00
         lastModifierDeviceToken: lastModifierDeviceToken
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         url: url
         isHidden: true
-        notifyTimingValue: 1
+        notifyTimingValue: 5
         size: 0
         repeatOffAt: 2000-01-23T04:56:07.000+00:00
         name: name
@@ -14068,16 +14304,16 @@ components:
       type: object
     PuupeeDtoPagedResultDto:
       example:
-        totalCount: 2
+        totalCount: 9
         items:
         - tagging: tagging
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
-          repeatOffTimes: 5
+          repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14087,7 +14323,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -14121,7 +14357,7 @@ components:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14131,7 +14367,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -14143,18 +14379,18 @@ components:
             key: key
             md5: md5
           doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 5
+          syncVersion: 7
           notifyAt: 2000-01-23T04:56:07.000+00:00
           notifyTimingType: notifyTimingType
           format: format
-          priority: 6
+          priority: 5
           endAt: 2000-01-23T04:56:07.000+00:00
           lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 1
+          notifyTimingValue: 5
           size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
           name: name
@@ -14165,11 +14401,11 @@ components:
         - tagging: tagging
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
-          repeatOffTimes: 5
+          repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14179,7 +14415,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -14213,7 +14449,7 @@ components:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14223,7 +14459,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -14235,18 +14471,18 @@ components:
             key: key
             md5: md5
           doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 5
+          syncVersion: 7
           notifyAt: 2000-01-23T04:56:07.000+00:00
           notifyTimingType: notifyTimingType
           format: format
-          priority: 6
+          priority: 5
           endAt: 2000-01-23T04:56:07.000+00:00
           lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 1
+          notifyTimingValue: 5
           size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
           name: name
@@ -14503,7 +14739,7 @@ components:
         appId: appId
         expiration: expiration
         protocal: protocal
-        expiredTime: 1
+        expiredTime: 0
       properties:
         storageClass:
           type: string
@@ -14532,7 +14768,7 @@ components:
     StorageObjectDto:
       example:
         storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-        syncVersion: 6
+        syncVersion: 1
         extension: extension
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14542,7 +14778,7 @@ components:
         storageClass: storageClass
         password: password
         isDeleted: true
-        size: 0
+        size: 6
         name: name
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
@@ -14614,7 +14850,7 @@ components:
       example:
         storageObject:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 6
+          syncVersion: 1
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14624,7 +14860,7 @@ components:
           storageClass: storageClass
           password: password
           isDeleted: true
-          size: 0
+          size: 6
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
@@ -14646,7 +14882,7 @@ components:
           appId: appId
           expiration: expiration
           protocal: protocal
-          expiredTime: 1
+          expiredTime: 0
       properties:
         storageObject:
           $ref: '#/components/schemas/StorageObjectDto'
@@ -14796,11 +15032,11 @@ components:
           tagging: tagging
           extension: extension
           creationTime: 2000-01-23T04:56:07.000+00:00
-          repeatOffTimes: 5
+          repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14810,7 +15046,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -14844,7 +15080,7 @@ components:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-            syncVersion: 6
+            syncVersion: 1
             extension: extension
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14854,7 +15090,7 @@ components:
             storageClass: storageClass
             password: password
             isDeleted: true
-            size: 0
+            size: 6
             name: name
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
@@ -14866,18 +15102,18 @@ components:
             key: key
             md5: md5
           doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 5
+          syncVersion: 7
           notifyAt: 2000-01-23T04:56:07.000+00:00
           notifyTimingType: notifyTimingType
           format: format
-          priority: 6
+          priority: 5
           endAt: 2000-01-23T04:56:07.000+00:00
           lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 1
+          notifyTimingValue: 5
           size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
           name: name

@@ -27,7 +27,7 @@ type AppDto struct {
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
 	Name *string `json:"name,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
-	Fromework *string `json:"fromework,omitempty"`
+	Framework *string `json:"framework,omitempty"`
 	AppType *string `json:"appType,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Icon *string `json:"icon,omitempty"`
@@ -35,6 +35,8 @@ type AppDto struct {
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
 	Creator *IdentityUserDto `json:"creator,omitempty"`
+	Features []AppFeatureDto `json:"features,omitempty"`
+	Sdks []AppSdkDto `json:"sdks,omitempty"`
 }
 
 // NewAppDto instantiates a new AppDto object
@@ -374,36 +376,36 @@ func (o *AppDto) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
-// GetFromework returns the Fromework field value if set, zero value otherwise.
-func (o *AppDto) GetFromework() string {
-	if o == nil || isNil(o.Fromework) {
+// GetFramework returns the Framework field value if set, zero value otherwise.
+func (o *AppDto) GetFramework() string {
+	if o == nil || isNil(o.Framework) {
 		var ret string
 		return ret
 	}
-	return *o.Fromework
+	return *o.Framework
 }
 
-// GetFromeworkOk returns a tuple with the Fromework field value if set, nil otherwise
+// GetFrameworkOk returns a tuple with the Framework field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetFromeworkOk() (*string, bool) {
-	if o == nil || isNil(o.Fromework) {
+func (o *AppDto) GetFrameworkOk() (*string, bool) {
+	if o == nil || isNil(o.Framework) {
     return nil, false
 	}
-	return o.Fromework, true
+	return o.Framework, true
 }
 
-// HasFromework returns a boolean if a field has been set.
-func (o *AppDto) HasFromework() bool {
-	if o != nil && !isNil(o.Fromework) {
+// HasFramework returns a boolean if a field has been set.
+func (o *AppDto) HasFramework() bool {
+	if o != nil && !isNil(o.Framework) {
 		return true
 	}
 
 	return false
 }
 
-// SetFromework gets a reference to the given string and assigns it to the Fromework field.
-func (o *AppDto) SetFromework(v string) {
-	o.Fromework = &v
+// SetFramework gets a reference to the given string and assigns it to the Framework field.
+func (o *AppDto) SetFramework(v string) {
+	o.Framework = &v
 }
 
 // GetAppType returns the AppType field value if set, zero value otherwise.
@@ -630,6 +632,70 @@ func (o *AppDto) SetCreator(v IdentityUserDto) {
 	o.Creator = &v
 }
 
+// GetFeatures returns the Features field value if set, zero value otherwise.
+func (o *AppDto) GetFeatures() []AppFeatureDto {
+	if o == nil || isNil(o.Features) {
+		var ret []AppFeatureDto
+		return ret
+	}
+	return o.Features
+}
+
+// GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetFeaturesOk() ([]AppFeatureDto, bool) {
+	if o == nil || isNil(o.Features) {
+    return nil, false
+	}
+	return o.Features, true
+}
+
+// HasFeatures returns a boolean if a field has been set.
+func (o *AppDto) HasFeatures() bool {
+	if o != nil && !isNil(o.Features) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeatures gets a reference to the given []AppFeatureDto and assigns it to the Features field.
+func (o *AppDto) SetFeatures(v []AppFeatureDto) {
+	o.Features = v
+}
+
+// GetSdks returns the Sdks field value if set, zero value otherwise.
+func (o *AppDto) GetSdks() []AppSdkDto {
+	if o == nil || isNil(o.Sdks) {
+		var ret []AppSdkDto
+		return ret
+	}
+	return o.Sdks
+}
+
+// GetSdksOk returns a tuple with the Sdks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetSdksOk() ([]AppSdkDto, bool) {
+	if o == nil || isNil(o.Sdks) {
+    return nil, false
+	}
+	return o.Sdks, true
+}
+
+// HasSdks returns a boolean if a field has been set.
+func (o *AppDto) HasSdks() bool {
+	if o != nil && !isNil(o.Sdks) {
+		return true
+	}
+
+	return false
+}
+
+// SetSdks gets a reference to the given []AppSdkDto and assigns it to the Sdks field.
+func (o *AppDto) SetSdks(v []AppSdkDto) {
+	o.Sdks = v
+}
+
 func (o AppDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -662,8 +728,8 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
 	}
-	if !isNil(o.Fromework) {
-		toSerialize["fromework"] = o.Fromework
+	if !isNil(o.Framework) {
+		toSerialize["framework"] = o.Framework
 	}
 	if !isNil(o.AppType) {
 		toSerialize["appType"] = o.AppType
@@ -685,6 +751,12 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Creator) {
 		toSerialize["creator"] = o.Creator
+	}
+	if !isNil(o.Features) {
+		toSerialize["features"] = o.Features
+	}
+	if !isNil(o.Sdks) {
+		toSerialize["sdks"] = o.Sdks
 	}
 	return json.Marshal(toSerialize)
 }

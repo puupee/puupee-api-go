@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Icon** | Pointer to **string** |  | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
+**Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
+**Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
 
 ## Methods
 
@@ -231,6 +233,56 @@ SetGitRepositoryType sets GitRepositoryType field to given value.
 `func (o *CreateOrUpdateAppDto) HasGitRepositoryType() bool`
 
 HasGitRepositoryType returns a boolean if a field has been set.
+
+### GetFeatures
+
+`func (o *CreateOrUpdateAppDto) GetFeatures() []AppFeatureDto`
+
+GetFeatures returns the Features field if non-nil, zero value otherwise.
+
+### GetFeaturesOk
+
+`func (o *CreateOrUpdateAppDto) GetFeaturesOk() (*[]AppFeatureDto, bool)`
+
+GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeatures
+
+`func (o *CreateOrUpdateAppDto) SetFeatures(v []AppFeatureDto)`
+
+SetFeatures sets Features field to given value.
+
+### HasFeatures
+
+`func (o *CreateOrUpdateAppDto) HasFeatures() bool`
+
+HasFeatures returns a boolean if a field has been set.
+
+### GetSdks
+
+`func (o *CreateOrUpdateAppDto) GetSdks() []AppSdkDto`
+
+GetSdks returns the Sdks field if non-nil, zero value otherwise.
+
+### GetSdksOk
+
+`func (o *CreateOrUpdateAppDto) GetSdksOk() (*[]AppSdkDto, bool)`
+
+GetSdksOk returns a tuple with the Sdks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSdks
+
+`func (o *CreateOrUpdateAppDto) SetSdks(v []AppSdkDto)`
+
+SetSdks sets Sdks field to given value.
+
+### HasSdks
+
+`func (o *CreateOrUpdateAppDto) HasSdks() bool`
+
+HasSdks returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

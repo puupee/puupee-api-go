@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
-**Fromework** | Pointer to **string** |  | [optional] 
+**Framework** | Pointer to **string** |  | [optional] 
 **AppType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
 **LatestReleases** | Pointer to [**[]AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
 **Creator** | Pointer to [**IdentityUserDto**](IdentityUserDto.md) |  | [optional] 
+**Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
+**Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
 
 ## Methods
 
@@ -292,30 +294,30 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
-### GetFromework
+### GetFramework
 
-`func (o *AppDto) GetFromework() string`
+`func (o *AppDto) GetFramework() string`
 
-GetFromework returns the Fromework field if non-nil, zero value otherwise.
+GetFramework returns the Framework field if non-nil, zero value otherwise.
 
-### GetFromeworkOk
+### GetFrameworkOk
 
-`func (o *AppDto) GetFromeworkOk() (*string, bool)`
+`func (o *AppDto) GetFrameworkOk() (*string, bool)`
 
-GetFromeworkOk returns a tuple with the Fromework field if it's non-nil, zero value otherwise
+GetFrameworkOk returns a tuple with the Framework field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFromework
+### SetFramework
 
-`func (o *AppDto) SetFromework(v string)`
+`func (o *AppDto) SetFramework(v string)`
 
-SetFromework sets Fromework field to given value.
+SetFramework sets Framework field to given value.
 
-### HasFromework
+### HasFramework
 
-`func (o *AppDto) HasFromework() bool`
+`func (o *AppDto) HasFramework() bool`
 
-HasFromework returns a boolean if a field has been set.
+HasFramework returns a boolean if a field has been set.
 
 ### GetAppType
 
@@ -491,6 +493,56 @@ SetCreator sets Creator field to given value.
 `func (o *AppDto) HasCreator() bool`
 
 HasCreator returns a boolean if a field has been set.
+
+### GetFeatures
+
+`func (o *AppDto) GetFeatures() []AppFeatureDto`
+
+GetFeatures returns the Features field if non-nil, zero value otherwise.
+
+### GetFeaturesOk
+
+`func (o *AppDto) GetFeaturesOk() (*[]AppFeatureDto, bool)`
+
+GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeatures
+
+`func (o *AppDto) SetFeatures(v []AppFeatureDto)`
+
+SetFeatures sets Features field to given value.
+
+### HasFeatures
+
+`func (o *AppDto) HasFeatures() bool`
+
+HasFeatures returns a boolean if a field has been set.
+
+### GetSdks
+
+`func (o *AppDto) GetSdks() []AppSdkDto`
+
+GetSdks returns the Sdks field if non-nil, zero value otherwise.
+
+### GetSdksOk
+
+`func (o *AppDto) GetSdksOk() (*[]AppSdkDto, bool)`
+
+GetSdksOk returns a tuple with the Sdks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSdks
+
+`func (o *AppDto) SetSdks(v []AppSdkDto)`
+
+SetSdks sets Sdks field to given value.
+
+### HasSdks
+
+`func (o *AppDto) HasSdks() bool`
+
+HasSdks returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
