@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **MaxSize** | Pointer to **int64** |  | [optional] 
 **CurrentSize** | Pointer to **int64** |  | [optional] 
 **TotalCount** | Pointer to **int32** |  | [optional] 
+**SingleFileMaxSize** | Pointer to **int64** |  | [optional] 
 **Items** | Pointer to [**[]UserStorageItemDto**](UserStorageItemDto.md) |  | [optional] 
 
 ## Methods
@@ -154,6 +155,31 @@ SetTotalCount sets TotalCount field to given value.
 `func (o *UserStorageDto) HasTotalCount() bool`
 
 HasTotalCount returns a boolean if a field has been set.
+
+### GetSingleFileMaxSize
+
+`func (o *UserStorageDto) GetSingleFileMaxSize() int64`
+
+GetSingleFileMaxSize returns the SingleFileMaxSize field if non-nil, zero value otherwise.
+
+### GetSingleFileMaxSizeOk
+
+`func (o *UserStorageDto) GetSingleFileMaxSizeOk() (*int64, bool)`
+
+GetSingleFileMaxSizeOk returns a tuple with the SingleFileMaxSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSingleFileMaxSize
+
+`func (o *UserStorageDto) SetSingleFileMaxSize(v int64)`
+
+SetSingleFileMaxSize sets SingleFileMaxSize field to given value.
+
+### HasSingleFileMaxSize
+
+`func (o *UserStorageDto) HasSingleFileMaxSize() bool`
+
+HasSingleFileMaxSize returns a boolean if a field has been set.
 
 ### GetItems
 

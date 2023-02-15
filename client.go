@@ -63,6 +63,10 @@ type APIClient struct {
 
 	AppFeatureApi *AppFeatureApiService
 
+	AppPricingApi *AppPricingApiService
+
+	AppPricingItemApi *AppPricingItemApiService
+
 	AppReleaseApi *AppReleaseApiService
 
 	AppSdkApi *AppSdkApiService
@@ -92,6 +96,8 @@ type APIClient struct {
 	SimpleDataApi *SimpleDataApiService
 
 	StorageObjectApi *StorageObjectApiService
+
+	SubscriptionApi *SubscriptionApiService
 
 	SyncStateApi *SyncStateApiService
 
@@ -131,6 +137,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AccountApi = (*AccountApiService)(&c.common)
 	c.AppApi = (*AppApiService)(&c.common)
 	c.AppFeatureApi = (*AppFeatureApiService)(&c.common)
+	c.AppPricingApi = (*AppPricingApiService)(&c.common)
+	c.AppPricingItemApi = (*AppPricingItemApiService)(&c.common)
 	c.AppReleaseApi = (*AppReleaseApiService)(&c.common)
 	c.AppSdkApi = (*AppSdkApiService)(&c.common)
 	c.AppUserScoreApi = (*AppUserScoreApiService)(&c.common)
@@ -146,6 +154,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SettingsApi = (*SettingsApiService)(&c.common)
 	c.SimpleDataApi = (*SimpleDataApiService)(&c.common)
 	c.StorageObjectApi = (*StorageObjectApiService)(&c.common)
+	c.SubscriptionApi = (*SubscriptionApiService)(&c.common)
 	c.SyncStateApi = (*SyncStateApiService)(&c.common)
 	c.TenantApi = (*TenantApiService)(&c.common)
 	c.TestApi = (*TestApiService)(&c.common)

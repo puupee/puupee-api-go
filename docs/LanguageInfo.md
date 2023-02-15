@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CultureName** | Pointer to **string** |  | [optional] 
 **UiCultureName** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
+**TwoLetterISOLanguageName** | Pointer to **string** |  | [optional] [readonly] 
 **FlagIcon** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -102,6 +103,31 @@ SetDisplayName sets DisplayName field to given value.
 `func (o *LanguageInfo) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
+
+### GetTwoLetterISOLanguageName
+
+`func (o *LanguageInfo) GetTwoLetterISOLanguageName() string`
+
+GetTwoLetterISOLanguageName returns the TwoLetterISOLanguageName field if non-nil, zero value otherwise.
+
+### GetTwoLetterISOLanguageNameOk
+
+`func (o *LanguageInfo) GetTwoLetterISOLanguageNameOk() (*string, bool)`
+
+GetTwoLetterISOLanguageNameOk returns a tuple with the TwoLetterISOLanguageName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTwoLetterISOLanguageName
+
+`func (o *LanguageInfo) SetTwoLetterISOLanguageName(v string)`
+
+SetTwoLetterISOLanguageName sets TwoLetterISOLanguageName field to given value.
+
+### HasTwoLetterISOLanguageName
+
+`func (o *LanguageInfo) HasTwoLetterISOLanguageName() bool`
+
+HasTwoLetterISOLanguageName returns a boolean if a field has been set.
 
 ### GetFlagIcon
 

@@ -99,6 +99,17 @@ Class | Method | HTTP request | Description
 *AppFeatureApi* | [**ApiAppAppFeatureIdDelete**](docs/AppFeatureApi.md#apiappappfeatureiddelete) | **Delete** /api/app/app-feature/{id} | 
 *AppFeatureApi* | [**ApiAppAppFeatureIdPut**](docs/AppFeatureApi.md#apiappappfeatureidput) | **Put** /api/app/app-feature/{id} | 
 *AppFeatureApi* | [**ApiAppAppFeaturePost**](docs/AppFeatureApi.md#apiappappfeaturepost) | **Post** /api/app/app-feature | 
+*AppPricingApi* | [**ApiAppAppPricingByAppIdAppIdGet**](docs/AppPricingApi.md#apiappapppricingbyappidappidget) | **Get** /api/app/app-pricing/by-app-id/{appId} | 
+*AppPricingApi* | [**ApiAppAppPricingGet**](docs/AppPricingApi.md#apiappapppricingget) | **Get** /api/app/app-pricing | 
+*AppPricingApi* | [**ApiAppAppPricingIdDelete**](docs/AppPricingApi.md#apiappapppricingiddelete) | **Delete** /api/app/app-pricing/{id} | 
+*AppPricingApi* | [**ApiAppAppPricingIdGet**](docs/AppPricingApi.md#apiappapppricingidget) | **Get** /api/app/app-pricing/{id} | 
+*AppPricingApi* | [**ApiAppAppPricingIdPut**](docs/AppPricingApi.md#apiappapppricingidput) | **Put** /api/app/app-pricing/{id} | 
+*AppPricingApi* | [**ApiAppAppPricingPost**](docs/AppPricingApi.md#apiappapppricingpost) | **Post** /api/app/app-pricing | 
+*AppPricingItemApi* | [**ApiAppAppPricingItemGet**](docs/AppPricingItemApi.md#apiappapppricingitemget) | **Get** /api/app/app-pricing-item | 
+*AppPricingItemApi* | [**ApiAppAppPricingItemIdDelete**](docs/AppPricingItemApi.md#apiappapppricingitemiddelete) | **Delete** /api/app/app-pricing-item/{id} | 
+*AppPricingItemApi* | [**ApiAppAppPricingItemIdGet**](docs/AppPricingItemApi.md#apiappapppricingitemidget) | **Get** /api/app/app-pricing-item/{id} | 
+*AppPricingItemApi* | [**ApiAppAppPricingItemIdPut**](docs/AppPricingItemApi.md#apiappapppricingitemidput) | **Put** /api/app/app-pricing-item/{id} | 
+*AppPricingItemApi* | [**ApiAppAppPricingItemPost**](docs/AppPricingItemApi.md#apiappapppricingitempost) | **Post** /api/app/app-pricing-item | 
 *AppReleaseApi* | [**ApiAppAppReleaseGet**](docs/AppReleaseApi.md#apiappappreleaseget) | **Get** /api/app/app-release | 
 *AppReleaseApi* | [**ApiAppAppReleaseIdDelete**](docs/AppReleaseApi.md#apiappappreleaseiddelete) | **Delete** /api/app/app-release/{id} | 
 *AppReleaseApi* | [**ApiAppAppReleaseIdGet**](docs/AppReleaseApi.md#apiappappreleaseidget) | **Get** /api/app/app-release/{id} | 
@@ -157,6 +168,7 @@ Class | Method | HTTP request | Description
 *StorageObjectApi* | [**ApiAppStorageObjectFileOrCredentialsGet**](docs/StorageObjectApi.md#apiappstorageobjectfileorcredentialsget) | **Get** /api/app/storage-object/file-or-credentials | 
 *StorageObjectApi* | [**ApiAppStorageObjectPreSignUrlPost**](docs/StorageObjectApi.md#apiappstorageobjectpresignurlpost) | **Post** /api/app/storage-object/pre-sign-url | 
 *StorageObjectApi* | [**ApiAppStorageObjectThumbGet**](docs/StorageObjectApi.md#apiappstorageobjectthumbget) | **Get** /api/app/storage-object/thumb | 
+*SubscriptionApi* | [**ApiAppSubscriptionVerifyApplePost**](docs/SubscriptionApi.md#apiappsubscriptionverifyapplepost) | **Post** /api/app/subscription/verify-apple | 
 *SyncStateApi* | [**ApiAppSyncStateGet**](docs/SyncStateApi.md#apiappsyncstateget) | **Get** /api/app/sync-state | 
 *SyncStateApi* | [**ApiAppSyncStatePuupeeChangedEtoPost**](docs/SyncStateApi.md#apiappsyncstatepuupeechangedetopost) | **Post** /api/app/sync-state/puupee-changed-eto | 
 *TenantApi* | [**ApiMultiTenancyTenantsGet**](docs/TenantApi.md#apimultitenancytenantsget) | **Get** /api/multi-tenancy/tenants | 
@@ -193,6 +205,9 @@ Class | Method | HTTP request | Description
  - [AppDto](docs/AppDto.md)
  - [AppDtoPagedResultDto](docs/AppDtoPagedResultDto.md)
  - [AppFeatureDto](docs/AppFeatureDto.md)
+ - [AppPricingDto](docs/AppPricingDto.md)
+ - [AppPricingDtoPagedResultDto](docs/AppPricingDtoPagedResultDto.md)
+ - [AppPricingItemDto](docs/AppPricingItemDto.md)
  - [AppReleaseDto](docs/AppReleaseDto.md)
  - [AppReleaseDtoPagedResultDto](docs/AppReleaseDtoPagedResultDto.md)
  - [AppSdkDto](docs/AppSdkDto.md)
@@ -217,6 +232,8 @@ Class | Method | HTTP request | Description
  - [ControllerInterfaceApiDescriptionModel](docs/ControllerInterfaceApiDescriptionModel.md)
  - [CreateOrUpdateAppDto](docs/CreateOrUpdateAppDto.md)
  - [CreateOrUpdateAppFeatureDto](docs/CreateOrUpdateAppFeatureDto.md)
+ - [CreateOrUpdateAppPricingDto](docs/CreateOrUpdateAppPricingDto.md)
+ - [CreateOrUpdateAppPricingItemDto](docs/CreateOrUpdateAppPricingItemDto.md)
  - [CreateOrUpdateAppReleaseDto](docs/CreateOrUpdateAppReleaseDto.md)
  - [CreateOrUpdateAppSdkDto](docs/CreateOrUpdateAppSdkDto.md)
  - [CreateOrUpdateAppUserScoreDto](docs/CreateOrUpdateAppUserScoreDto.md)

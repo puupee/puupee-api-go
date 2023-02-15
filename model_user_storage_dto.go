@@ -21,6 +21,7 @@ type UserStorageDto struct {
 	MaxSize *int64 `json:"maxSize,omitempty"`
 	CurrentSize *int64 `json:"currentSize,omitempty"`
 	TotalCount *int32 `json:"totalCount,omitempty"`
+	SingleFileMaxSize *int64 `json:"singleFileMaxSize,omitempty"`
 	Items []UserStorageItemDto `json:"items,omitempty"`
 }
 
@@ -201,6 +202,38 @@ func (o *UserStorageDto) SetTotalCount(v int32) {
 	o.TotalCount = &v
 }
 
+// GetSingleFileMaxSize returns the SingleFileMaxSize field value if set, zero value otherwise.
+func (o *UserStorageDto) GetSingleFileMaxSize() int64 {
+	if o == nil || isNil(o.SingleFileMaxSize) {
+		var ret int64
+		return ret
+	}
+	return *o.SingleFileMaxSize
+}
+
+// GetSingleFileMaxSizeOk returns a tuple with the SingleFileMaxSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserStorageDto) GetSingleFileMaxSizeOk() (*int64, bool) {
+	if o == nil || isNil(o.SingleFileMaxSize) {
+    return nil, false
+	}
+	return o.SingleFileMaxSize, true
+}
+
+// HasSingleFileMaxSize returns a boolean if a field has been set.
+func (o *UserStorageDto) HasSingleFileMaxSize() bool {
+	if o != nil && !isNil(o.SingleFileMaxSize) {
+		return true
+	}
+
+	return false
+}
+
+// SetSingleFileMaxSize gets a reference to the given int64 and assigns it to the SingleFileMaxSize field.
+func (o *UserStorageDto) SetSingleFileMaxSize(v int64) {
+	o.SingleFileMaxSize = &v
+}
+
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *UserStorageDto) GetItems() []UserStorageItemDto {
 	if o == nil || isNil(o.Items) {
@@ -249,6 +282,9 @@ func (o UserStorageDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.TotalCount) {
 		toSerialize["totalCount"] = o.TotalCount
+	}
+	if !isNil(o.SingleFileMaxSize) {
+		toSerialize["singleFileMaxSize"] = o.SingleFileMaxSize
 	}
 	if !isNil(o.Items) {
 		toSerialize["items"] = o.Items

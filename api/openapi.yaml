@@ -1574,6 +1574,11 @@ paths:
         name: developerAccount
         schema:
           type: string
+      - in: query
+        name: isEnabled
+        schema:
+          default: true
+          type: boolean
       responses:
         "200":
           content:
@@ -2051,6 +2056,1099 @@ paths:
           description: Server Error
       tags:
       - AppFeature
+      x-codegen-request-body-name: body
+  /api/app/app-pricing:
+    get:
+      parameters:
+      - in: query
+        name: Sorting
+        schema:
+          type: string
+      - in: query
+        name: SkipCount
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+      - in: query
+        name: MaxResultCount
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricing
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricing
+      x-codegen-request-body-name: body
+  /api/app/app-pricing/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricing
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricing
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricing
+      x-codegen-request-body-name: body
+  /api/app/app-pricing/by-app-id/{appId}:
+    get:
+      parameters:
+      - in: path
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppPricingDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppPricingDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppPricingDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricing
+  /api/app/app-pricing-item:
+    get:
+      parameters:
+      - in: query
+        name: appId
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppPricingItemDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppPricingItemDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppPricingItemDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricingItem
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricingItem
+      x-codegen-request-body-name: body
+  /api/app/app-pricing-item/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricingItem
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricingItem
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppPricingItemDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppPricingItem
       x-codegen-request-body-name: body
   /api/app/app-release:
     get:
@@ -7513,6 +8611,99 @@ paths:
           description: Server Error
       tags:
       - StorageObject
+  /api/app/subscription/verify-apple:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppleSubscriptionVerifyDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AppleSubscriptionVerifyDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AppleSubscriptionVerifyDto'
+        required: false
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Subscription
+      x-codegen-request-body-name: body
   /api/app/sync-state:
     get:
       responses:
@@ -10162,6 +11353,7 @@ components:
           lockoutEnd: 2000-01-23T04:56:07.000+00:00
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        sortIndex: 0
         displayName: displayName
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         icon: icon
@@ -10242,7 +11434,7 @@ components:
           platform: platform
           environment: environment
           isDeleted: true
-          size: 0
+          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10265,7 +11457,7 @@ components:
           platform: platform
           environment: environment
           isDeleted: true
-          size: 0
+          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10313,6 +11505,9 @@ components:
           type: string
         icon:
           type: string
+        sortIndex:
+          format: int32
+          type: integer
         gitRepository:
           type: string
         gitRepositoryType:
@@ -10334,7 +11529,7 @@ components:
       type: object
     AppDtoPagedResultDto:
       example:
-        totalCount: 6
+        totalCount: 1
         items:
         - creator:
             creationTime: 2000-01-23T04:56:07.000+00:00
@@ -10361,6 +11556,7 @@ components:
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 0
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
@@ -10441,7 +11637,7 @@ components:
             platform: platform
             environment: environment
             isDeleted: true
-            size: 0
+            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10464,7 +11660,7 @@ components:
             platform: platform
             environment: environment
             isDeleted: true
-            size: 0
+            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10501,6 +11697,7 @@ components:
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 0
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
@@ -10581,7 +11778,7 @@ components:
             platform: platform
             environment: environment
             isDeleted: true
-            size: 0
+            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10604,7 +11801,7 @@ components:
             platform: platform
             environment: environment
             isDeleted: true
-            size: 0
+            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10675,6 +11872,307 @@ components:
         screenshotKeys:
           type: string
       type: object
+    AppPricingDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        monthDiscount: 6.027456183070403
+        yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+        yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+        monthPrice: 0.8008281904610115
+        isDeleted: true
+        yearDiscountPrice: 2.3021358869347655
+        naming: naming
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        yearPrice: 5.962133916683182
+        items:
+        - isAvailable: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          display: display
+          values:
+          - values
+          - values
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          hasValue: true
+          isDeleted: true
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - isAvailable: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          display: display
+          values:
+          - values
+          - values
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          hasValue: true
+          isDeleted: true
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        monthDiscountPrice: 1.4658129805029452
+        yearDiscount: 5.637376656633329
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        naming:
+          type: string
+        description:
+          type: string
+        appId:
+          format: uuid
+          type: string
+        monthPrice:
+          format: double
+          type: number
+        monthDiscount:
+          format: double
+          type: number
+        monthDiscountPrice:
+          format: double
+          type: number
+        monthDiscountStartAt:
+          format: date-time
+          type: string
+        monthDiscountEndAt:
+          format: date-time
+          type: string
+        yearPrice:
+          format: double
+          type: number
+        yearDiscount:
+          format: double
+          type: number
+        yearDiscountPrice:
+          format: double
+          type: number
+        yearDiscountStartAt:
+          format: date-time
+          type: string
+        yearDiscountEndAt:
+          format: date-time
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/AppPricingItemDto'
+          type: array
+      type: object
+    AppPricingDtoPagedResultDto:
+      example:
+        totalCount: 7
+        items:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          monthDiscount: 6.027456183070403
+          yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+          yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+          monthPrice: 0.8008281904610115
+          isDeleted: true
+          yearDiscountPrice: 2.3021358869347655
+          naming: naming
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          yearPrice: 5.962133916683182
+          items:
+          - isAvailable: true
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            display: display
+            values:
+            - values
+            - values
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            hasValue: true
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - isAvailable: true
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            display: display
+            values:
+            - values
+            - values
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            hasValue: true
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountPrice: 1.4658129805029452
+          yearDiscount: 5.637376656633329
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          monthDiscount: 6.027456183070403
+          yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+          yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+          monthPrice: 0.8008281904610115
+          isDeleted: true
+          yearDiscountPrice: 2.3021358869347655
+          naming: naming
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          yearPrice: 5.962133916683182
+          items:
+          - isAvailable: true
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            display: display
+            values:
+            - values
+            - values
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            hasValue: true
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - isAvailable: true
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            display: display
+            values:
+            - values
+            - values
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            hasValue: true
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountPrice: 1.4658129805029452
+          yearDiscount: 5.637376656633329
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/AppPricingDto'
+          type: array
+        totalCount:
+          format: int64
+          type: integer
+      type: object
+    AppPricingItemDto:
+      example:
+        isAvailable: true
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        display: display
+        values:
+        - values
+        - values
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        hasValue: true
+        isDeleted: true
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        name:
+          type: string
+        display:
+          type: string
+        values:
+          items:
+            type: string
+          type: array
+        appId:
+          format: uuid
+          type: string
+        isAvailable:
+          type: boolean
+        hasValue:
+          type: boolean
+      type: object
     AppReleaseDto:
       example:
         notes: notes
@@ -10688,7 +12186,7 @@ components:
         platform: platform
         environment: environment
         isDeleted: true
-        size: 0
+        size: 6
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isEnabled: true
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10772,7 +12270,7 @@ components:
           platform: platform
           environment: environment
           isDeleted: true
-          size: 0
+          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10795,7 +12293,7 @@ components:
           platform: platform
           environment: environment
           isDeleted: true
-          size: 0
+          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10926,6 +12424,8 @@ components:
           type: integer
         comment:
           type: string
+      type: object
+    AppleSubscriptionVerifyDto:
       type: object
     ApplicationApiDescriptionModel:
       example:
@@ -11147,10 +12647,12 @@ components:
             displayName: displayName
             cultureName: cultureName
             flagIcon: flagIcon
+            twoLetterISOLanguageName: twoLetterISOLanguageName
           - uiCultureName: uiCultureName
             displayName: displayName
             cultureName: cultureName
             flagIcon: flagIcon
+            twoLetterISOLanguageName: twoLetterISOLanguageName
           values:
             key:
               key: values
@@ -11349,10 +12851,12 @@ components:
           displayName: displayName
           cultureName: cultureName
           flagIcon: flagIcon
+          twoLetterISOLanguageName: twoLetterISOLanguageName
         - uiCultureName: uiCultureName
           displayName: displayName
           cultureName: cultureName
           flagIcon: flagIcon
+          twoLetterISOLanguageName: twoLetterISOLanguageName
         values:
           key:
             key: values
@@ -11453,6 +12957,8 @@ components:
     BindDeviceDto:
       example:
         name: name
+        tpnsToken: tpnsToken
+        isPhysicalDevice: true
         type: type
         brand: brand
         systemVersion: systemVersion
@@ -11460,6 +12966,10 @@ components:
       properties:
         token:
           type: string
+        tpnsToken:
+          type: string
+        isPhysicalDevice:
+          type: boolean
         name:
           type: string
         type:
@@ -11759,6 +13269,7 @@ components:
           screenshotKeys: screenshotKeys
         gitRepository: gitRepository
         framework: framework
+        sortIndex: 0
         displayName: displayName
         appType: appType
         name: name
@@ -11805,6 +13316,9 @@ components:
           type: string
         icon:
           type: string
+        sortIndex:
+          format: int32
+          type: integer
         gitRepository:
           type: string
         gitRepositoryType:
@@ -11836,6 +13350,114 @@ components:
           type: string
         screenshotKeys:
           type: string
+      type: object
+    CreateOrUpdateAppPricingDto:
+      example:
+        description: description
+        monthDiscount: 6.027456183070403
+        yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+        yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+        monthPrice: 0.8008281904610115
+        yearDiscountPrice: 2.3021358869347655
+        naming: naming
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
+        monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+        yearPrice: 5.962133916683182
+        items:
+        - isAvailable: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          display: display
+          values:
+          - values
+          - values
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          hasValue: true
+          isDeleted: true
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - isAvailable: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          display: display
+          values:
+          - values
+          - values
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          hasValue: true
+          isDeleted: true
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        monthDiscountPrice: 1.4658129805029452
+        yearDiscount: 5.637376656633329
+      properties:
+        naming:
+          type: string
+        description:
+          type: string
+        appId:
+          format: uuid
+          type: string
+        monthPrice:
+          format: double
+          type: number
+        monthDiscount:
+          format: double
+          type: number
+        monthDiscountPrice:
+          format: double
+          type: number
+        monthDiscountStartAt:
+          format: date-time
+          type: string
+        monthDiscountEndAt:
+          format: date-time
+          type: string
+        yearPrice:
+          format: double
+          type: number
+        yearDiscount:
+          format: double
+          type: number
+        yearDiscountPrice:
+          format: double
+          type: number
+        yearDiscountStartAt:
+          format: date-time
+          type: string
+        yearDiscountEndAt:
+          format: date-time
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/AppPricingItemDto'
+          type: array
+      type: object
+    CreateOrUpdateAppPricingItemDto:
+      example:
+        display: display
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        hasValue: true
+      properties:
+        name:
+          type: string
+        display:
+          type: string
+        appId:
+          format: uuid
+          type: string
+        hasValue:
+          type: boolean
       type: object
     CreateOrUpdateAppReleaseDto:
       example:
@@ -12283,6 +13905,7 @@ components:
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
+        isPhysicalDevice: true
         systemVersion: systemVersion
         platform: platform
         token: token
@@ -12291,6 +13914,7 @@ components:
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tpnsToken: tpnsToken
         brand: brand
       properties:
         id:
@@ -12318,6 +13942,10 @@ components:
           type: string
         token:
           type: string
+        tpnsToken:
+          type: string
+        isPhysicalDevice:
+          type: boolean
         name:
           type: string
         platform:
@@ -12335,6 +13963,7 @@ components:
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          isPhysicalDevice: true
           systemVersion: systemVersion
           platform: platform
           token: token
@@ -12343,11 +13972,13 @@ components:
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tpnsToken: tpnsToken
           brand: brand
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          isPhysicalDevice: true
           systemVersion: systemVersion
           platform: platform
           token: token
@@ -12356,6 +13987,7 @@ components:
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tpnsToken: tpnsToken
           brand: brand
       properties:
         items:
@@ -13455,12 +15087,16 @@ components:
         displayName: displayName
         cultureName: cultureName
         flagIcon: flagIcon
+        twoLetterISOLanguageName: twoLetterISOLanguageName
       properties:
         cultureName:
           type: string
         uiCultureName:
           type: string
         displayName:
+          type: string
+        twoLetterISOLanguageName:
+          readOnly: true
           type: string
         flagIcon:
           type: string
@@ -15452,14 +17088,15 @@ components:
       example:
         displayName: displayName
         name: name
+        singleFileMaxSize: 5
         maxSize: 0
         totalCount: 1
         items:
-        - size: 5
+        - size: 2
           name: name
           count: 5
           title: title
-        - size: 5
+        - size: 2
           name: name
           count: 5
           title: title
@@ -15478,6 +17115,9 @@ components:
         totalCount:
           format: int32
           type: integer
+        singleFileMaxSize:
+          format: int64
+          type: integer
         items:
           items:
             $ref: '#/components/schemas/UserStorageItemDto'
@@ -15485,7 +17125,7 @@ components:
       type: object
     UserStorageItemDto:
       example:
-        size: 5
+        size: 2
         name: name
         count: 5
         title: title

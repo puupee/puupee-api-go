@@ -19,6 +19,7 @@ type LanguageInfo struct {
 	CultureName *string `json:"cultureName,omitempty"`
 	UiCultureName *string `json:"uiCultureName,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
+	TwoLetterISOLanguageName *string `json:"twoLetterISOLanguageName,omitempty"`
 	FlagIcon *string `json:"flagIcon,omitempty"`
 }
 
@@ -135,6 +136,38 @@ func (o *LanguageInfo) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
+// GetTwoLetterISOLanguageName returns the TwoLetterISOLanguageName field value if set, zero value otherwise.
+func (o *LanguageInfo) GetTwoLetterISOLanguageName() string {
+	if o == nil || isNil(o.TwoLetterISOLanguageName) {
+		var ret string
+		return ret
+	}
+	return *o.TwoLetterISOLanguageName
+}
+
+// GetTwoLetterISOLanguageNameOk returns a tuple with the TwoLetterISOLanguageName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LanguageInfo) GetTwoLetterISOLanguageNameOk() (*string, bool) {
+	if o == nil || isNil(o.TwoLetterISOLanguageName) {
+    return nil, false
+	}
+	return o.TwoLetterISOLanguageName, true
+}
+
+// HasTwoLetterISOLanguageName returns a boolean if a field has been set.
+func (o *LanguageInfo) HasTwoLetterISOLanguageName() bool {
+	if o != nil && !isNil(o.TwoLetterISOLanguageName) {
+		return true
+	}
+
+	return false
+}
+
+// SetTwoLetterISOLanguageName gets a reference to the given string and assigns it to the TwoLetterISOLanguageName field.
+func (o *LanguageInfo) SetTwoLetterISOLanguageName(v string) {
+	o.TwoLetterISOLanguageName = &v
+}
+
 // GetFlagIcon returns the FlagIcon field value if set, zero value otherwise.
 func (o *LanguageInfo) GetFlagIcon() string {
 	if o == nil || isNil(o.FlagIcon) {
@@ -177,6 +210,9 @@ func (o LanguageInfo) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
+	}
+	if !isNil(o.TwoLetterISOLanguageName) {
+		toSerialize["twoLetterISOLanguageName"] = o.TwoLetterISOLanguageName
 	}
 	if !isNil(o.FlagIcon) {
 		toSerialize["flagIcon"] = o.FlagIcon

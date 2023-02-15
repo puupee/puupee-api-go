@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **AppType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
+**SortIndex** | Pointer to **int32** |  | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
 **LatestReleases** | Pointer to [**[]AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
@@ -393,6 +394,31 @@ SetIcon sets Icon field to given value.
 `func (o *AppDto) HasIcon() bool`
 
 HasIcon returns a boolean if a field has been set.
+
+### GetSortIndex
+
+`func (o *AppDto) GetSortIndex() int32`
+
+GetSortIndex returns the SortIndex field if non-nil, zero value otherwise.
+
+### GetSortIndexOk
+
+`func (o *AppDto) GetSortIndexOk() (*int32, bool)`
+
+GetSortIndexOk returns a tuple with the SortIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSortIndex
+
+`func (o *AppDto) SetSortIndex(v int32)`
+
+SetSortIndex sets SortIndex field to given value.
+
+### HasSortIndex
+
+`func (o *AppDto) HasSortIndex() bool`
+
+HasSortIndex returns a boolean if a field has been set.
 
 ### GetGitRepository
 

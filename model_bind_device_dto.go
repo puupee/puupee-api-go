@@ -17,6 +17,8 @@ import (
 // BindDeviceDto struct for BindDeviceDto
 type BindDeviceDto struct {
 	Token *string `json:"token,omitempty"`
+	TpnsToken *string `json:"tpnsToken,omitempty"`
+	IsPhysicalDevice *bool `json:"isPhysicalDevice,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Type *string `json:"type,omitempty"`
 	Brand *string `json:"brand,omitempty"`
@@ -70,6 +72,70 @@ func (o *BindDeviceDto) HasToken() bool {
 // SetToken gets a reference to the given string and assigns it to the Token field.
 func (o *BindDeviceDto) SetToken(v string) {
 	o.Token = &v
+}
+
+// GetTpnsToken returns the TpnsToken field value if set, zero value otherwise.
+func (o *BindDeviceDto) GetTpnsToken() string {
+	if o == nil || isNil(o.TpnsToken) {
+		var ret string
+		return ret
+	}
+	return *o.TpnsToken
+}
+
+// GetTpnsTokenOk returns a tuple with the TpnsToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BindDeviceDto) GetTpnsTokenOk() (*string, bool) {
+	if o == nil || isNil(o.TpnsToken) {
+    return nil, false
+	}
+	return o.TpnsToken, true
+}
+
+// HasTpnsToken returns a boolean if a field has been set.
+func (o *BindDeviceDto) HasTpnsToken() bool {
+	if o != nil && !isNil(o.TpnsToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetTpnsToken gets a reference to the given string and assigns it to the TpnsToken field.
+func (o *BindDeviceDto) SetTpnsToken(v string) {
+	o.TpnsToken = &v
+}
+
+// GetIsPhysicalDevice returns the IsPhysicalDevice field value if set, zero value otherwise.
+func (o *BindDeviceDto) GetIsPhysicalDevice() bool {
+	if o == nil || isNil(o.IsPhysicalDevice) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPhysicalDevice
+}
+
+// GetIsPhysicalDeviceOk returns a tuple with the IsPhysicalDevice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BindDeviceDto) GetIsPhysicalDeviceOk() (*bool, bool) {
+	if o == nil || isNil(o.IsPhysicalDevice) {
+    return nil, false
+	}
+	return o.IsPhysicalDevice, true
+}
+
+// HasIsPhysicalDevice returns a boolean if a field has been set.
+func (o *BindDeviceDto) HasIsPhysicalDevice() bool {
+	if o != nil && !isNil(o.IsPhysicalDevice) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPhysicalDevice gets a reference to the given bool and assigns it to the IsPhysicalDevice field.
+func (o *BindDeviceDto) SetIsPhysicalDevice(v bool) {
+	o.IsPhysicalDevice = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -204,6 +270,12 @@ func (o BindDeviceDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Token) {
 		toSerialize["token"] = o.Token
+	}
+	if !isNil(o.TpnsToken) {
+		toSerialize["tpnsToken"] = o.TpnsToken
+	}
+	if !isNil(o.IsPhysicalDevice) {
+		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
 	}
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name

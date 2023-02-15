@@ -31,6 +31,7 @@ type AppDto struct {
 	AppType *string `json:"appType,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Icon *string `json:"icon,omitempty"`
+	SortIndex *int32 `json:"sortIndex,omitempty"`
 	GitRepository *string `json:"gitRepository,omitempty"`
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
@@ -504,6 +505,38 @@ func (o *AppDto) SetIcon(v string) {
 	o.Icon = &v
 }
 
+// GetSortIndex returns the SortIndex field value if set, zero value otherwise.
+func (o *AppDto) GetSortIndex() int32 {
+	if o == nil || isNil(o.SortIndex) {
+		var ret int32
+		return ret
+	}
+	return *o.SortIndex
+}
+
+// GetSortIndexOk returns a tuple with the SortIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetSortIndexOk() (*int32, bool) {
+	if o == nil || isNil(o.SortIndex) {
+    return nil, false
+	}
+	return o.SortIndex, true
+}
+
+// HasSortIndex returns a boolean if a field has been set.
+func (o *AppDto) HasSortIndex() bool {
+	if o != nil && !isNil(o.SortIndex) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortIndex gets a reference to the given int32 and assigns it to the SortIndex field.
+func (o *AppDto) SetSortIndex(v int32) {
+	o.SortIndex = &v
+}
+
 // GetGitRepository returns the GitRepository field value if set, zero value otherwise.
 func (o *AppDto) GetGitRepository() string {
 	if o == nil || isNil(o.GitRepository) {
@@ -739,6 +772,9 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Icon) {
 		toSerialize["icon"] = o.Icon
+	}
+	if !isNil(o.SortIndex) {
+		toSerialize["sortIndex"] = o.SortIndex
 	}
 	if !isNil(o.GitRepository) {
 		toSerialize["gitRepository"] = o.GitRepository

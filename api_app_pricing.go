@@ -20,70 +20,56 @@ import (
 )
 
 
-// AppApiService AppApi service
-type AppApiService service
+// AppPricingApiService AppPricingApi service
+type AppPricingApiService service
 
-type ApiApiAppAppByDeveloperGetRequest struct {
+type ApiApiAppAppPricingByAppIdAppIdGetRequest struct {
 	ctx context.Context
-	ApiService *AppApiService
-	developerAccount *string
-	isEnabled *bool
+	ApiService *AppPricingApiService
+	appId string
 }
 
-func (r ApiApiAppAppByDeveloperGetRequest) DeveloperAccount(developerAccount string) ApiApiAppAppByDeveloperGetRequest {
-	r.developerAccount = &developerAccount
-	return r
-}
-
-func (r ApiApiAppAppByDeveloperGetRequest) IsEnabled(isEnabled bool) ApiApiAppAppByDeveloperGetRequest {
-	r.isEnabled = &isEnabled
-	return r
-}
-
-func (r ApiApiAppAppByDeveloperGetRequest) Execute() (*AppDtoPagedResultDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppByDeveloperGetExecute(r)
+func (r ApiApiAppAppPricingByAppIdAppIdGetRequest) Execute() ([]AppPricingDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppPricingByAppIdAppIdGetExecute(r)
 }
 
 /*
-ApiAppAppByDeveloperGet Method for ApiAppAppByDeveloperGet
+ApiAppAppPricingByAppIdAppIdGet Method for ApiAppAppPricingByAppIdAppIdGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppByDeveloperGetRequest
+ @param appId
+ @return ApiApiAppAppPricingByAppIdAppIdGetRequest
 */
-func (a *AppApiService) ApiAppAppByDeveloperGet(ctx context.Context) ApiApiAppAppByDeveloperGetRequest {
-	return ApiApiAppAppByDeveloperGetRequest{
+func (a *AppPricingApiService) ApiAppAppPricingByAppIdAppIdGet(ctx context.Context, appId string) ApiApiAppAppPricingByAppIdAppIdGetRequest {
+	return ApiApiAppAppPricingByAppIdAppIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
+		appId: appId,
 	}
 }
 
 // Execute executes the request
-//  @return AppDtoPagedResultDto
-func (a *AppApiService) ApiAppAppByDeveloperGetExecute(r ApiApiAppAppByDeveloperGetRequest) (*AppDtoPagedResultDto, *http.Response, error) {
+//  @return []AppPricingDto
+func (a *AppPricingApiService) ApiAppAppPricingByAppIdAppIdGetExecute(r ApiApiAppAppPricingByAppIdAppIdGetRequest) ([]AppPricingDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDtoPagedResultDto
+		localVarReturnValue  []AppPricingDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppByDeveloperGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppPricingApiService.ApiAppAppPricingByAppIdAppIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/by-developer"
+	localVarPath := localBasePath + "/api/app/app-pricing/by-app-id/{appId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", url.PathEscape(parameterToString(r.appId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.developerAccount != nil {
-		localVarQueryParams.Add("developerAccount", parameterToString(*r.developerAccount, ""))
-	}
-	if r.isEnabled != nil {
-		localVarQueryParams.Add("isEnabled", parameterToString(*r.isEnabled, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -203,247 +189,67 @@ func (a *AppApiService) ApiAppAppByDeveloperGetExecute(r ApiApiAppAppByDeveloper
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppByNameGetRequest struct {
+type ApiApiAppAppPricingGetRequest struct {
 	ctx context.Context
-	ApiService *AppApiService
-	name *string
-}
-
-func (r ApiApiAppAppByNameGetRequest) Name(name string) ApiApiAppAppByNameGetRequest {
-	r.name = &name
-	return r
-}
-
-func (r ApiApiAppAppByNameGetRequest) Execute() (*AppDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppByNameGetExecute(r)
-}
-
-/*
-ApiAppAppByNameGet Method for ApiAppAppByNameGet
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppByNameGetRequest
-*/
-func (a *AppApiService) ApiAppAppByNameGet(ctx context.Context) ApiApiAppAppByNameGetRequest {
-	return ApiApiAppAppByNameGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return AppDto
-func (a *AppApiService) ApiAppAppByNameGetExecute(r ApiApiAppAppByNameGetRequest) (*AppDto, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppDto
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppByNameGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/app/app/by-name"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.name != nil {
-		localVarQueryParams.Add("name", parameterToString(*r.name, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 501 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiAppAppGetRequest struct {
-	ctx context.Context
-	ApiService *AppApiService
-	creatorId *string
+	ApiService *AppPricingApiService
 	sorting *string
 	skipCount *int32
 	maxResultCount *int32
 }
 
-func (r ApiApiAppAppGetRequest) CreatorId(creatorId string) ApiApiAppAppGetRequest {
-	r.creatorId = &creatorId
-	return r
-}
-
-func (r ApiApiAppAppGetRequest) Sorting(sorting string) ApiApiAppAppGetRequest {
+func (r ApiApiAppAppPricingGetRequest) Sorting(sorting string) ApiApiAppAppPricingGetRequest {
 	r.sorting = &sorting
 	return r
 }
 
-func (r ApiApiAppAppGetRequest) SkipCount(skipCount int32) ApiApiAppAppGetRequest {
+func (r ApiApiAppAppPricingGetRequest) SkipCount(skipCount int32) ApiApiAppAppPricingGetRequest {
 	r.skipCount = &skipCount
 	return r
 }
 
-func (r ApiApiAppAppGetRequest) MaxResultCount(maxResultCount int32) ApiApiAppAppGetRequest {
+func (r ApiApiAppAppPricingGetRequest) MaxResultCount(maxResultCount int32) ApiApiAppAppPricingGetRequest {
 	r.maxResultCount = &maxResultCount
 	return r
 }
 
-func (r ApiApiAppAppGetRequest) Execute() (*AppDtoPagedResultDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppGetExecute(r)
+func (r ApiApiAppAppPricingGetRequest) Execute() (*AppPricingDtoPagedResultDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppPricingGetExecute(r)
 }
 
 /*
-ApiAppAppGet Method for ApiAppAppGet
+ApiAppAppPricingGet Method for ApiAppAppPricingGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppGetRequest
+ @return ApiApiAppAppPricingGetRequest
 */
-func (a *AppApiService) ApiAppAppGet(ctx context.Context) ApiApiAppAppGetRequest {
-	return ApiApiAppAppGetRequest{
+func (a *AppPricingApiService) ApiAppAppPricingGet(ctx context.Context) ApiApiAppAppPricingGetRequest {
+	return ApiApiAppAppPricingGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppDtoPagedResultDto
-func (a *AppApiService) ApiAppAppGetExecute(r ApiApiAppAppGetRequest) (*AppDtoPagedResultDto, *http.Response, error) {
+//  @return AppPricingDtoPagedResultDto
+func (a *AppPricingApiService) ApiAppAppPricingGetExecute(r ApiApiAppAppPricingGetRequest) (*AppPricingDtoPagedResultDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDtoPagedResultDto
+		localVarReturnValue  *AppPricingDtoPagedResultDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppPricingApiService.ApiAppAppPricingGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app"
+	localVarPath := localBasePath + "/api/app/app-pricing"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.creatorId != nil {
-		localVarQueryParams.Add("CreatorId", parameterToString(*r.creatorId, ""))
-	}
 	if r.sorting != nil {
 		localVarQueryParams.Add("Sorting", parameterToString(*r.sorting, ""))
 	}
@@ -572,25 +378,25 @@ func (a *AppApiService) ApiAppAppGetExecute(r ApiApiAppAppGetRequest) (*AppDtoPa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppIdDeleteRequest struct {
+type ApiApiAppAppPricingIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *AppApiService
+	ApiService *AppPricingApiService
 	id string
 }
 
-func (r ApiApiAppAppIdDeleteRequest) Execute() (*http.Response, error) {
-	return r.ApiService.ApiAppAppIdDeleteExecute(r)
+func (r ApiApiAppAppPricingIdDeleteRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiAppAppPricingIdDeleteExecute(r)
 }
 
 /*
-ApiAppAppIdDelete Method for ApiAppAppIdDelete
+ApiAppAppPricingIdDelete Method for ApiAppAppPricingIdDelete
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
- @return ApiApiAppAppIdDeleteRequest
+ @return ApiApiAppAppPricingIdDeleteRequest
 */
-func (a *AppApiService) ApiAppAppIdDelete(ctx context.Context, id string) ApiApiAppAppIdDeleteRequest {
-	return ApiApiAppAppIdDeleteRequest{
+func (a *AppPricingApiService) ApiAppAppPricingIdDelete(ctx context.Context, id string) ApiApiAppAppPricingIdDeleteRequest {
+	return ApiApiAppAppPricingIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -598,19 +404,19 @@ func (a *AppApiService) ApiAppAppIdDelete(ctx context.Context, id string) ApiApi
 }
 
 // Execute executes the request
-func (a *AppApiService) ApiAppAppIdDeleteExecute(r ApiApiAppAppIdDeleteRequest) (*http.Response, error) {
+func (a *AppPricingApiService) ApiAppAppPricingIdDeleteExecute(r ApiApiAppAppPricingIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppPricingApiService.ApiAppAppPricingIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/{id}"
+	localVarPath := localBasePath + "/api/app/app-pricing/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -727,25 +533,25 @@ func (a *AppApiService) ApiAppAppIdDeleteExecute(r ApiApiAppAppIdDeleteRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppIdGetRequest struct {
+type ApiApiAppAppPricingIdGetRequest struct {
 	ctx context.Context
-	ApiService *AppApiService
+	ApiService *AppPricingApiService
 	id string
 }
 
-func (r ApiApiAppAppIdGetRequest) Execute() (*AppDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppIdGetExecute(r)
+func (r ApiApiAppAppPricingIdGetRequest) Execute() (*AppPricingDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppPricingIdGetExecute(r)
 }
 
 /*
-ApiAppAppIdGet Method for ApiAppAppIdGet
+ApiAppAppPricingIdGet Method for ApiAppAppPricingIdGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
- @return ApiApiAppAppIdGetRequest
+ @return ApiApiAppAppPricingIdGetRequest
 */
-func (a *AppApiService) ApiAppAppIdGet(ctx context.Context, id string) ApiApiAppAppIdGetRequest {
-	return ApiApiAppAppIdGetRequest{
+func (a *AppPricingApiService) ApiAppAppPricingIdGet(ctx context.Context, id string) ApiApiAppAppPricingIdGetRequest {
+	return ApiApiAppAppPricingIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -753,21 +559,21 @@ func (a *AppApiService) ApiAppAppIdGet(ctx context.Context, id string) ApiApiApp
 }
 
 // Execute executes the request
-//  @return AppDto
-func (a *AppApiService) ApiAppAppIdGetExecute(r ApiApiAppAppIdGetRequest) (*AppDto, *http.Response, error) {
+//  @return AppPricingDto
+func (a *AppPricingApiService) ApiAppAppPricingIdGetExecute(r ApiApiAppAppPricingIdGetRequest) (*AppPricingDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDto
+		localVarReturnValue  *AppPricingDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppPricingApiService.ApiAppAppPricingIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/{id}"
+	localVarPath := localBasePath + "/api/app/app-pricing/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -893,31 +699,31 @@ func (a *AppApiService) ApiAppAppIdGetExecute(r ApiApiAppAppIdGetRequest) (*AppD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppIdPutRequest struct {
+type ApiApiAppAppPricingIdPutRequest struct {
 	ctx context.Context
-	ApiService *AppApiService
+	ApiService *AppPricingApiService
 	id string
-	body *CreateOrUpdateAppDto
+	body *CreateOrUpdateAppPricingDto
 }
 
-func (r ApiApiAppAppIdPutRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
+func (r ApiApiAppAppPricingIdPutRequest) Body(body CreateOrUpdateAppPricingDto) ApiApiAppAppPricingIdPutRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppAppIdPutRequest) Execute() (*AppDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppIdPutExecute(r)
+func (r ApiApiAppAppPricingIdPutRequest) Execute() (*AppPricingDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppPricingIdPutExecute(r)
 }
 
 /*
-ApiAppAppIdPut Method for ApiAppAppIdPut
+ApiAppAppPricingIdPut Method for ApiAppAppPricingIdPut
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
- @return ApiApiAppAppIdPutRequest
+ @return ApiApiAppAppPricingIdPutRequest
 */
-func (a *AppApiService) ApiAppAppIdPut(ctx context.Context, id string) ApiApiAppAppIdPutRequest {
-	return ApiApiAppAppIdPutRequest{
+func (a *AppPricingApiService) ApiAppAppPricingIdPut(ctx context.Context, id string) ApiApiAppAppPricingIdPutRequest {
+	return ApiApiAppAppPricingIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -925,21 +731,21 @@ func (a *AppApiService) ApiAppAppIdPut(ctx context.Context, id string) ApiApiApp
 }
 
 // Execute executes the request
-//  @return AppDto
-func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppDto, *http.Response, error) {
+//  @return AppPricingDto
+func (a *AppPricingApiService) ApiAppAppPricingIdPutExecute(r ApiApiAppAppPricingIdPutRequest) (*AppPricingDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDto
+		localVarReturnValue  *AppPricingDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppPricingApiService.ApiAppAppPricingIdPut")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/{id}"
+	localVarPath := localBasePath + "/api/app/app-pricing/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1067,50 +873,50 @@ func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppPostRequest struct {
+type ApiApiAppAppPricingPostRequest struct {
 	ctx context.Context
-	ApiService *AppApiService
-	body *CreateOrUpdateAppDto
+	ApiService *AppPricingApiService
+	body *CreateOrUpdateAppPricingDto
 }
 
-func (r ApiApiAppAppPostRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppPostRequest {
+func (r ApiApiAppAppPricingPostRequest) Body(body CreateOrUpdateAppPricingDto) ApiApiAppAppPricingPostRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppAppPostRequest) Execute() (*AppDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppPostExecute(r)
+func (r ApiApiAppAppPricingPostRequest) Execute() (*AppPricingDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppPricingPostExecute(r)
 }
 
 /*
-ApiAppAppPost Method for ApiAppAppPost
+ApiAppAppPricingPost Method for ApiAppAppPricingPost
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppPostRequest
+ @return ApiApiAppAppPricingPostRequest
 */
-func (a *AppApiService) ApiAppAppPost(ctx context.Context) ApiApiAppAppPostRequest {
-	return ApiApiAppAppPostRequest{
+func (a *AppPricingApiService) ApiAppAppPricingPost(ctx context.Context) ApiApiAppAppPricingPostRequest {
+	return ApiApiAppAppPricingPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppDto
-func (a *AppApiService) ApiAppAppPostExecute(r ApiApiAppAppPostRequest) (*AppDto, *http.Response, error) {
+//  @return AppPricingDto
+func (a *AppPricingApiService) ApiAppAppPricingPostExecute(r ApiApiAppAppPricingPostRequest) (*AppPricingDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDto
+		localVarReturnValue  *AppPricingDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppPricingApiService.ApiAppAppPricingPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app"
+	localVarPath := localBasePath + "/api/app/app-pricing"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1135,177 +941,6 @@ func (a *AppApiService) ApiAppAppPostExecute(r ApiApiAppAppPostRequest) (*AppDto
 	}
 	// body params
 	localVarPostBody = r.body
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 501 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v RemoteServiceErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiAppAppUploadCredentialsGetRequest struct {
-	ctx context.Context
-	ApiService *AppApiService
-	key *string
-}
-
-func (r ApiApiAppAppUploadCredentialsGetRequest) Key(key string) ApiApiAppAppUploadCredentialsGetRequest {
-	r.key = &key
-	return r
-}
-
-func (r ApiApiAppAppUploadCredentialsGetRequest) Execute() (*StorageObjectCredentials, *http.Response, error) {
-	return r.ApiService.ApiAppAppUploadCredentialsGetExecute(r)
-}
-
-/*
-ApiAppAppUploadCredentialsGet Method for ApiAppAppUploadCredentialsGet
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppUploadCredentialsGetRequest
-*/
-func (a *AppApiService) ApiAppAppUploadCredentialsGet(ctx context.Context) ApiApiAppAppUploadCredentialsGetRequest {
-	return ApiApiAppAppUploadCredentialsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return StorageObjectCredentials
-func (a *AppApiService) ApiAppAppUploadCredentialsGetExecute(r ApiApiAppAppUploadCredentialsGetRequest) (*StorageObjectCredentials, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StorageObjectCredentials
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppUploadCredentialsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/app/app/upload-credentials"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.key != nil {
-		localVarQueryParams.Add("key", parameterToString(*r.key, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

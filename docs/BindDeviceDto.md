@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Token** | Pointer to **string** |  | [optional] 
+**TpnsToken** | Pointer to **string** |  | [optional] 
+**IsPhysicalDevice** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Brand** | Pointer to **string** |  | [optional] 
@@ -53,6 +55,56 @@ SetToken sets Token field to given value.
 `func (o *BindDeviceDto) HasToken() bool`
 
 HasToken returns a boolean if a field has been set.
+
+### GetTpnsToken
+
+`func (o *BindDeviceDto) GetTpnsToken() string`
+
+GetTpnsToken returns the TpnsToken field if non-nil, zero value otherwise.
+
+### GetTpnsTokenOk
+
+`func (o *BindDeviceDto) GetTpnsTokenOk() (*string, bool)`
+
+GetTpnsTokenOk returns a tuple with the TpnsToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTpnsToken
+
+`func (o *BindDeviceDto) SetTpnsToken(v string)`
+
+SetTpnsToken sets TpnsToken field to given value.
+
+### HasTpnsToken
+
+`func (o *BindDeviceDto) HasTpnsToken() bool`
+
+HasTpnsToken returns a boolean if a field has been set.
+
+### GetIsPhysicalDevice
+
+`func (o *BindDeviceDto) GetIsPhysicalDevice() bool`
+
+GetIsPhysicalDevice returns the IsPhysicalDevice field if non-nil, zero value otherwise.
+
+### GetIsPhysicalDeviceOk
+
+`func (o *BindDeviceDto) GetIsPhysicalDeviceOk() (*bool, bool)`
+
+GetIsPhysicalDeviceOk returns a tuple with the IsPhysicalDevice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPhysicalDevice
+
+`func (o *BindDeviceDto) SetIsPhysicalDevice(v bool)`
+
+SetIsPhysicalDevice sets IsPhysicalDevice field to given value.
+
+### HasIsPhysicalDevice
+
+`func (o *BindDeviceDto) HasIsPhysicalDevice() bool`
+
+HasIsPhysicalDevice returns a boolean if a field has been set.
 
 ### GetName
 
