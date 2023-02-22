@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## ApiAppAppByDeveloperGet
 
-> AppDtoPagedResultDto ApiAppAppByDeveloperGet(ctx).DeveloperAccount(developerAccount).IsEnabled(isEnabled).Execute()
+> AppDtoPagedResultDto ApiAppAppByDeveloperGet(ctx).DeveloperAccount(developerAccount).Execute()
 
 
 
@@ -35,11 +35,10 @@ import (
 
 func main() {
     developerAccount := "developerAccount_example" // string |  (optional)
-    isEnabled := true // bool |  (optional) (default to true)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppByDeveloperGet(context.Background()).DeveloperAccount(developerAccount).IsEnabled(isEnabled).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppByDeveloperGet(context.Background()).DeveloperAccount(developerAccount).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByDeveloperGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,7 +60,6 @@ Other parameters are passed through a pointer to a apiApiAppAppByDeveloperGetReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **developerAccount** | **string** |  | 
- **isEnabled** | **bool** |  | [default to true]
 
 ### Return type
 

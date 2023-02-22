@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *AppReleaseApi* | [**ApiAppAppReleaseIdDelete**](docs/AppReleaseApi.md#apiappappreleaseiddelete) | **Delete** /api/app/app-release/{id} | 
 *AppReleaseApi* | [**ApiAppAppReleaseIdGet**](docs/AppReleaseApi.md#apiappappreleaseidget) | **Get** /api/app/app-release/{id} | 
 *AppReleaseApi* | [**ApiAppAppReleaseIdPut**](docs/AppReleaseApi.md#apiappappreleaseidput) | **Put** /api/app/app-release/{id} | 
+*AppReleaseApi* | [**ApiAppAppReleaseLatestGet**](docs/AppReleaseApi.md#apiappappreleaselatestget) | **Get** /api/app/app-release/latest | 
 *AppReleaseApi* | [**ApiAppAppReleasePost**](docs/AppReleaseApi.md#apiappappreleasepost) | **Post** /api/app/app-release | 
 *AppSdkApi* | [**ApiAppAppSdkGet**](docs/AppSdkApi.md#apiappappsdkget) | **Get** /api/app/app-sdk | 
 *AppSdkApi* | [**ApiAppAppSdkIdDelete**](docs/AppSdkApi.md#apiappappsdkiddelete) | **Delete** /api/app/app-sdk/{id} | 

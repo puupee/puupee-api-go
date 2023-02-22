@@ -27,16 +27,10 @@ type ApiApiAppAppByDeveloperGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	developerAccount *string
-	isEnabled *bool
 }
 
 func (r ApiApiAppAppByDeveloperGetRequest) DeveloperAccount(developerAccount string) ApiApiAppAppByDeveloperGetRequest {
 	r.developerAccount = &developerAccount
-	return r
-}
-
-func (r ApiApiAppAppByDeveloperGetRequest) IsEnabled(isEnabled bool) ApiApiAppAppByDeveloperGetRequest {
-	r.isEnabled = &isEnabled
 	return r
 }
 
@@ -80,9 +74,6 @@ func (a *AppApiService) ApiAppAppByDeveloperGetExecute(r ApiApiAppAppByDeveloper
 
 	if r.developerAccount != nil {
 		localVarQueryParams.Add("developerAccount", parameterToString(*r.developerAccount, ""))
-	}
-	if r.isEnabled != nil {
-		localVarQueryParams.Add("isEnabled", parameterToString(*r.isEnabled, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

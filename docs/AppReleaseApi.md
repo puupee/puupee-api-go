@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ApiAppAppReleaseIdDelete**](AppReleaseApi.md#ApiAppAppReleaseIdDelete) | **Delete** /api/app/app-release/{id} | 
 [**ApiAppAppReleaseIdGet**](AppReleaseApi.md#ApiAppAppReleaseIdGet) | **Get** /api/app/app-release/{id} | 
 [**ApiAppAppReleaseIdPut**](AppReleaseApi.md#ApiAppAppReleaseIdPut) | **Put** /api/app/app-release/{id} | 
+[**ApiAppAppReleaseLatestGet**](AppReleaseApi.md#ApiAppAppReleaseLatestGet) | **Get** /api/app/app-release/latest | 
 [**ApiAppAppReleasePost**](AppReleaseApi.md#ApiAppAppReleasePost) | **Post** /api/app/app-release | 
 
 
@@ -285,6 +286,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppAppReleaseLatestGet
+
+> AppReleaseDto ApiAppAppReleaseLatestGet(ctx).AppName(appName).Name(name).Value(value).Name2(name2).Value2(value2).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    appName := "appName_example" // string |  (optional)
+    name := "name_example" // string |  (optional)
+    value := "value_example" // string |  (optional)
+    name2 := "name_example" // string |  (optional)
+    value2 := "value_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseLatestGet(context.Background()).AppName(appName).Name(name).Value(value).Name2(name2).Value2(value2).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseLatestGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppReleaseLatestGet`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.ApiAppAppReleaseLatestGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppReleaseLatestGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appName** | **string** |  | 
+ **name** | **string** |  | 
+ **value** | **string** |  | 
+ **name2** | **string** |  | 
+ **value2** | **string** |  | 
+
+### Return type
+
+[**AppReleaseDto**](AppReleaseDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

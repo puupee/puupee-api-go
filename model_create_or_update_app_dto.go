@@ -22,6 +22,7 @@ type CreateOrUpdateAppDto struct {
 	AppType *string `json:"appType,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Icon *string `json:"icon,omitempty"`
+	HomePage *string `json:"homePage,omitempty"`
 	SortIndex *int32 `json:"sortIndex,omitempty"`
 	GitRepository *string `json:"gitRepository,omitempty"`
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
@@ -238,6 +239,38 @@ func (o *CreateOrUpdateAppDto) SetIcon(v string) {
 	o.Icon = &v
 }
 
+// GetHomePage returns the HomePage field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppDto) GetHomePage() string {
+	if o == nil || isNil(o.HomePage) {
+		var ret string
+		return ret
+	}
+	return *o.HomePage
+}
+
+// GetHomePageOk returns a tuple with the HomePage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppDto) GetHomePageOk() (*string, bool) {
+	if o == nil || isNil(o.HomePage) {
+    return nil, false
+	}
+	return o.HomePage, true
+}
+
+// HasHomePage returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppDto) HasHomePage() bool {
+	if o != nil && !isNil(o.HomePage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHomePage gets a reference to the given string and assigns it to the HomePage field.
+func (o *CreateOrUpdateAppDto) SetHomePage(v string) {
+	o.HomePage = &v
+}
+
 // GetSortIndex returns the SortIndex field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetSortIndex() int32 {
 	if o == nil || isNil(o.SortIndex) {
@@ -417,6 +450,9 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Icon) {
 		toSerialize["icon"] = o.Icon
+	}
+	if !isNil(o.HomePage) {
+		toSerialize["homePage"] = o.HomePage
 	}
 	if !isNil(o.SortIndex) {
 		toSerialize["sortIndex"] = o.SortIndex

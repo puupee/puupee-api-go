@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AppType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
+**HomePage** | Pointer to **string** |  | [optional] 
 **SortIndex** | Pointer to **int32** |  | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
@@ -184,6 +185,31 @@ SetIcon sets Icon field to given value.
 `func (o *CreateOrUpdateAppDto) HasIcon() bool`
 
 HasIcon returns a boolean if a field has been set.
+
+### GetHomePage
+
+`func (o *CreateOrUpdateAppDto) GetHomePage() string`
+
+GetHomePage returns the HomePage field if non-nil, zero value otherwise.
+
+### GetHomePageOk
+
+`func (o *CreateOrUpdateAppDto) GetHomePageOk() (*string, bool)`
+
+GetHomePageOk returns a tuple with the HomePage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHomePage
+
+`func (o *CreateOrUpdateAppDto) SetHomePage(v string)`
+
+SetHomePage sets HomePage field to given value.
+
+### HasHomePage
+
+`func (o *CreateOrUpdateAppDto) HasHomePage() bool`
+
+HasHomePage returns a boolean if a field has been set.
 
 ### GetSortIndex
 

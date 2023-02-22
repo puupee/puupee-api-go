@@ -743,6 +743,213 @@ func (a *AppReleaseApiService) ApiAppAppReleaseIdPutExecute(r ApiApiAppAppReleas
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiApiAppAppReleaseLatestGetRequest struct {
+	ctx context.Context
+	ApiService *AppReleaseApiService
+	appName *string
+	name *string
+	value *string
+	name2 *string
+	value2 *string
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) AppName(appName string) ApiApiAppAppReleaseLatestGetRequest {
+	r.appName = &appName
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) Name(name string) ApiApiAppAppReleaseLatestGetRequest {
+	r.name = &name
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) Value(value string) ApiApiAppAppReleaseLatestGetRequest {
+	r.value = &value
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) Name2(name2 string) ApiApiAppAppReleaseLatestGetRequest {
+	r.name2 = &name2
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) Value2(value2 string) ApiApiAppAppReleaseLatestGetRequest {
+	r.value2 = &value2
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) Execute() (*AppReleaseDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppReleaseLatestGetExecute(r)
+}
+
+/*
+ApiAppAppReleaseLatestGet Method for ApiAppAppReleaseLatestGet
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApiAppAppReleaseLatestGetRequest
+*/
+func (a *AppReleaseApiService) ApiAppAppReleaseLatestGet(ctx context.Context) ApiApiAppAppReleaseLatestGetRequest {
+	return ApiApiAppAppReleaseLatestGetRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return AppReleaseDto
+func (a *AppReleaseApiService) ApiAppAppReleaseLatestGetExecute(r ApiApiAppAppReleaseLatestGetRequest) (*AppReleaseDto, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AppReleaseDto
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppReleaseApiService.ApiAppAppReleaseLatestGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/app/app-release/latest"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.appName != nil {
+		localVarQueryParams.Add("appName", parameterToString(*r.appName, ""))
+	}
+	if r.name != nil {
+		localVarQueryParams.Add("Name", parameterToString(*r.name, ""))
+	}
+	if r.value != nil {
+		localVarQueryParams.Add("Value", parameterToString(*r.value, ""))
+	}
+	if r.name2 != nil {
+		localVarQueryParams.Add("Name", parameterToString(*r.name2, ""))
+	}
+	if r.value2 != nil {
+		localVarQueryParams.Add("Value", parameterToString(*r.value2, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v RemoteServiceErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v RemoteServiceErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v RemoteServiceErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RemoteServiceErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 501 {
+			var v RemoteServiceErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v RemoteServiceErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiApiAppAppReleasePostRequest struct {
 	ctx context.Context
 	ApiService *AppReleaseApiService

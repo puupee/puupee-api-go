@@ -1574,11 +1574,6 @@ paths:
         name: developerAccount
         schema:
           type: string
-      - in: query
-        name: isEnabled
-        schema:
-          default: true
-          type: boolean
       responses:
         "200":
           content:
@@ -3666,6 +3661,116 @@ paths:
       tags:
       - AppRelease
       x-codegen-request-body-name: body
+  /api/app/app-release/latest:
+    get:
+      parameters:
+      - in: query
+        name: appName
+        schema:
+          type: string
+      - in: query
+        name: Name
+        schema:
+          type: string
+      - in: query
+        name: Value
+        schema:
+          type: string
+      - in: query
+        name: Name
+        schema:
+          type: string
+      - in: query
+        name: Value
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppReleaseDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppReleaseDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppReleaseDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - AppRelease
   /api/app/app-sdk:
     get:
       responses:
@@ -11386,6 +11491,7 @@ components:
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        homePage: homePage
         gitRepositoryType: gitRepositoryType
         features:
         - creationTime: 2000-01-23T04:56:07.000+00:00
@@ -11505,6 +11611,8 @@ components:
           type: string
         icon:
           type: string
+        homePage:
+          type: string
         sortIndex:
           format: int32
           type: integer
@@ -11589,6 +11697,7 @@ components:
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          homePage: homePage
           gitRepositoryType: gitRepositoryType
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
@@ -11730,6 +11839,7 @@ components:
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          homePage: homePage
           gitRepositoryType: gitRepositoryType
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
@@ -13302,6 +13412,7 @@ components:
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        homePage: homePage
         gitRepositoryType: gitRepositoryType
       properties:
         name:
@@ -13315,6 +13426,8 @@ components:
         description:
           type: string
         icon:
+          type: string
+        homePage:
           type: string
         sortIndex:
           format: int32
