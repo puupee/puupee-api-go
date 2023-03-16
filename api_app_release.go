@@ -747,10 +747,8 @@ type ApiApiAppAppReleaseLatestGetRequest struct {
 	ctx context.Context
 	ApiService *AppReleaseApiService
 	appName *string
-	name *string
-	value *string
-	name2 *string
-	value2 *string
+	platform *string
+	productType *string
 }
 
 func (r ApiApiAppAppReleaseLatestGetRequest) AppName(appName string) ApiApiAppAppReleaseLatestGetRequest {
@@ -758,23 +756,13 @@ func (r ApiApiAppAppReleaseLatestGetRequest) AppName(appName string) ApiApiAppAp
 	return r
 }
 
-func (r ApiApiAppAppReleaseLatestGetRequest) Name(name string) ApiApiAppAppReleaseLatestGetRequest {
-	r.name = &name
+func (r ApiApiAppAppReleaseLatestGetRequest) Platform(platform string) ApiApiAppAppReleaseLatestGetRequest {
+	r.platform = &platform
 	return r
 }
 
-func (r ApiApiAppAppReleaseLatestGetRequest) Value(value string) ApiApiAppAppReleaseLatestGetRequest {
-	r.value = &value
-	return r
-}
-
-func (r ApiApiAppAppReleaseLatestGetRequest) Name2(name2 string) ApiApiAppAppReleaseLatestGetRequest {
-	r.name2 = &name2
-	return r
-}
-
-func (r ApiApiAppAppReleaseLatestGetRequest) Value2(value2 string) ApiApiAppAppReleaseLatestGetRequest {
-	r.value2 = &value2
+func (r ApiApiAppAppReleaseLatestGetRequest) ProductType(productType string) ApiApiAppAppReleaseLatestGetRequest {
+	r.productType = &productType
 	return r
 }
 
@@ -817,19 +805,13 @@ func (a *AppReleaseApiService) ApiAppAppReleaseLatestGetExecute(r ApiApiAppAppRe
 	localVarFormParams := url.Values{}
 
 	if r.appName != nil {
-		localVarQueryParams.Add("appName", parameterToString(*r.appName, ""))
+		localVarQueryParams.Add("AppName", parameterToString(*r.appName, ""))
 	}
-	if r.name != nil {
-		localVarQueryParams.Add("Name", parameterToString(*r.name, ""))
+	if r.platform != nil {
+		localVarQueryParams.Add("Platform", parameterToString(*r.platform, ""))
 	}
-	if r.value != nil {
-		localVarQueryParams.Add("Value", parameterToString(*r.value, ""))
-	}
-	if r.name2 != nil {
-		localVarQueryParams.Add("Name", parameterToString(*r.name2, ""))
-	}
-	if r.value2 != nil {
-		localVarQueryParams.Add("Value", parameterToString(*r.value2, ""))
+	if r.productType != nil {
+		localVarQueryParams.Add("ProductType", parameterToString(*r.productType, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

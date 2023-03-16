@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
+**VersionName** | Pointer to **string** |  | [optional] 
+**VersionCode** | Pointer to **int64** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **Platform** | Pointer to **string** |  | [optional] 
 **Key** | Pointer to **string** |  | [optional] 
@@ -271,6 +273,56 @@ SetVersion sets Version field to given value.
 `func (o *AppReleaseDto) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
+
+### GetVersionName
+
+`func (o *AppReleaseDto) GetVersionName() string`
+
+GetVersionName returns the VersionName field if non-nil, zero value otherwise.
+
+### GetVersionNameOk
+
+`func (o *AppReleaseDto) GetVersionNameOk() (*string, bool)`
+
+GetVersionNameOk returns a tuple with the VersionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionName
+
+`func (o *AppReleaseDto) SetVersionName(v string)`
+
+SetVersionName sets VersionName field to given value.
+
+### HasVersionName
+
+`func (o *AppReleaseDto) HasVersionName() bool`
+
+HasVersionName returns a boolean if a field has been set.
+
+### GetVersionCode
+
+`func (o *AppReleaseDto) GetVersionCode() int64`
+
+GetVersionCode returns the VersionCode field if non-nil, zero value otherwise.
+
+### GetVersionCodeOk
+
+`func (o *AppReleaseDto) GetVersionCodeOk() (*int64, bool)`
+
+GetVersionCodeOk returns a tuple with the VersionCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionCode
+
+`func (o *AppReleaseDto) SetVersionCode(v int64)`
+
+SetVersionCode sets VersionCode field to given value.
+
+### HasVersionCode
+
+`func (o *AppReleaseDto) HasVersionCode() bool`
+
+HasVersionCode returns a boolean if a field has been set.
 
 ### GetNotes
 

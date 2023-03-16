@@ -17,6 +17,8 @@ import (
 // CreateOrUpdateAppReleaseDto struct for CreateOrUpdateAppReleaseDto
 type CreateOrUpdateAppReleaseDto struct {
 	Version *string `json:"version,omitempty"`
+	VersionName *string `json:"versionName,omitempty"`
+	VersionCode *int64 `json:"versionCode,omitempty"`
 	Notes *string `json:"notes,omitempty"`
 	Platform *string `json:"platform,omitempty"`
 	Key *string `json:"key,omitempty"`
@@ -79,6 +81,70 @@ func (o *CreateOrUpdateAppReleaseDto) HasVersion() bool {
 // SetVersion gets a reference to the given string and assigns it to the Version field.
 func (o *CreateOrUpdateAppReleaseDto) SetVersion(v string) {
 	o.Version = &v
+}
+
+// GetVersionName returns the VersionName field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppReleaseDto) GetVersionName() string {
+	if o == nil || isNil(o.VersionName) {
+		var ret string
+		return ret
+	}
+	return *o.VersionName
+}
+
+// GetVersionNameOk returns a tuple with the VersionName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppReleaseDto) GetVersionNameOk() (*string, bool) {
+	if o == nil || isNil(o.VersionName) {
+    return nil, false
+	}
+	return o.VersionName, true
+}
+
+// HasVersionName returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppReleaseDto) HasVersionName() bool {
+	if o != nil && !isNil(o.VersionName) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersionName gets a reference to the given string and assigns it to the VersionName field.
+func (o *CreateOrUpdateAppReleaseDto) SetVersionName(v string) {
+	o.VersionName = &v
+}
+
+// GetVersionCode returns the VersionCode field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppReleaseDto) GetVersionCode() int64 {
+	if o == nil || isNil(o.VersionCode) {
+		var ret int64
+		return ret
+	}
+	return *o.VersionCode
+}
+
+// GetVersionCodeOk returns a tuple with the VersionCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppReleaseDto) GetVersionCodeOk() (*int64, bool) {
+	if o == nil || isNil(o.VersionCode) {
+    return nil, false
+	}
+	return o.VersionCode, true
+}
+
+// HasVersionCode returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppReleaseDto) HasVersionCode() bool {
+	if o != nil && !isNil(o.VersionCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersionCode gets a reference to the given int64 and assigns it to the VersionCode field.
+func (o *CreateOrUpdateAppReleaseDto) SetVersionCode(v int64) {
+	o.VersionCode = &v
 }
 
 // GetNotes returns the Notes field value if set, zero value otherwise.
@@ -501,6 +567,12 @@ func (o CreateOrUpdateAppReleaseDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Version) {
 		toSerialize["version"] = o.Version
+	}
+	if !isNil(o.VersionName) {
+		toSerialize["versionName"] = o.VersionName
+	}
+	if !isNil(o.VersionCode) {
+		toSerialize["versionCode"] = o.VersionCode
 	}
 	if !isNil(o.Notes) {
 		toSerialize["notes"] = o.Notes

@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppReleaseLatestGet
 
-> AppReleaseDto ApiAppAppReleaseLatestGet(ctx).AppName(appName).Name(name).Value(value).Name2(name2).Value2(value2).Execute()
+> AppReleaseDto ApiAppAppReleaseLatestGet(ctx).AppName(appName).Platform(platform).ProductType(productType).Execute()
 
 
 
@@ -313,14 +313,12 @@ import (
 
 func main() {
     appName := "appName_example" // string |  (optional)
-    name := "name_example" // string |  (optional)
-    value := "value_example" // string |  (optional)
-    name2 := "name_example" // string |  (optional)
-    value2 := "value_example" // string |  (optional)
+    platform := "platform_example" // string |  (optional)
+    productType := "productType_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseLatestGet(context.Background()).AppName(appName).Name(name).Value(value).Name2(name2).Value2(value2).Execute()
+    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseLatestGet(context.Background()).AppName(appName).Platform(platform).ProductType(productType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseLatestGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -342,10 +340,8 @@ Other parameters are passed through a pointer to a apiApiAppAppReleaseLatestGetR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appName** | **string** |  | 
- **name** | **string** |  | 
- **value** | **string** |  | 
- **name2** | **string** |  | 
- **value2** | **string** |  | 
+ **platform** | **string** |  | 
+ **productType** | **string** |  | 
 
 ### Return type
 

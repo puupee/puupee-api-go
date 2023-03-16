@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ApiAccountResetPasswordPost**](AccountApi.md#ApiAccountResetPasswordPost) | **Post** /api/account/reset-password | 
 [**ApiAccountSendPasswordResetCodePost**](AccountApi.md#ApiAccountSendPasswordResetCodePost) | **Post** /api/account/send-password-reset-code | 
 [**ApiAccountVerifyPasswordResetTokenPost**](AccountApi.md#ApiAccountVerifyPasswordResetTokenPost) | **Post** /api/account/verify-password-reset-token | 
+[**ApiAppAccountDelete**](AccountApi.md#ApiAppAccountDelete) | **Delete** /api/app/account | 
 
 
 
@@ -256,6 +257,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppAccountDelete
+
+> ApiAppAccountDelete(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AccountApi.ApiAppAccountDelete(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAppAccountDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAccountDeleteRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

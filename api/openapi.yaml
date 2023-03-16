@@ -875,6 +875,86 @@ paths:
       tags:
       - Account
       x-codegen-request-body-name: body
+  /api/app/account:
+    delete:
+      responses:
+        "200":
+          content: {}
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Account
   /api/app/app:
     get:
       parameters:
@@ -3665,23 +3745,15 @@ paths:
     get:
       parameters:
       - in: query
-        name: appName
+        name: AppName
         schema:
           type: string
       - in: query
-        name: Name
+        name: Platform
         schema:
           type: string
       - in: query
-        name: Value
-        schema:
-          type: string
-      - in: query
-        name: Name
-        schema:
-          type: string
-      - in: query
-        name: Value
+        name: ProductType
         schema:
           type: string
       responses:
@@ -11536,20 +11608,22 @@ components:
           downloadUrl: downloadUrl
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          version: version
+          versionName: versionName
           platform: platform
-          environment: environment
           isDeleted: true
-          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
+          version: version
+          versionCode: 6
+          environment: environment
+          size: 1
+          isEnabled: true
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
         - notes: notes
@@ -11559,20 +11633,22 @@ components:
           downloadUrl: downloadUrl
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          version: version
+          versionName: versionName
           platform: platform
-          environment: environment
           isDeleted: true
-          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
+          version: version
+          versionCode: 6
+          environment: environment
+          size: 1
+          isEnabled: true
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
       properties:
@@ -11637,7 +11713,7 @@ components:
       type: object
     AppDtoPagedResultDto:
       example:
-        totalCount: 1
+        totalCount: 5
         items:
         - creator:
             creationTime: 2000-01-23T04:56:07.000+00:00
@@ -11742,20 +11818,22 @@ components:
             downloadUrl: downloadUrl
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            version: version
+            versionName: versionName
             platform: platform
-            environment: environment
             isDeleted: true
-            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             sliceMd5: sliceMd5
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
             productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
           - notes: notes
@@ -11765,20 +11843,22 @@ components:
             downloadUrl: downloadUrl
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            version: version
+            versionName: versionName
             platform: platform
-            environment: environment
             isDeleted: true
-            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             sliceMd5: sliceMd5
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
             productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
         - creator:
@@ -11884,20 +11964,22 @@ components:
             downloadUrl: downloadUrl
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            version: version
+            versionName: versionName
             platform: platform
-            environment: environment
             isDeleted: true
-            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             sliceMd5: sliceMd5
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
             productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
           - notes: notes
@@ -11907,20 +11989,22 @@ components:
             downloadUrl: downloadUrl
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
-            version: version
+            versionName: versionName
             platform: platform
-            environment: environment
             isDeleted: true
-            size: 6
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            isEnabled: true
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             rapidCode: rapidCode
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             sliceMd5: sliceMd5
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
             productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
       properties:
@@ -12292,20 +12376,22 @@ components:
         downloadUrl: downloadUrl
         channel: channel
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        version: version
+        versionName: versionName
         platform: platform
-        environment: environment
         isDeleted: true
-        size: 6
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        isEnabled: true
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         sliceMd5: sliceMd5
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         key: key
         productType: productType
+        version: version
+        versionCode: 6
+        environment: environment
+        size: 1
+        isEnabled: true
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isForceUpdate: true
         md5: md5
       properties:
@@ -12334,6 +12420,11 @@ components:
           type: string
         version:
           type: string
+        versionName:
+          type: string
+        versionCode:
+          format: int64
+          type: integer
         notes:
           type: string
         platform:
@@ -12376,20 +12467,22 @@ components:
           downloadUrl: downloadUrl
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          version: version
+          versionName: versionName
           platform: platform
-          environment: environment
           isDeleted: true
-          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
+          version: version
+          versionCode: 6
+          environment: environment
+          size: 1
+          isEnabled: true
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
         - notes: notes
@@ -12399,20 +12492,22 @@ components:
           downloadUrl: downloadUrl
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
-          version: version
+          versionName: versionName
           platform: platform
-          environment: environment
           isDeleted: true
-          size: 6
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          isEnabled: true
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           sliceMd5: sliceMd5
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
           productType: productType
+          version: version
+          versionCode: 6
+          environment: environment
+          size: 1
+          isEnabled: true
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
       properties:
@@ -13576,10 +13671,12 @@ components:
       example:
         notes: notes
         channel: channel
+        versionName: versionName
         version: version
+        versionCode: 0
         platform: platform
         environment: environment
-        size: 0
+        size: 6
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isEnabled: true
         rapidCode: rapidCode
@@ -13591,6 +13688,11 @@ components:
       properties:
         version:
           type: string
+        versionName:
+          type: string
+        versionCode:
+          format: int64
+          type: integer
         notes:
           type: string
         platform:

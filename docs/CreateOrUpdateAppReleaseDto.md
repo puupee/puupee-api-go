@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | Pointer to **string** |  | [optional] 
+**VersionName** | Pointer to **string** |  | [optional] 
+**VersionCode** | Pointer to **int64** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **Platform** | Pointer to **string** |  | [optional] 
 **Key** | Pointer to **string** |  | [optional] 
@@ -62,6 +64,56 @@ SetVersion sets Version field to given value.
 `func (o *CreateOrUpdateAppReleaseDto) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
+
+### GetVersionName
+
+`func (o *CreateOrUpdateAppReleaseDto) GetVersionName() string`
+
+GetVersionName returns the VersionName field if non-nil, zero value otherwise.
+
+### GetVersionNameOk
+
+`func (o *CreateOrUpdateAppReleaseDto) GetVersionNameOk() (*string, bool)`
+
+GetVersionNameOk returns a tuple with the VersionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionName
+
+`func (o *CreateOrUpdateAppReleaseDto) SetVersionName(v string)`
+
+SetVersionName sets VersionName field to given value.
+
+### HasVersionName
+
+`func (o *CreateOrUpdateAppReleaseDto) HasVersionName() bool`
+
+HasVersionName returns a boolean if a field has been set.
+
+### GetVersionCode
+
+`func (o *CreateOrUpdateAppReleaseDto) GetVersionCode() int64`
+
+GetVersionCode returns the VersionCode field if non-nil, zero value otherwise.
+
+### GetVersionCodeOk
+
+`func (o *CreateOrUpdateAppReleaseDto) GetVersionCodeOk() (*int64, bool)`
+
+GetVersionCodeOk returns a tuple with the VersionCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionCode
+
+`func (o *CreateOrUpdateAppReleaseDto) SetVersionCode(v int64)`
+
+SetVersionCode sets VersionCode field to given value.
+
+### HasVersionCode
+
+`func (o *CreateOrUpdateAppReleaseDto) HasVersionCode() bool`
+
+HasVersionCode returns a boolean if a field has been set.
 
 ### GetNotes
 
