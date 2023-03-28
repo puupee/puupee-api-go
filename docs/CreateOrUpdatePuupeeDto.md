@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **IsHidden** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Text** | Pointer to **string** |  | [optional] 
+**Content** | Pointer to **string** |  | [optional] 
 **Format** | Pointer to **string** |  | [optional] 
 **Password** | Pointer to **string** |  | [optional] 
 **ParentId** | Pointer to **string** |  | [optional] 
@@ -49,6 +50,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int64** |  | [optional] 
 **LastModifierDeviceToken** | Pointer to **string** |  | [optional] 
 **LastModifierDevice** | Pointer to **string** |  | [optional] 
+**App** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -208,6 +210,31 @@ SetText sets Text field to given value.
 `func (o *CreateOrUpdatePuupeeDto) HasText() bool`
 
 HasText returns a boolean if a field has been set.
+
+### GetContent
+
+`func (o *CreateOrUpdatePuupeeDto) GetContent() string`
+
+GetContent returns the Content field if non-nil, zero value otherwise.
+
+### GetContentOk
+
+`func (o *CreateOrUpdatePuupeeDto) GetContentOk() (*string, bool)`
+
+GetContentOk returns a tuple with the Content field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContent
+
+`func (o *CreateOrUpdatePuupeeDto) SetContent(v string)`
+
+SetContent sets Content field to given value.
+
+### HasContent
+
+`func (o *CreateOrUpdatePuupeeDto) HasContent() bool`
+
+HasContent returns a boolean if a field has been set.
 
 ### GetFormat
 
@@ -1183,6 +1210,31 @@ SetLastModifierDevice sets LastModifierDevice field to given value.
 `func (o *CreateOrUpdatePuupeeDto) HasLastModifierDevice() bool`
 
 HasLastModifierDevice returns a boolean if a field has been set.
+
+### GetApp
+
+`func (o *CreateOrUpdatePuupeeDto) GetApp() string`
+
+GetApp returns the App field if non-nil, zero value otherwise.
+
+### GetAppOk
+
+`func (o *CreateOrUpdatePuupeeDto) GetAppOk() (*string, bool)`
+
+GetAppOk returns a tuple with the App field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApp
+
+`func (o *CreateOrUpdatePuupeeDto) SetApp(v string)`
+
+SetApp sets App field to given value.
+
+### HasApp
+
+`func (o *CreateOrUpdatePuupeeDto) HasApp() bool`
+
+HasApp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

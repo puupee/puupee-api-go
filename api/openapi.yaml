@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Puupee API
-  version: v1
+  version: 1.0.0
 servers:
 - url: /
 security:
@@ -1648,6 +1648,100 @@ paths:
       tags:
       - App
   /api/app/app/by-developer:
+    get:
+      parameters:
+      - in: query
+        name: developerAccount
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - App
+  /api/app/app/by-developer-all:
     get:
       parameters:
       - in: query
@@ -11532,6 +11626,7 @@ components:
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         sortIndex: 0
         displayName: displayName
+        isPublished: true
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         icon: icon
         description: description
@@ -11596,6 +11691,7 @@ components:
         framework: framework
         isDeleted: true
         appType: appType
+        isEnabled: true
         name: name
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -11696,6 +11792,10 @@ components:
           type: string
         gitRepositoryType:
           type: string
+        isEnabled:
+          type: boolean
+        isPublished:
+          type: boolean
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -11742,6 +11842,7 @@ components:
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           sortIndex: 0
           displayName: displayName
+          isPublished: true
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
           description: description
@@ -11806,6 +11907,7 @@ components:
           framework: framework
           isDeleted: true
           appType: appType
+          isEnabled: true
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -11888,6 +11990,7 @@ components:
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           sortIndex: 0
           displayName: displayName
+          isPublished: true
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
           description: description
@@ -11952,6 +12055,7 @@ components:
           framework: framework
           isDeleted: true
           appType: appType
+          isEnabled: true
           name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -13445,39 +13549,9 @@ components:
       type: object
     CreateOrUpdateAppDto:
       example:
-        features:
-        - creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          displayName: displayName
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          details: details
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          screenshotKeys: screenshotKeys
-        - creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          displayName: displayName
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          isDeleted: true
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          details: details
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          screenshotKeys: screenshotKeys
-        gitRepository: gitRepository
-        framework: framework
         sortIndex: 0
         displayName: displayName
-        appType: appType
-        name: name
+        isPublished: true
         icon: icon
         description: description
         sdks:
@@ -13509,6 +13583,38 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         homePage: homePage
         gitRepositoryType: gitRepositoryType
+        features:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
+        gitRepository: gitRepository
+        framework: framework
+        appType: appType
+        isEnabled: true
+        name: name
       properties:
         name:
           type: string
@@ -13531,6 +13637,10 @@ components:
           type: string
         gitRepositoryType:
           type: string
+        isEnabled:
+          type: boolean
+        isPublished:
+          type: boolean
         features:
           items:
             $ref: '#/components/schemas/AppFeatureDto'
@@ -13767,6 +13877,7 @@ components:
         deletionTime: 2000-01-23T04:56:07.000+00:00
         title: title
         type: type
+        content: content
         displayStyle: displayStyle
         password: password
         storageClass: storageClass
@@ -13783,6 +13894,7 @@ components:
         key: key
         startAt: 2000-01-23T04:56:07.000+00:00
         storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+        app: app
         syncVersion: 0
         doneAt: 2000-01-23T04:56:07.000+00:00
         notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -13815,6 +13927,8 @@ components:
         description:
           type: string
         text:
+          type: string
+        content:
           type: string
         format:
           type: string
@@ -13911,6 +14025,8 @@ components:
         lastModifierDeviceToken:
           type: string
         lastModifierDevice:
+          type: string
+        app:
           type: string
       required:
       - id
@@ -15842,10 +15958,33 @@ components:
       example:
         data:
           tagging: tagging
-          extension: extension
-          creationTime: 2000-01-23T04:56:07.000+00:00
           repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          type: type
+          displayStyle: displayStyle
+          password: password
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          text: text
+          sliceMd5: sliceMd5
+          contentType: contentType
+          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+          app: app
+          doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 7
+          notifyAt: 2000-01-23T04:56:07.000+00:00
+          notifyTimingType: notifyTimingType
+          format: format
+          priority: 5
+          endAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierDeviceToken: lastModifierDeviceToken
+          notifyTimingValue: 5
+          size: 0
+          name: name
+          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -15871,25 +16010,17 @@ components:
             md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
           title: title
-          type: type
-          displayStyle: displayStyle
-          password: password
+          content: content
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
           lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          text: text
-          sliceMd5: sliceMd5
-          contentType: contentType
           storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
           key: key
           startAt: 2000-01-23T04:56:07.000+00:00
-          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -15913,25 +16044,12 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
-          doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 7
-          notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: notifyTimingType
-          format: format
-          priority: 5
-          endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 5
-          size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
-          name: name
           notifyTimingUnit: notifyTimingUnit
-          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
         userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -15944,10 +16062,33 @@ components:
     PuupeeDto:
       example:
         tagging: tagging
-        extension: extension
-        creationTime: 2000-01-23T04:56:07.000+00:00
         repeatOffTimes: 2
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        type: type
+        displayStyle: displayStyle
+        password: password
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        text: text
+        sliceMd5: sliceMd5
+        contentType: contentType
+        storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+        app: app
+        doneAt: 2000-01-23T04:56:07.000+00:00
+        syncVersion: 7
+        notifyAt: 2000-01-23T04:56:07.000+00:00
+        notifyTimingType: notifyTimingType
+        format: format
+        priority: 5
+        endAt: 2000-01-23T04:56:07.000+00:00
+        lastModifierDeviceToken: lastModifierDeviceToken
+        notifyTimingValue: 5
+        size: 0
+        name: name
+        storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        extension: extension
+        creationTime: 2000-01-23T04:56:07.000+00:00
         thumb:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 1
@@ -15973,25 +16114,17 @@ components:
           md5: md5
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
-        deletionTime: 2000-01-23T04:56:07.000+00:00
         title: title
-        type: type
-        displayStyle: displayStyle
-        password: password
+        content: content
         storageClass: storageClass
         isDeleted: true
         repeat: repeat
         lastModifierDevice: lastModifierDevice
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rapidCode: rapidCode
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        text: text
-        sliceMd5: sliceMd5
-        contentType: contentType
         storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
         key: key
         startAt: 2000-01-23T04:56:07.000+00:00
-        storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
         storageObject:
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 1
@@ -16015,25 +16148,12 @@ components:
           storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
           key: key
           md5: md5
-        doneAt: 2000-01-23T04:56:07.000+00:00
-        syncVersion: 7
-        notifyAt: 2000-01-23T04:56:07.000+00:00
-        notifyTimingType: notifyTimingType
-        format: format
-        priority: 5
-        endAt: 2000-01-23T04:56:07.000+00:00
-        lastModifierDeviceToken: lastModifierDeviceToken
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         url: url
         isHidden: true
-        notifyTimingValue: 5
-        size: 0
         repeatOffAt: 2000-01-23T04:56:07.000+00:00
-        name: name
         notifyTimingUnit: notifyTimingUnit
-        storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         md5: md5
       properties:
         id:
@@ -16066,6 +16186,8 @@ components:
         description:
           type: string
         text:
+          type: string
+        content:
           type: string
         format:
           type: string
@@ -16152,16 +16274,41 @@ components:
           type: string
         lastModifierDevice:
           type: string
+        app:
+          type: string
       type: object
     PuupeeDtoPagedResultDto:
       example:
         totalCount: 9
         items:
         - tagging: tagging
-          extension: extension
-          creationTime: 2000-01-23T04:56:07.000+00:00
           repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          type: type
+          displayStyle: displayStyle
+          password: password
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          text: text
+          sliceMd5: sliceMd5
+          contentType: contentType
+          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+          app: app
+          doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 7
+          notifyAt: 2000-01-23T04:56:07.000+00:00
+          notifyTimingType: notifyTimingType
+          format: format
+          priority: 5
+          endAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierDeviceToken: lastModifierDeviceToken
+          notifyTimingValue: 5
+          size: 0
+          name: name
+          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -16187,25 +16334,17 @@ components:
             md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
           title: title
-          type: type
-          displayStyle: displayStyle
-          password: password
+          content: content
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
           lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          text: text
-          sliceMd5: sliceMd5
-          contentType: contentType
           storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
           key: key
           startAt: 2000-01-23T04:56:07.000+00:00
-          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -16229,31 +16368,41 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
-          doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 7
-          notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: notifyTimingType
-          format: format
-          priority: 5
-          endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 5
-          size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
-          name: name
           notifyTimingUnit: notifyTimingUnit
-          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
         - tagging: tagging
-          extension: extension
-          creationTime: 2000-01-23T04:56:07.000+00:00
           repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          type: type
+          displayStyle: displayStyle
+          password: password
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          text: text
+          sliceMd5: sliceMd5
+          contentType: contentType
+          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+          app: app
+          doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 7
+          notifyAt: 2000-01-23T04:56:07.000+00:00
+          notifyTimingType: notifyTimingType
+          format: format
+          priority: 5
+          endAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierDeviceToken: lastModifierDeviceToken
+          notifyTimingValue: 5
+          size: 0
+          name: name
+          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -16279,25 +16428,17 @@ components:
             md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
           title: title
-          type: type
-          displayStyle: displayStyle
-          password: password
+          content: content
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
           lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          text: text
-          sliceMd5: sliceMd5
-          contentType: contentType
           storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
           key: key
           startAt: 2000-01-23T04:56:07.000+00:00
-          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -16321,25 +16462,12 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
-          doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 7
-          notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: notifyTimingType
-          format: format
-          priority: 5
-          endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 5
-          size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
-          name: name
           notifyTimingUnit: notifyTimingUnit
-          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
       properties:
         items:
@@ -16881,10 +17009,33 @@ components:
         createdAt: 2000-01-23T04:56:07.000+00:00
         puupee:
           tagging: tagging
-          extension: extension
-          creationTime: 2000-01-23T04:56:07.000+00:00
           repeatOffTimes: 2
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          type: type
+          displayStyle: displayStyle
+          password: password
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          text: text
+          sliceMd5: sliceMd5
+          contentType: contentType
+          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
+          app: app
+          doneAt: 2000-01-23T04:56:07.000+00:00
+          syncVersion: 7
+          notifyAt: 2000-01-23T04:56:07.000+00:00
+          notifyTimingType: notifyTimingType
+          format: format
+          priority: 5
+          endAt: 2000-01-23T04:56:07.000+00:00
+          lastModifierDeviceToken: lastModifierDeviceToken
+          notifyTimingValue: 5
+          size: 0
+          name: name
+          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extension: extension
+          creationTime: 2000-01-23T04:56:07.000+00:00
           thumb:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -16910,25 +17061,17 @@ components:
             md5: md5
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
-          deletionTime: 2000-01-23T04:56:07.000+00:00
           title: title
-          type: type
-          displayStyle: displayStyle
-          password: password
+          content: content
           storageClass: storageClass
           isDeleted: true
           repeat: repeat
           lastModifierDevice: lastModifierDevice
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           rapidCode: rapidCode
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          text: text
-          sliceMd5: sliceMd5
-          contentType: contentType
           storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
           key: key
           startAt: 2000-01-23T04:56:07.000+00:00
-          storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
           storageObject:
             storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
             syncVersion: 1
@@ -16952,25 +17095,12 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
-          doneAt: 2000-01-23T04:56:07.000+00:00
-          syncVersion: 7
-          notifyAt: 2000-01-23T04:56:07.000+00:00
-          notifyTimingType: notifyTimingType
-          format: format
-          priority: 5
-          endAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierDeviceToken: lastModifierDeviceToken
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
           isHidden: true
-          notifyTimingValue: 5
-          size: 0
           repeatOffAt: 2000-01-23T04:56:07.000+00:00
-          name: name
           notifyTimingUnit: notifyTimingUnit
-          storageObjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           md5: md5
       properties:
         createdAt:

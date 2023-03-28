@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **SortIndex** | Pointer to **int32** |  | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
+**IsEnabled** | Pointer to **bool** |  | [optional] 
+**IsPublished** | Pointer to **bool** |  | [optional] 
 **LatestReleases** | Pointer to [**[]AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
 **Creator** | Pointer to [**IdentityUserDto**](IdentityUserDto.md) |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
@@ -495,6 +497,56 @@ SetGitRepositoryType sets GitRepositoryType field to given value.
 `func (o *AppDto) HasGitRepositoryType() bool`
 
 HasGitRepositoryType returns a boolean if a field has been set.
+
+### GetIsEnabled
+
+`func (o *AppDto) GetIsEnabled() bool`
+
+GetIsEnabled returns the IsEnabled field if non-nil, zero value otherwise.
+
+### GetIsEnabledOk
+
+`func (o *AppDto) GetIsEnabledOk() (*bool, bool)`
+
+GetIsEnabledOk returns a tuple with the IsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsEnabled
+
+`func (o *AppDto) SetIsEnabled(v bool)`
+
+SetIsEnabled sets IsEnabled field to given value.
+
+### HasIsEnabled
+
+`func (o *AppDto) HasIsEnabled() bool`
+
+HasIsEnabled returns a boolean if a field has been set.
+
+### GetIsPublished
+
+`func (o *AppDto) GetIsPublished() bool`
+
+GetIsPublished returns the IsPublished field if non-nil, zero value otherwise.
+
+### GetIsPublishedOk
+
+`func (o *AppDto) GetIsPublishedOk() (*bool, bool)`
+
+GetIsPublishedOk returns a tuple with the IsPublished field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPublished
+
+`func (o *AppDto) SetIsPublished(v bool)`
+
+SetIsPublished sets IsPublished field to given value.
+
+### HasIsPublished
+
+`func (o *AppDto) HasIsPublished() bool`
+
+HasIsPublished returns a boolean if a field has been set.
 
 ### GetLatestReleases
 
