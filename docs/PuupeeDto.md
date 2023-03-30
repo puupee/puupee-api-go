@@ -48,12 +48,14 @@ Name | Type | Description | Notes
 **Repeat** | Pointer to **string** |  | [optional] 
 **RepeatOffAt** | Pointer to **time.Time** |  | [optional] 
 **RepeatOffTimes** | Pointer to **int32** |  | [optional] 
+**Repetitions** | Pointer to **int32** |  | [optional] 
 **SyncVersion** | Pointer to **int64** |  | [optional] 
 **IsHidden** | Pointer to **bool** |  | [optional] 
 **Tagging** | Pointer to **string** |  | [optional] 
 **LastModifierDeviceToken** | Pointer to **string** |  | [optional] 
 **LastModifierDevice** | Pointer to **string** |  | [optional] 
 **App** | Pointer to **string** |  | [optional] 
+**SortIndex** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -1174,6 +1176,31 @@ SetRepeatOffTimes sets RepeatOffTimes field to given value.
 
 HasRepeatOffTimes returns a boolean if a field has been set.
 
+### GetRepetitions
+
+`func (o *PuupeeDto) GetRepetitions() int32`
+
+GetRepetitions returns the Repetitions field if non-nil, zero value otherwise.
+
+### GetRepetitionsOk
+
+`func (o *PuupeeDto) GetRepetitionsOk() (*int32, bool)`
+
+GetRepetitionsOk returns a tuple with the Repetitions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepetitions
+
+`func (o *PuupeeDto) SetRepetitions(v int32)`
+
+SetRepetitions sets Repetitions field to given value.
+
+### HasRepetitions
+
+`func (o *PuupeeDto) HasRepetitions() bool`
+
+HasRepetitions returns a boolean if a field has been set.
+
 ### GetSyncVersion
 
 `func (o *PuupeeDto) GetSyncVersion() int64`
@@ -1323,6 +1350,31 @@ SetApp sets App field to given value.
 `func (o *PuupeeDto) HasApp() bool`
 
 HasApp returns a boolean if a field has been set.
+
+### GetSortIndex
+
+`func (o *PuupeeDto) GetSortIndex() int32`
+
+GetSortIndex returns the SortIndex field if non-nil, zero value otherwise.
+
+### GetSortIndexOk
+
+`func (o *PuupeeDto) GetSortIndexOk() (*int32, bool)`
+
+GetSortIndexOk returns a tuple with the SortIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSortIndex
+
+`func (o *PuupeeDto) SetSortIndex(v int32)`
+
+SetSortIndex sets SortIndex field to given value.
+
+### HasSortIndex
+
+`func (o *PuupeeDto) HasSortIndex() bool`
+
+HasSortIndex returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

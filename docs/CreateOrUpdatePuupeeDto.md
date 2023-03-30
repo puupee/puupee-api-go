@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **Repeat** | Pointer to **string** |  | [optional] 
 **RepeatOffAt** | Pointer to **time.Time** |  | [optional] 
 **RepeatOffTimes** | Pointer to **int32** |  | [optional] 
+**Repetitions** | Pointer to **int32** |  | [optional] 
 **IsDone** | Pointer to **bool** |  | [optional] 
 **DoneAt** | Pointer to **time.Time** |  | [optional] 
 **CreatorId** | Pointer to **string** |  | [optional] 
@@ -51,6 +52,8 @@ Name | Type | Description | Notes
 **LastModifierDeviceToken** | Pointer to **string** |  | [optional] 
 **LastModifierDevice** | Pointer to **string** |  | [optional] 
 **App** | Pointer to **string** |  | [optional] 
+**PushToUser** | Pointer to **bool** |  | [optional] 
+**SortIndex** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -961,6 +964,31 @@ SetRepeatOffTimes sets RepeatOffTimes field to given value.
 
 HasRepeatOffTimes returns a boolean if a field has been set.
 
+### GetRepetitions
+
+`func (o *CreateOrUpdatePuupeeDto) GetRepetitions() int32`
+
+GetRepetitions returns the Repetitions field if non-nil, zero value otherwise.
+
+### GetRepetitionsOk
+
+`func (o *CreateOrUpdatePuupeeDto) GetRepetitionsOk() (*int32, bool)`
+
+GetRepetitionsOk returns a tuple with the Repetitions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepetitions
+
+`func (o *CreateOrUpdatePuupeeDto) SetRepetitions(v int32)`
+
+SetRepetitions sets Repetitions field to given value.
+
+### HasRepetitions
+
+`func (o *CreateOrUpdatePuupeeDto) HasRepetitions() bool`
+
+HasRepetitions returns a boolean if a field has been set.
+
 ### GetIsDone
 
 `func (o *CreateOrUpdatePuupeeDto) GetIsDone() bool`
@@ -1235,6 +1263,56 @@ SetApp sets App field to given value.
 `func (o *CreateOrUpdatePuupeeDto) HasApp() bool`
 
 HasApp returns a boolean if a field has been set.
+
+### GetPushToUser
+
+`func (o *CreateOrUpdatePuupeeDto) GetPushToUser() bool`
+
+GetPushToUser returns the PushToUser field if non-nil, zero value otherwise.
+
+### GetPushToUserOk
+
+`func (o *CreateOrUpdatePuupeeDto) GetPushToUserOk() (*bool, bool)`
+
+GetPushToUserOk returns a tuple with the PushToUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPushToUser
+
+`func (o *CreateOrUpdatePuupeeDto) SetPushToUser(v bool)`
+
+SetPushToUser sets PushToUser field to given value.
+
+### HasPushToUser
+
+`func (o *CreateOrUpdatePuupeeDto) HasPushToUser() bool`
+
+HasPushToUser returns a boolean if a field has been set.
+
+### GetSortIndex
+
+`func (o *CreateOrUpdatePuupeeDto) GetSortIndex() int32`
+
+GetSortIndex returns the SortIndex field if non-nil, zero value otherwise.
+
+### GetSortIndexOk
+
+`func (o *CreateOrUpdatePuupeeDto) GetSortIndexOk() (*int32, bool)`
+
+GetSortIndexOk returns a tuple with the SortIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSortIndex
+
+`func (o *CreateOrUpdatePuupeeDto) SetSortIndex(v int32)`
+
+SetSortIndex sets SortIndex field to given value.
+
+### HasSortIndex
+
+`func (o *CreateOrUpdatePuupeeDto) HasSortIndex() bool`
+
+HasSortIndex returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

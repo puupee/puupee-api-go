@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **IsPublished** | Pointer to **bool** |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
 **Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
+**OpenClient** | Pointer to [**CreateOpenIddictApplicationDto**](CreateOpenIddictApplicationDto.md) |  | [optional] 
 
 ## Methods
 
@@ -387,6 +388,31 @@ SetSdks sets Sdks field to given value.
 `func (o *CreateOrUpdateAppDto) HasSdks() bool`
 
 HasSdks returns a boolean if a field has been set.
+
+### GetOpenClient
+
+`func (o *CreateOrUpdateAppDto) GetOpenClient() CreateOpenIddictApplicationDto`
+
+GetOpenClient returns the OpenClient field if non-nil, zero value otherwise.
+
+### GetOpenClientOk
+
+`func (o *CreateOrUpdateAppDto) GetOpenClientOk() (*CreateOpenIddictApplicationDto, bool)`
+
+GetOpenClientOk returns a tuple with the OpenClient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOpenClient
+
+`func (o *CreateOrUpdateAppDto) SetOpenClient(v CreateOpenIddictApplicationDto)`
+
+SetOpenClient sets OpenClient field to given value.
+
+### HasOpenClient
+
+`func (o *CreateOrUpdateAppDto) HasOpenClient() bool`
+
+HasOpenClient returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
