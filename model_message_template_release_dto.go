@@ -15,8 +15,8 @@ import (
 	"time"
 )
 
-// MessageTemplateDto struct for MessageTemplateDto
-type MessageTemplateDto struct {
+// MessageTemplateReleaseDto struct for MessageTemplateReleaseDto
+type MessageTemplateReleaseDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
 	CreatorId *string `json:"creatorId,omitempty"`
@@ -25,30 +25,31 @@ type MessageTemplateDto struct {
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	LatestVersion *int32 `json:"latestVersion,omitempty"`
+	TemplateName *string `json:"templateName,omitempty"`
+	Version *int32 `json:"version,omitempty"`
+	Content *string `json:"content,omitempty"`
+	TemplateId *string `json:"templateId,omitempty"`
 }
 
-// NewMessageTemplateDto instantiates a new MessageTemplateDto object
+// NewMessageTemplateReleaseDto instantiates a new MessageTemplateReleaseDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMessageTemplateDto() *MessageTemplateDto {
-	this := MessageTemplateDto{}
+func NewMessageTemplateReleaseDto() *MessageTemplateReleaseDto {
+	this := MessageTemplateReleaseDto{}
 	return &this
 }
 
-// NewMessageTemplateDtoWithDefaults instantiates a new MessageTemplateDto object
+// NewMessageTemplateReleaseDtoWithDefaults instantiates a new MessageTemplateReleaseDto object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewMessageTemplateDtoWithDefaults() *MessageTemplateDto {
-	this := MessageTemplateDto{}
+func NewMessageTemplateReleaseDtoWithDefaults() *MessageTemplateReleaseDto {
+	this := MessageTemplateReleaseDto{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetId() string {
+func (o *MessageTemplateReleaseDto) GetId() string {
 	if o == nil || isNil(o.Id) {
 		var ret string
 		return ret
@@ -58,7 +59,7 @@ func (o *MessageTemplateDto) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetIdOk() (*string, bool) {
+func (o *MessageTemplateReleaseDto) GetIdOk() (*string, bool) {
 	if o == nil || isNil(o.Id) {
     return nil, false
 	}
@@ -66,7 +67,7 @@ func (o *MessageTemplateDto) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasId() bool {
+func (o *MessageTemplateReleaseDto) HasId() bool {
 	if o != nil && !isNil(o.Id) {
 		return true
 	}
@@ -75,12 +76,12 @@ func (o *MessageTemplateDto) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *MessageTemplateDto) SetId(v string) {
+func (o *MessageTemplateReleaseDto) SetId(v string) {
 	o.Id = &v
 }
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetCreationTime() time.Time {
+func (o *MessageTemplateReleaseDto) GetCreationTime() time.Time {
 	if o == nil || isNil(o.CreationTime) {
 		var ret time.Time
 		return ret
@@ -90,7 +91,7 @@ func (o *MessageTemplateDto) GetCreationTime() time.Time {
 
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetCreationTimeOk() (*time.Time, bool) {
+func (o *MessageTemplateReleaseDto) GetCreationTimeOk() (*time.Time, bool) {
 	if o == nil || isNil(o.CreationTime) {
     return nil, false
 	}
@@ -98,7 +99,7 @@ func (o *MessageTemplateDto) GetCreationTimeOk() (*time.Time, bool) {
 }
 
 // HasCreationTime returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasCreationTime() bool {
+func (o *MessageTemplateReleaseDto) HasCreationTime() bool {
 	if o != nil && !isNil(o.CreationTime) {
 		return true
 	}
@@ -107,12 +108,12 @@ func (o *MessageTemplateDto) HasCreationTime() bool {
 }
 
 // SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
-func (o *MessageTemplateDto) SetCreationTime(v time.Time) {
+func (o *MessageTemplateReleaseDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetCreatorId() string {
+func (o *MessageTemplateReleaseDto) GetCreatorId() string {
 	if o == nil || isNil(o.CreatorId) {
 		var ret string
 		return ret
@@ -122,7 +123,7 @@ func (o *MessageTemplateDto) GetCreatorId() string {
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetCreatorIdOk() (*string, bool) {
+func (o *MessageTemplateReleaseDto) GetCreatorIdOk() (*string, bool) {
 	if o == nil || isNil(o.CreatorId) {
     return nil, false
 	}
@@ -130,7 +131,7 @@ func (o *MessageTemplateDto) GetCreatorIdOk() (*string, bool) {
 }
 
 // HasCreatorId returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasCreatorId() bool {
+func (o *MessageTemplateReleaseDto) HasCreatorId() bool {
 	if o != nil && !isNil(o.CreatorId) {
 		return true
 	}
@@ -139,12 +140,12 @@ func (o *MessageTemplateDto) HasCreatorId() bool {
 }
 
 // SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
-func (o *MessageTemplateDto) SetCreatorId(v string) {
+func (o *MessageTemplateReleaseDto) SetCreatorId(v string) {
 	o.CreatorId = &v
 }
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetLastModificationTime() time.Time {
+func (o *MessageTemplateReleaseDto) GetLastModificationTime() time.Time {
 	if o == nil || isNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
@@ -154,7 +155,7 @@ func (o *MessageTemplateDto) GetLastModificationTime() time.Time {
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetLastModificationTimeOk() (*time.Time, bool) {
+func (o *MessageTemplateReleaseDto) GetLastModificationTimeOk() (*time.Time, bool) {
 	if o == nil || isNil(o.LastModificationTime) {
     return nil, false
 	}
@@ -162,7 +163,7 @@ func (o *MessageTemplateDto) GetLastModificationTimeOk() (*time.Time, bool) {
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasLastModificationTime() bool {
+func (o *MessageTemplateReleaseDto) HasLastModificationTime() bool {
 	if o != nil && !isNil(o.LastModificationTime) {
 		return true
 	}
@@ -171,12 +172,12 @@ func (o *MessageTemplateDto) HasLastModificationTime() bool {
 }
 
 // SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
-func (o *MessageTemplateDto) SetLastModificationTime(v time.Time) {
+func (o *MessageTemplateReleaseDto) SetLastModificationTime(v time.Time) {
 	o.LastModificationTime = &v
 }
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetLastModifierId() string {
+func (o *MessageTemplateReleaseDto) GetLastModifierId() string {
 	if o == nil || isNil(o.LastModifierId) {
 		var ret string
 		return ret
@@ -186,7 +187,7 @@ func (o *MessageTemplateDto) GetLastModifierId() string {
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetLastModifierIdOk() (*string, bool) {
+func (o *MessageTemplateReleaseDto) GetLastModifierIdOk() (*string, bool) {
 	if o == nil || isNil(o.LastModifierId) {
     return nil, false
 	}
@@ -194,7 +195,7 @@ func (o *MessageTemplateDto) GetLastModifierIdOk() (*string, bool) {
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasLastModifierId() bool {
+func (o *MessageTemplateReleaseDto) HasLastModifierId() bool {
 	if o != nil && !isNil(o.LastModifierId) {
 		return true
 	}
@@ -203,12 +204,12 @@ func (o *MessageTemplateDto) HasLastModifierId() bool {
 }
 
 // SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
-func (o *MessageTemplateDto) SetLastModifierId(v string) {
+func (o *MessageTemplateReleaseDto) SetLastModifierId(v string) {
 	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetIsDeleted() bool {
+func (o *MessageTemplateReleaseDto) GetIsDeleted() bool {
 	if o == nil || isNil(o.IsDeleted) {
 		var ret bool
 		return ret
@@ -218,7 +219,7 @@ func (o *MessageTemplateDto) GetIsDeleted() bool {
 
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetIsDeletedOk() (*bool, bool) {
+func (o *MessageTemplateReleaseDto) GetIsDeletedOk() (*bool, bool) {
 	if o == nil || isNil(o.IsDeleted) {
     return nil, false
 	}
@@ -226,7 +227,7 @@ func (o *MessageTemplateDto) GetIsDeletedOk() (*bool, bool) {
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasIsDeleted() bool {
+func (o *MessageTemplateReleaseDto) HasIsDeleted() bool {
 	if o != nil && !isNil(o.IsDeleted) {
 		return true
 	}
@@ -235,12 +236,12 @@ func (o *MessageTemplateDto) HasIsDeleted() bool {
 }
 
 // SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
-func (o *MessageTemplateDto) SetIsDeleted(v bool) {
+func (o *MessageTemplateReleaseDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetDeleterId() string {
+func (o *MessageTemplateReleaseDto) GetDeleterId() string {
 	if o == nil || isNil(o.DeleterId) {
 		var ret string
 		return ret
@@ -250,7 +251,7 @@ func (o *MessageTemplateDto) GetDeleterId() string {
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetDeleterIdOk() (*string, bool) {
+func (o *MessageTemplateReleaseDto) GetDeleterIdOk() (*string, bool) {
 	if o == nil || isNil(o.DeleterId) {
     return nil, false
 	}
@@ -258,7 +259,7 @@ func (o *MessageTemplateDto) GetDeleterIdOk() (*string, bool) {
 }
 
 // HasDeleterId returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasDeleterId() bool {
+func (o *MessageTemplateReleaseDto) HasDeleterId() bool {
 	if o != nil && !isNil(o.DeleterId) {
 		return true
 	}
@@ -267,12 +268,12 @@ func (o *MessageTemplateDto) HasDeleterId() bool {
 }
 
 // SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
-func (o *MessageTemplateDto) SetDeleterId(v string) {
+func (o *MessageTemplateReleaseDto) SetDeleterId(v string) {
 	o.DeleterId = &v
 }
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetDeletionTime() time.Time {
+func (o *MessageTemplateReleaseDto) GetDeletionTime() time.Time {
 	if o == nil || isNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
@@ -282,7 +283,7 @@ func (o *MessageTemplateDto) GetDeletionTime() time.Time {
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetDeletionTimeOk() (*time.Time, bool) {
+func (o *MessageTemplateReleaseDto) GetDeletionTimeOk() (*time.Time, bool) {
 	if o == nil || isNil(o.DeletionTime) {
     return nil, false
 	}
@@ -290,7 +291,7 @@ func (o *MessageTemplateDto) GetDeletionTimeOk() (*time.Time, bool) {
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasDeletionTime() bool {
+func (o *MessageTemplateReleaseDto) HasDeletionTime() bool {
 	if o != nil && !isNil(o.DeletionTime) {
 		return true
 	}
@@ -299,107 +300,139 @@ func (o *MessageTemplateDto) HasDeletionTime() bool {
 }
 
 // SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
-func (o *MessageTemplateDto) SetDeletionTime(v time.Time) {
+func (o *MessageTemplateReleaseDto) SetDeletionTime(v time.Time) {
 	o.DeletionTime = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+// GetTemplateName returns the TemplateName field value if set, zero value otherwise.
+func (o *MessageTemplateReleaseDto) GetTemplateName() string {
+	if o == nil || isNil(o.TemplateName) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.TemplateName
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetTemplateNameOk returns a tuple with the TemplateName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+func (o *MessageTemplateReleaseDto) GetTemplateNameOk() (*string, bool) {
+	if o == nil || isNil(o.TemplateName) {
     return nil, false
 	}
-	return o.Name, true
+	return o.TemplateName, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+// HasTemplateName returns a boolean if a field has been set.
+func (o *MessageTemplateReleaseDto) HasTemplateName() bool {
+	if o != nil && !isNil(o.TemplateName) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *MessageTemplateDto) SetName(v string) {
-	o.Name = &v
+// SetTemplateName gets a reference to the given string and assigns it to the TemplateName field.
+func (o *MessageTemplateReleaseDto) SetTemplateName(v string) {
+	o.TemplateName = &v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
-		var ret string
-		return ret
-	}
-	return *o.Description
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
-	}
-	return o.Description, true
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *MessageTemplateDto) SetDescription(v string) {
-	o.Description = &v
-}
-
-// GetLatestVersion returns the LatestVersion field value if set, zero value otherwise.
-func (o *MessageTemplateDto) GetLatestVersion() int32 {
-	if o == nil || isNil(o.LatestVersion) {
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *MessageTemplateReleaseDto) GetVersion() int32 {
+	if o == nil || isNil(o.Version) {
 		var ret int32
 		return ret
 	}
-	return *o.LatestVersion
+	return *o.Version
 }
 
-// GetLatestVersionOk returns a tuple with the LatestVersion field value if set, nil otherwise
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessageTemplateDto) GetLatestVersionOk() (*int32, bool) {
-	if o == nil || isNil(o.LatestVersion) {
+func (o *MessageTemplateReleaseDto) GetVersionOk() (*int32, bool) {
+	if o == nil || isNil(o.Version) {
     return nil, false
 	}
-	return o.LatestVersion, true
+	return o.Version, true
 }
 
-// HasLatestVersion returns a boolean if a field has been set.
-func (o *MessageTemplateDto) HasLatestVersion() bool {
-	if o != nil && !isNil(o.LatestVersion) {
+// HasVersion returns a boolean if a field has been set.
+func (o *MessageTemplateReleaseDto) HasVersion() bool {
+	if o != nil && !isNil(o.Version) {
 		return true
 	}
 
 	return false
 }
 
-// SetLatestVersion gets a reference to the given int32 and assigns it to the LatestVersion field.
-func (o *MessageTemplateDto) SetLatestVersion(v int32) {
-	o.LatestVersion = &v
+// SetVersion gets a reference to the given int32 and assigns it to the Version field.
+func (o *MessageTemplateReleaseDto) SetVersion(v int32) {
+	o.Version = &v
 }
 
-func (o MessageTemplateDto) MarshalJSON() ([]byte, error) {
+// GetContent returns the Content field value if set, zero value otherwise.
+func (o *MessageTemplateReleaseDto) GetContent() string {
+	if o == nil || isNil(o.Content) {
+		var ret string
+		return ret
+	}
+	return *o.Content
+}
+
+// GetContentOk returns a tuple with the Content field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MessageTemplateReleaseDto) GetContentOk() (*string, bool) {
+	if o == nil || isNil(o.Content) {
+    return nil, false
+	}
+	return o.Content, true
+}
+
+// HasContent returns a boolean if a field has been set.
+func (o *MessageTemplateReleaseDto) HasContent() bool {
+	if o != nil && !isNil(o.Content) {
+		return true
+	}
+
+	return false
+}
+
+// SetContent gets a reference to the given string and assigns it to the Content field.
+func (o *MessageTemplateReleaseDto) SetContent(v string) {
+	o.Content = &v
+}
+
+// GetTemplateId returns the TemplateId field value if set, zero value otherwise.
+func (o *MessageTemplateReleaseDto) GetTemplateId() string {
+	if o == nil || isNil(o.TemplateId) {
+		var ret string
+		return ret
+	}
+	return *o.TemplateId
+}
+
+// GetTemplateIdOk returns a tuple with the TemplateId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MessageTemplateReleaseDto) GetTemplateIdOk() (*string, bool) {
+	if o == nil || isNil(o.TemplateId) {
+    return nil, false
+	}
+	return o.TemplateId, true
+}
+
+// HasTemplateId returns a boolean if a field has been set.
+func (o *MessageTemplateReleaseDto) HasTemplateId() bool {
+	if o != nil && !isNil(o.TemplateId) {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateId gets a reference to the given string and assigns it to the TemplateId field.
+func (o *MessageTemplateReleaseDto) SetTemplateId(v string) {
+	o.TemplateId = &v
+}
+
+func (o MessageTemplateReleaseDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -425,50 +458,53 @@ func (o MessageTemplateDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.DeletionTime) {
 		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if !isNil(o.TemplateName) {
+		toSerialize["templateName"] = o.TemplateName
 	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if !isNil(o.Version) {
+		toSerialize["version"] = o.Version
 	}
-	if !isNil(o.LatestVersion) {
-		toSerialize["latestVersion"] = o.LatestVersion
+	if !isNil(o.Content) {
+		toSerialize["content"] = o.Content
+	}
+	if !isNil(o.TemplateId) {
+		toSerialize["templateId"] = o.TemplateId
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableMessageTemplateDto struct {
-	value *MessageTemplateDto
+type NullableMessageTemplateReleaseDto struct {
+	value *MessageTemplateReleaseDto
 	isSet bool
 }
 
-func (v NullableMessageTemplateDto) Get() *MessageTemplateDto {
+func (v NullableMessageTemplateReleaseDto) Get() *MessageTemplateReleaseDto {
 	return v.value
 }
 
-func (v *NullableMessageTemplateDto) Set(val *MessageTemplateDto) {
+func (v *NullableMessageTemplateReleaseDto) Set(val *MessageTemplateReleaseDto) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableMessageTemplateDto) IsSet() bool {
+func (v NullableMessageTemplateReleaseDto) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableMessageTemplateDto) Unset() {
+func (v *NullableMessageTemplateReleaseDto) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableMessageTemplateDto(val *MessageTemplateDto) *NullableMessageTemplateDto {
-	return &NullableMessageTemplateDto{value: val, isSet: true}
+func NewNullableMessageTemplateReleaseDto(val *MessageTemplateReleaseDto) *NullableMessageTemplateReleaseDto {
+	return &NullableMessageTemplateReleaseDto{value: val, isSet: true}
 }
 
-func (v NullableMessageTemplateDto) MarshalJSON() ([]byte, error) {
+func (v NullableMessageTemplateReleaseDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableMessageTemplateDto) UnmarshalJSON(src []byte) error {
+func (v *NullableMessageTemplateReleaseDto) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -16,8 +16,6 @@ import (
 
 // CreateMessageTemplateReleaseDto struct for CreateMessageTemplateReleaseDto
 type CreateMessageTemplateReleaseDto struct {
-	TemplateName *string `json:"templateName,omitempty"`
-	Version *int32 `json:"version,omitempty"`
 	Content *string `json:"content,omitempty"`
 	TemplateId *string `json:"templateId,omitempty"`
 }
@@ -37,70 +35,6 @@ func NewCreateMessageTemplateReleaseDto() *CreateMessageTemplateReleaseDto {
 func NewCreateMessageTemplateReleaseDtoWithDefaults() *CreateMessageTemplateReleaseDto {
 	this := CreateMessageTemplateReleaseDto{}
 	return &this
-}
-
-// GetTemplateName returns the TemplateName field value if set, zero value otherwise.
-func (o *CreateMessageTemplateReleaseDto) GetTemplateName() string {
-	if o == nil || isNil(o.TemplateName) {
-		var ret string
-		return ret
-	}
-	return *o.TemplateName
-}
-
-// GetTemplateNameOk returns a tuple with the TemplateName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateMessageTemplateReleaseDto) GetTemplateNameOk() (*string, bool) {
-	if o == nil || isNil(o.TemplateName) {
-    return nil, false
-	}
-	return o.TemplateName, true
-}
-
-// HasTemplateName returns a boolean if a field has been set.
-func (o *CreateMessageTemplateReleaseDto) HasTemplateName() bool {
-	if o != nil && !isNil(o.TemplateName) {
-		return true
-	}
-
-	return false
-}
-
-// SetTemplateName gets a reference to the given string and assigns it to the TemplateName field.
-func (o *CreateMessageTemplateReleaseDto) SetTemplateName(v string) {
-	o.TemplateName = &v
-}
-
-// GetVersion returns the Version field value if set, zero value otherwise.
-func (o *CreateMessageTemplateReleaseDto) GetVersion() int32 {
-	if o == nil || isNil(o.Version) {
-		var ret int32
-		return ret
-	}
-	return *o.Version
-}
-
-// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateMessageTemplateReleaseDto) GetVersionOk() (*int32, bool) {
-	if o == nil || isNil(o.Version) {
-    return nil, false
-	}
-	return o.Version, true
-}
-
-// HasVersion returns a boolean if a field has been set.
-func (o *CreateMessageTemplateReleaseDto) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersion gets a reference to the given int32 and assigns it to the Version field.
-func (o *CreateMessageTemplateReleaseDto) SetVersion(v int32) {
-	o.Version = &v
 }
 
 // GetContent returns the Content field value if set, zero value otherwise.
@@ -169,12 +103,6 @@ func (o *CreateMessageTemplateReleaseDto) SetTemplateId(v string) {
 
 func (o CreateMessageTemplateReleaseDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.TemplateName) {
-		toSerialize["templateName"] = o.TemplateName
-	}
-	if !isNil(o.Version) {
-		toSerialize["version"] = o.Version
-	}
 	if !isNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}

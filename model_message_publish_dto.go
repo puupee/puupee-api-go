@@ -20,7 +20,7 @@ type MessagePublishDto struct {
 	Description *string `json:"description,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	Template *string `json:"template,omitempty"`
-	Data map[string]interface{} `json:"data,omitempty"`
+	Data map[string]map[string]interface{} `json:"data,omitempty"`
 }
 
 // NewMessagePublishDto instantiates a new MessagePublishDto object
@@ -169,9 +169,9 @@ func (o *MessagePublishDto) SetTemplate(v string) {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *MessagePublishDto) GetData() map[string]interface{} {
+func (o *MessagePublishDto) GetData() map[string]map[string]interface{} {
 	if o == nil || isNil(o.Data) {
-		var ret map[string]interface{}
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.Data
@@ -179,9 +179,9 @@ func (o *MessagePublishDto) GetData() map[string]interface{} {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MessagePublishDto) GetDataOk() (map[string]interface{}, bool) {
+func (o *MessagePublishDto) GetDataOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || isNil(o.Data) {
-    return map[string]interface{}{}, false
+    return map[string]map[string]interface{}{}, false
 	}
 	return o.Data, true
 }
@@ -195,8 +195,8 @@ func (o *MessagePublishDto) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given map[string]interface{} and assigns it to the Data field.
-func (o *MessagePublishDto) SetData(v map[string]interface{}) {
+// SetData gets a reference to the given map[string]map[string]interface{} and assigns it to the Data field.
+func (o *MessagePublishDto) SetData(v map[string]map[string]interface{}) {
 	o.Data = v
 }
 

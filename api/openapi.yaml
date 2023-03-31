@@ -1741,6 +1741,122 @@ paths:
           description: Server Error
       tags:
       - App
+  /api/app/app/public:
+    get:
+      parameters:
+      - in: query
+        name: Type
+        schema:
+          type: string
+      - in: query
+        name: SearchKey
+        schema:
+          type: string
+      - in: query
+        name: Sorting
+        schema:
+          type: string
+      - in: query
+        name: SkipCount
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+      - in: query
+        name: MaxResultCount
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppDtoPagedResultDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - App
   /api/app/app/by-developer-all:
     get:
       parameters:
@@ -15031,16 +15147,9 @@ components:
       type: object
     CreateMessageTemplateReleaseDto:
       example:
-        templateName: templateName
         templateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        version: 0
         content: content
       properties:
-        templateName:
-          type: string
-        version:
-          format: int32
-          type: integer
         content:
           type: string
         templateId:
@@ -17068,7 +17177,8 @@ components:
     MessagePublishDto:
       example:
         template: template
-        data: "{}"
+        data:
+          key: "{}"
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         title: title
@@ -17083,6 +17193,8 @@ components:
         template:
           type: string
         data:
+          additionalProperties:
+            type: object
           type: object
       type: object
     MessageRecallDto:
@@ -17103,10 +17215,41 @@ components:
       type: object
     MessageTemplateDto:
       example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         latestVersion: 0
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
         name:
           type: string
         description:
@@ -17116,6 +17259,53 @@ components:
           type: integer
       type: object
     MessageTemplateReleaseDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        templateName: templateName
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        templateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        version: 0
+        content: content
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        templateName:
+          type: string
+        version:
+          format: int32
+          type: integer
+        content:
+          type: string
+        templateId:
+          format: uuid
+          type: string
       type: object
     MessageUnsubscribeDto:
       example:

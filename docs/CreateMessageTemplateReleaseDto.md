@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplateName** | Pointer to **string** |  | [optional] 
-**Version** | Pointer to **int32** |  | [optional] 
 **Content** | Pointer to **string** |  | [optional] 
 **TemplateId** | Pointer to **string** |  | [optional] 
 
@@ -27,56 +25,6 @@ will change when the set of required properties is changed
 NewCreateMessageTemplateReleaseDtoWithDefaults instantiates a new CreateMessageTemplateReleaseDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTemplateName
-
-`func (o *CreateMessageTemplateReleaseDto) GetTemplateName() string`
-
-GetTemplateName returns the TemplateName field if non-nil, zero value otherwise.
-
-### GetTemplateNameOk
-
-`func (o *CreateMessageTemplateReleaseDto) GetTemplateNameOk() (*string, bool)`
-
-GetTemplateNameOk returns a tuple with the TemplateName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTemplateName
-
-`func (o *CreateMessageTemplateReleaseDto) SetTemplateName(v string)`
-
-SetTemplateName sets TemplateName field to given value.
-
-### HasTemplateName
-
-`func (o *CreateMessageTemplateReleaseDto) HasTemplateName() bool`
-
-HasTemplateName returns a boolean if a field has been set.
-
-### GetVersion
-
-`func (o *CreateMessageTemplateReleaseDto) GetVersion() int32`
-
-GetVersion returns the Version field if non-nil, zero value otherwise.
-
-### GetVersionOk
-
-`func (o *CreateMessageTemplateReleaseDto) GetVersionOk() (*int32, bool)`
-
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVersion
-
-`func (o *CreateMessageTemplateReleaseDto) SetVersion(v int32)`
-
-SetVersion sets Version field to given value.
-
-### HasVersion
-
-`func (o *CreateMessageTemplateReleaseDto) HasVersion() bool`
-
-HasVersion returns a boolean if a field has been set.
 
 ### GetContent
 

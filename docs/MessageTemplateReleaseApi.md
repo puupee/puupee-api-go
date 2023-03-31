@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ApiAppMessageTemplateReleaseGet
 
-> []map[string]interface{} ApiAppMessageTemplateReleaseGet(ctx).TemplateId(templateId).Execute()
+> []MessageTemplateReleaseDto ApiAppMessageTemplateReleaseGet(ctx).TemplateId(templateId).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.ApiAppMessageTemplateReleaseGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageTemplateReleaseGet`: []map[string]interface{}
+    // response from `ApiAppMessageTemplateReleaseGet`: []MessageTemplateReleaseDto
     fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.ApiAppMessageTemplateReleaseGet`: %v\n", resp)
 }
 ```
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]map[string]interface{}**
+[**[]MessageTemplateReleaseDto**](MessageTemplateReleaseDto.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageTemplateReleaseIdGet
 
-> map[string]interface{} ApiAppMessageTemplateReleaseIdGet(ctx, id).Execute()
+> MessageTemplateReleaseDto ApiAppMessageTemplateReleaseIdGet(ctx, id).Execute()
 
 
 
@@ -102,7 +102,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.ApiAppMessageTemplateReleaseIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageTemplateReleaseIdGet`: map[string]interface{}
+    // response from `ApiAppMessageTemplateReleaseIdGet`: MessageTemplateReleaseDto
     fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.ApiAppMessageTemplateReleaseIdGet`: %v\n", resp)
 }
 ```
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**MessageTemplateReleaseDto**](MessageTemplateReleaseDto.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageTemplateReleasePost
 
-> map[string]interface{} ApiAppMessageTemplateReleasePost(ctx).Body(body).Execute()
+> MessageTemplateReleaseDto ApiAppMessageTemplateReleasePost(ctx).Body(body).Execute()
 
 
 
@@ -170,7 +170,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.ApiAppMessageTemplateReleasePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageTemplateReleasePost`: map[string]interface{}
+    // response from `ApiAppMessageTemplateReleasePost`: MessageTemplateReleaseDto
     fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.ApiAppMessageTemplateReleasePost`: %v\n", resp)
 }
 ```
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**MessageTemplateReleaseDto**](MessageTemplateReleaseDto.md)
 
 ### Authorization
 

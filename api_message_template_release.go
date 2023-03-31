@@ -34,7 +34,7 @@ func (r ApiApiAppMessageTemplateReleaseGetRequest) TemplateId(templateId string)
 	return r
 }
 
-func (r ApiApiAppMessageTemplateReleaseGetRequest) Execute() ([]map[string]interface{}, *http.Response, error) {
+func (r ApiApiAppMessageTemplateReleaseGetRequest) Execute() ([]MessageTemplateReleaseDto, *http.Response, error) {
 	return r.ApiService.ApiAppMessageTemplateReleaseGetExecute(r)
 }
 
@@ -52,13 +52,13 @@ func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseGet(ctx c
 }
 
 // Execute executes the request
-//  @return []map[string]interface{}
-func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseGetExecute(r ApiApiAppMessageTemplateReleaseGetRequest) ([]map[string]interface{}, *http.Response, error) {
+//  @return []MessageTemplateReleaseDto
+func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseGetExecute(r ApiApiAppMessageTemplateReleaseGetRequest) ([]MessageTemplateReleaseDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []MessageTemplateReleaseDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageTemplateReleaseApiService.ApiAppMessageTemplateReleaseGet")
@@ -200,7 +200,7 @@ type ApiApiAppMessageTemplateReleaseIdGetRequest struct {
 	id string
 }
 
-func (r ApiApiAppMessageTemplateReleaseIdGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiApiAppMessageTemplateReleaseIdGetRequest) Execute() (*MessageTemplateReleaseDto, *http.Response, error) {
 	return r.ApiService.ApiAppMessageTemplateReleaseIdGetExecute(r)
 }
 
@@ -220,13 +220,13 @@ func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseIdGet(ctx
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseIdGetExecute(r ApiApiAppMessageTemplateReleaseIdGetRequest) (map[string]interface{}, *http.Response, error) {
+//  @return MessageTemplateReleaseDto
+func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseIdGetExecute(r ApiApiAppMessageTemplateReleaseIdGetRequest) (*MessageTemplateReleaseDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *MessageTemplateReleaseDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageTemplateReleaseApiService.ApiAppMessageTemplateReleaseIdGet")
@@ -371,7 +371,7 @@ func (r ApiApiAppMessageTemplateReleasePostRequest) Body(body CreateMessageTempl
 	return r
 }
 
-func (r ApiApiAppMessageTemplateReleasePostRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiApiAppMessageTemplateReleasePostRequest) Execute() (*MessageTemplateReleaseDto, *http.Response, error) {
 	return r.ApiService.ApiAppMessageTemplateReleasePostExecute(r)
 }
 
@@ -389,13 +389,13 @@ func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleasePost(ctx 
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleasePostExecute(r ApiApiAppMessageTemplateReleasePostRequest) (map[string]interface{}, *http.Response, error) {
+//  @return MessageTemplateReleaseDto
+func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleasePostExecute(r ApiApiAppMessageTemplateReleasePostRequest) (*MessageTemplateReleaseDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *MessageTemplateReleaseDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageTemplateReleaseApiService.ApiAppMessageTemplateReleasePost")

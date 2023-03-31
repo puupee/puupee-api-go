@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **Template** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to **map[string]interface{}** |  | [optional] 
+**Data** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -131,20 +131,20 @@ HasTemplate returns a boolean if a field has been set.
 
 ### GetData
 
-`func (o *MessagePublishDto) GetData() map[string]interface{}`
+`func (o *MessagePublishDto) GetData() map[string]map[string]interface{}`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *MessagePublishDto) GetDataOk() (*map[string]interface{}, bool)`
+`func (o *MessagePublishDto) GetDataOk() (*map[string]map[string]interface{}, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *MessagePublishDto) SetData(v map[string]interface{})`
+`func (o *MessagePublishDto) SetData(v map[string]map[string]interface{})`
 
 SetData sets Data field to given value.
 
