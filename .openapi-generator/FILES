@@ -176,6 +176,8 @@ docs/ProfileApi.md
 docs/ProfileDto.md
 docs/PropertyApiDescriptionModel.md
 docs/ProviderInfoDto.md
+docs/PublicAppDto.md
+docs/PublicAppDtoPagedResultDto.md
 docs/PuupeeApi.md
 docs/PuupeeChangedEto.md
 docs/PuupeeDto.md
@@ -350,6 +352,8 @@ model_permission_group_dto.go
 model_profile_dto.go
 model_property_api_description_model.go
 model_provider_info_dto.go
+model_public_app_dto.go
+model_public_app_dto_paged_result_dto.go
 model_puupee_changed_eto.go
 model_puupee_dto.go
 model_puupee_dto_paged_result_dto.go

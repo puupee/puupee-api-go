@@ -1434,7 +1434,7 @@ func (r ApiApiAppAppPublicGetRequest) MaxResultCount(maxResultCount int32) ApiAp
 	return r
 }
 
-func (r ApiApiAppAppPublicGetRequest) Execute() (*AppDtoPagedResultDto, *http.Response, error) {
+func (r ApiApiAppAppPublicGetRequest) Execute() (*PublicAppDtoPagedResultDto, *http.Response, error) {
 	return r.ApiService.ApiAppAppPublicGetExecute(r)
 }
 
@@ -1452,13 +1452,13 @@ func (a *AppApiService) ApiAppAppPublicGet(ctx context.Context) ApiApiAppAppPubl
 }
 
 // Execute executes the request
-//  @return AppDtoPagedResultDto
-func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest) (*AppDtoPagedResultDto, *http.Response, error) {
+//  @return PublicAppDtoPagedResultDto
+func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest) (*PublicAppDtoPagedResultDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDtoPagedResultDto
+		localVarReturnValue  *PublicAppDtoPagedResultDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppPublicGet")

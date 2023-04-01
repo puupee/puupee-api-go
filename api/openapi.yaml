@@ -1775,13 +1775,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/AppDtoPagedResultDto'
+                $ref: '#/components/schemas/PublicAppDtoPagedResultDto'
             application/json:
               schema:
-                $ref: '#/components/schemas/AppDtoPagedResultDto'
+                $ref: '#/components/schemas/PublicAppDtoPagedResultDto'
             text/json:
               schema:
-                $ref: '#/components/schemas/AppDtoPagedResultDto'
+                $ref: '#/components/schemas/PublicAppDtoPagedResultDto'
           description: Success
         "403":
           content:
@@ -17882,6 +17882,534 @@ components:
           type: string
         providerKey:
           type: string
+      type: object
+    PublicAppDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        sortIndex: 0
+        displayName: displayName
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        icon: icon
+        description: description
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        sdks:
+        - privacyUrl: privacyUrl
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          privacy: privacy
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          homePage: homePage
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - privacyUrl: privacyUrl
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          privacy: privacy
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          homePage: homePage
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        homePage: homePage
+        features:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isDeleted: true
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details: details
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          screenshotKeys: screenshotKeys
+        subscribed: true
+        isDeleted: true
+        appType: appType
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        latestReleases:
+        - notes: notes
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          downloadUrl: downloadUrl
+          channel: channel
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          versionName: versionName
+          platform: platform
+          isDeleted: true
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          key: key
+          productType: productType
+          version: version
+          versionCode: 6
+          environment: environment
+          size: 1
+          isEnabled: true
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isForceUpdate: true
+          md5: md5
+        - notes: notes
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          downloadUrl: downloadUrl
+          channel: channel
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          versionName: versionName
+          platform: platform
+          isDeleted: true
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          rapidCode: rapidCode
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sliceMd5: sliceMd5
+          key: key
+          productType: productType
+          version: version
+          versionCode: 6
+          environment: environment
+          size: 1
+          isEnabled: true
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isForceUpdate: true
+          md5: md5
+        creator:
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          emailConfirmed: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          lockoutEnabled: true
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extraProperties:
+            key: "{}"
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          userName: userName
+          isActive: true
+          phoneNumberConfirmed: true
+          phoneNumber: phoneNumber
+          isDeleted: true
+          surname: surname
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          concurrencyStamp: concurrencyStamp
+          email: email
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+        isPublished: true
+        gitRepositoryType: gitRepositoryType
+        gitRepository: gitRepository
+        framework: framework
+        isEnabled: true
+        name: name
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        framework:
+          type: string
+        appType:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+        homePage:
+          type: string
+        sortIndex:
+          format: int32
+          type: integer
+        gitRepository:
+          type: string
+        gitRepositoryType:
+          type: string
+        isEnabled:
+          type: boolean
+        isPublished:
+          type: boolean
+        latestReleases:
+          items:
+            $ref: '#/components/schemas/AppReleaseDto'
+          type: array
+        creator:
+          $ref: '#/components/schemas/IdentityUserDto'
+        features:
+          items:
+            $ref: '#/components/schemas/AppFeatureDto'
+          type: array
+        sdks:
+          items:
+            $ref: '#/components/schemas/AppSdkDto'
+          type: array
+        subscribed:
+          type: boolean
+      type: object
+    PublicAppDtoPagedResultDto:
+      example:
+        totalCount: 6
+        items:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 0
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          icon: icon
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          sdks:
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          homePage: homePage
+          features:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
+          subscribed: true
+          isDeleted: true
+          appType: appType
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          latestReleases:
+          - notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            downloadUrl: downloadUrl
+            channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            versionName: versionName
+            platform: platform
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            key: key
+            productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isForceUpdate: true
+            md5: md5
+          - notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            downloadUrl: downloadUrl
+            channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            versionName: versionName
+            platform: platform
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            key: key
+            productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isForceUpdate: true
+            md5: md5
+          creator:
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            emailConfirmed: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            lockoutEnabled: true
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            extraProperties:
+              key: "{}"
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            userName: userName
+            isActive: true
+            phoneNumberConfirmed: true
+            phoneNumber: phoneNumber
+            isDeleted: true
+            surname: surname
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            concurrencyStamp: concurrencyStamp
+            email: email
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          isPublished: true
+          gitRepositoryType: gitRepositoryType
+          gitRepository: gitRepository
+          framework: framework
+          isEnabled: true
+          name: name
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 0
+          displayName: displayName
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          icon: icon
+          description: description
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          sdks:
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - privacyUrl: privacyUrl
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            privacy: privacy
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            homePage: homePage
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          homePage: homePage
+          features:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            displayName: displayName
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            isDeleted: true
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            details: details
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            screenshotKeys: screenshotKeys
+          subscribed: true
+          isDeleted: true
+          appType: appType
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          latestReleases:
+          - notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            downloadUrl: downloadUrl
+            channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            versionName: versionName
+            platform: platform
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            key: key
+            productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isForceUpdate: true
+            md5: md5
+          - notes: notes
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            downloadUrl: downloadUrl
+            channel: channel
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            versionName: versionName
+            platform: platform
+            isDeleted: true
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            rapidCode: rapidCode
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            sliceMd5: sliceMd5
+            key: key
+            productType: productType
+            version: version
+            versionCode: 6
+            environment: environment
+            size: 1
+            isEnabled: true
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            isForceUpdate: true
+            md5: md5
+          creator:
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            emailConfirmed: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            lockoutEnabled: true
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            extraProperties:
+              key: "{}"
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            userName: userName
+            isActive: true
+            phoneNumberConfirmed: true
+            phoneNumber: phoneNumber
+            isDeleted: true
+            surname: surname
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            concurrencyStamp: concurrencyStamp
+            email: email
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          isPublished: true
+          gitRepositoryType: gitRepositoryType
+          gitRepository: gitRepository
+          framework: framework
+          isEnabled: true
+          name: name
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/PublicAppDto'
+          type: array
+        totalCount:
+          format: int64
+          type: integer
       type: object
     PuupeeChangedEto:
       example:
