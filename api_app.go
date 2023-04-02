@@ -1055,25 +1055,31 @@ func (a *AppApiService) ApiAppAppIdGetExecute(r ApiApiAppAppIdGetRequest) (*AppD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppIdPublicGetRequest struct {
+type ApiApiAppAppIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
+	body *CreateOrUpdateAppDto
 }
 
-func (r ApiApiAppAppIdPublicGetRequest) Execute() (*PublicAppDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppIdPublicGetExecute(r)
+func (r ApiApiAppAppIdPutRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiApiAppAppIdPutRequest) Execute() (*AppDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppIdPutExecute(r)
 }
 
 /*
-ApiAppAppIdPublicGet Method for ApiAppAppIdPublicGet
+ApiAppAppIdPut Method for ApiAppAppIdPut
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
- @return ApiApiAppAppIdPublicGetRequest
+ @return ApiApiAppAppIdPutRequest
 */
-func (a *AppApiService) ApiAppAppIdPublicGet(ctx context.Context, id string) ApiApiAppAppIdPublicGetRequest {
-	return ApiApiAppAppIdPublicGetRequest{
+func (a *AppApiService) ApiAppAppIdPut(ctx context.Context, id string) ApiApiAppAppIdPutRequest {
+	return ApiApiAppAppIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1081,21 +1087,21 @@ func (a *AppApiService) ApiAppAppIdPublicGet(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-//  @return PublicAppDto
-func (a *AppApiService) ApiAppAppIdPublicGetExecute(r ApiApiAppAppIdPublicGetRequest) (*PublicAppDto, *http.Response, error) {
+//  @return AppDto
+func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppDto, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PublicAppDto
+		localVarReturnValue  *AppDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdPublicGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdPut")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/{id}/public"
+	localVarPath := localBasePath + "/api/app/app/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1103,7 +1109,7 @@ func (a *AppApiService) ApiAppAppIdPublicGetExecute(r ApiApiAppAppIdPublicGetReq
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1119,6 +1125,8 @@ func (a *AppApiService) ApiAppAppIdPublicGetExecute(r ApiApiAppAppIdPublicGetReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1221,31 +1229,25 @@ func (a *AppApiService) ApiAppAppIdPublicGetExecute(r ApiApiAppAppIdPublicGetReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppIdPutRequest struct {
+type ApiApiAppAppIdWithUserGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
-	body *CreateOrUpdateAppDto
 }
 
-func (r ApiApiAppAppIdPutRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
-	r.body = &body
-	return r
-}
-
-func (r ApiApiAppAppIdPutRequest) Execute() (*AppDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppIdPutExecute(r)
+func (r ApiApiAppAppIdWithUserGetRequest) Execute() (*PublicAppDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppIdWithUserGetExecute(r)
 }
 
 /*
-ApiAppAppIdPut Method for ApiAppAppIdPut
+ApiAppAppIdWithUserGet Method for ApiAppAppIdWithUserGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
- @return ApiApiAppAppIdPutRequest
+ @return ApiApiAppAppIdWithUserGetRequest
 */
-func (a *AppApiService) ApiAppAppIdPut(ctx context.Context, id string) ApiApiAppAppIdPutRequest {
-	return ApiApiAppAppIdPutRequest{
+func (a *AppApiService) ApiAppAppIdWithUserGet(ctx context.Context, id string) ApiApiAppAppIdWithUserGetRequest {
+	return ApiApiAppAppIdWithUserGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1253,21 +1255,21 @@ func (a *AppApiService) ApiAppAppIdPut(ctx context.Context, id string) ApiApiApp
 }
 
 // Execute executes the request
-//  @return AppDto
-func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppDto, *http.Response, error) {
+//  @return PublicAppDto
+func (a *AppApiService) ApiAppAppIdWithUserGetExecute(r ApiApiAppAppIdWithUserGetRequest) (*PublicAppDto, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppDto
+		localVarReturnValue  *PublicAppDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdWithUserGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/{id}"
+	localVarPath := localBasePath + "/api/app/app/{id}/with-user"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1275,7 +1277,7 @@ func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppD
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/*+json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1291,8 +1293,6 @@ func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppD
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

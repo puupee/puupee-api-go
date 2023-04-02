@@ -1459,7 +1459,7 @@ paths:
       tags:
       - App
       x-codegen-request-body-name: body
-  /api/app/app/{id}/public:
+  /api/app/app/{id}/with-user:
     get:
       parameters:
       - in: path

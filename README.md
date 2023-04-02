@@ -94,8 +94,8 @@ Class | Method | HTTP request | Description
 *AppApi* | [**ApiAppAppGet**](docs/AppApi.md#apiappappget) | **Get** /api/app/app | 
 *AppApi* | [**ApiAppAppIdDelete**](docs/AppApi.md#apiappappiddelete) | **Delete** /api/app/app/{id} | 
 *AppApi* | [**ApiAppAppIdGet**](docs/AppApi.md#apiappappidget) | **Get** /api/app/app/{id} | 
-*AppApi* | [**ApiAppAppIdPublicGet**](docs/AppApi.md#apiappappidpublicget) | **Get** /api/app/app/{id}/public | 
 *AppApi* | [**ApiAppAppIdPut**](docs/AppApi.md#apiappappidput) | **Put** /api/app/app/{id} | 
+*AppApi* | [**ApiAppAppIdWithUserGet**](docs/AppApi.md#apiappappidwithuserget) | **Get** /api/app/app/{id}/with-user | 
 *AppApi* | [**ApiAppAppPost**](docs/AppApi.md#apiappapppost) | **Post** /api/app/app | 
 *AppApi* | [**ApiAppAppPublicGet**](docs/AppApi.md#apiappapppublicget) | **Get** /api/app/app/public | 
 *AppApi* | [**ApiAppAppUploadCredentialsGet**](docs/AppApi.md#apiappappuploadcredentialsget) | **Get** /api/app/app/upload-credentials | 

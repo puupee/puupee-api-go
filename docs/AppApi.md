@@ -10,8 +10,8 @@ Method | HTTP request | Description
 [**ApiAppAppGet**](AppApi.md#ApiAppAppGet) | **Get** /api/app/app | 
 [**ApiAppAppIdDelete**](AppApi.md#ApiAppAppIdDelete) | **Delete** /api/app/app/{id} | 
 [**ApiAppAppIdGet**](AppApi.md#ApiAppAppIdGet) | **Get** /api/app/app/{id} | 
-[**ApiAppAppIdPublicGet**](AppApi.md#ApiAppAppIdPublicGet) | **Get** /api/app/app/{id}/public | 
 [**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
+[**ApiAppAppIdWithUserGet**](AppApi.md#ApiAppAppIdWithUserGet) | **Get** /api/app/app/{id}/with-user | 
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
 [**ApiAppAppPublicGet**](AppApi.md#ApiAppAppPublicGet) | **Get** /api/app/app/public | 
 [**ApiAppAppUploadCredentialsGet**](AppApi.md#ApiAppAppUploadCredentialsGet) | **Get** /api/app/app/upload-credentials | 
@@ -414,74 +414,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppIdPublicGet
-
-> PublicAppDto ApiAppAppIdPublicGet(ctx, id).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdPublicGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdPublicGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppIdPublicGet`: PublicAppDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdPublicGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppIdPublicGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**PublicAppDto**](PublicAppDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ApiAppAppIdPut
 
 > AppDto ApiAppAppIdPut(ctx, id).Body(body).Execute()
@@ -545,6 +477,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppAppIdWithUserGet
+
+> PublicAppDto ApiAppAppIdWithUserGet(ctx, id).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppAppIdWithUserGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdWithUserGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppIdWithUserGet`: PublicAppDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdWithUserGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppIdWithUserGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PublicAppDto**](PublicAppDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
