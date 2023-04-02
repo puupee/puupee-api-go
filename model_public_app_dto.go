@@ -37,6 +37,9 @@ type PublicAppDto struct {
 	GitRepositoryType *string `json:"gitRepositoryType,omitempty"`
 	IsEnabled *bool `json:"isEnabled,omitempty"`
 	IsPublished *bool `json:"isPublished,omitempty"`
+	WebhookUrl *string `json:"webhookUrl,omitempty"`
+	BusinessDomain *string `json:"businessDomain,omitempty"`
+	BusinessUrl *string `json:"businessUrl,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
 	Creator *IdentityUserDto `json:"creator,omitempty"`
 	Features []AppFeatureDto `json:"features,omitempty"`
@@ -701,6 +704,102 @@ func (o *PublicAppDto) SetIsPublished(v bool) {
 	o.IsPublished = &v
 }
 
+// GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
+func (o *PublicAppDto) GetWebhookUrl() string {
+	if o == nil || isNil(o.WebhookUrl) {
+		var ret string
+		return ret
+	}
+	return *o.WebhookUrl
+}
+
+// GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicAppDto) GetWebhookUrlOk() (*string, bool) {
+	if o == nil || isNil(o.WebhookUrl) {
+    return nil, false
+	}
+	return o.WebhookUrl, true
+}
+
+// HasWebhookUrl returns a boolean if a field has been set.
+func (o *PublicAppDto) HasWebhookUrl() bool {
+	if o != nil && !isNil(o.WebhookUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetWebhookUrl gets a reference to the given string and assigns it to the WebhookUrl field.
+func (o *PublicAppDto) SetWebhookUrl(v string) {
+	o.WebhookUrl = &v
+}
+
+// GetBusinessDomain returns the BusinessDomain field value if set, zero value otherwise.
+func (o *PublicAppDto) GetBusinessDomain() string {
+	if o == nil || isNil(o.BusinessDomain) {
+		var ret string
+		return ret
+	}
+	return *o.BusinessDomain
+}
+
+// GetBusinessDomainOk returns a tuple with the BusinessDomain field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicAppDto) GetBusinessDomainOk() (*string, bool) {
+	if o == nil || isNil(o.BusinessDomain) {
+    return nil, false
+	}
+	return o.BusinessDomain, true
+}
+
+// HasBusinessDomain returns a boolean if a field has been set.
+func (o *PublicAppDto) HasBusinessDomain() bool {
+	if o != nil && !isNil(o.BusinessDomain) {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessDomain gets a reference to the given string and assigns it to the BusinessDomain field.
+func (o *PublicAppDto) SetBusinessDomain(v string) {
+	o.BusinessDomain = &v
+}
+
+// GetBusinessUrl returns the BusinessUrl field value if set, zero value otherwise.
+func (o *PublicAppDto) GetBusinessUrl() string {
+	if o == nil || isNil(o.BusinessUrl) {
+		var ret string
+		return ret
+	}
+	return *o.BusinessUrl
+}
+
+// GetBusinessUrlOk returns a tuple with the BusinessUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PublicAppDto) GetBusinessUrlOk() (*string, bool) {
+	if o == nil || isNil(o.BusinessUrl) {
+    return nil, false
+	}
+	return o.BusinessUrl, true
+}
+
+// HasBusinessUrl returns a boolean if a field has been set.
+func (o *PublicAppDto) HasBusinessUrl() bool {
+	if o != nil && !isNil(o.BusinessUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetBusinessUrl gets a reference to the given string and assigns it to the BusinessUrl field.
+func (o *PublicAppDto) SetBusinessUrl(v string) {
+	o.BusinessUrl = &v
+}
+
 // GetLatestReleases returns the LatestReleases field value if set, zero value otherwise.
 func (o *PublicAppDto) GetLatestReleases() []AppReleaseDto {
 	if o == nil || isNil(o.LatestReleases) {
@@ -922,6 +1021,15 @@ func (o PublicAppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.IsPublished) {
 		toSerialize["isPublished"] = o.IsPublished
+	}
+	if !isNil(o.WebhookUrl) {
+		toSerialize["webhookUrl"] = o.WebhookUrl
+	}
+	if !isNil(o.BusinessDomain) {
+		toSerialize["businessDomain"] = o.BusinessDomain
+	}
+	if !isNil(o.BusinessUrl) {
+		toSerialize["businessUrl"] = o.BusinessUrl
 	}
 	if !isNil(o.LatestReleases) {
 		toSerialize["latestReleases"] = o.LatestReleases

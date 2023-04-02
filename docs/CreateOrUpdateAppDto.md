@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **GitRepository** | Pointer to **string** |  | [optional] 
 **GitRepositoryType** | Pointer to **string** |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
+**WebhookUrl** | Pointer to **string** |  | [optional] 
+**BusinessDomain** | Pointer to **string** |  | [optional] 
+**BusinessUrl** | Pointer to **string** |  | [optional] 
 **IsPublished** | Pointer to **bool** |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
 **Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
@@ -313,6 +316,81 @@ SetIsEnabled sets IsEnabled field to given value.
 `func (o *CreateOrUpdateAppDto) HasIsEnabled() bool`
 
 HasIsEnabled returns a boolean if a field has been set.
+
+### GetWebhookUrl
+
+`func (o *CreateOrUpdateAppDto) GetWebhookUrl() string`
+
+GetWebhookUrl returns the WebhookUrl field if non-nil, zero value otherwise.
+
+### GetWebhookUrlOk
+
+`func (o *CreateOrUpdateAppDto) GetWebhookUrlOk() (*string, bool)`
+
+GetWebhookUrlOk returns a tuple with the WebhookUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebhookUrl
+
+`func (o *CreateOrUpdateAppDto) SetWebhookUrl(v string)`
+
+SetWebhookUrl sets WebhookUrl field to given value.
+
+### HasWebhookUrl
+
+`func (o *CreateOrUpdateAppDto) HasWebhookUrl() bool`
+
+HasWebhookUrl returns a boolean if a field has been set.
+
+### GetBusinessDomain
+
+`func (o *CreateOrUpdateAppDto) GetBusinessDomain() string`
+
+GetBusinessDomain returns the BusinessDomain field if non-nil, zero value otherwise.
+
+### GetBusinessDomainOk
+
+`func (o *CreateOrUpdateAppDto) GetBusinessDomainOk() (*string, bool)`
+
+GetBusinessDomainOk returns a tuple with the BusinessDomain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessDomain
+
+`func (o *CreateOrUpdateAppDto) SetBusinessDomain(v string)`
+
+SetBusinessDomain sets BusinessDomain field to given value.
+
+### HasBusinessDomain
+
+`func (o *CreateOrUpdateAppDto) HasBusinessDomain() bool`
+
+HasBusinessDomain returns a boolean if a field has been set.
+
+### GetBusinessUrl
+
+`func (o *CreateOrUpdateAppDto) GetBusinessUrl() string`
+
+GetBusinessUrl returns the BusinessUrl field if non-nil, zero value otherwise.
+
+### GetBusinessUrlOk
+
+`func (o *CreateOrUpdateAppDto) GetBusinessUrlOk() (*string, bool)`
+
+GetBusinessUrlOk returns a tuple with the BusinessUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBusinessUrl
+
+`func (o *CreateOrUpdateAppDto) SetBusinessUrl(v string)`
+
+SetBusinessUrl sets BusinessUrl field to given value.
+
+### HasBusinessUrl
+
+`func (o *CreateOrUpdateAppDto) HasBusinessUrl() bool`
+
+HasBusinessUrl returns a boolean if a field has been set.
 
 ### GetIsPublished
 

@@ -13197,36 +13197,13 @@ components:
       type: object
     AppDto:
       example:
-        creator:
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          emailConfirmed: true
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
-          lockoutEnabled: true
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          extraProperties:
-            key: "{}"
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          userName: userName
-          isActive: true
-          phoneNumberConfirmed: true
-          phoneNumber: phoneNumber
-          isDeleted: true
-          surname: surname
-          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          concurrencyStamp: concurrencyStamp
-          email: email
-          lockoutEnd: 2000-01-23T04:56:07.000+00:00
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         sortIndex: 0
         displayName: displayName
-        isPublished: true
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         icon: icon
+        businessUrl: businessUrl
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
         sdks:
@@ -13257,7 +13234,6 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         homePage: homePage
-        gitRepositoryType: gitRepositoryType
         features:
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13285,15 +13261,10 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           screenshotKeys: screenshotKeys
-        gitRepository: gitRepository
-        framework: framework
         isDeleted: true
         appType: appType
-        isEnabled: true
-        name: name
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         latestReleases:
         - notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
@@ -13345,6 +13316,38 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
+        creator:
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          emailConfirmed: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          lockoutEnabled: true
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          extraProperties:
+            key: "{}"
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          userName: userName
+          isActive: true
+          phoneNumberConfirmed: true
+          phoneNumber: phoneNumber
+          isDeleted: true
+          surname: surname
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          concurrencyStamp: concurrencyStamp
+          email: email
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+        isPublished: true
+        gitRepositoryType: gitRepositoryType
+        webhookUrl: webhookUrl
+        gitRepository: gitRepository
+        framework: framework
+        isEnabled: true
+        name: name
+        businessDomain: businessDomain
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
           format: uuid
@@ -13394,6 +13397,12 @@ components:
           type: boolean
         isPublished:
           type: boolean
+        webhookUrl:
+          type: string
+        businessDomain:
+          type: string
+        businessUrl:
+          type: string
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -13413,36 +13422,13 @@ components:
       example:
         totalCount: 5
         items:
-        - creator:
-            creationTime: 2000-01-23T04:56:07.000+00:00
-            emailConfirmed: true
-            lastModificationTime: 2000-01-23T04:56:07.000+00:00
-            lockoutEnabled: true
-            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            extraProperties:
-              key: "{}"
-            deletionTime: 2000-01-23T04:56:07.000+00:00
-            userName: userName
-            isActive: true
-            phoneNumberConfirmed: true
-            phoneNumber: phoneNumber
-            isDeleted: true
-            surname: surname
-            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            name: name
-            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            concurrencyStamp: concurrencyStamp
-            email: email
-            lockoutEnd: 2000-01-23T04:56:07.000+00:00
-          creationTime: 2000-01-23T04:56:07.000+00:00
+        - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           sortIndex: 0
           displayName: displayName
-          isPublished: true
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
+          businessUrl: businessUrl
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           sdks:
@@ -13473,7 +13459,6 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           homePage: homePage
-          gitRepositoryType: gitRepositoryType
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13501,15 +13486,10 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             screenshotKeys: screenshotKeys
-          gitRepository: gitRepository
-          framework: framework
           isDeleted: true
           appType: appType
-          isEnabled: true
-          name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           latestReleases:
           - notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
@@ -13561,7 +13541,7 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
-        - creator:
+          creator:
             creationTime: 2000-01-23T04:56:07.000+00:00
             emailConfirmed: true
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13584,13 +13564,22 @@ components:
             concurrencyStamp: concurrencyStamp
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
-          creationTime: 2000-01-23T04:56:07.000+00:00
+          isPublished: true
+          gitRepositoryType: gitRepositoryType
+          webhookUrl: webhookUrl
+          gitRepository: gitRepository
+          framework: framework
+          isEnabled: true
+          name: name
+          businessDomain: businessDomain
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           sortIndex: 0
           displayName: displayName
-          isPublished: true
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
+          businessUrl: businessUrl
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           sdks:
@@ -13621,7 +13610,6 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           homePage: homePage
-          gitRepositoryType: gitRepositoryType
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13649,15 +13637,10 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             screenshotKeys: screenshotKeys
-          gitRepository: gitRepository
-          framework: framework
           isDeleted: true
           appType: appType
-          isEnabled: true
-          name: name
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           latestReleases:
           - notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
@@ -13709,6 +13692,38 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
+          creator:
+            creationTime: 2000-01-23T04:56:07.000+00:00
+            emailConfirmed: true
+            lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            lockoutEnabled: true
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            extraProperties:
+              key: "{}"
+            deletionTime: 2000-01-23T04:56:07.000+00:00
+            userName: userName
+            isActive: true
+            phoneNumberConfirmed: true
+            phoneNumber: phoneNumber
+            isDeleted: true
+            surname: surname
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            concurrencyStamp: concurrencyStamp
+            email: email
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          isPublished: true
+          gitRepositoryType: gitRepositoryType
+          webhookUrl: webhookUrl
+          gitRepository: gitRepository
+          framework: framework
+          isEnabled: true
+          name: name
+          businessDomain: businessDomain
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         items:
           items:
@@ -15214,6 +15229,7 @@ components:
         displayName: displayName
         isPublished: true
         icon: icon
+        businessUrl: businessUrl
         description: description
         sdks:
         - privacyUrl: privacyUrl
@@ -15244,6 +15260,7 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         homePage: homePage
         gitRepositoryType: gitRepositoryType
+        webhookUrl: webhookUrl
         features:
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15295,6 +15312,7 @@ components:
         appType: appType
         isEnabled: true
         name: name
+        businessDomain: businessDomain
       properties:
         name:
           type: string
@@ -15319,6 +15337,12 @@ components:
           type: string
         isEnabled:
           type: boolean
+        webhookUrl:
+          type: string
+        businessDomain:
+          type: string
+        businessUrl:
+          type: string
         isPublished:
           type: boolean
         features:
@@ -17891,6 +17915,7 @@ components:
         displayName: displayName
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         icon: icon
+        businessUrl: businessUrl
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
         sdks:
@@ -18029,10 +18054,12 @@ components:
           lockoutEnd: 2000-01-23T04:56:07.000+00:00
         isPublished: true
         gitRepositoryType: gitRepositoryType
+        webhookUrl: webhookUrl
         gitRepository: gitRepository
         framework: framework
         isEnabled: true
         name: name
+        businessDomain: businessDomain
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
@@ -18083,6 +18110,12 @@ components:
           type: boolean
         isPublished:
           type: boolean
+        webhookUrl:
+          type: string
+        businessDomain:
+          type: string
+        businessUrl:
+          type: string
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -18110,6 +18143,7 @@ components:
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
+          businessUrl: businessUrl
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           sdks:
@@ -18248,10 +18282,12 @@ components:
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
           gitRepositoryType: gitRepositoryType
+          webhookUrl: webhookUrl
           gitRepository: gitRepository
           framework: framework
           isEnabled: true
           name: name
+          businessDomain: businessDomain
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -18259,6 +18295,7 @@ components:
           displayName: displayName
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           icon: icon
+          businessUrl: businessUrl
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           sdks:
@@ -18397,10 +18434,12 @@ components:
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
           gitRepositoryType: gitRepositoryType
+          webhookUrl: webhookUrl
           gitRepository: gitRepository
           framework: framework
           isEnabled: true
           name: name
+          businessDomain: businessDomain
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         items:
