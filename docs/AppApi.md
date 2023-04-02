@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppIdWithUserGet
 
-> PublicAppDto ApiAppAppIdWithUserGet(ctx, id).Execute()
+> AppWithUserDto ApiAppAppIdWithUserGet(ctx, id).Execute()
 
 
 
@@ -512,7 +512,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdWithUserGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppIdWithUserGet`: PublicAppDto
+    // response from `ApiAppAppIdWithUserGet`: AppWithUserDto
     fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdWithUserGet`: %v\n", resp)
 }
 ```
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAppDto**](PublicAppDto.md)
+[**AppWithUserDto**](AppWithUserDto.md)
 
 ### Authorization
 
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppPublicGet
 
-> PublicAppDtoPagedResultDto ApiAppAppPublicGet(ctx).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppWithUserDtoPagedResultDto ApiAppAppPublicGet(ctx).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -648,7 +648,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppPublicGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppPublicGet`: PublicAppDtoPagedResultDto
+    // response from `ApiAppAppPublicGet`: AppWithUserDtoPagedResultDto
     fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppPublicGet`: %v\n", resp)
 }
 ```
@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAppDtoPagedResultDto**](PublicAppDtoPagedResultDto.md)
+[**AppWithUserDtoPagedResultDto**](AppWithUserDtoPagedResultDto.md)
 
 ### Authorization
 

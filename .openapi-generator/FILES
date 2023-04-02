@@ -66,6 +66,8 @@ docs/AppTheme.md
 docs/AppThemeMode.md
 docs/AppUserScoreApi.md
 docs/AppUserScoreDto.md
+docs/AppWithUserDto.md
+docs/AppWithUserDtoPagedResultDto.md
 docs/ApplicationApiDescriptionModel.md
 docs/ApplicationAuthConfigurationDto.md
 docs/ApplicationConfigurationDto.md
@@ -176,8 +178,6 @@ docs/ProfileApi.md
 docs/ProfileDto.md
 docs/PropertyApiDescriptionModel.md
 docs/ProviderInfoDto.md
-docs/PublicAppDto.md
-docs/PublicAppDtoPagedResultDto.md
 docs/PuupeeApi.md
 docs/PuupeeChangedEto.md
 docs/PuupeeDto.md
@@ -253,6 +253,8 @@ model_app_sdk_dto.go
 model_app_theme.go
 model_app_theme_mode.go
 model_app_user_score_dto.go
+model_app_with_user_dto.go
+model_app_with_user_dto_paged_result_dto.go
 model_application_api_description_model.go
 model_application_auth_configuration_dto.go
 model_application_configuration_dto.go
@@ -352,8 +354,6 @@ model_permission_group_dto.go
 model_profile_dto.go
 model_property_api_description_model.go
 model_provider_info_dto.go
-model_public_app_dto.go
-model_public_app_dto_paged_result_dto.go
 model_puupee_changed_eto.go
 model_puupee_dto.go
 model_puupee_dto_paged_result_dto.go

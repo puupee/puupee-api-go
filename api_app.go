@@ -1235,7 +1235,7 @@ type ApiApiAppAppIdWithUserGetRequest struct {
 	id string
 }
 
-func (r ApiApiAppAppIdWithUserGetRequest) Execute() (*PublicAppDto, *http.Response, error) {
+func (r ApiApiAppAppIdWithUserGetRequest) Execute() (*AppWithUserDto, *http.Response, error) {
 	return r.ApiService.ApiAppAppIdWithUserGetExecute(r)
 }
 
@@ -1255,13 +1255,13 @@ func (a *AppApiService) ApiAppAppIdWithUserGet(ctx context.Context, id string) A
 }
 
 // Execute executes the request
-//  @return PublicAppDto
-func (a *AppApiService) ApiAppAppIdWithUserGetExecute(r ApiApiAppAppIdWithUserGetRequest) (*PublicAppDto, *http.Response, error) {
+//  @return AppWithUserDto
+func (a *AppApiService) ApiAppAppIdWithUserGetExecute(r ApiApiAppAppIdWithUserGetRequest) (*AppWithUserDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PublicAppDto
+		localVarReturnValue  *AppWithUserDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppIdWithUserGet")
@@ -1600,7 +1600,7 @@ func (r ApiApiAppAppPublicGetRequest) MaxResultCount(maxResultCount int32) ApiAp
 	return r
 }
 
-func (r ApiApiAppAppPublicGetRequest) Execute() (*PublicAppDtoPagedResultDto, *http.Response, error) {
+func (r ApiApiAppAppPublicGetRequest) Execute() (*AppWithUserDtoPagedResultDto, *http.Response, error) {
 	return r.ApiService.ApiAppAppPublicGetExecute(r)
 }
 
@@ -1618,13 +1618,13 @@ func (a *AppApiService) ApiAppAppPublicGet(ctx context.Context) ApiApiAppAppPubl
 }
 
 // Execute executes the request
-//  @return PublicAppDtoPagedResultDto
-func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest) (*PublicAppDtoPagedResultDto, *http.Response, error) {
+//  @return AppWithUserDtoPagedResultDto
+func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest) (*AppWithUserDtoPagedResultDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PublicAppDtoPagedResultDto
+		localVarReturnValue  *AppWithUserDtoPagedResultDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppPublicGet")
