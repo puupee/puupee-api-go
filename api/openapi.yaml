@@ -1837,7 +1837,7 @@ paths:
           description: Server Error
       tags:
       - App
-  /api/app/app/public:
+  /api/app/app/with-user:
     get:
       parameters:
       - in: query

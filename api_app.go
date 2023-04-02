@@ -1565,93 +1565,57 @@ func (a *AppApiService) ApiAppAppPostExecute(r ApiApiAppAppPostRequest) (*AppDto
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppPublicGetRequest struct {
+type ApiApiAppAppUploadCredentialsGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	type_ *string
-	searchKey *string
-	sorting *string
-	skipCount *int32
-	maxResultCount *int32
+	key *string
 }
 
-func (r ApiApiAppAppPublicGetRequest) Type_(type_ string) ApiApiAppAppPublicGetRequest {
-	r.type_ = &type_
+func (r ApiApiAppAppUploadCredentialsGetRequest) Key(key string) ApiApiAppAppUploadCredentialsGetRequest {
+	r.key = &key
 	return r
 }
 
-func (r ApiApiAppAppPublicGetRequest) SearchKey(searchKey string) ApiApiAppAppPublicGetRequest {
-	r.searchKey = &searchKey
-	return r
-}
-
-func (r ApiApiAppAppPublicGetRequest) Sorting(sorting string) ApiApiAppAppPublicGetRequest {
-	r.sorting = &sorting
-	return r
-}
-
-func (r ApiApiAppAppPublicGetRequest) SkipCount(skipCount int32) ApiApiAppAppPublicGetRequest {
-	r.skipCount = &skipCount
-	return r
-}
-
-func (r ApiApiAppAppPublicGetRequest) MaxResultCount(maxResultCount int32) ApiApiAppAppPublicGetRequest {
-	r.maxResultCount = &maxResultCount
-	return r
-}
-
-func (r ApiApiAppAppPublicGetRequest) Execute() (*AppWithUserDtoPagedResultDto, *http.Response, error) {
-	return r.ApiService.ApiAppAppPublicGetExecute(r)
+func (r ApiApiAppAppUploadCredentialsGetRequest) Execute() (*StorageObjectCredentials, *http.Response, error) {
+	return r.ApiService.ApiAppAppUploadCredentialsGetExecute(r)
 }
 
 /*
-ApiAppAppPublicGet Method for ApiAppAppPublicGet
+ApiAppAppUploadCredentialsGet Method for ApiAppAppUploadCredentialsGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppPublicGetRequest
+ @return ApiApiAppAppUploadCredentialsGetRequest
 */
-func (a *AppApiService) ApiAppAppPublicGet(ctx context.Context) ApiApiAppAppPublicGetRequest {
-	return ApiApiAppAppPublicGetRequest{
+func (a *AppApiService) ApiAppAppUploadCredentialsGet(ctx context.Context) ApiApiAppAppUploadCredentialsGetRequest {
+	return ApiApiAppAppUploadCredentialsGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppWithUserDtoPagedResultDto
-func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest) (*AppWithUserDtoPagedResultDto, *http.Response, error) {
+//  @return StorageObjectCredentials
+func (a *AppApiService) ApiAppAppUploadCredentialsGetExecute(r ApiApiAppAppUploadCredentialsGetRequest) (*StorageObjectCredentials, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppWithUserDtoPagedResultDto
+		localVarReturnValue  *StorageObjectCredentials
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppPublicGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppUploadCredentialsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/public"
+	localVarPath := localBasePath + "/api/app/app/upload-credentials"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.type_ != nil {
-		localVarQueryParams.Add("Type", parameterToString(*r.type_, ""))
-	}
-	if r.searchKey != nil {
-		localVarQueryParams.Add("SearchKey", parameterToString(*r.searchKey, ""))
-	}
-	if r.sorting != nil {
-		localVarQueryParams.Add("Sorting", parameterToString(*r.sorting, ""))
-	}
-	if r.skipCount != nil {
-		localVarQueryParams.Add("SkipCount", parameterToString(*r.skipCount, ""))
-	}
-	if r.maxResultCount != nil {
-		localVarQueryParams.Add("MaxResultCount", parameterToString(*r.maxResultCount, ""))
+	if r.key != nil {
+		localVarQueryParams.Add("key", parameterToString(*r.key, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1772,57 +1736,93 @@ func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiApiAppAppUploadCredentialsGetRequest struct {
+type ApiApiAppAppWithUserGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	key *string
+	type_ *string
+	searchKey *string
+	sorting *string
+	skipCount *int32
+	maxResultCount *int32
 }
 
-func (r ApiApiAppAppUploadCredentialsGetRequest) Key(key string) ApiApiAppAppUploadCredentialsGetRequest {
-	r.key = &key
+func (r ApiApiAppAppWithUserGetRequest) Type_(type_ string) ApiApiAppAppWithUserGetRequest {
+	r.type_ = &type_
 	return r
 }
 
-func (r ApiApiAppAppUploadCredentialsGetRequest) Execute() (*StorageObjectCredentials, *http.Response, error) {
-	return r.ApiService.ApiAppAppUploadCredentialsGetExecute(r)
+func (r ApiApiAppAppWithUserGetRequest) SearchKey(searchKey string) ApiApiAppAppWithUserGetRequest {
+	r.searchKey = &searchKey
+	return r
+}
+
+func (r ApiApiAppAppWithUserGetRequest) Sorting(sorting string) ApiApiAppAppWithUserGetRequest {
+	r.sorting = &sorting
+	return r
+}
+
+func (r ApiApiAppAppWithUserGetRequest) SkipCount(skipCount int32) ApiApiAppAppWithUserGetRequest {
+	r.skipCount = &skipCount
+	return r
+}
+
+func (r ApiApiAppAppWithUserGetRequest) MaxResultCount(maxResultCount int32) ApiApiAppAppWithUserGetRequest {
+	r.maxResultCount = &maxResultCount
+	return r
+}
+
+func (r ApiApiAppAppWithUserGetRequest) Execute() (*AppWithUserDtoPagedResultDto, *http.Response, error) {
+	return r.ApiService.ApiAppAppWithUserGetExecute(r)
 }
 
 /*
-ApiAppAppUploadCredentialsGet Method for ApiAppAppUploadCredentialsGet
+ApiAppAppWithUserGet Method for ApiAppAppWithUserGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppAppUploadCredentialsGetRequest
+ @return ApiApiAppAppWithUserGetRequest
 */
-func (a *AppApiService) ApiAppAppUploadCredentialsGet(ctx context.Context) ApiApiAppAppUploadCredentialsGetRequest {
-	return ApiApiAppAppUploadCredentialsGetRequest{
+func (a *AppApiService) ApiAppAppWithUserGet(ctx context.Context) ApiApiAppAppWithUserGetRequest {
+	return ApiApiAppAppWithUserGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return StorageObjectCredentials
-func (a *AppApiService) ApiAppAppUploadCredentialsGetExecute(r ApiApiAppAppUploadCredentialsGetRequest) (*StorageObjectCredentials, *http.Response, error) {
+//  @return AppWithUserDtoPagedResultDto
+func (a *AppApiService) ApiAppAppWithUserGetExecute(r ApiApiAppAppWithUserGetRequest) (*AppWithUserDtoPagedResultDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StorageObjectCredentials
+		localVarReturnValue  *AppWithUserDtoPagedResultDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppUploadCredentialsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppAppWithUserGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/app/upload-credentials"
+	localVarPath := localBasePath + "/api/app/app/with-user"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.key != nil {
-		localVarQueryParams.Add("key", parameterToString(*r.key, ""))
+	if r.type_ != nil {
+		localVarQueryParams.Add("Type", parameterToString(*r.type_, ""))
+	}
+	if r.searchKey != nil {
+		localVarQueryParams.Add("SearchKey", parameterToString(*r.searchKey, ""))
+	}
+	if r.sorting != nil {
+		localVarQueryParams.Add("Sorting", parameterToString(*r.sorting, ""))
+	}
+	if r.skipCount != nil {
+		localVarQueryParams.Add("SkipCount", parameterToString(*r.skipCount, ""))
+	}
+	if r.maxResultCount != nil {
+		localVarQueryParams.Add("MaxResultCount", parameterToString(*r.maxResultCount, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

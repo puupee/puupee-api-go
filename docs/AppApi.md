@@ -13,8 +13,8 @@ Method | HTTP request | Description
 [**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
 [**ApiAppAppIdWithUserGet**](AppApi.md#ApiAppAppIdWithUserGet) | **Get** /api/app/app/{id}/with-user | 
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
-[**ApiAppAppPublicGet**](AppApi.md#ApiAppAppPublicGet) | **Get** /api/app/app/public | 
 [**ApiAppAppUploadCredentialsGet**](AppApi.md#ApiAppAppUploadCredentialsGet) | **Get** /api/app/app/upload-credentials | 
+[**ApiAppAppWithUserGet**](AppApi.md#ApiAppAppWithUserGet) | **Get** /api/app/app/with-user | 
 
 
 
@@ -616,78 +616,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppPublicGet
-
-> AppWithUserDtoPagedResultDto ApiAppAppPublicGet(ctx).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    type_ := "type__example" // string |  (optional)
-    searchKey := "searchKey_example" // string |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppPublicGet(context.Background()).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppPublicGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppPublicGet`: AppWithUserDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppPublicGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppPublicGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type_** | **string** |  | 
- **searchKey** | **string** |  | 
- **sorting** | **string** |  | 
- **skipCount** | **int32** |  | 
- **maxResultCount** | **int32** |  | 
-
-### Return type
-
-[**AppWithUserDtoPagedResultDto**](AppWithUserDtoPagedResultDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ApiAppAppUploadCredentialsGet
 
 > StorageObjectCredentials ApiAppAppUploadCredentialsGet(ctx).Key(key).Execute()
@@ -737,6 +665,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorageObjectCredentials**](StorageObjectCredentials.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppAppWithUserGet
+
+> AppWithUserDtoPagedResultDto ApiAppAppWithUserGet(ctx).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    type_ := "type__example" // string |  (optional)
+    searchKey := "searchKey_example" // string |  (optional)
+    sorting := "sorting_example" // string |  (optional)
+    skipCount := int32(56) // int32 |  (optional)
+    maxResultCount := int32(56) // int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppAppWithUserGet(context.Background()).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppWithUserGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppWithUserGet`: AppWithUserDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppWithUserGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppWithUserGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | **string** |  | 
+ **searchKey** | **string** |  | 
+ **sorting** | **string** |  | 
+ **skipCount** | **int32** |  | 
+ **maxResultCount** | **int32** |  | 
+
+### Return type
+
+[**AppWithUserDtoPagedResultDto**](AppWithUserDtoPagedResultDto.md)
 
 ### Authorization
 
