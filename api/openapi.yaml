@@ -1743,11 +1743,19 @@ paths:
           description: Server Error
       tags:
       - App
-  /api/app/app/by-developer:
+  /api/app/app/public:
     get:
       parameters:
       - in: query
-        name: developerAccount
+        name: Type
+        schema:
+          type: string
+      - in: query
+        name: DeveloperAccount
+        schema:
+          type: string
+      - in: query
+        name: CurrentAppName
         schema:
           type: string
       responses:
@@ -10576,19 +10584,19 @@ paths:
           description: Server Error
       tags:
       - StorageObject
-  /api/app/subscription/verify-apple:
+  /api/app/subscription/apple-notifications:
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AppleSubscriptionVerifyDto'
+              $ref: '#/components/schemas/ANV2'
           text/json:
             schema:
-              $ref: '#/components/schemas/AppleSubscriptionVerifyDto'
+              $ref: '#/components/schemas/ANV2'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/AppleSubscriptionVerifyDto'
+              $ref: '#/components/schemas/ANV2'
         required: false
       responses:
         "200":
@@ -13200,6 +13208,13 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
+    ANV2:
+      example:
+        signedPayload: signedPayload
+      properties:
+        signedPayload:
+          type: string
+      type: object
     AbpLoginResult:
       example:
         result: null
@@ -13436,6 +13451,7 @@ components:
           email: email
           lockoutEnd: 2000-01-23T04:56:07.000+00:00
         isPublished: true
+        subscriptionEnabled: true
         gitRepositoryType: gitRepositoryType
         webhookUrl: webhookUrl
         gitRepository: gitRepository
@@ -13499,6 +13515,8 @@ components:
           type: string
         businessUrl:
           type: string
+        subscriptionEnabled:
+          type: boolean
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -13661,6 +13679,7 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
+          subscriptionEnabled: true
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
@@ -13812,6 +13831,7 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
+          subscriptionEnabled: true
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
@@ -14589,6 +14609,7 @@ components:
           email: email
           lockoutEnd: 2000-01-23T04:56:07.000+00:00
         isPublished: true
+        subscriptionEnabled: true
         gitRepositoryType: gitRepositoryType
         webhookUrl: webhookUrl
         gitRepository: gitRepository
@@ -14652,6 +14673,8 @@ components:
           type: string
         businessUrl:
           type: string
+        subscriptionEnabled:
+          type: boolean
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -14817,6 +14840,7 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
+          subscriptionEnabled: true
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
@@ -14969,6 +14993,7 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
+          subscriptionEnabled: true
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
@@ -14985,8 +15010,6 @@ components:
         totalCount:
           format: int64
           type: integer
-      type: object
-    AppleSubscriptionVerifyDto:
       type: object
     ApplicationApiDescriptionModel:
       example:
@@ -15870,6 +15893,7 @@ components:
         icon: icon
         businessUrl: businessUrl
         description: description
+        subscriptionEnabled: true
         sdks:
         - privacyUrl: privacyUrl
           creationTime: 2000-01-23T04:56:07.000+00:00
@@ -15982,6 +16006,8 @@ components:
           type: string
         businessUrl:
           type: string
+        subscriptionEnabled:
+          type: boolean
         isPublished:
           type: boolean
         features:

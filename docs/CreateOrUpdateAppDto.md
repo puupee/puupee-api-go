@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **WebhookUrl** | Pointer to **string** |  | [optional] 
 **BusinessDomain** | Pointer to **string** |  | [optional] 
 **BusinessUrl** | Pointer to **string** |  | [optional] 
+**SubscriptionEnabled** | Pointer to **bool** |  | [optional] 
 **IsPublished** | Pointer to **bool** |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
 **Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
@@ -391,6 +392,31 @@ SetBusinessUrl sets BusinessUrl field to given value.
 `func (o *CreateOrUpdateAppDto) HasBusinessUrl() bool`
 
 HasBusinessUrl returns a boolean if a field has been set.
+
+### GetSubscriptionEnabled
+
+`func (o *CreateOrUpdateAppDto) GetSubscriptionEnabled() bool`
+
+GetSubscriptionEnabled returns the SubscriptionEnabled field if non-nil, zero value otherwise.
+
+### GetSubscriptionEnabledOk
+
+`func (o *CreateOrUpdateAppDto) GetSubscriptionEnabledOk() (*bool, bool)`
+
+GetSubscriptionEnabledOk returns a tuple with the SubscriptionEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionEnabled
+
+`func (o *CreateOrUpdateAppDto) SetSubscriptionEnabled(v bool)`
+
+SetSubscriptionEnabled sets SubscriptionEnabled field to given value.
+
+### HasSubscriptionEnabled
+
+`func (o *CreateOrUpdateAppDto) HasSubscriptionEnabled() bool`
+
+HasSubscriptionEnabled returns a boolean if a field has been set.
 
 ### GetIsPublished
 

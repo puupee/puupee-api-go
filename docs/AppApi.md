@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ApiAppAppByDeveloperAllGet**](AppApi.md#ApiAppAppByDeveloperAllGet) | **Get** /api/app/app/by-developer-all | 
-[**ApiAppAppByDeveloperGet**](AppApi.md#ApiAppAppByDeveloperGet) | **Get** /api/app/app/by-developer | 
 [**ApiAppAppByNameGet**](AppApi.md#ApiAppAppByNameGet) | **Get** /api/app/app/by-name | 
 [**ApiAppAppGet**](AppApi.md#ApiAppAppGet) | **Get** /api/app/app | 
 [**ApiAppAppIdDelete**](AppApi.md#ApiAppAppIdDelete) | **Delete** /api/app/app/{id} | 
@@ -13,6 +12,7 @@ Method | HTTP request | Description
 [**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
 [**ApiAppAppIdWithUserGet**](AppApi.md#ApiAppAppIdWithUserGet) | **Get** /api/app/app/{id}/with-user | 
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
+[**ApiAppAppPublicGet**](AppApi.md#ApiAppAppPublicGet) | **Get** /api/app/app/public | 
 [**ApiAppAppUploadCredentialsGet**](AppApi.md#ApiAppAppUploadCredentialsGet) | **Get** /api/app/app/upload-credentials | 
 [**ApiAppAppWithUserGet**](AppApi.md#ApiAppAppWithUserGet) | **Get** /api/app/app/with-user | 
 
@@ -58,70 +58,6 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApiAppAppByDeveloperAllGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **developerAccount** | **string** |  | 
-
-### Return type
-
-[**AppDtoPagedResultDto**](AppDtoPagedResultDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppByDeveloperGet
-
-> AppDtoPagedResultDto ApiAppAppByDeveloperGet(ctx).DeveloperAccount(developerAccount).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    developerAccount := "developerAccount_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppByDeveloperGet(context.Background()).DeveloperAccount(developerAccount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByDeveloperGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppByDeveloperGet`: AppDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppByDeveloperGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppByDeveloperGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -609,6 +545,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppAppPublicGet
+
+> AppDtoPagedResultDto ApiAppAppPublicGet(ctx).Type_(type_).DeveloperAccount(developerAccount).CurrentAppName(currentAppName).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    type_ := "type__example" // string |  (optional)
+    developerAccount := "developerAccount_example" // string |  (optional)
+    currentAppName := "currentAppName_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppAppPublicGet(context.Background()).Type_(type_).DeveloperAccount(developerAccount).CurrentAppName(currentAppName).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppPublicGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppPublicGet`: AppDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppPublicGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppPublicGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | **string** |  | 
+ **developerAccount** | **string** |  | 
+ **currentAppName** | **string** |  | 
+
+### Return type
+
+[**AppDtoPagedResultDto**](AppDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

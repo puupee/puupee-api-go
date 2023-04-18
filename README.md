@@ -89,7 +89,6 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**ApiAccountVerifyPasswordResetTokenPost**](docs/AccountApi.md#apiaccountverifypasswordresettokenpost) | **Post** /api/account/verify-password-reset-token | 
 *AccountApi* | [**ApiAppAccountDelete**](docs/AccountApi.md#apiappaccountdelete) | **Delete** /api/app/account | 
 *AppApi* | [**ApiAppAppByDeveloperAllGet**](docs/AppApi.md#apiappappbydeveloperallget) | **Get** /api/app/app/by-developer-all | 
-*AppApi* | [**ApiAppAppByDeveloperGet**](docs/AppApi.md#apiappappbydeveloperget) | **Get** /api/app/app/by-developer | 
 *AppApi* | [**ApiAppAppByNameGet**](docs/AppApi.md#apiappappbynameget) | **Get** /api/app/app/by-name | 
 *AppApi* | [**ApiAppAppGet**](docs/AppApi.md#apiappappget) | **Get** /api/app/app | 
 *AppApi* | [**ApiAppAppIdDelete**](docs/AppApi.md#apiappappiddelete) | **Delete** /api/app/app/{id} | 
@@ -97,6 +96,7 @@ Class | Method | HTTP request | Description
 *AppApi* | [**ApiAppAppIdPut**](docs/AppApi.md#apiappappidput) | **Put** /api/app/app/{id} | 
 *AppApi* | [**ApiAppAppIdWithUserGet**](docs/AppApi.md#apiappappidwithuserget) | **Get** /api/app/app/{id}/with-user | 
 *AppApi* | [**ApiAppAppPost**](docs/AppApi.md#apiappapppost) | **Post** /api/app/app | 
+*AppApi* | [**ApiAppAppPublicGet**](docs/AppApi.md#apiappapppublicget) | **Get** /api/app/app/public | 
 *AppApi* | [**ApiAppAppUploadCredentialsGet**](docs/AppApi.md#apiappappuploadcredentialsget) | **Get** /api/app/app/upload-credentials | 
 *AppApi* | [**ApiAppAppWithUserGet**](docs/AppApi.md#apiappappwithuserget) | **Get** /api/app/app/with-user | 
 *AppFeatureApi* | [**ApiAppAppFeatureGet**](docs/AppFeatureApi.md#apiappappfeatureget) | **Get** /api/app/app-feature | 
@@ -188,7 +188,7 @@ Class | Method | HTTP request | Description
 *StorageObjectApi* | [**ApiAppStorageObjectFileOrCredentialsGet**](docs/StorageObjectApi.md#apiappstorageobjectfileorcredentialsget) | **Get** /api/app/storage-object/file-or-credentials | 
 *StorageObjectApi* | [**ApiAppStorageObjectPreSignUrlPost**](docs/StorageObjectApi.md#apiappstorageobjectpresignurlpost) | **Post** /api/app/storage-object/pre-sign-url | 
 *StorageObjectApi* | [**ApiAppStorageObjectThumbGet**](docs/StorageObjectApi.md#apiappstorageobjectthumbget) | **Get** /api/app/storage-object/thumb | 
-*SubscriptionApi* | [**ApiAppSubscriptionVerifyApplePost**](docs/SubscriptionApi.md#apiappsubscriptionverifyapplepost) | **Post** /api/app/subscription/verify-apple | 
+*SubscriptionApi* | [**ApiAppSubscriptionAppleNotificationsPost**](docs/SubscriptionApi.md#apiappsubscriptionapplenotificationspost) | **Post** /api/app/subscription/apple-notifications | 
 *SyncStateApi* | [**ApiAppSyncStateGet**](docs/SyncStateApi.md#apiappsyncstateget) | **Get** /api/app/sync-state | 
 *SyncStateApi* | [**ApiAppSyncStatePuupeeChangedEtoPost**](docs/SyncStateApi.md#apiappsyncstatepuupeechangedetopost) | **Post** /api/app/sync-state/puupee-changed-eto | 
 *TenantApi* | [**ApiMultiTenancyTenantsGet**](docs/TenantApi.md#apimultitenancytenantsget) | **Get** /api/multi-tenancy/tenants | 
@@ -220,6 +220,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ANV2](docs/ANV2.md)
  - [AbpLoginResult](docs/AbpLoginResult.md)
  - [ActionApiDescriptionModel](docs/ActionApiDescriptionModel.md)
  - [AppDto](docs/AppDto.md)

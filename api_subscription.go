@@ -22,48 +22,48 @@ import (
 // SubscriptionApiService SubscriptionApi service
 type SubscriptionApiService service
 
-type ApiApiAppSubscriptionVerifyApplePostRequest struct {
+type ApiApiAppSubscriptionAppleNotificationsPostRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionApiService
-	body *map[string]interface{}
+	body *ANV2
 }
 
-func (r ApiApiAppSubscriptionVerifyApplePostRequest) Body(body map[string]interface{}) ApiApiAppSubscriptionVerifyApplePostRequest {
+func (r ApiApiAppSubscriptionAppleNotificationsPostRequest) Body(body ANV2) ApiApiAppSubscriptionAppleNotificationsPostRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiApiAppSubscriptionVerifyApplePostRequest) Execute() (*http.Response, error) {
-	return r.ApiService.ApiAppSubscriptionVerifyApplePostExecute(r)
+func (r ApiApiAppSubscriptionAppleNotificationsPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiAppSubscriptionAppleNotificationsPostExecute(r)
 }
 
 /*
-ApiAppSubscriptionVerifyApplePost Method for ApiAppSubscriptionVerifyApplePost
+ApiAppSubscriptionAppleNotificationsPost Method for ApiAppSubscriptionAppleNotificationsPost
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiAppSubscriptionVerifyApplePostRequest
+ @return ApiApiAppSubscriptionAppleNotificationsPostRequest
 */
-func (a *SubscriptionApiService) ApiAppSubscriptionVerifyApplePost(ctx context.Context) ApiApiAppSubscriptionVerifyApplePostRequest {
-	return ApiApiAppSubscriptionVerifyApplePostRequest{
+func (a *SubscriptionApiService) ApiAppSubscriptionAppleNotificationsPost(ctx context.Context) ApiApiAppSubscriptionAppleNotificationsPostRequest {
+	return ApiApiAppSubscriptionAppleNotificationsPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SubscriptionApiService) ApiAppSubscriptionVerifyApplePostExecute(r ApiApiAppSubscriptionVerifyApplePostRequest) (*http.Response, error) {
+func (a *SubscriptionApiService) ApiAppSubscriptionAppleNotificationsPostExecute(r ApiApiAppSubscriptionAppleNotificationsPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SubscriptionApiService.ApiAppSubscriptionVerifyApplePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SubscriptionApiService.ApiAppSubscriptionAppleNotificationsPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/app/subscription/verify-apple"
+	localVarPath := localBasePath + "/api/app/subscription/apple-notifications"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppSubscriptionVerifyApplePost**](SubscriptionApi.md#ApiAppSubscriptionVerifyApplePost) | **Post** /api/app/subscription/verify-apple | 
+[**ApiAppSubscriptionAppleNotificationsPost**](SubscriptionApi.md#ApiAppSubscriptionAppleNotificationsPost) | **Post** /api/app/subscription/apple-notifications | 
 
 
 
-## ApiAppSubscriptionVerifyApplePost
+## ApiAppSubscriptionAppleNotificationsPost
 
-> ApiAppSubscriptionVerifyApplePost(ctx).Body(body).Execute()
+> ApiAppSubscriptionAppleNotificationsPost(ctx).Body(body).Execute()
 
 
 
@@ -27,13 +27,13 @@ import (
 )
 
 func main() {
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    body := *openapiclient.NewANV2() // ANV2 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionVerifyApplePost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionVerifyApplePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -45,12 +45,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppSubscriptionVerifyApplePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiApiAppSubscriptionAppleNotificationsPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **map[string]interface{}** |  | 
+ **body** | [**ANV2**](ANV2.md) |  | 
 
 ### Return type
 

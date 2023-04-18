@@ -30,6 +30,7 @@ type CreateOrUpdateAppDto struct {
 	WebhookUrl *string `json:"webhookUrl,omitempty"`
 	BusinessDomain *string `json:"businessDomain,omitempty"`
 	BusinessUrl *string `json:"businessUrl,omitempty"`
+	SubscriptionEnabled *bool `json:"subscriptionEnabled,omitempty"`
 	IsPublished *bool `json:"isPublished,omitempty"`
 	Features []AppFeatureDto `json:"features,omitempty"`
 	Sdks []AppSdkDto `json:"sdks,omitempty"`
@@ -501,6 +502,38 @@ func (o *CreateOrUpdateAppDto) SetBusinessUrl(v string) {
 	o.BusinessUrl = &v
 }
 
+// GetSubscriptionEnabled returns the SubscriptionEnabled field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppDto) GetSubscriptionEnabled() bool {
+	if o == nil || isNil(o.SubscriptionEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.SubscriptionEnabled
+}
+
+// GetSubscriptionEnabledOk returns a tuple with the SubscriptionEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppDto) GetSubscriptionEnabledOk() (*bool, bool) {
+	if o == nil || isNil(o.SubscriptionEnabled) {
+    return nil, false
+	}
+	return o.SubscriptionEnabled, true
+}
+
+// HasSubscriptionEnabled returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppDto) HasSubscriptionEnabled() bool {
+	if o != nil && !isNil(o.SubscriptionEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionEnabled gets a reference to the given bool and assigns it to the SubscriptionEnabled field.
+func (o *CreateOrUpdateAppDto) SetSubscriptionEnabled(v bool) {
+	o.SubscriptionEnabled = &v
+}
+
 // GetIsPublished returns the IsPublished field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetIsPublished() bool {
 	if o == nil || isNil(o.IsPublished) {
@@ -672,6 +705,9 @@ func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.BusinessUrl) {
 		toSerialize["businessUrl"] = o.BusinessUrl
+	}
+	if !isNil(o.SubscriptionEnabled) {
+		toSerialize["subscriptionEnabled"] = o.SubscriptionEnabled
 	}
 	if !isNil(o.IsPublished) {
 		toSerialize["isPublished"] = o.IsPublished

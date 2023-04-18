@@ -40,6 +40,7 @@ type AppDto struct {
 	WebhookUrl *string `json:"webhookUrl,omitempty"`
 	BusinessDomain *string `json:"businessDomain,omitempty"`
 	BusinessUrl *string `json:"businessUrl,omitempty"`
+	SubscriptionEnabled *bool `json:"subscriptionEnabled,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
 	Creator *IdentityUserDto `json:"creator,omitempty"`
 	Features []AppFeatureDto `json:"features,omitempty"`
@@ -799,6 +800,38 @@ func (o *AppDto) SetBusinessUrl(v string) {
 	o.BusinessUrl = &v
 }
 
+// GetSubscriptionEnabled returns the SubscriptionEnabled field value if set, zero value otherwise.
+func (o *AppDto) GetSubscriptionEnabled() bool {
+	if o == nil || isNil(o.SubscriptionEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.SubscriptionEnabled
+}
+
+// GetSubscriptionEnabledOk returns a tuple with the SubscriptionEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetSubscriptionEnabledOk() (*bool, bool) {
+	if o == nil || isNil(o.SubscriptionEnabled) {
+    return nil, false
+	}
+	return o.SubscriptionEnabled, true
+}
+
+// HasSubscriptionEnabled returns a boolean if a field has been set.
+func (o *AppDto) HasSubscriptionEnabled() bool {
+	if o != nil && !isNil(o.SubscriptionEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionEnabled gets a reference to the given bool and assigns it to the SubscriptionEnabled field.
+func (o *AppDto) SetSubscriptionEnabled(v bool) {
+	o.SubscriptionEnabled = &v
+}
+
 // GetLatestReleases returns the LatestReleases field value if set, zero value otherwise.
 func (o *AppDto) GetLatestReleases() []AppReleaseDto {
 	if o == nil || isNil(o.LatestReleases) {
@@ -997,6 +1030,9 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.BusinessUrl) {
 		toSerialize["businessUrl"] = o.BusinessUrl
+	}
+	if !isNil(o.SubscriptionEnabled) {
+		toSerialize["subscriptionEnabled"] = o.SubscriptionEnabled
 	}
 	if !isNil(o.LatestReleases) {
 		toSerialize["latestReleases"] = o.LatestReleases

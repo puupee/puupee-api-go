@@ -40,6 +40,7 @@ api_user_storage.go
 api_verification.go
 client.go
 configuration.go
+docs/ANV2.md
 docs/AbpApiDefinitionApi.md
 docs/AbpApplicationConfigurationApi.md
 docs/AbpApplicationLocalizationApi.md
@@ -241,6 +242,7 @@ go.mod
 go.sum
 model_abp_login_result.go
 model_action_api_description_model.go
+model_anv2.go
 model_app_dto.go
 model_app_dto_paged_result_dto.go
 model_app_feature_dto.go
