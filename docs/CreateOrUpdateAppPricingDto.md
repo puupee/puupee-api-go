@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Naming** | Pointer to **string** |  | [optional] 
+**ProductId** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **MonthPrice** | Pointer to **float64** |  | [optional] 
@@ -62,6 +63,31 @@ SetNaming sets Naming field to given value.
 `func (o *CreateOrUpdateAppPricingDto) HasNaming() bool`
 
 HasNaming returns a boolean if a field has been set.
+
+### GetProductId
+
+`func (o *CreateOrUpdateAppPricingDto) GetProductId() string`
+
+GetProductId returns the ProductId field if non-nil, zero value otherwise.
+
+### GetProductIdOk
+
+`func (o *CreateOrUpdateAppPricingDto) GetProductIdOk() (*string, bool)`
+
+GetProductIdOk returns a tuple with the ProductId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductId
+
+`func (o *CreateOrUpdateAppPricingDto) SetProductId(v string)`
+
+SetProductId sets ProductId field to given value.
+
+### HasProductId
+
+`func (o *CreateOrUpdateAppPricingDto) HasProductId() bool`
+
+HasProductId returns a boolean if a field has been set.
 
 ### GetDescription
 

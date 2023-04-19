@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Naming** | Pointer to **string** |  | [optional] 
+**ProductId** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **MonthPrice** | Pointer to **float64** |  | [optional] 
@@ -270,6 +271,31 @@ SetNaming sets Naming field to given value.
 `func (o *AppPricingDto) HasNaming() bool`
 
 HasNaming returns a boolean if a field has been set.
+
+### GetProductId
+
+`func (o *AppPricingDto) GetProductId() string`
+
+GetProductId returns the ProductId field if non-nil, zero value otherwise.
+
+### GetProductIdOk
+
+`func (o *AppPricingDto) GetProductIdOk() (*string, bool)`
+
+GetProductIdOk returns a tuple with the ProductId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductId
+
+`func (o *AppPricingDto) SetProductId(v string)`
+
+SetProductId sets ProductId field to given value.
+
+### HasProductId
+
+`func (o *AppPricingDto) HasProductId() bool`
+
+HasProductId returns a boolean if a field has been set.
 
 ### GetDescription
 

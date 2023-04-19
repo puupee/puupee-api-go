@@ -13902,6 +13902,7 @@ components:
     AppPricingDto:
       example:
         creationTime: 2000-01-23T04:56:07.000+00:00
+        productId: productId
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
@@ -13981,6 +13982,8 @@ components:
           type: string
         naming:
           type: string
+        productId:
+          type: string
         description:
           type: string
         appId:
@@ -14026,6 +14029,7 @@ components:
         totalCount: 7
         items:
         - creationTime: 2000-01-23T04:56:07.000+00:00
+          productId: productId
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
@@ -14080,6 +14084,7 @@ components:
           monthDiscountPrice: 1.4658129805029452
           yearDiscount: 5.637376656633329
         - creationTime: 2000-01-23T04:56:07.000+00:00
+          productId: productId
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
@@ -16042,6 +16047,7 @@ components:
       type: object
     CreateOrUpdateAppPricingDto:
       example:
+        productId: productId
         description: description
         monthDiscount: 6.027456183070403
         yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
@@ -16090,6 +16096,8 @@ components:
         yearDiscount: 5.637376656633329
       properties:
         naming:
+          type: string
+        productId:
           type: string
         description:
           type: string
