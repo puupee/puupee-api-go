@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Naming** | Pointer to **string** |  | [optional] 
-**ProductId** | Pointer to **string** |  | [optional] 
+**MonthProductId** | Pointer to **string** |  | [optional] 
+**YearProductId** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **MonthPrice** | Pointer to **float64** |  | [optional] 
@@ -64,30 +65,55 @@ SetNaming sets Naming field to given value.
 
 HasNaming returns a boolean if a field has been set.
 
-### GetProductId
+### GetMonthProductId
 
-`func (o *CreateOrUpdateAppPricingDto) GetProductId() string`
+`func (o *CreateOrUpdateAppPricingDto) GetMonthProductId() string`
 
-GetProductId returns the ProductId field if non-nil, zero value otherwise.
+GetMonthProductId returns the MonthProductId field if non-nil, zero value otherwise.
 
-### GetProductIdOk
+### GetMonthProductIdOk
 
-`func (o *CreateOrUpdateAppPricingDto) GetProductIdOk() (*string, bool)`
+`func (o *CreateOrUpdateAppPricingDto) GetMonthProductIdOk() (*string, bool)`
 
-GetProductIdOk returns a tuple with the ProductId field if it's non-nil, zero value otherwise
+GetMonthProductIdOk returns a tuple with the MonthProductId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProductId
+### SetMonthProductId
 
-`func (o *CreateOrUpdateAppPricingDto) SetProductId(v string)`
+`func (o *CreateOrUpdateAppPricingDto) SetMonthProductId(v string)`
 
-SetProductId sets ProductId field to given value.
+SetMonthProductId sets MonthProductId field to given value.
 
-### HasProductId
+### HasMonthProductId
 
-`func (o *CreateOrUpdateAppPricingDto) HasProductId() bool`
+`func (o *CreateOrUpdateAppPricingDto) HasMonthProductId() bool`
 
-HasProductId returns a boolean if a field has been set.
+HasMonthProductId returns a boolean if a field has been set.
+
+### GetYearProductId
+
+`func (o *CreateOrUpdateAppPricingDto) GetYearProductId() string`
+
+GetYearProductId returns the YearProductId field if non-nil, zero value otherwise.
+
+### GetYearProductIdOk
+
+`func (o *CreateOrUpdateAppPricingDto) GetYearProductIdOk() (*string, bool)`
+
+GetYearProductIdOk returns a tuple with the YearProductId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYearProductId
+
+`func (o *CreateOrUpdateAppPricingDto) SetYearProductId(v string)`
+
+SetYearProductId sets YearProductId field to given value.
+
+### HasYearProductId
+
+`func (o *CreateOrUpdateAppPricingDto) HasYearProductId() bool`
+
+HasYearProductId returns a boolean if a field has been set.
 
 ### GetDescription
 

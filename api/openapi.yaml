@@ -13901,12 +13901,13 @@ components:
       type: object
     AppPricingDto:
       example:
+        monthProductId: monthProductId
         creationTime: 2000-01-23T04:56:07.000+00:00
-        productId: productId
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
+        yearProductId: yearProductId
         monthDiscount: 6.027456183070403
         yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
         yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
@@ -13982,7 +13983,9 @@ components:
           type: string
         naming:
           type: string
-        productId:
+        monthProductId:
+          type: string
+        yearProductId:
           type: string
         description:
           type: string
@@ -14028,12 +14031,13 @@ components:
       example:
         totalCount: 7
         items:
-        - creationTime: 2000-01-23T04:56:07.000+00:00
-          productId: productId
+        - monthProductId: monthProductId
+          creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          yearProductId: yearProductId
           monthDiscount: 6.027456183070403
           yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
@@ -14083,12 +14087,13 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           monthDiscountPrice: 1.4658129805029452
           yearDiscount: 5.637376656633329
-        - creationTime: 2000-01-23T04:56:07.000+00:00
-          productId: productId
+        - monthProductId: monthProductId
+          creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
+          yearProductId: yearProductId
           monthDiscount: 6.027456183070403
           yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
@@ -16047,8 +16052,9 @@ components:
       type: object
     CreateOrUpdateAppPricingDto:
       example:
-        productId: productId
+        monthProductId: monthProductId
         description: description
+        yearProductId: yearProductId
         monthDiscount: 6.027456183070403
         yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
         yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
@@ -16097,7 +16103,9 @@ components:
       properties:
         naming:
           type: string
-        productId:
+        monthProductId:
+          type: string
+        yearProductId:
           type: string
         description:
           type: string

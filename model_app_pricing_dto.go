@@ -26,7 +26,8 @@ type AppPricingDto struct {
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
 	Naming *string `json:"naming,omitempty"`
-	ProductId *string `json:"productId,omitempty"`
+	MonthProductId *string `json:"monthProductId,omitempty"`
+	YearProductId *string `json:"yearProductId,omitempty"`
 	Description *string `json:"description,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	MonthPrice *float64 `json:"monthPrice,omitempty"`
@@ -347,36 +348,68 @@ func (o *AppPricingDto) SetNaming(v string) {
 	o.Naming = &v
 }
 
-// GetProductId returns the ProductId field value if set, zero value otherwise.
-func (o *AppPricingDto) GetProductId() string {
-	if o == nil || isNil(o.ProductId) {
+// GetMonthProductId returns the MonthProductId field value if set, zero value otherwise.
+func (o *AppPricingDto) GetMonthProductId() string {
+	if o == nil || isNil(o.MonthProductId) {
 		var ret string
 		return ret
 	}
-	return *o.ProductId
+	return *o.MonthProductId
 }
 
-// GetProductIdOk returns a tuple with the ProductId field value if set, nil otherwise
+// GetMonthProductIdOk returns a tuple with the MonthProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppPricingDto) GetProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.ProductId) {
+func (o *AppPricingDto) GetMonthProductIdOk() (*string, bool) {
+	if o == nil || isNil(o.MonthProductId) {
     return nil, false
 	}
-	return o.ProductId, true
+	return o.MonthProductId, true
 }
 
-// HasProductId returns a boolean if a field has been set.
-func (o *AppPricingDto) HasProductId() bool {
-	if o != nil && !isNil(o.ProductId) {
+// HasMonthProductId returns a boolean if a field has been set.
+func (o *AppPricingDto) HasMonthProductId() bool {
+	if o != nil && !isNil(o.MonthProductId) {
 		return true
 	}
 
 	return false
 }
 
-// SetProductId gets a reference to the given string and assigns it to the ProductId field.
-func (o *AppPricingDto) SetProductId(v string) {
-	o.ProductId = &v
+// SetMonthProductId gets a reference to the given string and assigns it to the MonthProductId field.
+func (o *AppPricingDto) SetMonthProductId(v string) {
+	o.MonthProductId = &v
+}
+
+// GetYearProductId returns the YearProductId field value if set, zero value otherwise.
+func (o *AppPricingDto) GetYearProductId() string {
+	if o == nil || isNil(o.YearProductId) {
+		var ret string
+		return ret
+	}
+	return *o.YearProductId
+}
+
+// GetYearProductIdOk returns a tuple with the YearProductId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppPricingDto) GetYearProductIdOk() (*string, bool) {
+	if o == nil || isNil(o.YearProductId) {
+    return nil, false
+	}
+	return o.YearProductId, true
+}
+
+// HasYearProductId returns a boolean if a field has been set.
+func (o *AppPricingDto) HasYearProductId() bool {
+	if o != nil && !isNil(o.YearProductId) {
+		return true
+	}
+
+	return false
+}
+
+// SetYearProductId gets a reference to the given string and assigns it to the YearProductId field.
+func (o *AppPricingDto) SetYearProductId(v string) {
+	o.YearProductId = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -824,8 +857,11 @@ func (o AppPricingDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Naming) {
 		toSerialize["naming"] = o.Naming
 	}
-	if !isNil(o.ProductId) {
-		toSerialize["productId"] = o.ProductId
+	if !isNil(o.MonthProductId) {
+		toSerialize["monthProductId"] = o.MonthProductId
+	}
+	if !isNil(o.YearProductId) {
+		toSerialize["yearProductId"] = o.YearProductId
 	}
 	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
