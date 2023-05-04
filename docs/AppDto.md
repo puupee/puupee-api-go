@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **BusinessDomain** | Pointer to **string** |  | [optional] 
 **BusinessUrl** | Pointer to **string** |  | [optional] 
 **SubscriptionEnabled** | Pointer to **bool** |  | [optional] 
+**SubscriptionPlatforms** | Pointer to **string** |  | [optional] 
 **LatestReleases** | Pointer to [**[]AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
 **Creator** | Pointer to [**IdentityUserDto**](IdentityUserDto.md) |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
@@ -651,6 +652,31 @@ SetSubscriptionEnabled sets SubscriptionEnabled field to given value.
 `func (o *AppDto) HasSubscriptionEnabled() bool`
 
 HasSubscriptionEnabled returns a boolean if a field has been set.
+
+### GetSubscriptionPlatforms
+
+`func (o *AppDto) GetSubscriptionPlatforms() string`
+
+GetSubscriptionPlatforms returns the SubscriptionPlatforms field if non-nil, zero value otherwise.
+
+### GetSubscriptionPlatformsOk
+
+`func (o *AppDto) GetSubscriptionPlatformsOk() (*string, bool)`
+
+GetSubscriptionPlatformsOk returns a tuple with the SubscriptionPlatforms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionPlatforms
+
+`func (o *AppDto) SetSubscriptionPlatforms(v string)`
+
+SetSubscriptionPlatforms sets SubscriptionPlatforms field to given value.
+
+### HasSubscriptionPlatforms
+
+`func (o *AppDto) HasSubscriptionPlatforms() bool`
+
+HasSubscriptionPlatforms returns a boolean if a field has been set.
 
 ### GetLatestReleases
 

@@ -54,7 +54,7 @@ Name | Type | Description | Notes
 **Tagging** | Pointer to **string** |  | [optional] 
 **LastModifierDeviceToken** | Pointer to **string** |  | [optional] 
 **LastModifierDevice** | Pointer to **string** |  | [optional] 
-**App** | Pointer to **string** |  | [optional] 
+**AppName** | Pointer to **string** |  | [optional] 
 **SortIndex** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -1326,30 +1326,30 @@ SetLastModifierDevice sets LastModifierDevice field to given value.
 
 HasLastModifierDevice returns a boolean if a field has been set.
 
-### GetApp
+### GetAppName
 
-`func (o *PuupeeDto) GetApp() string`
+`func (o *PuupeeDto) GetAppName() string`
 
-GetApp returns the App field if non-nil, zero value otherwise.
+GetAppName returns the AppName field if non-nil, zero value otherwise.
 
-### GetAppOk
+### GetAppNameOk
 
-`func (o *PuupeeDto) GetAppOk() (*string, bool)`
+`func (o *PuupeeDto) GetAppNameOk() (*string, bool)`
 
-GetAppOk returns a tuple with the App field if it's non-nil, zero value otherwise
+GetAppNameOk returns a tuple with the AppName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApp
+### SetAppName
 
-`func (o *PuupeeDto) SetApp(v string)`
+`func (o *PuupeeDto) SetAppName(v string)`
 
-SetApp sets App field to given value.
+SetAppName sets AppName field to given value.
 
-### HasApp
+### HasAppName
 
-`func (o *PuupeeDto) HasApp() bool`
+`func (o *PuupeeDto) HasAppName() bool`
 
-HasApp returns a boolean if a field has been set.
+HasAppName returns a boolean if a field has been set.
 
 ### GetSortIndex
 

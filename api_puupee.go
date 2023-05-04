@@ -25,9 +25,15 @@ type PuupeeApiService service
 type ApiApiAppPuupeePullGetRequest struct {
 	ctx context.Context
 	ApiService *PuupeeApiService
+	appName *string
 	afterVersion *int64
 	skipCount *int32
 	maxResultCount *int32
+}
+
+func (r ApiApiAppPuupeePullGetRequest) AppName(appName string) ApiApiAppPuupeePullGetRequest {
+	r.appName = &appName
+	return r
 }
 
 func (r ApiApiAppPuupeePullGetRequest) AfterVersion(afterVersion int64) ApiApiAppPuupeePullGetRequest {
@@ -83,6 +89,9 @@ func (a *PuupeeApiService) ApiAppPuupeePullGetExecute(r ApiApiAppPuupeePullGetRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.appName != nil {
+		localVarQueryParams.Add("appName", parameterToString(*r.appName, ""))
+	}
 	if r.afterVersion != nil {
 		localVarQueryParams.Add("afterVersion", parameterToString(*r.afterVersion, ""))
 	}

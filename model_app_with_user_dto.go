@@ -41,6 +41,7 @@ type AppWithUserDto struct {
 	BusinessDomain *string `json:"businessDomain,omitempty"`
 	BusinessUrl *string `json:"businessUrl,omitempty"`
 	SubscriptionEnabled *bool `json:"subscriptionEnabled,omitempty"`
+	SubscriptionPlatforms *string `json:"subscriptionPlatforms,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
 	Creator *IdentityUserDto `json:"creator,omitempty"`
 	Features []AppFeatureDto `json:"features,omitempty"`
@@ -833,6 +834,38 @@ func (o *AppWithUserDto) SetSubscriptionEnabled(v bool) {
 	o.SubscriptionEnabled = &v
 }
 
+// GetSubscriptionPlatforms returns the SubscriptionPlatforms field value if set, zero value otherwise.
+func (o *AppWithUserDto) GetSubscriptionPlatforms() string {
+	if o == nil || isNil(o.SubscriptionPlatforms) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionPlatforms
+}
+
+// GetSubscriptionPlatformsOk returns a tuple with the SubscriptionPlatforms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppWithUserDto) GetSubscriptionPlatformsOk() (*string, bool) {
+	if o == nil || isNil(o.SubscriptionPlatforms) {
+    return nil, false
+	}
+	return o.SubscriptionPlatforms, true
+}
+
+// HasSubscriptionPlatforms returns a boolean if a field has been set.
+func (o *AppWithUserDto) HasSubscriptionPlatforms() bool {
+	if o != nil && !isNil(o.SubscriptionPlatforms) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptionPlatforms gets a reference to the given string and assigns it to the SubscriptionPlatforms field.
+func (o *AppWithUserDto) SetSubscriptionPlatforms(v string) {
+	o.SubscriptionPlatforms = &v
+}
+
 // GetLatestReleases returns the LatestReleases field value if set, zero value otherwise.
 func (o *AppWithUserDto) GetLatestReleases() []AppReleaseDto {
 	if o == nil || isNil(o.LatestReleases) {
@@ -1066,6 +1099,9 @@ func (o AppWithUserDto) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.SubscriptionEnabled) {
 		toSerialize["subscriptionEnabled"] = o.SubscriptionEnabled
+	}
+	if !isNil(o.SubscriptionPlatforms) {
+		toSerialize["subscriptionPlatforms"] = o.SubscriptionPlatforms
 	}
 	if !isNil(o.LatestReleases) {
 		toSerialize["latestReleases"] = o.LatestReleases

@@ -64,7 +64,7 @@ type CreateOrUpdatePuupeeDto struct {
 	Size *int64 `json:"size,omitempty"`
 	LastModifierDeviceToken *string `json:"lastModifierDeviceToken,omitempty"`
 	LastModifierDevice *string `json:"lastModifierDevice,omitempty"`
-	App *string `json:"app,omitempty"`
+	AppName *string `json:"appName,omitempty"`
 	PushToUser *bool `json:"pushToUser,omitempty"`
 	SortIndex *int32 `json:"sortIndex,omitempty"`
 }
@@ -1576,36 +1576,36 @@ func (o *CreateOrUpdatePuupeeDto) SetLastModifierDevice(v string) {
 	o.LastModifierDevice = &v
 }
 
-// GetApp returns the App field value if set, zero value otherwise.
-func (o *CreateOrUpdatePuupeeDto) GetApp() string {
-	if o == nil || isNil(o.App) {
+// GetAppName returns the AppName field value if set, zero value otherwise.
+func (o *CreateOrUpdatePuupeeDto) GetAppName() string {
+	if o == nil || isNil(o.AppName) {
 		var ret string
 		return ret
 	}
-	return *o.App
+	return *o.AppName
 }
 
-// GetAppOk returns a tuple with the App field value if set, nil otherwise
+// GetAppNameOk returns a tuple with the AppName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdatePuupeeDto) GetAppOk() (*string, bool) {
-	if o == nil || isNil(o.App) {
+func (o *CreateOrUpdatePuupeeDto) GetAppNameOk() (*string, bool) {
+	if o == nil || isNil(o.AppName) {
     return nil, false
 	}
-	return o.App, true
+	return o.AppName, true
 }
 
-// HasApp returns a boolean if a field has been set.
-func (o *CreateOrUpdatePuupeeDto) HasApp() bool {
-	if o != nil && !isNil(o.App) {
+// HasAppName returns a boolean if a field has been set.
+func (o *CreateOrUpdatePuupeeDto) HasAppName() bool {
+	if o != nil && !isNil(o.AppName) {
 		return true
 	}
 
 	return false
 }
 
-// SetApp gets a reference to the given string and assigns it to the App field.
-func (o *CreateOrUpdatePuupeeDto) SetApp(v string) {
-	o.App = &v
+// SetAppName gets a reference to the given string and assigns it to the AppName field.
+func (o *CreateOrUpdatePuupeeDto) SetAppName(v string) {
+	o.AppName = &v
 }
 
 // GetPushToUser returns the PushToUser field value if set, zero value otherwise.
@@ -1815,8 +1815,8 @@ func (o CreateOrUpdatePuupeeDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.LastModifierDevice) {
 		toSerialize["lastModifierDevice"] = o.LastModifierDevice
 	}
-	if !isNil(o.App) {
-		toSerialize["app"] = o.App
+	if !isNil(o.AppName) {
+		toSerialize["appName"] = o.AppName
 	}
 	if !isNil(o.PushToUser) {
 		toSerialize["pushToUser"] = o.PushToUser

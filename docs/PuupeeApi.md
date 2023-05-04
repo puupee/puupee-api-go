@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ApiAppPuupeePullGet
 
-> PuupeeDtoPagedResultDto ApiAppPuupeePullGet(ctx).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> PuupeeDtoPagedResultDto ApiAppPuupeePullGet(ctx).AppName(appName).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -28,13 +28,14 @@ import (
 )
 
 func main() {
+    appName := "appName_example" // string |  (optional)
     afterVersion := int64(789) // int64 |  (optional)
     skipCount := int32(56) // int32 |  (optional)
     maxResultCount := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PuupeeApi.ApiAppPuupeePullGet(context.Background()).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.PuupeeApi.ApiAppPuupeePullGet(context.Background()).AppName(appName).AfterVersion(afterVersion).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PuupeeApi.ApiAppPuupeePullGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,6 +56,7 @@ Other parameters are passed through a pointer to a apiApiAppPuupeePullGetRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **appName** | **string** |  | 
  **afterVersion** | **int64** |  | 
  **skipCount** | **int32** |  | 
  **maxResultCount** | **int32** |  | 

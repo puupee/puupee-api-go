@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int64** |  | [optional] 
 **LastModifierDeviceToken** | Pointer to **string** |  | [optional] 
 **LastModifierDevice** | Pointer to **string** |  | [optional] 
-**App** | Pointer to **string** |  | [optional] 
+**AppName** | Pointer to **string** |  | [optional] 
 **PushToUser** | Pointer to **bool** |  | [optional] 
 **SortIndex** | Pointer to **int32** |  | [optional] 
 
@@ -1239,30 +1239,30 @@ SetLastModifierDevice sets LastModifierDevice field to given value.
 
 HasLastModifierDevice returns a boolean if a field has been set.
 
-### GetApp
+### GetAppName
 
-`func (o *CreateOrUpdatePuupeeDto) GetApp() string`
+`func (o *CreateOrUpdatePuupeeDto) GetAppName() string`
 
-GetApp returns the App field if non-nil, zero value otherwise.
+GetAppName returns the AppName field if non-nil, zero value otherwise.
 
-### GetAppOk
+### GetAppNameOk
 
-`func (o *CreateOrUpdatePuupeeDto) GetAppOk() (*string, bool)`
+`func (o *CreateOrUpdatePuupeeDto) GetAppNameOk() (*string, bool)`
 
-GetAppOk returns a tuple with the App field if it's non-nil, zero value otherwise
+GetAppNameOk returns a tuple with the AppName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApp
+### SetAppName
 
-`func (o *CreateOrUpdatePuupeeDto) SetApp(v string)`
+`func (o *CreateOrUpdatePuupeeDto) SetAppName(v string)`
 
-SetApp sets App field to given value.
+SetAppName sets AppName field to given value.
 
-### HasApp
+### HasAppName
 
-`func (o *CreateOrUpdatePuupeeDto) HasApp() bool`
+`func (o *CreateOrUpdatePuupeeDto) HasAppName() bool`
 
-HasApp returns a boolean if a field has been set.
+HasAppName returns a boolean if a field has been set.
 
 ### GetPushToUser
 

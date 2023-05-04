@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ApiAppAppReleaseGet
 
-> AppReleaseDtoPagedResultDto ApiAppAppReleaseGet(ctx).AppId(appId).Environment(environment).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppReleaseDtoPagedResultDto ApiAppAppReleaseGet(ctx).AppId(appId).EnvironmentName(environmentName).EnvironmentValue(environmentValue).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -33,7 +33,8 @@ import (
 
 func main() {
     appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    environment := "environment_example" // string |  (optional)
+    environmentName := "environmentName_example" // string |  (optional)
+    environmentValue := "environmentValue_example" // string |  (optional)
     platformName := "platformName_example" // string |  (optional)
     platformValue := "platformValue_example" // string |  (optional)
     sorting := "sorting_example" // string |  (optional)
@@ -42,7 +43,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseGet(context.Background()).AppId(appId).Environment(environment).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseGet(context.Background()).AppId(appId).EnvironmentName(environmentName).EnvironmentValue(environmentValue).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,7 +65,8 @@ Other parameters are passed through a pointer to a apiApiAppAppReleaseGetRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string** |  | 
- **environment** | **string** |  | 
+ **environmentName** | **string** |  | 
+ **environmentValue** | **string** |  | 
  **platformName** | **string** |  | 
  **platformValue** | **string** |  | 
  **sorting** | **string** |  | 
@@ -295,7 +297,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppReleaseLatestGet
 
-> AppReleaseDto ApiAppAppReleaseLatestGet(ctx).AppName(appName).Platform(platform).ProductType(productType).Execute()
+> AppReleaseDto ApiAppAppReleaseLatestGet(ctx).AppName(appName).Platform(platform).ProductType(productType).EnvironmentName(environmentName).EnvironmentValue(environmentValue).Execute()
 
 
 
@@ -315,10 +317,12 @@ func main() {
     appName := "appName_example" // string |  (optional)
     platform := "platform_example" // string |  (optional)
     productType := "productType_example" // string |  (optional)
+    environmentName := "environmentName_example" // string |  (optional)
+    environmentValue := "environmentValue_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseLatestGet(context.Background()).AppName(appName).Platform(platform).ProductType(productType).Execute()
+    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseLatestGet(context.Background()).AppName(appName).Platform(platform).ProductType(productType).EnvironmentName(environmentName).EnvironmentValue(environmentValue).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseLatestGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -342,6 +346,8 @@ Name | Type | Description  | Notes
  **appName** | **string** |  | 
  **platform** | **string** |  | 
  **productType** | **string** |  | 
+ **environmentName** | **string** |  | 
+ **environmentValue** | **string** |  | 
 
 ### Return type
 

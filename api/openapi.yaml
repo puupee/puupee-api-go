@@ -3548,7 +3548,11 @@ paths:
           format: uuid
           type: string
       - in: query
-        name: Environment
+        name: Environment.Name
+        schema:
+          type: string
+      - in: query
+        name: Environment.Value
         schema:
           type: string
       - in: query
@@ -4068,6 +4072,14 @@ paths:
           type: string
       - in: query
         name: ProductType
+        schema:
+          type: string
+      - in: query
+        name: Environment.Name
+        schema:
+          type: string
+      - in: query
+        name: Environment.Value
         schema:
           type: string
       responses:
@@ -8993,6 +9005,10 @@ paths:
     get:
       parameters:
       - in: query
+        name: appName
+        schema:
+          type: string
+      - in: query
         name: afterVersion
         schema:
           format: int64
@@ -10677,6 +10693,305 @@ paths:
       tags:
       - Subscription
       x-codegen-request-body-name: body
+  /api/app/subscription/order:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrGetSubscriptionOrderDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrGetSubscriptionOrderDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateOrGetSubscriptionOrderDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SubscriptionOrderDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionOrderDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionOrderDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Subscription
+      x-codegen-request-body-name: body
+  /api/app/subscription/verify-receipt:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyReceiptDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/VerifyReceiptDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/VerifyReceiptDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VerifyReceiptResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyReceiptResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VerifyReceiptResult'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Subscription
+      x-codegen-request-body-name: body
+  /api/app/subscription:
+    get:
+      parameters:
+      - in: query
+        name: appId
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SubscriptionDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - Subscription
   /api/app/sync-state:
     get:
       responses:
@@ -13455,6 +13770,7 @@ components:
         gitRepositoryType: gitRepositoryType
         webhookUrl: webhookUrl
         gitRepository: gitRepository
+        subscriptionPlatforms: subscriptionPlatforms
         framework: framework
         isEnabled: true
         name: name
@@ -13517,6 +13833,8 @@ components:
           type: string
         subscriptionEnabled:
           type: boolean
+        subscriptionPlatforms:
+          type: string
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -13683,6 +14001,7 @@ components:
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
+          subscriptionPlatforms: subscriptionPlatforms
           framework: framework
           isEnabled: true
           name: name
@@ -13835,6 +14154,7 @@ components:
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
+          subscriptionPlatforms: subscriptionPlatforms
           framework: framework
           isEnabled: true
           name: name
@@ -14623,6 +14943,7 @@ components:
         gitRepositoryType: gitRepositoryType
         webhookUrl: webhookUrl
         gitRepository: gitRepository
+        subscriptionPlatforms: subscriptionPlatforms
         framework: framework
         isEnabled: true
         name: name
@@ -14685,6 +15006,8 @@ components:
           type: string
         subscriptionEnabled:
           type: boolean
+        subscriptionPlatforms:
+          type: string
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -14854,6 +15177,7 @@ components:
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
+          subscriptionPlatforms: subscriptionPlatforms
           framework: framework
           isEnabled: true
           name: name
@@ -15007,6 +15331,7 @@ components:
           gitRepositoryType: gitRepositoryType
           webhookUrl: webhookUrl
           gitRepository: gitRepository
+          subscriptionPlatforms: subscriptionPlatforms
           framework: framework
           isEnabled: true
           name: name
@@ -15020,6 +15345,138 @@ components:
         totalCount:
           format: int64
           type: integer
+      type: object
+    AppleVerifyReceiptResult:
+      example:
+        is_retryable: true
+        latest_receipt_info:
+        - transaction_id: transaction_id
+          quantity: quantity
+          original_transaction_id: original_transaction_id
+          purchase_date_pst: purchase_date_pst
+          original_purchase_date_ms: original_purchase_date_ms
+          is_in_intro_offer_period: is_in_intro_offer_period
+          expires_date: expires_date
+          original_purchase_date_pst: original_purchase_date_pst
+          is_trial_period: is_trial_period
+          expires_date_pst: expires_date_pst
+          original_purchase_date: original_purchase_date
+          expires_date_ms: expires_date_ms
+          purchase_date_ms: purchase_date_ms
+          product_id: product_id
+          purchase_date: purchase_date
+          web_order_line_item_id: web_order_line_item_id
+        - transaction_id: transaction_id
+          quantity: quantity
+          original_transaction_id: original_transaction_id
+          purchase_date_pst: purchase_date_pst
+          original_purchase_date_ms: original_purchase_date_ms
+          is_in_intro_offer_period: is_in_intro_offer_period
+          expires_date: expires_date
+          original_purchase_date_pst: original_purchase_date_pst
+          is_trial_period: is_trial_period
+          expires_date_pst: expires_date_pst
+          original_purchase_date: original_purchase_date
+          expires_date_ms: expires_date_ms
+          purchase_date_ms: purchase_date_ms
+          product_id: product_id
+          purchase_date: purchase_date
+          web_order_line_item_id: web_order_line_item_id
+        environment: environment
+        latest_receipt: latest_receipt
+        pending_renewal_info:
+        - auto_renew_product_id: auto_renew_product_id
+          grace_period_expires_date: grace_period_expires_date
+          grace_period_expires_date_ms: grace_period_expires_date_ms
+          original_transaction_id: original_transaction_id
+          is_in_billing_retry_period: is_in_billing_retry_period
+          product_id: product_id
+          price_consent_status: price_consent_status
+          grace_period_expires_date_pst: grace_period_expires_date_pst
+          expiration_intent: expiration_intent
+          auto_renew_status: auto_renew_status
+        - auto_renew_product_id: auto_renew_product_id
+          grace_period_expires_date: grace_period_expires_date
+          grace_period_expires_date_ms: grace_period_expires_date_ms
+          original_transaction_id: original_transaction_id
+          is_in_billing_retry_period: is_in_billing_retry_period
+          product_id: product_id
+          price_consent_status: price_consent_status
+          grace_period_expires_date_pst: grace_period_expires_date_pst
+          expiration_intent: expiration_intent
+          auto_renew_status: auto_renew_status
+        receipt:
+          in_app:
+          - transaction_id: transaction_id
+            quantity: quantity
+            original_transaction_id: original_transaction_id
+            purchase_date_pst: purchase_date_pst
+            original_purchase_date_ms: original_purchase_date_ms
+            is_in_intro_offer_period: is_in_intro_offer_period
+            expires_date: expires_date
+            original_purchase_date_pst: original_purchase_date_pst
+            is_trial_period: is_trial_period
+            expires_date_pst: expires_date_pst
+            original_purchase_date: original_purchase_date
+            expires_date_ms: expires_date_ms
+            purchase_date_ms: purchase_date_ms
+            product_id: product_id
+            purchase_date: purchase_date
+            web_order_line_item_id: web_order_line_item_id
+          - transaction_id: transaction_id
+            quantity: quantity
+            original_transaction_id: original_transaction_id
+            purchase_date_pst: purchase_date_pst
+            original_purchase_date_ms: original_purchase_date_ms
+            is_in_intro_offer_period: is_in_intro_offer_period
+            expires_date: expires_date
+            original_purchase_date_pst: original_purchase_date_pst
+            is_trial_period: is_trial_period
+            expires_date_pst: expires_date_pst
+            original_purchase_date: original_purchase_date
+            expires_date_ms: expires_date_ms
+            purchase_date_ms: purchase_date_ms
+            product_id: product_id
+            purchase_date: purchase_date
+            web_order_line_item_id: web_order_line_item_id
+          adam_id: 6
+          receipt_creation_date: receipt_creation_date
+          original_application_version: original_application_version
+          app_item_id: 1
+          original_purchase_date_ms: original_purchase_date_ms
+          request_date_ms: request_date_ms
+          original_purchase_date_pst: original_purchase_date_pst
+          original_purchase_date: original_purchase_date
+          receipt_creation_date_pst: receipt_creation_date_pst
+          receipt_type: receipt_type
+          bundle_id: bundle_id
+          receipt_creation_date_ms: receipt_creation_date_ms
+          request_date: request_date
+          version_external_identifier: 5
+          request_date_pst: request_date_pst
+          download_id: 5
+          application_version: application_version
+        status: 0
+      properties:
+        environment:
+          type: string
+        is_retryable:
+          type: boolean
+        status:
+          format: int32
+          type: integer
+        latest_receipt_info:
+          items:
+            $ref: '#/components/schemas/LatestReceiptInfo'
+          type: array
+        latest_receipt:
+          type: string
+        pending_renewal_info:
+          items:
+            $ref: '#/components/schemas/PendingRenewalInfo'
+          type: array
+        receipt:
+          $ref: '#/components/schemas/Receipt'
       type: object
     ApplicationApiDescriptionModel:
       example:
@@ -15895,6 +16352,18 @@ components:
             type: string
           type: array
       type: object
+    CreateOrGetSubscriptionOrderDto:
+      example:
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        appId:
+          format: uuid
+          type: string
+        pricingId:
+          format: uuid
+          type: string
+      type: object
     CreateOrUpdateAppDto:
       example:
         sortIndex: 0
@@ -15981,6 +16450,7 @@ components:
           redirectUris: redirectUris
           properties: properties
         gitRepository: gitRepository
+        subscriptionPlatforms: subscriptionPlatforms
         framework: framework
         appType: appType
         isEnabled: true
@@ -16018,6 +16488,8 @@ components:
           type: string
         subscriptionEnabled:
           type: boolean
+        subscriptionPlatforms:
+          type: string
         isPublished:
           type: boolean
         features:
@@ -16278,7 +16750,6 @@ components:
         sliceMd5: sliceMd5
         contentType: contentType
         storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-        app: app
         syncVersion: 0
         doneAt: 2000-01-23T04:56:07.000+00:00
         notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -16307,6 +16778,7 @@ components:
         storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
         key: key
         startAt: 2000-01-23T04:56:07.000+00:00
+        appName: appName
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         url: url
@@ -16429,7 +16901,7 @@ components:
           type: string
         lastModifierDevice:
           type: string
-        app:
+        appName:
           type: string
         pushToUser:
           type: boolean
@@ -17780,6 +18252,58 @@ components:
       required:
       - roleNames
       type: object
+    InApp:
+      example:
+        transaction_id: transaction_id
+        quantity: quantity
+        original_transaction_id: original_transaction_id
+        purchase_date_pst: purchase_date_pst
+        original_purchase_date_ms: original_purchase_date_ms
+        is_in_intro_offer_period: is_in_intro_offer_period
+        expires_date: expires_date
+        original_purchase_date_pst: original_purchase_date_pst
+        is_trial_period: is_trial_period
+        expires_date_pst: expires_date_pst
+        original_purchase_date: original_purchase_date
+        expires_date_ms: expires_date_ms
+        purchase_date_ms: purchase_date_ms
+        product_id: product_id
+        purchase_date: purchase_date
+        web_order_line_item_id: web_order_line_item_id
+      properties:
+        quantity:
+          type: string
+        product_id:
+          type: string
+        transaction_id:
+          type: string
+        original_transaction_id:
+          type: string
+        purchase_date:
+          type: string
+        purchase_date_ms:
+          type: string
+        purchase_date_pst:
+          type: string
+        original_purchase_date:
+          type: string
+        original_purchase_date_ms:
+          type: string
+        original_purchase_date_pst:
+          type: string
+        expires_date:
+          type: string
+        expires_date_ms:
+          type: string
+        expires_date_pst:
+          type: string
+        web_order_line_item_id:
+          type: string
+        is_trial_period:
+          type: string
+        is_in_intro_offer_period:
+          type: string
+      type: object
     Int32KeyValue:
       example:
         expiredAt: 2000-01-23T04:56:07.000+00:00
@@ -17859,6 +18383,58 @@ components:
           readOnly: true
           type: string
         flagIcon:
+          type: string
+      type: object
+    LatestReceiptInfo:
+      example:
+        transaction_id: transaction_id
+        quantity: quantity
+        original_transaction_id: original_transaction_id
+        purchase_date_pst: purchase_date_pst
+        original_purchase_date_ms: original_purchase_date_ms
+        is_in_intro_offer_period: is_in_intro_offer_period
+        expires_date: expires_date
+        original_purchase_date_pst: original_purchase_date_pst
+        is_trial_period: is_trial_period
+        expires_date_pst: expires_date_pst
+        original_purchase_date: original_purchase_date
+        expires_date_ms: expires_date_ms
+        purchase_date_ms: purchase_date_ms
+        product_id: product_id
+        purchase_date: purchase_date
+        web_order_line_item_id: web_order_line_item_id
+      properties:
+        quantity:
+          type: string
+        product_id:
+          type: string
+        transaction_id:
+          type: string
+        original_transaction_id:
+          type: string
+        purchase_date:
+          type: string
+        purchase_date_ms:
+          type: string
+        purchase_date_pst:
+          type: string
+        original_purchase_date:
+          type: string
+        original_purchase_date_ms:
+          type: string
+        original_purchase_date_pst:
+          type: string
+        expires_date:
+          type: string
+        expires_date_ms:
+          type: string
+        expires_date_pst:
+          type: string
+        web_order_line_item_id:
+          type: string
+        is_trial_period:
+          type: string
+        is_in_intro_offer_period:
           type: string
       type: object
     LocalizableStringDto:
@@ -18430,6 +19006,40 @@ components:
         descriptorName:
           type: string
       type: object
+    PendingRenewalInfo:
+      example:
+        auto_renew_product_id: auto_renew_product_id
+        grace_period_expires_date: grace_period_expires_date
+        grace_period_expires_date_ms: grace_period_expires_date_ms
+        original_transaction_id: original_transaction_id
+        is_in_billing_retry_period: is_in_billing_retry_period
+        product_id: product_id
+        price_consent_status: price_consent_status
+        grace_period_expires_date_pst: grace_period_expires_date_pst
+        expiration_intent: expiration_intent
+        auto_renew_status: auto_renew_status
+      properties:
+        auto_renew_product_id:
+          type: string
+        auto_renew_status:
+          type: string
+        is_in_billing_retry_period:
+          type: string
+        original_transaction_id:
+          type: string
+        product_id:
+          type: string
+        expiration_intent:
+          type: string
+        price_consent_status:
+          type: string
+        grace_period_expires_date:
+          type: string
+        grace_period_expires_date_ms:
+          type: string
+        grace_period_expires_date_pst:
+          type: string
+      type: object
     PermissionGrantInfoDto:
       example:
         parentName: parentName
@@ -18604,7 +19214,6 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          app: app
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 9
           notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -18680,6 +19289,7 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
+          appName: appName
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -18710,7 +19320,6 @@ components:
         sliceMd5: sliceMd5
         contentType: contentType
         storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-        app: app
         doneAt: 2000-01-23T04:56:07.000+00:00
         syncVersion: 9
         notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -18786,6 +19395,7 @@ components:
           storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
           key: key
           md5: md5
+        appName: appName
         isDone: true
         parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         url: url
@@ -18915,7 +19525,7 @@ components:
           type: string
         lastModifierDevice:
           type: string
-        app:
+        appName:
           type: string
         sortIndex:
           format: int32
@@ -18938,7 +19548,6 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          app: app
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 9
           notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -19014,6 +19623,7 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
+          appName: appName
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -19034,7 +19644,6 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          app: app
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 9
           notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -19110,6 +19719,7 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
+          appName: appName
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -19125,6 +19735,102 @@ components:
         totalCount:
           format: int64
           type: integer
+      type: object
+    Receipt:
+      example:
+        in_app:
+        - transaction_id: transaction_id
+          quantity: quantity
+          original_transaction_id: original_transaction_id
+          purchase_date_pst: purchase_date_pst
+          original_purchase_date_ms: original_purchase_date_ms
+          is_in_intro_offer_period: is_in_intro_offer_period
+          expires_date: expires_date
+          original_purchase_date_pst: original_purchase_date_pst
+          is_trial_period: is_trial_period
+          expires_date_pst: expires_date_pst
+          original_purchase_date: original_purchase_date
+          expires_date_ms: expires_date_ms
+          purchase_date_ms: purchase_date_ms
+          product_id: product_id
+          purchase_date: purchase_date
+          web_order_line_item_id: web_order_line_item_id
+        - transaction_id: transaction_id
+          quantity: quantity
+          original_transaction_id: original_transaction_id
+          purchase_date_pst: purchase_date_pst
+          original_purchase_date_ms: original_purchase_date_ms
+          is_in_intro_offer_period: is_in_intro_offer_period
+          expires_date: expires_date
+          original_purchase_date_pst: original_purchase_date_pst
+          is_trial_period: is_trial_period
+          expires_date_pst: expires_date_pst
+          original_purchase_date: original_purchase_date
+          expires_date_ms: expires_date_ms
+          purchase_date_ms: purchase_date_ms
+          product_id: product_id
+          purchase_date: purchase_date
+          web_order_line_item_id: web_order_line_item_id
+        adam_id: 6
+        receipt_creation_date: receipt_creation_date
+        original_application_version: original_application_version
+        app_item_id: 1
+        original_purchase_date_ms: original_purchase_date_ms
+        request_date_ms: request_date_ms
+        original_purchase_date_pst: original_purchase_date_pst
+        original_purchase_date: original_purchase_date
+        receipt_creation_date_pst: receipt_creation_date_pst
+        receipt_type: receipt_type
+        bundle_id: bundle_id
+        receipt_creation_date_ms: receipt_creation_date_ms
+        request_date: request_date
+        version_external_identifier: 5
+        request_date_pst: request_date_pst
+        download_id: 5
+        application_version: application_version
+      properties:
+        receipt_type:
+          type: string
+        adam_id:
+          format: int32
+          type: integer
+        app_item_id:
+          format: int32
+          type: integer
+        bundle_id:
+          type: string
+        application_version:
+          type: string
+        download_id:
+          format: int32
+          type: integer
+        version_external_identifier:
+          format: int32
+          type: integer
+        receipt_creation_date:
+          type: string
+        receipt_creation_date_ms:
+          type: string
+        receipt_creation_date_pst:
+          type: string
+        request_date:
+          type: string
+        request_date_ms:
+          type: string
+        request_date_pst:
+          type: string
+        original_purchase_date:
+          type: string
+        original_purchase_date_ms:
+          type: string
+        original_purchase_date_pst:
+          type: string
+        original_application_version:
+          type: string
+        in_app:
+          items:
+            $ref: '#/components/schemas/InApp'
+          type: array
       type: object
     RefreshDeviceStatusDto:
       example:
@@ -19546,6 +20252,133 @@ components:
           format: double
           type: number
       type: object
+    SubscriptionDto:
+      example:
+        priceNaming: priceNaming
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        expireAt: 2000-01-23T04:56:07.000+00:00
+        pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        expireAt:
+          format: date-time
+          type: string
+        appId:
+          format: uuid
+          type: string
+        priceNaming:
+          type: string
+        pricingId:
+          format: uuid
+          type: string
+      type: object
+    SubscriptionOrderDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type:
+          name: name
+          value: value
+        pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status:
+          name: name
+          value: value
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        type:
+          $ref: '#/components/schemas/SubscriptionOrderType'
+        status:
+          $ref: '#/components/schemas/SubscriptionOrderStatus'
+        appId:
+          format: uuid
+          type: string
+        pricingId:
+          format: uuid
+          type: string
+      type: object
+    SubscriptionOrderStatus:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          readOnly: true
+          type: string
+        value:
+          readOnly: true
+          type: string
+      type: object
+    SubscriptionOrderType:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          readOnly: true
+          type: string
+        value:
+          readOnly: true
+          type: string
+      type: object
     SyncStateDto:
       example:
         lastSyncAt: 2000-01-23T04:56:07.000+00:00
@@ -19669,7 +20502,6 @@ components:
           sliceMd5: sliceMd5
           contentType: contentType
           storageObjectCreatedAt: 2000-01-23T04:56:07.000+00:00
-          app: app
           doneAt: 2000-01-23T04:56:07.000+00:00
           syncVersion: 9
           notifyAt: 2000-01-23T04:56:07.000+00:00
@@ -19745,6 +20577,7 @@ components:
             storageObjectUpdatedAt: 2000-01-23T04:56:07.000+00:00
             key: key
             md5: md5
+          appName: appName
           isDone: true
           parentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           url: url
@@ -20148,6 +20981,142 @@ components:
           type: string
       required:
       - resetToken
+      type: object
+    VerifyReceiptDto:
+      example:
+        orderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        receiptData: receiptData
+      properties:
+        orderId:
+          format: uuid
+          type: string
+        receiptData:
+          type: string
+      type: object
+    VerifyReceiptResult:
+      example:
+        appleVerifyReceiptResult:
+          is_retryable: true
+          latest_receipt_info:
+          - transaction_id: transaction_id
+            quantity: quantity
+            original_transaction_id: original_transaction_id
+            purchase_date_pst: purchase_date_pst
+            original_purchase_date_ms: original_purchase_date_ms
+            is_in_intro_offer_period: is_in_intro_offer_period
+            expires_date: expires_date
+            original_purchase_date_pst: original_purchase_date_pst
+            is_trial_period: is_trial_period
+            expires_date_pst: expires_date_pst
+            original_purchase_date: original_purchase_date
+            expires_date_ms: expires_date_ms
+            purchase_date_ms: purchase_date_ms
+            product_id: product_id
+            purchase_date: purchase_date
+            web_order_line_item_id: web_order_line_item_id
+          - transaction_id: transaction_id
+            quantity: quantity
+            original_transaction_id: original_transaction_id
+            purchase_date_pst: purchase_date_pst
+            original_purchase_date_ms: original_purchase_date_ms
+            is_in_intro_offer_period: is_in_intro_offer_period
+            expires_date: expires_date
+            original_purchase_date_pst: original_purchase_date_pst
+            is_trial_period: is_trial_period
+            expires_date_pst: expires_date_pst
+            original_purchase_date: original_purchase_date
+            expires_date_ms: expires_date_ms
+            purchase_date_ms: purchase_date_ms
+            product_id: product_id
+            purchase_date: purchase_date
+            web_order_line_item_id: web_order_line_item_id
+          environment: environment
+          latest_receipt: latest_receipt
+          pending_renewal_info:
+          - auto_renew_product_id: auto_renew_product_id
+            grace_period_expires_date: grace_period_expires_date
+            grace_period_expires_date_ms: grace_period_expires_date_ms
+            original_transaction_id: original_transaction_id
+            is_in_billing_retry_period: is_in_billing_retry_period
+            product_id: product_id
+            price_consent_status: price_consent_status
+            grace_period_expires_date_pst: grace_period_expires_date_pst
+            expiration_intent: expiration_intent
+            auto_renew_status: auto_renew_status
+          - auto_renew_product_id: auto_renew_product_id
+            grace_period_expires_date: grace_period_expires_date
+            grace_period_expires_date_ms: grace_period_expires_date_ms
+            original_transaction_id: original_transaction_id
+            is_in_billing_retry_period: is_in_billing_retry_period
+            product_id: product_id
+            price_consent_status: price_consent_status
+            grace_period_expires_date_pst: grace_period_expires_date_pst
+            expiration_intent: expiration_intent
+            auto_renew_status: auto_renew_status
+          receipt:
+            in_app:
+            - transaction_id: transaction_id
+              quantity: quantity
+              original_transaction_id: original_transaction_id
+              purchase_date_pst: purchase_date_pst
+              original_purchase_date_ms: original_purchase_date_ms
+              is_in_intro_offer_period: is_in_intro_offer_period
+              expires_date: expires_date
+              original_purchase_date_pst: original_purchase_date_pst
+              is_trial_period: is_trial_period
+              expires_date_pst: expires_date_pst
+              original_purchase_date: original_purchase_date
+              expires_date_ms: expires_date_ms
+              purchase_date_ms: purchase_date_ms
+              product_id: product_id
+              purchase_date: purchase_date
+              web_order_line_item_id: web_order_line_item_id
+            - transaction_id: transaction_id
+              quantity: quantity
+              original_transaction_id: original_transaction_id
+              purchase_date_pst: purchase_date_pst
+              original_purchase_date_ms: original_purchase_date_ms
+              is_in_intro_offer_period: is_in_intro_offer_period
+              expires_date: expires_date
+              original_purchase_date_pst: original_purchase_date_pst
+              is_trial_period: is_trial_period
+              expires_date_pst: expires_date_pst
+              original_purchase_date: original_purchase_date
+              expires_date_ms: expires_date_ms
+              purchase_date_ms: purchase_date_ms
+              product_id: product_id
+              purchase_date: purchase_date
+              web_order_line_item_id: web_order_line_item_id
+            adam_id: 6
+            receipt_creation_date: receipt_creation_date
+            original_application_version: original_application_version
+            app_item_id: 1
+            original_purchase_date_ms: original_purchase_date_ms
+            request_date_ms: request_date_ms
+            original_purchase_date_pst: original_purchase_date_pst
+            original_purchase_date: original_purchase_date
+            receipt_creation_date_pst: receipt_creation_date_pst
+            receipt_type: receipt_type
+            bundle_id: bundle_id
+            receipt_creation_date_ms: receipt_creation_date_ms
+            request_date: request_date
+            version_external_identifier: 5
+            request_date_pst: request_date_pst
+            download_id: 5
+            application_version: application_version
+          status: 0
+        ok: true
+        message: message
+        statusCode: statusCode
+      properties:
+        ok:
+          type: boolean
+        statusCode:
+          type: string
+        message:
+          type: string
+        appleVerifyReceiptResult:
+          $ref: '#/components/schemas/AppleVerifyReceiptResult'
       type: object
     WindowsTimeZone:
       example:

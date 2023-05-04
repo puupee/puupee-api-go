@@ -189,6 +189,9 @@ Class | Method | HTTP request | Description
 *StorageObjectApi* | [**ApiAppStorageObjectPreSignUrlPost**](docs/StorageObjectApi.md#apiappstorageobjectpresignurlpost) | **Post** /api/app/storage-object/pre-sign-url | 
 *StorageObjectApi* | [**ApiAppStorageObjectThumbGet**](docs/StorageObjectApi.md#apiappstorageobjectthumbget) | **Get** /api/app/storage-object/thumb | 
 *SubscriptionApi* | [**ApiAppSubscriptionAppleNotificationsPost**](docs/SubscriptionApi.md#apiappsubscriptionapplenotificationspost) | **Post** /api/app/subscription/apple-notifications | 
+*SubscriptionApi* | [**ApiAppSubscriptionGet**](docs/SubscriptionApi.md#apiappsubscriptionget) | **Get** /api/app/subscription | 
+*SubscriptionApi* | [**ApiAppSubscriptionOrderPost**](docs/SubscriptionApi.md#apiappsubscriptionorderpost) | **Post** /api/app/subscription/order | 
+*SubscriptionApi* | [**ApiAppSubscriptionVerifyReceiptPost**](docs/SubscriptionApi.md#apiappsubscriptionverifyreceiptpost) | **Post** /api/app/subscription/verify-receipt | 
 *SyncStateApi* | [**ApiAppSyncStateGet**](docs/SyncStateApi.md#apiappsyncstateget) | **Get** /api/app/sync-state | 
 *SyncStateApi* | [**ApiAppSyncStatePuupeeChangedEtoPost**](docs/SyncStateApi.md#apiappsyncstatepuupeechangedetopost) | **Post** /api/app/sync-state/puupee-changed-eto | 
 *TenantApi* | [**ApiMultiTenancyTenantsGet**](docs/TenantApi.md#apimultitenancytenantsget) | **Get** /api/multi-tenancy/tenants | 
@@ -237,6 +240,7 @@ Class | Method | HTTP request | Description
  - [AppUserScoreDto](docs/AppUserScoreDto.md)
  - [AppWithUserDto](docs/AppWithUserDto.md)
  - [AppWithUserDtoPagedResultDto](docs/AppWithUserDtoPagedResultDto.md)
+ - [AppleVerifyReceiptResult](docs/AppleVerifyReceiptResult.md)
  - [ApplicationApiDescriptionModel](docs/ApplicationApiDescriptionModel.md)
  - [ApplicationAuthConfigurationDto](docs/ApplicationAuthConfigurationDto.md)
  - [ApplicationConfigurationDto](docs/ApplicationConfigurationDto.md)
@@ -255,6 +259,7 @@ Class | Method | HTTP request | Description
  - [ControllerInterfaceApiDescriptionModel](docs/ControllerInterfaceApiDescriptionModel.md)
  - [CreateMessageTemplateReleaseDto](docs/CreateMessageTemplateReleaseDto.md)
  - [CreateOpenIddictApplicationDto](docs/CreateOpenIddictApplicationDto.md)
+ - [CreateOrGetSubscriptionOrderDto](docs/CreateOrGetSubscriptionOrderDto.md)
  - [CreateOrUpdateAppDto](docs/CreateOrUpdateAppDto.md)
  - [CreateOrUpdateAppFeatureDto](docs/CreateOrUpdateAppFeatureDto.md)
  - [CreateOrUpdateAppPricingDto](docs/CreateOrUpdateAppPricingDto.md)
@@ -310,10 +315,12 @@ Class | Method | HTTP request | Description
  - [IdentityUserDtoPagedResultDto](docs/IdentityUserDtoPagedResultDto.md)
  - [IdentityUserUpdateDto](docs/IdentityUserUpdateDto.md)
  - [IdentityUserUpdateRolesDto](docs/IdentityUserUpdateRolesDto.md)
+ - [InApp](docs/InApp.md)
  - [Int32KeyValue](docs/Int32KeyValue.md)
  - [Int32SetKeyValueDto](docs/Int32SetKeyValueDto.md)
  - [InterfaceMethodApiDescriptionModel](docs/InterfaceMethodApiDescriptionModel.md)
  - [LanguageInfo](docs/LanguageInfo.md)
+ - [LatestReceiptInfo](docs/LatestReceiptInfo.md)
  - [LocalizableStringDto](docs/LocalizableStringDto.md)
  - [LoginResultType](docs/LoginResultType.md)
  - [MessagePublishDto](docs/MessagePublishDto.md)
@@ -331,6 +338,7 @@ Class | Method | HTTP request | Description
  - [NotificationInfoDtoPagedResultDto](docs/NotificationInfoDtoPagedResultDto.md)
  - [ObjectExtensionsDto](docs/ObjectExtensionsDto.md)
  - [ParameterApiDescriptionModel](docs/ParameterApiDescriptionModel.md)
+ - [PendingRenewalInfo](docs/PendingRenewalInfo.md)
  - [PermissionGrantInfoDto](docs/PermissionGrantInfoDto.md)
  - [PermissionGroupDto](docs/PermissionGroupDto.md)
  - [ProfileDto](docs/ProfileDto.md)
@@ -339,6 +347,7 @@ Class | Method | HTTP request | Description
  - [PuupeeChangedEto](docs/PuupeeChangedEto.md)
  - [PuupeeDto](docs/PuupeeDto.md)
  - [PuupeeDtoPagedResultDto](docs/PuupeeDtoPagedResultDto.md)
+ - [Receipt](docs/Receipt.md)
  - [RefreshDeviceStatusDto](docs/RefreshDeviceStatusDto.md)
  - [RegisterDto](docs/RegisterDto.md)
  - [RemoteServiceErrorInfo](docs/RemoteServiceErrorInfo.md)
@@ -357,6 +366,10 @@ Class | Method | HTTP request | Description
  - [StorageObjectOrCredentialsDto](docs/StorageObjectOrCredentialsDto.md)
  - [StringKeyValue](docs/StringKeyValue.md)
  - [StringSetKeyValueDto](docs/StringSetKeyValueDto.md)
+ - [SubscriptionDto](docs/SubscriptionDto.md)
+ - [SubscriptionOrderDto](docs/SubscriptionOrderDto.md)
+ - [SubscriptionOrderStatus](docs/SubscriptionOrderStatus.md)
+ - [SubscriptionOrderType](docs/SubscriptionOrderType.md)
  - [SyncStateDto](docs/SyncStateDto.md)
  - [TenantCreateDto](docs/TenantCreateDto.md)
  - [TenantDto](docs/TenantDto.md)
@@ -380,6 +393,8 @@ Class | Method | HTTP request | Description
  - [UserStorageDto](docs/UserStorageDto.md)
  - [UserStorageItemDto](docs/UserStorageItemDto.md)
  - [VerifyPasswordResetTokenInput](docs/VerifyPasswordResetTokenInput.md)
+ - [VerifyReceiptDto](docs/VerifyReceiptDto.md)
+ - [VerifyReceiptResult](docs/VerifyReceiptResult.md)
  - [WindowsTimeZone](docs/WindowsTimeZone.md)
 
 

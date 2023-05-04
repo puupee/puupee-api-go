@@ -69,6 +69,7 @@ docs/AppUserScoreApi.md
 docs/AppUserScoreDto.md
 docs/AppWithUserDto.md
 docs/AppWithUserDtoPagedResultDto.md
+docs/AppleVerifyReceiptResult.md
 docs/ApplicationApiDescriptionModel.md
 docs/ApplicationAuthConfigurationDto.md
 docs/ApplicationConfigurationDto.md
@@ -87,6 +88,7 @@ docs/ControllerApiDescriptionModel.md
 docs/ControllerInterfaceApiDescriptionModel.md
 docs/CreateMessageTemplateReleaseDto.md
 docs/CreateOpenIddictApplicationDto.md
+docs/CreateOrGetSubscriptionOrderDto.md
 docs/CreateOrUpdateAppDto.md
 docs/CreateOrUpdateAppFeatureDto.md
 docs/CreateOrUpdateAppPricingDto.md
@@ -145,11 +147,13 @@ docs/IdentityUserDto.md
 docs/IdentityUserDtoPagedResultDto.md
 docs/IdentityUserUpdateDto.md
 docs/IdentityUserUpdateRolesDto.md
+docs/InApp.md
 docs/Int32KeyValue.md
 docs/Int32SetKeyValueDto.md
 docs/InterfaceMethodApiDescriptionModel.md
 docs/KeyValueApi.md
 docs/LanguageInfo.md
+docs/LatestReceiptInfo.md
 docs/LocalizableStringDto.md
 docs/LoginApi.md
 docs/LoginResultType.md
@@ -172,6 +176,7 @@ docs/NotificationInfoDto.md
 docs/NotificationInfoDtoPagedResultDto.md
 docs/ObjectExtensionsDto.md
 docs/ParameterApiDescriptionModel.md
+docs/PendingRenewalInfo.md
 docs/PermissionGrantInfoDto.md
 docs/PermissionGroupDto.md
 docs/PermissionsApi.md
@@ -183,6 +188,7 @@ docs/PuupeeApi.md
 docs/PuupeeChangedEto.md
 docs/PuupeeDto.md
 docs/PuupeeDtoPagedResultDto.md
+docs/Receipt.md
 docs/RefreshDeviceStatusDto.md
 docs/RegisterDto.md
 docs/RemoteServiceErrorInfo.md
@@ -206,6 +212,10 @@ docs/StorageObjectOrCredentialsDto.md
 docs/StringKeyValue.md
 docs/StringSetKeyValueDto.md
 docs/SubscriptionApi.md
+docs/SubscriptionDto.md
+docs/SubscriptionOrderDto.md
+docs/SubscriptionOrderStatus.md
+docs/SubscriptionOrderType.md
 docs/SyncStateApi.md
 docs/SyncStateDto.md
 docs/TenantApi.md
@@ -236,6 +246,8 @@ docs/UserStorageDto.md
 docs/UserStorageItemDto.md
 docs/VerificationApi.md
 docs/VerifyPasswordResetTokenInput.md
+docs/VerifyReceiptDto.md
+docs/VerifyReceiptResult.md
 docs/WindowsTimeZone.md
 git_push.sh
 go.mod
@@ -257,6 +269,7 @@ model_app_theme_mode.go
 model_app_user_score_dto.go
 model_app_with_user_dto.go
 model_app_with_user_dto_paged_result_dto.go
+model_apple_verify_receipt_result.go
 model_application_api_description_model.go
 model_application_auth_configuration_dto.go
 model_application_configuration_dto.go
@@ -275,6 +288,7 @@ model_controller_api_description_model.go
 model_controller_interface_api_description_model.go
 model_create_message_template_release_dto.go
 model_create_open_iddict_application_dto.go
+model_create_or_get_subscription_order_dto.go
 model_create_or_update_app_dto.go
 model_create_or_update_app_feature_dto.go
 model_create_or_update_app_pricing_dto.go
@@ -330,10 +344,12 @@ model_identity_user_dto.go
 model_identity_user_dto_paged_result_dto.go
 model_identity_user_update_dto.go
 model_identity_user_update_roles_dto.go
+model_in_app.go
 model_int32_key_value.go
 model_int32_set_key_value_dto.go
 model_interface_method_api_description_model.go
 model_language_info.go
+model_latest_receipt_info.go
 model_localizable_string_dto.go
 model_login_result_type.go
 model_message_publish_dto.go
@@ -351,6 +367,7 @@ model_notification_info_dto.go
 model_notification_info_dto_paged_result_dto.go
 model_object_extensions_dto.go
 model_parameter_api_description_model.go
+model_pending_renewal_info.go
 model_permission_grant_info_dto.go
 model_permission_group_dto.go
 model_profile_dto.go
@@ -359,6 +376,7 @@ model_provider_info_dto.go
 model_puupee_changed_eto.go
 model_puupee_dto.go
 model_puupee_dto_paged_result_dto.go
+model_receipt.go
 model_refresh_device_status_dto.go
 model_register_dto.go
 model_remote_service_error_info.go
@@ -377,6 +395,10 @@ model_storage_object_dto.go
 model_storage_object_or_credentials_dto.go
 model_string_key_value.go
 model_string_set_key_value_dto.go
+model_subscription_dto.go
+model_subscription_order_dto.go
+model_subscription_order_status.go
+model_subscription_order_type.go
 model_sync_state_dto.go
 model_tenant_create_dto.go
 model_tenant_dto.go
@@ -400,6 +422,8 @@ model_user_login_info.go
 model_user_storage_dto.go
 model_user_storage_item_dto.go
 model_verify_password_reset_token_input.go
+model_verify_receipt_dto.go
+model_verify_receipt_result.go
 model_windows_time_zone.go
 response.go
 utils.go

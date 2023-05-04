@@ -27,7 +27,8 @@ type ApiApiAppAppReleaseGetRequest struct {
 	ctx context.Context
 	ApiService *AppReleaseApiService
 	appId *string
-	environment *string
+	environmentName *string
+	environmentValue *string
 	platformName *string
 	platformValue *string
 	sorting *string
@@ -40,8 +41,13 @@ func (r ApiApiAppAppReleaseGetRequest) AppId(appId string) ApiApiAppAppReleaseGe
 	return r
 }
 
-func (r ApiApiAppAppReleaseGetRequest) Environment(environment string) ApiApiAppAppReleaseGetRequest {
-	r.environment = &environment
+func (r ApiApiAppAppReleaseGetRequest) EnvironmentName(environmentName string) ApiApiAppAppReleaseGetRequest {
+	r.environmentName = &environmentName
+	return r
+}
+
+func (r ApiApiAppAppReleaseGetRequest) EnvironmentValue(environmentValue string) ApiApiAppAppReleaseGetRequest {
+	r.environmentValue = &environmentValue
 	return r
 }
 
@@ -111,8 +117,11 @@ func (a *AppReleaseApiService) ApiAppAppReleaseGetExecute(r ApiApiAppAppReleaseG
 	if r.appId != nil {
 		localVarQueryParams.Add("AppId", parameterToString(*r.appId, ""))
 	}
-	if r.environment != nil {
-		localVarQueryParams.Add("Environment", parameterToString(*r.environment, ""))
+	if r.environmentName != nil {
+		localVarQueryParams.Add("Environment.Name", parameterToString(*r.environmentName, ""))
+	}
+	if r.environmentValue != nil {
+		localVarQueryParams.Add("Environment.Value", parameterToString(*r.environmentValue, ""))
 	}
 	if r.platformName != nil {
 		localVarQueryParams.Add("Platform.Name", parameterToString(*r.platformName, ""))
@@ -749,6 +758,8 @@ type ApiApiAppAppReleaseLatestGetRequest struct {
 	appName *string
 	platform *string
 	productType *string
+	environmentName *string
+	environmentValue *string
 }
 
 func (r ApiApiAppAppReleaseLatestGetRequest) AppName(appName string) ApiApiAppAppReleaseLatestGetRequest {
@@ -763,6 +774,16 @@ func (r ApiApiAppAppReleaseLatestGetRequest) Platform(platform string) ApiApiApp
 
 func (r ApiApiAppAppReleaseLatestGetRequest) ProductType(productType string) ApiApiAppAppReleaseLatestGetRequest {
 	r.productType = &productType
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) EnvironmentName(environmentName string) ApiApiAppAppReleaseLatestGetRequest {
+	r.environmentName = &environmentName
+	return r
+}
+
+func (r ApiApiAppAppReleaseLatestGetRequest) EnvironmentValue(environmentValue string) ApiApiAppAppReleaseLatestGetRequest {
+	r.environmentValue = &environmentValue
 	return r
 }
 
@@ -812,6 +833,12 @@ func (a *AppReleaseApiService) ApiAppAppReleaseLatestGetExecute(r ApiApiAppAppRe
 	}
 	if r.productType != nil {
 		localVarQueryParams.Add("ProductType", parameterToString(*r.productType, ""))
+	}
+	if r.environmentName != nil {
+		localVarQueryParams.Add("Environment.Name", parameterToString(*r.environmentName, ""))
+	}
+	if r.environmentValue != nil {
+		localVarQueryParams.Add("Environment.Value", parameterToString(*r.environmentValue, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

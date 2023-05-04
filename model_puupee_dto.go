@@ -67,7 +67,7 @@ type PuupeeDto struct {
 	Tagging *string `json:"tagging,omitempty"`
 	LastModifierDeviceToken *string `json:"lastModifierDeviceToken,omitempty"`
 	LastModifierDevice *string `json:"lastModifierDevice,omitempty"`
-	App *string `json:"app,omitempty"`
+	AppName *string `json:"appName,omitempty"`
 	SortIndex *int32 `json:"sortIndex,omitempty"`
 }
 
@@ -1688,36 +1688,36 @@ func (o *PuupeeDto) SetLastModifierDevice(v string) {
 	o.LastModifierDevice = &v
 }
 
-// GetApp returns the App field value if set, zero value otherwise.
-func (o *PuupeeDto) GetApp() string {
-	if o == nil || isNil(o.App) {
+// GetAppName returns the AppName field value if set, zero value otherwise.
+func (o *PuupeeDto) GetAppName() string {
+	if o == nil || isNil(o.AppName) {
 		var ret string
 		return ret
 	}
-	return *o.App
+	return *o.AppName
 }
 
-// GetAppOk returns a tuple with the App field value if set, nil otherwise
+// GetAppNameOk returns a tuple with the AppName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PuupeeDto) GetAppOk() (*string, bool) {
-	if o == nil || isNil(o.App) {
+func (o *PuupeeDto) GetAppNameOk() (*string, bool) {
+	if o == nil || isNil(o.AppName) {
     return nil, false
 	}
-	return o.App, true
+	return o.AppName, true
 }
 
-// HasApp returns a boolean if a field has been set.
-func (o *PuupeeDto) HasApp() bool {
-	if o != nil && !isNil(o.App) {
+// HasAppName returns a boolean if a field has been set.
+func (o *PuupeeDto) HasAppName() bool {
+	if o != nil && !isNil(o.AppName) {
 		return true
 	}
 
 	return false
 }
 
-// SetApp gets a reference to the given string and assigns it to the App field.
-func (o *PuupeeDto) SetApp(v string) {
-	o.App = &v
+// SetAppName gets a reference to the given string and assigns it to the AppName field.
+func (o *PuupeeDto) SetAppName(v string) {
+	o.AppName = &v
 }
 
 // GetSortIndex returns the SortIndex field value if set, zero value otherwise.
@@ -1904,8 +1904,8 @@ func (o PuupeeDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.LastModifierDevice) {
 		toSerialize["lastModifierDevice"] = o.LastModifierDevice
 	}
-	if !isNil(o.App) {
-		toSerialize["app"] = o.App
+	if !isNil(o.AppName) {
+		toSerialize["appName"] = o.AppName
 	}
 	if !isNil(o.SortIndex) {
 		toSerialize["sortIndex"] = o.SortIndex
