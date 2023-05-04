@@ -10598,13 +10598,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ANV2'
+              $ref: '#/components/schemas/Anv2'
           text/json:
             schema:
-              $ref: '#/components/schemas/ANV2'
+              $ref: '#/components/schemas/Anv2'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/ANV2'
+              $ref: '#/components/schemas/Anv2'
         required: false
       responses:
         "200":
@@ -13515,13 +13515,6 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
-    ANV2:
-      example:
-        signedPayload: signedPayload
-      properties:
-        signedPayload:
-          type: string
-      type: object
     AbpLoginResult:
       example:
         result: null
@@ -13611,6 +13604,13 @@ components:
         allowAnonymous:
           type: boolean
         implementFrom:
+          type: string
+      type: object
+    Anv2:
+      example:
+        signedPayload: signedPayload
+      properties:
+        signedPayload:
           type: string
       type: object
     AppDto:
@@ -16002,9 +16002,9 @@ components:
         name: name
         tpnsToken: tpnsToken
         isPhysicalDevice: true
-        type: type
         brand: brand
         systemVersion: systemVersion
+        platform: platform
         token: token
       properties:
         token:
@@ -16015,7 +16015,7 @@ components:
           type: boolean
         name:
           type: string
-        type:
+        platform:
           type: string
         brand:
           type: string
@@ -16346,9 +16346,40 @@ components:
       type: object
     CreateOrGetSubscriptionOrderDto:
       example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
         appId:
           format: uuid
           type: string
@@ -20976,13 +21007,50 @@ components:
       type: object
     VerifyReceiptDto:
       example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
         orderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         receiptData: receiptData
+        platform: platform
+        deviceToken: deviceToken
       properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
         orderId:
           format: uuid
           type: string
         receiptData:
+          type: string
+        platform:
+          type: string
+        deviceToken:
           type: string
       type: object
     VerifyReceiptResult:

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TpnsToken** | Pointer to **string** |  | [optional] 
 **IsPhysicalDevice** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
+**Platform** | Pointer to **string** |  | [optional] 
 **Brand** | Pointer to **string** |  | [optional] 
 **SystemVersion** | Pointer to **string** |  | [optional] 
 
@@ -131,30 +131,30 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetType
+### GetPlatform
 
-`func (o *BindDeviceDto) GetType() string`
+`func (o *BindDeviceDto) GetPlatform() string`
 
-GetType returns the Type field if non-nil, zero value otherwise.
+GetPlatform returns the Platform field if non-nil, zero value otherwise.
 
-### GetTypeOk
+### GetPlatformOk
 
-`func (o *BindDeviceDto) GetTypeOk() (*string, bool)`
+`func (o *BindDeviceDto) GetPlatformOk() (*string, bool)`
 
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetType
+### SetPlatform
 
-`func (o *BindDeviceDto) SetType(v string)`
+`func (o *BindDeviceDto) SetPlatform(v string)`
 
-SetType sets Type field to given value.
+SetPlatform sets Platform field to given value.
 
-### HasType
+### HasPlatform
 
-`func (o *BindDeviceDto) HasType() bool`
+`func (o *BindDeviceDto) HasPlatform() bool`
 
-HasType returns a boolean if a field has been set.
+HasPlatform returns a boolean if a field has been set.
 
 ### GetBrand
 

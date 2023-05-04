@@ -20,7 +20,7 @@ type BindDeviceDto struct {
 	TpnsToken *string `json:"tpnsToken,omitempty"`
 	IsPhysicalDevice *bool `json:"isPhysicalDevice,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Platform *string `json:"platform,omitempty"`
 	Brand *string `json:"brand,omitempty"`
 	SystemVersion *string `json:"systemVersion,omitempty"`
 }
@@ -170,36 +170,36 @@ func (o *BindDeviceDto) SetName(v string) {
 	o.Name = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *BindDeviceDto) GetType() string {
-	if o == nil || isNil(o.Type) {
+// GetPlatform returns the Platform field value if set, zero value otherwise.
+func (o *BindDeviceDto) GetPlatform() string {
+	if o == nil || isNil(o.Platform) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Platform
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BindDeviceDto) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
+func (o *BindDeviceDto) GetPlatformOk() (*string, bool) {
+	if o == nil || isNil(o.Platform) {
     return nil, false
 	}
-	return o.Type, true
+	return o.Platform, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *BindDeviceDto) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+// HasPlatform returns a boolean if a field has been set.
+func (o *BindDeviceDto) HasPlatform() bool {
+	if o != nil && !isNil(o.Platform) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *BindDeviceDto) SetType(v string) {
-	o.Type = &v
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
+func (o *BindDeviceDto) SetPlatform(v string) {
+	o.Platform = &v
 }
 
 // GetBrand returns the Brand field value if set, zero value otherwise.
@@ -280,8 +280,8 @@ func (o BindDeviceDto) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if !isNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
 	if !isNil(o.Brand) {
 		toSerialize["brand"] = o.Brand

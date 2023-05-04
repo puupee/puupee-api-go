@@ -40,7 +40,6 @@ api_user_storage.go
 api_verification.go
 client.go
 configuration.go
-docs/ANV2.md
 docs/AbpApiDefinitionApi.md
 docs/AbpApplicationConfigurationApi.md
 docs/AbpApplicationLocalizationApi.md
@@ -48,6 +47,7 @@ docs/AbpLoginResult.md
 docs/AbpTenantApi.md
 docs/AccountApi.md
 docs/ActionApiDescriptionModel.md
+docs/Anv2.md
 docs/AppApi.md
 docs/AppDto.md
 docs/AppDtoPagedResultDto.md

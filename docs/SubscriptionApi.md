@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewANV2() // ANV2 |  (optional)
+    body := *openapiclient.NewAnv2() // Anv2 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiApiAppSubscriptionAppleNot
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ANV2**](ANV2.md) |  | 
+ **body** | [**Anv2**](Anv2.md) |  | 
 
 ### Return type
 

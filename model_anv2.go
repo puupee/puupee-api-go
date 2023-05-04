@@ -14,30 +14,30 @@ import (
 	"encoding/json"
 )
 
-// ANV2 struct for ANV2
-type ANV2 struct {
+// Anv2 struct for Anv2
+type Anv2 struct {
 	SignedPayload *string `json:"signedPayload,omitempty"`
 }
 
-// NewANV2 instantiates a new ANV2 object
+// NewAnv2 instantiates a new Anv2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewANV2() *ANV2 {
-	this := ANV2{}
+func NewAnv2() *Anv2 {
+	this := Anv2{}
 	return &this
 }
 
-// NewANV2WithDefaults instantiates a new ANV2 object
+// NewAnv2WithDefaults instantiates a new Anv2 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewANV2WithDefaults() *ANV2 {
-	this := ANV2{}
+func NewAnv2WithDefaults() *Anv2 {
+	this := Anv2{}
 	return &this
 }
 
 // GetSignedPayload returns the SignedPayload field value if set, zero value otherwise.
-func (o *ANV2) GetSignedPayload() string {
+func (o *Anv2) GetSignedPayload() string {
 	if o == nil || isNil(o.SignedPayload) {
 		var ret string
 		return ret
@@ -47,7 +47,7 @@ func (o *ANV2) GetSignedPayload() string {
 
 // GetSignedPayloadOk returns a tuple with the SignedPayload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ANV2) GetSignedPayloadOk() (*string, bool) {
+func (o *Anv2) GetSignedPayloadOk() (*string, bool) {
 	if o == nil || isNil(o.SignedPayload) {
     return nil, false
 	}
@@ -55,7 +55,7 @@ func (o *ANV2) GetSignedPayloadOk() (*string, bool) {
 }
 
 // HasSignedPayload returns a boolean if a field has been set.
-func (o *ANV2) HasSignedPayload() bool {
+func (o *Anv2) HasSignedPayload() bool {
 	if o != nil && !isNil(o.SignedPayload) {
 		return true
 	}
@@ -64,11 +64,11 @@ func (o *ANV2) HasSignedPayload() bool {
 }
 
 // SetSignedPayload gets a reference to the given string and assigns it to the SignedPayload field.
-func (o *ANV2) SetSignedPayload(v string) {
+func (o *Anv2) SetSignedPayload(v string) {
 	o.SignedPayload = &v
 }
 
-func (o ANV2) MarshalJSON() ([]byte, error) {
+func (o Anv2) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.SignedPayload) {
 		toSerialize["signedPayload"] = o.SignedPayload
@@ -76,38 +76,38 @@ func (o ANV2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableANV2 struct {
-	value *ANV2
+type NullableAnv2 struct {
+	value *Anv2
 	isSet bool
 }
 
-func (v NullableANV2) Get() *ANV2 {
+func (v NullableAnv2) Get() *Anv2 {
 	return v.value
 }
 
-func (v *NullableANV2) Set(val *ANV2) {
+func (v *NullableAnv2) Set(val *Anv2) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableANV2) IsSet() bool {
+func (v NullableAnv2) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableANV2) Unset() {
+func (v *NullableAnv2) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableANV2(val *ANV2) *NullableANV2 {
-	return &NullableANV2{value: val, isSet: true}
+func NewNullableAnv2(val *Anv2) *NullableAnv2 {
+	return &NullableAnv2{value: val, isSet: true}
 }
 
-func (v NullableANV2) MarshalJSON() ([]byte, error) {
+func (v NullableAnv2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableANV2) UnmarshalJSON(src []byte) error {
+func (v *NullableAnv2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
