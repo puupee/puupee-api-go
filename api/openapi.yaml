@@ -3548,11 +3548,7 @@ paths:
           format: uuid
           type: string
       - in: query
-        name: Environment.Name
-        schema:
-          type: string
-      - in: query
-        name: Environment.Value
+        name: Environment
         schema:
           type: string
       - in: query
@@ -4075,11 +4071,7 @@ paths:
         schema:
           type: string
       - in: query
-        name: Environment.Name
-        schema:
-          type: string
-      - in: query
-        name: Environment.Value
+        name: Environment
         schema:
           type: string
       responses:
