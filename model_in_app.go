@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InApp type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InApp{}
+
 // InApp struct for InApp
 type InApp struct {
 	Quantity *string `json:"quantity,omitempty"`
@@ -53,7 +56,7 @@ func NewInAppWithDefaults() *InApp {
 
 // GetQuantity returns the Quantity field value if set, zero value otherwise.
 func (o *InApp) GetQuantity() string {
-	if o == nil || isNil(o.Quantity) {
+	if o == nil || IsNil(o.Quantity) {
 		var ret string
 		return ret
 	}
@@ -63,15 +66,15 @@ func (o *InApp) GetQuantity() string {
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetQuantityOk() (*string, bool) {
-	if o == nil || isNil(o.Quantity) {
-    return nil, false
+	if o == nil || IsNil(o.Quantity) {
+		return nil, false
 	}
 	return o.Quantity, true
 }
 
 // HasQuantity returns a boolean if a field has been set.
 func (o *InApp) HasQuantity() bool {
-	if o != nil && !isNil(o.Quantity) {
+	if o != nil && !IsNil(o.Quantity) {
 		return true
 	}
 
@@ -85,7 +88,7 @@ func (o *InApp) SetQuantity(v string) {
 
 // GetProductId returns the ProductId field value if set, zero value otherwise.
 func (o *InApp) GetProductId() string {
-	if o == nil || isNil(o.ProductId) {
+	if o == nil || IsNil(o.ProductId) {
 		var ret string
 		return ret
 	}
@@ -95,15 +98,15 @@ func (o *InApp) GetProductId() string {
 // GetProductIdOk returns a tuple with the ProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.ProductId) {
-    return nil, false
+	if o == nil || IsNil(o.ProductId) {
+		return nil, false
 	}
 	return o.ProductId, true
 }
 
 // HasProductId returns a boolean if a field has been set.
 func (o *InApp) HasProductId() bool {
-	if o != nil && !isNil(o.ProductId) {
+	if o != nil && !IsNil(o.ProductId) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *InApp) SetProductId(v string) {
 
 // GetTransactionId returns the TransactionId field value if set, zero value otherwise.
 func (o *InApp) GetTransactionId() string {
-	if o == nil || isNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId) {
 		var ret string
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *InApp) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetTransactionIdOk() (*string, bool) {
-	if o == nil || isNil(o.TransactionId) {
-    return nil, false
+	if o == nil || IsNil(o.TransactionId) {
+		return nil, false
 	}
 	return o.TransactionId, true
 }
 
 // HasTransactionId returns a boolean if a field has been set.
 func (o *InApp) HasTransactionId() bool {
-	if o != nil && !isNil(o.TransactionId) {
+	if o != nil && !IsNil(o.TransactionId) {
 		return true
 	}
 
@@ -149,7 +152,7 @@ func (o *InApp) SetTransactionId(v string) {
 
 // GetOriginalTransactionId returns the OriginalTransactionId field value if set, zero value otherwise.
 func (o *InApp) GetOriginalTransactionId() string {
-	if o == nil || isNil(o.OriginalTransactionId) {
+	if o == nil || IsNil(o.OriginalTransactionId) {
 		var ret string
 		return ret
 	}
@@ -159,15 +162,15 @@ func (o *InApp) GetOriginalTransactionId() string {
 // GetOriginalTransactionIdOk returns a tuple with the OriginalTransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetOriginalTransactionIdOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalTransactionId) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalTransactionId) {
+		return nil, false
 	}
 	return o.OriginalTransactionId, true
 }
 
 // HasOriginalTransactionId returns a boolean if a field has been set.
 func (o *InApp) HasOriginalTransactionId() bool {
-	if o != nil && !isNil(o.OriginalTransactionId) {
+	if o != nil && !IsNil(o.OriginalTransactionId) {
 		return true
 	}
 
@@ -181,7 +184,7 @@ func (o *InApp) SetOriginalTransactionId(v string) {
 
 // GetPurchaseDate returns the PurchaseDate field value if set, zero value otherwise.
 func (o *InApp) GetPurchaseDate() string {
-	if o == nil || isNil(o.PurchaseDate) {
+	if o == nil || IsNil(o.PurchaseDate) {
 		var ret string
 		return ret
 	}
@@ -191,15 +194,15 @@ func (o *InApp) GetPurchaseDate() string {
 // GetPurchaseDateOk returns a tuple with the PurchaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetPurchaseDateOk() (*string, bool) {
-	if o == nil || isNil(o.PurchaseDate) {
-    return nil, false
+	if o == nil || IsNil(o.PurchaseDate) {
+		return nil, false
 	}
 	return o.PurchaseDate, true
 }
 
 // HasPurchaseDate returns a boolean if a field has been set.
 func (o *InApp) HasPurchaseDate() bool {
-	if o != nil && !isNil(o.PurchaseDate) {
+	if o != nil && !IsNil(o.PurchaseDate) {
 		return true
 	}
 
@@ -213,7 +216,7 @@ func (o *InApp) SetPurchaseDate(v string) {
 
 // GetPurchaseDateMs returns the PurchaseDateMs field value if set, zero value otherwise.
 func (o *InApp) GetPurchaseDateMs() string {
-	if o == nil || isNil(o.PurchaseDateMs) {
+	if o == nil || IsNil(o.PurchaseDateMs) {
 		var ret string
 		return ret
 	}
@@ -223,15 +226,15 @@ func (o *InApp) GetPurchaseDateMs() string {
 // GetPurchaseDateMsOk returns a tuple with the PurchaseDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetPurchaseDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.PurchaseDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.PurchaseDateMs) {
+		return nil, false
 	}
 	return o.PurchaseDateMs, true
 }
 
 // HasPurchaseDateMs returns a boolean if a field has been set.
 func (o *InApp) HasPurchaseDateMs() bool {
-	if o != nil && !isNil(o.PurchaseDateMs) {
+	if o != nil && !IsNil(o.PurchaseDateMs) {
 		return true
 	}
 
@@ -245,7 +248,7 @@ func (o *InApp) SetPurchaseDateMs(v string) {
 
 // GetPurchaseDatePst returns the PurchaseDatePst field value if set, zero value otherwise.
 func (o *InApp) GetPurchaseDatePst() string {
-	if o == nil || isNil(o.PurchaseDatePst) {
+	if o == nil || IsNil(o.PurchaseDatePst) {
 		var ret string
 		return ret
 	}
@@ -255,15 +258,15 @@ func (o *InApp) GetPurchaseDatePst() string {
 // GetPurchaseDatePstOk returns a tuple with the PurchaseDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetPurchaseDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.PurchaseDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.PurchaseDatePst) {
+		return nil, false
 	}
 	return o.PurchaseDatePst, true
 }
 
 // HasPurchaseDatePst returns a boolean if a field has been set.
 func (o *InApp) HasPurchaseDatePst() bool {
-	if o != nil && !isNil(o.PurchaseDatePst) {
+	if o != nil && !IsNil(o.PurchaseDatePst) {
 		return true
 	}
 
@@ -277,7 +280,7 @@ func (o *InApp) SetPurchaseDatePst(v string) {
 
 // GetOriginalPurchaseDate returns the OriginalPurchaseDate field value if set, zero value otherwise.
 func (o *InApp) GetOriginalPurchaseDate() string {
-	if o == nil || isNil(o.OriginalPurchaseDate) {
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
 		var ret string
 		return ret
 	}
@@ -287,15 +290,15 @@ func (o *InApp) GetOriginalPurchaseDate() string {
 // GetOriginalPurchaseDateOk returns a tuple with the OriginalPurchaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetOriginalPurchaseDateOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalPurchaseDate) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
+		return nil, false
 	}
 	return o.OriginalPurchaseDate, true
 }
 
 // HasOriginalPurchaseDate returns a boolean if a field has been set.
 func (o *InApp) HasOriginalPurchaseDate() bool {
-	if o != nil && !isNil(o.OriginalPurchaseDate) {
+	if o != nil && !IsNil(o.OriginalPurchaseDate) {
 		return true
 	}
 
@@ -309,7 +312,7 @@ func (o *InApp) SetOriginalPurchaseDate(v string) {
 
 // GetOriginalPurchaseDateMs returns the OriginalPurchaseDateMs field value if set, zero value otherwise.
 func (o *InApp) GetOriginalPurchaseDateMs() string {
-	if o == nil || isNil(o.OriginalPurchaseDateMs) {
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
 		var ret string
 		return ret
 	}
@@ -319,15 +322,15 @@ func (o *InApp) GetOriginalPurchaseDateMs() string {
 // GetOriginalPurchaseDateMsOk returns a tuple with the OriginalPurchaseDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetOriginalPurchaseDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalPurchaseDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
+		return nil, false
 	}
 	return o.OriginalPurchaseDateMs, true
 }
 
 // HasOriginalPurchaseDateMs returns a boolean if a field has been set.
 func (o *InApp) HasOriginalPurchaseDateMs() bool {
-	if o != nil && !isNil(o.OriginalPurchaseDateMs) {
+	if o != nil && !IsNil(o.OriginalPurchaseDateMs) {
 		return true
 	}
 
@@ -341,7 +344,7 @@ func (o *InApp) SetOriginalPurchaseDateMs(v string) {
 
 // GetOriginalPurchaseDatePst returns the OriginalPurchaseDatePst field value if set, zero value otherwise.
 func (o *InApp) GetOriginalPurchaseDatePst() string {
-	if o == nil || isNil(o.OriginalPurchaseDatePst) {
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
 		var ret string
 		return ret
 	}
@@ -351,15 +354,15 @@ func (o *InApp) GetOriginalPurchaseDatePst() string {
 // GetOriginalPurchaseDatePstOk returns a tuple with the OriginalPurchaseDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetOriginalPurchaseDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalPurchaseDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
+		return nil, false
 	}
 	return o.OriginalPurchaseDatePst, true
 }
 
 // HasOriginalPurchaseDatePst returns a boolean if a field has been set.
 func (o *InApp) HasOriginalPurchaseDatePst() bool {
-	if o != nil && !isNil(o.OriginalPurchaseDatePst) {
+	if o != nil && !IsNil(o.OriginalPurchaseDatePst) {
 		return true
 	}
 
@@ -373,7 +376,7 @@ func (o *InApp) SetOriginalPurchaseDatePst(v string) {
 
 // GetExpiresDate returns the ExpiresDate field value if set, zero value otherwise.
 func (o *InApp) GetExpiresDate() string {
-	if o == nil || isNil(o.ExpiresDate) {
+	if o == nil || IsNil(o.ExpiresDate) {
 		var ret string
 		return ret
 	}
@@ -383,15 +386,15 @@ func (o *InApp) GetExpiresDate() string {
 // GetExpiresDateOk returns a tuple with the ExpiresDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetExpiresDateOk() (*string, bool) {
-	if o == nil || isNil(o.ExpiresDate) {
-    return nil, false
+	if o == nil || IsNil(o.ExpiresDate) {
+		return nil, false
 	}
 	return o.ExpiresDate, true
 }
 
 // HasExpiresDate returns a boolean if a field has been set.
 func (o *InApp) HasExpiresDate() bool {
-	if o != nil && !isNil(o.ExpiresDate) {
+	if o != nil && !IsNil(o.ExpiresDate) {
 		return true
 	}
 
@@ -405,7 +408,7 @@ func (o *InApp) SetExpiresDate(v string) {
 
 // GetExpiresDateMs returns the ExpiresDateMs field value if set, zero value otherwise.
 func (o *InApp) GetExpiresDateMs() string {
-	if o == nil || isNil(o.ExpiresDateMs) {
+	if o == nil || IsNil(o.ExpiresDateMs) {
 		var ret string
 		return ret
 	}
@@ -415,15 +418,15 @@ func (o *InApp) GetExpiresDateMs() string {
 // GetExpiresDateMsOk returns a tuple with the ExpiresDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetExpiresDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.ExpiresDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.ExpiresDateMs) {
+		return nil, false
 	}
 	return o.ExpiresDateMs, true
 }
 
 // HasExpiresDateMs returns a boolean if a field has been set.
 func (o *InApp) HasExpiresDateMs() bool {
-	if o != nil && !isNil(o.ExpiresDateMs) {
+	if o != nil && !IsNil(o.ExpiresDateMs) {
 		return true
 	}
 
@@ -437,7 +440,7 @@ func (o *InApp) SetExpiresDateMs(v string) {
 
 // GetExpiresDatePst returns the ExpiresDatePst field value if set, zero value otherwise.
 func (o *InApp) GetExpiresDatePst() string {
-	if o == nil || isNil(o.ExpiresDatePst) {
+	if o == nil || IsNil(o.ExpiresDatePst) {
 		var ret string
 		return ret
 	}
@@ -447,15 +450,15 @@ func (o *InApp) GetExpiresDatePst() string {
 // GetExpiresDatePstOk returns a tuple with the ExpiresDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetExpiresDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.ExpiresDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.ExpiresDatePst) {
+		return nil, false
 	}
 	return o.ExpiresDatePst, true
 }
 
 // HasExpiresDatePst returns a boolean if a field has been set.
 func (o *InApp) HasExpiresDatePst() bool {
-	if o != nil && !isNil(o.ExpiresDatePst) {
+	if o != nil && !IsNil(o.ExpiresDatePst) {
 		return true
 	}
 
@@ -469,7 +472,7 @@ func (o *InApp) SetExpiresDatePst(v string) {
 
 // GetWebOrderLineItemId returns the WebOrderLineItemId field value if set, zero value otherwise.
 func (o *InApp) GetWebOrderLineItemId() string {
-	if o == nil || isNil(o.WebOrderLineItemId) {
+	if o == nil || IsNil(o.WebOrderLineItemId) {
 		var ret string
 		return ret
 	}
@@ -479,15 +482,15 @@ func (o *InApp) GetWebOrderLineItemId() string {
 // GetWebOrderLineItemIdOk returns a tuple with the WebOrderLineItemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetWebOrderLineItemIdOk() (*string, bool) {
-	if o == nil || isNil(o.WebOrderLineItemId) {
-    return nil, false
+	if o == nil || IsNil(o.WebOrderLineItemId) {
+		return nil, false
 	}
 	return o.WebOrderLineItemId, true
 }
 
 // HasWebOrderLineItemId returns a boolean if a field has been set.
 func (o *InApp) HasWebOrderLineItemId() bool {
-	if o != nil && !isNil(o.WebOrderLineItemId) {
+	if o != nil && !IsNil(o.WebOrderLineItemId) {
 		return true
 	}
 
@@ -501,7 +504,7 @@ func (o *InApp) SetWebOrderLineItemId(v string) {
 
 // GetIsTrialPeriod returns the IsTrialPeriod field value if set, zero value otherwise.
 func (o *InApp) GetIsTrialPeriod() string {
-	if o == nil || isNil(o.IsTrialPeriod) {
+	if o == nil || IsNil(o.IsTrialPeriod) {
 		var ret string
 		return ret
 	}
@@ -511,15 +514,15 @@ func (o *InApp) GetIsTrialPeriod() string {
 // GetIsTrialPeriodOk returns a tuple with the IsTrialPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetIsTrialPeriodOk() (*string, bool) {
-	if o == nil || isNil(o.IsTrialPeriod) {
-    return nil, false
+	if o == nil || IsNil(o.IsTrialPeriod) {
+		return nil, false
 	}
 	return o.IsTrialPeriod, true
 }
 
 // HasIsTrialPeriod returns a boolean if a field has been set.
 func (o *InApp) HasIsTrialPeriod() bool {
-	if o != nil && !isNil(o.IsTrialPeriod) {
+	if o != nil && !IsNil(o.IsTrialPeriod) {
 		return true
 	}
 
@@ -533,7 +536,7 @@ func (o *InApp) SetIsTrialPeriod(v string) {
 
 // GetIsInIntroOfferPeriod returns the IsInIntroOfferPeriod field value if set, zero value otherwise.
 func (o *InApp) GetIsInIntroOfferPeriod() string {
-	if o == nil || isNil(o.IsInIntroOfferPeriod) {
+	if o == nil || IsNil(o.IsInIntroOfferPeriod) {
 		var ret string
 		return ret
 	}
@@ -543,15 +546,15 @@ func (o *InApp) GetIsInIntroOfferPeriod() string {
 // GetIsInIntroOfferPeriodOk returns a tuple with the IsInIntroOfferPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InApp) GetIsInIntroOfferPeriodOk() (*string, bool) {
-	if o == nil || isNil(o.IsInIntroOfferPeriod) {
-    return nil, false
+	if o == nil || IsNil(o.IsInIntroOfferPeriod) {
+		return nil, false
 	}
 	return o.IsInIntroOfferPeriod, true
 }
 
 // HasIsInIntroOfferPeriod returns a boolean if a field has been set.
 func (o *InApp) HasIsInIntroOfferPeriod() bool {
-	if o != nil && !isNil(o.IsInIntroOfferPeriod) {
+	if o != nil && !IsNil(o.IsInIntroOfferPeriod) {
 		return true
 	}
 
@@ -564,56 +567,64 @@ func (o *InApp) SetIsInIntroOfferPeriod(v string) {
 }
 
 func (o InApp) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Quantity) {
-		toSerialize["quantity"] = o.Quantity
-	}
-	if !isNil(o.ProductId) {
-		toSerialize["product_id"] = o.ProductId
-	}
-	if !isNil(o.TransactionId) {
-		toSerialize["transaction_id"] = o.TransactionId
-	}
-	if !isNil(o.OriginalTransactionId) {
-		toSerialize["original_transaction_id"] = o.OriginalTransactionId
-	}
-	if !isNil(o.PurchaseDate) {
-		toSerialize["purchase_date"] = o.PurchaseDate
-	}
-	if !isNil(o.PurchaseDateMs) {
-		toSerialize["purchase_date_ms"] = o.PurchaseDateMs
-	}
-	if !isNil(o.PurchaseDatePst) {
-		toSerialize["purchase_date_pst"] = o.PurchaseDatePst
-	}
-	if !isNil(o.OriginalPurchaseDate) {
-		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate
-	}
-	if !isNil(o.OriginalPurchaseDateMs) {
-		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs
-	}
-	if !isNil(o.OriginalPurchaseDatePst) {
-		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst
-	}
-	if !isNil(o.ExpiresDate) {
-		toSerialize["expires_date"] = o.ExpiresDate
-	}
-	if !isNil(o.ExpiresDateMs) {
-		toSerialize["expires_date_ms"] = o.ExpiresDateMs
-	}
-	if !isNil(o.ExpiresDatePst) {
-		toSerialize["expires_date_pst"] = o.ExpiresDatePst
-	}
-	if !isNil(o.WebOrderLineItemId) {
-		toSerialize["web_order_line_item_id"] = o.WebOrderLineItemId
-	}
-	if !isNil(o.IsTrialPeriod) {
-		toSerialize["is_trial_period"] = o.IsTrialPeriod
-	}
-	if !isNil(o.IsInIntroOfferPeriod) {
-		toSerialize["is_in_intro_offer_period"] = o.IsInIntroOfferPeriod
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InApp) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Quantity) {
+		toSerialize["quantity"] = o.Quantity
+	}
+	if !IsNil(o.ProductId) {
+		toSerialize["product_id"] = o.ProductId
+	}
+	if !IsNil(o.TransactionId) {
+		toSerialize["transaction_id"] = o.TransactionId
+	}
+	if !IsNil(o.OriginalTransactionId) {
+		toSerialize["original_transaction_id"] = o.OriginalTransactionId
+	}
+	if !IsNil(o.PurchaseDate) {
+		toSerialize["purchase_date"] = o.PurchaseDate
+	}
+	if !IsNil(o.PurchaseDateMs) {
+		toSerialize["purchase_date_ms"] = o.PurchaseDateMs
+	}
+	if !IsNil(o.PurchaseDatePst) {
+		toSerialize["purchase_date_pst"] = o.PurchaseDatePst
+	}
+	if !IsNil(o.OriginalPurchaseDate) {
+		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate
+	}
+	if !IsNil(o.OriginalPurchaseDateMs) {
+		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs
+	}
+	if !IsNil(o.OriginalPurchaseDatePst) {
+		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst
+	}
+	if !IsNil(o.ExpiresDate) {
+		toSerialize["expires_date"] = o.ExpiresDate
+	}
+	if !IsNil(o.ExpiresDateMs) {
+		toSerialize["expires_date_ms"] = o.ExpiresDateMs
+	}
+	if !IsNil(o.ExpiresDatePst) {
+		toSerialize["expires_date_pst"] = o.ExpiresDatePst
+	}
+	if !IsNil(o.WebOrderLineItemId) {
+		toSerialize["web_order_line_item_id"] = o.WebOrderLineItemId
+	}
+	if !IsNil(o.IsTrialPeriod) {
+		toSerialize["is_trial_period"] = o.IsTrialPeriod
+	}
+	if !IsNil(o.IsInIntroOfferPeriod) {
+		toSerialize["is_in_intro_offer_period"] = o.IsInIntroOfferPeriod
+	}
+	return toSerialize, nil
 }
 
 type NullableInApp struct {

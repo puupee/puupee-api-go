@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TenantCreateDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TenantCreateDto{}
+
 // TenantCreateDto struct for TenantCreateDto
 type TenantCreateDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -44,7 +47,7 @@ func NewTenantCreateDtoWithDefaults() *TenantCreateDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *TenantCreateDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *TenantCreateDto) GetExtraProperties() map[string]map[string]interface{}
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantCreateDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *TenantCreateDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -88,7 +91,7 @@ func (o *TenantCreateDto) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *TenantCreateDto) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -112,7 +115,7 @@ func (o *TenantCreateDto) GetAdminEmailAddress() string {
 // and a boolean to check if the value has been set.
 func (o *TenantCreateDto) GetAdminEmailAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.AdminEmailAddress, true
 }
@@ -136,7 +139,7 @@ func (o *TenantCreateDto) GetAdminPassword() string {
 // and a boolean to check if the value has been set.
 func (o *TenantCreateDto) GetAdminPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.AdminPassword, true
 }
@@ -147,20 +150,20 @@ func (o *TenantCreateDto) SetAdminPassword(v string) {
 }
 
 func (o TenantCreateDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["adminEmailAddress"] = o.AdminEmailAddress
-	}
-	if true {
-		toSerialize["adminPassword"] = o.AdminPassword
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o TenantCreateDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	toSerialize["name"] = o.Name
+	toSerialize["adminEmailAddress"] = o.AdminEmailAddress
+	toSerialize["adminPassword"] = o.AdminPassword
+	return toSerialize, nil
 }
 
 type NullableTenantCreateDto struct {

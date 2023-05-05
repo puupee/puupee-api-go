@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CurrentTenantDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CurrentTenantDto{}
+
 // CurrentTenantDto struct for CurrentTenantDto
 type CurrentTenantDto struct {
 	Id *string `json:"id,omitempty"`
@@ -40,7 +43,7 @@ func NewCurrentTenantDtoWithDefaults() *CurrentTenantDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CurrentTenantDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *CurrentTenantDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentTenantDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *CurrentTenantDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *CurrentTenantDto) SetId(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CurrentTenantDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *CurrentTenantDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentTenantDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CurrentTenantDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *CurrentTenantDto) SetName(v string) {
 
 // GetIsAvailable returns the IsAvailable field value if set, zero value otherwise.
 func (o *CurrentTenantDto) GetIsAvailable() bool {
-	if o == nil || isNil(o.IsAvailable) {
+	if o == nil || IsNil(o.IsAvailable) {
 		var ret bool
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *CurrentTenantDto) GetIsAvailable() bool {
 // GetIsAvailableOk returns a tuple with the IsAvailable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentTenantDto) GetIsAvailableOk() (*bool, bool) {
-	if o == nil || isNil(o.IsAvailable) {
-    return nil, false
+	if o == nil || IsNil(o.IsAvailable) {
+		return nil, false
 	}
 	return o.IsAvailable, true
 }
 
 // HasIsAvailable returns a boolean if a field has been set.
 func (o *CurrentTenantDto) HasIsAvailable() bool {
-	if o != nil && !isNil(o.IsAvailable) {
+	if o != nil && !IsNil(o.IsAvailable) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *CurrentTenantDto) SetIsAvailable(v bool) {
 }
 
 func (o CurrentTenantDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.IsAvailable) {
-		toSerialize["isAvailable"] = o.IsAvailable
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CurrentTenantDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.IsAvailable) {
+		toSerialize["isAvailable"] = o.IsAvailable
+	}
+	return toSerialize, nil
 }
 
 type NullableCurrentTenantDto struct {

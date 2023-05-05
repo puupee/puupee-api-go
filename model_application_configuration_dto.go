@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationConfigurationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationConfigurationDto{}
+
 // ApplicationConfigurationDto struct for ApplicationConfigurationDto
 type ApplicationConfigurationDto struct {
 	Localization *ApplicationLocalizationConfigurationDto `json:"localization,omitempty"`
@@ -49,7 +52,7 @@ func NewApplicationConfigurationDtoWithDefaults() *ApplicationConfigurationDto {
 
 // GetLocalization returns the Localization field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetLocalization() ApplicationLocalizationConfigurationDto {
-	if o == nil || isNil(o.Localization) {
+	if o == nil || IsNil(o.Localization) {
 		var ret ApplicationLocalizationConfigurationDto
 		return ret
 	}
@@ -59,15 +62,15 @@ func (o *ApplicationConfigurationDto) GetLocalization() ApplicationLocalizationC
 // GetLocalizationOk returns a tuple with the Localization field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetLocalizationOk() (*ApplicationLocalizationConfigurationDto, bool) {
-	if o == nil || isNil(o.Localization) {
-    return nil, false
+	if o == nil || IsNil(o.Localization) {
+		return nil, false
 	}
 	return o.Localization, true
 }
 
 // HasLocalization returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasLocalization() bool {
-	if o != nil && !isNil(o.Localization) {
+	if o != nil && !IsNil(o.Localization) {
 		return true
 	}
 
@@ -81,7 +84,7 @@ func (o *ApplicationConfigurationDto) SetLocalization(v ApplicationLocalizationC
 
 // GetAuth returns the Auth field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetAuth() ApplicationAuthConfigurationDto {
-	if o == nil || isNil(o.Auth) {
+	if o == nil || IsNil(o.Auth) {
 		var ret ApplicationAuthConfigurationDto
 		return ret
 	}
@@ -91,15 +94,15 @@ func (o *ApplicationConfigurationDto) GetAuth() ApplicationAuthConfigurationDto 
 // GetAuthOk returns a tuple with the Auth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetAuthOk() (*ApplicationAuthConfigurationDto, bool) {
-	if o == nil || isNil(o.Auth) {
-    return nil, false
+	if o == nil || IsNil(o.Auth) {
+		return nil, false
 	}
 	return o.Auth, true
 }
 
 // HasAuth returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasAuth() bool {
-	if o != nil && !isNil(o.Auth) {
+	if o != nil && !IsNil(o.Auth) {
 		return true
 	}
 
@@ -113,7 +116,7 @@ func (o *ApplicationConfigurationDto) SetAuth(v ApplicationAuthConfigurationDto)
 
 // GetSetting returns the Setting field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetSetting() ApplicationSettingConfigurationDto {
-	if o == nil || isNil(o.Setting) {
+	if o == nil || IsNil(o.Setting) {
 		var ret ApplicationSettingConfigurationDto
 		return ret
 	}
@@ -123,15 +126,15 @@ func (o *ApplicationConfigurationDto) GetSetting() ApplicationSettingConfigurati
 // GetSettingOk returns a tuple with the Setting field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetSettingOk() (*ApplicationSettingConfigurationDto, bool) {
-	if o == nil || isNil(o.Setting) {
-    return nil, false
+	if o == nil || IsNil(o.Setting) {
+		return nil, false
 	}
 	return o.Setting, true
 }
 
 // HasSetting returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasSetting() bool {
-	if o != nil && !isNil(o.Setting) {
+	if o != nil && !IsNil(o.Setting) {
 		return true
 	}
 
@@ -145,7 +148,7 @@ func (o *ApplicationConfigurationDto) SetSetting(v ApplicationSettingConfigurati
 
 // GetCurrentUser returns the CurrentUser field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetCurrentUser() CurrentUserDto {
-	if o == nil || isNil(o.CurrentUser) {
+	if o == nil || IsNil(o.CurrentUser) {
 		var ret CurrentUserDto
 		return ret
 	}
@@ -155,15 +158,15 @@ func (o *ApplicationConfigurationDto) GetCurrentUser() CurrentUserDto {
 // GetCurrentUserOk returns a tuple with the CurrentUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetCurrentUserOk() (*CurrentUserDto, bool) {
-	if o == nil || isNil(o.CurrentUser) {
-    return nil, false
+	if o == nil || IsNil(o.CurrentUser) {
+		return nil, false
 	}
 	return o.CurrentUser, true
 }
 
 // HasCurrentUser returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasCurrentUser() bool {
-	if o != nil && !isNil(o.CurrentUser) {
+	if o != nil && !IsNil(o.CurrentUser) {
 		return true
 	}
 
@@ -177,7 +180,7 @@ func (o *ApplicationConfigurationDto) SetCurrentUser(v CurrentUserDto) {
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetFeatures() ApplicationFeatureConfigurationDto {
-	if o == nil || isNil(o.Features) {
+	if o == nil || IsNil(o.Features) {
 		var ret ApplicationFeatureConfigurationDto
 		return ret
 	}
@@ -187,15 +190,15 @@ func (o *ApplicationConfigurationDto) GetFeatures() ApplicationFeatureConfigurat
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetFeaturesOk() (*ApplicationFeatureConfigurationDto, bool) {
-	if o == nil || isNil(o.Features) {
-    return nil, false
+	if o == nil || IsNil(o.Features) {
+		return nil, false
 	}
 	return o.Features, true
 }
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasFeatures() bool {
-	if o != nil && !isNil(o.Features) {
+	if o != nil && !IsNil(o.Features) {
 		return true
 	}
 
@@ -209,7 +212,7 @@ func (o *ApplicationConfigurationDto) SetFeatures(v ApplicationFeatureConfigurat
 
 // GetGlobalFeatures returns the GlobalFeatures field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetGlobalFeatures() ApplicationGlobalFeatureConfigurationDto {
-	if o == nil || isNil(o.GlobalFeatures) {
+	if o == nil || IsNil(o.GlobalFeatures) {
 		var ret ApplicationGlobalFeatureConfigurationDto
 		return ret
 	}
@@ -219,15 +222,15 @@ func (o *ApplicationConfigurationDto) GetGlobalFeatures() ApplicationGlobalFeatu
 // GetGlobalFeaturesOk returns a tuple with the GlobalFeatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetGlobalFeaturesOk() (*ApplicationGlobalFeatureConfigurationDto, bool) {
-	if o == nil || isNil(o.GlobalFeatures) {
-    return nil, false
+	if o == nil || IsNil(o.GlobalFeatures) {
+		return nil, false
 	}
 	return o.GlobalFeatures, true
 }
 
 // HasGlobalFeatures returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasGlobalFeatures() bool {
-	if o != nil && !isNil(o.GlobalFeatures) {
+	if o != nil && !IsNil(o.GlobalFeatures) {
 		return true
 	}
 
@@ -241,7 +244,7 @@ func (o *ApplicationConfigurationDto) SetGlobalFeatures(v ApplicationGlobalFeatu
 
 // GetMultiTenancy returns the MultiTenancy field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetMultiTenancy() MultiTenancyInfoDto {
-	if o == nil || isNil(o.MultiTenancy) {
+	if o == nil || IsNil(o.MultiTenancy) {
 		var ret MultiTenancyInfoDto
 		return ret
 	}
@@ -251,15 +254,15 @@ func (o *ApplicationConfigurationDto) GetMultiTenancy() MultiTenancyInfoDto {
 // GetMultiTenancyOk returns a tuple with the MultiTenancy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetMultiTenancyOk() (*MultiTenancyInfoDto, bool) {
-	if o == nil || isNil(o.MultiTenancy) {
-    return nil, false
+	if o == nil || IsNil(o.MultiTenancy) {
+		return nil, false
 	}
 	return o.MultiTenancy, true
 }
 
 // HasMultiTenancy returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasMultiTenancy() bool {
-	if o != nil && !isNil(o.MultiTenancy) {
+	if o != nil && !IsNil(o.MultiTenancy) {
 		return true
 	}
 
@@ -273,7 +276,7 @@ func (o *ApplicationConfigurationDto) SetMultiTenancy(v MultiTenancyInfoDto) {
 
 // GetCurrentTenant returns the CurrentTenant field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetCurrentTenant() CurrentTenantDto {
-	if o == nil || isNil(o.CurrentTenant) {
+	if o == nil || IsNil(o.CurrentTenant) {
 		var ret CurrentTenantDto
 		return ret
 	}
@@ -283,15 +286,15 @@ func (o *ApplicationConfigurationDto) GetCurrentTenant() CurrentTenantDto {
 // GetCurrentTenantOk returns a tuple with the CurrentTenant field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetCurrentTenantOk() (*CurrentTenantDto, bool) {
-	if o == nil || isNil(o.CurrentTenant) {
-    return nil, false
+	if o == nil || IsNil(o.CurrentTenant) {
+		return nil, false
 	}
 	return o.CurrentTenant, true
 }
 
 // HasCurrentTenant returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasCurrentTenant() bool {
-	if o != nil && !isNil(o.CurrentTenant) {
+	if o != nil && !IsNil(o.CurrentTenant) {
 		return true
 	}
 
@@ -305,7 +308,7 @@ func (o *ApplicationConfigurationDto) SetCurrentTenant(v CurrentTenantDto) {
 
 // GetTiming returns the Timing field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetTiming() TimingDto {
-	if o == nil || isNil(o.Timing) {
+	if o == nil || IsNil(o.Timing) {
 		var ret TimingDto
 		return ret
 	}
@@ -315,15 +318,15 @@ func (o *ApplicationConfigurationDto) GetTiming() TimingDto {
 // GetTimingOk returns a tuple with the Timing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetTimingOk() (*TimingDto, bool) {
-	if o == nil || isNil(o.Timing) {
-    return nil, false
+	if o == nil || IsNil(o.Timing) {
+		return nil, false
 	}
 	return o.Timing, true
 }
 
 // HasTiming returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasTiming() bool {
-	if o != nil && !isNil(o.Timing) {
+	if o != nil && !IsNil(o.Timing) {
 		return true
 	}
 
@@ -337,7 +340,7 @@ func (o *ApplicationConfigurationDto) SetTiming(v TimingDto) {
 
 // GetClock returns the Clock field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetClock() ClockDto {
-	if o == nil || isNil(o.Clock) {
+	if o == nil || IsNil(o.Clock) {
 		var ret ClockDto
 		return ret
 	}
@@ -347,15 +350,15 @@ func (o *ApplicationConfigurationDto) GetClock() ClockDto {
 // GetClockOk returns a tuple with the Clock field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetClockOk() (*ClockDto, bool) {
-	if o == nil || isNil(o.Clock) {
-    return nil, false
+	if o == nil || IsNil(o.Clock) {
+		return nil, false
 	}
 	return o.Clock, true
 }
 
 // HasClock returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasClock() bool {
-	if o != nil && !isNil(o.Clock) {
+	if o != nil && !IsNil(o.Clock) {
 		return true
 	}
 
@@ -369,7 +372,7 @@ func (o *ApplicationConfigurationDto) SetClock(v ClockDto) {
 
 // GetObjectExtensions returns the ObjectExtensions field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetObjectExtensions() ObjectExtensionsDto {
-	if o == nil || isNil(o.ObjectExtensions) {
+	if o == nil || IsNil(o.ObjectExtensions) {
 		var ret ObjectExtensionsDto
 		return ret
 	}
@@ -379,15 +382,15 @@ func (o *ApplicationConfigurationDto) GetObjectExtensions() ObjectExtensionsDto 
 // GetObjectExtensionsOk returns a tuple with the ObjectExtensions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetObjectExtensionsOk() (*ObjectExtensionsDto, bool) {
-	if o == nil || isNil(o.ObjectExtensions) {
-    return nil, false
+	if o == nil || IsNil(o.ObjectExtensions) {
+		return nil, false
 	}
 	return o.ObjectExtensions, true
 }
 
 // HasObjectExtensions returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasObjectExtensions() bool {
-	if o != nil && !isNil(o.ObjectExtensions) {
+	if o != nil && !IsNil(o.ObjectExtensions) {
 		return true
 	}
 
@@ -401,7 +404,7 @@ func (o *ApplicationConfigurationDto) SetObjectExtensions(v ObjectExtensionsDto)
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *ApplicationConfigurationDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -411,15 +414,15 @@ func (o *ApplicationConfigurationDto) GetExtraProperties() map[string]map[string
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationConfigurationDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *ApplicationConfigurationDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -432,44 +435,52 @@ func (o *ApplicationConfigurationDto) SetExtraProperties(v map[string]map[string
 }
 
 func (o ApplicationConfigurationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Localization) {
-		toSerialize["localization"] = o.Localization
-	}
-	if !isNil(o.Auth) {
-		toSerialize["auth"] = o.Auth
-	}
-	if !isNil(o.Setting) {
-		toSerialize["setting"] = o.Setting
-	}
-	if !isNil(o.CurrentUser) {
-		toSerialize["currentUser"] = o.CurrentUser
-	}
-	if !isNil(o.Features) {
-		toSerialize["features"] = o.Features
-	}
-	if !isNil(o.GlobalFeatures) {
-		toSerialize["globalFeatures"] = o.GlobalFeatures
-	}
-	if !isNil(o.MultiTenancy) {
-		toSerialize["multiTenancy"] = o.MultiTenancy
-	}
-	if !isNil(o.CurrentTenant) {
-		toSerialize["currentTenant"] = o.CurrentTenant
-	}
-	if !isNil(o.Timing) {
-		toSerialize["timing"] = o.Timing
-	}
-	if !isNil(o.Clock) {
-		toSerialize["clock"] = o.Clock
-	}
-	if !isNil(o.ObjectExtensions) {
-		toSerialize["objectExtensions"] = o.ObjectExtensions
-	}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationConfigurationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Localization) {
+		toSerialize["localization"] = o.Localization
+	}
+	if !IsNil(o.Auth) {
+		toSerialize["auth"] = o.Auth
+	}
+	if !IsNil(o.Setting) {
+		toSerialize["setting"] = o.Setting
+	}
+	if !IsNil(o.CurrentUser) {
+		toSerialize["currentUser"] = o.CurrentUser
+	}
+	if !IsNil(o.Features) {
+		toSerialize["features"] = o.Features
+	}
+	if !IsNil(o.GlobalFeatures) {
+		toSerialize["globalFeatures"] = o.GlobalFeatures
+	}
+	if !IsNil(o.MultiTenancy) {
+		toSerialize["multiTenancy"] = o.MultiTenancy
+	}
+	if !IsNil(o.CurrentTenant) {
+		toSerialize["currentTenant"] = o.CurrentTenant
+	}
+	if !IsNil(o.Timing) {
+		toSerialize["timing"] = o.Timing
+	}
+	if !IsNil(o.Clock) {
+		toSerialize["clock"] = o.Clock
+	}
+	if !IsNil(o.ObjectExtensions) {
+		toSerialize["objectExtensions"] = o.ObjectExtensions
+	}
+	if !IsNil(o.ExtraProperties) {
+		toSerialize["extraProperties"] = o.ExtraProperties
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationConfigurationDto struct {

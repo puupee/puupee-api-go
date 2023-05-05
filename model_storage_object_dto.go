@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the StorageObjectDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StorageObjectDto{}
+
 // StorageObjectDto struct for StorageObjectDto
 type StorageObjectDto struct {
 	Id *string `json:"id,omitempty"`
@@ -60,7 +63,7 @@ func NewStorageObjectDtoWithDefaults() *StorageObjectDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -70,15 +73,15 @@ func (o *StorageObjectDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -92,7 +95,7 @@ func (o *StorageObjectDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -102,15 +105,15 @@ func (o *StorageObjectDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -124,7 +127,7 @@ func (o *StorageObjectDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -134,15 +137,15 @@ func (o *StorageObjectDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -156,7 +159,7 @@ func (o *StorageObjectDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -166,15 +169,15 @@ func (o *StorageObjectDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -188,7 +191,7 @@ func (o *StorageObjectDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -198,15 +201,15 @@ func (o *StorageObjectDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -220,7 +223,7 @@ func (o *StorageObjectDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -230,15 +233,15 @@ func (o *StorageObjectDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -252,7 +255,7 @@ func (o *StorageObjectDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -262,15 +265,15 @@ func (o *StorageObjectDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -284,7 +287,7 @@ func (o *StorageObjectDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -294,15 +297,15 @@ func (o *StorageObjectDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -316,7 +319,7 @@ func (o *StorageObjectDto) SetDeletionTime(v time.Time) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -326,15 +329,15 @@ func (o *StorageObjectDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -348,7 +351,7 @@ func (o *StorageObjectDto) SetName(v string) {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetKey() string {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -358,15 +361,15 @@ func (o *StorageObjectDto) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetKeyOk() (*string, bool) {
-	if o == nil || isNil(o.Key) {
-    return nil, false
+	if o == nil || IsNil(o.Key) {
+		return nil, false
 	}
 	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasKey() bool {
-	if o != nil && !isNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
@@ -380,7 +383,7 @@ func (o *StorageObjectDto) SetKey(v string) {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -390,15 +393,15 @@ func (o *StorageObjectDto) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -412,7 +415,7 @@ func (o *StorageObjectDto) SetUrl(v string) {
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetSize() int64 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret int64
 		return ret
 	}
@@ -422,15 +425,15 @@ func (o *StorageObjectDto) GetSize() int64 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetSizeOk() (*int64, bool) {
-	if o == nil || isNil(o.Size) {
-    return nil, false
+	if o == nil || IsNil(o.Size) {
+		return nil, false
 	}
 	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -444,7 +447,7 @@ func (o *StorageObjectDto) SetSize(v int64) {
 
 // GetMd5 returns the Md5 field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetMd5() string {
-	if o == nil || isNil(o.Md5) {
+	if o == nil || IsNil(o.Md5) {
 		var ret string
 		return ret
 	}
@@ -454,15 +457,15 @@ func (o *StorageObjectDto) GetMd5() string {
 // GetMd5Ok returns a tuple with the Md5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetMd5Ok() (*string, bool) {
-	if o == nil || isNil(o.Md5) {
-    return nil, false
+	if o == nil || IsNil(o.Md5) {
+		return nil, false
 	}
 	return o.Md5, true
 }
 
 // HasMd5 returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasMd5() bool {
-	if o != nil && !isNil(o.Md5) {
+	if o != nil && !IsNil(o.Md5) {
 		return true
 	}
 
@@ -476,7 +479,7 @@ func (o *StorageObjectDto) SetMd5(v string) {
 
 // GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetSliceMd5() string {
-	if o == nil || isNil(o.SliceMd5) {
+	if o == nil || IsNil(o.SliceMd5) {
 		var ret string
 		return ret
 	}
@@ -486,15 +489,15 @@ func (o *StorageObjectDto) GetSliceMd5() string {
 // GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetSliceMd5Ok() (*string, bool) {
-	if o == nil || isNil(o.SliceMd5) {
-    return nil, false
+	if o == nil || IsNil(o.SliceMd5) {
+		return nil, false
 	}
 	return o.SliceMd5, true
 }
 
 // HasSliceMd5 returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasSliceMd5() bool {
-	if o != nil && !isNil(o.SliceMd5) {
+	if o != nil && !IsNil(o.SliceMd5) {
 		return true
 	}
 
@@ -508,7 +511,7 @@ func (o *StorageObjectDto) SetSliceMd5(v string) {
 
 // GetRapidCode returns the RapidCode field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetRapidCode() string {
-	if o == nil || isNil(o.RapidCode) {
+	if o == nil || IsNil(o.RapidCode) {
 		var ret string
 		return ret
 	}
@@ -518,15 +521,15 @@ func (o *StorageObjectDto) GetRapidCode() string {
 // GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetRapidCodeOk() (*string, bool) {
-	if o == nil || isNil(o.RapidCode) {
-    return nil, false
+	if o == nil || IsNil(o.RapidCode) {
+		return nil, false
 	}
 	return o.RapidCode, true
 }
 
 // HasRapidCode returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasRapidCode() bool {
-	if o != nil && !isNil(o.RapidCode) {
+	if o != nil && !IsNil(o.RapidCode) {
 		return true
 	}
 
@@ -540,7 +543,7 @@ func (o *StorageObjectDto) SetRapidCode(v string) {
 
 // GetContentType returns the ContentType field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetContentType() string {
-	if o == nil || isNil(o.ContentType) {
+	if o == nil || IsNil(o.ContentType) {
 		var ret string
 		return ret
 	}
@@ -550,15 +553,15 @@ func (o *StorageObjectDto) GetContentType() string {
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetContentTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ContentType) {
-    return nil, false
+	if o == nil || IsNil(o.ContentType) {
+		return nil, false
 	}
 	return o.ContentType, true
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasContentType() bool {
-	if o != nil && !isNil(o.ContentType) {
+	if o != nil && !IsNil(o.ContentType) {
 		return true
 	}
 
@@ -572,7 +575,7 @@ func (o *StorageObjectDto) SetContentType(v string) {
 
 // GetExtension returns the Extension field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetExtension() string {
-	if o == nil || isNil(o.Extension) {
+	if o == nil || IsNil(o.Extension) {
 		var ret string
 		return ret
 	}
@@ -582,15 +585,15 @@ func (o *StorageObjectDto) GetExtension() string {
 // GetExtensionOk returns a tuple with the Extension field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetExtensionOk() (*string, bool) {
-	if o == nil || isNil(o.Extension) {
-    return nil, false
+	if o == nil || IsNil(o.Extension) {
+		return nil, false
 	}
 	return o.Extension, true
 }
 
 // HasExtension returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasExtension() bool {
-	if o != nil && !isNil(o.Extension) {
+	if o != nil && !IsNil(o.Extension) {
 		return true
 	}
 
@@ -604,7 +607,7 @@ func (o *StorageObjectDto) SetExtension(v string) {
 
 // GetStorageClass returns the StorageClass field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetStorageClass() string {
-	if o == nil || isNil(o.StorageClass) {
+	if o == nil || IsNil(o.StorageClass) {
 		var ret string
 		return ret
 	}
@@ -614,15 +617,15 @@ func (o *StorageObjectDto) GetStorageClass() string {
 // GetStorageClassOk returns a tuple with the StorageClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetStorageClassOk() (*string, bool) {
-	if o == nil || isNil(o.StorageClass) {
-    return nil, false
+	if o == nil || IsNil(o.StorageClass) {
+		return nil, false
 	}
 	return o.StorageClass, true
 }
 
 // HasStorageClass returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasStorageClass() bool {
-	if o != nil && !isNil(o.StorageClass) {
+	if o != nil && !IsNil(o.StorageClass) {
 		return true
 	}
 
@@ -636,7 +639,7 @@ func (o *StorageObjectDto) SetStorageClass(v string) {
 
 // GetStorageObjectCreatedAt returns the StorageObjectCreatedAt field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetStorageObjectCreatedAt() time.Time {
-	if o == nil || isNil(o.StorageObjectCreatedAt) {
+	if o == nil || IsNil(o.StorageObjectCreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -646,15 +649,15 @@ func (o *StorageObjectDto) GetStorageObjectCreatedAt() time.Time {
 // GetStorageObjectCreatedAtOk returns a tuple with the StorageObjectCreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetStorageObjectCreatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.StorageObjectCreatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObjectCreatedAt) {
+		return nil, false
 	}
 	return o.StorageObjectCreatedAt, true
 }
 
 // HasStorageObjectCreatedAt returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasStorageObjectCreatedAt() bool {
-	if o != nil && !isNil(o.StorageObjectCreatedAt) {
+	if o != nil && !IsNil(o.StorageObjectCreatedAt) {
 		return true
 	}
 
@@ -668,7 +671,7 @@ func (o *StorageObjectDto) SetStorageObjectCreatedAt(v time.Time) {
 
 // GetStorageObjectUpdatedAt returns the StorageObjectUpdatedAt field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetStorageObjectUpdatedAt() time.Time {
-	if o == nil || isNil(o.StorageObjectUpdatedAt) {
+	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -678,15 +681,15 @@ func (o *StorageObjectDto) GetStorageObjectUpdatedAt() time.Time {
 // GetStorageObjectUpdatedAtOk returns a tuple with the StorageObjectUpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetStorageObjectUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.StorageObjectUpdatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
+		return nil, false
 	}
 	return o.StorageObjectUpdatedAt, true
 }
 
 // HasStorageObjectUpdatedAt returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasStorageObjectUpdatedAt() bool {
-	if o != nil && !isNil(o.StorageObjectUpdatedAt) {
+	if o != nil && !IsNil(o.StorageObjectUpdatedAt) {
 		return true
 	}
 
@@ -700,7 +703,7 @@ func (o *StorageObjectDto) SetStorageObjectUpdatedAt(v time.Time) {
 
 // GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetSyncVersion() int64 {
-	if o == nil || isNil(o.SyncVersion) {
+	if o == nil || IsNil(o.SyncVersion) {
 		var ret int64
 		return ret
 	}
@@ -710,15 +713,15 @@ func (o *StorageObjectDto) GetSyncVersion() int64 {
 // GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetSyncVersionOk() (*int64, bool) {
-	if o == nil || isNil(o.SyncVersion) {
-    return nil, false
+	if o == nil || IsNil(o.SyncVersion) {
+		return nil, false
 	}
 	return o.SyncVersion, true
 }
 
 // HasSyncVersion returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasSyncVersion() bool {
-	if o != nil && !isNil(o.SyncVersion) {
+	if o != nil && !IsNil(o.SyncVersion) {
 		return true
 	}
 
@@ -732,7 +735,7 @@ func (o *StorageObjectDto) SetSyncVersion(v int64) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -742,15 +745,15 @@ func (o *StorageObjectDto) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectDto) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
-    return nil, false
+	if o == nil || IsNil(o.Password) {
+		return nil, false
 	}
 	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -763,74 +766,82 @@ func (o *StorageObjectDto) SetPassword(v string) {
 }
 
 func (o StorageObjectDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Key) {
-		toSerialize["key"] = o.Key
-	}
-	if !isNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
-	if !isNil(o.Size) {
-		toSerialize["size"] = o.Size
-	}
-	if !isNil(o.Md5) {
-		toSerialize["md5"] = o.Md5
-	}
-	if !isNil(o.SliceMd5) {
-		toSerialize["sliceMd5"] = o.SliceMd5
-	}
-	if !isNil(o.RapidCode) {
-		toSerialize["rapidCode"] = o.RapidCode
-	}
-	if !isNil(o.ContentType) {
-		toSerialize["contentType"] = o.ContentType
-	}
-	if !isNil(o.Extension) {
-		toSerialize["extension"] = o.Extension
-	}
-	if !isNil(o.StorageClass) {
-		toSerialize["storageClass"] = o.StorageClass
-	}
-	if !isNil(o.StorageObjectCreatedAt) {
-		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt
-	}
-	if !isNil(o.StorageObjectUpdatedAt) {
-		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt
-	}
-	if !isNil(o.SyncVersion) {
-		toSerialize["syncVersion"] = o.SyncVersion
-	}
-	if !isNil(o.Password) {
-		toSerialize["password"] = o.Password
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StorageObjectDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
+	}
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
+	}
+	if !IsNil(o.SliceMd5) {
+		toSerialize["sliceMd5"] = o.SliceMd5
+	}
+	if !IsNil(o.RapidCode) {
+		toSerialize["rapidCode"] = o.RapidCode
+	}
+	if !IsNil(o.ContentType) {
+		toSerialize["contentType"] = o.ContentType
+	}
+	if !IsNil(o.Extension) {
+		toSerialize["extension"] = o.Extension
+	}
+	if !IsNil(o.StorageClass) {
+		toSerialize["storageClass"] = o.StorageClass
+	}
+	if !IsNil(o.StorageObjectCreatedAt) {
+		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt
+	}
+	if !IsNil(o.StorageObjectUpdatedAt) {
+		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt
+	}
+	if !IsNil(o.SyncVersion) {
+		toSerialize["syncVersion"] = o.SyncVersion
+	}
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	return toSerialize, nil
 }
 
 type NullableStorageObjectDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CurrentUserDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CurrentUserDto{}
+
 // CurrentUserDto struct for CurrentUserDto
 type CurrentUserDto struct {
 	IsAuthenticated *bool `json:"isAuthenticated,omitempty"`
@@ -52,7 +55,7 @@ func NewCurrentUserDtoWithDefaults() *CurrentUserDto {
 
 // GetIsAuthenticated returns the IsAuthenticated field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetIsAuthenticated() bool {
-	if o == nil || isNil(o.IsAuthenticated) {
+	if o == nil || IsNil(o.IsAuthenticated) {
 		var ret bool
 		return ret
 	}
@@ -62,15 +65,15 @@ func (o *CurrentUserDto) GetIsAuthenticated() bool {
 // GetIsAuthenticatedOk returns a tuple with the IsAuthenticated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetIsAuthenticatedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsAuthenticated) {
-    return nil, false
+	if o == nil || IsNil(o.IsAuthenticated) {
+		return nil, false
 	}
 	return o.IsAuthenticated, true
 }
 
 // HasIsAuthenticated returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasIsAuthenticated() bool {
-	if o != nil && !isNil(o.IsAuthenticated) {
+	if o != nil && !IsNil(o.IsAuthenticated) {
 		return true
 	}
 
@@ -84,7 +87,7 @@ func (o *CurrentUserDto) SetIsAuthenticated(v bool) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -94,15 +97,15 @@ func (o *CurrentUserDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -116,7 +119,7 @@ func (o *CurrentUserDto) SetId(v string) {
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetTenantId() string {
-	if o == nil || isNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
@@ -126,15 +129,15 @@ func (o *CurrentUserDto) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetTenantIdOk() (*string, bool) {
-	if o == nil || isNil(o.TenantId) {
-    return nil, false
+	if o == nil || IsNil(o.TenantId) {
+		return nil, false
 	}
 	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasTenantId() bool {
-	if o != nil && !isNil(o.TenantId) {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
@@ -148,7 +151,7 @@ func (o *CurrentUserDto) SetTenantId(v string) {
 
 // GetImpersonatorUserId returns the ImpersonatorUserId field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorUserId() string {
-	if o == nil || isNil(o.ImpersonatorUserId) {
+	if o == nil || IsNil(o.ImpersonatorUserId) {
 		var ret string
 		return ret
 	}
@@ -158,15 +161,15 @@ func (o *CurrentUserDto) GetImpersonatorUserId() string {
 // GetImpersonatorUserIdOk returns a tuple with the ImpersonatorUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetImpersonatorUserIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImpersonatorUserId) {
-    return nil, false
+	if o == nil || IsNil(o.ImpersonatorUserId) {
+		return nil, false
 	}
 	return o.ImpersonatorUserId, true
 }
 
 // HasImpersonatorUserId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorUserId() bool {
-	if o != nil && !isNil(o.ImpersonatorUserId) {
+	if o != nil && !IsNil(o.ImpersonatorUserId) {
 		return true
 	}
 
@@ -180,7 +183,7 @@ func (o *CurrentUserDto) SetImpersonatorUserId(v string) {
 
 // GetImpersonatorTenantId returns the ImpersonatorTenantId field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorTenantId() string {
-	if o == nil || isNil(o.ImpersonatorTenantId) {
+	if o == nil || IsNil(o.ImpersonatorTenantId) {
 		var ret string
 		return ret
 	}
@@ -190,15 +193,15 @@ func (o *CurrentUserDto) GetImpersonatorTenantId() string {
 // GetImpersonatorTenantIdOk returns a tuple with the ImpersonatorTenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetImpersonatorTenantIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImpersonatorTenantId) {
-    return nil, false
+	if o == nil || IsNil(o.ImpersonatorTenantId) {
+		return nil, false
 	}
 	return o.ImpersonatorTenantId, true
 }
 
 // HasImpersonatorTenantId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorTenantId() bool {
-	if o != nil && !isNil(o.ImpersonatorTenantId) {
+	if o != nil && !IsNil(o.ImpersonatorTenantId) {
 		return true
 	}
 
@@ -212,7 +215,7 @@ func (o *CurrentUserDto) SetImpersonatorTenantId(v string) {
 
 // GetImpersonatorUserName returns the ImpersonatorUserName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorUserName() string {
-	if o == nil || isNil(o.ImpersonatorUserName) {
+	if o == nil || IsNil(o.ImpersonatorUserName) {
 		var ret string
 		return ret
 	}
@@ -222,15 +225,15 @@ func (o *CurrentUserDto) GetImpersonatorUserName() string {
 // GetImpersonatorUserNameOk returns a tuple with the ImpersonatorUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetImpersonatorUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.ImpersonatorUserName) {
-    return nil, false
+	if o == nil || IsNil(o.ImpersonatorUserName) {
+		return nil, false
 	}
 	return o.ImpersonatorUserName, true
 }
 
 // HasImpersonatorUserName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorUserName() bool {
-	if o != nil && !isNil(o.ImpersonatorUserName) {
+	if o != nil && !IsNil(o.ImpersonatorUserName) {
 		return true
 	}
 
@@ -244,7 +247,7 @@ func (o *CurrentUserDto) SetImpersonatorUserName(v string) {
 
 // GetImpersonatorTenantName returns the ImpersonatorTenantName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorTenantName() string {
-	if o == nil || isNil(o.ImpersonatorTenantName) {
+	if o == nil || IsNil(o.ImpersonatorTenantName) {
 		var ret string
 		return ret
 	}
@@ -254,15 +257,15 @@ func (o *CurrentUserDto) GetImpersonatorTenantName() string {
 // GetImpersonatorTenantNameOk returns a tuple with the ImpersonatorTenantName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetImpersonatorTenantNameOk() (*string, bool) {
-	if o == nil || isNil(o.ImpersonatorTenantName) {
-    return nil, false
+	if o == nil || IsNil(o.ImpersonatorTenantName) {
+		return nil, false
 	}
 	return o.ImpersonatorTenantName, true
 }
 
 // HasImpersonatorTenantName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorTenantName() bool {
-	if o != nil && !isNil(o.ImpersonatorTenantName) {
+	if o != nil && !IsNil(o.ImpersonatorTenantName) {
 		return true
 	}
 
@@ -276,7 +279,7 @@ func (o *CurrentUserDto) SetImpersonatorTenantName(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -286,15 +289,15 @@ func (o *CurrentUserDto) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -308,7 +311,7 @@ func (o *CurrentUserDto) SetUserName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -318,15 +321,15 @@ func (o *CurrentUserDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -340,7 +343,7 @@ func (o *CurrentUserDto) SetName(v string) {
 
 // GetSurName returns the SurName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetSurName() string {
-	if o == nil || isNil(o.SurName) {
+	if o == nil || IsNil(o.SurName) {
 		var ret string
 		return ret
 	}
@@ -350,15 +353,15 @@ func (o *CurrentUserDto) GetSurName() string {
 // GetSurNameOk returns a tuple with the SurName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetSurNameOk() (*string, bool) {
-	if o == nil || isNil(o.SurName) {
-    return nil, false
+	if o == nil || IsNil(o.SurName) {
+		return nil, false
 	}
 	return o.SurName, true
 }
 
 // HasSurName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasSurName() bool {
-	if o != nil && !isNil(o.SurName) {
+	if o != nil && !IsNil(o.SurName) {
 		return true
 	}
 
@@ -372,7 +375,7 @@ func (o *CurrentUserDto) SetSurName(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -382,15 +385,15 @@ func (o *CurrentUserDto) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -404,7 +407,7 @@ func (o *CurrentUserDto) SetEmail(v string) {
 
 // GetEmailVerified returns the EmailVerified field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetEmailVerified() bool {
-	if o == nil || isNil(o.EmailVerified) {
+	if o == nil || IsNil(o.EmailVerified) {
 		var ret bool
 		return ret
 	}
@@ -414,15 +417,15 @@ func (o *CurrentUserDto) GetEmailVerified() bool {
 // GetEmailVerifiedOk returns a tuple with the EmailVerified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetEmailVerifiedOk() (*bool, bool) {
-	if o == nil || isNil(o.EmailVerified) {
-    return nil, false
+	if o == nil || IsNil(o.EmailVerified) {
+		return nil, false
 	}
 	return o.EmailVerified, true
 }
 
 // HasEmailVerified returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasEmailVerified() bool {
-	if o != nil && !isNil(o.EmailVerified) {
+	if o != nil && !IsNil(o.EmailVerified) {
 		return true
 	}
 
@@ -436,7 +439,7 @@ func (o *CurrentUserDto) SetEmailVerified(v bool) {
 
 // GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetPhoneNumber() string {
-	if o == nil || isNil(o.PhoneNumber) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
@@ -446,15 +449,15 @@ func (o *CurrentUserDto) GetPhoneNumber() string {
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetPhoneNumberOk() (*string, bool) {
-	if o == nil || isNil(o.PhoneNumber) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumber) {
+		return nil, false
 	}
 	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasPhoneNumber() bool {
-	if o != nil && !isNil(o.PhoneNumber) {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
@@ -468,7 +471,7 @@ func (o *CurrentUserDto) SetPhoneNumber(v string) {
 
 // GetPhoneNumberVerified returns the PhoneNumberVerified field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetPhoneNumberVerified() bool {
-	if o == nil || isNil(o.PhoneNumberVerified) {
+	if o == nil || IsNil(o.PhoneNumberVerified) {
 		var ret bool
 		return ret
 	}
@@ -478,15 +481,15 @@ func (o *CurrentUserDto) GetPhoneNumberVerified() bool {
 // GetPhoneNumberVerifiedOk returns a tuple with the PhoneNumberVerified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetPhoneNumberVerifiedOk() (*bool, bool) {
-	if o == nil || isNil(o.PhoneNumberVerified) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumberVerified) {
+		return nil, false
 	}
 	return o.PhoneNumberVerified, true
 }
 
 // HasPhoneNumberVerified returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasPhoneNumberVerified() bool {
-	if o != nil && !isNil(o.PhoneNumberVerified) {
+	if o != nil && !IsNil(o.PhoneNumberVerified) {
 		return true
 	}
 
@@ -500,7 +503,7 @@ func (o *CurrentUserDto) SetPhoneNumberVerified(v bool) {
 
 // GetRoles returns the Roles field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetRoles() []string {
-	if o == nil || isNil(o.Roles) {
+	if o == nil || IsNil(o.Roles) {
 		var ret []string
 		return ret
 	}
@@ -510,15 +513,15 @@ func (o *CurrentUserDto) GetRoles() []string {
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentUserDto) GetRolesOk() ([]string, bool) {
-	if o == nil || isNil(o.Roles) {
-    return nil, false
+	if o == nil || IsNil(o.Roles) {
+		return nil, false
 	}
 	return o.Roles, true
 }
 
 // HasRoles returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasRoles() bool {
-	if o != nil && !isNil(o.Roles) {
+	if o != nil && !IsNil(o.Roles) {
 		return true
 	}
 
@@ -531,53 +534,61 @@ func (o *CurrentUserDto) SetRoles(v []string) {
 }
 
 func (o CurrentUserDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.IsAuthenticated) {
-		toSerialize["isAuthenticated"] = o.IsAuthenticated
-	}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !isNil(o.ImpersonatorUserId) {
-		toSerialize["impersonatorUserId"] = o.ImpersonatorUserId
-	}
-	if !isNil(o.ImpersonatorTenantId) {
-		toSerialize["impersonatorTenantId"] = o.ImpersonatorTenantId
-	}
-	if !isNil(o.ImpersonatorUserName) {
-		toSerialize["impersonatorUserName"] = o.ImpersonatorUserName
-	}
-	if !isNil(o.ImpersonatorTenantName) {
-		toSerialize["impersonatorTenantName"] = o.ImpersonatorTenantName
-	}
-	if !isNil(o.UserName) {
-		toSerialize["userName"] = o.UserName
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.SurName) {
-		toSerialize["surName"] = o.SurName
-	}
-	if !isNil(o.Email) {
-		toSerialize["email"] = o.Email
-	}
-	if !isNil(o.EmailVerified) {
-		toSerialize["emailVerified"] = o.EmailVerified
-	}
-	if !isNil(o.PhoneNumber) {
-		toSerialize["phoneNumber"] = o.PhoneNumber
-	}
-	if !isNil(o.PhoneNumberVerified) {
-		toSerialize["phoneNumberVerified"] = o.PhoneNumberVerified
-	}
-	if !isNil(o.Roles) {
-		toSerialize["roles"] = o.Roles
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CurrentUserDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.IsAuthenticated) {
+		toSerialize["isAuthenticated"] = o.IsAuthenticated
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
+	}
+	if !IsNil(o.ImpersonatorUserId) {
+		toSerialize["impersonatorUserId"] = o.ImpersonatorUserId
+	}
+	if !IsNil(o.ImpersonatorTenantId) {
+		toSerialize["impersonatorTenantId"] = o.ImpersonatorTenantId
+	}
+	if !IsNil(o.ImpersonatorUserName) {
+		toSerialize["impersonatorUserName"] = o.ImpersonatorUserName
+	}
+	if !IsNil(o.ImpersonatorTenantName) {
+		toSerialize["impersonatorTenantName"] = o.ImpersonatorTenantName
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.SurName) {
+		toSerialize["surName"] = o.SurName
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.EmailVerified) {
+		toSerialize["emailVerified"] = o.EmailVerified
+	}
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
+	}
+	if !IsNil(o.PhoneNumberVerified) {
+		toSerialize["phoneNumberVerified"] = o.PhoneNumberVerified
+	}
+	if !IsNil(o.Roles) {
+		toSerialize["roles"] = o.Roles
+	}
+	return toSerialize, nil
 }
 
 type NullableCurrentUserDto struct {

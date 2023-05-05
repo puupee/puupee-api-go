@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the NotificationInfoDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NotificationInfoDto{}
+
 // NotificationInfoDto struct for NotificationInfoDto
 type NotificationInfoDto struct {
 	Id *string `json:"id,omitempty"`
@@ -46,7 +49,7 @@ func NewNotificationInfoDtoWithDefaults() *NotificationInfoDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *NotificationInfoDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *NotificationInfoDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *NotificationInfoDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *NotificationInfoDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *NotificationInfoDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *NotificationInfoDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *NotificationInfoDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *NotificationInfoDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *NotificationInfoDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *NotificationInfoDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *NotificationInfoDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -238,7 +241,7 @@ func (o *NotificationInfoDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -248,15 +251,15 @@ func (o *NotificationInfoDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -270,7 +273,7 @@ func (o *NotificationInfoDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *NotificationInfoDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -280,15 +283,15 @@ func (o *NotificationInfoDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationInfoDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *NotificationInfoDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -301,32 +304,40 @@ func (o *NotificationInfoDto) SetDeletionTime(v time.Time) {
 }
 
 func (o NotificationInfoDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o NotificationInfoDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	return toSerialize, nil
 }
 
 type NullableNotificationInfoDto struct {

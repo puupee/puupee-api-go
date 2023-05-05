@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IanaTimeZone type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IanaTimeZone{}
+
 // IanaTimeZone struct for IanaTimeZone
 type IanaTimeZone struct {
 	TimeZoneName *string `json:"timeZoneName,omitempty"`
@@ -38,7 +41,7 @@ func NewIanaTimeZoneWithDefaults() *IanaTimeZone {
 
 // GetTimeZoneName returns the TimeZoneName field value if set, zero value otherwise.
 func (o *IanaTimeZone) GetTimeZoneName() string {
-	if o == nil || isNil(o.TimeZoneName) {
+	if o == nil || IsNil(o.TimeZoneName) {
 		var ret string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *IanaTimeZone) GetTimeZoneName() string {
 // GetTimeZoneNameOk returns a tuple with the TimeZoneName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IanaTimeZone) GetTimeZoneNameOk() (*string, bool) {
-	if o == nil || isNil(o.TimeZoneName) {
-    return nil, false
+	if o == nil || IsNil(o.TimeZoneName) {
+		return nil, false
 	}
 	return o.TimeZoneName, true
 }
 
 // HasTimeZoneName returns a boolean if a field has been set.
 func (o *IanaTimeZone) HasTimeZoneName() bool {
-	if o != nil && !isNil(o.TimeZoneName) {
+	if o != nil && !IsNil(o.TimeZoneName) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *IanaTimeZone) SetTimeZoneName(v string) {
 }
 
 func (o IanaTimeZone) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.TimeZoneName) {
-		toSerialize["timeZoneName"] = o.TimeZoneName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IanaTimeZone) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.TimeZoneName) {
+		toSerialize["timeZoneName"] = o.TimeZoneName
+	}
+	return toSerialize, nil
 }
 
 type NullableIanaTimeZone struct {

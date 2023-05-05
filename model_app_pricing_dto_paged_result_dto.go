@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AppPricingDtoPagedResultDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AppPricingDtoPagedResultDto{}
+
 // AppPricingDtoPagedResultDto struct for AppPricingDtoPagedResultDto
 type AppPricingDtoPagedResultDto struct {
 	Items []AppPricingDto `json:"items,omitempty"`
@@ -39,7 +42,7 @@ func NewAppPricingDtoPagedResultDtoWithDefaults() *AppPricingDtoPagedResultDto {
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *AppPricingDtoPagedResultDto) GetItems() []AppPricingDto {
-	if o == nil || isNil(o.Items) {
+	if o == nil || IsNil(o.Items) {
 		var ret []AppPricingDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *AppPricingDtoPagedResultDto) GetItems() []AppPricingDto {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppPricingDtoPagedResultDto) GetItemsOk() ([]AppPricingDto, bool) {
-	if o == nil || isNil(o.Items) {
-    return nil, false
+	if o == nil || IsNil(o.Items) {
+		return nil, false
 	}
 	return o.Items, true
 }
 
 // HasItems returns a boolean if a field has been set.
 func (o *AppPricingDtoPagedResultDto) HasItems() bool {
-	if o != nil && !isNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *AppPricingDtoPagedResultDto) SetItems(v []AppPricingDto) {
 
 // GetTotalCount returns the TotalCount field value if set, zero value otherwise.
 func (o *AppPricingDtoPagedResultDto) GetTotalCount() int64 {
-	if o == nil || isNil(o.TotalCount) {
+	if o == nil || IsNil(o.TotalCount) {
 		var ret int64
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *AppPricingDtoPagedResultDto) GetTotalCount() int64 {
 // GetTotalCountOk returns a tuple with the TotalCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppPricingDtoPagedResultDto) GetTotalCountOk() (*int64, bool) {
-	if o == nil || isNil(o.TotalCount) {
-    return nil, false
+	if o == nil || IsNil(o.TotalCount) {
+		return nil, false
 	}
 	return o.TotalCount, true
 }
 
 // HasTotalCount returns a boolean if a field has been set.
 func (o *AppPricingDtoPagedResultDto) HasTotalCount() bool {
-	if o != nil && !isNil(o.TotalCount) {
+	if o != nil && !IsNil(o.TotalCount) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *AppPricingDtoPagedResultDto) SetTotalCount(v int64) {
 }
 
 func (o AppPricingDtoPagedResultDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Items) {
-		toSerialize["items"] = o.Items
-	}
-	if !isNil(o.TotalCount) {
-		toSerialize["totalCount"] = o.TotalCount
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AppPricingDtoPagedResultDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	if !IsNil(o.TotalCount) {
+		toSerialize["totalCount"] = o.TotalCount
+	}
+	return toSerialize, nil
 }
 
 type NullableAppPricingDtoPagedResultDto struct {

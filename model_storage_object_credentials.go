@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StorageObjectCredentials type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StorageObjectCredentials{}
+
 // StorageObjectCredentials struct for StorageObjectCredentials
 type StorageObjectCredentials struct {
 	StorageClass *string `json:"storageClass,omitempty"`
@@ -48,7 +51,7 @@ func NewStorageObjectCredentialsWithDefaults() *StorageObjectCredentials {
 
 // GetStorageClass returns the StorageClass field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetStorageClass() string {
-	if o == nil || isNil(o.StorageClass) {
+	if o == nil || IsNil(o.StorageClass) {
 		var ret string
 		return ret
 	}
@@ -58,15 +61,15 @@ func (o *StorageObjectCredentials) GetStorageClass() string {
 // GetStorageClassOk returns a tuple with the StorageClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetStorageClassOk() (*string, bool) {
-	if o == nil || isNil(o.StorageClass) {
-    return nil, false
+	if o == nil || IsNil(o.StorageClass) {
+		return nil, false
 	}
 	return o.StorageClass, true
 }
 
 // HasStorageClass returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasStorageClass() bool {
-	if o != nil && !isNil(o.StorageClass) {
+	if o != nil && !IsNil(o.StorageClass) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *StorageObjectCredentials) SetStorageClass(v string) {
 
 // GetEndPoint returns the EndPoint field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetEndPoint() string {
-	if o == nil || isNil(o.EndPoint) {
+	if o == nil || IsNil(o.EndPoint) {
 		var ret string
 		return ret
 	}
@@ -90,15 +93,15 @@ func (o *StorageObjectCredentials) GetEndPoint() string {
 // GetEndPointOk returns a tuple with the EndPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetEndPointOk() (*string, bool) {
-	if o == nil || isNil(o.EndPoint) {
-    return nil, false
+	if o == nil || IsNil(o.EndPoint) {
+		return nil, false
 	}
 	return o.EndPoint, true
 }
 
 // HasEndPoint returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasEndPoint() bool {
-	if o != nil && !isNil(o.EndPoint) {
+	if o != nil && !IsNil(o.EndPoint) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *StorageObjectCredentials) SetEndPoint(v string) {
 
 // GetProtocal returns the Protocal field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetProtocal() string {
-	if o == nil || isNil(o.Protocal) {
+	if o == nil || IsNil(o.Protocal) {
 		var ret string
 		return ret
 	}
@@ -122,15 +125,15 @@ func (o *StorageObjectCredentials) GetProtocal() string {
 // GetProtocalOk returns a tuple with the Protocal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetProtocalOk() (*string, bool) {
-	if o == nil || isNil(o.Protocal) {
-    return nil, false
+	if o == nil || IsNil(o.Protocal) {
+		return nil, false
 	}
 	return o.Protocal, true
 }
 
 // HasProtocal returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasProtocal() bool {
-	if o != nil && !isNil(o.Protocal) {
+	if o != nil && !IsNil(o.Protocal) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *StorageObjectCredentials) SetProtocal(v string) {
 
 // GetBucketName returns the BucketName field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetBucketName() string {
-	if o == nil || isNil(o.BucketName) {
+	if o == nil || IsNil(o.BucketName) {
 		var ret string
 		return ret
 	}
@@ -154,15 +157,15 @@ func (o *StorageObjectCredentials) GetBucketName() string {
 // GetBucketNameOk returns a tuple with the BucketName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetBucketNameOk() (*string, bool) {
-	if o == nil || isNil(o.BucketName) {
-    return nil, false
+	if o == nil || IsNil(o.BucketName) {
+		return nil, false
 	}
 	return o.BucketName, true
 }
 
 // HasBucketName returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasBucketName() bool {
-	if o != nil && !isNil(o.BucketName) {
+	if o != nil && !IsNil(o.BucketName) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *StorageObjectCredentials) SetBucketName(v string) {
 
 // GetRegionId returns the RegionId field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetRegionId() string {
-	if o == nil || isNil(o.RegionId) {
+	if o == nil || IsNil(o.RegionId) {
 		var ret string
 		return ret
 	}
@@ -186,15 +189,15 @@ func (o *StorageObjectCredentials) GetRegionId() string {
 // GetRegionIdOk returns a tuple with the RegionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetRegionIdOk() (*string, bool) {
-	if o == nil || isNil(o.RegionId) {
-    return nil, false
+	if o == nil || IsNil(o.RegionId) {
+		return nil, false
 	}
 	return o.RegionId, true
 }
 
 // HasRegionId returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasRegionId() bool {
-	if o != nil && !isNil(o.RegionId) {
+	if o != nil && !IsNil(o.RegionId) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *StorageObjectCredentials) SetRegionId(v string) {
 
 // GetSecurityToken returns the SecurityToken field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetSecurityToken() string {
-	if o == nil || isNil(o.SecurityToken) {
+	if o == nil || IsNil(o.SecurityToken) {
 		var ret string
 		return ret
 	}
@@ -218,15 +221,15 @@ func (o *StorageObjectCredentials) GetSecurityToken() string {
 // GetSecurityTokenOk returns a tuple with the SecurityToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetSecurityTokenOk() (*string, bool) {
-	if o == nil || isNil(o.SecurityToken) {
-    return nil, false
+	if o == nil || IsNil(o.SecurityToken) {
+		return nil, false
 	}
 	return o.SecurityToken, true
 }
 
 // HasSecurityToken returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasSecurityToken() bool {
-	if o != nil && !isNil(o.SecurityToken) {
+	if o != nil && !IsNil(o.SecurityToken) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *StorageObjectCredentials) SetSecurityToken(v string) {
 
 // GetAccessKeyId returns the AccessKeyId field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetAccessKeyId() string {
-	if o == nil || isNil(o.AccessKeyId) {
+	if o == nil || IsNil(o.AccessKeyId) {
 		var ret string
 		return ret
 	}
@@ -250,15 +253,15 @@ func (o *StorageObjectCredentials) GetAccessKeyId() string {
 // GetAccessKeyIdOk returns a tuple with the AccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetAccessKeyIdOk() (*string, bool) {
-	if o == nil || isNil(o.AccessKeyId) {
-    return nil, false
+	if o == nil || IsNil(o.AccessKeyId) {
+		return nil, false
 	}
 	return o.AccessKeyId, true
 }
 
 // HasAccessKeyId returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasAccessKeyId() bool {
-	if o != nil && !isNil(o.AccessKeyId) {
+	if o != nil && !IsNil(o.AccessKeyId) {
 		return true
 	}
 
@@ -272,7 +275,7 @@ func (o *StorageObjectCredentials) SetAccessKeyId(v string) {
 
 // GetAccessKeySecret returns the AccessKeySecret field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetAccessKeySecret() string {
-	if o == nil || isNil(o.AccessKeySecret) {
+	if o == nil || IsNil(o.AccessKeySecret) {
 		var ret string
 		return ret
 	}
@@ -282,15 +285,15 @@ func (o *StorageObjectCredentials) GetAccessKeySecret() string {
 // GetAccessKeySecretOk returns a tuple with the AccessKeySecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetAccessKeySecretOk() (*string, bool) {
-	if o == nil || isNil(o.AccessKeySecret) {
-    return nil, false
+	if o == nil || IsNil(o.AccessKeySecret) {
+		return nil, false
 	}
 	return o.AccessKeySecret, true
 }
 
 // HasAccessKeySecret returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasAccessKeySecret() bool {
-	if o != nil && !isNil(o.AccessKeySecret) {
+	if o != nil && !IsNil(o.AccessKeySecret) {
 		return true
 	}
 
@@ -304,7 +307,7 @@ func (o *StorageObjectCredentials) SetAccessKeySecret(v string) {
 
 // GetExpiration returns the Expiration field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetExpiration() string {
-	if o == nil || isNil(o.Expiration) {
+	if o == nil || IsNil(o.Expiration) {
 		var ret string
 		return ret
 	}
@@ -314,15 +317,15 @@ func (o *StorageObjectCredentials) GetExpiration() string {
 // GetExpirationOk returns a tuple with the Expiration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetExpirationOk() (*string, bool) {
-	if o == nil || isNil(o.Expiration) {
-    return nil, false
+	if o == nil || IsNil(o.Expiration) {
+		return nil, false
 	}
 	return o.Expiration, true
 }
 
 // HasExpiration returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasExpiration() bool {
-	if o != nil && !isNil(o.Expiration) {
+	if o != nil && !IsNil(o.Expiration) {
 		return true
 	}
 
@@ -336,7 +339,7 @@ func (o *StorageObjectCredentials) SetExpiration(v string) {
 
 // GetExpiredTime returns the ExpiredTime field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetExpiredTime() int64 {
-	if o == nil || isNil(o.ExpiredTime) {
+	if o == nil || IsNil(o.ExpiredTime) {
 		var ret int64
 		return ret
 	}
@@ -346,15 +349,15 @@ func (o *StorageObjectCredentials) GetExpiredTime() int64 {
 // GetExpiredTimeOk returns a tuple with the ExpiredTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetExpiredTimeOk() (*int64, bool) {
-	if o == nil || isNil(o.ExpiredTime) {
-    return nil, false
+	if o == nil || IsNil(o.ExpiredTime) {
+		return nil, false
 	}
 	return o.ExpiredTime, true
 }
 
 // HasExpiredTime returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasExpiredTime() bool {
-	if o != nil && !isNil(o.ExpiredTime) {
+	if o != nil && !IsNil(o.ExpiredTime) {
 		return true
 	}
 
@@ -368,7 +371,7 @@ func (o *StorageObjectCredentials) SetExpiredTime(v int64) {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -378,15 +381,15 @@ func (o *StorageObjectCredentials) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectCredentials) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -399,41 +402,49 @@ func (o *StorageObjectCredentials) SetAppId(v string) {
 }
 
 func (o StorageObjectCredentials) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.StorageClass) {
-		toSerialize["storageClass"] = o.StorageClass
-	}
-	if !isNil(o.EndPoint) {
-		toSerialize["endPoint"] = o.EndPoint
-	}
-	if !isNil(o.Protocal) {
-		toSerialize["protocal"] = o.Protocal
-	}
-	if !isNil(o.BucketName) {
-		toSerialize["bucketName"] = o.BucketName
-	}
-	if !isNil(o.RegionId) {
-		toSerialize["regionId"] = o.RegionId
-	}
-	if !isNil(o.SecurityToken) {
-		toSerialize["securityToken"] = o.SecurityToken
-	}
-	if !isNil(o.AccessKeyId) {
-		toSerialize["accessKeyId"] = o.AccessKeyId
-	}
-	if !isNil(o.AccessKeySecret) {
-		toSerialize["accessKeySecret"] = o.AccessKeySecret
-	}
-	if !isNil(o.Expiration) {
-		toSerialize["expiration"] = o.Expiration
-	}
-	if !isNil(o.ExpiredTime) {
-		toSerialize["expiredTime"] = o.ExpiredTime
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StorageObjectCredentials) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.StorageClass) {
+		toSerialize["storageClass"] = o.StorageClass
+	}
+	if !IsNil(o.EndPoint) {
+		toSerialize["endPoint"] = o.EndPoint
+	}
+	if !IsNil(o.Protocal) {
+		toSerialize["protocal"] = o.Protocal
+	}
+	if !IsNil(o.BucketName) {
+		toSerialize["bucketName"] = o.BucketName
+	}
+	if !IsNil(o.RegionId) {
+		toSerialize["regionId"] = o.RegionId
+	}
+	if !IsNil(o.SecurityToken) {
+		toSerialize["securityToken"] = o.SecurityToken
+	}
+	if !IsNil(o.AccessKeyId) {
+		toSerialize["accessKeyId"] = o.AccessKeyId
+	}
+	if !IsNil(o.AccessKeySecret) {
+		toSerialize["accessKeySecret"] = o.AccessKeySecret
+	}
+	if !IsNil(o.Expiration) {
+		toSerialize["expiration"] = o.Expiration
+	}
+	if !IsNil(o.ExpiredTime) {
+		toSerialize["expiredTime"] = o.ExpiredTime
+	}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	return toSerialize, nil
 }
 
 type NullableStorageObjectCredentials struct {

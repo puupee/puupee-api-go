@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ModuleExtensionDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModuleExtensionDto{}
+
 // ModuleExtensionDto struct for ModuleExtensionDto
 type ModuleExtensionDto struct {
 	Entities *map[string]EntityExtensionDto `json:"entities,omitempty"`
@@ -39,7 +42,7 @@ func NewModuleExtensionDtoWithDefaults() *ModuleExtensionDto {
 
 // GetEntities returns the Entities field value if set, zero value otherwise.
 func (o *ModuleExtensionDto) GetEntities() map[string]EntityExtensionDto {
-	if o == nil || isNil(o.Entities) {
+	if o == nil || IsNil(o.Entities) {
 		var ret map[string]EntityExtensionDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *ModuleExtensionDto) GetEntities() map[string]EntityExtensionDto {
 // GetEntitiesOk returns a tuple with the Entities field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModuleExtensionDto) GetEntitiesOk() (*map[string]EntityExtensionDto, bool) {
-	if o == nil || isNil(o.Entities) {
-    return nil, false
+	if o == nil || IsNil(o.Entities) {
+		return nil, false
 	}
 	return o.Entities, true
 }
 
 // HasEntities returns a boolean if a field has been set.
 func (o *ModuleExtensionDto) HasEntities() bool {
-	if o != nil && !isNil(o.Entities) {
+	if o != nil && !IsNil(o.Entities) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *ModuleExtensionDto) SetEntities(v map[string]EntityExtensionDto) {
 
 // GetConfiguration returns the Configuration field value if set, zero value otherwise.
 func (o *ModuleExtensionDto) GetConfiguration() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Configuration) {
+	if o == nil || IsNil(o.Configuration) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *ModuleExtensionDto) GetConfiguration() map[string]map[string]interface{
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModuleExtensionDto) GetConfigurationOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Configuration) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Configuration) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *ModuleExtensionDto) HasConfiguration() bool {
-	if o != nil && !isNil(o.Configuration) {
+	if o != nil && !IsNil(o.Configuration) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *ModuleExtensionDto) SetConfiguration(v map[string]map[string]interface{
 }
 
 func (o ModuleExtensionDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Entities) {
-		toSerialize["entities"] = o.Entities
-	}
-	if !isNil(o.Configuration) {
-		toSerialize["configuration"] = o.Configuration
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ModuleExtensionDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Entities) {
+		toSerialize["entities"] = o.Entities
+	}
+	if !IsNil(o.Configuration) {
+		toSerialize["configuration"] = o.Configuration
+	}
+	return toSerialize, nil
 }
 
 type NullableModuleExtensionDto struct {

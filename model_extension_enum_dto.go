@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionEnumDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionEnumDto{}
+
 // ExtensionEnumDto struct for ExtensionEnumDto
 type ExtensionEnumDto struct {
 	Fields []ExtensionEnumFieldDto `json:"fields,omitempty"`
@@ -39,7 +42,7 @@ func NewExtensionEnumDtoWithDefaults() *ExtensionEnumDto {
 
 // GetFields returns the Fields field value if set, zero value otherwise.
 func (o *ExtensionEnumDto) GetFields() []ExtensionEnumFieldDto {
-	if o == nil || isNil(o.Fields) {
+	if o == nil || IsNil(o.Fields) {
 		var ret []ExtensionEnumFieldDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *ExtensionEnumDto) GetFields() []ExtensionEnumFieldDto {
 // GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionEnumDto) GetFieldsOk() ([]ExtensionEnumFieldDto, bool) {
-	if o == nil || isNil(o.Fields) {
-    return nil, false
+	if o == nil || IsNil(o.Fields) {
+		return nil, false
 	}
 	return o.Fields, true
 }
 
 // HasFields returns a boolean if a field has been set.
 func (o *ExtensionEnumDto) HasFields() bool {
-	if o != nil && !isNil(o.Fields) {
+	if o != nil && !IsNil(o.Fields) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *ExtensionEnumDto) SetFields(v []ExtensionEnumFieldDto) {
 
 // GetLocalizationResource returns the LocalizationResource field value if set, zero value otherwise.
 func (o *ExtensionEnumDto) GetLocalizationResource() string {
-	if o == nil || isNil(o.LocalizationResource) {
+	if o == nil || IsNil(o.LocalizationResource) {
 		var ret string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *ExtensionEnumDto) GetLocalizationResource() string {
 // GetLocalizationResourceOk returns a tuple with the LocalizationResource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionEnumDto) GetLocalizationResourceOk() (*string, bool) {
-	if o == nil || isNil(o.LocalizationResource) {
-    return nil, false
+	if o == nil || IsNil(o.LocalizationResource) {
+		return nil, false
 	}
 	return o.LocalizationResource, true
 }
 
 // HasLocalizationResource returns a boolean if a field has been set.
 func (o *ExtensionEnumDto) HasLocalizationResource() bool {
-	if o != nil && !isNil(o.LocalizationResource) {
+	if o != nil && !IsNil(o.LocalizationResource) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *ExtensionEnumDto) SetLocalizationResource(v string) {
 }
 
 func (o ExtensionEnumDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Fields) {
-		toSerialize["fields"] = o.Fields
-	}
-	if !isNil(o.LocalizationResource) {
-		toSerialize["localizationResource"] = o.LocalizationResource
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionEnumDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Fields) {
+		toSerialize["fields"] = o.Fields
+	}
+	if !IsNil(o.LocalizationResource) {
+		toSerialize["localizationResource"] = o.LocalizationResource
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionEnumDto struct {

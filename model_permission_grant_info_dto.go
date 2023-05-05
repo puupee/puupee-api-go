@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PermissionGrantInfoDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PermissionGrantInfoDto{}
+
 // PermissionGrantInfoDto struct for PermissionGrantInfoDto
 type PermissionGrantInfoDto struct {
 	Name *string `json:"name,omitempty"`
@@ -43,7 +46,7 @@ func NewPermissionGrantInfoDtoWithDefaults() *PermissionGrantInfoDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PermissionGrantInfoDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *PermissionGrantInfoDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGrantInfoDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PermissionGrantInfoDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *PermissionGrantInfoDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *PermissionGrantInfoDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *PermissionGrantInfoDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGrantInfoDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *PermissionGrantInfoDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *PermissionGrantInfoDto) SetDisplayName(v string) {
 
 // GetParentName returns the ParentName field value if set, zero value otherwise.
 func (o *PermissionGrantInfoDto) GetParentName() string {
-	if o == nil || isNil(o.ParentName) {
+	if o == nil || IsNil(o.ParentName) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *PermissionGrantInfoDto) GetParentName() string {
 // GetParentNameOk returns a tuple with the ParentName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGrantInfoDto) GetParentNameOk() (*string, bool) {
-	if o == nil || isNil(o.ParentName) {
-    return nil, false
+	if o == nil || IsNil(o.ParentName) {
+		return nil, false
 	}
 	return o.ParentName, true
 }
 
 // HasParentName returns a boolean if a field has been set.
 func (o *PermissionGrantInfoDto) HasParentName() bool {
-	if o != nil && !isNil(o.ParentName) {
+	if o != nil && !IsNil(o.ParentName) {
 		return true
 	}
 
@@ -139,7 +142,7 @@ func (o *PermissionGrantInfoDto) SetParentName(v string) {
 
 // GetIsGranted returns the IsGranted field value if set, zero value otherwise.
 func (o *PermissionGrantInfoDto) GetIsGranted() bool {
-	if o == nil || isNil(o.IsGranted) {
+	if o == nil || IsNil(o.IsGranted) {
 		var ret bool
 		return ret
 	}
@@ -149,15 +152,15 @@ func (o *PermissionGrantInfoDto) GetIsGranted() bool {
 // GetIsGrantedOk returns a tuple with the IsGranted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGrantInfoDto) GetIsGrantedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsGranted) {
-    return nil, false
+	if o == nil || IsNil(o.IsGranted) {
+		return nil, false
 	}
 	return o.IsGranted, true
 }
 
 // HasIsGranted returns a boolean if a field has been set.
 func (o *PermissionGrantInfoDto) HasIsGranted() bool {
-	if o != nil && !isNil(o.IsGranted) {
+	if o != nil && !IsNil(o.IsGranted) {
 		return true
 	}
 
@@ -171,7 +174,7 @@ func (o *PermissionGrantInfoDto) SetIsGranted(v bool) {
 
 // GetAllowedProviders returns the AllowedProviders field value if set, zero value otherwise.
 func (o *PermissionGrantInfoDto) GetAllowedProviders() []string {
-	if o == nil || isNil(o.AllowedProviders) {
+	if o == nil || IsNil(o.AllowedProviders) {
 		var ret []string
 		return ret
 	}
@@ -181,15 +184,15 @@ func (o *PermissionGrantInfoDto) GetAllowedProviders() []string {
 // GetAllowedProvidersOk returns a tuple with the AllowedProviders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGrantInfoDto) GetAllowedProvidersOk() ([]string, bool) {
-	if o == nil || isNil(o.AllowedProviders) {
-    return nil, false
+	if o == nil || IsNil(o.AllowedProviders) {
+		return nil, false
 	}
 	return o.AllowedProviders, true
 }
 
 // HasAllowedProviders returns a boolean if a field has been set.
 func (o *PermissionGrantInfoDto) HasAllowedProviders() bool {
-	if o != nil && !isNil(o.AllowedProviders) {
+	if o != nil && !IsNil(o.AllowedProviders) {
 		return true
 	}
 
@@ -203,7 +206,7 @@ func (o *PermissionGrantInfoDto) SetAllowedProviders(v []string) {
 
 // GetGrantedProviders returns the GrantedProviders field value if set, zero value otherwise.
 func (o *PermissionGrantInfoDto) GetGrantedProviders() []ProviderInfoDto {
-	if o == nil || isNil(o.GrantedProviders) {
+	if o == nil || IsNil(o.GrantedProviders) {
 		var ret []ProviderInfoDto
 		return ret
 	}
@@ -213,15 +216,15 @@ func (o *PermissionGrantInfoDto) GetGrantedProviders() []ProviderInfoDto {
 // GetGrantedProvidersOk returns a tuple with the GrantedProviders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGrantInfoDto) GetGrantedProvidersOk() ([]ProviderInfoDto, bool) {
-	if o == nil || isNil(o.GrantedProviders) {
-    return nil, false
+	if o == nil || IsNil(o.GrantedProviders) {
+		return nil, false
 	}
 	return o.GrantedProviders, true
 }
 
 // HasGrantedProviders returns a boolean if a field has been set.
 func (o *PermissionGrantInfoDto) HasGrantedProviders() bool {
-	if o != nil && !isNil(o.GrantedProviders) {
+	if o != nil && !IsNil(o.GrantedProviders) {
 		return true
 	}
 
@@ -234,26 +237,34 @@ func (o *PermissionGrantInfoDto) SetGrantedProviders(v []ProviderInfoDto) {
 }
 
 func (o PermissionGrantInfoDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.ParentName) {
-		toSerialize["parentName"] = o.ParentName
-	}
-	if !isNil(o.IsGranted) {
-		toSerialize["isGranted"] = o.IsGranted
-	}
-	if !isNil(o.AllowedProviders) {
-		toSerialize["allowedProviders"] = o.AllowedProviders
-	}
-	if !isNil(o.GrantedProviders) {
-		toSerialize["grantedProviders"] = o.GrantedProviders
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PermissionGrantInfoDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.ParentName) {
+		toSerialize["parentName"] = o.ParentName
+	}
+	if !IsNil(o.IsGranted) {
+		toSerialize["isGranted"] = o.IsGranted
+	}
+	if !IsNil(o.AllowedProviders) {
+		toSerialize["allowedProviders"] = o.AllowedProviders
+	}
+	if !IsNil(o.GrantedProviders) {
+		toSerialize["grantedProviders"] = o.GrantedProviders
+	}
+	return toSerialize, nil
 }
 
 type NullablePermissionGrantInfoDto struct {

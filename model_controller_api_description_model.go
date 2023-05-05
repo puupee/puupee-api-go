@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ControllerApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ControllerApiDescriptionModel{}
+
 // ControllerApiDescriptionModel struct for ControllerApiDescriptionModel
 type ControllerApiDescriptionModel struct {
 	ControllerName *string `json:"controllerName,omitempty"`
@@ -45,7 +48,7 @@ func NewControllerApiDescriptionModelWithDefaults() *ControllerApiDescriptionMod
 
 // GetControllerName returns the ControllerName field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetControllerName() string {
-	if o == nil || isNil(o.ControllerName) {
+	if o == nil || IsNil(o.ControllerName) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *ControllerApiDescriptionModel) GetControllerName() string {
 // GetControllerNameOk returns a tuple with the ControllerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetControllerNameOk() (*string, bool) {
-	if o == nil || isNil(o.ControllerName) {
-    return nil, false
+	if o == nil || IsNil(o.ControllerName) {
+		return nil, false
 	}
 	return o.ControllerName, true
 }
 
 // HasControllerName returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasControllerName() bool {
-	if o != nil && !isNil(o.ControllerName) {
+	if o != nil && !IsNil(o.ControllerName) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *ControllerApiDescriptionModel) SetControllerName(v string) {
 
 // GetControllerGroupName returns the ControllerGroupName field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetControllerGroupName() string {
-	if o == nil || isNil(o.ControllerGroupName) {
+	if o == nil || IsNil(o.ControllerGroupName) {
 		var ret string
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *ControllerApiDescriptionModel) GetControllerGroupName() string {
 // GetControllerGroupNameOk returns a tuple with the ControllerGroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetControllerGroupNameOk() (*string, bool) {
-	if o == nil || isNil(o.ControllerGroupName) {
-    return nil, false
+	if o == nil || IsNil(o.ControllerGroupName) {
+		return nil, false
 	}
 	return o.ControllerGroupName, true
 }
 
 // HasControllerGroupName returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasControllerGroupName() bool {
-	if o != nil && !isNil(o.ControllerGroupName) {
+	if o != nil && !IsNil(o.ControllerGroupName) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *ControllerApiDescriptionModel) SetControllerGroupName(v string) {
 
 // GetIsRemoteService returns the IsRemoteService field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetIsRemoteService() bool {
-	if o == nil || isNil(o.IsRemoteService) {
+	if o == nil || IsNil(o.IsRemoteService) {
 		var ret bool
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *ControllerApiDescriptionModel) GetIsRemoteService() bool {
 // GetIsRemoteServiceOk returns a tuple with the IsRemoteService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetIsRemoteServiceOk() (*bool, bool) {
-	if o == nil || isNil(o.IsRemoteService) {
-    return nil, false
+	if o == nil || IsNil(o.IsRemoteService) {
+		return nil, false
 	}
 	return o.IsRemoteService, true
 }
 
 // HasIsRemoteService returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasIsRemoteService() bool {
-	if o != nil && !isNil(o.IsRemoteService) {
+	if o != nil && !IsNil(o.IsRemoteService) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *ControllerApiDescriptionModel) SetIsRemoteService(v bool) {
 
 // GetIsIntegrationService returns the IsIntegrationService field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetIsIntegrationService() bool {
-	if o == nil || isNil(o.IsIntegrationService) {
+	if o == nil || IsNil(o.IsIntegrationService) {
 		var ret bool
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *ControllerApiDescriptionModel) GetIsIntegrationService() bool {
 // GetIsIntegrationServiceOk returns a tuple with the IsIntegrationService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetIsIntegrationServiceOk() (*bool, bool) {
-	if o == nil || isNil(o.IsIntegrationService) {
-    return nil, false
+	if o == nil || IsNil(o.IsIntegrationService) {
+		return nil, false
 	}
 	return o.IsIntegrationService, true
 }
 
 // HasIsIntegrationService returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasIsIntegrationService() bool {
-	if o != nil && !isNil(o.IsIntegrationService) {
+	if o != nil && !IsNil(o.IsIntegrationService) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *ControllerApiDescriptionModel) SetIsIntegrationService(v bool) {
 
 // GetApiVersion returns the ApiVersion field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetApiVersion() string {
-	if o == nil || isNil(o.ApiVersion) {
+	if o == nil || IsNil(o.ApiVersion) {
 		var ret string
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *ControllerApiDescriptionModel) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetApiVersionOk() (*string, bool) {
-	if o == nil || isNil(o.ApiVersion) {
-    return nil, false
+	if o == nil || IsNil(o.ApiVersion) {
+		return nil, false
 	}
 	return o.ApiVersion, true
 }
 
 // HasApiVersion returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasApiVersion() bool {
-	if o != nil && !isNil(o.ApiVersion) {
+	if o != nil && !IsNil(o.ApiVersion) {
 		return true
 	}
 
@@ -205,7 +208,7 @@ func (o *ControllerApiDescriptionModel) SetApiVersion(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -215,15 +218,15 @@ func (o *ControllerApiDescriptionModel) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -237,7 +240,7 @@ func (o *ControllerApiDescriptionModel) SetType(v string) {
 
 // GetInterfaces returns the Interfaces field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetInterfaces() []ControllerInterfaceApiDescriptionModel {
-	if o == nil || isNil(o.Interfaces) {
+	if o == nil || IsNil(o.Interfaces) {
 		var ret []ControllerInterfaceApiDescriptionModel
 		return ret
 	}
@@ -247,15 +250,15 @@ func (o *ControllerApiDescriptionModel) GetInterfaces() []ControllerInterfaceApi
 // GetInterfacesOk returns a tuple with the Interfaces field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetInterfacesOk() ([]ControllerInterfaceApiDescriptionModel, bool) {
-	if o == nil || isNil(o.Interfaces) {
-    return nil, false
+	if o == nil || IsNil(o.Interfaces) {
+		return nil, false
 	}
 	return o.Interfaces, true
 }
 
 // HasInterfaces returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasInterfaces() bool {
-	if o != nil && !isNil(o.Interfaces) {
+	if o != nil && !IsNil(o.Interfaces) {
 		return true
 	}
 
@@ -269,7 +272,7 @@ func (o *ControllerApiDescriptionModel) SetInterfaces(v []ControllerInterfaceApi
 
 // GetActions returns the Actions field value if set, zero value otherwise.
 func (o *ControllerApiDescriptionModel) GetActions() map[string]ActionApiDescriptionModel {
-	if o == nil || isNil(o.Actions) {
+	if o == nil || IsNil(o.Actions) {
 		var ret map[string]ActionApiDescriptionModel
 		return ret
 	}
@@ -279,15 +282,15 @@ func (o *ControllerApiDescriptionModel) GetActions() map[string]ActionApiDescrip
 // GetActionsOk returns a tuple with the Actions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerApiDescriptionModel) GetActionsOk() (*map[string]ActionApiDescriptionModel, bool) {
-	if o == nil || isNil(o.Actions) {
-    return nil, false
+	if o == nil || IsNil(o.Actions) {
+		return nil, false
 	}
 	return o.Actions, true
 }
 
 // HasActions returns a boolean if a field has been set.
 func (o *ControllerApiDescriptionModel) HasActions() bool {
-	if o != nil && !isNil(o.Actions) {
+	if o != nil && !IsNil(o.Actions) {
 		return true
 	}
 
@@ -300,32 +303,40 @@ func (o *ControllerApiDescriptionModel) SetActions(v map[string]ActionApiDescrip
 }
 
 func (o ControllerApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ControllerName) {
-		toSerialize["controllerName"] = o.ControllerName
-	}
-	if !isNil(o.ControllerGroupName) {
-		toSerialize["controllerGroupName"] = o.ControllerGroupName
-	}
-	if !isNil(o.IsRemoteService) {
-		toSerialize["isRemoteService"] = o.IsRemoteService
-	}
-	if !isNil(o.IsIntegrationService) {
-		toSerialize["isIntegrationService"] = o.IsIntegrationService
-	}
-	if !isNil(o.ApiVersion) {
-		toSerialize["apiVersion"] = o.ApiVersion
-	}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.Interfaces) {
-		toSerialize["interfaces"] = o.Interfaces
-	}
-	if !isNil(o.Actions) {
-		toSerialize["actions"] = o.Actions
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ControllerApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ControllerName) {
+		toSerialize["controllerName"] = o.ControllerName
+	}
+	if !IsNil(o.ControllerGroupName) {
+		toSerialize["controllerGroupName"] = o.ControllerGroupName
+	}
+	if !IsNil(o.IsRemoteService) {
+		toSerialize["isRemoteService"] = o.IsRemoteService
+	}
+	if !IsNil(o.IsIntegrationService) {
+		toSerialize["isIntegrationService"] = o.IsIntegrationService
+	}
+	if !IsNil(o.ApiVersion) {
+		toSerialize["apiVersion"] = o.ApiVersion
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Interfaces) {
+		toSerialize["interfaces"] = o.Interfaces
+	}
+	if !IsNil(o.Actions) {
+		toSerialize["actions"] = o.Actions
+	}
+	return toSerialize, nil
 }
 
 type NullableControllerApiDescriptionModel struct {

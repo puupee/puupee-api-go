@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOrUpdateAppSdkDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppSdkDto{}
+
 // CreateOrUpdateAppSdkDto struct for CreateOrUpdateAppSdkDto
 type CreateOrUpdateAppSdkDto struct {
 	Name *string `json:"name,omitempty"`
@@ -42,7 +45,7 @@ func NewCreateOrUpdateAppSdkDtoWithDefaults() *CreateOrUpdateAppSdkDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppSdkDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *CreateOrUpdateAppSdkDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppSdkDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppSdkDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *CreateOrUpdateAppSdkDto) SetName(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppSdkDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *CreateOrUpdateAppSdkDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppSdkDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppSdkDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *CreateOrUpdateAppSdkDto) SetDescription(v string) {
 
 // GetPrivacy returns the Privacy field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppSdkDto) GetPrivacy() string {
-	if o == nil || isNil(o.Privacy) {
+	if o == nil || IsNil(o.Privacy) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *CreateOrUpdateAppSdkDto) GetPrivacy() string {
 // GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppSdkDto) GetPrivacyOk() (*string, bool) {
-	if o == nil || isNil(o.Privacy) {
-    return nil, false
+	if o == nil || IsNil(o.Privacy) {
+		return nil, false
 	}
 	return o.Privacy, true
 }
 
 // HasPrivacy returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppSdkDto) HasPrivacy() bool {
-	if o != nil && !isNil(o.Privacy) {
+	if o != nil && !IsNil(o.Privacy) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *CreateOrUpdateAppSdkDto) SetPrivacy(v string) {
 
 // GetPrivacyUrl returns the PrivacyUrl field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppSdkDto) GetPrivacyUrl() string {
-	if o == nil || isNil(o.PrivacyUrl) {
+	if o == nil || IsNil(o.PrivacyUrl) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *CreateOrUpdateAppSdkDto) GetPrivacyUrl() string {
 // GetPrivacyUrlOk returns a tuple with the PrivacyUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppSdkDto) GetPrivacyUrlOk() (*string, bool) {
-	if o == nil || isNil(o.PrivacyUrl) {
-    return nil, false
+	if o == nil || IsNil(o.PrivacyUrl) {
+		return nil, false
 	}
 	return o.PrivacyUrl, true
 }
 
 // HasPrivacyUrl returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppSdkDto) HasPrivacyUrl() bool {
-	if o != nil && !isNil(o.PrivacyUrl) {
+	if o != nil && !IsNil(o.PrivacyUrl) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *CreateOrUpdateAppSdkDto) SetPrivacyUrl(v string) {
 
 // GetHomePage returns the HomePage field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppSdkDto) GetHomePage() string {
-	if o == nil || isNil(o.HomePage) {
+	if o == nil || IsNil(o.HomePage) {
 		var ret string
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *CreateOrUpdateAppSdkDto) GetHomePage() string {
 // GetHomePageOk returns a tuple with the HomePage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppSdkDto) GetHomePageOk() (*string, bool) {
-	if o == nil || isNil(o.HomePage) {
-    return nil, false
+	if o == nil || IsNil(o.HomePage) {
+		return nil, false
 	}
 	return o.HomePage, true
 }
 
 // HasHomePage returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppSdkDto) HasHomePage() bool {
-	if o != nil && !isNil(o.HomePage) {
+	if o != nil && !IsNil(o.HomePage) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *CreateOrUpdateAppSdkDto) SetHomePage(v string) {
 }
 
 func (o CreateOrUpdateAppSdkDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.Privacy) {
-		toSerialize["privacy"] = o.Privacy
-	}
-	if !isNil(o.PrivacyUrl) {
-		toSerialize["privacyUrl"] = o.PrivacyUrl
-	}
-	if !isNil(o.HomePage) {
-		toSerialize["homePage"] = o.HomePage
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppSdkDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Privacy) {
+		toSerialize["privacy"] = o.Privacy
+	}
+	if !IsNil(o.PrivacyUrl) {
+		toSerialize["privacyUrl"] = o.PrivacyUrl
+	}
+	if !IsNil(o.HomePage) {
+		toSerialize["homePage"] = o.HomePage
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppSdkDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationLocalizationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationLocalizationDto{}
+
 // ApplicationLocalizationDto struct for ApplicationLocalizationDto
 type ApplicationLocalizationDto struct {
 	Resources *map[string]ApplicationLocalizationResourceDto `json:"resources,omitempty"`
@@ -38,7 +41,7 @@ func NewApplicationLocalizationDtoWithDefaults() *ApplicationLocalizationDto {
 
 // GetResources returns the Resources field value if set, zero value otherwise.
 func (o *ApplicationLocalizationDto) GetResources() map[string]ApplicationLocalizationResourceDto {
-	if o == nil || isNil(o.Resources) {
+	if o == nil || IsNil(o.Resources) {
 		var ret map[string]ApplicationLocalizationResourceDto
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ApplicationLocalizationDto) GetResources() map[string]ApplicationLocali
 // GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationDto) GetResourcesOk() (*map[string]ApplicationLocalizationResourceDto, bool) {
-	if o == nil || isNil(o.Resources) {
-    return nil, false
+	if o == nil || IsNil(o.Resources) {
+		return nil, false
 	}
 	return o.Resources, true
 }
 
 // HasResources returns a boolean if a field has been set.
 func (o *ApplicationLocalizationDto) HasResources() bool {
-	if o != nil && !isNil(o.Resources) {
+	if o != nil && !IsNil(o.Resources) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ApplicationLocalizationDto) SetResources(v map[string]ApplicationLocali
 }
 
 func (o ApplicationLocalizationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Resources) {
-		toSerialize["resources"] = o.Resources
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationLocalizationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Resources) {
+		toSerialize["resources"] = o.Resources
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationLocalizationDto struct {

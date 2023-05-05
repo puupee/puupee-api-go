@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationAuthConfigurationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationAuthConfigurationDto{}
+
 // ApplicationAuthConfigurationDto struct for ApplicationAuthConfigurationDto
 type ApplicationAuthConfigurationDto struct {
 	GrantedPolicies *map[string]bool `json:"grantedPolicies,omitempty"`
@@ -38,7 +41,7 @@ func NewApplicationAuthConfigurationDtoWithDefaults() *ApplicationAuthConfigurat
 
 // GetGrantedPolicies returns the GrantedPolicies field value if set, zero value otherwise.
 func (o *ApplicationAuthConfigurationDto) GetGrantedPolicies() map[string]bool {
-	if o == nil || isNil(o.GrantedPolicies) {
+	if o == nil || IsNil(o.GrantedPolicies) {
 		var ret map[string]bool
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ApplicationAuthConfigurationDto) GetGrantedPolicies() map[string]bool {
 // GetGrantedPoliciesOk returns a tuple with the GrantedPolicies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationAuthConfigurationDto) GetGrantedPoliciesOk() (*map[string]bool, bool) {
-	if o == nil || isNil(o.GrantedPolicies) {
-    return nil, false
+	if o == nil || IsNil(o.GrantedPolicies) {
+		return nil, false
 	}
 	return o.GrantedPolicies, true
 }
 
 // HasGrantedPolicies returns a boolean if a field has been set.
 func (o *ApplicationAuthConfigurationDto) HasGrantedPolicies() bool {
-	if o != nil && !isNil(o.GrantedPolicies) {
+	if o != nil && !IsNil(o.GrantedPolicies) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ApplicationAuthConfigurationDto) SetGrantedPolicies(v map[string]bool) 
 }
 
 func (o ApplicationAuthConfigurationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.GrantedPolicies) {
-		toSerialize["grantedPolicies"] = o.GrantedPolicies
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationAuthConfigurationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.GrantedPolicies) {
+		toSerialize["grantedPolicies"] = o.GrantedPolicies
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationAuthConfigurationDto struct {

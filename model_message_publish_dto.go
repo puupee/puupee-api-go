@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MessagePublishDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MessagePublishDto{}
+
 // MessagePublishDto struct for MessagePublishDto
 type MessagePublishDto struct {
 	Title *string `json:"title,omitempty"`
@@ -42,7 +45,7 @@ func NewMessagePublishDtoWithDefaults() *MessagePublishDto {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *MessagePublishDto) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessagePublishDto) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *MessagePublishDto) SetTitle(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *MessagePublishDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessagePublishDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *MessagePublishDto) SetDescription(v string) {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *MessagePublishDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessagePublishDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *MessagePublishDto) SetAppId(v string) {
 
 // GetTemplate returns the Template field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetTemplate() string {
-	if o == nil || isNil(o.Template) {
+	if o == nil || IsNil(o.Template) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *MessagePublishDto) GetTemplate() string {
 // GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessagePublishDto) GetTemplateOk() (*string, bool) {
-	if o == nil || isNil(o.Template) {
-    return nil, false
+	if o == nil || IsNil(o.Template) {
+		return nil, false
 	}
 	return o.Template, true
 }
 
 // HasTemplate returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasTemplate() bool {
-	if o != nil && !isNil(o.Template) {
+	if o != nil && !IsNil(o.Template) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *MessagePublishDto) SetTemplate(v string) {
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetData() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *MessagePublishDto) GetData() map[string]map[string]interface{} {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessagePublishDto) GetDataOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Data) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Data) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *MessagePublishDto) SetData(v map[string]map[string]interface{}) {
 }
 
 func (o MessagePublishDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
-	}
-	if !isNil(o.Template) {
-		toSerialize["template"] = o.Template
-	}
-	if !isNil(o.Data) {
-		toSerialize["data"] = o.Data
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MessagePublishDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	if !IsNil(o.Template) {
+		toSerialize["template"] = o.Template
+	}
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
+	return toSerialize, nil
 }
 
 type NullableMessagePublishDto struct {

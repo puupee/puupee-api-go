@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionPropertyUiFormDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionPropertyUiFormDto{}
+
 // ExtensionPropertyUiFormDto struct for ExtensionPropertyUiFormDto
 type ExtensionPropertyUiFormDto struct {
 	IsVisible *bool `json:"isVisible,omitempty"`
@@ -38,7 +41,7 @@ func NewExtensionPropertyUiFormDtoWithDefaults() *ExtensionPropertyUiFormDto {
 
 // GetIsVisible returns the IsVisible field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiFormDto) GetIsVisible() bool {
-	if o == nil || isNil(o.IsVisible) {
+	if o == nil || IsNil(o.IsVisible) {
 		var ret bool
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ExtensionPropertyUiFormDto) GetIsVisible() bool {
 // GetIsVisibleOk returns a tuple with the IsVisible field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiFormDto) GetIsVisibleOk() (*bool, bool) {
-	if o == nil || isNil(o.IsVisible) {
-    return nil, false
+	if o == nil || IsNil(o.IsVisible) {
+		return nil, false
 	}
 	return o.IsVisible, true
 }
 
 // HasIsVisible returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiFormDto) HasIsVisible() bool {
-	if o != nil && !isNil(o.IsVisible) {
+	if o != nil && !IsNil(o.IsVisible) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ExtensionPropertyUiFormDto) SetIsVisible(v bool) {
 }
 
 func (o ExtensionPropertyUiFormDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.IsVisible) {
-		toSerialize["isVisible"] = o.IsVisible
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionPropertyUiFormDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.IsVisible) {
+		toSerialize["isVisible"] = o.IsVisible
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionPropertyUiFormDto struct {

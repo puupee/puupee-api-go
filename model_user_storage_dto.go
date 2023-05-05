@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserStorageDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserStorageDto{}
+
 // UserStorageDto struct for UserStorageDto
 type UserStorageDto struct {
 	Name *string `json:"name,omitempty"`
@@ -44,7 +47,7 @@ func NewUserStorageDtoWithDefaults() *UserStorageDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UserStorageDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *UserStorageDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UserStorageDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *UserStorageDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *UserStorageDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *UserStorageDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *UserStorageDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *UserStorageDto) SetDisplayName(v string) {
 
 // GetMaxSize returns the MaxSize field value if set, zero value otherwise.
 func (o *UserStorageDto) GetMaxSize() int64 {
-	if o == nil || isNil(o.MaxSize) {
+	if o == nil || IsNil(o.MaxSize) {
 		var ret int64
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *UserStorageDto) GetMaxSize() int64 {
 // GetMaxSizeOk returns a tuple with the MaxSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetMaxSizeOk() (*int64, bool) {
-	if o == nil || isNil(o.MaxSize) {
-    return nil, false
+	if o == nil || IsNil(o.MaxSize) {
+		return nil, false
 	}
 	return o.MaxSize, true
 }
 
 // HasMaxSize returns a boolean if a field has been set.
 func (o *UserStorageDto) HasMaxSize() bool {
-	if o != nil && !isNil(o.MaxSize) {
+	if o != nil && !IsNil(o.MaxSize) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *UserStorageDto) SetMaxSize(v int64) {
 
 // GetCurrentSize returns the CurrentSize field value if set, zero value otherwise.
 func (o *UserStorageDto) GetCurrentSize() int64 {
-	if o == nil || isNil(o.CurrentSize) {
+	if o == nil || IsNil(o.CurrentSize) {
 		var ret int64
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *UserStorageDto) GetCurrentSize() int64 {
 // GetCurrentSizeOk returns a tuple with the CurrentSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetCurrentSizeOk() (*int64, bool) {
-	if o == nil || isNil(o.CurrentSize) {
-    return nil, false
+	if o == nil || IsNil(o.CurrentSize) {
+		return nil, false
 	}
 	return o.CurrentSize, true
 }
 
 // HasCurrentSize returns a boolean if a field has been set.
 func (o *UserStorageDto) HasCurrentSize() bool {
-	if o != nil && !isNil(o.CurrentSize) {
+	if o != nil && !IsNil(o.CurrentSize) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *UserStorageDto) SetCurrentSize(v int64) {
 
 // GetTotalCount returns the TotalCount field value if set, zero value otherwise.
 func (o *UserStorageDto) GetTotalCount() int32 {
-	if o == nil || isNil(o.TotalCount) {
+	if o == nil || IsNil(o.TotalCount) {
 		var ret int32
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *UserStorageDto) GetTotalCount() int32 {
 // GetTotalCountOk returns a tuple with the TotalCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetTotalCountOk() (*int32, bool) {
-	if o == nil || isNil(o.TotalCount) {
-    return nil, false
+	if o == nil || IsNil(o.TotalCount) {
+		return nil, false
 	}
 	return o.TotalCount, true
 }
 
 // HasTotalCount returns a boolean if a field has been set.
 func (o *UserStorageDto) HasTotalCount() bool {
-	if o != nil && !isNil(o.TotalCount) {
+	if o != nil && !IsNil(o.TotalCount) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *UserStorageDto) SetTotalCount(v int32) {
 
 // GetSingleFileMaxSize returns the SingleFileMaxSize field value if set, zero value otherwise.
 func (o *UserStorageDto) GetSingleFileMaxSize() int64 {
-	if o == nil || isNil(o.SingleFileMaxSize) {
+	if o == nil || IsNil(o.SingleFileMaxSize) {
 		var ret int64
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *UserStorageDto) GetSingleFileMaxSize() int64 {
 // GetSingleFileMaxSizeOk returns a tuple with the SingleFileMaxSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetSingleFileMaxSizeOk() (*int64, bool) {
-	if o == nil || isNil(o.SingleFileMaxSize) {
-    return nil, false
+	if o == nil || IsNil(o.SingleFileMaxSize) {
+		return nil, false
 	}
 	return o.SingleFileMaxSize, true
 }
 
 // HasSingleFileMaxSize returns a boolean if a field has been set.
 func (o *UserStorageDto) HasSingleFileMaxSize() bool {
-	if o != nil && !isNil(o.SingleFileMaxSize) {
+	if o != nil && !IsNil(o.SingleFileMaxSize) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *UserStorageDto) SetSingleFileMaxSize(v int64) {
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *UserStorageDto) GetItems() []UserStorageItemDto {
-	if o == nil || isNil(o.Items) {
+	if o == nil || IsNil(o.Items) {
 		var ret []UserStorageItemDto
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *UserStorageDto) GetItems() []UserStorageItemDto {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserStorageDto) GetItemsOk() ([]UserStorageItemDto, bool) {
-	if o == nil || isNil(o.Items) {
-    return nil, false
+	if o == nil || IsNil(o.Items) {
+		return nil, false
 	}
 	return o.Items, true
 }
 
 // HasItems returns a boolean if a field has been set.
 func (o *UserStorageDto) HasItems() bool {
-	if o != nil && !isNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -267,29 +270,37 @@ func (o *UserStorageDto) SetItems(v []UserStorageItemDto) {
 }
 
 func (o UserStorageDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.MaxSize) {
-		toSerialize["maxSize"] = o.MaxSize
-	}
-	if !isNil(o.CurrentSize) {
-		toSerialize["currentSize"] = o.CurrentSize
-	}
-	if !isNil(o.TotalCount) {
-		toSerialize["totalCount"] = o.TotalCount
-	}
-	if !isNil(o.SingleFileMaxSize) {
-		toSerialize["singleFileMaxSize"] = o.SingleFileMaxSize
-	}
-	if !isNil(o.Items) {
-		toSerialize["items"] = o.Items
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UserStorageDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.MaxSize) {
+		toSerialize["maxSize"] = o.MaxSize
+	}
+	if !IsNil(o.CurrentSize) {
+		toSerialize["currentSize"] = o.CurrentSize
+	}
+	if !IsNil(o.TotalCount) {
+		toSerialize["totalCount"] = o.TotalCount
+	}
+	if !IsNil(o.SingleFileMaxSize) {
+		toSerialize["singleFileMaxSize"] = o.SingleFileMaxSize
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	return toSerialize, nil
 }
 
 type NullableUserStorageDto struct {

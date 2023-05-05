@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdateEmailSettingsDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateEmailSettingsDto{}
+
 // UpdateEmailSettingsDto struct for UpdateEmailSettingsDto
 type UpdateEmailSettingsDto struct {
 	SmtpHost *string `json:"smtpHost,omitempty"`
@@ -48,7 +51,7 @@ func NewUpdateEmailSettingsDtoWithDefaults() *UpdateEmailSettingsDto {
 
 // GetSmtpHost returns the SmtpHost field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpHost() string {
-	if o == nil || isNil(o.SmtpHost) {
+	if o == nil || IsNil(o.SmtpHost) {
 		var ret string
 		return ret
 	}
@@ -58,15 +61,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpHost() string {
 // GetSmtpHostOk returns a tuple with the SmtpHost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpHostOk() (*string, bool) {
-	if o == nil || isNil(o.SmtpHost) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpHost) {
+		return nil, false
 	}
 	return o.SmtpHost, true
 }
 
 // HasSmtpHost returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpHost() bool {
-	if o != nil && !isNil(o.SmtpHost) {
+	if o != nil && !IsNil(o.SmtpHost) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *UpdateEmailSettingsDto) SetSmtpHost(v string) {
 
 // GetSmtpPort returns the SmtpPort field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpPort() int32 {
-	if o == nil || isNil(o.SmtpPort) {
+	if o == nil || IsNil(o.SmtpPort) {
 		var ret int32
 		return ret
 	}
@@ -90,15 +93,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpPort() int32 {
 // GetSmtpPortOk returns a tuple with the SmtpPort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpPortOk() (*int32, bool) {
-	if o == nil || isNil(o.SmtpPort) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpPort) {
+		return nil, false
 	}
 	return o.SmtpPort, true
 }
 
 // HasSmtpPort returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpPort() bool {
-	if o != nil && !isNil(o.SmtpPort) {
+	if o != nil && !IsNil(o.SmtpPort) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *UpdateEmailSettingsDto) SetSmtpPort(v int32) {
 
 // GetSmtpUserName returns the SmtpUserName field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpUserName() string {
-	if o == nil || isNil(o.SmtpUserName) {
+	if o == nil || IsNil(o.SmtpUserName) {
 		var ret string
 		return ret
 	}
@@ -122,15 +125,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpUserName() string {
 // GetSmtpUserNameOk returns a tuple with the SmtpUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.SmtpUserName) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpUserName) {
+		return nil, false
 	}
 	return o.SmtpUserName, true
 }
 
 // HasSmtpUserName returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpUserName() bool {
-	if o != nil && !isNil(o.SmtpUserName) {
+	if o != nil && !IsNil(o.SmtpUserName) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *UpdateEmailSettingsDto) SetSmtpUserName(v string) {
 
 // GetSmtpPassword returns the SmtpPassword field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpPassword() string {
-	if o == nil || isNil(o.SmtpPassword) {
+	if o == nil || IsNil(o.SmtpPassword) {
 		var ret string
 		return ret
 	}
@@ -154,15 +157,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpPassword() string {
 // GetSmtpPasswordOk returns a tuple with the SmtpPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.SmtpPassword) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpPassword) {
+		return nil, false
 	}
 	return o.SmtpPassword, true
 }
 
 // HasSmtpPassword returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpPassword() bool {
-	if o != nil && !isNil(o.SmtpPassword) {
+	if o != nil && !IsNil(o.SmtpPassword) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *UpdateEmailSettingsDto) SetSmtpPassword(v string) {
 
 // GetSmtpDomain returns the SmtpDomain field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpDomain() string {
-	if o == nil || isNil(o.SmtpDomain) {
+	if o == nil || IsNil(o.SmtpDomain) {
 		var ret string
 		return ret
 	}
@@ -186,15 +189,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpDomain() string {
 // GetSmtpDomainOk returns a tuple with the SmtpDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpDomainOk() (*string, bool) {
-	if o == nil || isNil(o.SmtpDomain) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpDomain) {
+		return nil, false
 	}
 	return o.SmtpDomain, true
 }
 
 // HasSmtpDomain returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpDomain() bool {
-	if o != nil && !isNil(o.SmtpDomain) {
+	if o != nil && !IsNil(o.SmtpDomain) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *UpdateEmailSettingsDto) SetSmtpDomain(v string) {
 
 // GetSmtpEnableSsl returns the SmtpEnableSsl field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpEnableSsl() bool {
-	if o == nil || isNil(o.SmtpEnableSsl) {
+	if o == nil || IsNil(o.SmtpEnableSsl) {
 		var ret bool
 		return ret
 	}
@@ -218,15 +221,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpEnableSsl() bool {
 // GetSmtpEnableSslOk returns a tuple with the SmtpEnableSsl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpEnableSslOk() (*bool, bool) {
-	if o == nil || isNil(o.SmtpEnableSsl) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpEnableSsl) {
+		return nil, false
 	}
 	return o.SmtpEnableSsl, true
 }
 
 // HasSmtpEnableSsl returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpEnableSsl() bool {
-	if o != nil && !isNil(o.SmtpEnableSsl) {
+	if o != nil && !IsNil(o.SmtpEnableSsl) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *UpdateEmailSettingsDto) SetSmtpEnableSsl(v bool) {
 
 // GetSmtpUseDefaultCredentials returns the SmtpUseDefaultCredentials field value if set, zero value otherwise.
 func (o *UpdateEmailSettingsDto) GetSmtpUseDefaultCredentials() bool {
-	if o == nil || isNil(o.SmtpUseDefaultCredentials) {
+	if o == nil || IsNil(o.SmtpUseDefaultCredentials) {
 		var ret bool
 		return ret
 	}
@@ -250,15 +253,15 @@ func (o *UpdateEmailSettingsDto) GetSmtpUseDefaultCredentials() bool {
 // GetSmtpUseDefaultCredentialsOk returns a tuple with the SmtpUseDefaultCredentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetSmtpUseDefaultCredentialsOk() (*bool, bool) {
-	if o == nil || isNil(o.SmtpUseDefaultCredentials) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpUseDefaultCredentials) {
+		return nil, false
 	}
 	return o.SmtpUseDefaultCredentials, true
 }
 
 // HasSmtpUseDefaultCredentials returns a boolean if a field has been set.
 func (o *UpdateEmailSettingsDto) HasSmtpUseDefaultCredentials() bool {
-	if o != nil && !isNil(o.SmtpUseDefaultCredentials) {
+	if o != nil && !IsNil(o.SmtpUseDefaultCredentials) {
 		return true
 	}
 
@@ -284,7 +287,7 @@ func (o *UpdateEmailSettingsDto) GetDefaultFromAddress() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetDefaultFromAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.DefaultFromAddress, true
 }
@@ -308,7 +311,7 @@ func (o *UpdateEmailSettingsDto) GetDefaultFromDisplayName() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateEmailSettingsDto) GetDefaultFromDisplayNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.DefaultFromDisplayName, true
 }
@@ -319,35 +322,39 @@ func (o *UpdateEmailSettingsDto) SetDefaultFromDisplayName(v string) {
 }
 
 func (o UpdateEmailSettingsDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.SmtpHost) {
-		toSerialize["smtpHost"] = o.SmtpHost
-	}
-	if !isNil(o.SmtpPort) {
-		toSerialize["smtpPort"] = o.SmtpPort
-	}
-	if !isNil(o.SmtpUserName) {
-		toSerialize["smtpUserName"] = o.SmtpUserName
-	}
-	if !isNil(o.SmtpPassword) {
-		toSerialize["smtpPassword"] = o.SmtpPassword
-	}
-	if !isNil(o.SmtpDomain) {
-		toSerialize["smtpDomain"] = o.SmtpDomain
-	}
-	if !isNil(o.SmtpEnableSsl) {
-		toSerialize["smtpEnableSsl"] = o.SmtpEnableSsl
-	}
-	if !isNil(o.SmtpUseDefaultCredentials) {
-		toSerialize["smtpUseDefaultCredentials"] = o.SmtpUseDefaultCredentials
-	}
-	if true {
-		toSerialize["defaultFromAddress"] = o.DefaultFromAddress
-	}
-	if true {
-		toSerialize["defaultFromDisplayName"] = o.DefaultFromDisplayName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UpdateEmailSettingsDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SmtpHost) {
+		toSerialize["smtpHost"] = o.SmtpHost
+	}
+	if !IsNil(o.SmtpPort) {
+		toSerialize["smtpPort"] = o.SmtpPort
+	}
+	if !IsNil(o.SmtpUserName) {
+		toSerialize["smtpUserName"] = o.SmtpUserName
+	}
+	if !IsNil(o.SmtpPassword) {
+		toSerialize["smtpPassword"] = o.SmtpPassword
+	}
+	if !IsNil(o.SmtpDomain) {
+		toSerialize["smtpDomain"] = o.SmtpDomain
+	}
+	if !IsNil(o.SmtpEnableSsl) {
+		toSerialize["smtpEnableSsl"] = o.SmtpEnableSsl
+	}
+	if !IsNil(o.SmtpUseDefaultCredentials) {
+		toSerialize["smtpUseDefaultCredentials"] = o.SmtpUseDefaultCredentials
+	}
+	toSerialize["defaultFromAddress"] = o.DefaultFromAddress
+	toSerialize["defaultFromDisplayName"] = o.DefaultFromDisplayName
+	return toSerialize, nil
 }
 
 type NullableUpdateEmailSettingsDto struct {

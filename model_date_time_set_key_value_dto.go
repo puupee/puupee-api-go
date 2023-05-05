@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the DateTimeSetKeyValueDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DateTimeSetKeyValueDto{}
+
 // DateTimeSetKeyValueDto struct for DateTimeSetKeyValueDto
 type DateTimeSetKeyValueDto struct {
 	Value *time.Time `json:"value,omitempty"`
@@ -40,7 +43,7 @@ func NewDateTimeSetKeyValueDtoWithDefaults() *DateTimeSetKeyValueDto {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *DateTimeSetKeyValueDto) GetValue() time.Time {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret time.Time
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *DateTimeSetKeyValueDto) GetValue() time.Time {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DateTimeSetKeyValueDto) GetValueOk() (*time.Time, bool) {
-	if o == nil || isNil(o.Value) {
-    return nil, false
+	if o == nil || IsNil(o.Value) {
+		return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *DateTimeSetKeyValueDto) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *DateTimeSetKeyValueDto) SetValue(v time.Time) {
 
 // GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
 func (o *DateTimeSetKeyValueDto) GetDurationSeconds() float64 {
-	if o == nil || isNil(o.DurationSeconds) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		var ret float64
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *DateTimeSetKeyValueDto) GetDurationSeconds() float64 {
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DateTimeSetKeyValueDto) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil || isNil(o.DurationSeconds) {
-    return nil, false
+	if o == nil || IsNil(o.DurationSeconds) {
+		return nil, false
 	}
 	return o.DurationSeconds, true
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *DateTimeSetKeyValueDto) HasDurationSeconds() bool {
-	if o != nil && !isNil(o.DurationSeconds) {
+	if o != nil && !IsNil(o.DurationSeconds) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *DateTimeSetKeyValueDto) SetDurationSeconds(v float64) {
 }
 
 func (o DateTimeSetKeyValueDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
-	if !isNil(o.DurationSeconds) {
-		toSerialize["durationSeconds"] = o.DurationSeconds
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DateTimeSetKeyValueDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
+	}
+	if !IsNil(o.DurationSeconds) {
+		toSerialize["durationSeconds"] = o.DurationSeconds
+	}
+	return toSerialize, nil
 }
 
 type NullableDateTimeSetKeyValueDto struct {

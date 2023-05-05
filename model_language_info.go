@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LanguageInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LanguageInfo{}
+
 // LanguageInfo struct for LanguageInfo
 type LanguageInfo struct {
 	CultureName *string `json:"cultureName,omitempty"`
@@ -42,7 +45,7 @@ func NewLanguageInfoWithDefaults() *LanguageInfo {
 
 // GetCultureName returns the CultureName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetCultureName() string {
-	if o == nil || isNil(o.CultureName) {
+	if o == nil || IsNil(o.CultureName) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *LanguageInfo) GetCultureName() string {
 // GetCultureNameOk returns a tuple with the CultureName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LanguageInfo) GetCultureNameOk() (*string, bool) {
-	if o == nil || isNil(o.CultureName) {
-    return nil, false
+	if o == nil || IsNil(o.CultureName) {
+		return nil, false
 	}
 	return o.CultureName, true
 }
 
 // HasCultureName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasCultureName() bool {
-	if o != nil && !isNil(o.CultureName) {
+	if o != nil && !IsNil(o.CultureName) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *LanguageInfo) SetCultureName(v string) {
 
 // GetUiCultureName returns the UiCultureName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetUiCultureName() string {
-	if o == nil || isNil(o.UiCultureName) {
+	if o == nil || IsNil(o.UiCultureName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *LanguageInfo) GetUiCultureName() string {
 // GetUiCultureNameOk returns a tuple with the UiCultureName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LanguageInfo) GetUiCultureNameOk() (*string, bool) {
-	if o == nil || isNil(o.UiCultureName) {
-    return nil, false
+	if o == nil || IsNil(o.UiCultureName) {
+		return nil, false
 	}
 	return o.UiCultureName, true
 }
 
 // HasUiCultureName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasUiCultureName() bool {
-	if o != nil && !isNil(o.UiCultureName) {
+	if o != nil && !IsNil(o.UiCultureName) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *LanguageInfo) SetUiCultureName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *LanguageInfo) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LanguageInfo) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *LanguageInfo) SetDisplayName(v string) {
 
 // GetTwoLetterISOLanguageName returns the TwoLetterISOLanguageName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetTwoLetterISOLanguageName() string {
-	if o == nil || isNil(o.TwoLetterISOLanguageName) {
+	if o == nil || IsNil(o.TwoLetterISOLanguageName) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *LanguageInfo) GetTwoLetterISOLanguageName() string {
 // GetTwoLetterISOLanguageNameOk returns a tuple with the TwoLetterISOLanguageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LanguageInfo) GetTwoLetterISOLanguageNameOk() (*string, bool) {
-	if o == nil || isNil(o.TwoLetterISOLanguageName) {
-    return nil, false
+	if o == nil || IsNil(o.TwoLetterISOLanguageName) {
+		return nil, false
 	}
 	return o.TwoLetterISOLanguageName, true
 }
 
 // HasTwoLetterISOLanguageName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasTwoLetterISOLanguageName() bool {
-	if o != nil && !isNil(o.TwoLetterISOLanguageName) {
+	if o != nil && !IsNil(o.TwoLetterISOLanguageName) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *LanguageInfo) SetTwoLetterISOLanguageName(v string) {
 
 // GetFlagIcon returns the FlagIcon field value if set, zero value otherwise.
 func (o *LanguageInfo) GetFlagIcon() string {
-	if o == nil || isNil(o.FlagIcon) {
+	if o == nil || IsNil(o.FlagIcon) {
 		var ret string
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *LanguageInfo) GetFlagIcon() string {
 // GetFlagIconOk returns a tuple with the FlagIcon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LanguageInfo) GetFlagIconOk() (*string, bool) {
-	if o == nil || isNil(o.FlagIcon) {
-    return nil, false
+	if o == nil || IsNil(o.FlagIcon) {
+		return nil, false
 	}
 	return o.FlagIcon, true
 }
 
 // HasFlagIcon returns a boolean if a field has been set.
 func (o *LanguageInfo) HasFlagIcon() bool {
-	if o != nil && !isNil(o.FlagIcon) {
+	if o != nil && !IsNil(o.FlagIcon) {
 		return true
 	}
 
@@ -201,23 +204,29 @@ func (o *LanguageInfo) SetFlagIcon(v string) {
 }
 
 func (o LanguageInfo) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.CultureName) {
-		toSerialize["cultureName"] = o.CultureName
-	}
-	if !isNil(o.UiCultureName) {
-		toSerialize["uiCultureName"] = o.UiCultureName
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.TwoLetterISOLanguageName) {
-		toSerialize["twoLetterISOLanguageName"] = o.TwoLetterISOLanguageName
-	}
-	if !isNil(o.FlagIcon) {
-		toSerialize["flagIcon"] = o.FlagIcon
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o LanguageInfo) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CultureName) {
+		toSerialize["cultureName"] = o.CultureName
+	}
+	if !IsNil(o.UiCultureName) {
+		toSerialize["uiCultureName"] = o.UiCultureName
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	// skip: twoLetterISOLanguageName is readOnly
+	if !IsNil(o.FlagIcon) {
+		toSerialize["flagIcon"] = o.FlagIcon
+	}
+	return toSerialize, nil
 }
 
 type NullableLanguageInfo struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationLocalizationResourceDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationLocalizationResourceDto{}
+
 // ApplicationLocalizationResourceDto struct for ApplicationLocalizationResourceDto
 type ApplicationLocalizationResourceDto struct {
 	Texts *map[string]string `json:"texts,omitempty"`
@@ -39,7 +42,7 @@ func NewApplicationLocalizationResourceDtoWithDefaults() *ApplicationLocalizatio
 
 // GetTexts returns the Texts field value if set, zero value otherwise.
 func (o *ApplicationLocalizationResourceDto) GetTexts() map[string]string {
-	if o == nil || isNil(o.Texts) {
+	if o == nil || IsNil(o.Texts) {
 		var ret map[string]string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *ApplicationLocalizationResourceDto) GetTexts() map[string]string {
 // GetTextsOk returns a tuple with the Texts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationResourceDto) GetTextsOk() (*map[string]string, bool) {
-	if o == nil || isNil(o.Texts) {
-    return nil, false
+	if o == nil || IsNil(o.Texts) {
+		return nil, false
 	}
 	return o.Texts, true
 }
 
 // HasTexts returns a boolean if a field has been set.
 func (o *ApplicationLocalizationResourceDto) HasTexts() bool {
-	if o != nil && !isNil(o.Texts) {
+	if o != nil && !IsNil(o.Texts) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *ApplicationLocalizationResourceDto) SetTexts(v map[string]string) {
 
 // GetBaseResources returns the BaseResources field value if set, zero value otherwise.
 func (o *ApplicationLocalizationResourceDto) GetBaseResources() []string {
-	if o == nil || isNil(o.BaseResources) {
+	if o == nil || IsNil(o.BaseResources) {
 		var ret []string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *ApplicationLocalizationResourceDto) GetBaseResources() []string {
 // GetBaseResourcesOk returns a tuple with the BaseResources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationResourceDto) GetBaseResourcesOk() ([]string, bool) {
-	if o == nil || isNil(o.BaseResources) {
-    return nil, false
+	if o == nil || IsNil(o.BaseResources) {
+		return nil, false
 	}
 	return o.BaseResources, true
 }
 
 // HasBaseResources returns a boolean if a field has been set.
 func (o *ApplicationLocalizationResourceDto) HasBaseResources() bool {
-	if o != nil && !isNil(o.BaseResources) {
+	if o != nil && !IsNil(o.BaseResources) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *ApplicationLocalizationResourceDto) SetBaseResources(v []string) {
 }
 
 func (o ApplicationLocalizationResourceDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Texts) {
-		toSerialize["texts"] = o.Texts
-	}
-	if !isNil(o.BaseResources) {
-		toSerialize["baseResources"] = o.BaseResources
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationLocalizationResourceDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Texts) {
+		toSerialize["texts"] = o.Texts
+	}
+	if !IsNil(o.BaseResources) {
+		toSerialize["baseResources"] = o.BaseResources
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationLocalizationResourceDto struct {

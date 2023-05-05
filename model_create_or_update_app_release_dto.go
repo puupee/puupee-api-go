@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOrUpdateAppReleaseDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppReleaseDto{}
+
 // CreateOrUpdateAppReleaseDto struct for CreateOrUpdateAppReleaseDto
 type CreateOrUpdateAppReleaseDto struct {
 	Version *string `json:"version,omitempty"`
@@ -53,7 +56,7 @@ func NewCreateOrUpdateAppReleaseDtoWithDefaults() *CreateOrUpdateAppReleaseDto {
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetVersion() string {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
@@ -63,15 +66,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetVersionOk() (*string, bool) {
-	if o == nil || isNil(o.Version) {
-    return nil, false
+	if o == nil || IsNil(o.Version) {
+		return nil, false
 	}
 	return o.Version, true
 }
 
 // HasVersion returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
@@ -85,7 +88,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetVersion(v string) {
 
 // GetVersionName returns the VersionName field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetVersionName() string {
-	if o == nil || isNil(o.VersionName) {
+	if o == nil || IsNil(o.VersionName) {
 		var ret string
 		return ret
 	}
@@ -95,15 +98,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetVersionName() string {
 // GetVersionNameOk returns a tuple with the VersionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetVersionNameOk() (*string, bool) {
-	if o == nil || isNil(o.VersionName) {
-    return nil, false
+	if o == nil || IsNil(o.VersionName) {
+		return nil, false
 	}
 	return o.VersionName, true
 }
 
 // HasVersionName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasVersionName() bool {
-	if o != nil && !isNil(o.VersionName) {
+	if o != nil && !IsNil(o.VersionName) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetVersionName(v string) {
 
 // GetVersionCode returns the VersionCode field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetVersionCode() int64 {
-	if o == nil || isNil(o.VersionCode) {
+	if o == nil || IsNil(o.VersionCode) {
 		var ret int64
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetVersionCode() int64 {
 // GetVersionCodeOk returns a tuple with the VersionCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetVersionCodeOk() (*int64, bool) {
-	if o == nil || isNil(o.VersionCode) {
-    return nil, false
+	if o == nil || IsNil(o.VersionCode) {
+		return nil, false
 	}
 	return o.VersionCode, true
 }
 
 // HasVersionCode returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasVersionCode() bool {
-	if o != nil && !isNil(o.VersionCode) {
+	if o != nil && !IsNil(o.VersionCode) {
 		return true
 	}
 
@@ -149,7 +152,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetVersionCode(v int64) {
 
 // GetNotes returns the Notes field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetNotes() string {
-	if o == nil || isNil(o.Notes) {
+	if o == nil || IsNil(o.Notes) {
 		var ret string
 		return ret
 	}
@@ -159,15 +162,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetNotes() string {
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetNotesOk() (*string, bool) {
-	if o == nil || isNil(o.Notes) {
-    return nil, false
+	if o == nil || IsNil(o.Notes) {
+		return nil, false
 	}
 	return o.Notes, true
 }
 
 // HasNotes returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasNotes() bool {
-	if o != nil && !isNil(o.Notes) {
+	if o != nil && !IsNil(o.Notes) {
 		return true
 	}
 
@@ -181,7 +184,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetNotes(v string) {
 
 // GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetPlatform() string {
-	if o == nil || isNil(o.Platform) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
@@ -191,15 +194,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetPlatform() string {
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetPlatformOk() (*string, bool) {
-	if o == nil || isNil(o.Platform) {
-    return nil, false
+	if o == nil || IsNil(o.Platform) {
+		return nil, false
 	}
 	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasPlatform() bool {
-	if o != nil && !isNil(o.Platform) {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
@@ -213,7 +216,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetPlatform(v string) {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetKey() string {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -223,15 +226,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetKeyOk() (*string, bool) {
-	if o == nil || isNil(o.Key) {
-    return nil, false
+	if o == nil || IsNil(o.Key) {
+		return nil, false
 	}
 	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasKey() bool {
-	if o != nil && !isNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
@@ -245,7 +248,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetKey(v string) {
 
 // GetRapidCode returns the RapidCode field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetRapidCode() string {
-	if o == nil || isNil(o.RapidCode) {
+	if o == nil || IsNil(o.RapidCode) {
 		var ret string
 		return ret
 	}
@@ -255,15 +258,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetRapidCode() string {
 // GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetRapidCodeOk() (*string, bool) {
-	if o == nil || isNil(o.RapidCode) {
-    return nil, false
+	if o == nil || IsNil(o.RapidCode) {
+		return nil, false
 	}
 	return o.RapidCode, true
 }
 
 // HasRapidCode returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasRapidCode() bool {
-	if o != nil && !isNil(o.RapidCode) {
+	if o != nil && !IsNil(o.RapidCode) {
 		return true
 	}
 
@@ -277,7 +280,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetRapidCode(v string) {
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetSize() int64 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret int64
 		return ret
 	}
@@ -287,15 +290,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetSize() int64 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetSizeOk() (*int64, bool) {
-	if o == nil || isNil(o.Size) {
-    return nil, false
+	if o == nil || IsNil(o.Size) {
+		return nil, false
 	}
 	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -309,7 +312,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetSize(v int64) {
 
 // GetMd5 returns the Md5 field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetMd5() string {
-	if o == nil || isNil(o.Md5) {
+	if o == nil || IsNil(o.Md5) {
 		var ret string
 		return ret
 	}
@@ -319,15 +322,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetMd5() string {
 // GetMd5Ok returns a tuple with the Md5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetMd5Ok() (*string, bool) {
-	if o == nil || isNil(o.Md5) {
-    return nil, false
+	if o == nil || IsNil(o.Md5) {
+		return nil, false
 	}
 	return o.Md5, true
 }
 
 // HasMd5 returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasMd5() bool {
-	if o != nil && !isNil(o.Md5) {
+	if o != nil && !IsNil(o.Md5) {
 		return true
 	}
 
@@ -341,7 +344,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetMd5(v string) {
 
 // GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetSliceMd5() string {
-	if o == nil || isNil(o.SliceMd5) {
+	if o == nil || IsNil(o.SliceMd5) {
 		var ret string
 		return ret
 	}
@@ -351,15 +354,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetSliceMd5() string {
 // GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetSliceMd5Ok() (*string, bool) {
-	if o == nil || isNil(o.SliceMd5) {
-    return nil, false
+	if o == nil || IsNil(o.SliceMd5) {
+		return nil, false
 	}
 	return o.SliceMd5, true
 }
 
 // HasSliceMd5 returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasSliceMd5() bool {
-	if o != nil && !isNil(o.SliceMd5) {
+	if o != nil && !IsNil(o.SliceMd5) {
 		return true
 	}
 
@@ -373,7 +376,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetSliceMd5(v string) {
 
 // GetProductType returns the ProductType field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetProductType() string {
-	if o == nil || isNil(o.ProductType) {
+	if o == nil || IsNil(o.ProductType) {
 		var ret string
 		return ret
 	}
@@ -383,15 +386,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetProductType() string {
 // GetProductTypeOk returns a tuple with the ProductType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetProductTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ProductType) {
-    return nil, false
+	if o == nil || IsNil(o.ProductType) {
+		return nil, false
 	}
 	return o.ProductType, true
 }
 
 // HasProductType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasProductType() bool {
-	if o != nil && !isNil(o.ProductType) {
+	if o != nil && !IsNil(o.ProductType) {
 		return true
 	}
 
@@ -405,7 +408,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetProductType(v string) {
 
 // GetIsForceUpdate returns the IsForceUpdate field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetIsForceUpdate() bool {
-	if o == nil || isNil(o.IsForceUpdate) {
+	if o == nil || IsNil(o.IsForceUpdate) {
 		var ret bool
 		return ret
 	}
@@ -415,15 +418,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetIsForceUpdate() bool {
 // GetIsForceUpdateOk returns a tuple with the IsForceUpdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetIsForceUpdateOk() (*bool, bool) {
-	if o == nil || isNil(o.IsForceUpdate) {
-    return nil, false
+	if o == nil || IsNil(o.IsForceUpdate) {
+		return nil, false
 	}
 	return o.IsForceUpdate, true
 }
 
 // HasIsForceUpdate returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasIsForceUpdate() bool {
-	if o != nil && !isNil(o.IsForceUpdate) {
+	if o != nil && !IsNil(o.IsForceUpdate) {
 		return true
 	}
 
@@ -437,7 +440,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetIsForceUpdate(v bool) {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -447,15 +450,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -469,7 +472,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetAppId(v string) {
 
 // GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetIsEnabled() bool {
-	if o == nil || isNil(o.IsEnabled) {
+	if o == nil || IsNil(o.IsEnabled) {
 		var ret bool
 		return ret
 	}
@@ -479,15 +482,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetIsEnabled() bool {
 // GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.IsEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.IsEnabled) {
+		return nil, false
 	}
 	return o.IsEnabled, true
 }
 
 // HasIsEnabled returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasIsEnabled() bool {
-	if o != nil && !isNil(o.IsEnabled) {
+	if o != nil && !IsNil(o.IsEnabled) {
 		return true
 	}
 
@@ -501,7 +504,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetIsEnabled(v bool) {
 
 // GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetChannel() string {
-	if o == nil || isNil(o.Channel) {
+	if o == nil || IsNil(o.Channel) {
 		var ret string
 		return ret
 	}
@@ -511,15 +514,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetChannel() string {
 // GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetChannelOk() (*string, bool) {
-	if o == nil || isNil(o.Channel) {
-    return nil, false
+	if o == nil || IsNil(o.Channel) {
+		return nil, false
 	}
 	return o.Channel, true
 }
 
 // HasChannel returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasChannel() bool {
-	if o != nil && !isNil(o.Channel) {
+	if o != nil && !IsNil(o.Channel) {
 		return true
 	}
 
@@ -533,7 +536,7 @@ func (o *CreateOrUpdateAppReleaseDto) SetChannel(v string) {
 
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetEnvironment() string {
-	if o == nil || isNil(o.Environment) {
+	if o == nil || IsNil(o.Environment) {
 		var ret string
 		return ret
 	}
@@ -543,15 +546,15 @@ func (o *CreateOrUpdateAppReleaseDto) GetEnvironment() string {
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppReleaseDto) GetEnvironmentOk() (*string, bool) {
-	if o == nil || isNil(o.Environment) {
-    return nil, false
+	if o == nil || IsNil(o.Environment) {
+		return nil, false
 	}
 	return o.Environment, true
 }
 
 // HasEnvironment returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasEnvironment() bool {
-	if o != nil && !isNil(o.Environment) {
+	if o != nil && !IsNil(o.Environment) {
 		return true
 	}
 
@@ -564,56 +567,64 @@ func (o *CreateOrUpdateAppReleaseDto) SetEnvironment(v string) {
 }
 
 func (o CreateOrUpdateAppReleaseDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Version) {
-		toSerialize["version"] = o.Version
-	}
-	if !isNil(o.VersionName) {
-		toSerialize["versionName"] = o.VersionName
-	}
-	if !isNil(o.VersionCode) {
-		toSerialize["versionCode"] = o.VersionCode
-	}
-	if !isNil(o.Notes) {
-		toSerialize["notes"] = o.Notes
-	}
-	if !isNil(o.Platform) {
-		toSerialize["platform"] = o.Platform
-	}
-	if !isNil(o.Key) {
-		toSerialize["key"] = o.Key
-	}
-	if !isNil(o.RapidCode) {
-		toSerialize["rapidCode"] = o.RapidCode
-	}
-	if !isNil(o.Size) {
-		toSerialize["size"] = o.Size
-	}
-	if !isNil(o.Md5) {
-		toSerialize["md5"] = o.Md5
-	}
-	if !isNil(o.SliceMd5) {
-		toSerialize["sliceMd5"] = o.SliceMd5
-	}
-	if !isNil(o.ProductType) {
-		toSerialize["productType"] = o.ProductType
-	}
-	if !isNil(o.IsForceUpdate) {
-		toSerialize["isForceUpdate"] = o.IsForceUpdate
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
-	}
-	if !isNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
-	}
-	if !isNil(o.Channel) {
-		toSerialize["channel"] = o.Channel
-	}
-	if !isNil(o.Environment) {
-		toSerialize["environment"] = o.Environment
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppReleaseDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.VersionName) {
+		toSerialize["versionName"] = o.VersionName
+	}
+	if !IsNil(o.VersionCode) {
+		toSerialize["versionCode"] = o.VersionCode
+	}
+	if !IsNil(o.Notes) {
+		toSerialize["notes"] = o.Notes
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
+	}
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
+	}
+	if !IsNil(o.RapidCode) {
+		toSerialize["rapidCode"] = o.RapidCode
+	}
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
+	}
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
+	}
+	if !IsNil(o.SliceMd5) {
+		toSerialize["sliceMd5"] = o.SliceMd5
+	}
+	if !IsNil(o.ProductType) {
+		toSerialize["productType"] = o.ProductType
+	}
+	if !IsNil(o.IsForceUpdate) {
+		toSerialize["isForceUpdate"] = o.IsForceUpdate
+	}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	if !IsNil(o.IsEnabled) {
+		toSerialize["isEnabled"] = o.IsEnabled
+	}
+	if !IsNil(o.Channel) {
+		toSerialize["channel"] = o.Channel
+	}
+	if !IsNil(o.Environment) {
+		toSerialize["environment"] = o.Environment
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppReleaseDto struct {

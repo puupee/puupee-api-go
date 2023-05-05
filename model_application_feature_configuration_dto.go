@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationFeatureConfigurationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationFeatureConfigurationDto{}
+
 // ApplicationFeatureConfigurationDto struct for ApplicationFeatureConfigurationDto
 type ApplicationFeatureConfigurationDto struct {
 	Values *map[string]string `json:"values,omitempty"`
@@ -38,7 +41,7 @@ func NewApplicationFeatureConfigurationDtoWithDefaults() *ApplicationFeatureConf
 
 // GetValues returns the Values field value if set, zero value otherwise.
 func (o *ApplicationFeatureConfigurationDto) GetValues() map[string]string {
-	if o == nil || isNil(o.Values) {
+	if o == nil || IsNil(o.Values) {
 		var ret map[string]string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ApplicationFeatureConfigurationDto) GetValues() map[string]string {
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationFeatureConfigurationDto) GetValuesOk() (*map[string]string, bool) {
-	if o == nil || isNil(o.Values) {
-    return nil, false
+	if o == nil || IsNil(o.Values) {
+		return nil, false
 	}
 	return o.Values, true
 }
 
 // HasValues returns a boolean if a field has been set.
 func (o *ApplicationFeatureConfigurationDto) HasValues() bool {
-	if o != nil && !isNil(o.Values) {
+	if o != nil && !IsNil(o.Values) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ApplicationFeatureConfigurationDto) SetValues(v map[string]string) {
 }
 
 func (o ApplicationFeatureConfigurationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Values) {
-		toSerialize["values"] = o.Values
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationFeatureConfigurationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Values) {
+		toSerialize["values"] = o.Values
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationFeatureConfigurationDto struct {

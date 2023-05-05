@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RemoteServiceErrorResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RemoteServiceErrorResponse{}
+
 // RemoteServiceErrorResponse struct for RemoteServiceErrorResponse
 type RemoteServiceErrorResponse struct {
 	Error *RemoteServiceErrorInfo `json:"error,omitempty"`
@@ -38,7 +41,7 @@ func NewRemoteServiceErrorResponseWithDefaults() *RemoteServiceErrorResponse {
 
 // GetError returns the Error field value if set, zero value otherwise.
 func (o *RemoteServiceErrorResponse) GetError() RemoteServiceErrorInfo {
-	if o == nil || isNil(o.Error) {
+	if o == nil || IsNil(o.Error) {
 		var ret RemoteServiceErrorInfo
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *RemoteServiceErrorResponse) GetError() RemoteServiceErrorInfo {
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceErrorResponse) GetErrorOk() (*RemoteServiceErrorInfo, bool) {
-	if o == nil || isNil(o.Error) {
-    return nil, false
+	if o == nil || IsNil(o.Error) {
+		return nil, false
 	}
 	return o.Error, true
 }
 
 // HasError returns a boolean if a field has been set.
 func (o *RemoteServiceErrorResponse) HasError() bool {
-	if o != nil && !isNil(o.Error) {
+	if o != nil && !IsNil(o.Error) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *RemoteServiceErrorResponse) SetError(v RemoteServiceErrorInfo) {
 }
 
 func (o RemoteServiceErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Error) {
-		toSerialize["error"] = o.Error
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RemoteServiceErrorResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
+	}
+	return toSerialize, nil
 }
 
 type NullableRemoteServiceErrorResponse struct {

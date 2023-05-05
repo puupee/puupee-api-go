@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StringSetKeyValueDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StringSetKeyValueDto{}
+
 // StringSetKeyValueDto struct for StringSetKeyValueDto
 type StringSetKeyValueDto struct {
 	Value *string `json:"value,omitempty"`
@@ -39,7 +42,7 @@ func NewStringSetKeyValueDtoWithDefaults() *StringSetKeyValueDto {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *StringSetKeyValueDto) GetValue() string {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *StringSetKeyValueDto) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StringSetKeyValueDto) GetValueOk() (*string, bool) {
-	if o == nil || isNil(o.Value) {
-    return nil, false
+	if o == nil || IsNil(o.Value) {
+		return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *StringSetKeyValueDto) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *StringSetKeyValueDto) SetValue(v string) {
 
 // GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
 func (o *StringSetKeyValueDto) GetDurationSeconds() float64 {
-	if o == nil || isNil(o.DurationSeconds) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		var ret float64
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *StringSetKeyValueDto) GetDurationSeconds() float64 {
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StringSetKeyValueDto) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil || isNil(o.DurationSeconds) {
-    return nil, false
+	if o == nil || IsNil(o.DurationSeconds) {
+		return nil, false
 	}
 	return o.DurationSeconds, true
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *StringSetKeyValueDto) HasDurationSeconds() bool {
-	if o != nil && !isNil(o.DurationSeconds) {
+	if o != nil && !IsNil(o.DurationSeconds) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *StringSetKeyValueDto) SetDurationSeconds(v float64) {
 }
 
 func (o StringSetKeyValueDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
-	if !isNil(o.DurationSeconds) {
-		toSerialize["durationSeconds"] = o.DurationSeconds
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StringSetKeyValueDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
+	}
+	if !IsNil(o.DurationSeconds) {
+		toSerialize["durationSeconds"] = o.DurationSeconds
+	}
+	return toSerialize, nil
 }
 
 type NullableStringSetKeyValueDto struct {

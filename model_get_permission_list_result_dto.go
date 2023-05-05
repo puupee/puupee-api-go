@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetPermissionListResultDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetPermissionListResultDto{}
+
 // GetPermissionListResultDto struct for GetPermissionListResultDto
 type GetPermissionListResultDto struct {
 	EntityDisplayName *string `json:"entityDisplayName,omitempty"`
@@ -39,7 +42,7 @@ func NewGetPermissionListResultDtoWithDefaults() *GetPermissionListResultDto {
 
 // GetEntityDisplayName returns the EntityDisplayName field value if set, zero value otherwise.
 func (o *GetPermissionListResultDto) GetEntityDisplayName() string {
-	if o == nil || isNil(o.EntityDisplayName) {
+	if o == nil || IsNil(o.EntityDisplayName) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *GetPermissionListResultDto) GetEntityDisplayName() string {
 // GetEntityDisplayNameOk returns a tuple with the EntityDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPermissionListResultDto) GetEntityDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.EntityDisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.EntityDisplayName) {
+		return nil, false
 	}
 	return o.EntityDisplayName, true
 }
 
 // HasEntityDisplayName returns a boolean if a field has been set.
 func (o *GetPermissionListResultDto) HasEntityDisplayName() bool {
-	if o != nil && !isNil(o.EntityDisplayName) {
+	if o != nil && !IsNil(o.EntityDisplayName) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *GetPermissionListResultDto) SetEntityDisplayName(v string) {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *GetPermissionListResultDto) GetGroups() []PermissionGroupDto {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret []PermissionGroupDto
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *GetPermissionListResultDto) GetGroups() []PermissionGroupDto {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPermissionListResultDto) GetGroupsOk() ([]PermissionGroupDto, bool) {
-	if o == nil || isNil(o.Groups) {
-    return nil, false
+	if o == nil || IsNil(o.Groups) {
+		return nil, false
 	}
 	return o.Groups, true
 }
 
 // HasGroups returns a boolean if a field has been set.
 func (o *GetPermissionListResultDto) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *GetPermissionListResultDto) SetGroups(v []PermissionGroupDto) {
 }
 
 func (o GetPermissionListResultDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.EntityDisplayName) {
-		toSerialize["entityDisplayName"] = o.EntityDisplayName
-	}
-	if !isNil(o.Groups) {
-		toSerialize["groups"] = o.Groups
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetPermissionListResultDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EntityDisplayName) {
+		toSerialize["entityDisplayName"] = o.EntityDisplayName
+	}
+	if !IsNil(o.Groups) {
+		toSerialize["groups"] = o.Groups
+	}
+	return toSerialize, nil
 }
 
 type NullableGetPermissionListResultDto struct {

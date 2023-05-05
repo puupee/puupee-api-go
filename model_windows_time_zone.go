@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the WindowsTimeZone type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WindowsTimeZone{}
+
 // WindowsTimeZone struct for WindowsTimeZone
 type WindowsTimeZone struct {
 	TimeZoneId *string `json:"timeZoneId,omitempty"`
@@ -38,7 +41,7 @@ func NewWindowsTimeZoneWithDefaults() *WindowsTimeZone {
 
 // GetTimeZoneId returns the TimeZoneId field value if set, zero value otherwise.
 func (o *WindowsTimeZone) GetTimeZoneId() string {
-	if o == nil || isNil(o.TimeZoneId) {
+	if o == nil || IsNil(o.TimeZoneId) {
 		var ret string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *WindowsTimeZone) GetTimeZoneId() string {
 // GetTimeZoneIdOk returns a tuple with the TimeZoneId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WindowsTimeZone) GetTimeZoneIdOk() (*string, bool) {
-	if o == nil || isNil(o.TimeZoneId) {
-    return nil, false
+	if o == nil || IsNil(o.TimeZoneId) {
+		return nil, false
 	}
 	return o.TimeZoneId, true
 }
 
 // HasTimeZoneId returns a boolean if a field has been set.
 func (o *WindowsTimeZone) HasTimeZoneId() bool {
-	if o != nil && !isNil(o.TimeZoneId) {
+	if o != nil && !IsNil(o.TimeZoneId) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *WindowsTimeZone) SetTimeZoneId(v string) {
 }
 
 func (o WindowsTimeZone) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.TimeZoneId) {
-		toSerialize["timeZoneId"] = o.TimeZoneId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o WindowsTimeZone) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.TimeZoneId) {
+		toSerialize["timeZoneId"] = o.TimeZoneId
+	}
+	return toSerialize, nil
 }
 
 type NullableWindowsTimeZone struct {

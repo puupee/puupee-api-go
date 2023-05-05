@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PropertyApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PropertyApiDescriptionModel{}
+
 // PropertyApiDescriptionModel struct for PropertyApiDescriptionModel
 type PropertyApiDescriptionModel struct {
 	Name *string `json:"name,omitempty"`
@@ -47,7 +50,7 @@ func NewPropertyApiDescriptionModelWithDefaults() *PropertyApiDescriptionModel {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *PropertyApiDescriptionModel) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *PropertyApiDescriptionModel) SetName(v string) {
 
 // GetJsonName returns the JsonName field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetJsonName() string {
-	if o == nil || isNil(o.JsonName) {
+	if o == nil || IsNil(o.JsonName) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *PropertyApiDescriptionModel) GetJsonName() string {
 // GetJsonNameOk returns a tuple with the JsonName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetJsonNameOk() (*string, bool) {
-	if o == nil || isNil(o.JsonName) {
-    return nil, false
+	if o == nil || IsNil(o.JsonName) {
+		return nil, false
 	}
 	return o.JsonName, true
 }
 
 // HasJsonName returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasJsonName() bool {
-	if o != nil && !isNil(o.JsonName) {
+	if o != nil && !IsNil(o.JsonName) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *PropertyApiDescriptionModel) SetJsonName(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *PropertyApiDescriptionModel) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *PropertyApiDescriptionModel) SetType(v string) {
 
 // GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetTypeSimple() string {
-	if o == nil || isNil(o.TypeSimple) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *PropertyApiDescriptionModel) GetTypeSimple() string {
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetTypeSimpleOk() (*string, bool) {
-	if o == nil || isNil(o.TypeSimple) {
-    return nil, false
+	if o == nil || IsNil(o.TypeSimple) {
+		return nil, false
 	}
 	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasTypeSimple() bool {
-	if o != nil && !isNil(o.TypeSimple) {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *PropertyApiDescriptionModel) SetTypeSimple(v string) {
 
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetIsRequired() bool {
-	if o == nil || isNil(o.IsRequired) {
+	if o == nil || IsNil(o.IsRequired) {
 		var ret bool
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *PropertyApiDescriptionModel) GetIsRequired() bool {
 // GetIsRequiredOk returns a tuple with the IsRequired field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetIsRequiredOk() (*bool, bool) {
-	if o == nil || isNil(o.IsRequired) {
-    return nil, false
+	if o == nil || IsNil(o.IsRequired) {
+		return nil, false
 	}
 	return o.IsRequired, true
 }
 
 // HasIsRequired returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasIsRequired() bool {
-	if o != nil && !isNil(o.IsRequired) {
+	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *PropertyApiDescriptionModel) SetIsRequired(v bool) {
 
 // GetMinLength returns the MinLength field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMinLength() int32 {
-	if o == nil || isNil(o.MinLength) {
+	if o == nil || IsNil(o.MinLength) {
 		var ret int32
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *PropertyApiDescriptionModel) GetMinLength() int32 {
 // GetMinLengthOk returns a tuple with the MinLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetMinLengthOk() (*int32, bool) {
-	if o == nil || isNil(o.MinLength) {
-    return nil, false
+	if o == nil || IsNil(o.MinLength) {
+		return nil, false
 	}
 	return o.MinLength, true
 }
 
 // HasMinLength returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMinLength() bool {
-	if o != nil && !isNil(o.MinLength) {
+	if o != nil && !IsNil(o.MinLength) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *PropertyApiDescriptionModel) SetMinLength(v int32) {
 
 // GetMaxLength returns the MaxLength field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMaxLength() int32 {
-	if o == nil || isNil(o.MaxLength) {
+	if o == nil || IsNil(o.MaxLength) {
 		var ret int32
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *PropertyApiDescriptionModel) GetMaxLength() int32 {
 // GetMaxLengthOk returns a tuple with the MaxLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetMaxLengthOk() (*int32, bool) {
-	if o == nil || isNil(o.MaxLength) {
-    return nil, false
+	if o == nil || IsNil(o.MaxLength) {
+		return nil, false
 	}
 	return o.MaxLength, true
 }
 
 // HasMaxLength returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMaxLength() bool {
-	if o != nil && !isNil(o.MaxLength) {
+	if o != nil && !IsNil(o.MaxLength) {
 		return true
 	}
 
@@ -271,7 +274,7 @@ func (o *PropertyApiDescriptionModel) SetMaxLength(v int32) {
 
 // GetMinimum returns the Minimum field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMinimum() string {
-	if o == nil || isNil(o.Minimum) {
+	if o == nil || IsNil(o.Minimum) {
 		var ret string
 		return ret
 	}
@@ -281,15 +284,15 @@ func (o *PropertyApiDescriptionModel) GetMinimum() string {
 // GetMinimumOk returns a tuple with the Minimum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetMinimumOk() (*string, bool) {
-	if o == nil || isNil(o.Minimum) {
-    return nil, false
+	if o == nil || IsNil(o.Minimum) {
+		return nil, false
 	}
 	return o.Minimum, true
 }
 
 // HasMinimum returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMinimum() bool {
-	if o != nil && !isNil(o.Minimum) {
+	if o != nil && !IsNil(o.Minimum) {
 		return true
 	}
 
@@ -303,7 +306,7 @@ func (o *PropertyApiDescriptionModel) SetMinimum(v string) {
 
 // GetMaximum returns the Maximum field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMaximum() string {
-	if o == nil || isNil(o.Maximum) {
+	if o == nil || IsNil(o.Maximum) {
 		var ret string
 		return ret
 	}
@@ -313,15 +316,15 @@ func (o *PropertyApiDescriptionModel) GetMaximum() string {
 // GetMaximumOk returns a tuple with the Maximum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetMaximumOk() (*string, bool) {
-	if o == nil || isNil(o.Maximum) {
-    return nil, false
+	if o == nil || IsNil(o.Maximum) {
+		return nil, false
 	}
 	return o.Maximum, true
 }
 
 // HasMaximum returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMaximum() bool {
-	if o != nil && !isNil(o.Maximum) {
+	if o != nil && !IsNil(o.Maximum) {
 		return true
 	}
 
@@ -335,7 +338,7 @@ func (o *PropertyApiDescriptionModel) SetMaximum(v string) {
 
 // GetRegex returns the Regex field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetRegex() string {
-	if o == nil || isNil(o.Regex) {
+	if o == nil || IsNil(o.Regex) {
 		var ret string
 		return ret
 	}
@@ -345,15 +348,15 @@ func (o *PropertyApiDescriptionModel) GetRegex() string {
 // GetRegexOk returns a tuple with the Regex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PropertyApiDescriptionModel) GetRegexOk() (*string, bool) {
-	if o == nil || isNil(o.Regex) {
-    return nil, false
+	if o == nil || IsNil(o.Regex) {
+		return nil, false
 	}
 	return o.Regex, true
 }
 
 // HasRegex returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasRegex() bool {
-	if o != nil && !isNil(o.Regex) {
+	if o != nil && !IsNil(o.Regex) {
 		return true
 	}
 
@@ -366,38 +369,46 @@ func (o *PropertyApiDescriptionModel) SetRegex(v string) {
 }
 
 func (o PropertyApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.JsonName) {
-		toSerialize["jsonName"] = o.JsonName
-	}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.TypeSimple) {
-		toSerialize["typeSimple"] = o.TypeSimple
-	}
-	if !isNil(o.IsRequired) {
-		toSerialize["isRequired"] = o.IsRequired
-	}
-	if !isNil(o.MinLength) {
-		toSerialize["minLength"] = o.MinLength
-	}
-	if !isNil(o.MaxLength) {
-		toSerialize["maxLength"] = o.MaxLength
-	}
-	if !isNil(o.Minimum) {
-		toSerialize["minimum"] = o.Minimum
-	}
-	if !isNil(o.Maximum) {
-		toSerialize["maximum"] = o.Maximum
-	}
-	if !isNil(o.Regex) {
-		toSerialize["regex"] = o.Regex
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PropertyApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.JsonName) {
+		toSerialize["jsonName"] = o.JsonName
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
+	}
+	if !IsNil(o.IsRequired) {
+		toSerialize["isRequired"] = o.IsRequired
+	}
+	if !IsNil(o.MinLength) {
+		toSerialize["minLength"] = o.MinLength
+	}
+	if !IsNil(o.MaxLength) {
+		toSerialize["maxLength"] = o.MaxLength
+	}
+	if !IsNil(o.Minimum) {
+		toSerialize["minimum"] = o.Minimum
+	}
+	if !IsNil(o.Maximum) {
+		toSerialize["maximum"] = o.Maximum
+	}
+	if !IsNil(o.Regex) {
+		toSerialize["regex"] = o.Regex
+	}
+	return toSerialize, nil
 }
 
 type NullablePropertyApiDescriptionModel struct {

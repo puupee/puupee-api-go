@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MessageSubscribeDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MessageSubscribeDto{}
+
 // MessageSubscribeDto struct for MessageSubscribeDto
 type MessageSubscribeDto struct {
 	AppId *string `json:"appId,omitempty"`
@@ -38,7 +41,7 @@ func NewMessageSubscribeDtoWithDefaults() *MessageSubscribeDto {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *MessageSubscribeDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *MessageSubscribeDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessageSubscribeDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *MessageSubscribeDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *MessageSubscribeDto) SetAppId(v string) {
 }
 
 func (o MessageSubscribeDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MessageSubscribeDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	return toSerialize, nil
 }
 
 type NullableMessageSubscribeDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IdentityRoleDtoListResultDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IdentityRoleDtoListResultDto{}
+
 // IdentityRoleDtoListResultDto struct for IdentityRoleDtoListResultDto
 type IdentityRoleDtoListResultDto struct {
 	Items []IdentityRoleDto `json:"items,omitempty"`
@@ -38,7 +41,7 @@ func NewIdentityRoleDtoListResultDtoWithDefaults() *IdentityRoleDtoListResultDto
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *IdentityRoleDtoListResultDto) GetItems() []IdentityRoleDto {
-	if o == nil || isNil(o.Items) {
+	if o == nil || IsNil(o.Items) {
 		var ret []IdentityRoleDto
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *IdentityRoleDtoListResultDto) GetItems() []IdentityRoleDto {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDtoListResultDto) GetItemsOk() ([]IdentityRoleDto, bool) {
-	if o == nil || isNil(o.Items) {
-    return nil, false
+	if o == nil || IsNil(o.Items) {
+		return nil, false
 	}
 	return o.Items, true
 }
 
 // HasItems returns a boolean if a field has been set.
 func (o *IdentityRoleDtoListResultDto) HasItems() bool {
-	if o != nil && !isNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *IdentityRoleDtoListResultDto) SetItems(v []IdentityRoleDto) {
 }
 
 func (o IdentityRoleDtoListResultDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Items) {
-		toSerialize["items"] = o.Items
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IdentityRoleDtoListResultDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	return toSerialize, nil
 }
 
 type NullableIdentityRoleDtoListResultDto struct {

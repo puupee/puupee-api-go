@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOrUpdateAppPricingItemDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppPricingItemDto{}
+
 // CreateOrUpdateAppPricingItemDto struct for CreateOrUpdateAppPricingItemDto
 type CreateOrUpdateAppPricingItemDto struct {
 	Name *string `json:"name,omitempty"`
@@ -41,7 +44,7 @@ func NewCreateOrUpdateAppPricingItemDtoWithDefaults() *CreateOrUpdateAppPricingI
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingItemDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *CreateOrUpdateAppPricingItemDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingItemDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingItemDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *CreateOrUpdateAppPricingItemDto) SetName(v string) {
 
 // GetDisplay returns the Display field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingItemDto) GetDisplay() string {
-	if o == nil || isNil(o.Display) {
+	if o == nil || IsNil(o.Display) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *CreateOrUpdateAppPricingItemDto) GetDisplay() string {
 // GetDisplayOk returns a tuple with the Display field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingItemDto) GetDisplayOk() (*string, bool) {
-	if o == nil || isNil(o.Display) {
-    return nil, false
+	if o == nil || IsNil(o.Display) {
+		return nil, false
 	}
 	return o.Display, true
 }
 
 // HasDisplay returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingItemDto) HasDisplay() bool {
-	if o != nil && !isNil(o.Display) {
+	if o != nil && !IsNil(o.Display) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *CreateOrUpdateAppPricingItemDto) SetDisplay(v string) {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingItemDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *CreateOrUpdateAppPricingItemDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingItemDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingItemDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -137,7 +140,7 @@ func (o *CreateOrUpdateAppPricingItemDto) SetAppId(v string) {
 
 // GetHasValue returns the HasValue field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingItemDto) GetHasValue() bool {
-	if o == nil || isNil(o.HasValue) {
+	if o == nil || IsNil(o.HasValue) {
 		var ret bool
 		return ret
 	}
@@ -147,15 +150,15 @@ func (o *CreateOrUpdateAppPricingItemDto) GetHasValue() bool {
 // GetHasValueOk returns a tuple with the HasValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingItemDto) GetHasValueOk() (*bool, bool) {
-	if o == nil || isNil(o.HasValue) {
-    return nil, false
+	if o == nil || IsNil(o.HasValue) {
+		return nil, false
 	}
 	return o.HasValue, true
 }
 
 // HasHasValue returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingItemDto) HasHasValue() bool {
-	if o != nil && !isNil(o.HasValue) {
+	if o != nil && !IsNil(o.HasValue) {
 		return true
 	}
 
@@ -168,20 +171,28 @@ func (o *CreateOrUpdateAppPricingItemDto) SetHasValue(v bool) {
 }
 
 func (o CreateOrUpdateAppPricingItemDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Display) {
-		toSerialize["display"] = o.Display
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
-	}
-	if !isNil(o.HasValue) {
-		toSerialize["hasValue"] = o.HasValue
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppPricingItemDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Display) {
+		toSerialize["display"] = o.Display
+	}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	if !IsNil(o.HasValue) {
+		toSerialize["hasValue"] = o.HasValue
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppPricingItemDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ResetPasswordDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ResetPasswordDto{}
+
 // ResetPasswordDto struct for ResetPasswordDto
 type ResetPasswordDto struct {
 	UserId *string `json:"userId,omitempty"`
@@ -42,7 +45,7 @@ func NewResetPasswordDtoWithDefaults() *ResetPasswordDto {
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *ResetPasswordDto) GetUserId() string {
-	if o == nil || isNil(o.UserId) {
+	if o == nil || IsNil(o.UserId) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *ResetPasswordDto) GetUserId() string {
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ResetPasswordDto) GetUserIdOk() (*string, bool) {
-	if o == nil || isNil(o.UserId) {
-    return nil, false
+	if o == nil || IsNil(o.UserId) {
+		return nil, false
 	}
 	return o.UserId, true
 }
 
 // HasUserId returns a boolean if a field has been set.
 func (o *ResetPasswordDto) HasUserId() bool {
-	if o != nil && !isNil(o.UserId) {
+	if o != nil && !IsNil(o.UserId) {
 		return true
 	}
 
@@ -86,7 +89,7 @@ func (o *ResetPasswordDto) GetResetToken() string {
 // and a boolean to check if the value has been set.
 func (o *ResetPasswordDto) GetResetTokenOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ResetToken, true
 }
@@ -110,7 +113,7 @@ func (o *ResetPasswordDto) GetPassword() string {
 // and a boolean to check if the value has been set.
 func (o *ResetPasswordDto) GetPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Password, true
 }
@@ -121,17 +124,21 @@ func (o *ResetPasswordDto) SetPassword(v string) {
 }
 
 func (o ResetPasswordDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.UserId) {
-		toSerialize["userId"] = o.UserId
-	}
-	if true {
-		toSerialize["resetToken"] = o.ResetToken
-	}
-	if true {
-		toSerialize["password"] = o.Password
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ResetPasswordDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
+	toSerialize["resetToken"] = o.ResetToken
+	toSerialize["password"] = o.Password
+	return toSerialize, nil
 }
 
 type NullableResetPasswordDto struct {

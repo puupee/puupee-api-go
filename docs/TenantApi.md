@@ -30,7 +30,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -100,7 +100,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -108,7 +108,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdDefaultConnectionStringDelete(context.Background(), id).Execute()
+    r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdDefaultConnectionStringDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.ApiMultiTenancyTenantsIdDefaultConnectionStringDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -166,7 +166,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -234,7 +234,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -243,7 +243,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdDefaultConnectionStringPut(context.Background(), id).DefaultConnectionString(defaultConnectionString).Execute()
+    r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdDefaultConnectionStringPut(context.Background(), id).DefaultConnectionString(defaultConnectionString).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.ApiMultiTenancyTenantsIdDefaultConnectionStringPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -302,7 +302,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -310,7 +310,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.ApiMultiTenancyTenantsIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -368,7 +368,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -436,7 +436,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -506,7 +506,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {

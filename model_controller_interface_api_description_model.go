@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ControllerInterfaceApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ControllerInterfaceApiDescriptionModel{}
+
 // ControllerInterfaceApiDescriptionModel struct for ControllerInterfaceApiDescriptionModel
 type ControllerInterfaceApiDescriptionModel struct {
 	Type *string `json:"type,omitempty"`
@@ -40,7 +43,7 @@ func NewControllerInterfaceApiDescriptionModelWithDefaults() *ControllerInterfac
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *ControllerInterfaceApiDescriptionModel) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *ControllerInterfaceApiDescriptionModel) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerInterfaceApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ControllerInterfaceApiDescriptionModel) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *ControllerInterfaceApiDescriptionModel) SetType(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ControllerInterfaceApiDescriptionModel) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *ControllerInterfaceApiDescriptionModel) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerInterfaceApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ControllerInterfaceApiDescriptionModel) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *ControllerInterfaceApiDescriptionModel) SetName(v string) {
 
 // GetMethods returns the Methods field value if set, zero value otherwise.
 func (o *ControllerInterfaceApiDescriptionModel) GetMethods() []InterfaceMethodApiDescriptionModel {
-	if o == nil || isNil(o.Methods) {
+	if o == nil || IsNil(o.Methods) {
 		var ret []InterfaceMethodApiDescriptionModel
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *ControllerInterfaceApiDescriptionModel) GetMethods() []InterfaceMethodA
 // GetMethodsOk returns a tuple with the Methods field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ControllerInterfaceApiDescriptionModel) GetMethodsOk() ([]InterfaceMethodApiDescriptionModel, bool) {
-	if o == nil || isNil(o.Methods) {
-    return nil, false
+	if o == nil || IsNil(o.Methods) {
+		return nil, false
 	}
 	return o.Methods, true
 }
 
 // HasMethods returns a boolean if a field has been set.
 func (o *ControllerInterfaceApiDescriptionModel) HasMethods() bool {
-	if o != nil && !isNil(o.Methods) {
+	if o != nil && !IsNil(o.Methods) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *ControllerInterfaceApiDescriptionModel) SetMethods(v []InterfaceMethodA
 }
 
 func (o ControllerInterfaceApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Methods) {
-		toSerialize["methods"] = o.Methods
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ControllerInterfaceApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Methods) {
+		toSerialize["methods"] = o.Methods
+	}
+	return toSerialize, nil
 }
 
 type NullableControllerInterfaceApiDescriptionModel struct {

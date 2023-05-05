@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserDataListResultDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserDataListResultDto{}
+
 // UserDataListResultDto struct for UserDataListResultDto
 type UserDataListResultDto struct {
 	Items []UserData `json:"items,omitempty"`
@@ -38,7 +41,7 @@ func NewUserDataListResultDtoWithDefaults() *UserDataListResultDto {
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *UserDataListResultDto) GetItems() []UserData {
-	if o == nil || isNil(o.Items) {
+	if o == nil || IsNil(o.Items) {
 		var ret []UserData
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *UserDataListResultDto) GetItems() []UserData {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserDataListResultDto) GetItemsOk() ([]UserData, bool) {
-	if o == nil || isNil(o.Items) {
-    return nil, false
+	if o == nil || IsNil(o.Items) {
+		return nil, false
 	}
 	return o.Items, true
 }
 
 // HasItems returns a boolean if a field has been set.
 func (o *UserDataListResultDto) HasItems() bool {
-	if o != nil && !isNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *UserDataListResultDto) SetItems(v []UserData) {
 }
 
 func (o UserDataListResultDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Items) {
-		toSerialize["items"] = o.Items
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UserDataListResultDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	return toSerialize, nil
 }
 
 type NullableUserDataListResultDto struct {

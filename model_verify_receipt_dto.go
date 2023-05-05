@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the VerifyReceiptDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VerifyReceiptDto{}
+
 // VerifyReceiptDto struct for VerifyReceiptDto
 type VerifyReceiptDto struct {
 	Id *string `json:"id,omitempty"`
@@ -50,7 +53,7 @@ func NewVerifyReceiptDtoWithDefaults() *VerifyReceiptDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -60,15 +63,15 @@ func (o *VerifyReceiptDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -82,7 +85,7 @@ func (o *VerifyReceiptDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -92,15 +95,15 @@ func (o *VerifyReceiptDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -114,7 +117,7 @@ func (o *VerifyReceiptDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -124,15 +127,15 @@ func (o *VerifyReceiptDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -146,7 +149,7 @@ func (o *VerifyReceiptDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -156,15 +159,15 @@ func (o *VerifyReceiptDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -178,7 +181,7 @@ func (o *VerifyReceiptDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -188,15 +191,15 @@ func (o *VerifyReceiptDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -210,7 +213,7 @@ func (o *VerifyReceiptDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -220,15 +223,15 @@ func (o *VerifyReceiptDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -242,7 +245,7 @@ func (o *VerifyReceiptDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -252,15 +255,15 @@ func (o *VerifyReceiptDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -274,7 +277,7 @@ func (o *VerifyReceiptDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -284,15 +287,15 @@ func (o *VerifyReceiptDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -306,7 +309,7 @@ func (o *VerifyReceiptDto) SetDeletionTime(v time.Time) {
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetOrderId() string {
-	if o == nil || isNil(o.OrderId) {
+	if o == nil || IsNil(o.OrderId) {
 		var ret string
 		return ret
 	}
@@ -316,15 +319,15 @@ func (o *VerifyReceiptDto) GetOrderId() string {
 // GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetOrderIdOk() (*string, bool) {
-	if o == nil || isNil(o.OrderId) {
-    return nil, false
+	if o == nil || IsNil(o.OrderId) {
+		return nil, false
 	}
 	return o.OrderId, true
 }
 
 // HasOrderId returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasOrderId() bool {
-	if o != nil && !isNil(o.OrderId) {
+	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
 
@@ -338,7 +341,7 @@ func (o *VerifyReceiptDto) SetOrderId(v string) {
 
 // GetReceiptData returns the ReceiptData field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetReceiptData() string {
-	if o == nil || isNil(o.ReceiptData) {
+	if o == nil || IsNil(o.ReceiptData) {
 		var ret string
 		return ret
 	}
@@ -348,15 +351,15 @@ func (o *VerifyReceiptDto) GetReceiptData() string {
 // GetReceiptDataOk returns a tuple with the ReceiptData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetReceiptDataOk() (*string, bool) {
-	if o == nil || isNil(o.ReceiptData) {
-    return nil, false
+	if o == nil || IsNil(o.ReceiptData) {
+		return nil, false
 	}
 	return o.ReceiptData, true
 }
 
 // HasReceiptData returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasReceiptData() bool {
-	if o != nil && !isNil(o.ReceiptData) {
+	if o != nil && !IsNil(o.ReceiptData) {
 		return true
 	}
 
@@ -370,7 +373,7 @@ func (o *VerifyReceiptDto) SetReceiptData(v string) {
 
 // GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetPlatform() string {
-	if o == nil || isNil(o.Platform) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
@@ -380,15 +383,15 @@ func (o *VerifyReceiptDto) GetPlatform() string {
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetPlatformOk() (*string, bool) {
-	if o == nil || isNil(o.Platform) {
-    return nil, false
+	if o == nil || IsNil(o.Platform) {
+		return nil, false
 	}
 	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasPlatform() bool {
-	if o != nil && !isNil(o.Platform) {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
@@ -402,7 +405,7 @@ func (o *VerifyReceiptDto) SetPlatform(v string) {
 
 // GetDeviceToken returns the DeviceToken field value if set, zero value otherwise.
 func (o *VerifyReceiptDto) GetDeviceToken() string {
-	if o == nil || isNil(o.DeviceToken) {
+	if o == nil || IsNil(o.DeviceToken) {
 		var ret string
 		return ret
 	}
@@ -412,15 +415,15 @@ func (o *VerifyReceiptDto) GetDeviceToken() string {
 // GetDeviceTokenOk returns a tuple with the DeviceToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptDto) GetDeviceTokenOk() (*string, bool) {
-	if o == nil || isNil(o.DeviceToken) {
-    return nil, false
+	if o == nil || IsNil(o.DeviceToken) {
+		return nil, false
 	}
 	return o.DeviceToken, true
 }
 
 // HasDeviceToken returns a boolean if a field has been set.
 func (o *VerifyReceiptDto) HasDeviceToken() bool {
-	if o != nil && !isNil(o.DeviceToken) {
+	if o != nil && !IsNil(o.DeviceToken) {
 		return true
 	}
 
@@ -433,44 +436,52 @@ func (o *VerifyReceiptDto) SetDeviceToken(v string) {
 }
 
 func (o VerifyReceiptDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !isNil(o.ReceiptData) {
-		toSerialize["receiptData"] = o.ReceiptData
-	}
-	if !isNil(o.Platform) {
-		toSerialize["platform"] = o.Platform
-	}
-	if !isNil(o.DeviceToken) {
-		toSerialize["deviceToken"] = o.DeviceToken
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o VerifyReceiptDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.OrderId) {
+		toSerialize["orderId"] = o.OrderId
+	}
+	if !IsNil(o.ReceiptData) {
+		toSerialize["receiptData"] = o.ReceiptData
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
+	}
+	if !IsNil(o.DeviceToken) {
+		toSerialize["deviceToken"] = o.DeviceToken
+	}
+	return toSerialize, nil
 }
 
 type NullableVerifyReceiptDto struct {

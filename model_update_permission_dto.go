@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdatePermissionDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdatePermissionDto{}
+
 // UpdatePermissionDto struct for UpdatePermissionDto
 type UpdatePermissionDto struct {
 	Name *string `json:"name,omitempty"`
@@ -39,7 +42,7 @@ func NewUpdatePermissionDtoWithDefaults() *UpdatePermissionDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UpdatePermissionDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *UpdatePermissionDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdatePermissionDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UpdatePermissionDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *UpdatePermissionDto) SetName(v string) {
 
 // GetIsGranted returns the IsGranted field value if set, zero value otherwise.
 func (o *UpdatePermissionDto) GetIsGranted() bool {
-	if o == nil || isNil(o.IsGranted) {
+	if o == nil || IsNil(o.IsGranted) {
 		var ret bool
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *UpdatePermissionDto) GetIsGranted() bool {
 // GetIsGrantedOk returns a tuple with the IsGranted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdatePermissionDto) GetIsGrantedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsGranted) {
-    return nil, false
+	if o == nil || IsNil(o.IsGranted) {
+		return nil, false
 	}
 	return o.IsGranted, true
 }
 
 // HasIsGranted returns a boolean if a field has been set.
 func (o *UpdatePermissionDto) HasIsGranted() bool {
-	if o != nil && !isNil(o.IsGranted) {
+	if o != nil && !IsNil(o.IsGranted) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *UpdatePermissionDto) SetIsGranted(v bool) {
 }
 
 func (o UpdatePermissionDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.IsGranted) {
-		toSerialize["isGranted"] = o.IsGranted
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UpdatePermissionDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.IsGranted) {
+		toSerialize["isGranted"] = o.IsGranted
+	}
+	return toSerialize, nil
 }
 
 type NullableUpdatePermissionDto struct {

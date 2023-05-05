@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetFeatureListResultDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetFeatureListResultDto{}
+
 // GetFeatureListResultDto struct for GetFeatureListResultDto
 type GetFeatureListResultDto struct {
 	Groups []FeatureGroupDto `json:"groups,omitempty"`
@@ -38,7 +41,7 @@ func NewGetFeatureListResultDtoWithDefaults() *GetFeatureListResultDto {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *GetFeatureListResultDto) GetGroups() []FeatureGroupDto {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret []FeatureGroupDto
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *GetFeatureListResultDto) GetGroups() []FeatureGroupDto {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetFeatureListResultDto) GetGroupsOk() ([]FeatureGroupDto, bool) {
-	if o == nil || isNil(o.Groups) {
-    return nil, false
+	if o == nil || IsNil(o.Groups) {
+		return nil, false
 	}
 	return o.Groups, true
 }
 
 // HasGroups returns a boolean if a field has been set.
 func (o *GetFeatureListResultDto) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *GetFeatureListResultDto) SetGroups(v []FeatureGroupDto) {
 }
 
 func (o GetFeatureListResultDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Groups) {
-		toSerialize["groups"] = o.Groups
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GetFeatureListResultDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Groups) {
+		toSerialize["groups"] = o.Groups
+	}
+	return toSerialize, nil
 }
 
 type NullableGetFeatureListResultDto struct {

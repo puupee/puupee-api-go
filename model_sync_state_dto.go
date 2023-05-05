@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the SyncStateDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SyncStateDto{}
+
 // SyncStateDto struct for SyncStateDto
 type SyncStateDto struct {
 	LastSyncAt *time.Time `json:"lastSyncAt,omitempty"`
@@ -40,7 +43,7 @@ func NewSyncStateDtoWithDefaults() *SyncStateDto {
 
 // GetLastSyncAt returns the LastSyncAt field value if set, zero value otherwise.
 func (o *SyncStateDto) GetLastSyncAt() time.Time {
-	if o == nil || isNil(o.LastSyncAt) {
+	if o == nil || IsNil(o.LastSyncAt) {
 		var ret time.Time
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *SyncStateDto) GetLastSyncAt() time.Time {
 // GetLastSyncAtOk returns a tuple with the LastSyncAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncStateDto) GetLastSyncAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastSyncAt) {
-    return nil, false
+	if o == nil || IsNil(o.LastSyncAt) {
+		return nil, false
 	}
 	return o.LastSyncAt, true
 }
 
 // HasLastSyncAt returns a boolean if a field has been set.
 func (o *SyncStateDto) HasLastSyncAt() bool {
-	if o != nil && !isNil(o.LastSyncAt) {
+	if o != nil && !IsNil(o.LastSyncAt) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *SyncStateDto) SetLastSyncAt(v time.Time) {
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *SyncStateDto) GetVersion() int64 {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		var ret int64
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *SyncStateDto) GetVersion() int64 {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SyncStateDto) GetVersionOk() (*int64, bool) {
-	if o == nil || isNil(o.Version) {
-    return nil, false
+	if o == nil || IsNil(o.Version) {
+		return nil, false
 	}
 	return o.Version, true
 }
 
 // HasVersion returns a boolean if a field has been set.
 func (o *SyncStateDto) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *SyncStateDto) SetVersion(v int64) {
 }
 
 func (o SyncStateDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.LastSyncAt) {
-		toSerialize["lastSyncAt"] = o.LastSyncAt
-	}
-	if !isNil(o.Version) {
-		toSerialize["version"] = o.Version
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SyncStateDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.LastSyncAt) {
+		toSerialize["lastSyncAt"] = o.LastSyncAt
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	return toSerialize, nil
 }
 
 type NullableSyncStateDto struct {

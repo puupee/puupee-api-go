@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionPropertyUiDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionPropertyUiDto{}
+
 // ExtensionPropertyUiDto struct for ExtensionPropertyUiDto
 type ExtensionPropertyUiDto struct {
 	OnTable *ExtensionPropertyUiTableDto `json:"onTable,omitempty"`
@@ -41,7 +44,7 @@ func NewExtensionPropertyUiDtoWithDefaults() *ExtensionPropertyUiDto {
 
 // GetOnTable returns the OnTable field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiDto) GetOnTable() ExtensionPropertyUiTableDto {
-	if o == nil || isNil(o.OnTable) {
+	if o == nil || IsNil(o.OnTable) {
 		var ret ExtensionPropertyUiTableDto
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *ExtensionPropertyUiDto) GetOnTable() ExtensionPropertyUiTableDto {
 // GetOnTableOk returns a tuple with the OnTable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiDto) GetOnTableOk() (*ExtensionPropertyUiTableDto, bool) {
-	if o == nil || isNil(o.OnTable) {
-    return nil, false
+	if o == nil || IsNil(o.OnTable) {
+		return nil, false
 	}
 	return o.OnTable, true
 }
 
 // HasOnTable returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiDto) HasOnTable() bool {
-	if o != nil && !isNil(o.OnTable) {
+	if o != nil && !IsNil(o.OnTable) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *ExtensionPropertyUiDto) SetOnTable(v ExtensionPropertyUiTableDto) {
 
 // GetOnCreateForm returns the OnCreateForm field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiDto) GetOnCreateForm() ExtensionPropertyUiFormDto {
-	if o == nil || isNil(o.OnCreateForm) {
+	if o == nil || IsNil(o.OnCreateForm) {
 		var ret ExtensionPropertyUiFormDto
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *ExtensionPropertyUiDto) GetOnCreateForm() ExtensionPropertyUiFormDto {
 // GetOnCreateFormOk returns a tuple with the OnCreateForm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiDto) GetOnCreateFormOk() (*ExtensionPropertyUiFormDto, bool) {
-	if o == nil || isNil(o.OnCreateForm) {
-    return nil, false
+	if o == nil || IsNil(o.OnCreateForm) {
+		return nil, false
 	}
 	return o.OnCreateForm, true
 }
 
 // HasOnCreateForm returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiDto) HasOnCreateForm() bool {
-	if o != nil && !isNil(o.OnCreateForm) {
+	if o != nil && !IsNil(o.OnCreateForm) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *ExtensionPropertyUiDto) SetOnCreateForm(v ExtensionPropertyUiFormDto) {
 
 // GetOnEditForm returns the OnEditForm field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiDto) GetOnEditForm() ExtensionPropertyUiFormDto {
-	if o == nil || isNil(o.OnEditForm) {
+	if o == nil || IsNil(o.OnEditForm) {
 		var ret ExtensionPropertyUiFormDto
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *ExtensionPropertyUiDto) GetOnEditForm() ExtensionPropertyUiFormDto {
 // GetOnEditFormOk returns a tuple with the OnEditForm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiDto) GetOnEditFormOk() (*ExtensionPropertyUiFormDto, bool) {
-	if o == nil || isNil(o.OnEditForm) {
-    return nil, false
+	if o == nil || IsNil(o.OnEditForm) {
+		return nil, false
 	}
 	return o.OnEditForm, true
 }
 
 // HasOnEditForm returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiDto) HasOnEditForm() bool {
-	if o != nil && !isNil(o.OnEditForm) {
+	if o != nil && !IsNil(o.OnEditForm) {
 		return true
 	}
 
@@ -137,7 +140,7 @@ func (o *ExtensionPropertyUiDto) SetOnEditForm(v ExtensionPropertyUiFormDto) {
 
 // GetLookup returns the Lookup field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiDto) GetLookup() ExtensionPropertyUiLookupDto {
-	if o == nil || isNil(o.Lookup) {
+	if o == nil || IsNil(o.Lookup) {
 		var ret ExtensionPropertyUiLookupDto
 		return ret
 	}
@@ -147,15 +150,15 @@ func (o *ExtensionPropertyUiDto) GetLookup() ExtensionPropertyUiLookupDto {
 // GetLookupOk returns a tuple with the Lookup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiDto) GetLookupOk() (*ExtensionPropertyUiLookupDto, bool) {
-	if o == nil || isNil(o.Lookup) {
-    return nil, false
+	if o == nil || IsNil(o.Lookup) {
+		return nil, false
 	}
 	return o.Lookup, true
 }
 
 // HasLookup returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiDto) HasLookup() bool {
-	if o != nil && !isNil(o.Lookup) {
+	if o != nil && !IsNil(o.Lookup) {
 		return true
 	}
 
@@ -168,20 +171,28 @@ func (o *ExtensionPropertyUiDto) SetLookup(v ExtensionPropertyUiLookupDto) {
 }
 
 func (o ExtensionPropertyUiDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.OnTable) {
-		toSerialize["onTable"] = o.OnTable
-	}
-	if !isNil(o.OnCreateForm) {
-		toSerialize["onCreateForm"] = o.OnCreateForm
-	}
-	if !isNil(o.OnEditForm) {
-		toSerialize["onEditForm"] = o.OnEditForm
-	}
-	if !isNil(o.Lookup) {
-		toSerialize["lookup"] = o.Lookup
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionPropertyUiDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.OnTable) {
+		toSerialize["onTable"] = o.OnTable
+	}
+	if !IsNil(o.OnCreateForm) {
+		toSerialize["onCreateForm"] = o.OnCreateForm
+	}
+	if !IsNil(o.OnEditForm) {
+		toSerialize["onEditForm"] = o.OnEditForm
+	}
+	if !IsNil(o.Lookup) {
+		toSerialize["lookup"] = o.Lookup
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionPropertyUiDto struct {

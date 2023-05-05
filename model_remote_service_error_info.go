@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RemoteServiceErrorInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RemoteServiceErrorInfo{}
+
 // RemoteServiceErrorInfo struct for RemoteServiceErrorInfo
 type RemoteServiceErrorInfo struct {
 	Code *string `json:"code,omitempty"`
@@ -42,7 +45,7 @@ func NewRemoteServiceErrorInfoWithDefaults() *RemoteServiceErrorInfo {
 
 // GetCode returns the Code field value if set, zero value otherwise.
 func (o *RemoteServiceErrorInfo) GetCode() string {
-	if o == nil || isNil(o.Code) {
+	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *RemoteServiceErrorInfo) GetCode() string {
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceErrorInfo) GetCodeOk() (*string, bool) {
-	if o == nil || isNil(o.Code) {
-    return nil, false
+	if o == nil || IsNil(o.Code) {
+		return nil, false
 	}
 	return o.Code, true
 }
 
 // HasCode returns a boolean if a field has been set.
 func (o *RemoteServiceErrorInfo) HasCode() bool {
-	if o != nil && !isNil(o.Code) {
+	if o != nil && !IsNil(o.Code) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *RemoteServiceErrorInfo) SetCode(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *RemoteServiceErrorInfo) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *RemoteServiceErrorInfo) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceErrorInfo) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *RemoteServiceErrorInfo) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *RemoteServiceErrorInfo) SetMessage(v string) {
 
 // GetDetails returns the Details field value if set, zero value otherwise.
 func (o *RemoteServiceErrorInfo) GetDetails() string {
-	if o == nil || isNil(o.Details) {
+	if o == nil || IsNil(o.Details) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *RemoteServiceErrorInfo) GetDetails() string {
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceErrorInfo) GetDetailsOk() (*string, bool) {
-	if o == nil || isNil(o.Details) {
-    return nil, false
+	if o == nil || IsNil(o.Details) {
+		return nil, false
 	}
 	return o.Details, true
 }
 
 // HasDetails returns a boolean if a field has been set.
 func (o *RemoteServiceErrorInfo) HasDetails() bool {
-	if o != nil && !isNil(o.Details) {
+	if o != nil && !IsNil(o.Details) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *RemoteServiceErrorInfo) SetDetails(v string) {
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *RemoteServiceErrorInfo) GetData() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *RemoteServiceErrorInfo) GetData() map[string]map[string]interface{} {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceErrorInfo) GetDataOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Data) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Data) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *RemoteServiceErrorInfo) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *RemoteServiceErrorInfo) SetData(v map[string]map[string]interface{}) {
 
 // GetValidationErrors returns the ValidationErrors field value if set, zero value otherwise.
 func (o *RemoteServiceErrorInfo) GetValidationErrors() []RemoteServiceValidationErrorInfo {
-	if o == nil || isNil(o.ValidationErrors) {
+	if o == nil || IsNil(o.ValidationErrors) {
 		var ret []RemoteServiceValidationErrorInfo
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *RemoteServiceErrorInfo) GetValidationErrors() []RemoteServiceValidation
 // GetValidationErrorsOk returns a tuple with the ValidationErrors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceErrorInfo) GetValidationErrorsOk() ([]RemoteServiceValidationErrorInfo, bool) {
-	if o == nil || isNil(o.ValidationErrors) {
-    return nil, false
+	if o == nil || IsNil(o.ValidationErrors) {
+		return nil, false
 	}
 	return o.ValidationErrors, true
 }
 
 // HasValidationErrors returns a boolean if a field has been set.
 func (o *RemoteServiceErrorInfo) HasValidationErrors() bool {
-	if o != nil && !isNil(o.ValidationErrors) {
+	if o != nil && !IsNil(o.ValidationErrors) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *RemoteServiceErrorInfo) SetValidationErrors(v []RemoteServiceValidation
 }
 
 func (o RemoteServiceErrorInfo) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
-	if !isNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if !isNil(o.Details) {
-		toSerialize["details"] = o.Details
-	}
-	if !isNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
-	if !isNil(o.ValidationErrors) {
-		toSerialize["validationErrors"] = o.ValidationErrors
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RemoteServiceErrorInfo) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Details) {
+		toSerialize["details"] = o.Details
+	}
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
+	if !IsNil(o.ValidationErrors) {
+		toSerialize["validationErrors"] = o.ValidationErrors
+	}
+	return toSerialize, nil
 }
 
 type NullableRemoteServiceErrorInfo struct {

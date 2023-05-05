@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MethodParameterApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MethodParameterApiDescriptionModel{}
+
 // MethodParameterApiDescriptionModel struct for MethodParameterApiDescriptionModel
 type MethodParameterApiDescriptionModel struct {
 	Name *string `json:"name,omitempty"`
@@ -43,7 +46,7 @@ func NewMethodParameterApiDescriptionModelWithDefaults() *MethodParameterApiDesc
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *MethodParameterApiDescriptionModel) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *MethodParameterApiDescriptionModel) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MethodParameterApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *MethodParameterApiDescriptionModel) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *MethodParameterApiDescriptionModel) SetName(v string) {
 
 // GetTypeAsString returns the TypeAsString field value if set, zero value otherwise.
 func (o *MethodParameterApiDescriptionModel) GetTypeAsString() string {
-	if o == nil || isNil(o.TypeAsString) {
+	if o == nil || IsNil(o.TypeAsString) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *MethodParameterApiDescriptionModel) GetTypeAsString() string {
 // GetTypeAsStringOk returns a tuple with the TypeAsString field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MethodParameterApiDescriptionModel) GetTypeAsStringOk() (*string, bool) {
-	if o == nil || isNil(o.TypeAsString) {
-    return nil, false
+	if o == nil || IsNil(o.TypeAsString) {
+		return nil, false
 	}
 	return o.TypeAsString, true
 }
 
 // HasTypeAsString returns a boolean if a field has been set.
 func (o *MethodParameterApiDescriptionModel) HasTypeAsString() bool {
-	if o != nil && !isNil(o.TypeAsString) {
+	if o != nil && !IsNil(o.TypeAsString) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *MethodParameterApiDescriptionModel) SetTypeAsString(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *MethodParameterApiDescriptionModel) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *MethodParameterApiDescriptionModel) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MethodParameterApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *MethodParameterApiDescriptionModel) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -139,7 +142,7 @@ func (o *MethodParameterApiDescriptionModel) SetType(v string) {
 
 // GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *MethodParameterApiDescriptionModel) GetTypeSimple() string {
-	if o == nil || isNil(o.TypeSimple) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
@@ -149,15 +152,15 @@ func (o *MethodParameterApiDescriptionModel) GetTypeSimple() string {
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MethodParameterApiDescriptionModel) GetTypeSimpleOk() (*string, bool) {
-	if o == nil || isNil(o.TypeSimple) {
-    return nil, false
+	if o == nil || IsNil(o.TypeSimple) {
+		return nil, false
 	}
 	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *MethodParameterApiDescriptionModel) HasTypeSimple() bool {
-	if o != nil && !isNil(o.TypeSimple) {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
@@ -171,7 +174,7 @@ func (o *MethodParameterApiDescriptionModel) SetTypeSimple(v string) {
 
 // GetIsOptional returns the IsOptional field value if set, zero value otherwise.
 func (o *MethodParameterApiDescriptionModel) GetIsOptional() bool {
-	if o == nil || isNil(o.IsOptional) {
+	if o == nil || IsNil(o.IsOptional) {
 		var ret bool
 		return ret
 	}
@@ -181,15 +184,15 @@ func (o *MethodParameterApiDescriptionModel) GetIsOptional() bool {
 // GetIsOptionalOk returns a tuple with the IsOptional field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MethodParameterApiDescriptionModel) GetIsOptionalOk() (*bool, bool) {
-	if o == nil || isNil(o.IsOptional) {
-    return nil, false
+	if o == nil || IsNil(o.IsOptional) {
+		return nil, false
 	}
 	return o.IsOptional, true
 }
 
 // HasIsOptional returns a boolean if a field has been set.
 func (o *MethodParameterApiDescriptionModel) HasIsOptional() bool {
-	if o != nil && !isNil(o.IsOptional) {
+	if o != nil && !IsNil(o.IsOptional) {
 		return true
 	}
 
@@ -203,7 +206,7 @@ func (o *MethodParameterApiDescriptionModel) SetIsOptional(v bool) {
 
 // GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
 func (o *MethodParameterApiDescriptionModel) GetDefaultValue() map[string]interface{} {
-	if o == nil || isNil(o.DefaultValue) {
+	if o == nil || IsNil(o.DefaultValue) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -213,15 +216,15 @@ func (o *MethodParameterApiDescriptionModel) GetDefaultValue() map[string]interf
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MethodParameterApiDescriptionModel) GetDefaultValueOk() (map[string]interface{}, bool) {
-	if o == nil || isNil(o.DefaultValue) {
-    return map[string]interface{}{}, false
+	if o == nil || IsNil(o.DefaultValue) {
+		return map[string]interface{}{}, false
 	}
 	return o.DefaultValue, true
 }
 
 // HasDefaultValue returns a boolean if a field has been set.
 func (o *MethodParameterApiDescriptionModel) HasDefaultValue() bool {
-	if o != nil && !isNil(o.DefaultValue) {
+	if o != nil && !IsNil(o.DefaultValue) {
 		return true
 	}
 
@@ -234,26 +237,34 @@ func (o *MethodParameterApiDescriptionModel) SetDefaultValue(v map[string]interf
 }
 
 func (o MethodParameterApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.TypeAsString) {
-		toSerialize["typeAsString"] = o.TypeAsString
-	}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.TypeSimple) {
-		toSerialize["typeSimple"] = o.TypeSimple
-	}
-	if !isNil(o.IsOptional) {
-		toSerialize["isOptional"] = o.IsOptional
-	}
-	if !isNil(o.DefaultValue) {
-		toSerialize["defaultValue"] = o.DefaultValue
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MethodParameterApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.TypeAsString) {
+		toSerialize["typeAsString"] = o.TypeAsString
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
+	}
+	if !IsNil(o.IsOptional) {
+		toSerialize["isOptional"] = o.IsOptional
+	}
+	if !IsNil(o.DefaultValue) {
+		toSerialize["defaultValue"] = o.DefaultValue
+	}
+	return toSerialize, nil
 }
 
 type NullableMethodParameterApiDescriptionModel struct {

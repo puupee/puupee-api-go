@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserData type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserData{}
+
 // UserData struct for UserData
 type UserData struct {
 	Id *string `json:"id,omitempty"`
@@ -47,7 +50,7 @@ func NewUserDataWithDefaults() *UserData {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *UserData) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *UserData) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *UserData) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *UserData) SetId(v string) {
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *UserData) GetTenantId() string {
-	if o == nil || isNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *UserData) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetTenantIdOk() (*string, bool) {
-	if o == nil || isNil(o.TenantId) {
-    return nil, false
+	if o == nil || IsNil(o.TenantId) {
+		return nil, false
 	}
 	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *UserData) HasTenantId() bool {
-	if o != nil && !isNil(o.TenantId) {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *UserData) SetTenantId(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *UserData) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *UserData) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *UserData) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *UserData) SetUserName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UserData) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *UserData) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UserData) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *UserData) SetName(v string) {
 
 // GetSurname returns the Surname field value if set, zero value otherwise.
 func (o *UserData) GetSurname() string {
-	if o == nil || isNil(o.Surname) {
+	if o == nil || IsNil(o.Surname) {
 		var ret string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *UserData) GetSurname() string {
 // GetSurnameOk returns a tuple with the Surname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetSurnameOk() (*string, bool) {
-	if o == nil || isNil(o.Surname) {
-    return nil, false
+	if o == nil || IsNil(o.Surname) {
+		return nil, false
 	}
 	return o.Surname, true
 }
 
 // HasSurname returns a boolean if a field has been set.
 func (o *UserData) HasSurname() bool {
-	if o != nil && !isNil(o.Surname) {
+	if o != nil && !IsNil(o.Surname) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *UserData) SetSurname(v string) {
 
 // GetIsActive returns the IsActive field value if set, zero value otherwise.
 func (o *UserData) GetIsActive() bool {
-	if o == nil || isNil(o.IsActive) {
+	if o == nil || IsNil(o.IsActive) {
 		var ret bool
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *UserData) GetIsActive() bool {
 // GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetIsActiveOk() (*bool, bool) {
-	if o == nil || isNil(o.IsActive) {
-    return nil, false
+	if o == nil || IsNil(o.IsActive) {
+		return nil, false
 	}
 	return o.IsActive, true
 }
 
 // HasIsActive returns a boolean if a field has been set.
 func (o *UserData) HasIsActive() bool {
-	if o != nil && !isNil(o.IsActive) {
+	if o != nil && !IsNil(o.IsActive) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *UserData) SetIsActive(v bool) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *UserData) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *UserData) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *UserData) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -271,7 +274,7 @@ func (o *UserData) SetEmail(v string) {
 
 // GetEmailConfirmed returns the EmailConfirmed field value if set, zero value otherwise.
 func (o *UserData) GetEmailConfirmed() bool {
-	if o == nil || isNil(o.EmailConfirmed) {
+	if o == nil || IsNil(o.EmailConfirmed) {
 		var ret bool
 		return ret
 	}
@@ -281,15 +284,15 @@ func (o *UserData) GetEmailConfirmed() bool {
 // GetEmailConfirmedOk returns a tuple with the EmailConfirmed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetEmailConfirmedOk() (*bool, bool) {
-	if o == nil || isNil(o.EmailConfirmed) {
-    return nil, false
+	if o == nil || IsNil(o.EmailConfirmed) {
+		return nil, false
 	}
 	return o.EmailConfirmed, true
 }
 
 // HasEmailConfirmed returns a boolean if a field has been set.
 func (o *UserData) HasEmailConfirmed() bool {
-	if o != nil && !isNil(o.EmailConfirmed) {
+	if o != nil && !IsNil(o.EmailConfirmed) {
 		return true
 	}
 
@@ -303,7 +306,7 @@ func (o *UserData) SetEmailConfirmed(v bool) {
 
 // GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *UserData) GetPhoneNumber() string {
-	if o == nil || isNil(o.PhoneNumber) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
@@ -313,15 +316,15 @@ func (o *UserData) GetPhoneNumber() string {
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetPhoneNumberOk() (*string, bool) {
-	if o == nil || isNil(o.PhoneNumber) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumber) {
+		return nil, false
 	}
 	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *UserData) HasPhoneNumber() bool {
-	if o != nil && !isNil(o.PhoneNumber) {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
@@ -335,7 +338,7 @@ func (o *UserData) SetPhoneNumber(v string) {
 
 // GetPhoneNumberConfirmed returns the PhoneNumberConfirmed field value if set, zero value otherwise.
 func (o *UserData) GetPhoneNumberConfirmed() bool {
-	if o == nil || isNil(o.PhoneNumberConfirmed) {
+	if o == nil || IsNil(o.PhoneNumberConfirmed) {
 		var ret bool
 		return ret
 	}
@@ -345,15 +348,15 @@ func (o *UserData) GetPhoneNumberConfirmed() bool {
 // GetPhoneNumberConfirmedOk returns a tuple with the PhoneNumberConfirmed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserData) GetPhoneNumberConfirmedOk() (*bool, bool) {
-	if o == nil || isNil(o.PhoneNumberConfirmed) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumberConfirmed) {
+		return nil, false
 	}
 	return o.PhoneNumberConfirmed, true
 }
 
 // HasPhoneNumberConfirmed returns a boolean if a field has been set.
 func (o *UserData) HasPhoneNumberConfirmed() bool {
-	if o != nil && !isNil(o.PhoneNumberConfirmed) {
+	if o != nil && !IsNil(o.PhoneNumberConfirmed) {
 		return true
 	}
 
@@ -366,38 +369,46 @@ func (o *UserData) SetPhoneNumberConfirmed(v bool) {
 }
 
 func (o UserData) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !isNil(o.UserName) {
-		toSerialize["userName"] = o.UserName
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Surname) {
-		toSerialize["surname"] = o.Surname
-	}
-	if !isNil(o.IsActive) {
-		toSerialize["isActive"] = o.IsActive
-	}
-	if !isNil(o.Email) {
-		toSerialize["email"] = o.Email
-	}
-	if !isNil(o.EmailConfirmed) {
-		toSerialize["emailConfirmed"] = o.EmailConfirmed
-	}
-	if !isNil(o.PhoneNumber) {
-		toSerialize["phoneNumber"] = o.PhoneNumber
-	}
-	if !isNil(o.PhoneNumberConfirmed) {
-		toSerialize["phoneNumberConfirmed"] = o.PhoneNumberConfirmed
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UserData) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Surname) {
+		toSerialize["surname"] = o.Surname
+	}
+	if !IsNil(o.IsActive) {
+		toSerialize["isActive"] = o.IsActive
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.EmailConfirmed) {
+		toSerialize["emailConfirmed"] = o.EmailConfirmed
+	}
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
+	}
+	if !IsNil(o.PhoneNumberConfirmed) {
+		toSerialize["phoneNumberConfirmed"] = o.PhoneNumberConfirmed
+	}
+	return toSerialize, nil
 }
 
 type NullableUserData struct {

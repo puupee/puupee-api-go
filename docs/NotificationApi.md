@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -42,7 +42,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NotificationApi.ApiAppNotificationBarkApiKeyMessageGet(context.Background(), apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Name(name).Value(value).Execute()
+    r, err := apiClient.NotificationApi.ApiAppNotificationBarkApiKeyMessageGet(context.Background(), apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Name(name).Value(value).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationBarkApiKeyMessageGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -110,7 +110,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -178,7 +178,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -186,7 +186,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NotificationApi.ApiAppNotificationPushPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.NotificationApi.ApiAppNotificationPushPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationPushPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PuupeeChangedEto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PuupeeChangedEto{}
+
 // PuupeeChangedEto struct for PuupeeChangedEto
 type PuupeeChangedEto struct {
 	Data *PuupeeDto `json:"data,omitempty"`
@@ -39,7 +42,7 @@ func NewPuupeeChangedEtoWithDefaults() *PuupeeChangedEto {
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *PuupeeChangedEto) GetData() PuupeeDto {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret PuupeeDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *PuupeeChangedEto) GetData() PuupeeDto {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeChangedEto) GetDataOk() (*PuupeeDto, bool) {
-	if o == nil || isNil(o.Data) {
-    return nil, false
+	if o == nil || IsNil(o.Data) {
+		return nil, false
 	}
 	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *PuupeeChangedEto) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *PuupeeChangedEto) SetData(v PuupeeDto) {
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *PuupeeChangedEto) GetUserId() string {
-	if o == nil || isNil(o.UserId) {
+	if o == nil || IsNil(o.UserId) {
 		var ret string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *PuupeeChangedEto) GetUserId() string {
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeChangedEto) GetUserIdOk() (*string, bool) {
-	if o == nil || isNil(o.UserId) {
-    return nil, false
+	if o == nil || IsNil(o.UserId) {
+		return nil, false
 	}
 	return o.UserId, true
 }
 
 // HasUserId returns a boolean if a field has been set.
 func (o *PuupeeChangedEto) HasUserId() bool {
-	if o != nil && !isNil(o.UserId) {
+	if o != nil && !IsNil(o.UserId) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *PuupeeChangedEto) SetUserId(v string) {
 }
 
 func (o PuupeeChangedEto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Data) {
-		toSerialize["data"] = o.Data
-	}
-	if !isNil(o.UserId) {
-		toSerialize["userId"] = o.UserId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PuupeeChangedEto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Data) {
+		toSerialize["data"] = o.Data
+	}
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
+	return toSerialize, nil
 }
 
 type NullablePuupeeChangedEto struct {

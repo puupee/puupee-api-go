@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -84,7 +84,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -92,7 +92,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.ApiSettingManagementEmailingPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -146,7 +146,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -154,7 +154,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingSendTestEmailPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingSendTestEmailPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.ApiSettingManagementEmailingSendTestEmailPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

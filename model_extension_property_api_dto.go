@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionPropertyApiDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionPropertyApiDto{}
+
 // ExtensionPropertyApiDto struct for ExtensionPropertyApiDto
 type ExtensionPropertyApiDto struct {
 	OnGet *ExtensionPropertyApiGetDto `json:"onGet,omitempty"`
@@ -40,7 +43,7 @@ func NewExtensionPropertyApiDtoWithDefaults() *ExtensionPropertyApiDto {
 
 // GetOnGet returns the OnGet field value if set, zero value otherwise.
 func (o *ExtensionPropertyApiDto) GetOnGet() ExtensionPropertyApiGetDto {
-	if o == nil || isNil(o.OnGet) {
+	if o == nil || IsNil(o.OnGet) {
 		var ret ExtensionPropertyApiGetDto
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *ExtensionPropertyApiDto) GetOnGet() ExtensionPropertyApiGetDto {
 // GetOnGetOk returns a tuple with the OnGet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyApiDto) GetOnGetOk() (*ExtensionPropertyApiGetDto, bool) {
-	if o == nil || isNil(o.OnGet) {
-    return nil, false
+	if o == nil || IsNil(o.OnGet) {
+		return nil, false
 	}
 	return o.OnGet, true
 }
 
 // HasOnGet returns a boolean if a field has been set.
 func (o *ExtensionPropertyApiDto) HasOnGet() bool {
-	if o != nil && !isNil(o.OnGet) {
+	if o != nil && !IsNil(o.OnGet) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *ExtensionPropertyApiDto) SetOnGet(v ExtensionPropertyApiGetDto) {
 
 // GetOnCreate returns the OnCreate field value if set, zero value otherwise.
 func (o *ExtensionPropertyApiDto) GetOnCreate() ExtensionPropertyApiCreateDto {
-	if o == nil || isNil(o.OnCreate) {
+	if o == nil || IsNil(o.OnCreate) {
 		var ret ExtensionPropertyApiCreateDto
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *ExtensionPropertyApiDto) GetOnCreate() ExtensionPropertyApiCreateDto {
 // GetOnCreateOk returns a tuple with the OnCreate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyApiDto) GetOnCreateOk() (*ExtensionPropertyApiCreateDto, bool) {
-	if o == nil || isNil(o.OnCreate) {
-    return nil, false
+	if o == nil || IsNil(o.OnCreate) {
+		return nil, false
 	}
 	return o.OnCreate, true
 }
 
 // HasOnCreate returns a boolean if a field has been set.
 func (o *ExtensionPropertyApiDto) HasOnCreate() bool {
-	if o != nil && !isNil(o.OnCreate) {
+	if o != nil && !IsNil(o.OnCreate) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *ExtensionPropertyApiDto) SetOnCreate(v ExtensionPropertyApiCreateDto) {
 
 // GetOnUpdate returns the OnUpdate field value if set, zero value otherwise.
 func (o *ExtensionPropertyApiDto) GetOnUpdate() ExtensionPropertyApiUpdateDto {
-	if o == nil || isNil(o.OnUpdate) {
+	if o == nil || IsNil(o.OnUpdate) {
 		var ret ExtensionPropertyApiUpdateDto
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *ExtensionPropertyApiDto) GetOnUpdate() ExtensionPropertyApiUpdateDto {
 // GetOnUpdateOk returns a tuple with the OnUpdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyApiDto) GetOnUpdateOk() (*ExtensionPropertyApiUpdateDto, bool) {
-	if o == nil || isNil(o.OnUpdate) {
-    return nil, false
+	if o == nil || IsNil(o.OnUpdate) {
+		return nil, false
 	}
 	return o.OnUpdate, true
 }
 
 // HasOnUpdate returns a boolean if a field has been set.
 func (o *ExtensionPropertyApiDto) HasOnUpdate() bool {
-	if o != nil && !isNil(o.OnUpdate) {
+	if o != nil && !IsNil(o.OnUpdate) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *ExtensionPropertyApiDto) SetOnUpdate(v ExtensionPropertyApiUpdateDto) {
 }
 
 func (o ExtensionPropertyApiDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.OnGet) {
-		toSerialize["onGet"] = o.OnGet
-	}
-	if !isNil(o.OnCreate) {
-		toSerialize["onCreate"] = o.OnCreate
-	}
-	if !isNil(o.OnUpdate) {
-		toSerialize["onUpdate"] = o.OnUpdate
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionPropertyApiDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.OnGet) {
+		toSerialize["onGet"] = o.OnGet
+	}
+	if !IsNil(o.OnCreate) {
+		toSerialize["onCreate"] = o.OnCreate
+	}
+	if !IsNil(o.OnUpdate) {
+		toSerialize["onUpdate"] = o.OnUpdate
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionPropertyApiDto struct {

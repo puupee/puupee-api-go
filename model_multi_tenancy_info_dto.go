@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MultiTenancyInfoDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MultiTenancyInfoDto{}
+
 // MultiTenancyInfoDto struct for MultiTenancyInfoDto
 type MultiTenancyInfoDto struct {
 	IsEnabled *bool `json:"isEnabled,omitempty"`
@@ -38,7 +41,7 @@ func NewMultiTenancyInfoDtoWithDefaults() *MultiTenancyInfoDto {
 
 // GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
 func (o *MultiTenancyInfoDto) GetIsEnabled() bool {
-	if o == nil || isNil(o.IsEnabled) {
+	if o == nil || IsNil(o.IsEnabled) {
 		var ret bool
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *MultiTenancyInfoDto) GetIsEnabled() bool {
 // GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MultiTenancyInfoDto) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.IsEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.IsEnabled) {
+		return nil, false
 	}
 	return o.IsEnabled, true
 }
 
 // HasIsEnabled returns a boolean if a field has been set.
 func (o *MultiTenancyInfoDto) HasIsEnabled() bool {
-	if o != nil && !isNil(o.IsEnabled) {
+	if o != nil && !IsNil(o.IsEnabled) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *MultiTenancyInfoDto) SetIsEnabled(v bool) {
 }
 
 func (o MultiTenancyInfoDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MultiTenancyInfoDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.IsEnabled) {
+		toSerialize["isEnabled"] = o.IsEnabled
+	}
+	return toSerialize, nil
 }
 
 type NullableMultiTenancyInfoDto struct {

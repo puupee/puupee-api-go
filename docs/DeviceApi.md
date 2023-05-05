@@ -26,7 +26,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -34,7 +34,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.ApiAppDeviceBindPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.DeviceApi.ApiAppDeviceBindPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.ApiAppDeviceBindPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -88,7 +88,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -96,7 +96,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.ApiAppDeviceDelete(context.Background()).Token(token).Execute()
+    r, err := apiClient.DeviceApi.ApiAppDeviceDelete(context.Background()).Token(token).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.ApiAppDeviceDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -150,7 +150,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -218,7 +218,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -226,7 +226,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.ApiAppDeviceRefreshPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.DeviceApi.ApiAppDeviceRefreshPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.ApiAppDeviceRefreshPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

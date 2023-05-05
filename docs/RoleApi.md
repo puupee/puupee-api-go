@@ -28,7 +28,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -87,7 +87,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -157,7 +157,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -165,7 +165,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.ApiIdentityRolesIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.RoleApi.ApiIdentityRolesIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.ApiIdentityRolesIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -223,7 +223,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -291,7 +291,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -361,7 +361,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {

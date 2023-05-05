@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PuupeeDtoPagedResultDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PuupeeDtoPagedResultDto{}
+
 // PuupeeDtoPagedResultDto struct for PuupeeDtoPagedResultDto
 type PuupeeDtoPagedResultDto struct {
 	Items []PuupeeDto `json:"items,omitempty"`
@@ -39,7 +42,7 @@ func NewPuupeeDtoPagedResultDtoWithDefaults() *PuupeeDtoPagedResultDto {
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *PuupeeDtoPagedResultDto) GetItems() []PuupeeDto {
-	if o == nil || isNil(o.Items) {
+	if o == nil || IsNil(o.Items) {
 		var ret []PuupeeDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *PuupeeDtoPagedResultDto) GetItems() []PuupeeDto {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDtoPagedResultDto) GetItemsOk() ([]PuupeeDto, bool) {
-	if o == nil || isNil(o.Items) {
-    return nil, false
+	if o == nil || IsNil(o.Items) {
+		return nil, false
 	}
 	return o.Items, true
 }
 
 // HasItems returns a boolean if a field has been set.
 func (o *PuupeeDtoPagedResultDto) HasItems() bool {
-	if o != nil && !isNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *PuupeeDtoPagedResultDto) SetItems(v []PuupeeDto) {
 
 // GetTotalCount returns the TotalCount field value if set, zero value otherwise.
 func (o *PuupeeDtoPagedResultDto) GetTotalCount() int64 {
-	if o == nil || isNil(o.TotalCount) {
+	if o == nil || IsNil(o.TotalCount) {
 		var ret int64
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *PuupeeDtoPagedResultDto) GetTotalCount() int64 {
 // GetTotalCountOk returns a tuple with the TotalCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDtoPagedResultDto) GetTotalCountOk() (*int64, bool) {
-	if o == nil || isNil(o.TotalCount) {
-    return nil, false
+	if o == nil || IsNil(o.TotalCount) {
+		return nil, false
 	}
 	return o.TotalCount, true
 }
 
 // HasTotalCount returns a boolean if a field has been set.
 func (o *PuupeeDtoPagedResultDto) HasTotalCount() bool {
-	if o != nil && !isNil(o.TotalCount) {
+	if o != nil && !IsNil(o.TotalCount) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *PuupeeDtoPagedResultDto) SetTotalCount(v int64) {
 }
 
 func (o PuupeeDtoPagedResultDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Items) {
-		toSerialize["items"] = o.Items
-	}
-	if !isNil(o.TotalCount) {
-		toSerialize["totalCount"] = o.TotalCount
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PuupeeDtoPagedResultDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	if !IsNil(o.TotalCount) {
+		toSerialize["totalCount"] = o.TotalCount
+	}
+	return toSerialize, nil
 }
 
 type NullablePuupeeDtoPagedResultDto struct {

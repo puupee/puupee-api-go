@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOrUpdateAppUserScoreDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppUserScoreDto{}
+
 // CreateOrUpdateAppUserScoreDto struct for CreateOrUpdateAppUserScoreDto
 type CreateOrUpdateAppUserScoreDto struct {
 	AppId *string `json:"appId,omitempty"`
@@ -40,7 +43,7 @@ func NewCreateOrUpdateAppUserScoreDtoWithDefaults() *CreateOrUpdateAppUserScoreD
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppUserScoreDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *CreateOrUpdateAppUserScoreDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppUserScoreDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppUserScoreDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *CreateOrUpdateAppUserScoreDto) SetAppId(v string) {
 
 // GetScore returns the Score field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppUserScoreDto) GetScore() int32 {
-	if o == nil || isNil(o.Score) {
+	if o == nil || IsNil(o.Score) {
 		var ret int32
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *CreateOrUpdateAppUserScoreDto) GetScore() int32 {
 // GetScoreOk returns a tuple with the Score field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppUserScoreDto) GetScoreOk() (*int32, bool) {
-	if o == nil || isNil(o.Score) {
-    return nil, false
+	if o == nil || IsNil(o.Score) {
+		return nil, false
 	}
 	return o.Score, true
 }
 
 // HasScore returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppUserScoreDto) HasScore() bool {
-	if o != nil && !isNil(o.Score) {
+	if o != nil && !IsNil(o.Score) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *CreateOrUpdateAppUserScoreDto) SetScore(v int32) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppUserScoreDto) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *CreateOrUpdateAppUserScoreDto) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppUserScoreDto) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
-    return nil, false
+	if o == nil || IsNil(o.Comment) {
+		return nil, false
 	}
 	return o.Comment, true
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppUserScoreDto) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *CreateOrUpdateAppUserScoreDto) SetComment(v string) {
 }
 
 func (o CreateOrUpdateAppUserScoreDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
-	}
-	if !isNil(o.Score) {
-		toSerialize["score"] = o.Score
-	}
-	if !isNil(o.Comment) {
-		toSerialize["comment"] = o.Comment
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppUserScoreDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	if !IsNil(o.Score) {
+		toSerialize["score"] = o.Score
+	}
+	if !IsNil(o.Comment) {
+		toSerialize["comment"] = o.Comment
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppUserScoreDto struct {

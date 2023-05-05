@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TenantDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TenantDto{}
+
 // TenantDto struct for TenantDto
 type TenantDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -41,7 +44,7 @@ func NewTenantDtoWithDefaults() *TenantDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *TenantDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *TenantDto) GetExtraProperties() map[string]map[string]interface{} {
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *TenantDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *TenantDto) SetExtraProperties(v map[string]map[string]interface{}) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *TenantDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *TenantDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *TenantDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *TenantDto) SetId(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *TenantDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *TenantDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TenantDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -137,7 +140,7 @@ func (o *TenantDto) SetName(v string) {
 
 // GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *TenantDto) GetConcurrencyStamp() string {
-	if o == nil || isNil(o.ConcurrencyStamp) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
@@ -147,15 +150,15 @@ func (o *TenantDto) GetConcurrencyStamp() string {
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil || isNil(o.ConcurrencyStamp) {
-    return nil, false
+	if o == nil || IsNil(o.ConcurrencyStamp) {
+		return nil, false
 	}
 	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *TenantDto) HasConcurrencyStamp() bool {
-	if o != nil && !isNil(o.ConcurrencyStamp) {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
@@ -168,20 +171,26 @@ func (o *TenantDto) SetConcurrencyStamp(v string) {
 }
 
 func (o TenantDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.ConcurrencyStamp) {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o TenantDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	}
+	return toSerialize, nil
 }
 
 type NullableTenantDto struct {

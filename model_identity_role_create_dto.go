@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IdentityRoleCreateDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IdentityRoleCreateDto{}
+
 // IdentityRoleCreateDto struct for IdentityRoleCreateDto
 type IdentityRoleCreateDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -42,7 +45,7 @@ func NewIdentityRoleCreateDtoWithDefaults() *IdentityRoleCreateDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *IdentityRoleCreateDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *IdentityRoleCreateDto) GetExtraProperties() map[string]map[string]inter
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleCreateDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *IdentityRoleCreateDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -86,7 +89,7 @@ func (o *IdentityRoleCreateDto) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleCreateDto) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -98,7 +101,7 @@ func (o *IdentityRoleCreateDto) SetName(v string) {
 
 // GetIsDefault returns the IsDefault field value if set, zero value otherwise.
 func (o *IdentityRoleCreateDto) GetIsDefault() bool {
-	if o == nil || isNil(o.IsDefault) {
+	if o == nil || IsNil(o.IsDefault) {
 		var ret bool
 		return ret
 	}
@@ -108,15 +111,15 @@ func (o *IdentityRoleCreateDto) GetIsDefault() bool {
 // GetIsDefaultOk returns a tuple with the IsDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleCreateDto) GetIsDefaultOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDefault) {
-    return nil, false
+	if o == nil || IsNil(o.IsDefault) {
+		return nil, false
 	}
 	return o.IsDefault, true
 }
 
 // HasIsDefault returns a boolean if a field has been set.
 func (o *IdentityRoleCreateDto) HasIsDefault() bool {
-	if o != nil && !isNil(o.IsDefault) {
+	if o != nil && !IsNil(o.IsDefault) {
 		return true
 	}
 
@@ -130,7 +133,7 @@ func (o *IdentityRoleCreateDto) SetIsDefault(v bool) {
 
 // GetIsPublic returns the IsPublic field value if set, zero value otherwise.
 func (o *IdentityRoleCreateDto) GetIsPublic() bool {
-	if o == nil || isNil(o.IsPublic) {
+	if o == nil || IsNil(o.IsPublic) {
 		var ret bool
 		return ret
 	}
@@ -140,15 +143,15 @@ func (o *IdentityRoleCreateDto) GetIsPublic() bool {
 // GetIsPublicOk returns a tuple with the IsPublic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleCreateDto) GetIsPublicOk() (*bool, bool) {
-	if o == nil || isNil(o.IsPublic) {
-    return nil, false
+	if o == nil || IsNil(o.IsPublic) {
+		return nil, false
 	}
 	return o.IsPublic, true
 }
 
 // HasIsPublic returns a boolean if a field has been set.
 func (o *IdentityRoleCreateDto) HasIsPublic() bool {
-	if o != nil && !isNil(o.IsPublic) {
+	if o != nil && !IsNil(o.IsPublic) {
 		return true
 	}
 
@@ -161,20 +164,24 @@ func (o *IdentityRoleCreateDto) SetIsPublic(v bool) {
 }
 
 func (o IdentityRoleCreateDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.IsDefault) {
-		toSerialize["isDefault"] = o.IsDefault
-	}
-	if !isNil(o.IsPublic) {
-		toSerialize["isPublic"] = o.IsPublic
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IdentityRoleCreateDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	toSerialize["name"] = o.Name
+	if !IsNil(o.IsDefault) {
+		toSerialize["isDefault"] = o.IsDefault
+	}
+	if !IsNil(o.IsPublic) {
+		toSerialize["isPublic"] = o.IsPublic
+	}
+	return toSerialize, nil
 }
 
 type NullableIdentityRoleCreateDto struct {

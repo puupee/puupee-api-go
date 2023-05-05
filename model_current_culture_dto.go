@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CurrentCultureDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CurrentCultureDto{}
+
 // CurrentCultureDto struct for CurrentCultureDto
 type CurrentCultureDto struct {
 	DisplayName *string `json:"displayName,omitempty"`
@@ -46,7 +49,7 @@ func NewCurrentCultureDtoWithDefaults() *CurrentCultureDto {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *CurrentCultureDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *CurrentCultureDto) SetDisplayName(v string) {
 
 // GetEnglishName returns the EnglishName field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetEnglishName() string {
-	if o == nil || isNil(o.EnglishName) {
+	if o == nil || IsNil(o.EnglishName) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *CurrentCultureDto) GetEnglishName() string {
 // GetEnglishNameOk returns a tuple with the EnglishName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetEnglishNameOk() (*string, bool) {
-	if o == nil || isNil(o.EnglishName) {
-    return nil, false
+	if o == nil || IsNil(o.EnglishName) {
+		return nil, false
 	}
 	return o.EnglishName, true
 }
 
 // HasEnglishName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasEnglishName() bool {
-	if o != nil && !isNil(o.EnglishName) {
+	if o != nil && !IsNil(o.EnglishName) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *CurrentCultureDto) SetEnglishName(v string) {
 
 // GetThreeLetterIsoLanguageName returns the ThreeLetterIsoLanguageName field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetThreeLetterIsoLanguageName() string {
-	if o == nil || isNil(o.ThreeLetterIsoLanguageName) {
+	if o == nil || IsNil(o.ThreeLetterIsoLanguageName) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *CurrentCultureDto) GetThreeLetterIsoLanguageName() string {
 // GetThreeLetterIsoLanguageNameOk returns a tuple with the ThreeLetterIsoLanguageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetThreeLetterIsoLanguageNameOk() (*string, bool) {
-	if o == nil || isNil(o.ThreeLetterIsoLanguageName) {
-    return nil, false
+	if o == nil || IsNil(o.ThreeLetterIsoLanguageName) {
+		return nil, false
 	}
 	return o.ThreeLetterIsoLanguageName, true
 }
 
 // HasThreeLetterIsoLanguageName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasThreeLetterIsoLanguageName() bool {
-	if o != nil && !isNil(o.ThreeLetterIsoLanguageName) {
+	if o != nil && !IsNil(o.ThreeLetterIsoLanguageName) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *CurrentCultureDto) SetThreeLetterIsoLanguageName(v string) {
 
 // GetTwoLetterIsoLanguageName returns the TwoLetterIsoLanguageName field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetTwoLetterIsoLanguageName() string {
-	if o == nil || isNil(o.TwoLetterIsoLanguageName) {
+	if o == nil || IsNil(o.TwoLetterIsoLanguageName) {
 		var ret string
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *CurrentCultureDto) GetTwoLetterIsoLanguageName() string {
 // GetTwoLetterIsoLanguageNameOk returns a tuple with the TwoLetterIsoLanguageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetTwoLetterIsoLanguageNameOk() (*string, bool) {
-	if o == nil || isNil(o.TwoLetterIsoLanguageName) {
-    return nil, false
+	if o == nil || IsNil(o.TwoLetterIsoLanguageName) {
+		return nil, false
 	}
 	return o.TwoLetterIsoLanguageName, true
 }
 
 // HasTwoLetterIsoLanguageName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasTwoLetterIsoLanguageName() bool {
-	if o != nil && !isNil(o.TwoLetterIsoLanguageName) {
+	if o != nil && !IsNil(o.TwoLetterIsoLanguageName) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *CurrentCultureDto) SetTwoLetterIsoLanguageName(v string) {
 
 // GetIsRightToLeft returns the IsRightToLeft field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetIsRightToLeft() bool {
-	if o == nil || isNil(o.IsRightToLeft) {
+	if o == nil || IsNil(o.IsRightToLeft) {
 		var ret bool
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *CurrentCultureDto) GetIsRightToLeft() bool {
 // GetIsRightToLeftOk returns a tuple with the IsRightToLeft field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetIsRightToLeftOk() (*bool, bool) {
-	if o == nil || isNil(o.IsRightToLeft) {
-    return nil, false
+	if o == nil || IsNil(o.IsRightToLeft) {
+		return nil, false
 	}
 	return o.IsRightToLeft, true
 }
 
 // HasIsRightToLeft returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasIsRightToLeft() bool {
-	if o != nil && !isNil(o.IsRightToLeft) {
+	if o != nil && !IsNil(o.IsRightToLeft) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *CurrentCultureDto) SetIsRightToLeft(v bool) {
 
 // GetCultureName returns the CultureName field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetCultureName() string {
-	if o == nil || isNil(o.CultureName) {
+	if o == nil || IsNil(o.CultureName) {
 		var ret string
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *CurrentCultureDto) GetCultureName() string {
 // GetCultureNameOk returns a tuple with the CultureName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetCultureNameOk() (*string, bool) {
-	if o == nil || isNil(o.CultureName) {
-    return nil, false
+	if o == nil || IsNil(o.CultureName) {
+		return nil, false
 	}
 	return o.CultureName, true
 }
 
 // HasCultureName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasCultureName() bool {
-	if o != nil && !isNil(o.CultureName) {
+	if o != nil && !IsNil(o.CultureName) {
 		return true
 	}
 
@@ -238,7 +241,7 @@ func (o *CurrentCultureDto) SetCultureName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -248,15 +251,15 @@ func (o *CurrentCultureDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -270,7 +273,7 @@ func (o *CurrentCultureDto) SetName(v string) {
 
 // GetNativeName returns the NativeName field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetNativeName() string {
-	if o == nil || isNil(o.NativeName) {
+	if o == nil || IsNil(o.NativeName) {
 		var ret string
 		return ret
 	}
@@ -280,15 +283,15 @@ func (o *CurrentCultureDto) GetNativeName() string {
 // GetNativeNameOk returns a tuple with the NativeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetNativeNameOk() (*string, bool) {
-	if o == nil || isNil(o.NativeName) {
-    return nil, false
+	if o == nil || IsNil(o.NativeName) {
+		return nil, false
 	}
 	return o.NativeName, true
 }
 
 // HasNativeName returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasNativeName() bool {
-	if o != nil && !isNil(o.NativeName) {
+	if o != nil && !IsNil(o.NativeName) {
 		return true
 	}
 
@@ -302,7 +305,7 @@ func (o *CurrentCultureDto) SetNativeName(v string) {
 
 // GetDateTimeFormat returns the DateTimeFormat field value if set, zero value otherwise.
 func (o *CurrentCultureDto) GetDateTimeFormat() DateTimeFormatDto {
-	if o == nil || isNil(o.DateTimeFormat) {
+	if o == nil || IsNil(o.DateTimeFormat) {
 		var ret DateTimeFormatDto
 		return ret
 	}
@@ -312,15 +315,15 @@ func (o *CurrentCultureDto) GetDateTimeFormat() DateTimeFormatDto {
 // GetDateTimeFormatOk returns a tuple with the DateTimeFormat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CurrentCultureDto) GetDateTimeFormatOk() (*DateTimeFormatDto, bool) {
-	if o == nil || isNil(o.DateTimeFormat) {
-    return nil, false
+	if o == nil || IsNil(o.DateTimeFormat) {
+		return nil, false
 	}
 	return o.DateTimeFormat, true
 }
 
 // HasDateTimeFormat returns a boolean if a field has been set.
 func (o *CurrentCultureDto) HasDateTimeFormat() bool {
-	if o != nil && !isNil(o.DateTimeFormat) {
+	if o != nil && !IsNil(o.DateTimeFormat) {
 		return true
 	}
 
@@ -333,35 +336,43 @@ func (o *CurrentCultureDto) SetDateTimeFormat(v DateTimeFormatDto) {
 }
 
 func (o CurrentCultureDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.EnglishName) {
-		toSerialize["englishName"] = o.EnglishName
-	}
-	if !isNil(o.ThreeLetterIsoLanguageName) {
-		toSerialize["threeLetterIsoLanguageName"] = o.ThreeLetterIsoLanguageName
-	}
-	if !isNil(o.TwoLetterIsoLanguageName) {
-		toSerialize["twoLetterIsoLanguageName"] = o.TwoLetterIsoLanguageName
-	}
-	if !isNil(o.IsRightToLeft) {
-		toSerialize["isRightToLeft"] = o.IsRightToLeft
-	}
-	if !isNil(o.CultureName) {
-		toSerialize["cultureName"] = o.CultureName
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.NativeName) {
-		toSerialize["nativeName"] = o.NativeName
-	}
-	if !isNil(o.DateTimeFormat) {
-		toSerialize["dateTimeFormat"] = o.DateTimeFormat
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CurrentCultureDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.EnglishName) {
+		toSerialize["englishName"] = o.EnglishName
+	}
+	if !IsNil(o.ThreeLetterIsoLanguageName) {
+		toSerialize["threeLetterIsoLanguageName"] = o.ThreeLetterIsoLanguageName
+	}
+	if !IsNil(o.TwoLetterIsoLanguageName) {
+		toSerialize["twoLetterIsoLanguageName"] = o.TwoLetterIsoLanguageName
+	}
+	if !IsNil(o.IsRightToLeft) {
+		toSerialize["isRightToLeft"] = o.IsRightToLeft
+	}
+	if !IsNil(o.CultureName) {
+		toSerialize["cultureName"] = o.CultureName
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.NativeName) {
+		toSerialize["nativeName"] = o.NativeName
+	}
+	if !IsNil(o.DateTimeFormat) {
+		toSerialize["dateTimeFormat"] = o.DateTimeFormat
+	}
+	return toSerialize, nil
 }
 
 type NullableCurrentCultureDto struct {

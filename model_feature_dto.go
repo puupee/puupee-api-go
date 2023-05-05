@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the FeatureDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FeatureDto{}
+
 // FeatureDto struct for FeatureDto
 type FeatureDto struct {
 	Name *string `json:"name,omitempty"`
@@ -45,7 +48,7 @@ func NewFeatureDtoWithDefaults() *FeatureDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FeatureDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *FeatureDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FeatureDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *FeatureDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *FeatureDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *FeatureDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *FeatureDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *FeatureDto) SetDisplayName(v string) {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *FeatureDto) GetValue() string {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *FeatureDto) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetValueOk() (*string, bool) {
-	if o == nil || isNil(o.Value) {
-    return nil, false
+	if o == nil || IsNil(o.Value) {
+		return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *FeatureDto) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *FeatureDto) SetValue(v string) {
 
 // GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *FeatureDto) GetProvider() FeatureProviderDto {
-	if o == nil || isNil(o.Provider) {
+	if o == nil || IsNil(o.Provider) {
 		var ret FeatureProviderDto
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *FeatureDto) GetProvider() FeatureProviderDto {
 // GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetProviderOk() (*FeatureProviderDto, bool) {
-	if o == nil || isNil(o.Provider) {
-    return nil, false
+	if o == nil || IsNil(o.Provider) {
+		return nil, false
 	}
 	return o.Provider, true
 }
 
 // HasProvider returns a boolean if a field has been set.
 func (o *FeatureDto) HasProvider() bool {
-	if o != nil && !isNil(o.Provider) {
+	if o != nil && !IsNil(o.Provider) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *FeatureDto) SetProvider(v FeatureProviderDto) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *FeatureDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *FeatureDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *FeatureDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -205,7 +208,7 @@ func (o *FeatureDto) SetDescription(v string) {
 
 // GetValueType returns the ValueType field value if set, zero value otherwise.
 func (o *FeatureDto) GetValueType() IStringValueType {
-	if o == nil || isNil(o.ValueType) {
+	if o == nil || IsNil(o.ValueType) {
 		var ret IStringValueType
 		return ret
 	}
@@ -215,15 +218,15 @@ func (o *FeatureDto) GetValueType() IStringValueType {
 // GetValueTypeOk returns a tuple with the ValueType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetValueTypeOk() (*IStringValueType, bool) {
-	if o == nil || isNil(o.ValueType) {
-    return nil, false
+	if o == nil || IsNil(o.ValueType) {
+		return nil, false
 	}
 	return o.ValueType, true
 }
 
 // HasValueType returns a boolean if a field has been set.
 func (o *FeatureDto) HasValueType() bool {
-	if o != nil && !isNil(o.ValueType) {
+	if o != nil && !IsNil(o.ValueType) {
 		return true
 	}
 
@@ -237,7 +240,7 @@ func (o *FeatureDto) SetValueType(v IStringValueType) {
 
 // GetDepth returns the Depth field value if set, zero value otherwise.
 func (o *FeatureDto) GetDepth() int32 {
-	if o == nil || isNil(o.Depth) {
+	if o == nil || IsNil(o.Depth) {
 		var ret int32
 		return ret
 	}
@@ -247,15 +250,15 @@ func (o *FeatureDto) GetDepth() int32 {
 // GetDepthOk returns a tuple with the Depth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetDepthOk() (*int32, bool) {
-	if o == nil || isNil(o.Depth) {
-    return nil, false
+	if o == nil || IsNil(o.Depth) {
+		return nil, false
 	}
 	return o.Depth, true
 }
 
 // HasDepth returns a boolean if a field has been set.
 func (o *FeatureDto) HasDepth() bool {
-	if o != nil && !isNil(o.Depth) {
+	if o != nil && !IsNil(o.Depth) {
 		return true
 	}
 
@@ -269,7 +272,7 @@ func (o *FeatureDto) SetDepth(v int32) {
 
 // GetParentName returns the ParentName field value if set, zero value otherwise.
 func (o *FeatureDto) GetParentName() string {
-	if o == nil || isNil(o.ParentName) {
+	if o == nil || IsNil(o.ParentName) {
 		var ret string
 		return ret
 	}
@@ -279,15 +282,15 @@ func (o *FeatureDto) GetParentName() string {
 // GetParentNameOk returns a tuple with the ParentName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureDto) GetParentNameOk() (*string, bool) {
-	if o == nil || isNil(o.ParentName) {
-    return nil, false
+	if o == nil || IsNil(o.ParentName) {
+		return nil, false
 	}
 	return o.ParentName, true
 }
 
 // HasParentName returns a boolean if a field has been set.
 func (o *FeatureDto) HasParentName() bool {
-	if o != nil && !isNil(o.ParentName) {
+	if o != nil && !IsNil(o.ParentName) {
 		return true
 	}
 
@@ -300,32 +303,40 @@ func (o *FeatureDto) SetParentName(v string) {
 }
 
 func (o FeatureDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
-	if !isNil(o.Provider) {
-		toSerialize["provider"] = o.Provider
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.ValueType) {
-		toSerialize["valueType"] = o.ValueType
-	}
-	if !isNil(o.Depth) {
-		toSerialize["depth"] = o.Depth
-	}
-	if !isNil(o.ParentName) {
-		toSerialize["parentName"] = o.ParentName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o FeatureDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
+	}
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.ValueType) {
+		toSerialize["valueType"] = o.ValueType
+	}
+	if !IsNil(o.Depth) {
+		toSerialize["depth"] = o.Depth
+	}
+	if !IsNil(o.ParentName) {
+		toSerialize["parentName"] = o.ParentName
+	}
+	return toSerialize, nil
 }
 
 type NullableFeatureDto struct {

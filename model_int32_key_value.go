@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the Int32KeyValue type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Int32KeyValue{}
+
 // Int32KeyValue struct for Int32KeyValue
 type Int32KeyValue struct {
 	Value *int32 `json:"value,omitempty"`
@@ -42,7 +45,7 @@ func NewInt32KeyValueWithDefaults() *Int32KeyValue {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *Int32KeyValue) GetValue() int32 {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret int32
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *Int32KeyValue) GetValue() int32 {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Int32KeyValue) GetValueOk() (*int32, bool) {
-	if o == nil || isNil(o.Value) {
-    return nil, false
+	if o == nil || IsNil(o.Value) {
+		return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *Int32KeyValue) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *Int32KeyValue) SetValue(v int32) {
 
 // GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
 func (o *Int32KeyValue) GetDurationSeconds() float64 {
-	if o == nil || isNil(o.DurationSeconds) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		var ret float64
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *Int32KeyValue) GetDurationSeconds() float64 {
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Int32KeyValue) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil || isNil(o.DurationSeconds) {
-    return nil, false
+	if o == nil || IsNil(o.DurationSeconds) {
+		return nil, false
 	}
 	return o.DurationSeconds, true
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *Int32KeyValue) HasDurationSeconds() bool {
-	if o != nil && !isNil(o.DurationSeconds) {
+	if o != nil && !IsNil(o.DurationSeconds) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *Int32KeyValue) SetDurationSeconds(v float64) {
 
 // GetExpiredAt returns the ExpiredAt field value if set, zero value otherwise.
 func (o *Int32KeyValue) GetExpiredAt() time.Time {
-	if o == nil || isNil(o.ExpiredAt) {
+	if o == nil || IsNil(o.ExpiredAt) {
 		var ret time.Time
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *Int32KeyValue) GetExpiredAt() time.Time {
 // GetExpiredAtOk returns a tuple with the ExpiredAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Int32KeyValue) GetExpiredAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.ExpiredAt) {
-    return nil, false
+	if o == nil || IsNil(o.ExpiredAt) {
+		return nil, false
 	}
 	return o.ExpiredAt, true
 }
 
 // HasExpiredAt returns a boolean if a field has been set.
 func (o *Int32KeyValue) HasExpiredAt() bool {
-	if o != nil && !isNil(o.ExpiredAt) {
+	if o != nil && !IsNil(o.ExpiredAt) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *Int32KeyValue) SetExpiredAt(v time.Time) {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *Int32KeyValue) GetCreatedAt() time.Time {
-	if o == nil || isNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *Int32KeyValue) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Int32KeyValue) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
 	}
 	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *Int32KeyValue) HasCreatedAt() bool {
-	if o != nil && !isNil(o.CreatedAt) {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
@@ -169,20 +172,28 @@ func (o *Int32KeyValue) SetCreatedAt(v time.Time) {
 }
 
 func (o Int32KeyValue) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
-	if !isNil(o.DurationSeconds) {
-		toSerialize["durationSeconds"] = o.DurationSeconds
-	}
-	if !isNil(o.ExpiredAt) {
-		toSerialize["expiredAt"] = o.ExpiredAt
-	}
-	if !isNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Int32KeyValue) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
+	}
+	if !IsNil(o.DurationSeconds) {
+		toSerialize["durationSeconds"] = o.DurationSeconds
+	}
+	if !IsNil(o.ExpiredAt) {
+		toSerialize["expiredAt"] = o.ExpiredAt
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	return toSerialize, nil
 }
 
 type NullableInt32KeyValue struct {

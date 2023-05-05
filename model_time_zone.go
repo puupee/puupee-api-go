@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TimeZone type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TimeZone{}
+
 // TimeZone struct for TimeZone
 type TimeZone struct {
 	Iana *IanaTimeZone `json:"iana,omitempty"`
@@ -39,7 +42,7 @@ func NewTimeZoneWithDefaults() *TimeZone {
 
 // GetIana returns the Iana field value if set, zero value otherwise.
 func (o *TimeZone) GetIana() IanaTimeZone {
-	if o == nil || isNil(o.Iana) {
+	if o == nil || IsNil(o.Iana) {
 		var ret IanaTimeZone
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *TimeZone) GetIana() IanaTimeZone {
 // GetIanaOk returns a tuple with the Iana field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeZone) GetIanaOk() (*IanaTimeZone, bool) {
-	if o == nil || isNil(o.Iana) {
-    return nil, false
+	if o == nil || IsNil(o.Iana) {
+		return nil, false
 	}
 	return o.Iana, true
 }
 
 // HasIana returns a boolean if a field has been set.
 func (o *TimeZone) HasIana() bool {
-	if o != nil && !isNil(o.Iana) {
+	if o != nil && !IsNil(o.Iana) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *TimeZone) SetIana(v IanaTimeZone) {
 
 // GetWindows returns the Windows field value if set, zero value otherwise.
 func (o *TimeZone) GetWindows() WindowsTimeZone {
-	if o == nil || isNil(o.Windows) {
+	if o == nil || IsNil(o.Windows) {
 		var ret WindowsTimeZone
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *TimeZone) GetWindows() WindowsTimeZone {
 // GetWindowsOk returns a tuple with the Windows field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimeZone) GetWindowsOk() (*WindowsTimeZone, bool) {
-	if o == nil || isNil(o.Windows) {
-    return nil, false
+	if o == nil || IsNil(o.Windows) {
+		return nil, false
 	}
 	return o.Windows, true
 }
 
 // HasWindows returns a boolean if a field has been set.
 func (o *TimeZone) HasWindows() bool {
-	if o != nil && !isNil(o.Windows) {
+	if o != nil && !IsNil(o.Windows) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *TimeZone) SetWindows(v WindowsTimeZone) {
 }
 
 func (o TimeZone) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Iana) {
-		toSerialize["iana"] = o.Iana
-	}
-	if !isNil(o.Windows) {
-		toSerialize["windows"] = o.Windows
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o TimeZone) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Iana) {
+		toSerialize["iana"] = o.Iana
+	}
+	if !IsNil(o.Windows) {
+		toSerialize["windows"] = o.Windows
+	}
+	return toSerialize, nil
 }
 
 type NullableTimeZone struct {

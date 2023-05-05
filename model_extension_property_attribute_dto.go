@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionPropertyAttributeDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionPropertyAttributeDto{}
+
 // ExtensionPropertyAttributeDto struct for ExtensionPropertyAttributeDto
 type ExtensionPropertyAttributeDto struct {
 	TypeSimple *string `json:"typeSimple,omitempty"`
@@ -39,7 +42,7 @@ func NewExtensionPropertyAttributeDtoWithDefaults() *ExtensionPropertyAttributeD
 
 // GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *ExtensionPropertyAttributeDto) GetTypeSimple() string {
-	if o == nil || isNil(o.TypeSimple) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *ExtensionPropertyAttributeDto) GetTypeSimple() string {
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyAttributeDto) GetTypeSimpleOk() (*string, bool) {
-	if o == nil || isNil(o.TypeSimple) {
-    return nil, false
+	if o == nil || IsNil(o.TypeSimple) {
+		return nil, false
 	}
 	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *ExtensionPropertyAttributeDto) HasTypeSimple() bool {
-	if o != nil && !isNil(o.TypeSimple) {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *ExtensionPropertyAttributeDto) SetTypeSimple(v string) {
 
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *ExtensionPropertyAttributeDto) GetConfig() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Config) {
+	if o == nil || IsNil(o.Config) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *ExtensionPropertyAttributeDto) GetConfig() map[string]map[string]interf
 // GetConfigOk returns a tuple with the Config field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyAttributeDto) GetConfigOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Config) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Config) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Config, true
 }
 
 // HasConfig returns a boolean if a field has been set.
 func (o *ExtensionPropertyAttributeDto) HasConfig() bool {
-	if o != nil && !isNil(o.Config) {
+	if o != nil && !IsNil(o.Config) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *ExtensionPropertyAttributeDto) SetConfig(v map[string]map[string]interf
 }
 
 func (o ExtensionPropertyAttributeDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.TypeSimple) {
-		toSerialize["typeSimple"] = o.TypeSimple
-	}
-	if !isNil(o.Config) {
-		toSerialize["config"] = o.Config
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionPropertyAttributeDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
+	}
+	if !IsNil(o.Config) {
+		toSerialize["config"] = o.Config
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionPropertyAttributeDto struct {

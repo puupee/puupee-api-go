@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreatePushNotificationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreatePushNotificationDto{}
+
 // CreatePushNotificationDto struct for CreatePushNotificationDto
 type CreatePushNotificationDto struct {
 	Title *string `json:"title,omitempty"`
@@ -42,7 +45,7 @@ func NewCreatePushNotificationDtoWithDefaults() *CreatePushNotificationDto {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *CreatePushNotificationDto) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *CreatePushNotificationDto) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePushNotificationDto) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *CreatePushNotificationDto) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *CreatePushNotificationDto) SetTitle(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreatePushNotificationDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *CreatePushNotificationDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePushNotificationDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreatePushNotificationDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *CreatePushNotificationDto) SetDescription(v string) {
 
 // GetPuupeeId returns the PuupeeId field value if set, zero value otherwise.
 func (o *CreatePushNotificationDto) GetPuupeeId() string {
-	if o == nil || isNil(o.PuupeeId) {
+	if o == nil || IsNil(o.PuupeeId) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *CreatePushNotificationDto) GetPuupeeId() string {
 // GetPuupeeIdOk returns a tuple with the PuupeeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePushNotificationDto) GetPuupeeIdOk() (*string, bool) {
-	if o == nil || isNil(o.PuupeeId) {
-    return nil, false
+	if o == nil || IsNil(o.PuupeeId) {
+		return nil, false
 	}
 	return o.PuupeeId, true
 }
 
 // HasPuupeeId returns a boolean if a field has been set.
 func (o *CreatePushNotificationDto) HasPuupeeId() bool {
-	if o != nil && !isNil(o.PuupeeId) {
+	if o != nil && !IsNil(o.PuupeeId) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *CreatePushNotificationDto) SetPuupeeId(v string) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *CreatePushNotificationDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *CreatePushNotificationDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePushNotificationDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *CreatePushNotificationDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *CreatePushNotificationDto) SetCreatorId(v string) {
 
 // GetApp returns the App field value if set, zero value otherwise.
 func (o *CreatePushNotificationDto) GetApp() string {
-	if o == nil || isNil(o.App) {
+	if o == nil || IsNil(o.App) {
 		var ret string
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *CreatePushNotificationDto) GetApp() string {
 // GetAppOk returns a tuple with the App field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePushNotificationDto) GetAppOk() (*string, bool) {
-	if o == nil || isNil(o.App) {
-    return nil, false
+	if o == nil || IsNil(o.App) {
+		return nil, false
 	}
 	return o.App, true
 }
 
 // HasApp returns a boolean if a field has been set.
 func (o *CreatePushNotificationDto) HasApp() bool {
-	if o != nil && !isNil(o.App) {
+	if o != nil && !IsNil(o.App) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *CreatePushNotificationDto) SetApp(v string) {
 }
 
 func (o CreatePushNotificationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.PuupeeId) {
-		toSerialize["puupeeId"] = o.PuupeeId
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.App) {
-		toSerialize["app"] = o.App
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreatePushNotificationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.PuupeeId) {
+		toSerialize["puupeeId"] = o.PuupeeId
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.App) {
+		toSerialize["app"] = o.App
+	}
+	return toSerialize, nil
 }
 
 type NullableCreatePushNotificationDto struct {

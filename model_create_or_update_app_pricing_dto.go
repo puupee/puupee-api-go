@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the CreateOrUpdateAppPricingDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppPricingDto{}
+
 // CreateOrUpdateAppPricingDto struct for CreateOrUpdateAppPricingDto
 type CreateOrUpdateAppPricingDto struct {
 	Naming *string `json:"naming,omitempty"`
@@ -54,7 +57,7 @@ func NewCreateOrUpdateAppPricingDtoWithDefaults() *CreateOrUpdateAppPricingDto {
 
 // GetNaming returns the Naming field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetNaming() string {
-	if o == nil || isNil(o.Naming) {
+	if o == nil || IsNil(o.Naming) {
 		var ret string
 		return ret
 	}
@@ -64,15 +67,15 @@ func (o *CreateOrUpdateAppPricingDto) GetNaming() string {
 // GetNamingOk returns a tuple with the Naming field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetNamingOk() (*string, bool) {
-	if o == nil || isNil(o.Naming) {
-    return nil, false
+	if o == nil || IsNil(o.Naming) {
+		return nil, false
 	}
 	return o.Naming, true
 }
 
 // HasNaming returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasNaming() bool {
-	if o != nil && !isNil(o.Naming) {
+	if o != nil && !IsNil(o.Naming) {
 		return true
 	}
 
@@ -86,7 +89,7 @@ func (o *CreateOrUpdateAppPricingDto) SetNaming(v string) {
 
 // GetMonthProductId returns the MonthProductId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthProductId() string {
-	if o == nil || isNil(o.MonthProductId) {
+	if o == nil || IsNil(o.MonthProductId) {
 		var ret string
 		return ret
 	}
@@ -96,15 +99,15 @@ func (o *CreateOrUpdateAppPricingDto) GetMonthProductId() string {
 // GetMonthProductIdOk returns a tuple with the MonthProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetMonthProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.MonthProductId) {
-    return nil, false
+	if o == nil || IsNil(o.MonthProductId) {
+		return nil, false
 	}
 	return o.MonthProductId, true
 }
 
 // HasMonthProductId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthProductId() bool {
-	if o != nil && !isNil(o.MonthProductId) {
+	if o != nil && !IsNil(o.MonthProductId) {
 		return true
 	}
 
@@ -118,7 +121,7 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthProductId(v string) {
 
 // GetYearProductId returns the YearProductId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearProductId() string {
-	if o == nil || isNil(o.YearProductId) {
+	if o == nil || IsNil(o.YearProductId) {
 		var ret string
 		return ret
 	}
@@ -128,15 +131,15 @@ func (o *CreateOrUpdateAppPricingDto) GetYearProductId() string {
 // GetYearProductIdOk returns a tuple with the YearProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetYearProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.YearProductId) {
-    return nil, false
+	if o == nil || IsNil(o.YearProductId) {
+		return nil, false
 	}
 	return o.YearProductId, true
 }
 
 // HasYearProductId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearProductId() bool {
-	if o != nil && !isNil(o.YearProductId) {
+	if o != nil && !IsNil(o.YearProductId) {
 		return true
 	}
 
@@ -150,7 +153,7 @@ func (o *CreateOrUpdateAppPricingDto) SetYearProductId(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -160,15 +163,15 @@ func (o *CreateOrUpdateAppPricingDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -182,7 +185,7 @@ func (o *CreateOrUpdateAppPricingDto) SetDescription(v string) {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -192,15 +195,15 @@ func (o *CreateOrUpdateAppPricingDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -214,7 +217,7 @@ func (o *CreateOrUpdateAppPricingDto) SetAppId(v string) {
 
 // GetMonthPrice returns the MonthPrice field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthPrice() float64 {
-	if o == nil || isNil(o.MonthPrice) {
+	if o == nil || IsNil(o.MonthPrice) {
 		var ret float64
 		return ret
 	}
@@ -224,15 +227,15 @@ func (o *CreateOrUpdateAppPricingDto) GetMonthPrice() float64 {
 // GetMonthPriceOk returns a tuple with the MonthPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetMonthPriceOk() (*float64, bool) {
-	if o == nil || isNil(o.MonthPrice) {
-    return nil, false
+	if o == nil || IsNil(o.MonthPrice) {
+		return nil, false
 	}
 	return o.MonthPrice, true
 }
 
 // HasMonthPrice returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthPrice() bool {
-	if o != nil && !isNil(o.MonthPrice) {
+	if o != nil && !IsNil(o.MonthPrice) {
 		return true
 	}
 
@@ -246,7 +249,7 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthPrice(v float64) {
 
 // GetMonthDiscount returns the MonthDiscount field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscount() float64 {
-	if o == nil || isNil(o.MonthDiscount) {
+	if o == nil || IsNil(o.MonthDiscount) {
 		var ret float64
 		return ret
 	}
@@ -256,15 +259,15 @@ func (o *CreateOrUpdateAppPricingDto) GetMonthDiscount() float64 {
 // GetMonthDiscountOk returns a tuple with the MonthDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountOk() (*float64, bool) {
-	if o == nil || isNil(o.MonthDiscount) {
-    return nil, false
+	if o == nil || IsNil(o.MonthDiscount) {
+		return nil, false
 	}
 	return o.MonthDiscount, true
 }
 
 // HasMonthDiscount returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscount() bool {
-	if o != nil && !isNil(o.MonthDiscount) {
+	if o != nil && !IsNil(o.MonthDiscount) {
 		return true
 	}
 
@@ -278,7 +281,7 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthDiscount(v float64) {
 
 // GetMonthDiscountPrice returns the MonthDiscountPrice field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountPrice() float64 {
-	if o == nil || isNil(o.MonthDiscountPrice) {
+	if o == nil || IsNil(o.MonthDiscountPrice) {
 		var ret float64
 		return ret
 	}
@@ -288,15 +291,15 @@ func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountPrice() float64 {
 // GetMonthDiscountPriceOk returns a tuple with the MonthDiscountPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountPriceOk() (*float64, bool) {
-	if o == nil || isNil(o.MonthDiscountPrice) {
-    return nil, false
+	if o == nil || IsNil(o.MonthDiscountPrice) {
+		return nil, false
 	}
 	return o.MonthDiscountPrice, true
 }
 
 // HasMonthDiscountPrice returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscountPrice() bool {
-	if o != nil && !isNil(o.MonthDiscountPrice) {
+	if o != nil && !IsNil(o.MonthDiscountPrice) {
 		return true
 	}
 
@@ -310,7 +313,7 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountPrice(v float64) {
 
 // GetMonthDiscountStartAt returns the MonthDiscountStartAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountStartAt() time.Time {
-	if o == nil || isNil(o.MonthDiscountStartAt) {
+	if o == nil || IsNil(o.MonthDiscountStartAt) {
 		var ret time.Time
 		return ret
 	}
@@ -320,15 +323,15 @@ func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountStartAt() time.Time {
 // GetMonthDiscountStartAtOk returns a tuple with the MonthDiscountStartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountStartAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.MonthDiscountStartAt) {
-    return nil, false
+	if o == nil || IsNil(o.MonthDiscountStartAt) {
+		return nil, false
 	}
 	return o.MonthDiscountStartAt, true
 }
 
 // HasMonthDiscountStartAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscountStartAt() bool {
-	if o != nil && !isNil(o.MonthDiscountStartAt) {
+	if o != nil && !IsNil(o.MonthDiscountStartAt) {
 		return true
 	}
 
@@ -342,7 +345,7 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountStartAt(v time.Time) {
 
 // GetMonthDiscountEndAt returns the MonthDiscountEndAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountEndAt() time.Time {
-	if o == nil || isNil(o.MonthDiscountEndAt) {
+	if o == nil || IsNil(o.MonthDiscountEndAt) {
 		var ret time.Time
 		return ret
 	}
@@ -352,15 +355,15 @@ func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountEndAt() time.Time {
 // GetMonthDiscountEndAtOk returns a tuple with the MonthDiscountEndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountEndAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.MonthDiscountEndAt) {
-    return nil, false
+	if o == nil || IsNil(o.MonthDiscountEndAt) {
+		return nil, false
 	}
 	return o.MonthDiscountEndAt, true
 }
 
 // HasMonthDiscountEndAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscountEndAt() bool {
-	if o != nil && !isNil(o.MonthDiscountEndAt) {
+	if o != nil && !IsNil(o.MonthDiscountEndAt) {
 		return true
 	}
 
@@ -374,7 +377,7 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountEndAt(v time.Time) {
 
 // GetYearPrice returns the YearPrice field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearPrice() float64 {
-	if o == nil || isNil(o.YearPrice) {
+	if o == nil || IsNil(o.YearPrice) {
 		var ret float64
 		return ret
 	}
@@ -384,15 +387,15 @@ func (o *CreateOrUpdateAppPricingDto) GetYearPrice() float64 {
 // GetYearPriceOk returns a tuple with the YearPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetYearPriceOk() (*float64, bool) {
-	if o == nil || isNil(o.YearPrice) {
-    return nil, false
+	if o == nil || IsNil(o.YearPrice) {
+		return nil, false
 	}
 	return o.YearPrice, true
 }
 
 // HasYearPrice returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearPrice() bool {
-	if o != nil && !isNil(o.YearPrice) {
+	if o != nil && !IsNil(o.YearPrice) {
 		return true
 	}
 
@@ -406,7 +409,7 @@ func (o *CreateOrUpdateAppPricingDto) SetYearPrice(v float64) {
 
 // GetYearDiscount returns the YearDiscount field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscount() float64 {
-	if o == nil || isNil(o.YearDiscount) {
+	if o == nil || IsNil(o.YearDiscount) {
 		var ret float64
 		return ret
 	}
@@ -416,15 +419,15 @@ func (o *CreateOrUpdateAppPricingDto) GetYearDiscount() float64 {
 // GetYearDiscountOk returns a tuple with the YearDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountOk() (*float64, bool) {
-	if o == nil || isNil(o.YearDiscount) {
-    return nil, false
+	if o == nil || IsNil(o.YearDiscount) {
+		return nil, false
 	}
 	return o.YearDiscount, true
 }
 
 // HasYearDiscount returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscount() bool {
-	if o != nil && !isNil(o.YearDiscount) {
+	if o != nil && !IsNil(o.YearDiscount) {
 		return true
 	}
 
@@ -438,7 +441,7 @@ func (o *CreateOrUpdateAppPricingDto) SetYearDiscount(v float64) {
 
 // GetYearDiscountPrice returns the YearDiscountPrice field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountPrice() float64 {
-	if o == nil || isNil(o.YearDiscountPrice) {
+	if o == nil || IsNil(o.YearDiscountPrice) {
 		var ret float64
 		return ret
 	}
@@ -448,15 +451,15 @@ func (o *CreateOrUpdateAppPricingDto) GetYearDiscountPrice() float64 {
 // GetYearDiscountPriceOk returns a tuple with the YearDiscountPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountPriceOk() (*float64, bool) {
-	if o == nil || isNil(o.YearDiscountPrice) {
-    return nil, false
+	if o == nil || IsNil(o.YearDiscountPrice) {
+		return nil, false
 	}
 	return o.YearDiscountPrice, true
 }
 
 // HasYearDiscountPrice returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscountPrice() bool {
-	if o != nil && !isNil(o.YearDiscountPrice) {
+	if o != nil && !IsNil(o.YearDiscountPrice) {
 		return true
 	}
 
@@ -470,7 +473,7 @@ func (o *CreateOrUpdateAppPricingDto) SetYearDiscountPrice(v float64) {
 
 // GetYearDiscountStartAt returns the YearDiscountStartAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountStartAt() time.Time {
-	if o == nil || isNil(o.YearDiscountStartAt) {
+	if o == nil || IsNil(o.YearDiscountStartAt) {
 		var ret time.Time
 		return ret
 	}
@@ -480,15 +483,15 @@ func (o *CreateOrUpdateAppPricingDto) GetYearDiscountStartAt() time.Time {
 // GetYearDiscountStartAtOk returns a tuple with the YearDiscountStartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountStartAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.YearDiscountStartAt) {
-    return nil, false
+	if o == nil || IsNil(o.YearDiscountStartAt) {
+		return nil, false
 	}
 	return o.YearDiscountStartAt, true
 }
 
 // HasYearDiscountStartAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscountStartAt() bool {
-	if o != nil && !isNil(o.YearDiscountStartAt) {
+	if o != nil && !IsNil(o.YearDiscountStartAt) {
 		return true
 	}
 
@@ -502,7 +505,7 @@ func (o *CreateOrUpdateAppPricingDto) SetYearDiscountStartAt(v time.Time) {
 
 // GetYearDiscountEndAt returns the YearDiscountEndAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountEndAt() time.Time {
-	if o == nil || isNil(o.YearDiscountEndAt) {
+	if o == nil || IsNil(o.YearDiscountEndAt) {
 		var ret time.Time
 		return ret
 	}
@@ -512,15 +515,15 @@ func (o *CreateOrUpdateAppPricingDto) GetYearDiscountEndAt() time.Time {
 // GetYearDiscountEndAtOk returns a tuple with the YearDiscountEndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountEndAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.YearDiscountEndAt) {
-    return nil, false
+	if o == nil || IsNil(o.YearDiscountEndAt) {
+		return nil, false
 	}
 	return o.YearDiscountEndAt, true
 }
 
 // HasYearDiscountEndAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscountEndAt() bool {
-	if o != nil && !isNil(o.YearDiscountEndAt) {
+	if o != nil && !IsNil(o.YearDiscountEndAt) {
 		return true
 	}
 
@@ -534,7 +537,7 @@ func (o *CreateOrUpdateAppPricingDto) SetYearDiscountEndAt(v time.Time) {
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetItems() []AppPricingItemDto {
-	if o == nil || isNil(o.Items) {
+	if o == nil || IsNil(o.Items) {
 		var ret []AppPricingItemDto
 		return ret
 	}
@@ -544,15 +547,15 @@ func (o *CreateOrUpdateAppPricingDto) GetItems() []AppPricingItemDto {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppPricingDto) GetItemsOk() ([]AppPricingItemDto, bool) {
-	if o == nil || isNil(o.Items) {
-    return nil, false
+	if o == nil || IsNil(o.Items) {
+		return nil, false
 	}
 	return o.Items, true
 }
 
 // HasItems returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasItems() bool {
-	if o != nil && !isNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -565,56 +568,64 @@ func (o *CreateOrUpdateAppPricingDto) SetItems(v []AppPricingItemDto) {
 }
 
 func (o CreateOrUpdateAppPricingDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Naming) {
-		toSerialize["naming"] = o.Naming
-	}
-	if !isNil(o.MonthProductId) {
-		toSerialize["monthProductId"] = o.MonthProductId
-	}
-	if !isNil(o.YearProductId) {
-		toSerialize["yearProductId"] = o.YearProductId
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
-	}
-	if !isNil(o.MonthPrice) {
-		toSerialize["monthPrice"] = o.MonthPrice
-	}
-	if !isNil(o.MonthDiscount) {
-		toSerialize["monthDiscount"] = o.MonthDiscount
-	}
-	if !isNil(o.MonthDiscountPrice) {
-		toSerialize["monthDiscountPrice"] = o.MonthDiscountPrice
-	}
-	if !isNil(o.MonthDiscountStartAt) {
-		toSerialize["monthDiscountStartAt"] = o.MonthDiscountStartAt
-	}
-	if !isNil(o.MonthDiscountEndAt) {
-		toSerialize["monthDiscountEndAt"] = o.MonthDiscountEndAt
-	}
-	if !isNil(o.YearPrice) {
-		toSerialize["yearPrice"] = o.YearPrice
-	}
-	if !isNil(o.YearDiscount) {
-		toSerialize["yearDiscount"] = o.YearDiscount
-	}
-	if !isNil(o.YearDiscountPrice) {
-		toSerialize["yearDiscountPrice"] = o.YearDiscountPrice
-	}
-	if !isNil(o.YearDiscountStartAt) {
-		toSerialize["yearDiscountStartAt"] = o.YearDiscountStartAt
-	}
-	if !isNil(o.YearDiscountEndAt) {
-		toSerialize["yearDiscountEndAt"] = o.YearDiscountEndAt
-	}
-	if !isNil(o.Items) {
-		toSerialize["items"] = o.Items
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppPricingDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Naming) {
+		toSerialize["naming"] = o.Naming
+	}
+	if !IsNil(o.MonthProductId) {
+		toSerialize["monthProductId"] = o.MonthProductId
+	}
+	if !IsNil(o.YearProductId) {
+		toSerialize["yearProductId"] = o.YearProductId
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	if !IsNil(o.MonthPrice) {
+		toSerialize["monthPrice"] = o.MonthPrice
+	}
+	if !IsNil(o.MonthDiscount) {
+		toSerialize["monthDiscount"] = o.MonthDiscount
+	}
+	if !IsNil(o.MonthDiscountPrice) {
+		toSerialize["monthDiscountPrice"] = o.MonthDiscountPrice
+	}
+	if !IsNil(o.MonthDiscountStartAt) {
+		toSerialize["monthDiscountStartAt"] = o.MonthDiscountStartAt
+	}
+	if !IsNil(o.MonthDiscountEndAt) {
+		toSerialize["monthDiscountEndAt"] = o.MonthDiscountEndAt
+	}
+	if !IsNil(o.YearPrice) {
+		toSerialize["yearPrice"] = o.YearPrice
+	}
+	if !IsNil(o.YearDiscount) {
+		toSerialize["yearDiscount"] = o.YearDiscount
+	}
+	if !IsNil(o.YearDiscountPrice) {
+		toSerialize["yearDiscountPrice"] = o.YearDiscountPrice
+	}
+	if !IsNil(o.YearDiscountStartAt) {
+		toSerialize["yearDiscountStartAt"] = o.YearDiscountStartAt
+	}
+	if !IsNil(o.YearDiscountEndAt) {
+		toSerialize["yearDiscountEndAt"] = o.YearDiscountEndAt
+	}
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppPricingDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the BindDeviceDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BindDeviceDto{}
+
 // BindDeviceDto struct for BindDeviceDto
 type BindDeviceDto struct {
 	Token *string `json:"token,omitempty"`
@@ -44,7 +47,7 @@ func NewBindDeviceDtoWithDefaults() *BindDeviceDto {
 
 // GetToken returns the Token field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetToken() string {
-	if o == nil || isNil(o.Token) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *BindDeviceDto) GetToken() string {
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetTokenOk() (*string, bool) {
-	if o == nil || isNil(o.Token) {
-    return nil, false
+	if o == nil || IsNil(o.Token) {
+		return nil, false
 	}
 	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasToken() bool {
-	if o != nil && !isNil(o.Token) {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *BindDeviceDto) SetToken(v string) {
 
 // GetTpnsToken returns the TpnsToken field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetTpnsToken() string {
-	if o == nil || isNil(o.TpnsToken) {
+	if o == nil || IsNil(o.TpnsToken) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *BindDeviceDto) GetTpnsToken() string {
 // GetTpnsTokenOk returns a tuple with the TpnsToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetTpnsTokenOk() (*string, bool) {
-	if o == nil || isNil(o.TpnsToken) {
-    return nil, false
+	if o == nil || IsNil(o.TpnsToken) {
+		return nil, false
 	}
 	return o.TpnsToken, true
 }
 
 // HasTpnsToken returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasTpnsToken() bool {
-	if o != nil && !isNil(o.TpnsToken) {
+	if o != nil && !IsNil(o.TpnsToken) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *BindDeviceDto) SetTpnsToken(v string) {
 
 // GetIsPhysicalDevice returns the IsPhysicalDevice field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetIsPhysicalDevice() bool {
-	if o == nil || isNil(o.IsPhysicalDevice) {
+	if o == nil || IsNil(o.IsPhysicalDevice) {
 		var ret bool
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *BindDeviceDto) GetIsPhysicalDevice() bool {
 // GetIsPhysicalDeviceOk returns a tuple with the IsPhysicalDevice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetIsPhysicalDeviceOk() (*bool, bool) {
-	if o == nil || isNil(o.IsPhysicalDevice) {
-    return nil, false
+	if o == nil || IsNil(o.IsPhysicalDevice) {
+		return nil, false
 	}
 	return o.IsPhysicalDevice, true
 }
 
 // HasIsPhysicalDevice returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasIsPhysicalDevice() bool {
-	if o != nil && !isNil(o.IsPhysicalDevice) {
+	if o != nil && !IsNil(o.IsPhysicalDevice) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *BindDeviceDto) SetIsPhysicalDevice(v bool) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *BindDeviceDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *BindDeviceDto) SetName(v string) {
 
 // GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetPlatform() string {
-	if o == nil || isNil(o.Platform) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *BindDeviceDto) GetPlatform() string {
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetPlatformOk() (*string, bool) {
-	if o == nil || isNil(o.Platform) {
-    return nil, false
+	if o == nil || IsNil(o.Platform) {
+		return nil, false
 	}
 	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasPlatform() bool {
-	if o != nil && !isNil(o.Platform) {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *BindDeviceDto) SetPlatform(v string) {
 
 // GetBrand returns the Brand field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetBrand() string {
-	if o == nil || isNil(o.Brand) {
+	if o == nil || IsNil(o.Brand) {
 		var ret string
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *BindDeviceDto) GetBrand() string {
 // GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetBrandOk() (*string, bool) {
-	if o == nil || isNil(o.Brand) {
-    return nil, false
+	if o == nil || IsNil(o.Brand) {
+		return nil, false
 	}
 	return o.Brand, true
 }
 
 // HasBrand returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasBrand() bool {
-	if o != nil && !isNil(o.Brand) {
+	if o != nil && !IsNil(o.Brand) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *BindDeviceDto) SetBrand(v string) {
 
 // GetSystemVersion returns the SystemVersion field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetSystemVersion() string {
-	if o == nil || isNil(o.SystemVersion) {
+	if o == nil || IsNil(o.SystemVersion) {
 		var ret string
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *BindDeviceDto) GetSystemVersion() string {
 // GetSystemVersionOk returns a tuple with the SystemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BindDeviceDto) GetSystemVersionOk() (*string, bool) {
-	if o == nil || isNil(o.SystemVersion) {
-    return nil, false
+	if o == nil || IsNil(o.SystemVersion) {
+		return nil, false
 	}
 	return o.SystemVersion, true
 }
 
 // HasSystemVersion returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasSystemVersion() bool {
-	if o != nil && !isNil(o.SystemVersion) {
+	if o != nil && !IsNil(o.SystemVersion) {
 		return true
 	}
 
@@ -267,29 +270,37 @@ func (o *BindDeviceDto) SetSystemVersion(v string) {
 }
 
 func (o BindDeviceDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Token) {
-		toSerialize["token"] = o.Token
-	}
-	if !isNil(o.TpnsToken) {
-		toSerialize["tpnsToken"] = o.TpnsToken
-	}
-	if !isNil(o.IsPhysicalDevice) {
-		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Platform) {
-		toSerialize["platform"] = o.Platform
-	}
-	if !isNil(o.Brand) {
-		toSerialize["brand"] = o.Brand
-	}
-	if !isNil(o.SystemVersion) {
-		toSerialize["systemVersion"] = o.SystemVersion
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o BindDeviceDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
+	}
+	if !IsNil(o.TpnsToken) {
+		toSerialize["tpnsToken"] = o.TpnsToken
+	}
+	if !IsNil(o.IsPhysicalDevice) {
+		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
+	}
+	if !IsNil(o.Brand) {
+		toSerialize["brand"] = o.Brand
+	}
+	if !IsNil(o.SystemVersion) {
+		toSerialize["systemVersion"] = o.SystemVersion
+	}
+	return toSerialize, nil
 }
 
 type NullableBindDeviceDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Receipt type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Receipt{}
+
 // Receipt struct for Receipt
 type Receipt struct {
 	ReceiptType *string `json:"receipt_type,omitempty"`
@@ -55,7 +58,7 @@ func NewReceiptWithDefaults() *Receipt {
 
 // GetReceiptType returns the ReceiptType field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptType() string {
-	if o == nil || isNil(o.ReceiptType) {
+	if o == nil || IsNil(o.ReceiptType) {
 		var ret string
 		return ret
 	}
@@ -65,15 +68,15 @@ func (o *Receipt) GetReceiptType() string {
 // GetReceiptTypeOk returns a tuple with the ReceiptType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetReceiptTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ReceiptType) {
-    return nil, false
+	if o == nil || IsNil(o.ReceiptType) {
+		return nil, false
 	}
 	return o.ReceiptType, true
 }
 
 // HasReceiptType returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptType() bool {
-	if o != nil && !isNil(o.ReceiptType) {
+	if o != nil && !IsNil(o.ReceiptType) {
 		return true
 	}
 
@@ -87,7 +90,7 @@ func (o *Receipt) SetReceiptType(v string) {
 
 // GetAdamId returns the AdamId field value if set, zero value otherwise.
 func (o *Receipt) GetAdamId() int32 {
-	if o == nil || isNil(o.AdamId) {
+	if o == nil || IsNil(o.AdamId) {
 		var ret int32
 		return ret
 	}
@@ -97,15 +100,15 @@ func (o *Receipt) GetAdamId() int32 {
 // GetAdamIdOk returns a tuple with the AdamId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetAdamIdOk() (*int32, bool) {
-	if o == nil || isNil(o.AdamId) {
-    return nil, false
+	if o == nil || IsNil(o.AdamId) {
+		return nil, false
 	}
 	return o.AdamId, true
 }
 
 // HasAdamId returns a boolean if a field has been set.
 func (o *Receipt) HasAdamId() bool {
-	if o != nil && !isNil(o.AdamId) {
+	if o != nil && !IsNil(o.AdamId) {
 		return true
 	}
 
@@ -119,7 +122,7 @@ func (o *Receipt) SetAdamId(v int32) {
 
 // GetAppItemId returns the AppItemId field value if set, zero value otherwise.
 func (o *Receipt) GetAppItemId() int32 {
-	if o == nil || isNil(o.AppItemId) {
+	if o == nil || IsNil(o.AppItemId) {
 		var ret int32
 		return ret
 	}
@@ -129,15 +132,15 @@ func (o *Receipt) GetAppItemId() int32 {
 // GetAppItemIdOk returns a tuple with the AppItemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetAppItemIdOk() (*int32, bool) {
-	if o == nil || isNil(o.AppItemId) {
-    return nil, false
+	if o == nil || IsNil(o.AppItemId) {
+		return nil, false
 	}
 	return o.AppItemId, true
 }
 
 // HasAppItemId returns a boolean if a field has been set.
 func (o *Receipt) HasAppItemId() bool {
-	if o != nil && !isNil(o.AppItemId) {
+	if o != nil && !IsNil(o.AppItemId) {
 		return true
 	}
 
@@ -151,7 +154,7 @@ func (o *Receipt) SetAppItemId(v int32) {
 
 // GetBundleId returns the BundleId field value if set, zero value otherwise.
 func (o *Receipt) GetBundleId() string {
-	if o == nil || isNil(o.BundleId) {
+	if o == nil || IsNil(o.BundleId) {
 		var ret string
 		return ret
 	}
@@ -161,15 +164,15 @@ func (o *Receipt) GetBundleId() string {
 // GetBundleIdOk returns a tuple with the BundleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetBundleIdOk() (*string, bool) {
-	if o == nil || isNil(o.BundleId) {
-    return nil, false
+	if o == nil || IsNil(o.BundleId) {
+		return nil, false
 	}
 	return o.BundleId, true
 }
 
 // HasBundleId returns a boolean if a field has been set.
 func (o *Receipt) HasBundleId() bool {
-	if o != nil && !isNil(o.BundleId) {
+	if o != nil && !IsNil(o.BundleId) {
 		return true
 	}
 
@@ -183,7 +186,7 @@ func (o *Receipt) SetBundleId(v string) {
 
 // GetApplicationVersion returns the ApplicationVersion field value if set, zero value otherwise.
 func (o *Receipt) GetApplicationVersion() string {
-	if o == nil || isNil(o.ApplicationVersion) {
+	if o == nil || IsNil(o.ApplicationVersion) {
 		var ret string
 		return ret
 	}
@@ -193,15 +196,15 @@ func (o *Receipt) GetApplicationVersion() string {
 // GetApplicationVersionOk returns a tuple with the ApplicationVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetApplicationVersionOk() (*string, bool) {
-	if o == nil || isNil(o.ApplicationVersion) {
-    return nil, false
+	if o == nil || IsNil(o.ApplicationVersion) {
+		return nil, false
 	}
 	return o.ApplicationVersion, true
 }
 
 // HasApplicationVersion returns a boolean if a field has been set.
 func (o *Receipt) HasApplicationVersion() bool {
-	if o != nil && !isNil(o.ApplicationVersion) {
+	if o != nil && !IsNil(o.ApplicationVersion) {
 		return true
 	}
 
@@ -215,7 +218,7 @@ func (o *Receipt) SetApplicationVersion(v string) {
 
 // GetDownloadId returns the DownloadId field value if set, zero value otherwise.
 func (o *Receipt) GetDownloadId() int32 {
-	if o == nil || isNil(o.DownloadId) {
+	if o == nil || IsNil(o.DownloadId) {
 		var ret int32
 		return ret
 	}
@@ -225,15 +228,15 @@ func (o *Receipt) GetDownloadId() int32 {
 // GetDownloadIdOk returns a tuple with the DownloadId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetDownloadIdOk() (*int32, bool) {
-	if o == nil || isNil(o.DownloadId) {
-    return nil, false
+	if o == nil || IsNil(o.DownloadId) {
+		return nil, false
 	}
 	return o.DownloadId, true
 }
 
 // HasDownloadId returns a boolean if a field has been set.
 func (o *Receipt) HasDownloadId() bool {
-	if o != nil && !isNil(o.DownloadId) {
+	if o != nil && !IsNil(o.DownloadId) {
 		return true
 	}
 
@@ -247,7 +250,7 @@ func (o *Receipt) SetDownloadId(v int32) {
 
 // GetVersionExternalIdentifier returns the VersionExternalIdentifier field value if set, zero value otherwise.
 func (o *Receipt) GetVersionExternalIdentifier() int32 {
-	if o == nil || isNil(o.VersionExternalIdentifier) {
+	if o == nil || IsNil(o.VersionExternalIdentifier) {
 		var ret int32
 		return ret
 	}
@@ -257,15 +260,15 @@ func (o *Receipt) GetVersionExternalIdentifier() int32 {
 // GetVersionExternalIdentifierOk returns a tuple with the VersionExternalIdentifier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetVersionExternalIdentifierOk() (*int32, bool) {
-	if o == nil || isNil(o.VersionExternalIdentifier) {
-    return nil, false
+	if o == nil || IsNil(o.VersionExternalIdentifier) {
+		return nil, false
 	}
 	return o.VersionExternalIdentifier, true
 }
 
 // HasVersionExternalIdentifier returns a boolean if a field has been set.
 func (o *Receipt) HasVersionExternalIdentifier() bool {
-	if o != nil && !isNil(o.VersionExternalIdentifier) {
+	if o != nil && !IsNil(o.VersionExternalIdentifier) {
 		return true
 	}
 
@@ -279,7 +282,7 @@ func (o *Receipt) SetVersionExternalIdentifier(v int32) {
 
 // GetReceiptCreationDate returns the ReceiptCreationDate field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptCreationDate() string {
-	if o == nil || isNil(o.ReceiptCreationDate) {
+	if o == nil || IsNil(o.ReceiptCreationDate) {
 		var ret string
 		return ret
 	}
@@ -289,15 +292,15 @@ func (o *Receipt) GetReceiptCreationDate() string {
 // GetReceiptCreationDateOk returns a tuple with the ReceiptCreationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetReceiptCreationDateOk() (*string, bool) {
-	if o == nil || isNil(o.ReceiptCreationDate) {
-    return nil, false
+	if o == nil || IsNil(o.ReceiptCreationDate) {
+		return nil, false
 	}
 	return o.ReceiptCreationDate, true
 }
 
 // HasReceiptCreationDate returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptCreationDate() bool {
-	if o != nil && !isNil(o.ReceiptCreationDate) {
+	if o != nil && !IsNil(o.ReceiptCreationDate) {
 		return true
 	}
 
@@ -311,7 +314,7 @@ func (o *Receipt) SetReceiptCreationDate(v string) {
 
 // GetReceiptCreationDateMs returns the ReceiptCreationDateMs field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptCreationDateMs() string {
-	if o == nil || isNil(o.ReceiptCreationDateMs) {
+	if o == nil || IsNil(o.ReceiptCreationDateMs) {
 		var ret string
 		return ret
 	}
@@ -321,15 +324,15 @@ func (o *Receipt) GetReceiptCreationDateMs() string {
 // GetReceiptCreationDateMsOk returns a tuple with the ReceiptCreationDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetReceiptCreationDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.ReceiptCreationDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.ReceiptCreationDateMs) {
+		return nil, false
 	}
 	return o.ReceiptCreationDateMs, true
 }
 
 // HasReceiptCreationDateMs returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptCreationDateMs() bool {
-	if o != nil && !isNil(o.ReceiptCreationDateMs) {
+	if o != nil && !IsNil(o.ReceiptCreationDateMs) {
 		return true
 	}
 
@@ -343,7 +346,7 @@ func (o *Receipt) SetReceiptCreationDateMs(v string) {
 
 // GetReceiptCreationDatePst returns the ReceiptCreationDatePst field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptCreationDatePst() string {
-	if o == nil || isNil(o.ReceiptCreationDatePst) {
+	if o == nil || IsNil(o.ReceiptCreationDatePst) {
 		var ret string
 		return ret
 	}
@@ -353,15 +356,15 @@ func (o *Receipt) GetReceiptCreationDatePst() string {
 // GetReceiptCreationDatePstOk returns a tuple with the ReceiptCreationDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetReceiptCreationDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.ReceiptCreationDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.ReceiptCreationDatePst) {
+		return nil, false
 	}
 	return o.ReceiptCreationDatePst, true
 }
 
 // HasReceiptCreationDatePst returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptCreationDatePst() bool {
-	if o != nil && !isNil(o.ReceiptCreationDatePst) {
+	if o != nil && !IsNil(o.ReceiptCreationDatePst) {
 		return true
 	}
 
@@ -375,7 +378,7 @@ func (o *Receipt) SetReceiptCreationDatePst(v string) {
 
 // GetRequestDate returns the RequestDate field value if set, zero value otherwise.
 func (o *Receipt) GetRequestDate() string {
-	if o == nil || isNil(o.RequestDate) {
+	if o == nil || IsNil(o.RequestDate) {
 		var ret string
 		return ret
 	}
@@ -385,15 +388,15 @@ func (o *Receipt) GetRequestDate() string {
 // GetRequestDateOk returns a tuple with the RequestDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetRequestDateOk() (*string, bool) {
-	if o == nil || isNil(o.RequestDate) {
-    return nil, false
+	if o == nil || IsNil(o.RequestDate) {
+		return nil, false
 	}
 	return o.RequestDate, true
 }
 
 // HasRequestDate returns a boolean if a field has been set.
 func (o *Receipt) HasRequestDate() bool {
-	if o != nil && !isNil(o.RequestDate) {
+	if o != nil && !IsNil(o.RequestDate) {
 		return true
 	}
 
@@ -407,7 +410,7 @@ func (o *Receipt) SetRequestDate(v string) {
 
 // GetRequestDateMs returns the RequestDateMs field value if set, zero value otherwise.
 func (o *Receipt) GetRequestDateMs() string {
-	if o == nil || isNil(o.RequestDateMs) {
+	if o == nil || IsNil(o.RequestDateMs) {
 		var ret string
 		return ret
 	}
@@ -417,15 +420,15 @@ func (o *Receipt) GetRequestDateMs() string {
 // GetRequestDateMsOk returns a tuple with the RequestDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetRequestDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.RequestDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.RequestDateMs) {
+		return nil, false
 	}
 	return o.RequestDateMs, true
 }
 
 // HasRequestDateMs returns a boolean if a field has been set.
 func (o *Receipt) HasRequestDateMs() bool {
-	if o != nil && !isNil(o.RequestDateMs) {
+	if o != nil && !IsNil(o.RequestDateMs) {
 		return true
 	}
 
@@ -439,7 +442,7 @@ func (o *Receipt) SetRequestDateMs(v string) {
 
 // GetRequestDatePst returns the RequestDatePst field value if set, zero value otherwise.
 func (o *Receipt) GetRequestDatePst() string {
-	if o == nil || isNil(o.RequestDatePst) {
+	if o == nil || IsNil(o.RequestDatePst) {
 		var ret string
 		return ret
 	}
@@ -449,15 +452,15 @@ func (o *Receipt) GetRequestDatePst() string {
 // GetRequestDatePstOk returns a tuple with the RequestDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetRequestDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.RequestDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.RequestDatePst) {
+		return nil, false
 	}
 	return o.RequestDatePst, true
 }
 
 // HasRequestDatePst returns a boolean if a field has been set.
 func (o *Receipt) HasRequestDatePst() bool {
-	if o != nil && !isNil(o.RequestDatePst) {
+	if o != nil && !IsNil(o.RequestDatePst) {
 		return true
 	}
 
@@ -471,7 +474,7 @@ func (o *Receipt) SetRequestDatePst(v string) {
 
 // GetOriginalPurchaseDate returns the OriginalPurchaseDate field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalPurchaseDate() string {
-	if o == nil || isNil(o.OriginalPurchaseDate) {
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
 		var ret string
 		return ret
 	}
@@ -481,15 +484,15 @@ func (o *Receipt) GetOriginalPurchaseDate() string {
 // GetOriginalPurchaseDateOk returns a tuple with the OriginalPurchaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetOriginalPurchaseDateOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalPurchaseDate) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
+		return nil, false
 	}
 	return o.OriginalPurchaseDate, true
 }
 
 // HasOriginalPurchaseDate returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalPurchaseDate() bool {
-	if o != nil && !isNil(o.OriginalPurchaseDate) {
+	if o != nil && !IsNil(o.OriginalPurchaseDate) {
 		return true
 	}
 
@@ -503,7 +506,7 @@ func (o *Receipt) SetOriginalPurchaseDate(v string) {
 
 // GetOriginalPurchaseDateMs returns the OriginalPurchaseDateMs field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalPurchaseDateMs() string {
-	if o == nil || isNil(o.OriginalPurchaseDateMs) {
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
 		var ret string
 		return ret
 	}
@@ -513,15 +516,15 @@ func (o *Receipt) GetOriginalPurchaseDateMs() string {
 // GetOriginalPurchaseDateMsOk returns a tuple with the OriginalPurchaseDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetOriginalPurchaseDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalPurchaseDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
+		return nil, false
 	}
 	return o.OriginalPurchaseDateMs, true
 }
 
 // HasOriginalPurchaseDateMs returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalPurchaseDateMs() bool {
-	if o != nil && !isNil(o.OriginalPurchaseDateMs) {
+	if o != nil && !IsNil(o.OriginalPurchaseDateMs) {
 		return true
 	}
 
@@ -535,7 +538,7 @@ func (o *Receipt) SetOriginalPurchaseDateMs(v string) {
 
 // GetOriginalPurchaseDatePst returns the OriginalPurchaseDatePst field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalPurchaseDatePst() string {
-	if o == nil || isNil(o.OriginalPurchaseDatePst) {
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
 		var ret string
 		return ret
 	}
@@ -545,15 +548,15 @@ func (o *Receipt) GetOriginalPurchaseDatePst() string {
 // GetOriginalPurchaseDatePstOk returns a tuple with the OriginalPurchaseDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetOriginalPurchaseDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalPurchaseDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
+		return nil, false
 	}
 	return o.OriginalPurchaseDatePst, true
 }
 
 // HasOriginalPurchaseDatePst returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalPurchaseDatePst() bool {
-	if o != nil && !isNil(o.OriginalPurchaseDatePst) {
+	if o != nil && !IsNil(o.OriginalPurchaseDatePst) {
 		return true
 	}
 
@@ -567,7 +570,7 @@ func (o *Receipt) SetOriginalPurchaseDatePst(v string) {
 
 // GetOriginalApplicationVersion returns the OriginalApplicationVersion field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalApplicationVersion() string {
-	if o == nil || isNil(o.OriginalApplicationVersion) {
+	if o == nil || IsNil(o.OriginalApplicationVersion) {
 		var ret string
 		return ret
 	}
@@ -577,15 +580,15 @@ func (o *Receipt) GetOriginalApplicationVersion() string {
 // GetOriginalApplicationVersionOk returns a tuple with the OriginalApplicationVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetOriginalApplicationVersionOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalApplicationVersion) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalApplicationVersion) {
+		return nil, false
 	}
 	return o.OriginalApplicationVersion, true
 }
 
 // HasOriginalApplicationVersion returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalApplicationVersion() bool {
-	if o != nil && !isNil(o.OriginalApplicationVersion) {
+	if o != nil && !IsNil(o.OriginalApplicationVersion) {
 		return true
 	}
 
@@ -599,7 +602,7 @@ func (o *Receipt) SetOriginalApplicationVersion(v string) {
 
 // GetInApp returns the InApp field value if set, zero value otherwise.
 func (o *Receipt) GetInApp() []InApp {
-	if o == nil || isNil(o.InApp) {
+	if o == nil || IsNil(o.InApp) {
 		var ret []InApp
 		return ret
 	}
@@ -609,15 +612,15 @@ func (o *Receipt) GetInApp() []InApp {
 // GetInAppOk returns a tuple with the InApp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Receipt) GetInAppOk() ([]InApp, bool) {
-	if o == nil || isNil(o.InApp) {
-    return nil, false
+	if o == nil || IsNil(o.InApp) {
+		return nil, false
 	}
 	return o.InApp, true
 }
 
 // HasInApp returns a boolean if a field has been set.
 func (o *Receipt) HasInApp() bool {
-	if o != nil && !isNil(o.InApp) {
+	if o != nil && !IsNil(o.InApp) {
 		return true
 	}
 
@@ -630,62 +633,70 @@ func (o *Receipt) SetInApp(v []InApp) {
 }
 
 func (o Receipt) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ReceiptType) {
-		toSerialize["receipt_type"] = o.ReceiptType
-	}
-	if !isNil(o.AdamId) {
-		toSerialize["adam_id"] = o.AdamId
-	}
-	if !isNil(o.AppItemId) {
-		toSerialize["app_item_id"] = o.AppItemId
-	}
-	if !isNil(o.BundleId) {
-		toSerialize["bundle_id"] = o.BundleId
-	}
-	if !isNil(o.ApplicationVersion) {
-		toSerialize["application_version"] = o.ApplicationVersion
-	}
-	if !isNil(o.DownloadId) {
-		toSerialize["download_id"] = o.DownloadId
-	}
-	if !isNil(o.VersionExternalIdentifier) {
-		toSerialize["version_external_identifier"] = o.VersionExternalIdentifier
-	}
-	if !isNil(o.ReceiptCreationDate) {
-		toSerialize["receipt_creation_date"] = o.ReceiptCreationDate
-	}
-	if !isNil(o.ReceiptCreationDateMs) {
-		toSerialize["receipt_creation_date_ms"] = o.ReceiptCreationDateMs
-	}
-	if !isNil(o.ReceiptCreationDatePst) {
-		toSerialize["receipt_creation_date_pst"] = o.ReceiptCreationDatePst
-	}
-	if !isNil(o.RequestDate) {
-		toSerialize["request_date"] = o.RequestDate
-	}
-	if !isNil(o.RequestDateMs) {
-		toSerialize["request_date_ms"] = o.RequestDateMs
-	}
-	if !isNil(o.RequestDatePst) {
-		toSerialize["request_date_pst"] = o.RequestDatePst
-	}
-	if !isNil(o.OriginalPurchaseDate) {
-		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate
-	}
-	if !isNil(o.OriginalPurchaseDateMs) {
-		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs
-	}
-	if !isNil(o.OriginalPurchaseDatePst) {
-		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst
-	}
-	if !isNil(o.OriginalApplicationVersion) {
-		toSerialize["original_application_version"] = o.OriginalApplicationVersion
-	}
-	if !isNil(o.InApp) {
-		toSerialize["in_app"] = o.InApp
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Receipt) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ReceiptType) {
+		toSerialize["receipt_type"] = o.ReceiptType
+	}
+	if !IsNil(o.AdamId) {
+		toSerialize["adam_id"] = o.AdamId
+	}
+	if !IsNil(o.AppItemId) {
+		toSerialize["app_item_id"] = o.AppItemId
+	}
+	if !IsNil(o.BundleId) {
+		toSerialize["bundle_id"] = o.BundleId
+	}
+	if !IsNil(o.ApplicationVersion) {
+		toSerialize["application_version"] = o.ApplicationVersion
+	}
+	if !IsNil(o.DownloadId) {
+		toSerialize["download_id"] = o.DownloadId
+	}
+	if !IsNil(o.VersionExternalIdentifier) {
+		toSerialize["version_external_identifier"] = o.VersionExternalIdentifier
+	}
+	if !IsNil(o.ReceiptCreationDate) {
+		toSerialize["receipt_creation_date"] = o.ReceiptCreationDate
+	}
+	if !IsNil(o.ReceiptCreationDateMs) {
+		toSerialize["receipt_creation_date_ms"] = o.ReceiptCreationDateMs
+	}
+	if !IsNil(o.ReceiptCreationDatePst) {
+		toSerialize["receipt_creation_date_pst"] = o.ReceiptCreationDatePst
+	}
+	if !IsNil(o.RequestDate) {
+		toSerialize["request_date"] = o.RequestDate
+	}
+	if !IsNil(o.RequestDateMs) {
+		toSerialize["request_date_ms"] = o.RequestDateMs
+	}
+	if !IsNil(o.RequestDatePst) {
+		toSerialize["request_date_pst"] = o.RequestDatePst
+	}
+	if !IsNil(o.OriginalPurchaseDate) {
+		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate
+	}
+	if !IsNil(o.OriginalPurchaseDateMs) {
+		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs
+	}
+	if !IsNil(o.OriginalPurchaseDatePst) {
+		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst
+	}
+	if !IsNil(o.OriginalApplicationVersion) {
+		toSerialize["original_application_version"] = o.OriginalApplicationVersion
+	}
+	if !IsNil(o.InApp) {
+		toSerialize["in_app"] = o.InApp
+	}
+	return toSerialize, nil
 }
 
 type NullableReceipt struct {

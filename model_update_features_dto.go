@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdateFeaturesDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateFeaturesDto{}
+
 // UpdateFeaturesDto struct for UpdateFeaturesDto
 type UpdateFeaturesDto struct {
 	Features []UpdateFeatureDto `json:"features,omitempty"`
@@ -38,7 +41,7 @@ func NewUpdateFeaturesDtoWithDefaults() *UpdateFeaturesDto {
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
 func (o *UpdateFeaturesDto) GetFeatures() []UpdateFeatureDto {
-	if o == nil || isNil(o.Features) {
+	if o == nil || IsNil(o.Features) {
 		var ret []UpdateFeatureDto
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *UpdateFeaturesDto) GetFeatures() []UpdateFeatureDto {
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateFeaturesDto) GetFeaturesOk() ([]UpdateFeatureDto, bool) {
-	if o == nil || isNil(o.Features) {
-    return nil, false
+	if o == nil || IsNil(o.Features) {
+		return nil, false
 	}
 	return o.Features, true
 }
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *UpdateFeaturesDto) HasFeatures() bool {
-	if o != nil && !isNil(o.Features) {
+	if o != nil && !IsNil(o.Features) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *UpdateFeaturesDto) SetFeatures(v []UpdateFeatureDto) {
 }
 
 func (o UpdateFeaturesDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Features) {
-		toSerialize["features"] = o.Features
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UpdateFeaturesDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Features) {
+		toSerialize["features"] = o.Features
+	}
+	return toSerialize, nil
 }
 
 type NullableUpdateFeaturesDto struct {

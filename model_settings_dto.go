@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SettingsDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SettingsDto{}
+
 // SettingsDto struct for SettingsDto
 type SettingsDto struct {
 	AppTheme *AppTheme `json:"appTheme,omitempty"`
@@ -40,7 +43,7 @@ func NewSettingsDtoWithDefaults() *SettingsDto {
 
 // GetAppTheme returns the AppTheme field value if set, zero value otherwise.
 func (o *SettingsDto) GetAppTheme() AppTheme {
-	if o == nil || isNil(o.AppTheme) {
+	if o == nil || IsNil(o.AppTheme) {
 		var ret AppTheme
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *SettingsDto) GetAppTheme() AppTheme {
 // GetAppThemeOk returns a tuple with the AppTheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsDto) GetAppThemeOk() (*AppTheme, bool) {
-	if o == nil || isNil(o.AppTheme) {
-    return nil, false
+	if o == nil || IsNil(o.AppTheme) {
+		return nil, false
 	}
 	return o.AppTheme, true
 }
 
 // HasAppTheme returns a boolean if a field has been set.
 func (o *SettingsDto) HasAppTheme() bool {
-	if o != nil && !isNil(o.AppTheme) {
+	if o != nil && !IsNil(o.AppTheme) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *SettingsDto) SetAppTheme(v AppTheme) {
 
 // GetLanguage returns the Language field value if set, zero value otherwise.
 func (o *SettingsDto) GetLanguage() string {
-	if o == nil || isNil(o.Language) {
+	if o == nil || IsNil(o.Language) {
 		var ret string
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *SettingsDto) GetLanguage() string {
 // GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsDto) GetLanguageOk() (*string, bool) {
-	if o == nil || isNil(o.Language) {
-    return nil, false
+	if o == nil || IsNil(o.Language) {
+		return nil, false
 	}
 	return o.Language, true
 }
 
 // HasLanguage returns a boolean if a field has been set.
 func (o *SettingsDto) HasLanguage() bool {
-	if o != nil && !isNil(o.Language) {
+	if o != nil && !IsNil(o.Language) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *SettingsDto) SetLanguage(v string) {
 
 // GetTodoSettings returns the TodoSettings field value if set, zero value otherwise.
 func (o *SettingsDto) GetTodoSettings() TodoSettingsDto {
-	if o == nil || isNil(o.TodoSettings) {
+	if o == nil || IsNil(o.TodoSettings) {
 		var ret TodoSettingsDto
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *SettingsDto) GetTodoSettings() TodoSettingsDto {
 // GetTodoSettingsOk returns a tuple with the TodoSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SettingsDto) GetTodoSettingsOk() (*TodoSettingsDto, bool) {
-	if o == nil || isNil(o.TodoSettings) {
-    return nil, false
+	if o == nil || IsNil(o.TodoSettings) {
+		return nil, false
 	}
 	return o.TodoSettings, true
 }
 
 // HasTodoSettings returns a boolean if a field has been set.
 func (o *SettingsDto) HasTodoSettings() bool {
-	if o != nil && !isNil(o.TodoSettings) {
+	if o != nil && !IsNil(o.TodoSettings) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *SettingsDto) SetTodoSettings(v TodoSettingsDto) {
 }
 
 func (o SettingsDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.AppTheme) {
-		toSerialize["appTheme"] = o.AppTheme
-	}
-	if !isNil(o.Language) {
-		toSerialize["language"] = o.Language
-	}
-	if !isNil(o.TodoSettings) {
-		toSerialize["todoSettings"] = o.TodoSettings
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SettingsDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AppTheme) {
+		toSerialize["appTheme"] = o.AppTheme
+	}
+	if !IsNil(o.Language) {
+		toSerialize["language"] = o.Language
+	}
+	if !IsNil(o.TodoSettings) {
+		toSerialize["todoSettings"] = o.TodoSettings
+	}
+	return toSerialize, nil
 }
 
 type NullableSettingsDto struct {

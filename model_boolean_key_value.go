@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the BooleanKeyValue type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BooleanKeyValue{}
+
 // BooleanKeyValue struct for BooleanKeyValue
 type BooleanKeyValue struct {
 	Value *bool `json:"value,omitempty"`
@@ -42,7 +45,7 @@ func NewBooleanKeyValueWithDefaults() *BooleanKeyValue {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *BooleanKeyValue) GetValue() bool {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret bool
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *BooleanKeyValue) GetValue() bool {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BooleanKeyValue) GetValueOk() (*bool, bool) {
-	if o == nil || isNil(o.Value) {
-    return nil, false
+	if o == nil || IsNil(o.Value) {
+		return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *BooleanKeyValue) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *BooleanKeyValue) SetValue(v bool) {
 
 // GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
 func (o *BooleanKeyValue) GetDurationSeconds() float64 {
-	if o == nil || isNil(o.DurationSeconds) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		var ret float64
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *BooleanKeyValue) GetDurationSeconds() float64 {
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BooleanKeyValue) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil || isNil(o.DurationSeconds) {
-    return nil, false
+	if o == nil || IsNil(o.DurationSeconds) {
+		return nil, false
 	}
 	return o.DurationSeconds, true
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *BooleanKeyValue) HasDurationSeconds() bool {
-	if o != nil && !isNil(o.DurationSeconds) {
+	if o != nil && !IsNil(o.DurationSeconds) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *BooleanKeyValue) SetDurationSeconds(v float64) {
 
 // GetExpiredAt returns the ExpiredAt field value if set, zero value otherwise.
 func (o *BooleanKeyValue) GetExpiredAt() time.Time {
-	if o == nil || isNil(o.ExpiredAt) {
+	if o == nil || IsNil(o.ExpiredAt) {
 		var ret time.Time
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *BooleanKeyValue) GetExpiredAt() time.Time {
 // GetExpiredAtOk returns a tuple with the ExpiredAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BooleanKeyValue) GetExpiredAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.ExpiredAt) {
-    return nil, false
+	if o == nil || IsNil(o.ExpiredAt) {
+		return nil, false
 	}
 	return o.ExpiredAt, true
 }
 
 // HasExpiredAt returns a boolean if a field has been set.
 func (o *BooleanKeyValue) HasExpiredAt() bool {
-	if o != nil && !isNil(o.ExpiredAt) {
+	if o != nil && !IsNil(o.ExpiredAt) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *BooleanKeyValue) SetExpiredAt(v time.Time) {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *BooleanKeyValue) GetCreatedAt() time.Time {
-	if o == nil || isNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *BooleanKeyValue) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BooleanKeyValue) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
 	}
 	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *BooleanKeyValue) HasCreatedAt() bool {
-	if o != nil && !isNil(o.CreatedAt) {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
@@ -169,20 +172,28 @@ func (o *BooleanKeyValue) SetCreatedAt(v time.Time) {
 }
 
 func (o BooleanKeyValue) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
-	if !isNil(o.DurationSeconds) {
-		toSerialize["durationSeconds"] = o.DurationSeconds
-	}
-	if !isNil(o.ExpiredAt) {
-		toSerialize["expiredAt"] = o.ExpiredAt
-	}
-	if !isNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o BooleanKeyValue) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
+	}
+	if !IsNil(o.DurationSeconds) {
+		toSerialize["durationSeconds"] = o.DurationSeconds
+	}
+	if !IsNil(o.ExpiredAt) {
+		toSerialize["expiredAt"] = o.ExpiredAt
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	return toSerialize, nil
 }
 
 type NullableBooleanKeyValue struct {

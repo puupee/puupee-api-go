@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TimingDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TimingDto{}
+
 // TimingDto struct for TimingDto
 type TimingDto struct {
 	TimeZone *TimeZone `json:"timeZone,omitempty"`
@@ -38,7 +41,7 @@ func NewTimingDtoWithDefaults() *TimingDto {
 
 // GetTimeZone returns the TimeZone field value if set, zero value otherwise.
 func (o *TimingDto) GetTimeZone() TimeZone {
-	if o == nil || isNil(o.TimeZone) {
+	if o == nil || IsNil(o.TimeZone) {
 		var ret TimeZone
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *TimingDto) GetTimeZone() TimeZone {
 // GetTimeZoneOk returns a tuple with the TimeZone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TimingDto) GetTimeZoneOk() (*TimeZone, bool) {
-	if o == nil || isNil(o.TimeZone) {
-    return nil, false
+	if o == nil || IsNil(o.TimeZone) {
+		return nil, false
 	}
 	return o.TimeZone, true
 }
 
 // HasTimeZone returns a boolean if a field has been set.
 func (o *TimingDto) HasTimeZone() bool {
-	if o != nil && !isNil(o.TimeZone) {
+	if o != nil && !IsNil(o.TimeZone) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *TimingDto) SetTimeZone(v TimeZone) {
 }
 
 func (o TimingDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.TimeZone) {
-		toSerialize["timeZone"] = o.TimeZone
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o TimingDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.TimeZone) {
+		toSerialize["timeZone"] = o.TimeZone
+	}
+	return toSerialize, nil
 }
 
 type NullableTimingDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AppTheme type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AppTheme{}
+
 // AppTheme struct for AppTheme
 type AppTheme struct {
 	SourceColor *string `json:"sourceColor,omitempty"`
@@ -39,7 +42,7 @@ func NewAppThemeWithDefaults() *AppTheme {
 
 // GetSourceColor returns the SourceColor field value if set, zero value otherwise.
 func (o *AppTheme) GetSourceColor() string {
-	if o == nil || isNil(o.SourceColor) {
+	if o == nil || IsNil(o.SourceColor) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *AppTheme) GetSourceColor() string {
 // GetSourceColorOk returns a tuple with the SourceColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppTheme) GetSourceColorOk() (*string, bool) {
-	if o == nil || isNil(o.SourceColor) {
-    return nil, false
+	if o == nil || IsNil(o.SourceColor) {
+		return nil, false
 	}
 	return o.SourceColor, true
 }
 
 // HasSourceColor returns a boolean if a field has been set.
 func (o *AppTheme) HasSourceColor() bool {
-	if o != nil && !isNil(o.SourceColor) {
+	if o != nil && !IsNil(o.SourceColor) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *AppTheme) SetSourceColor(v string) {
 
 // GetThemeMode returns the ThemeMode field value if set, zero value otherwise.
 func (o *AppTheme) GetThemeMode() AppThemeMode {
-	if o == nil || isNil(o.ThemeMode) {
+	if o == nil || IsNil(o.ThemeMode) {
 		var ret AppThemeMode
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *AppTheme) GetThemeMode() AppThemeMode {
 // GetThemeModeOk returns a tuple with the ThemeMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppTheme) GetThemeModeOk() (*AppThemeMode, bool) {
-	if o == nil || isNil(o.ThemeMode) {
-    return nil, false
+	if o == nil || IsNil(o.ThemeMode) {
+		return nil, false
 	}
 	return o.ThemeMode, true
 }
 
 // HasThemeMode returns a boolean if a field has been set.
 func (o *AppTheme) HasThemeMode() bool {
-	if o != nil && !isNil(o.ThemeMode) {
+	if o != nil && !IsNil(o.ThemeMode) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *AppTheme) SetThemeMode(v AppThemeMode) {
 }
 
 func (o AppTheme) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.SourceColor) {
-		toSerialize["sourceColor"] = o.SourceColor
-	}
-	if !isNil(o.ThemeMode) {
-		toSerialize["themeMode"] = o.ThemeMode
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AppTheme) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SourceColor) {
+		toSerialize["sourceColor"] = o.SourceColor
+	}
+	if !IsNil(o.ThemeMode) {
+		toSerialize["themeMode"] = o.ThemeMode
+	}
+	return toSerialize, nil
 }
 
 type NullableAppTheme struct {

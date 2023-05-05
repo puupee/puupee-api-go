@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ProviderInfoDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ProviderInfoDto{}
+
 // ProviderInfoDto struct for ProviderInfoDto
 type ProviderInfoDto struct {
 	ProviderName *string `json:"providerName,omitempty"`
@@ -39,7 +42,7 @@ func NewProviderInfoDtoWithDefaults() *ProviderInfoDto {
 
 // GetProviderName returns the ProviderName field value if set, zero value otherwise.
 func (o *ProviderInfoDto) GetProviderName() string {
-	if o == nil || isNil(o.ProviderName) {
+	if o == nil || IsNil(o.ProviderName) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *ProviderInfoDto) GetProviderName() string {
 // GetProviderNameOk returns a tuple with the ProviderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProviderInfoDto) GetProviderNameOk() (*string, bool) {
-	if o == nil || isNil(o.ProviderName) {
-    return nil, false
+	if o == nil || IsNil(o.ProviderName) {
+		return nil, false
 	}
 	return o.ProviderName, true
 }
 
 // HasProviderName returns a boolean if a field has been set.
 func (o *ProviderInfoDto) HasProviderName() bool {
-	if o != nil && !isNil(o.ProviderName) {
+	if o != nil && !IsNil(o.ProviderName) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *ProviderInfoDto) SetProviderName(v string) {
 
 // GetProviderKey returns the ProviderKey field value if set, zero value otherwise.
 func (o *ProviderInfoDto) GetProviderKey() string {
-	if o == nil || isNil(o.ProviderKey) {
+	if o == nil || IsNil(o.ProviderKey) {
 		var ret string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *ProviderInfoDto) GetProviderKey() string {
 // GetProviderKeyOk returns a tuple with the ProviderKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProviderInfoDto) GetProviderKeyOk() (*string, bool) {
-	if o == nil || isNil(o.ProviderKey) {
-    return nil, false
+	if o == nil || IsNil(o.ProviderKey) {
+		return nil, false
 	}
 	return o.ProviderKey, true
 }
 
 // HasProviderKey returns a boolean if a field has been set.
 func (o *ProviderInfoDto) HasProviderKey() bool {
-	if o != nil && !isNil(o.ProviderKey) {
+	if o != nil && !IsNil(o.ProviderKey) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *ProviderInfoDto) SetProviderKey(v string) {
 }
 
 func (o ProviderInfoDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ProviderName) {
-		toSerialize["providerName"] = o.ProviderName
-	}
-	if !isNil(o.ProviderKey) {
-		toSerialize["providerKey"] = o.ProviderKey
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ProviderInfoDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ProviderName) {
+		toSerialize["providerName"] = o.ProviderName
+	}
+	if !IsNil(o.ProviderKey) {
+		toSerialize["providerKey"] = o.ProviderKey
+	}
+	return toSerialize, nil
 }
 
 type NullableProviderInfoDto struct {

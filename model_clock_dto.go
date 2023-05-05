@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ClockDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ClockDto{}
+
 // ClockDto struct for ClockDto
 type ClockDto struct {
 	Kind *string `json:"kind,omitempty"`
@@ -38,7 +41,7 @@ func NewClockDtoWithDefaults() *ClockDto {
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ClockDto) GetKind() string {
-	if o == nil || isNil(o.Kind) {
+	if o == nil || IsNil(o.Kind) {
 		var ret string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ClockDto) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClockDto) GetKindOk() (*string, bool) {
-	if o == nil || isNil(o.Kind) {
-    return nil, false
+	if o == nil || IsNil(o.Kind) {
+		return nil, false
 	}
 	return o.Kind, true
 }
 
 // HasKind returns a boolean if a field has been set.
 func (o *ClockDto) HasKind() bool {
-	if o != nil && !isNil(o.Kind) {
+	if o != nil && !IsNil(o.Kind) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ClockDto) SetKind(v string) {
 }
 
 func (o ClockDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Kind) {
-		toSerialize["kind"] = o.Kind
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ClockDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Kind) {
+		toSerialize["kind"] = o.Kind
+	}
+	return toSerialize, nil
 }
 
 type NullableClockDto struct {

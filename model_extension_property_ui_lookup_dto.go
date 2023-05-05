@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionPropertyUiLookupDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionPropertyUiLookupDto{}
+
 // ExtensionPropertyUiLookupDto struct for ExtensionPropertyUiLookupDto
 type ExtensionPropertyUiLookupDto struct {
 	Url *string `json:"url,omitempty"`
@@ -42,7 +45,7 @@ func NewExtensionPropertyUiLookupDtoWithDefaults() *ExtensionPropertyUiLookupDto
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *ExtensionPropertyUiLookupDto) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiLookupDto) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *ExtensionPropertyUiLookupDto) SetUrl(v string) {
 
 // GetResultListPropertyName returns the ResultListPropertyName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetResultListPropertyName() string {
-	if o == nil || isNil(o.ResultListPropertyName) {
+	if o == nil || IsNil(o.ResultListPropertyName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *ExtensionPropertyUiLookupDto) GetResultListPropertyName() string {
 // GetResultListPropertyNameOk returns a tuple with the ResultListPropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiLookupDto) GetResultListPropertyNameOk() (*string, bool) {
-	if o == nil || isNil(o.ResultListPropertyName) {
-    return nil, false
+	if o == nil || IsNil(o.ResultListPropertyName) {
+		return nil, false
 	}
 	return o.ResultListPropertyName, true
 }
 
 // HasResultListPropertyName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasResultListPropertyName() bool {
-	if o != nil && !isNil(o.ResultListPropertyName) {
+	if o != nil && !IsNil(o.ResultListPropertyName) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *ExtensionPropertyUiLookupDto) SetResultListPropertyName(v string) {
 
 // GetDisplayPropertyName returns the DisplayPropertyName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetDisplayPropertyName() string {
-	if o == nil || isNil(o.DisplayPropertyName) {
+	if o == nil || IsNil(o.DisplayPropertyName) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *ExtensionPropertyUiLookupDto) GetDisplayPropertyName() string {
 // GetDisplayPropertyNameOk returns a tuple with the DisplayPropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiLookupDto) GetDisplayPropertyNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayPropertyName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayPropertyName) {
+		return nil, false
 	}
 	return o.DisplayPropertyName, true
 }
 
 // HasDisplayPropertyName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasDisplayPropertyName() bool {
-	if o != nil && !isNil(o.DisplayPropertyName) {
+	if o != nil && !IsNil(o.DisplayPropertyName) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *ExtensionPropertyUiLookupDto) SetDisplayPropertyName(v string) {
 
 // GetValuePropertyName returns the ValuePropertyName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetValuePropertyName() string {
-	if o == nil || isNil(o.ValuePropertyName) {
+	if o == nil || IsNil(o.ValuePropertyName) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *ExtensionPropertyUiLookupDto) GetValuePropertyName() string {
 // GetValuePropertyNameOk returns a tuple with the ValuePropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiLookupDto) GetValuePropertyNameOk() (*string, bool) {
-	if o == nil || isNil(o.ValuePropertyName) {
-    return nil, false
+	if o == nil || IsNil(o.ValuePropertyName) {
+		return nil, false
 	}
 	return o.ValuePropertyName, true
 }
 
 // HasValuePropertyName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasValuePropertyName() bool {
-	if o != nil && !isNil(o.ValuePropertyName) {
+	if o != nil && !IsNil(o.ValuePropertyName) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *ExtensionPropertyUiLookupDto) SetValuePropertyName(v string) {
 
 // GetFilterParamName returns the FilterParamName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetFilterParamName() string {
-	if o == nil || isNil(o.FilterParamName) {
+	if o == nil || IsNil(o.FilterParamName) {
 		var ret string
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *ExtensionPropertyUiLookupDto) GetFilterParamName() string {
 // GetFilterParamNameOk returns a tuple with the FilterParamName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyUiLookupDto) GetFilterParamNameOk() (*string, bool) {
-	if o == nil || isNil(o.FilterParamName) {
-    return nil, false
+	if o == nil || IsNil(o.FilterParamName) {
+		return nil, false
 	}
 	return o.FilterParamName, true
 }
 
 // HasFilterParamName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasFilterParamName() bool {
-	if o != nil && !isNil(o.FilterParamName) {
+	if o != nil && !IsNil(o.FilterParamName) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *ExtensionPropertyUiLookupDto) SetFilterParamName(v string) {
 }
 
 func (o ExtensionPropertyUiLookupDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
-	if !isNil(o.ResultListPropertyName) {
-		toSerialize["resultListPropertyName"] = o.ResultListPropertyName
-	}
-	if !isNil(o.DisplayPropertyName) {
-		toSerialize["displayPropertyName"] = o.DisplayPropertyName
-	}
-	if !isNil(o.ValuePropertyName) {
-		toSerialize["valuePropertyName"] = o.ValuePropertyName
-	}
-	if !isNil(o.FilterParamName) {
-		toSerialize["filterParamName"] = o.FilterParamName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionPropertyUiLookupDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.ResultListPropertyName) {
+		toSerialize["resultListPropertyName"] = o.ResultListPropertyName
+	}
+	if !IsNil(o.DisplayPropertyName) {
+		toSerialize["displayPropertyName"] = o.DisplayPropertyName
+	}
+	if !IsNil(o.ValuePropertyName) {
+		toSerialize["valuePropertyName"] = o.ValuePropertyName
+	}
+	if !IsNil(o.FilterParamName) {
+		toSerialize["filterParamName"] = o.FilterParamName
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionPropertyUiLookupDto struct {

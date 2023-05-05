@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the FeatureGroupDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FeatureGroupDto{}
+
 // FeatureGroupDto struct for FeatureGroupDto
 type FeatureGroupDto struct {
 	Name *string `json:"name,omitempty"`
@@ -40,7 +43,7 @@ func NewFeatureGroupDtoWithDefaults() *FeatureGroupDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FeatureGroupDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *FeatureGroupDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureGroupDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FeatureGroupDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *FeatureGroupDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *FeatureGroupDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *FeatureGroupDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureGroupDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *FeatureGroupDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *FeatureGroupDto) SetDisplayName(v string) {
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
 func (o *FeatureGroupDto) GetFeatures() []FeatureDto {
-	if o == nil || isNil(o.Features) {
+	if o == nil || IsNil(o.Features) {
 		var ret []FeatureDto
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *FeatureGroupDto) GetFeatures() []FeatureDto {
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureGroupDto) GetFeaturesOk() ([]FeatureDto, bool) {
-	if o == nil || isNil(o.Features) {
-    return nil, false
+	if o == nil || IsNil(o.Features) {
+		return nil, false
 	}
 	return o.Features, true
 }
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *FeatureGroupDto) HasFeatures() bool {
-	if o != nil && !isNil(o.Features) {
+	if o != nil && !IsNil(o.Features) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *FeatureGroupDto) SetFeatures(v []FeatureDto) {
 }
 
 func (o FeatureGroupDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.Features) {
-		toSerialize["features"] = o.Features
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o FeatureGroupDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.Features) {
+		toSerialize["features"] = o.Features
+	}
+	return toSerialize, nil
 }
 
 type NullableFeatureGroupDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOpenIddictApplicationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOpenIddictApplicationDto{}
+
 // CreateOpenIddictApplicationDto struct for CreateOpenIddictApplicationDto
 type CreateOpenIddictApplicationDto struct {
 	Type *string `json:"type,omitempty"`
@@ -49,7 +52,7 @@ func NewCreateOpenIddictApplicationDtoWithDefaults() *CreateOpenIddictApplicatio
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -59,15 +62,15 @@ func (o *CreateOpenIddictApplicationDto) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -81,7 +84,7 @@ func (o *CreateOpenIddictApplicationDto) SetType(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -91,15 +94,15 @@ func (o *CreateOpenIddictApplicationDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -113,7 +116,7 @@ func (o *CreateOpenIddictApplicationDto) SetDisplayName(v string) {
 
 // GetDisplayNames returns the DisplayNames field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetDisplayNames() string {
-	if o == nil || isNil(o.DisplayNames) {
+	if o == nil || IsNil(o.DisplayNames) {
 		var ret string
 		return ret
 	}
@@ -123,15 +126,15 @@ func (o *CreateOpenIddictApplicationDto) GetDisplayNames() string {
 // GetDisplayNamesOk returns a tuple with the DisplayNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetDisplayNamesOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayNames) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayNames) {
+		return nil, false
 	}
 	return o.DisplayNames, true
 }
 
 // HasDisplayNames returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasDisplayNames() bool {
-	if o != nil && !isNil(o.DisplayNames) {
+	if o != nil && !IsNil(o.DisplayNames) {
 		return true
 	}
 
@@ -145,7 +148,7 @@ func (o *CreateOpenIddictApplicationDto) SetDisplayNames(v string) {
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetPermissions() []string {
-	if o == nil || isNil(o.Permissions) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret []string
 		return ret
 	}
@@ -155,15 +158,15 @@ func (o *CreateOpenIddictApplicationDto) GetPermissions() []string {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetPermissionsOk() ([]string, bool) {
-	if o == nil || isNil(o.Permissions) {
-    return nil, false
+	if o == nil || IsNil(o.Permissions) {
+		return nil, false
 	}
 	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasPermissions() bool {
-	if o != nil && !isNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -177,7 +180,7 @@ func (o *CreateOpenIddictApplicationDto) SetPermissions(v []string) {
 
 // GetPostLogoutRedirectUris returns the PostLogoutRedirectUris field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetPostLogoutRedirectUris() string {
-	if o == nil || isNil(o.PostLogoutRedirectUris) {
+	if o == nil || IsNil(o.PostLogoutRedirectUris) {
 		var ret string
 		return ret
 	}
@@ -187,15 +190,15 @@ func (o *CreateOpenIddictApplicationDto) GetPostLogoutRedirectUris() string {
 // GetPostLogoutRedirectUrisOk returns a tuple with the PostLogoutRedirectUris field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetPostLogoutRedirectUrisOk() (*string, bool) {
-	if o == nil || isNil(o.PostLogoutRedirectUris) {
-    return nil, false
+	if o == nil || IsNil(o.PostLogoutRedirectUris) {
+		return nil, false
 	}
 	return o.PostLogoutRedirectUris, true
 }
 
 // HasPostLogoutRedirectUris returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasPostLogoutRedirectUris() bool {
-	if o != nil && !isNil(o.PostLogoutRedirectUris) {
+	if o != nil && !IsNil(o.PostLogoutRedirectUris) {
 		return true
 	}
 
@@ -209,7 +212,7 @@ func (o *CreateOpenIddictApplicationDto) SetPostLogoutRedirectUris(v string) {
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetProperties() string {
-	if o == nil || isNil(o.Properties) {
+	if o == nil || IsNil(o.Properties) {
 		var ret string
 		return ret
 	}
@@ -219,15 +222,15 @@ func (o *CreateOpenIddictApplicationDto) GetProperties() string {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetPropertiesOk() (*string, bool) {
-	if o == nil || isNil(o.Properties) {
-    return nil, false
+	if o == nil || IsNil(o.Properties) {
+		return nil, false
 	}
 	return o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasProperties() bool {
-	if o != nil && !isNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -241,7 +244,7 @@ func (o *CreateOpenIddictApplicationDto) SetProperties(v string) {
 
 // GetRedirectUris returns the RedirectUris field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetRedirectUris() string {
-	if o == nil || isNil(o.RedirectUris) {
+	if o == nil || IsNil(o.RedirectUris) {
 		var ret string
 		return ret
 	}
@@ -251,15 +254,15 @@ func (o *CreateOpenIddictApplicationDto) GetRedirectUris() string {
 // GetRedirectUrisOk returns a tuple with the RedirectUris field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetRedirectUrisOk() (*string, bool) {
-	if o == nil || isNil(o.RedirectUris) {
-    return nil, false
+	if o == nil || IsNil(o.RedirectUris) {
+		return nil, false
 	}
 	return o.RedirectUris, true
 }
 
 // HasRedirectUris returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasRedirectUris() bool {
-	if o != nil && !isNil(o.RedirectUris) {
+	if o != nil && !IsNil(o.RedirectUris) {
 		return true
 	}
 
@@ -273,7 +276,7 @@ func (o *CreateOpenIddictApplicationDto) SetRedirectUris(v string) {
 
 // GetRequirements returns the Requirements field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetRequirements() string {
-	if o == nil || isNil(o.Requirements) {
+	if o == nil || IsNil(o.Requirements) {
 		var ret string
 		return ret
 	}
@@ -283,15 +286,15 @@ func (o *CreateOpenIddictApplicationDto) GetRequirements() string {
 // GetRequirementsOk returns a tuple with the Requirements field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetRequirementsOk() (*string, bool) {
-	if o == nil || isNil(o.Requirements) {
-    return nil, false
+	if o == nil || IsNil(o.Requirements) {
+		return nil, false
 	}
 	return o.Requirements, true
 }
 
 // HasRequirements returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasRequirements() bool {
-	if o != nil && !isNil(o.Requirements) {
+	if o != nil && !IsNil(o.Requirements) {
 		return true
 	}
 
@@ -305,7 +308,7 @@ func (o *CreateOpenIddictApplicationDto) SetRequirements(v string) {
 
 // GetClientUri returns the ClientUri field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetClientUri() string {
-	if o == nil || isNil(o.ClientUri) {
+	if o == nil || IsNil(o.ClientUri) {
 		var ret string
 		return ret
 	}
@@ -315,15 +318,15 @@ func (o *CreateOpenIddictApplicationDto) GetClientUri() string {
 // GetClientUriOk returns a tuple with the ClientUri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetClientUriOk() (*string, bool) {
-	if o == nil || isNil(o.ClientUri) {
-    return nil, false
+	if o == nil || IsNil(o.ClientUri) {
+		return nil, false
 	}
 	return o.ClientUri, true
 }
 
 // HasClientUri returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasClientUri() bool {
-	if o != nil && !isNil(o.ClientUri) {
+	if o != nil && !IsNil(o.ClientUri) {
 		return true
 	}
 
@@ -337,7 +340,7 @@ func (o *CreateOpenIddictApplicationDto) SetClientUri(v string) {
 
 // GetLogoUri returns the LogoUri field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetLogoUri() string {
-	if o == nil || isNil(o.LogoUri) {
+	if o == nil || IsNil(o.LogoUri) {
 		var ret string
 		return ret
 	}
@@ -347,15 +350,15 @@ func (o *CreateOpenIddictApplicationDto) GetLogoUri() string {
 // GetLogoUriOk returns a tuple with the LogoUri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetLogoUriOk() (*string, bool) {
-	if o == nil || isNil(o.LogoUri) {
-    return nil, false
+	if o == nil || IsNil(o.LogoUri) {
+		return nil, false
 	}
 	return o.LogoUri, true
 }
 
 // HasLogoUri returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasLogoUri() bool {
-	if o != nil && !isNil(o.LogoUri) {
+	if o != nil && !IsNil(o.LogoUri) {
 		return true
 	}
 
@@ -369,7 +372,7 @@ func (o *CreateOpenIddictApplicationDto) SetLogoUri(v string) {
 
 // GetGrantTypes returns the GrantTypes field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetGrantTypes() []string {
-	if o == nil || isNil(o.GrantTypes) {
+	if o == nil || IsNil(o.GrantTypes) {
 		var ret []string
 		return ret
 	}
@@ -379,15 +382,15 @@ func (o *CreateOpenIddictApplicationDto) GetGrantTypes() []string {
 // GetGrantTypesOk returns a tuple with the GrantTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetGrantTypesOk() ([]string, bool) {
-	if o == nil || isNil(o.GrantTypes) {
-    return nil, false
+	if o == nil || IsNil(o.GrantTypes) {
+		return nil, false
 	}
 	return o.GrantTypes, true
 }
 
 // HasGrantTypes returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasGrantTypes() bool {
-	if o != nil && !isNil(o.GrantTypes) {
+	if o != nil && !IsNil(o.GrantTypes) {
 		return true
 	}
 
@@ -401,7 +404,7 @@ func (o *CreateOpenIddictApplicationDto) SetGrantTypes(v []string) {
 
 // GetScopes returns the Scopes field value if set, zero value otherwise.
 func (o *CreateOpenIddictApplicationDto) GetScopes() []string {
-	if o == nil || isNil(o.Scopes) {
+	if o == nil || IsNil(o.Scopes) {
 		var ret []string
 		return ret
 	}
@@ -411,15 +414,15 @@ func (o *CreateOpenIddictApplicationDto) GetScopes() []string {
 // GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOpenIddictApplicationDto) GetScopesOk() ([]string, bool) {
-	if o == nil || isNil(o.Scopes) {
-    return nil, false
+	if o == nil || IsNil(o.Scopes) {
+		return nil, false
 	}
 	return o.Scopes, true
 }
 
 // HasScopes returns a boolean if a field has been set.
 func (o *CreateOpenIddictApplicationDto) HasScopes() bool {
-	if o != nil && !isNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -432,44 +435,52 @@ func (o *CreateOpenIddictApplicationDto) SetScopes(v []string) {
 }
 
 func (o CreateOpenIddictApplicationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.DisplayNames) {
-		toSerialize["displayNames"] = o.DisplayNames
-	}
-	if !isNil(o.Permissions) {
-		toSerialize["permissions"] = o.Permissions
-	}
-	if !isNil(o.PostLogoutRedirectUris) {
-		toSerialize["postLogoutRedirectUris"] = o.PostLogoutRedirectUris
-	}
-	if !isNil(o.Properties) {
-		toSerialize["properties"] = o.Properties
-	}
-	if !isNil(o.RedirectUris) {
-		toSerialize["redirectUris"] = o.RedirectUris
-	}
-	if !isNil(o.Requirements) {
-		toSerialize["requirements"] = o.Requirements
-	}
-	if !isNil(o.ClientUri) {
-		toSerialize["clientUri"] = o.ClientUri
-	}
-	if !isNil(o.LogoUri) {
-		toSerialize["logoUri"] = o.LogoUri
-	}
-	if !isNil(o.GrantTypes) {
-		toSerialize["grantTypes"] = o.GrantTypes
-	}
-	if !isNil(o.Scopes) {
-		toSerialize["scopes"] = o.Scopes
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOpenIddictApplicationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.DisplayNames) {
+		toSerialize["displayNames"] = o.DisplayNames
+	}
+	if !IsNil(o.Permissions) {
+		toSerialize["permissions"] = o.Permissions
+	}
+	if !IsNil(o.PostLogoutRedirectUris) {
+		toSerialize["postLogoutRedirectUris"] = o.PostLogoutRedirectUris
+	}
+	if !IsNil(o.Properties) {
+		toSerialize["properties"] = o.Properties
+	}
+	if !IsNil(o.RedirectUris) {
+		toSerialize["redirectUris"] = o.RedirectUris
+	}
+	if !IsNil(o.Requirements) {
+		toSerialize["requirements"] = o.Requirements
+	}
+	if !IsNil(o.ClientUri) {
+		toSerialize["clientUri"] = o.ClientUri
+	}
+	if !IsNil(o.LogoUri) {
+		toSerialize["logoUri"] = o.LogoUri
+	}
+	if !IsNil(o.GrantTypes) {
+		toSerialize["grantTypes"] = o.GrantTypes
+	}
+	if !IsNil(o.Scopes) {
+		toSerialize["scopes"] = o.Scopes
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOpenIddictApplicationDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserLoginInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserLoginInfo{}
+
 // UserLoginInfo struct for UserLoginInfo
 type UserLoginInfo struct {
 	UserNameOrEmailAddress string `json:"userNameOrEmailAddress"`
@@ -54,7 +57,7 @@ func (o *UserLoginInfo) GetUserNameOrEmailAddress() string {
 // and a boolean to check if the value has been set.
 func (o *UserLoginInfo) GetUserNameOrEmailAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.UserNameOrEmailAddress, true
 }
@@ -78,7 +81,7 @@ func (o *UserLoginInfo) GetPassword() string {
 // and a boolean to check if the value has been set.
 func (o *UserLoginInfo) GetPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Password, true
 }
@@ -90,7 +93,7 @@ func (o *UserLoginInfo) SetPassword(v string) {
 
 // GetRememberMe returns the RememberMe field value if set, zero value otherwise.
 func (o *UserLoginInfo) GetRememberMe() bool {
-	if o == nil || isNil(o.RememberMe) {
+	if o == nil || IsNil(o.RememberMe) {
 		var ret bool
 		return ret
 	}
@@ -100,15 +103,15 @@ func (o *UserLoginInfo) GetRememberMe() bool {
 // GetRememberMeOk returns a tuple with the RememberMe field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserLoginInfo) GetRememberMeOk() (*bool, bool) {
-	if o == nil || isNil(o.RememberMe) {
-    return nil, false
+	if o == nil || IsNil(o.RememberMe) {
+		return nil, false
 	}
 	return o.RememberMe, true
 }
 
 // HasRememberMe returns a boolean if a field has been set.
 func (o *UserLoginInfo) HasRememberMe() bool {
-	if o != nil && !isNil(o.RememberMe) {
+	if o != nil && !IsNil(o.RememberMe) {
 		return true
 	}
 
@@ -121,17 +124,21 @@ func (o *UserLoginInfo) SetRememberMe(v bool) {
 }
 
 func (o UserLoginInfo) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["userNameOrEmailAddress"] = o.UserNameOrEmailAddress
-	}
-	if true {
-		toSerialize["password"] = o.Password
-	}
-	if !isNil(o.RememberMe) {
-		toSerialize["rememberMe"] = o.RememberMe
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UserLoginInfo) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["userNameOrEmailAddress"] = o.UserNameOrEmailAddress
+	toSerialize["password"] = o.Password
+	if !IsNil(o.RememberMe) {
+		toSerialize["rememberMe"] = o.RememberMe
+	}
+	return toSerialize, nil
 }
 
 type NullableUserLoginInfo struct {

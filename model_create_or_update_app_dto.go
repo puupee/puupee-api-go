@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOrUpdateAppDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppDto{}
+
 // CreateOrUpdateAppDto struct for CreateOrUpdateAppDto
 type CreateOrUpdateAppDto struct {
 	Name *string `json:"name,omitempty"`
@@ -57,7 +60,7 @@ func NewCreateOrUpdateAppDtoWithDefaults() *CreateOrUpdateAppDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -67,15 +70,15 @@ func (o *CreateOrUpdateAppDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -89,7 +92,7 @@ func (o *CreateOrUpdateAppDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -99,15 +102,15 @@ func (o *CreateOrUpdateAppDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -121,7 +124,7 @@ func (o *CreateOrUpdateAppDto) SetDisplayName(v string) {
 
 // GetFramework returns the Framework field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetFramework() string {
-	if o == nil || isNil(o.Framework) {
+	if o == nil || IsNil(o.Framework) {
 		var ret string
 		return ret
 	}
@@ -131,15 +134,15 @@ func (o *CreateOrUpdateAppDto) GetFramework() string {
 // GetFrameworkOk returns a tuple with the Framework field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*string, bool) {
-	if o == nil || isNil(o.Framework) {
-    return nil, false
+	if o == nil || IsNil(o.Framework) {
+		return nil, false
 	}
 	return o.Framework, true
 }
 
 // HasFramework returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasFramework() bool {
-	if o != nil && !isNil(o.Framework) {
+	if o != nil && !IsNil(o.Framework) {
 		return true
 	}
 
@@ -153,7 +156,7 @@ func (o *CreateOrUpdateAppDto) SetFramework(v string) {
 
 // GetAppType returns the AppType field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetAppType() string {
-	if o == nil || isNil(o.AppType) {
+	if o == nil || IsNil(o.AppType) {
 		var ret string
 		return ret
 	}
@@ -163,15 +166,15 @@ func (o *CreateOrUpdateAppDto) GetAppType() string {
 // GetAppTypeOk returns a tuple with the AppType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*string, bool) {
-	if o == nil || isNil(o.AppType) {
-    return nil, false
+	if o == nil || IsNil(o.AppType) {
+		return nil, false
 	}
 	return o.AppType, true
 }
 
 // HasAppType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasAppType() bool {
-	if o != nil && !isNil(o.AppType) {
+	if o != nil && !IsNil(o.AppType) {
 		return true
 	}
 
@@ -185,7 +188,7 @@ func (o *CreateOrUpdateAppDto) SetAppType(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -195,15 +198,15 @@ func (o *CreateOrUpdateAppDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -217,7 +220,7 @@ func (o *CreateOrUpdateAppDto) SetDescription(v string) {
 
 // GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetIcon() string {
-	if o == nil || isNil(o.Icon) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
@@ -227,15 +230,15 @@ func (o *CreateOrUpdateAppDto) GetIcon() string {
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetIconOk() (*string, bool) {
-	if o == nil || isNil(o.Icon) {
-    return nil, false
+	if o == nil || IsNil(o.Icon) {
+		return nil, false
 	}
 	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasIcon() bool {
-	if o != nil && !isNil(o.Icon) {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
@@ -249,7 +252,7 @@ func (o *CreateOrUpdateAppDto) SetIcon(v string) {
 
 // GetHomePage returns the HomePage field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetHomePage() string {
-	if o == nil || isNil(o.HomePage) {
+	if o == nil || IsNil(o.HomePage) {
 		var ret string
 		return ret
 	}
@@ -259,15 +262,15 @@ func (o *CreateOrUpdateAppDto) GetHomePage() string {
 // GetHomePageOk returns a tuple with the HomePage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetHomePageOk() (*string, bool) {
-	if o == nil || isNil(o.HomePage) {
-    return nil, false
+	if o == nil || IsNil(o.HomePage) {
+		return nil, false
 	}
 	return o.HomePage, true
 }
 
 // HasHomePage returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasHomePage() bool {
-	if o != nil && !isNil(o.HomePage) {
+	if o != nil && !IsNil(o.HomePage) {
 		return true
 	}
 
@@ -281,7 +284,7 @@ func (o *CreateOrUpdateAppDto) SetHomePage(v string) {
 
 // GetSortIndex returns the SortIndex field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetSortIndex() int32 {
-	if o == nil || isNil(o.SortIndex) {
+	if o == nil || IsNil(o.SortIndex) {
 		var ret int32
 		return ret
 	}
@@ -291,15 +294,15 @@ func (o *CreateOrUpdateAppDto) GetSortIndex() int32 {
 // GetSortIndexOk returns a tuple with the SortIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetSortIndexOk() (*int32, bool) {
-	if o == nil || isNil(o.SortIndex) {
-    return nil, false
+	if o == nil || IsNil(o.SortIndex) {
+		return nil, false
 	}
 	return o.SortIndex, true
 }
 
 // HasSortIndex returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasSortIndex() bool {
-	if o != nil && !isNil(o.SortIndex) {
+	if o != nil && !IsNil(o.SortIndex) {
 		return true
 	}
 
@@ -313,7 +316,7 @@ func (o *CreateOrUpdateAppDto) SetSortIndex(v int32) {
 
 // GetGitRepository returns the GitRepository field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetGitRepository() string {
-	if o == nil || isNil(o.GitRepository) {
+	if o == nil || IsNil(o.GitRepository) {
 		var ret string
 		return ret
 	}
@@ -323,15 +326,15 @@ func (o *CreateOrUpdateAppDto) GetGitRepository() string {
 // GetGitRepositoryOk returns a tuple with the GitRepository field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetGitRepositoryOk() (*string, bool) {
-	if o == nil || isNil(o.GitRepository) {
-    return nil, false
+	if o == nil || IsNil(o.GitRepository) {
+		return nil, false
 	}
 	return o.GitRepository, true
 }
 
 // HasGitRepository returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasGitRepository() bool {
-	if o != nil && !isNil(o.GitRepository) {
+	if o != nil && !IsNil(o.GitRepository) {
 		return true
 	}
 
@@ -345,7 +348,7 @@ func (o *CreateOrUpdateAppDto) SetGitRepository(v string) {
 
 // GetGitRepositoryType returns the GitRepositoryType field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetGitRepositoryType() string {
-	if o == nil || isNil(o.GitRepositoryType) {
+	if o == nil || IsNil(o.GitRepositoryType) {
 		var ret string
 		return ret
 	}
@@ -355,15 +358,15 @@ func (o *CreateOrUpdateAppDto) GetGitRepositoryType() string {
 // GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*string, bool) {
-	if o == nil || isNil(o.GitRepositoryType) {
-    return nil, false
+	if o == nil || IsNil(o.GitRepositoryType) {
+		return nil, false
 	}
 	return o.GitRepositoryType, true
 }
 
 // HasGitRepositoryType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasGitRepositoryType() bool {
-	if o != nil && !isNil(o.GitRepositoryType) {
+	if o != nil && !IsNil(o.GitRepositoryType) {
 		return true
 	}
 
@@ -377,7 +380,7 @@ func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v string) {
 
 // GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetIsEnabled() bool {
-	if o == nil || isNil(o.IsEnabled) {
+	if o == nil || IsNil(o.IsEnabled) {
 		var ret bool
 		return ret
 	}
@@ -387,15 +390,15 @@ func (o *CreateOrUpdateAppDto) GetIsEnabled() bool {
 // GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.IsEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.IsEnabled) {
+		return nil, false
 	}
 	return o.IsEnabled, true
 }
 
 // HasIsEnabled returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasIsEnabled() bool {
-	if o != nil && !isNil(o.IsEnabled) {
+	if o != nil && !IsNil(o.IsEnabled) {
 		return true
 	}
 
@@ -409,7 +412,7 @@ func (o *CreateOrUpdateAppDto) SetIsEnabled(v bool) {
 
 // GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetWebhookUrl() string {
-	if o == nil || isNil(o.WebhookUrl) {
+	if o == nil || IsNil(o.WebhookUrl) {
 		var ret string
 		return ret
 	}
@@ -419,15 +422,15 @@ func (o *CreateOrUpdateAppDto) GetWebhookUrl() string {
 // GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetWebhookUrlOk() (*string, bool) {
-	if o == nil || isNil(o.WebhookUrl) {
-    return nil, false
+	if o == nil || IsNil(o.WebhookUrl) {
+		return nil, false
 	}
 	return o.WebhookUrl, true
 }
 
 // HasWebhookUrl returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasWebhookUrl() bool {
-	if o != nil && !isNil(o.WebhookUrl) {
+	if o != nil && !IsNil(o.WebhookUrl) {
 		return true
 	}
 
@@ -441,7 +444,7 @@ func (o *CreateOrUpdateAppDto) SetWebhookUrl(v string) {
 
 // GetBusinessDomain returns the BusinessDomain field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetBusinessDomain() string {
-	if o == nil || isNil(o.BusinessDomain) {
+	if o == nil || IsNil(o.BusinessDomain) {
 		var ret string
 		return ret
 	}
@@ -451,15 +454,15 @@ func (o *CreateOrUpdateAppDto) GetBusinessDomain() string {
 // GetBusinessDomainOk returns a tuple with the BusinessDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetBusinessDomainOk() (*string, bool) {
-	if o == nil || isNil(o.BusinessDomain) {
-    return nil, false
+	if o == nil || IsNil(o.BusinessDomain) {
+		return nil, false
 	}
 	return o.BusinessDomain, true
 }
 
 // HasBusinessDomain returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasBusinessDomain() bool {
-	if o != nil && !isNil(o.BusinessDomain) {
+	if o != nil && !IsNil(o.BusinessDomain) {
 		return true
 	}
 
@@ -473,7 +476,7 @@ func (o *CreateOrUpdateAppDto) SetBusinessDomain(v string) {
 
 // GetBusinessUrl returns the BusinessUrl field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetBusinessUrl() string {
-	if o == nil || isNil(o.BusinessUrl) {
+	if o == nil || IsNil(o.BusinessUrl) {
 		var ret string
 		return ret
 	}
@@ -483,15 +486,15 @@ func (o *CreateOrUpdateAppDto) GetBusinessUrl() string {
 // GetBusinessUrlOk returns a tuple with the BusinessUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetBusinessUrlOk() (*string, bool) {
-	if o == nil || isNil(o.BusinessUrl) {
-    return nil, false
+	if o == nil || IsNil(o.BusinessUrl) {
+		return nil, false
 	}
 	return o.BusinessUrl, true
 }
 
 // HasBusinessUrl returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasBusinessUrl() bool {
-	if o != nil && !isNil(o.BusinessUrl) {
+	if o != nil && !IsNil(o.BusinessUrl) {
 		return true
 	}
 
@@ -505,7 +508,7 @@ func (o *CreateOrUpdateAppDto) SetBusinessUrl(v string) {
 
 // GetSubscriptionEnabled returns the SubscriptionEnabled field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetSubscriptionEnabled() bool {
-	if o == nil || isNil(o.SubscriptionEnabled) {
+	if o == nil || IsNil(o.SubscriptionEnabled) {
 		var ret bool
 		return ret
 	}
@@ -515,15 +518,15 @@ func (o *CreateOrUpdateAppDto) GetSubscriptionEnabled() bool {
 // GetSubscriptionEnabledOk returns a tuple with the SubscriptionEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetSubscriptionEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.SubscriptionEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.SubscriptionEnabled) {
+		return nil, false
 	}
 	return o.SubscriptionEnabled, true
 }
 
 // HasSubscriptionEnabled returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasSubscriptionEnabled() bool {
-	if o != nil && !isNil(o.SubscriptionEnabled) {
+	if o != nil && !IsNil(o.SubscriptionEnabled) {
 		return true
 	}
 
@@ -537,7 +540,7 @@ func (o *CreateOrUpdateAppDto) SetSubscriptionEnabled(v bool) {
 
 // GetSubscriptionPlatforms returns the SubscriptionPlatforms field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetSubscriptionPlatforms() string {
-	if o == nil || isNil(o.SubscriptionPlatforms) {
+	if o == nil || IsNil(o.SubscriptionPlatforms) {
 		var ret string
 		return ret
 	}
@@ -547,15 +550,15 @@ func (o *CreateOrUpdateAppDto) GetSubscriptionPlatforms() string {
 // GetSubscriptionPlatformsOk returns a tuple with the SubscriptionPlatforms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetSubscriptionPlatformsOk() (*string, bool) {
-	if o == nil || isNil(o.SubscriptionPlatforms) {
-    return nil, false
+	if o == nil || IsNil(o.SubscriptionPlatforms) {
+		return nil, false
 	}
 	return o.SubscriptionPlatforms, true
 }
 
 // HasSubscriptionPlatforms returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasSubscriptionPlatforms() bool {
-	if o != nil && !isNil(o.SubscriptionPlatforms) {
+	if o != nil && !IsNil(o.SubscriptionPlatforms) {
 		return true
 	}
 
@@ -569,7 +572,7 @@ func (o *CreateOrUpdateAppDto) SetSubscriptionPlatforms(v string) {
 
 // GetIsPublished returns the IsPublished field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetIsPublished() bool {
-	if o == nil || isNil(o.IsPublished) {
+	if o == nil || IsNil(o.IsPublished) {
 		var ret bool
 		return ret
 	}
@@ -579,15 +582,15 @@ func (o *CreateOrUpdateAppDto) GetIsPublished() bool {
 // GetIsPublishedOk returns a tuple with the IsPublished field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetIsPublishedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsPublished) {
-    return nil, false
+	if o == nil || IsNil(o.IsPublished) {
+		return nil, false
 	}
 	return o.IsPublished, true
 }
 
 // HasIsPublished returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasIsPublished() bool {
-	if o != nil && !isNil(o.IsPublished) {
+	if o != nil && !IsNil(o.IsPublished) {
 		return true
 	}
 
@@ -601,7 +604,7 @@ func (o *CreateOrUpdateAppDto) SetIsPublished(v bool) {
 
 // GetFeatures returns the Features field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetFeatures() []AppFeatureDto {
-	if o == nil || isNil(o.Features) {
+	if o == nil || IsNil(o.Features) {
 		var ret []AppFeatureDto
 		return ret
 	}
@@ -611,15 +614,15 @@ func (o *CreateOrUpdateAppDto) GetFeatures() []AppFeatureDto {
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetFeaturesOk() ([]AppFeatureDto, bool) {
-	if o == nil || isNil(o.Features) {
-    return nil, false
+	if o == nil || IsNil(o.Features) {
+		return nil, false
 	}
 	return o.Features, true
 }
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasFeatures() bool {
-	if o != nil && !isNil(o.Features) {
+	if o != nil && !IsNil(o.Features) {
 		return true
 	}
 
@@ -633,7 +636,7 @@ func (o *CreateOrUpdateAppDto) SetFeatures(v []AppFeatureDto) {
 
 // GetSdks returns the Sdks field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetSdks() []AppSdkDto {
-	if o == nil || isNil(o.Sdks) {
+	if o == nil || IsNil(o.Sdks) {
 		var ret []AppSdkDto
 		return ret
 	}
@@ -643,15 +646,15 @@ func (o *CreateOrUpdateAppDto) GetSdks() []AppSdkDto {
 // GetSdksOk returns a tuple with the Sdks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetSdksOk() ([]AppSdkDto, bool) {
-	if o == nil || isNil(o.Sdks) {
-    return nil, false
+	if o == nil || IsNil(o.Sdks) {
+		return nil, false
 	}
 	return o.Sdks, true
 }
 
 // HasSdks returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasSdks() bool {
-	if o != nil && !isNil(o.Sdks) {
+	if o != nil && !IsNil(o.Sdks) {
 		return true
 	}
 
@@ -665,7 +668,7 @@ func (o *CreateOrUpdateAppDto) SetSdks(v []AppSdkDto) {
 
 // GetOpenClient returns the OpenClient field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppDto) GetOpenClient() CreateOpenIddictApplicationDto {
-	if o == nil || isNil(o.OpenClient) {
+	if o == nil || IsNil(o.OpenClient) {
 		var ret CreateOpenIddictApplicationDto
 		return ret
 	}
@@ -675,15 +678,15 @@ func (o *CreateOrUpdateAppDto) GetOpenClient() CreateOpenIddictApplicationDto {
 // GetOpenClientOk returns a tuple with the OpenClient field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppDto) GetOpenClientOk() (*CreateOpenIddictApplicationDto, bool) {
-	if o == nil || isNil(o.OpenClient) {
-    return nil, false
+	if o == nil || IsNil(o.OpenClient) {
+		return nil, false
 	}
 	return o.OpenClient, true
 }
 
 // HasOpenClient returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppDto) HasOpenClient() bool {
-	if o != nil && !isNil(o.OpenClient) {
+	if o != nil && !IsNil(o.OpenClient) {
 		return true
 	}
 
@@ -696,68 +699,76 @@ func (o *CreateOrUpdateAppDto) SetOpenClient(v CreateOpenIddictApplicationDto) {
 }
 
 func (o CreateOrUpdateAppDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.Framework) {
-		toSerialize["framework"] = o.Framework
-	}
-	if !isNil(o.AppType) {
-		toSerialize["appType"] = o.AppType
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.Icon) {
-		toSerialize["icon"] = o.Icon
-	}
-	if !isNil(o.HomePage) {
-		toSerialize["homePage"] = o.HomePage
-	}
-	if !isNil(o.SortIndex) {
-		toSerialize["sortIndex"] = o.SortIndex
-	}
-	if !isNil(o.GitRepository) {
-		toSerialize["gitRepository"] = o.GitRepository
-	}
-	if !isNil(o.GitRepositoryType) {
-		toSerialize["gitRepositoryType"] = o.GitRepositoryType
-	}
-	if !isNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
-	}
-	if !isNil(o.WebhookUrl) {
-		toSerialize["webhookUrl"] = o.WebhookUrl
-	}
-	if !isNil(o.BusinessDomain) {
-		toSerialize["businessDomain"] = o.BusinessDomain
-	}
-	if !isNil(o.BusinessUrl) {
-		toSerialize["businessUrl"] = o.BusinessUrl
-	}
-	if !isNil(o.SubscriptionEnabled) {
-		toSerialize["subscriptionEnabled"] = o.SubscriptionEnabled
-	}
-	if !isNil(o.SubscriptionPlatforms) {
-		toSerialize["subscriptionPlatforms"] = o.SubscriptionPlatforms
-	}
-	if !isNil(o.IsPublished) {
-		toSerialize["isPublished"] = o.IsPublished
-	}
-	if !isNil(o.Features) {
-		toSerialize["features"] = o.Features
-	}
-	if !isNil(o.Sdks) {
-		toSerialize["sdks"] = o.Sdks
-	}
-	if !isNil(o.OpenClient) {
-		toSerialize["openClient"] = o.OpenClient
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.Framework) {
+		toSerialize["framework"] = o.Framework
+	}
+	if !IsNil(o.AppType) {
+		toSerialize["appType"] = o.AppType
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
+	}
+	if !IsNil(o.HomePage) {
+		toSerialize["homePage"] = o.HomePage
+	}
+	if !IsNil(o.SortIndex) {
+		toSerialize["sortIndex"] = o.SortIndex
+	}
+	if !IsNil(o.GitRepository) {
+		toSerialize["gitRepository"] = o.GitRepository
+	}
+	if !IsNil(o.GitRepositoryType) {
+		toSerialize["gitRepositoryType"] = o.GitRepositoryType
+	}
+	if !IsNil(o.IsEnabled) {
+		toSerialize["isEnabled"] = o.IsEnabled
+	}
+	if !IsNil(o.WebhookUrl) {
+		toSerialize["webhookUrl"] = o.WebhookUrl
+	}
+	if !IsNil(o.BusinessDomain) {
+		toSerialize["businessDomain"] = o.BusinessDomain
+	}
+	if !IsNil(o.BusinessUrl) {
+		toSerialize["businessUrl"] = o.BusinessUrl
+	}
+	if !IsNil(o.SubscriptionEnabled) {
+		toSerialize["subscriptionEnabled"] = o.SubscriptionEnabled
+	}
+	if !IsNil(o.SubscriptionPlatforms) {
+		toSerialize["subscriptionPlatforms"] = o.SubscriptionPlatforms
+	}
+	if !IsNil(o.IsPublished) {
+		toSerialize["isPublished"] = o.IsPublished
+	}
+	if !IsNil(o.Features) {
+		toSerialize["features"] = o.Features
+	}
+	if !IsNil(o.Sdks) {
+		toSerialize["sdks"] = o.Sdks
+	}
+	if !IsNil(o.OpenClient) {
+		toSerialize["openClient"] = o.OpenClient
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppDto struct {

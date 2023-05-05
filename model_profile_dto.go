@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ProfileDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ProfileDto{}
+
 // ProfileDto struct for ProfileDto
 type ProfileDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -46,7 +49,7 @@ func NewProfileDtoWithDefaults() *ProfileDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *ProfileDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *ProfileDto) GetExtraProperties() map[string]map[string]interface{} {
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *ProfileDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *ProfileDto) SetExtraProperties(v map[string]map[string]interface{}) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *ProfileDto) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *ProfileDto) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *ProfileDto) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *ProfileDto) SetUserName(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *ProfileDto) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *ProfileDto) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *ProfileDto) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *ProfileDto) SetEmail(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ProfileDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *ProfileDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ProfileDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *ProfileDto) SetName(v string) {
 
 // GetSurname returns the Surname field value if set, zero value otherwise.
 func (o *ProfileDto) GetSurname() string {
-	if o == nil || isNil(o.Surname) {
+	if o == nil || IsNil(o.Surname) {
 		var ret string
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *ProfileDto) GetSurname() string {
 // GetSurnameOk returns a tuple with the Surname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetSurnameOk() (*string, bool) {
-	if o == nil || isNil(o.Surname) {
-    return nil, false
+	if o == nil || IsNil(o.Surname) {
+		return nil, false
 	}
 	return o.Surname, true
 }
 
 // HasSurname returns a boolean if a field has been set.
 func (o *ProfileDto) HasSurname() bool {
-	if o != nil && !isNil(o.Surname) {
+	if o != nil && !IsNil(o.Surname) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *ProfileDto) SetSurname(v string) {
 
 // GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *ProfileDto) GetPhoneNumber() string {
-	if o == nil || isNil(o.PhoneNumber) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *ProfileDto) GetPhoneNumber() string {
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetPhoneNumberOk() (*string, bool) {
-	if o == nil || isNil(o.PhoneNumber) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumber) {
+		return nil, false
 	}
 	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *ProfileDto) HasPhoneNumber() bool {
-	if o != nil && !isNil(o.PhoneNumber) {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
@@ -238,7 +241,7 @@ func (o *ProfileDto) SetPhoneNumber(v string) {
 
 // GetIsExternal returns the IsExternal field value if set, zero value otherwise.
 func (o *ProfileDto) GetIsExternal() bool {
-	if o == nil || isNil(o.IsExternal) {
+	if o == nil || IsNil(o.IsExternal) {
 		var ret bool
 		return ret
 	}
@@ -248,15 +251,15 @@ func (o *ProfileDto) GetIsExternal() bool {
 // GetIsExternalOk returns a tuple with the IsExternal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetIsExternalOk() (*bool, bool) {
-	if o == nil || isNil(o.IsExternal) {
-    return nil, false
+	if o == nil || IsNil(o.IsExternal) {
+		return nil, false
 	}
 	return o.IsExternal, true
 }
 
 // HasIsExternal returns a boolean if a field has been set.
 func (o *ProfileDto) HasIsExternal() bool {
-	if o != nil && !isNil(o.IsExternal) {
+	if o != nil && !IsNil(o.IsExternal) {
 		return true
 	}
 
@@ -270,7 +273,7 @@ func (o *ProfileDto) SetIsExternal(v bool) {
 
 // GetHasPassword returns the HasPassword field value if set, zero value otherwise.
 func (o *ProfileDto) GetHasPassword() bool {
-	if o == nil || isNil(o.HasPassword) {
+	if o == nil || IsNil(o.HasPassword) {
 		var ret bool
 		return ret
 	}
@@ -280,15 +283,15 @@ func (o *ProfileDto) GetHasPassword() bool {
 // GetHasPasswordOk returns a tuple with the HasPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetHasPasswordOk() (*bool, bool) {
-	if o == nil || isNil(o.HasPassword) {
-    return nil, false
+	if o == nil || IsNil(o.HasPassword) {
+		return nil, false
 	}
 	return o.HasPassword, true
 }
 
 // HasHasPassword returns a boolean if a field has been set.
 func (o *ProfileDto) HasHasPassword() bool {
-	if o != nil && !isNil(o.HasPassword) {
+	if o != nil && !IsNil(o.HasPassword) {
 		return true
 	}
 
@@ -302,7 +305,7 @@ func (o *ProfileDto) SetHasPassword(v bool) {
 
 // GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *ProfileDto) GetConcurrencyStamp() string {
-	if o == nil || isNil(o.ConcurrencyStamp) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
@@ -312,15 +315,15 @@ func (o *ProfileDto) GetConcurrencyStamp() string {
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProfileDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil || isNil(o.ConcurrencyStamp) {
-    return nil, false
+	if o == nil || IsNil(o.ConcurrencyStamp) {
+		return nil, false
 	}
 	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *ProfileDto) HasConcurrencyStamp() bool {
-	if o != nil && !isNil(o.ConcurrencyStamp) {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
@@ -333,35 +336,41 @@ func (o *ProfileDto) SetConcurrencyStamp(v string) {
 }
 
 func (o ProfileDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if !isNil(o.UserName) {
-		toSerialize["userName"] = o.UserName
-	}
-	if !isNil(o.Email) {
-		toSerialize["email"] = o.Email
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Surname) {
-		toSerialize["surname"] = o.Surname
-	}
-	if !isNil(o.PhoneNumber) {
-		toSerialize["phoneNumber"] = o.PhoneNumber
-	}
-	if !isNil(o.IsExternal) {
-		toSerialize["isExternal"] = o.IsExternal
-	}
-	if !isNil(o.HasPassword) {
-		toSerialize["hasPassword"] = o.HasPassword
-	}
-	if !isNil(o.ConcurrencyStamp) {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ProfileDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Surname) {
+		toSerialize["surname"] = o.Surname
+	}
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
+	}
+	if !IsNil(o.IsExternal) {
+		toSerialize["isExternal"] = o.IsExternal
+	}
+	if !IsNil(o.HasPassword) {
+		toSerialize["hasPassword"] = o.HasPassword
+	}
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	}
+	return toSerialize, nil
 }
 
 type NullableProfileDto struct {

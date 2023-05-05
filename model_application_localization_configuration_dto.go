@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationLocalizationConfigurationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationLocalizationConfigurationDto{}
+
 // ApplicationLocalizationConfigurationDto struct for ApplicationLocalizationConfigurationDto
 type ApplicationLocalizationConfigurationDto struct {
 	Values *map[string]map[string]string `json:"values,omitempty"`
@@ -44,7 +47,7 @@ func NewApplicationLocalizationConfigurationDtoWithDefaults() *ApplicationLocali
 
 // GetValues returns the Values field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetValues() map[string]map[string]string {
-	if o == nil || isNil(o.Values) {
+	if o == nil || IsNil(o.Values) {
 		var ret map[string]map[string]string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetValues() map[string]map[str
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetValuesOk() (*map[string]map[string]string, bool) {
-	if o == nil || isNil(o.Values) {
-    return nil, false
+	if o == nil || IsNil(o.Values) {
+		return nil, false
 	}
 	return o.Values, true
 }
 
 // HasValues returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasValues() bool {
-	if o != nil && !isNil(o.Values) {
+	if o != nil && !IsNil(o.Values) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *ApplicationLocalizationConfigurationDto) SetValues(v map[string]map[str
 
 // GetResources returns the Resources field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetResources() map[string]ApplicationLocalizationResourceDto {
-	if o == nil || isNil(o.Resources) {
+	if o == nil || IsNil(o.Resources) {
 		var ret map[string]ApplicationLocalizationResourceDto
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetResources() map[string]Appl
 // GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetResourcesOk() (*map[string]ApplicationLocalizationResourceDto, bool) {
-	if o == nil || isNil(o.Resources) {
-    return nil, false
+	if o == nil || IsNil(o.Resources) {
+		return nil, false
 	}
 	return o.Resources, true
 }
 
 // HasResources returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasResources() bool {
-	if o != nil && !isNil(o.Resources) {
+	if o != nil && !IsNil(o.Resources) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *ApplicationLocalizationConfigurationDto) SetResources(v map[string]Appl
 
 // GetLanguages returns the Languages field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetLanguages() []LanguageInfo {
-	if o == nil || isNil(o.Languages) {
+	if o == nil || IsNil(o.Languages) {
 		var ret []LanguageInfo
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetLanguages() []LanguageInfo 
 // GetLanguagesOk returns a tuple with the Languages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetLanguagesOk() ([]LanguageInfo, bool) {
-	if o == nil || isNil(o.Languages) {
-    return nil, false
+	if o == nil || IsNil(o.Languages) {
+		return nil, false
 	}
 	return o.Languages, true
 }
 
 // HasLanguages returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasLanguages() bool {
-	if o != nil && !isNil(o.Languages) {
+	if o != nil && !IsNil(o.Languages) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *ApplicationLocalizationConfigurationDto) SetLanguages(v []LanguageInfo)
 
 // GetCurrentCulture returns the CurrentCulture field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetCurrentCulture() CurrentCultureDto {
-	if o == nil || isNil(o.CurrentCulture) {
+	if o == nil || IsNil(o.CurrentCulture) {
 		var ret CurrentCultureDto
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetCurrentCulture() CurrentCul
 // GetCurrentCultureOk returns a tuple with the CurrentCulture field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetCurrentCultureOk() (*CurrentCultureDto, bool) {
-	if o == nil || isNil(o.CurrentCulture) {
-    return nil, false
+	if o == nil || IsNil(o.CurrentCulture) {
+		return nil, false
 	}
 	return o.CurrentCulture, true
 }
 
 // HasCurrentCulture returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasCurrentCulture() bool {
-	if o != nil && !isNil(o.CurrentCulture) {
+	if o != nil && !IsNil(o.CurrentCulture) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *ApplicationLocalizationConfigurationDto) SetCurrentCulture(v CurrentCul
 
 // GetDefaultResourceName returns the DefaultResourceName field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetDefaultResourceName() string {
-	if o == nil || isNil(o.DefaultResourceName) {
+	if o == nil || IsNil(o.DefaultResourceName) {
 		var ret string
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetDefaultResourceName() strin
 // GetDefaultResourceNameOk returns a tuple with the DefaultResourceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetDefaultResourceNameOk() (*string, bool) {
-	if o == nil || isNil(o.DefaultResourceName) {
-    return nil, false
+	if o == nil || IsNil(o.DefaultResourceName) {
+		return nil, false
 	}
 	return o.DefaultResourceName, true
 }
 
 // HasDefaultResourceName returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasDefaultResourceName() bool {
-	if o != nil && !isNil(o.DefaultResourceName) {
+	if o != nil && !IsNil(o.DefaultResourceName) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *ApplicationLocalizationConfigurationDto) SetDefaultResourceName(v strin
 
 // GetLanguagesMap returns the LanguagesMap field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetLanguagesMap() map[string][]NameValue {
-	if o == nil || isNil(o.LanguagesMap) {
+	if o == nil || IsNil(o.LanguagesMap) {
 		var ret map[string][]NameValue
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetLanguagesMap() map[string][
 // GetLanguagesMapOk returns a tuple with the LanguagesMap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetLanguagesMapOk() (*map[string][]NameValue, bool) {
-	if o == nil || isNil(o.LanguagesMap) {
-    return nil, false
+	if o == nil || IsNil(o.LanguagesMap) {
+		return nil, false
 	}
 	return o.LanguagesMap, true
 }
 
 // HasLanguagesMap returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasLanguagesMap() bool {
-	if o != nil && !isNil(o.LanguagesMap) {
+	if o != nil && !IsNil(o.LanguagesMap) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *ApplicationLocalizationConfigurationDto) SetLanguagesMap(v map[string][
 
 // GetLanguageFilesMap returns the LanguageFilesMap field value if set, zero value otherwise.
 func (o *ApplicationLocalizationConfigurationDto) GetLanguageFilesMap() map[string][]NameValue {
-	if o == nil || isNil(o.LanguageFilesMap) {
+	if o == nil || IsNil(o.LanguageFilesMap) {
 		var ret map[string][]NameValue
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *ApplicationLocalizationConfigurationDto) GetLanguageFilesMap() map[stri
 // GetLanguageFilesMapOk returns a tuple with the LanguageFilesMap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationLocalizationConfigurationDto) GetLanguageFilesMapOk() (*map[string][]NameValue, bool) {
-	if o == nil || isNil(o.LanguageFilesMap) {
-    return nil, false
+	if o == nil || IsNil(o.LanguageFilesMap) {
+		return nil, false
 	}
 	return o.LanguageFilesMap, true
 }
 
 // HasLanguageFilesMap returns a boolean if a field has been set.
 func (o *ApplicationLocalizationConfigurationDto) HasLanguageFilesMap() bool {
-	if o != nil && !isNil(o.LanguageFilesMap) {
+	if o != nil && !IsNil(o.LanguageFilesMap) {
 		return true
 	}
 
@@ -267,29 +270,37 @@ func (o *ApplicationLocalizationConfigurationDto) SetLanguageFilesMap(v map[stri
 }
 
 func (o ApplicationLocalizationConfigurationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Values) {
-		toSerialize["values"] = o.Values
-	}
-	if !isNil(o.Resources) {
-		toSerialize["resources"] = o.Resources
-	}
-	if !isNil(o.Languages) {
-		toSerialize["languages"] = o.Languages
-	}
-	if !isNil(o.CurrentCulture) {
-		toSerialize["currentCulture"] = o.CurrentCulture
-	}
-	if !isNil(o.DefaultResourceName) {
-		toSerialize["defaultResourceName"] = o.DefaultResourceName
-	}
-	if !isNil(o.LanguagesMap) {
-		toSerialize["languagesMap"] = o.LanguagesMap
-	}
-	if !isNil(o.LanguageFilesMap) {
-		toSerialize["languageFilesMap"] = o.LanguageFilesMap
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationLocalizationConfigurationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Values) {
+		toSerialize["values"] = o.Values
+	}
+	if !IsNil(o.Resources) {
+		toSerialize["resources"] = o.Resources
+	}
+	if !IsNil(o.Languages) {
+		toSerialize["languages"] = o.Languages
+	}
+	if !IsNil(o.CurrentCulture) {
+		toSerialize["currentCulture"] = o.CurrentCulture
+	}
+	if !IsNil(o.DefaultResourceName) {
+		toSerialize["defaultResourceName"] = o.DefaultResourceName
+	}
+	if !IsNil(o.LanguagesMap) {
+		toSerialize["languagesMap"] = o.LanguagesMap
+	}
+	if !IsNil(o.LanguageFilesMap) {
+		toSerialize["languageFilesMap"] = o.LanguageFilesMap
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationLocalizationConfigurationDto struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TodoSettingsDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TodoSettingsDto{}
+
 // TodoSettingsDto struct for TodoSettingsDto
 type TodoSettingsDto struct {
 	ShowCompleted *bool `json:"showCompleted,omitempty"`
@@ -40,7 +43,7 @@ func NewTodoSettingsDtoWithDefaults() *TodoSettingsDto {
 
 // GetShowCompleted returns the ShowCompleted field value if set, zero value otherwise.
 func (o *TodoSettingsDto) GetShowCompleted() bool {
-	if o == nil || isNil(o.ShowCompleted) {
+	if o == nil || IsNil(o.ShowCompleted) {
 		var ret bool
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *TodoSettingsDto) GetShowCompleted() bool {
 // GetShowCompletedOk returns a tuple with the ShowCompleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TodoSettingsDto) GetShowCompletedOk() (*bool, bool) {
-	if o == nil || isNil(o.ShowCompleted) {
-    return nil, false
+	if o == nil || IsNil(o.ShowCompleted) {
+		return nil, false
 	}
 	return o.ShowCompleted, true
 }
 
 // HasShowCompleted returns a boolean if a field has been set.
 func (o *TodoSettingsDto) HasShowCompleted() bool {
-	if o != nil && !isNil(o.ShowCompleted) {
+	if o != nil && !IsNil(o.ShowCompleted) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *TodoSettingsDto) SetShowCompleted(v bool) {
 
 // GetShowDetails returns the ShowDetails field value if set, zero value otherwise.
 func (o *TodoSettingsDto) GetShowDetails() bool {
-	if o == nil || isNil(o.ShowDetails) {
+	if o == nil || IsNil(o.ShowDetails) {
 		var ret bool
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *TodoSettingsDto) GetShowDetails() bool {
 // GetShowDetailsOk returns a tuple with the ShowDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TodoSettingsDto) GetShowDetailsOk() (*bool, bool) {
-	if o == nil || isNil(o.ShowDetails) {
-    return nil, false
+	if o == nil || IsNil(o.ShowDetails) {
+		return nil, false
 	}
 	return o.ShowDetails, true
 }
 
 // HasShowDetails returns a boolean if a field has been set.
 func (o *TodoSettingsDto) HasShowDetails() bool {
-	if o != nil && !isNil(o.ShowDetails) {
+	if o != nil && !IsNil(o.ShowDetails) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *TodoSettingsDto) SetShowDetails(v bool) {
 
 // GetOrderBy returns the OrderBy field value if set, zero value otherwise.
 func (o *TodoSettingsDto) GetOrderBy() TodoOrderBy {
-	if o == nil || isNil(o.OrderBy) {
+	if o == nil || IsNil(o.OrderBy) {
 		var ret TodoOrderBy
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *TodoSettingsDto) GetOrderBy() TodoOrderBy {
 // GetOrderByOk returns a tuple with the OrderBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TodoSettingsDto) GetOrderByOk() (*TodoOrderBy, bool) {
-	if o == nil || isNil(o.OrderBy) {
-    return nil, false
+	if o == nil || IsNil(o.OrderBy) {
+		return nil, false
 	}
 	return o.OrderBy, true
 }
 
 // HasOrderBy returns a boolean if a field has been set.
 func (o *TodoSettingsDto) HasOrderBy() bool {
-	if o != nil && !isNil(o.OrderBy) {
+	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *TodoSettingsDto) SetOrderBy(v TodoOrderBy) {
 }
 
 func (o TodoSettingsDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ShowCompleted) {
-		toSerialize["showCompleted"] = o.ShowCompleted
-	}
-	if !isNil(o.ShowDetails) {
-		toSerialize["showDetails"] = o.ShowDetails
-	}
-	if !isNil(o.OrderBy) {
-		toSerialize["orderBy"] = o.OrderBy
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o TodoSettingsDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ShowCompleted) {
+		toSerialize["showCompleted"] = o.ShowCompleted
+	}
+	if !IsNil(o.ShowDetails) {
+		toSerialize["showDetails"] = o.ShowDetails
+	}
+	if !IsNil(o.OrderBy) {
+		toSerialize["orderBy"] = o.OrderBy
+	}
+	return toSerialize, nil
 }
 
 type NullableTodoSettingsDto struct {

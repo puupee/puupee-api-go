@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the AppleVerifyReceiptResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AppleVerifyReceiptResult{}
+
 // AppleVerifyReceiptResult struct for AppleVerifyReceiptResult
 type AppleVerifyReceiptResult struct {
 	Environment *string `json:"environment,omitempty"`
@@ -44,7 +47,7 @@ func NewAppleVerifyReceiptResultWithDefaults() *AppleVerifyReceiptResult {
 
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetEnvironment() string {
-	if o == nil || isNil(o.Environment) {
+	if o == nil || IsNil(o.Environment) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *AppleVerifyReceiptResult) GetEnvironment() string {
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetEnvironmentOk() (*string, bool) {
-	if o == nil || isNil(o.Environment) {
-    return nil, false
+	if o == nil || IsNil(o.Environment) {
+		return nil, false
 	}
 	return o.Environment, true
 }
 
 // HasEnvironment returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasEnvironment() bool {
-	if o != nil && !isNil(o.Environment) {
+	if o != nil && !IsNil(o.Environment) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *AppleVerifyReceiptResult) SetEnvironment(v string) {
 
 // GetIsRetryable returns the IsRetryable field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetIsRetryable() bool {
-	if o == nil || isNil(o.IsRetryable) {
+	if o == nil || IsNil(o.IsRetryable) {
 		var ret bool
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *AppleVerifyReceiptResult) GetIsRetryable() bool {
 // GetIsRetryableOk returns a tuple with the IsRetryable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetIsRetryableOk() (*bool, bool) {
-	if o == nil || isNil(o.IsRetryable) {
-    return nil, false
+	if o == nil || IsNil(o.IsRetryable) {
+		return nil, false
 	}
 	return o.IsRetryable, true
 }
 
 // HasIsRetryable returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasIsRetryable() bool {
-	if o != nil && !isNil(o.IsRetryable) {
+	if o != nil && !IsNil(o.IsRetryable) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *AppleVerifyReceiptResult) SetIsRetryable(v bool) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetStatus() int32 {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret int32
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *AppleVerifyReceiptResult) GetStatus() int32 {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetStatusOk() (*int32, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || IsNil(o.Status) {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *AppleVerifyReceiptResult) SetStatus(v int32) {
 
 // GetLatestReceiptInfo returns the LatestReceiptInfo field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetLatestReceiptInfo() []LatestReceiptInfo {
-	if o == nil || isNil(o.LatestReceiptInfo) {
+	if o == nil || IsNil(o.LatestReceiptInfo) {
 		var ret []LatestReceiptInfo
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *AppleVerifyReceiptResult) GetLatestReceiptInfo() []LatestReceiptInfo {
 // GetLatestReceiptInfoOk returns a tuple with the LatestReceiptInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetLatestReceiptInfoOk() ([]LatestReceiptInfo, bool) {
-	if o == nil || isNil(o.LatestReceiptInfo) {
-    return nil, false
+	if o == nil || IsNil(o.LatestReceiptInfo) {
+		return nil, false
 	}
 	return o.LatestReceiptInfo, true
 }
 
 // HasLatestReceiptInfo returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasLatestReceiptInfo() bool {
-	if o != nil && !isNil(o.LatestReceiptInfo) {
+	if o != nil && !IsNil(o.LatestReceiptInfo) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *AppleVerifyReceiptResult) SetLatestReceiptInfo(v []LatestReceiptInfo) {
 
 // GetLatestReceipt returns the LatestReceipt field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetLatestReceipt() string {
-	if o == nil || isNil(o.LatestReceipt) {
+	if o == nil || IsNil(o.LatestReceipt) {
 		var ret string
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *AppleVerifyReceiptResult) GetLatestReceipt() string {
 // GetLatestReceiptOk returns a tuple with the LatestReceipt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetLatestReceiptOk() (*string, bool) {
-	if o == nil || isNil(o.LatestReceipt) {
-    return nil, false
+	if o == nil || IsNil(o.LatestReceipt) {
+		return nil, false
 	}
 	return o.LatestReceipt, true
 }
 
 // HasLatestReceipt returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasLatestReceipt() bool {
-	if o != nil && !isNil(o.LatestReceipt) {
+	if o != nil && !IsNil(o.LatestReceipt) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *AppleVerifyReceiptResult) SetLatestReceipt(v string) {
 
 // GetPendingRenewalInfo returns the PendingRenewalInfo field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetPendingRenewalInfo() []PendingRenewalInfo {
-	if o == nil || isNil(o.PendingRenewalInfo) {
+	if o == nil || IsNil(o.PendingRenewalInfo) {
 		var ret []PendingRenewalInfo
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *AppleVerifyReceiptResult) GetPendingRenewalInfo() []PendingRenewalInfo 
 // GetPendingRenewalInfoOk returns a tuple with the PendingRenewalInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetPendingRenewalInfoOk() ([]PendingRenewalInfo, bool) {
-	if o == nil || isNil(o.PendingRenewalInfo) {
-    return nil, false
+	if o == nil || IsNil(o.PendingRenewalInfo) {
+		return nil, false
 	}
 	return o.PendingRenewalInfo, true
 }
 
 // HasPendingRenewalInfo returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasPendingRenewalInfo() bool {
-	if o != nil && !isNil(o.PendingRenewalInfo) {
+	if o != nil && !IsNil(o.PendingRenewalInfo) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *AppleVerifyReceiptResult) SetPendingRenewalInfo(v []PendingRenewalInfo)
 
 // GetReceipt returns the Receipt field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetReceipt() Receipt {
-	if o == nil || isNil(o.Receipt) {
+	if o == nil || IsNil(o.Receipt) {
 		var ret Receipt
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *AppleVerifyReceiptResult) GetReceipt() Receipt {
 // GetReceiptOk returns a tuple with the Receipt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppleVerifyReceiptResult) GetReceiptOk() (*Receipt, bool) {
-	if o == nil || isNil(o.Receipt) {
-    return nil, false
+	if o == nil || IsNil(o.Receipt) {
+		return nil, false
 	}
 	return o.Receipt, true
 }
 
 // HasReceipt returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasReceipt() bool {
-	if o != nil && !isNil(o.Receipt) {
+	if o != nil && !IsNil(o.Receipt) {
 		return true
 	}
 
@@ -267,29 +270,37 @@ func (o *AppleVerifyReceiptResult) SetReceipt(v Receipt) {
 }
 
 func (o AppleVerifyReceiptResult) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Environment) {
-		toSerialize["environment"] = o.Environment
-	}
-	if !isNil(o.IsRetryable) {
-		toSerialize["is_retryable"] = o.IsRetryable
-	}
-	if !isNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !isNil(o.LatestReceiptInfo) {
-		toSerialize["latest_receipt_info"] = o.LatestReceiptInfo
-	}
-	if !isNil(o.LatestReceipt) {
-		toSerialize["latest_receipt"] = o.LatestReceipt
-	}
-	if !isNil(o.PendingRenewalInfo) {
-		toSerialize["pending_renewal_info"] = o.PendingRenewalInfo
-	}
-	if !isNil(o.Receipt) {
-		toSerialize["receipt"] = o.Receipt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AppleVerifyReceiptResult) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Environment) {
+		toSerialize["environment"] = o.Environment
+	}
+	if !IsNil(o.IsRetryable) {
+		toSerialize["is_retryable"] = o.IsRetryable
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.LatestReceiptInfo) {
+		toSerialize["latest_receipt_info"] = o.LatestReceiptInfo
+	}
+	if !IsNil(o.LatestReceipt) {
+		toSerialize["latest_receipt"] = o.LatestReceipt
+	}
+	if !IsNil(o.PendingRenewalInfo) {
+		toSerialize["pending_renewal_info"] = o.PendingRenewalInfo
+	}
+	if !IsNil(o.Receipt) {
+		toSerialize["receipt"] = o.Receipt
+	}
+	return toSerialize, nil
 }
 
 type NullableAppleVerifyReceiptResult struct {

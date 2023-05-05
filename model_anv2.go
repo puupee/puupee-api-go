@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Anv2 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Anv2{}
+
 // Anv2 struct for Anv2
 type Anv2 struct {
 	SignedPayload *string `json:"signedPayload,omitempty"`
@@ -38,7 +41,7 @@ func NewAnv2WithDefaults() *Anv2 {
 
 // GetSignedPayload returns the SignedPayload field value if set, zero value otherwise.
 func (o *Anv2) GetSignedPayload() string {
-	if o == nil || isNil(o.SignedPayload) {
+	if o == nil || IsNil(o.SignedPayload) {
 		var ret string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *Anv2) GetSignedPayload() string {
 // GetSignedPayloadOk returns a tuple with the SignedPayload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Anv2) GetSignedPayloadOk() (*string, bool) {
-	if o == nil || isNil(o.SignedPayload) {
-    return nil, false
+	if o == nil || IsNil(o.SignedPayload) {
+		return nil, false
 	}
 	return o.SignedPayload, true
 }
 
 // HasSignedPayload returns a boolean if a field has been set.
 func (o *Anv2) HasSignedPayload() bool {
-	if o != nil && !isNil(o.SignedPayload) {
+	if o != nil && !IsNil(o.SignedPayload) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *Anv2) SetSignedPayload(v string) {
 }
 
 func (o Anv2) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.SignedPayload) {
-		toSerialize["signedPayload"] = o.SignedPayload
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Anv2) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SignedPayload) {
+		toSerialize["signedPayload"] = o.SignedPayload
+	}
+	return toSerialize, nil
 }
 
 type NullableAnv2 struct {

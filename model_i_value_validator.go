@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IValueValidator type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IValueValidator{}
+
 // IValueValidator struct for IValueValidator
 type IValueValidator struct {
 	Name *string `json:"name,omitempty"`
@@ -39,7 +42,7 @@ func NewIValueValidatorWithDefaults() *IValueValidator {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IValueValidator) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *IValueValidator) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IValueValidator) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IValueValidator) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *IValueValidator) SetName(v string) {
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *IValueValidator) GetProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Properties) {
+	if o == nil || IsNil(o.Properties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *IValueValidator) GetProperties() map[string]map[string]interface{} {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IValueValidator) GetPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Properties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Properties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.
 func (o *IValueValidator) HasProperties() bool {
-	if o != nil && !isNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -102,14 +105,18 @@ func (o *IValueValidator) SetProperties(v map[string]map[string]interface{}) {
 }
 
 func (o IValueValidator) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Properties) {
-		toSerialize["properties"] = o.Properties
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IValueValidator) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: name is readOnly
+	// skip: properties is readOnly
+	return toSerialize, nil
 }
 
 type NullableIValueValidator struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PermissionGroupDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PermissionGroupDto{}
+
 // PermissionGroupDto struct for PermissionGroupDto
 type PermissionGroupDto struct {
 	Name *string `json:"name,omitempty"`
@@ -42,7 +45,7 @@ func NewPermissionGroupDtoWithDefaults() *PermissionGroupDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *PermissionGroupDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGroupDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *PermissionGroupDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *PermissionGroupDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGroupDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *PermissionGroupDto) SetDisplayName(v string) {
 
 // GetDisplayNameKey returns the DisplayNameKey field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetDisplayNameKey() string {
-	if o == nil || isNil(o.DisplayNameKey) {
+	if o == nil || IsNil(o.DisplayNameKey) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *PermissionGroupDto) GetDisplayNameKey() string {
 // GetDisplayNameKeyOk returns a tuple with the DisplayNameKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGroupDto) GetDisplayNameKeyOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayNameKey) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayNameKey) {
+		return nil, false
 	}
 	return o.DisplayNameKey, true
 }
 
 // HasDisplayNameKey returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasDisplayNameKey() bool {
-	if o != nil && !isNil(o.DisplayNameKey) {
+	if o != nil && !IsNil(o.DisplayNameKey) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *PermissionGroupDto) SetDisplayNameKey(v string) {
 
 // GetDisplayNameResource returns the DisplayNameResource field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetDisplayNameResource() string {
-	if o == nil || isNil(o.DisplayNameResource) {
+	if o == nil || IsNil(o.DisplayNameResource) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *PermissionGroupDto) GetDisplayNameResource() string {
 // GetDisplayNameResourceOk returns a tuple with the DisplayNameResource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGroupDto) GetDisplayNameResourceOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayNameResource) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayNameResource) {
+		return nil, false
 	}
 	return o.DisplayNameResource, true
 }
 
 // HasDisplayNameResource returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasDisplayNameResource() bool {
-	if o != nil && !isNil(o.DisplayNameResource) {
+	if o != nil && !IsNil(o.DisplayNameResource) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *PermissionGroupDto) SetDisplayNameResource(v string) {
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetPermissions() []PermissionGrantInfoDto {
-	if o == nil || isNil(o.Permissions) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret []PermissionGrantInfoDto
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *PermissionGroupDto) GetPermissions() []PermissionGrantInfoDto {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PermissionGroupDto) GetPermissionsOk() ([]PermissionGrantInfoDto, bool) {
-	if o == nil || isNil(o.Permissions) {
-    return nil, false
+	if o == nil || IsNil(o.Permissions) {
+		return nil, false
 	}
 	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasPermissions() bool {
-	if o != nil && !isNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *PermissionGroupDto) SetPermissions(v []PermissionGrantInfoDto) {
 }
 
 func (o PermissionGroupDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.DisplayNameKey) {
-		toSerialize["displayNameKey"] = o.DisplayNameKey
-	}
-	if !isNil(o.DisplayNameResource) {
-		toSerialize["displayNameResource"] = o.DisplayNameResource
-	}
-	if !isNil(o.Permissions) {
-		toSerialize["permissions"] = o.Permissions
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PermissionGroupDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.DisplayNameKey) {
+		toSerialize["displayNameKey"] = o.DisplayNameKey
+	}
+	if !IsNil(o.DisplayNameResource) {
+		toSerialize["displayNameResource"] = o.DisplayNameResource
+	}
+	if !IsNil(o.Permissions) {
+		toSerialize["permissions"] = o.Permissions
+	}
+	return toSerialize, nil
 }
 
 type NullablePermissionGroupDto struct {

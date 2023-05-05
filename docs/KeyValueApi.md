@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -98,7 +98,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -162,7 +162,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -226,7 +226,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -290,7 +290,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -354,7 +354,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -363,7 +363,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KeyValueApi.ApiAppKeyValueSetBoolPost(context.Background()).Key(key).Body(body).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetBoolPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetBoolPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -418,7 +418,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -427,7 +427,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDateTimePost(context.Background()).Key(key).Body(body).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDateTimePost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetDateTimePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -482,7 +482,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -491,7 +491,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDecimalPost(context.Background()).Key(key).Body(body).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDecimalPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetDecimalPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -546,7 +546,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -555,7 +555,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDoublePost(context.Background()).Key(key).Body(body).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDoublePost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetDoublePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -610,7 +610,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -619,7 +619,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KeyValueApi.ApiAppKeyValueSetIntPost(context.Background()).Key(key).Body(body).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetIntPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetIntPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -674,7 +674,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
@@ -683,7 +683,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.KeyValueApi.ApiAppKeyValueSetStringPost(context.Background()).Key(key).Body(body).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetStringPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetStringPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -738,7 +738,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {

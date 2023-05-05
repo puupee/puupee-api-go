@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the PuupeeDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PuupeeDto{}
+
 // PuupeeDto struct for PuupeeDto
 type PuupeeDto struct {
 	Id *string `json:"id,omitempty"`
@@ -90,7 +93,7 @@ func NewPuupeeDtoWithDefaults() *PuupeeDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *PuupeeDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -100,15 +103,15 @@ func (o *PuupeeDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -122,7 +125,7 @@ func (o *PuupeeDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *PuupeeDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -132,15 +135,15 @@ func (o *PuupeeDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *PuupeeDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -154,7 +157,7 @@ func (o *PuupeeDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *PuupeeDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -164,15 +167,15 @@ func (o *PuupeeDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -186,7 +189,7 @@ func (o *PuupeeDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *PuupeeDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -196,15 +199,15 @@ func (o *PuupeeDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -218,7 +221,7 @@ func (o *PuupeeDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *PuupeeDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -228,15 +231,15 @@ func (o *PuupeeDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -250,7 +253,7 @@ func (o *PuupeeDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *PuupeeDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -260,15 +263,15 @@ func (o *PuupeeDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *PuupeeDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -282,7 +285,7 @@ func (o *PuupeeDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *PuupeeDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -292,15 +295,15 @@ func (o *PuupeeDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -314,7 +317,7 @@ func (o *PuupeeDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *PuupeeDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -324,15 +327,15 @@ func (o *PuupeeDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -346,7 +349,7 @@ func (o *PuupeeDto) SetDeletionTime(v time.Time) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PuupeeDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -356,15 +359,15 @@ func (o *PuupeeDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PuupeeDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -378,7 +381,7 @@ func (o *PuupeeDto) SetName(v string) {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *PuupeeDto) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -388,15 +391,15 @@ func (o *PuupeeDto) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *PuupeeDto) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -410,7 +413,7 @@ func (o *PuupeeDto) SetTitle(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PuupeeDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -420,15 +423,15 @@ func (o *PuupeeDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -442,7 +445,7 @@ func (o *PuupeeDto) SetDescription(v string) {
 
 // GetText returns the Text field value if set, zero value otherwise.
 func (o *PuupeeDto) GetText() string {
-	if o == nil || isNil(o.Text) {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
@@ -452,15 +455,15 @@ func (o *PuupeeDto) GetText() string {
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetTextOk() (*string, bool) {
-	if o == nil || isNil(o.Text) {
-    return nil, false
+	if o == nil || IsNil(o.Text) {
+		return nil, false
 	}
 	return o.Text, true
 }
 
 // HasText returns a boolean if a field has been set.
 func (o *PuupeeDto) HasText() bool {
-	if o != nil && !isNil(o.Text) {
+	if o != nil && !IsNil(o.Text) {
 		return true
 	}
 
@@ -474,7 +477,7 @@ func (o *PuupeeDto) SetText(v string) {
 
 // GetContent returns the Content field value if set, zero value otherwise.
 func (o *PuupeeDto) GetContent() string {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
@@ -484,15 +487,15 @@ func (o *PuupeeDto) GetContent() string {
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetContentOk() (*string, bool) {
-	if o == nil || isNil(o.Content) {
-    return nil, false
+	if o == nil || IsNil(o.Content) {
+		return nil, false
 	}
 	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *PuupeeDto) HasContent() bool {
-	if o != nil && !isNil(o.Content) {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
@@ -506,7 +509,7 @@ func (o *PuupeeDto) SetContent(v string) {
 
 // GetFormat returns the Format field value if set, zero value otherwise.
 func (o *PuupeeDto) GetFormat() string {
-	if o == nil || isNil(o.Format) {
+	if o == nil || IsNil(o.Format) {
 		var ret string
 		return ret
 	}
@@ -516,15 +519,15 @@ func (o *PuupeeDto) GetFormat() string {
 // GetFormatOk returns a tuple with the Format field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetFormatOk() (*string, bool) {
-	if o == nil || isNil(o.Format) {
-    return nil, false
+	if o == nil || IsNil(o.Format) {
+		return nil, false
 	}
 	return o.Format, true
 }
 
 // HasFormat returns a boolean if a field has been set.
 func (o *PuupeeDto) HasFormat() bool {
-	if o != nil && !isNil(o.Format) {
+	if o != nil && !IsNil(o.Format) {
 		return true
 	}
 
@@ -538,7 +541,7 @@ func (o *PuupeeDto) SetFormat(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *PuupeeDto) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -548,15 +551,15 @@ func (o *PuupeeDto) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
-    return nil, false
+	if o == nil || IsNil(o.Password) {
+		return nil, false
 	}
 	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *PuupeeDto) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -570,7 +573,7 @@ func (o *PuupeeDto) SetPassword(v string) {
 
 // GetParentId returns the ParentId field value if set, zero value otherwise.
 func (o *PuupeeDto) GetParentId() string {
-	if o == nil || isNil(o.ParentId) {
+	if o == nil || IsNil(o.ParentId) {
 		var ret string
 		return ret
 	}
@@ -580,15 +583,15 @@ func (o *PuupeeDto) GetParentId() string {
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetParentIdOk() (*string, bool) {
-	if o == nil || isNil(o.ParentId) {
-    return nil, false
+	if o == nil || IsNil(o.ParentId) {
+		return nil, false
 	}
 	return o.ParentId, true
 }
 
 // HasParentId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasParentId() bool {
-	if o != nil && !isNil(o.ParentId) {
+	if o != nil && !IsNil(o.ParentId) {
 		return true
 	}
 
@@ -602,7 +605,7 @@ func (o *PuupeeDto) SetParentId(v string) {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *PuupeeDto) GetKey() string {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -612,15 +615,15 @@ func (o *PuupeeDto) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetKeyOk() (*string, bool) {
-	if o == nil || isNil(o.Key) {
-    return nil, false
+	if o == nil || IsNil(o.Key) {
+		return nil, false
 	}
 	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *PuupeeDto) HasKey() bool {
-	if o != nil && !isNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
@@ -634,7 +637,7 @@ func (o *PuupeeDto) SetKey(v string) {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *PuupeeDto) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -644,15 +647,15 @@ func (o *PuupeeDto) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *PuupeeDto) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -666,7 +669,7 @@ func (o *PuupeeDto) SetUrl(v string) {
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *PuupeeDto) GetSize() int64 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret int64
 		return ret
 	}
@@ -676,15 +679,15 @@ func (o *PuupeeDto) GetSize() int64 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetSizeOk() (*int64, bool) {
-	if o == nil || isNil(o.Size) {
-    return nil, false
+	if o == nil || IsNil(o.Size) {
+		return nil, false
 	}
 	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *PuupeeDto) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -698,7 +701,7 @@ func (o *PuupeeDto) SetSize(v int64) {
 
 // GetMd5 returns the Md5 field value if set, zero value otherwise.
 func (o *PuupeeDto) GetMd5() string {
-	if o == nil || isNil(o.Md5) {
+	if o == nil || IsNil(o.Md5) {
 		var ret string
 		return ret
 	}
@@ -708,15 +711,15 @@ func (o *PuupeeDto) GetMd5() string {
 // GetMd5Ok returns a tuple with the Md5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetMd5Ok() (*string, bool) {
-	if o == nil || isNil(o.Md5) {
-    return nil, false
+	if o == nil || IsNil(o.Md5) {
+		return nil, false
 	}
 	return o.Md5, true
 }
 
 // HasMd5 returns a boolean if a field has been set.
 func (o *PuupeeDto) HasMd5() bool {
-	if o != nil && !isNil(o.Md5) {
+	if o != nil && !IsNil(o.Md5) {
 		return true
 	}
 
@@ -730,7 +733,7 @@ func (o *PuupeeDto) SetMd5(v string) {
 
 // GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise.
 func (o *PuupeeDto) GetSliceMd5() string {
-	if o == nil || isNil(o.SliceMd5) {
+	if o == nil || IsNil(o.SliceMd5) {
 		var ret string
 		return ret
 	}
@@ -740,15 +743,15 @@ func (o *PuupeeDto) GetSliceMd5() string {
 // GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetSliceMd5Ok() (*string, bool) {
-	if o == nil || isNil(o.SliceMd5) {
-    return nil, false
+	if o == nil || IsNil(o.SliceMd5) {
+		return nil, false
 	}
 	return o.SliceMd5, true
 }
 
 // HasSliceMd5 returns a boolean if a field has been set.
 func (o *PuupeeDto) HasSliceMd5() bool {
-	if o != nil && !isNil(o.SliceMd5) {
+	if o != nil && !IsNil(o.SliceMd5) {
 		return true
 	}
 
@@ -762,7 +765,7 @@ func (o *PuupeeDto) SetSliceMd5(v string) {
 
 // GetRapidCode returns the RapidCode field value if set, zero value otherwise.
 func (o *PuupeeDto) GetRapidCode() string {
-	if o == nil || isNil(o.RapidCode) {
+	if o == nil || IsNil(o.RapidCode) {
 		var ret string
 		return ret
 	}
@@ -772,15 +775,15 @@ func (o *PuupeeDto) GetRapidCode() string {
 // GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetRapidCodeOk() (*string, bool) {
-	if o == nil || isNil(o.RapidCode) {
-    return nil, false
+	if o == nil || IsNil(o.RapidCode) {
+		return nil, false
 	}
 	return o.RapidCode, true
 }
 
 // HasRapidCode returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRapidCode() bool {
-	if o != nil && !isNil(o.RapidCode) {
+	if o != nil && !IsNil(o.RapidCode) {
 		return true
 	}
 
@@ -794,7 +797,7 @@ func (o *PuupeeDto) SetRapidCode(v string) {
 
 // GetContentType returns the ContentType field value if set, zero value otherwise.
 func (o *PuupeeDto) GetContentType() string {
-	if o == nil || isNil(o.ContentType) {
+	if o == nil || IsNil(o.ContentType) {
 		var ret string
 		return ret
 	}
@@ -804,15 +807,15 @@ func (o *PuupeeDto) GetContentType() string {
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetContentTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ContentType) {
-    return nil, false
+	if o == nil || IsNil(o.ContentType) {
+		return nil, false
 	}
 	return o.ContentType, true
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *PuupeeDto) HasContentType() bool {
-	if o != nil && !isNil(o.ContentType) {
+	if o != nil && !IsNil(o.ContentType) {
 		return true
 	}
 
@@ -826,7 +829,7 @@ func (o *PuupeeDto) SetContentType(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *PuupeeDto) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -836,15 +839,15 @@ func (o *PuupeeDto) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *PuupeeDto) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -858,7 +861,7 @@ func (o *PuupeeDto) SetType(v string) {
 
 // GetDisplayStyle returns the DisplayStyle field value if set, zero value otherwise.
 func (o *PuupeeDto) GetDisplayStyle() string {
-	if o == nil || isNil(o.DisplayStyle) {
+	if o == nil || IsNil(o.DisplayStyle) {
 		var ret string
 		return ret
 	}
@@ -868,15 +871,15 @@ func (o *PuupeeDto) GetDisplayStyle() string {
 // GetDisplayStyleOk returns a tuple with the DisplayStyle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetDisplayStyleOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayStyle) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayStyle) {
+		return nil, false
 	}
 	return o.DisplayStyle, true
 }
 
 // HasDisplayStyle returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDisplayStyle() bool {
-	if o != nil && !isNil(o.DisplayStyle) {
+	if o != nil && !IsNil(o.DisplayStyle) {
 		return true
 	}
 
@@ -890,7 +893,7 @@ func (o *PuupeeDto) SetDisplayStyle(v string) {
 
 // GetExtension returns the Extension field value if set, zero value otherwise.
 func (o *PuupeeDto) GetExtension() string {
-	if o == nil || isNil(o.Extension) {
+	if o == nil || IsNil(o.Extension) {
 		var ret string
 		return ret
 	}
@@ -900,15 +903,15 @@ func (o *PuupeeDto) GetExtension() string {
 // GetExtensionOk returns a tuple with the Extension field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetExtensionOk() (*string, bool) {
-	if o == nil || isNil(o.Extension) {
-    return nil, false
+	if o == nil || IsNil(o.Extension) {
+		return nil, false
 	}
 	return o.Extension, true
 }
 
 // HasExtension returns a boolean if a field has been set.
 func (o *PuupeeDto) HasExtension() bool {
-	if o != nil && !isNil(o.Extension) {
+	if o != nil && !IsNil(o.Extension) {
 		return true
 	}
 
@@ -922,7 +925,7 @@ func (o *PuupeeDto) SetExtension(v string) {
 
 // GetStorageClass returns the StorageClass field value if set, zero value otherwise.
 func (o *PuupeeDto) GetStorageClass() string {
-	if o == nil || isNil(o.StorageClass) {
+	if o == nil || IsNil(o.StorageClass) {
 		var ret string
 		return ret
 	}
@@ -932,15 +935,15 @@ func (o *PuupeeDto) GetStorageClass() string {
 // GetStorageClassOk returns a tuple with the StorageClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetStorageClassOk() (*string, bool) {
-	if o == nil || isNil(o.StorageClass) {
-    return nil, false
+	if o == nil || IsNil(o.StorageClass) {
+		return nil, false
 	}
 	return o.StorageClass, true
 }
 
 // HasStorageClass returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageClass() bool {
-	if o != nil && !isNil(o.StorageClass) {
+	if o != nil && !IsNil(o.StorageClass) {
 		return true
 	}
 
@@ -954,7 +957,7 @@ func (o *PuupeeDto) SetStorageClass(v string) {
 
 // GetStorageObjectCreatedAt returns the StorageObjectCreatedAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetStorageObjectCreatedAt() time.Time {
-	if o == nil || isNil(o.StorageObjectCreatedAt) {
+	if o == nil || IsNil(o.StorageObjectCreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -964,15 +967,15 @@ func (o *PuupeeDto) GetStorageObjectCreatedAt() time.Time {
 // GetStorageObjectCreatedAtOk returns a tuple with the StorageObjectCreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetStorageObjectCreatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.StorageObjectCreatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObjectCreatedAt) {
+		return nil, false
 	}
 	return o.StorageObjectCreatedAt, true
 }
 
 // HasStorageObjectCreatedAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObjectCreatedAt() bool {
-	if o != nil && !isNil(o.StorageObjectCreatedAt) {
+	if o != nil && !IsNil(o.StorageObjectCreatedAt) {
 		return true
 	}
 
@@ -986,7 +989,7 @@ func (o *PuupeeDto) SetStorageObjectCreatedAt(v time.Time) {
 
 // GetStorageObjectUpdatedAt returns the StorageObjectUpdatedAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetStorageObjectUpdatedAt() time.Time {
-	if o == nil || isNil(o.StorageObjectUpdatedAt) {
+	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -996,15 +999,15 @@ func (o *PuupeeDto) GetStorageObjectUpdatedAt() time.Time {
 // GetStorageObjectUpdatedAtOk returns a tuple with the StorageObjectUpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetStorageObjectUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.StorageObjectUpdatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
+		return nil, false
 	}
 	return o.StorageObjectUpdatedAt, true
 }
 
 // HasStorageObjectUpdatedAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObjectUpdatedAt() bool {
-	if o != nil && !isNil(o.StorageObjectUpdatedAt) {
+	if o != nil && !IsNil(o.StorageObjectUpdatedAt) {
 		return true
 	}
 
@@ -1018,7 +1021,7 @@ func (o *PuupeeDto) SetStorageObjectUpdatedAt(v time.Time) {
 
 // GetStorageObjectId returns the StorageObjectId field value if set, zero value otherwise.
 func (o *PuupeeDto) GetStorageObjectId() string {
-	if o == nil || isNil(o.StorageObjectId) {
+	if o == nil || IsNil(o.StorageObjectId) {
 		var ret string
 		return ret
 	}
@@ -1028,15 +1031,15 @@ func (o *PuupeeDto) GetStorageObjectId() string {
 // GetStorageObjectIdOk returns a tuple with the StorageObjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetStorageObjectIdOk() (*string, bool) {
-	if o == nil || isNil(o.StorageObjectId) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObjectId) {
+		return nil, false
 	}
 	return o.StorageObjectId, true
 }
 
 // HasStorageObjectId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObjectId() bool {
-	if o != nil && !isNil(o.StorageObjectId) {
+	if o != nil && !IsNil(o.StorageObjectId) {
 		return true
 	}
 
@@ -1050,7 +1053,7 @@ func (o *PuupeeDto) SetStorageObjectId(v string) {
 
 // GetStorageObject returns the StorageObject field value if set, zero value otherwise.
 func (o *PuupeeDto) GetStorageObject() StorageObjectDto {
-	if o == nil || isNil(o.StorageObject) {
+	if o == nil || IsNil(o.StorageObject) {
 		var ret StorageObjectDto
 		return ret
 	}
@@ -1060,15 +1063,15 @@ func (o *PuupeeDto) GetStorageObject() StorageObjectDto {
 // GetStorageObjectOk returns a tuple with the StorageObject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetStorageObjectOk() (*StorageObjectDto, bool) {
-	if o == nil || isNil(o.StorageObject) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObject) {
+		return nil, false
 	}
 	return o.StorageObject, true
 }
 
 // HasStorageObject returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObject() bool {
-	if o != nil && !isNil(o.StorageObject) {
+	if o != nil && !IsNil(o.StorageObject) {
 		return true
 	}
 
@@ -1082,7 +1085,7 @@ func (o *PuupeeDto) SetStorageObject(v StorageObjectDto) {
 
 // GetThumb returns the Thumb field value if set, zero value otherwise.
 func (o *PuupeeDto) GetThumb() StorageObjectDto {
-	if o == nil || isNil(o.Thumb) {
+	if o == nil || IsNil(o.Thumb) {
 		var ret StorageObjectDto
 		return ret
 	}
@@ -1092,15 +1095,15 @@ func (o *PuupeeDto) GetThumb() StorageObjectDto {
 // GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetThumbOk() (*StorageObjectDto, bool) {
-	if o == nil || isNil(o.Thumb) {
-    return nil, false
+	if o == nil || IsNil(o.Thumb) {
+		return nil, false
 	}
 	return o.Thumb, true
 }
 
 // HasThumb returns a boolean if a field has been set.
 func (o *PuupeeDto) HasThumb() bool {
-	if o != nil && !isNil(o.Thumb) {
+	if o != nil && !IsNil(o.Thumb) {
 		return true
 	}
 
@@ -1114,7 +1117,7 @@ func (o *PuupeeDto) SetThumb(v StorageObjectDto) {
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
 func (o *PuupeeDto) GetPriority() int32 {
-	if o == nil || isNil(o.Priority) {
+	if o == nil || IsNil(o.Priority) {
 		var ret int32
 		return ret
 	}
@@ -1124,15 +1127,15 @@ func (o *PuupeeDto) GetPriority() int32 {
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetPriorityOk() (*int32, bool) {
-	if o == nil || isNil(o.Priority) {
-    return nil, false
+	if o == nil || IsNil(o.Priority) {
+		return nil, false
 	}
 	return o.Priority, true
 }
 
 // HasPriority returns a boolean if a field has been set.
 func (o *PuupeeDto) HasPriority() bool {
-	if o != nil && !isNil(o.Priority) {
+	if o != nil && !IsNil(o.Priority) {
 		return true
 	}
 
@@ -1146,7 +1149,7 @@ func (o *PuupeeDto) SetPriority(v int32) {
 
 // GetDoneAt returns the DoneAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetDoneAt() time.Time {
-	if o == nil || isNil(o.DoneAt) {
+	if o == nil || IsNil(o.DoneAt) {
 		var ret time.Time
 		return ret
 	}
@@ -1156,15 +1159,15 @@ func (o *PuupeeDto) GetDoneAt() time.Time {
 // GetDoneAtOk returns a tuple with the DoneAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetDoneAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DoneAt) {
-    return nil, false
+	if o == nil || IsNil(o.DoneAt) {
+		return nil, false
 	}
 	return o.DoneAt, true
 }
 
 // HasDoneAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDoneAt() bool {
-	if o != nil && !isNil(o.DoneAt) {
+	if o != nil && !IsNil(o.DoneAt) {
 		return true
 	}
 
@@ -1178,7 +1181,7 @@ func (o *PuupeeDto) SetDoneAt(v time.Time) {
 
 // GetIsDone returns the IsDone field value if set, zero value otherwise.
 func (o *PuupeeDto) GetIsDone() bool {
-	if o == nil || isNil(o.IsDone) {
+	if o == nil || IsNil(o.IsDone) {
 		var ret bool
 		return ret
 	}
@@ -1188,15 +1191,15 @@ func (o *PuupeeDto) GetIsDone() bool {
 // GetIsDoneOk returns a tuple with the IsDone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetIsDoneOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDone) {
-    return nil, false
+	if o == nil || IsNil(o.IsDone) {
+		return nil, false
 	}
 	return o.IsDone, true
 }
 
 // HasIsDone returns a boolean if a field has been set.
 func (o *PuupeeDto) HasIsDone() bool {
-	if o != nil && !isNil(o.IsDone) {
+	if o != nil && !IsNil(o.IsDone) {
 		return true
 	}
 
@@ -1210,7 +1213,7 @@ func (o *PuupeeDto) SetIsDone(v bool) {
 
 // GetStartAt returns the StartAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetStartAt() time.Time {
-	if o == nil || isNil(o.StartAt) {
+	if o == nil || IsNil(o.StartAt) {
 		var ret time.Time
 		return ret
 	}
@@ -1220,15 +1223,15 @@ func (o *PuupeeDto) GetStartAt() time.Time {
 // GetStartAtOk returns a tuple with the StartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetStartAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.StartAt) {
-    return nil, false
+	if o == nil || IsNil(o.StartAt) {
+		return nil, false
 	}
 	return o.StartAt, true
 }
 
 // HasStartAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStartAt() bool {
-	if o != nil && !isNil(o.StartAt) {
+	if o != nil && !IsNil(o.StartAt) {
 		return true
 	}
 
@@ -1242,7 +1245,7 @@ func (o *PuupeeDto) SetStartAt(v time.Time) {
 
 // GetEndAt returns the EndAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetEndAt() time.Time {
-	if o == nil || isNil(o.EndAt) {
+	if o == nil || IsNil(o.EndAt) {
 		var ret time.Time
 		return ret
 	}
@@ -1252,15 +1255,15 @@ func (o *PuupeeDto) GetEndAt() time.Time {
 // GetEndAtOk returns a tuple with the EndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetEndAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.EndAt) {
-    return nil, false
+	if o == nil || IsNil(o.EndAt) {
+		return nil, false
 	}
 	return o.EndAt, true
 }
 
 // HasEndAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasEndAt() bool {
-	if o != nil && !isNil(o.EndAt) {
+	if o != nil && !IsNil(o.EndAt) {
 		return true
 	}
 
@@ -1274,7 +1277,7 @@ func (o *PuupeeDto) SetEndAt(v time.Time) {
 
 // GetNotifyAt returns the NotifyAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetNotifyAt() time.Time {
-	if o == nil || isNil(o.NotifyAt) {
+	if o == nil || IsNil(o.NotifyAt) {
 		var ret time.Time
 		return ret
 	}
@@ -1284,15 +1287,15 @@ func (o *PuupeeDto) GetNotifyAt() time.Time {
 // GetNotifyAtOk returns a tuple with the NotifyAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetNotifyAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.NotifyAt) {
-    return nil, false
+	if o == nil || IsNil(o.NotifyAt) {
+		return nil, false
 	}
 	return o.NotifyAt, true
 }
 
 // HasNotifyAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyAt() bool {
-	if o != nil && !isNil(o.NotifyAt) {
+	if o != nil && !IsNil(o.NotifyAt) {
 		return true
 	}
 
@@ -1306,7 +1309,7 @@ func (o *PuupeeDto) SetNotifyAt(v time.Time) {
 
 // GetNotifyTimingType returns the NotifyTimingType field value if set, zero value otherwise.
 func (o *PuupeeDto) GetNotifyTimingType() string {
-	if o == nil || isNil(o.NotifyTimingType) {
+	if o == nil || IsNil(o.NotifyTimingType) {
 		var ret string
 		return ret
 	}
@@ -1316,15 +1319,15 @@ func (o *PuupeeDto) GetNotifyTimingType() string {
 // GetNotifyTimingTypeOk returns a tuple with the NotifyTimingType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetNotifyTimingTypeOk() (*string, bool) {
-	if o == nil || isNil(o.NotifyTimingType) {
-    return nil, false
+	if o == nil || IsNil(o.NotifyTimingType) {
+		return nil, false
 	}
 	return o.NotifyTimingType, true
 }
 
 // HasNotifyTimingType returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyTimingType() bool {
-	if o != nil && !isNil(o.NotifyTimingType) {
+	if o != nil && !IsNil(o.NotifyTimingType) {
 		return true
 	}
 
@@ -1338,7 +1341,7 @@ func (o *PuupeeDto) SetNotifyTimingType(v string) {
 
 // GetNotifyTimingUnit returns the NotifyTimingUnit field value if set, zero value otherwise.
 func (o *PuupeeDto) GetNotifyTimingUnit() string {
-	if o == nil || isNil(o.NotifyTimingUnit) {
+	if o == nil || IsNil(o.NotifyTimingUnit) {
 		var ret string
 		return ret
 	}
@@ -1348,15 +1351,15 @@ func (o *PuupeeDto) GetNotifyTimingUnit() string {
 // GetNotifyTimingUnitOk returns a tuple with the NotifyTimingUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetNotifyTimingUnitOk() (*string, bool) {
-	if o == nil || isNil(o.NotifyTimingUnit) {
-    return nil, false
+	if o == nil || IsNil(o.NotifyTimingUnit) {
+		return nil, false
 	}
 	return o.NotifyTimingUnit, true
 }
 
 // HasNotifyTimingUnit returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyTimingUnit() bool {
-	if o != nil && !isNil(o.NotifyTimingUnit) {
+	if o != nil && !IsNil(o.NotifyTimingUnit) {
 		return true
 	}
 
@@ -1370,7 +1373,7 @@ func (o *PuupeeDto) SetNotifyTimingUnit(v string) {
 
 // GetNotifyTimingValue returns the NotifyTimingValue field value if set, zero value otherwise.
 func (o *PuupeeDto) GetNotifyTimingValue() int32 {
-	if o == nil || isNil(o.NotifyTimingValue) {
+	if o == nil || IsNil(o.NotifyTimingValue) {
 		var ret int32
 		return ret
 	}
@@ -1380,15 +1383,15 @@ func (o *PuupeeDto) GetNotifyTimingValue() int32 {
 // GetNotifyTimingValueOk returns a tuple with the NotifyTimingValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetNotifyTimingValueOk() (*int32, bool) {
-	if o == nil || isNil(o.NotifyTimingValue) {
-    return nil, false
+	if o == nil || IsNil(o.NotifyTimingValue) {
+		return nil, false
 	}
 	return o.NotifyTimingValue, true
 }
 
 // HasNotifyTimingValue returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyTimingValue() bool {
-	if o != nil && !isNil(o.NotifyTimingValue) {
+	if o != nil && !IsNil(o.NotifyTimingValue) {
 		return true
 	}
 
@@ -1402,7 +1405,7 @@ func (o *PuupeeDto) SetNotifyTimingValue(v int32) {
 
 // GetRepeat returns the Repeat field value if set, zero value otherwise.
 func (o *PuupeeDto) GetRepeat() string {
-	if o == nil || isNil(o.Repeat) {
+	if o == nil || IsNil(o.Repeat) {
 		var ret string
 		return ret
 	}
@@ -1412,15 +1415,15 @@ func (o *PuupeeDto) GetRepeat() string {
 // GetRepeatOk returns a tuple with the Repeat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetRepeatOk() (*string, bool) {
-	if o == nil || isNil(o.Repeat) {
-    return nil, false
+	if o == nil || IsNil(o.Repeat) {
+		return nil, false
 	}
 	return o.Repeat, true
 }
 
 // HasRepeat returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepeat() bool {
-	if o != nil && !isNil(o.Repeat) {
+	if o != nil && !IsNil(o.Repeat) {
 		return true
 	}
 
@@ -1434,7 +1437,7 @@ func (o *PuupeeDto) SetRepeat(v string) {
 
 // GetRepeatOffAt returns the RepeatOffAt field value if set, zero value otherwise.
 func (o *PuupeeDto) GetRepeatOffAt() time.Time {
-	if o == nil || isNil(o.RepeatOffAt) {
+	if o == nil || IsNil(o.RepeatOffAt) {
 		var ret time.Time
 		return ret
 	}
@@ -1444,15 +1447,15 @@ func (o *PuupeeDto) GetRepeatOffAt() time.Time {
 // GetRepeatOffAtOk returns a tuple with the RepeatOffAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetRepeatOffAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.RepeatOffAt) {
-    return nil, false
+	if o == nil || IsNil(o.RepeatOffAt) {
+		return nil, false
 	}
 	return o.RepeatOffAt, true
 }
 
 // HasRepeatOffAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepeatOffAt() bool {
-	if o != nil && !isNil(o.RepeatOffAt) {
+	if o != nil && !IsNil(o.RepeatOffAt) {
 		return true
 	}
 
@@ -1466,7 +1469,7 @@ func (o *PuupeeDto) SetRepeatOffAt(v time.Time) {
 
 // GetRepeatOffTimes returns the RepeatOffTimes field value if set, zero value otherwise.
 func (o *PuupeeDto) GetRepeatOffTimes() int32 {
-	if o == nil || isNil(o.RepeatOffTimes) {
+	if o == nil || IsNil(o.RepeatOffTimes) {
 		var ret int32
 		return ret
 	}
@@ -1476,15 +1479,15 @@ func (o *PuupeeDto) GetRepeatOffTimes() int32 {
 // GetRepeatOffTimesOk returns a tuple with the RepeatOffTimes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetRepeatOffTimesOk() (*int32, bool) {
-	if o == nil || isNil(o.RepeatOffTimes) {
-    return nil, false
+	if o == nil || IsNil(o.RepeatOffTimes) {
+		return nil, false
 	}
 	return o.RepeatOffTimes, true
 }
 
 // HasRepeatOffTimes returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepeatOffTimes() bool {
-	if o != nil && !isNil(o.RepeatOffTimes) {
+	if o != nil && !IsNil(o.RepeatOffTimes) {
 		return true
 	}
 
@@ -1498,7 +1501,7 @@ func (o *PuupeeDto) SetRepeatOffTimes(v int32) {
 
 // GetRepetitions returns the Repetitions field value if set, zero value otherwise.
 func (o *PuupeeDto) GetRepetitions() int32 {
-	if o == nil || isNil(o.Repetitions) {
+	if o == nil || IsNil(o.Repetitions) {
 		var ret int32
 		return ret
 	}
@@ -1508,15 +1511,15 @@ func (o *PuupeeDto) GetRepetitions() int32 {
 // GetRepetitionsOk returns a tuple with the Repetitions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetRepetitionsOk() (*int32, bool) {
-	if o == nil || isNil(o.Repetitions) {
-    return nil, false
+	if o == nil || IsNil(o.Repetitions) {
+		return nil, false
 	}
 	return o.Repetitions, true
 }
 
 // HasRepetitions returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepetitions() bool {
-	if o != nil && !isNil(o.Repetitions) {
+	if o != nil && !IsNil(o.Repetitions) {
 		return true
 	}
 
@@ -1530,7 +1533,7 @@ func (o *PuupeeDto) SetRepetitions(v int32) {
 
 // GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
 func (o *PuupeeDto) GetSyncVersion() int64 {
-	if o == nil || isNil(o.SyncVersion) {
+	if o == nil || IsNil(o.SyncVersion) {
 		var ret int64
 		return ret
 	}
@@ -1540,15 +1543,15 @@ func (o *PuupeeDto) GetSyncVersion() int64 {
 // GetSyncVersionOk returns a tuple with the SyncVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetSyncVersionOk() (*int64, bool) {
-	if o == nil || isNil(o.SyncVersion) {
-    return nil, false
+	if o == nil || IsNil(o.SyncVersion) {
+		return nil, false
 	}
 	return o.SyncVersion, true
 }
 
 // HasSyncVersion returns a boolean if a field has been set.
 func (o *PuupeeDto) HasSyncVersion() bool {
-	if o != nil && !isNil(o.SyncVersion) {
+	if o != nil && !IsNil(o.SyncVersion) {
 		return true
 	}
 
@@ -1562,7 +1565,7 @@ func (o *PuupeeDto) SetSyncVersion(v int64) {
 
 // GetIsHidden returns the IsHidden field value if set, zero value otherwise.
 func (o *PuupeeDto) GetIsHidden() bool {
-	if o == nil || isNil(o.IsHidden) {
+	if o == nil || IsNil(o.IsHidden) {
 		var ret bool
 		return ret
 	}
@@ -1572,15 +1575,15 @@ func (o *PuupeeDto) GetIsHidden() bool {
 // GetIsHiddenOk returns a tuple with the IsHidden field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetIsHiddenOk() (*bool, bool) {
-	if o == nil || isNil(o.IsHidden) {
-    return nil, false
+	if o == nil || IsNil(o.IsHidden) {
+		return nil, false
 	}
 	return o.IsHidden, true
 }
 
 // HasIsHidden returns a boolean if a field has been set.
 func (o *PuupeeDto) HasIsHidden() bool {
-	if o != nil && !isNil(o.IsHidden) {
+	if o != nil && !IsNil(o.IsHidden) {
 		return true
 	}
 
@@ -1594,7 +1597,7 @@ func (o *PuupeeDto) SetIsHidden(v bool) {
 
 // GetTagging returns the Tagging field value if set, zero value otherwise.
 func (o *PuupeeDto) GetTagging() string {
-	if o == nil || isNil(o.Tagging) {
+	if o == nil || IsNil(o.Tagging) {
 		var ret string
 		return ret
 	}
@@ -1604,15 +1607,15 @@ func (o *PuupeeDto) GetTagging() string {
 // GetTaggingOk returns a tuple with the Tagging field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetTaggingOk() (*string, bool) {
-	if o == nil || isNil(o.Tagging) {
-    return nil, false
+	if o == nil || IsNil(o.Tagging) {
+		return nil, false
 	}
 	return o.Tagging, true
 }
 
 // HasTagging returns a boolean if a field has been set.
 func (o *PuupeeDto) HasTagging() bool {
-	if o != nil && !isNil(o.Tagging) {
+	if o != nil && !IsNil(o.Tagging) {
 		return true
 	}
 
@@ -1626,7 +1629,7 @@ func (o *PuupeeDto) SetTagging(v string) {
 
 // GetLastModifierDeviceToken returns the LastModifierDeviceToken field value if set, zero value otherwise.
 func (o *PuupeeDto) GetLastModifierDeviceToken() string {
-	if o == nil || isNil(o.LastModifierDeviceToken) {
+	if o == nil || IsNil(o.LastModifierDeviceToken) {
 		var ret string
 		return ret
 	}
@@ -1636,15 +1639,15 @@ func (o *PuupeeDto) GetLastModifierDeviceToken() string {
 // GetLastModifierDeviceTokenOk returns a tuple with the LastModifierDeviceToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetLastModifierDeviceTokenOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierDeviceToken) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierDeviceToken) {
+		return nil, false
 	}
 	return o.LastModifierDeviceToken, true
 }
 
 // HasLastModifierDeviceToken returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModifierDeviceToken() bool {
-	if o != nil && !isNil(o.LastModifierDeviceToken) {
+	if o != nil && !IsNil(o.LastModifierDeviceToken) {
 		return true
 	}
 
@@ -1658,7 +1661,7 @@ func (o *PuupeeDto) SetLastModifierDeviceToken(v string) {
 
 // GetLastModifierDevice returns the LastModifierDevice field value if set, zero value otherwise.
 func (o *PuupeeDto) GetLastModifierDevice() string {
-	if o == nil || isNil(o.LastModifierDevice) {
+	if o == nil || IsNil(o.LastModifierDevice) {
 		var ret string
 		return ret
 	}
@@ -1668,15 +1671,15 @@ func (o *PuupeeDto) GetLastModifierDevice() string {
 // GetLastModifierDeviceOk returns a tuple with the LastModifierDevice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetLastModifierDeviceOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierDevice) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierDevice) {
+		return nil, false
 	}
 	return o.LastModifierDevice, true
 }
 
 // HasLastModifierDevice returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModifierDevice() bool {
-	if o != nil && !isNil(o.LastModifierDevice) {
+	if o != nil && !IsNil(o.LastModifierDevice) {
 		return true
 	}
 
@@ -1690,7 +1693,7 @@ func (o *PuupeeDto) SetLastModifierDevice(v string) {
 
 // GetAppName returns the AppName field value if set, zero value otherwise.
 func (o *PuupeeDto) GetAppName() string {
-	if o == nil || isNil(o.AppName) {
+	if o == nil || IsNil(o.AppName) {
 		var ret string
 		return ret
 	}
@@ -1700,15 +1703,15 @@ func (o *PuupeeDto) GetAppName() string {
 // GetAppNameOk returns a tuple with the AppName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetAppNameOk() (*string, bool) {
-	if o == nil || isNil(o.AppName) {
-    return nil, false
+	if o == nil || IsNil(o.AppName) {
+		return nil, false
 	}
 	return o.AppName, true
 }
 
 // HasAppName returns a boolean if a field has been set.
 func (o *PuupeeDto) HasAppName() bool {
-	if o != nil && !isNil(o.AppName) {
+	if o != nil && !IsNil(o.AppName) {
 		return true
 	}
 
@@ -1722,7 +1725,7 @@ func (o *PuupeeDto) SetAppName(v string) {
 
 // GetSortIndex returns the SortIndex field value if set, zero value otherwise.
 func (o *PuupeeDto) GetSortIndex() int32 {
-	if o == nil || isNil(o.SortIndex) {
+	if o == nil || IsNil(o.SortIndex) {
 		var ret int32
 		return ret
 	}
@@ -1732,15 +1735,15 @@ func (o *PuupeeDto) GetSortIndex() int32 {
 // GetSortIndexOk returns a tuple with the SortIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PuupeeDto) GetSortIndexOk() (*int32, bool) {
-	if o == nil || isNil(o.SortIndex) {
-    return nil, false
+	if o == nil || IsNil(o.SortIndex) {
+		return nil, false
 	}
 	return o.SortIndex, true
 }
 
 // HasSortIndex returns a boolean if a field has been set.
 func (o *PuupeeDto) HasSortIndex() bool {
-	if o != nil && !isNil(o.SortIndex) {
+	if o != nil && !IsNil(o.SortIndex) {
 		return true
 	}
 
@@ -1753,164 +1756,172 @@ func (o *PuupeeDto) SetSortIndex(v int32) {
 }
 
 func (o PuupeeDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.Text) {
-		toSerialize["text"] = o.Text
-	}
-	if !isNil(o.Content) {
-		toSerialize["content"] = o.Content
-	}
-	if !isNil(o.Format) {
-		toSerialize["format"] = o.Format
-	}
-	if !isNil(o.Password) {
-		toSerialize["password"] = o.Password
-	}
-	if !isNil(o.ParentId) {
-		toSerialize["parentId"] = o.ParentId
-	}
-	if !isNil(o.Key) {
-		toSerialize["key"] = o.Key
-	}
-	if !isNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
-	if !isNil(o.Size) {
-		toSerialize["size"] = o.Size
-	}
-	if !isNil(o.Md5) {
-		toSerialize["md5"] = o.Md5
-	}
-	if !isNil(o.SliceMd5) {
-		toSerialize["sliceMd5"] = o.SliceMd5
-	}
-	if !isNil(o.RapidCode) {
-		toSerialize["rapidCode"] = o.RapidCode
-	}
-	if !isNil(o.ContentType) {
-		toSerialize["contentType"] = o.ContentType
-	}
-	if !isNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.DisplayStyle) {
-		toSerialize["displayStyle"] = o.DisplayStyle
-	}
-	if !isNil(o.Extension) {
-		toSerialize["extension"] = o.Extension
-	}
-	if !isNil(o.StorageClass) {
-		toSerialize["storageClass"] = o.StorageClass
-	}
-	if !isNil(o.StorageObjectCreatedAt) {
-		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt
-	}
-	if !isNil(o.StorageObjectUpdatedAt) {
-		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt
-	}
-	if !isNil(o.StorageObjectId) {
-		toSerialize["storageObjectId"] = o.StorageObjectId
-	}
-	if !isNil(o.StorageObject) {
-		toSerialize["storageObject"] = o.StorageObject
-	}
-	if !isNil(o.Thumb) {
-		toSerialize["thumb"] = o.Thumb
-	}
-	if !isNil(o.Priority) {
-		toSerialize["priority"] = o.Priority
-	}
-	if !isNil(o.DoneAt) {
-		toSerialize["doneAt"] = o.DoneAt
-	}
-	if !isNil(o.IsDone) {
-		toSerialize["isDone"] = o.IsDone
-	}
-	if !isNil(o.StartAt) {
-		toSerialize["startAt"] = o.StartAt
-	}
-	if !isNil(o.EndAt) {
-		toSerialize["endAt"] = o.EndAt
-	}
-	if !isNil(o.NotifyAt) {
-		toSerialize["notifyAt"] = o.NotifyAt
-	}
-	if !isNil(o.NotifyTimingType) {
-		toSerialize["notifyTimingType"] = o.NotifyTimingType
-	}
-	if !isNil(o.NotifyTimingUnit) {
-		toSerialize["notifyTimingUnit"] = o.NotifyTimingUnit
-	}
-	if !isNil(o.NotifyTimingValue) {
-		toSerialize["notifyTimingValue"] = o.NotifyTimingValue
-	}
-	if !isNil(o.Repeat) {
-		toSerialize["repeat"] = o.Repeat
-	}
-	if !isNil(o.RepeatOffAt) {
-		toSerialize["repeatOffAt"] = o.RepeatOffAt
-	}
-	if !isNil(o.RepeatOffTimes) {
-		toSerialize["repeatOffTimes"] = o.RepeatOffTimes
-	}
-	if !isNil(o.Repetitions) {
-		toSerialize["repetitions"] = o.Repetitions
-	}
-	if !isNil(o.SyncVersion) {
-		toSerialize["syncVersion"] = o.SyncVersion
-	}
-	if !isNil(o.IsHidden) {
-		toSerialize["isHidden"] = o.IsHidden
-	}
-	if !isNil(o.Tagging) {
-		toSerialize["tagging"] = o.Tagging
-	}
-	if !isNil(o.LastModifierDeviceToken) {
-		toSerialize["lastModifierDeviceToken"] = o.LastModifierDeviceToken
-	}
-	if !isNil(o.LastModifierDevice) {
-		toSerialize["lastModifierDevice"] = o.LastModifierDevice
-	}
-	if !isNil(o.AppName) {
-		toSerialize["appName"] = o.AppName
-	}
-	if !isNil(o.SortIndex) {
-		toSerialize["sortIndex"] = o.SortIndex
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PuupeeDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
+	}
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
+	}
+	if !IsNil(o.Format) {
+		toSerialize["format"] = o.Format
+	}
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.ParentId) {
+		toSerialize["parentId"] = o.ParentId
+	}
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
+	}
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
+	}
+	if !IsNil(o.SliceMd5) {
+		toSerialize["sliceMd5"] = o.SliceMd5
+	}
+	if !IsNil(o.RapidCode) {
+		toSerialize["rapidCode"] = o.RapidCode
+	}
+	if !IsNil(o.ContentType) {
+		toSerialize["contentType"] = o.ContentType
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.DisplayStyle) {
+		toSerialize["displayStyle"] = o.DisplayStyle
+	}
+	if !IsNil(o.Extension) {
+		toSerialize["extension"] = o.Extension
+	}
+	if !IsNil(o.StorageClass) {
+		toSerialize["storageClass"] = o.StorageClass
+	}
+	if !IsNil(o.StorageObjectCreatedAt) {
+		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt
+	}
+	if !IsNil(o.StorageObjectUpdatedAt) {
+		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt
+	}
+	if !IsNil(o.StorageObjectId) {
+		toSerialize["storageObjectId"] = o.StorageObjectId
+	}
+	if !IsNil(o.StorageObject) {
+		toSerialize["storageObject"] = o.StorageObject
+	}
+	if !IsNil(o.Thumb) {
+		toSerialize["thumb"] = o.Thumb
+	}
+	if !IsNil(o.Priority) {
+		toSerialize["priority"] = o.Priority
+	}
+	if !IsNil(o.DoneAt) {
+		toSerialize["doneAt"] = o.DoneAt
+	}
+	if !IsNil(o.IsDone) {
+		toSerialize["isDone"] = o.IsDone
+	}
+	if !IsNil(o.StartAt) {
+		toSerialize["startAt"] = o.StartAt
+	}
+	if !IsNil(o.EndAt) {
+		toSerialize["endAt"] = o.EndAt
+	}
+	if !IsNil(o.NotifyAt) {
+		toSerialize["notifyAt"] = o.NotifyAt
+	}
+	if !IsNil(o.NotifyTimingType) {
+		toSerialize["notifyTimingType"] = o.NotifyTimingType
+	}
+	if !IsNil(o.NotifyTimingUnit) {
+		toSerialize["notifyTimingUnit"] = o.NotifyTimingUnit
+	}
+	if !IsNil(o.NotifyTimingValue) {
+		toSerialize["notifyTimingValue"] = o.NotifyTimingValue
+	}
+	if !IsNil(o.Repeat) {
+		toSerialize["repeat"] = o.Repeat
+	}
+	if !IsNil(o.RepeatOffAt) {
+		toSerialize["repeatOffAt"] = o.RepeatOffAt
+	}
+	if !IsNil(o.RepeatOffTimes) {
+		toSerialize["repeatOffTimes"] = o.RepeatOffTimes
+	}
+	if !IsNil(o.Repetitions) {
+		toSerialize["repetitions"] = o.Repetitions
+	}
+	if !IsNil(o.SyncVersion) {
+		toSerialize["syncVersion"] = o.SyncVersion
+	}
+	if !IsNil(o.IsHidden) {
+		toSerialize["isHidden"] = o.IsHidden
+	}
+	if !IsNil(o.Tagging) {
+		toSerialize["tagging"] = o.Tagging
+	}
+	if !IsNil(o.LastModifierDeviceToken) {
+		toSerialize["lastModifierDeviceToken"] = o.LastModifierDeviceToken
+	}
+	if !IsNil(o.LastModifierDevice) {
+		toSerialize["lastModifierDevice"] = o.LastModifierDevice
+	}
+	if !IsNil(o.AppName) {
+		toSerialize["appName"] = o.AppName
+	}
+	if !IsNil(o.SortIndex) {
+		toSerialize["sortIndex"] = o.SortIndex
+	}
+	return toSerialize, nil
 }
 
 type NullablePuupeeDto struct {

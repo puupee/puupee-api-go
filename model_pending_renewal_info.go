@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PendingRenewalInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PendingRenewalInfo{}
+
 // PendingRenewalInfo struct for PendingRenewalInfo
 type PendingRenewalInfo struct {
 	AutoRenewProductId *string `json:"auto_renew_product_id,omitempty"`
@@ -47,7 +50,7 @@ func NewPendingRenewalInfoWithDefaults() *PendingRenewalInfo {
 
 // GetAutoRenewProductId returns the AutoRenewProductId field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetAutoRenewProductId() string {
-	if o == nil || isNil(o.AutoRenewProductId) {
+	if o == nil || IsNil(o.AutoRenewProductId) {
 		var ret string
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *PendingRenewalInfo) GetAutoRenewProductId() string {
 // GetAutoRenewProductIdOk returns a tuple with the AutoRenewProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetAutoRenewProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.AutoRenewProductId) {
-    return nil, false
+	if o == nil || IsNil(o.AutoRenewProductId) {
+		return nil, false
 	}
 	return o.AutoRenewProductId, true
 }
 
 // HasAutoRenewProductId returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasAutoRenewProductId() bool {
-	if o != nil && !isNil(o.AutoRenewProductId) {
+	if o != nil && !IsNil(o.AutoRenewProductId) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *PendingRenewalInfo) SetAutoRenewProductId(v string) {
 
 // GetAutoRenewStatus returns the AutoRenewStatus field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetAutoRenewStatus() string {
-	if o == nil || isNil(o.AutoRenewStatus) {
+	if o == nil || IsNil(o.AutoRenewStatus) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *PendingRenewalInfo) GetAutoRenewStatus() string {
 // GetAutoRenewStatusOk returns a tuple with the AutoRenewStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetAutoRenewStatusOk() (*string, bool) {
-	if o == nil || isNil(o.AutoRenewStatus) {
-    return nil, false
+	if o == nil || IsNil(o.AutoRenewStatus) {
+		return nil, false
 	}
 	return o.AutoRenewStatus, true
 }
 
 // HasAutoRenewStatus returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasAutoRenewStatus() bool {
-	if o != nil && !isNil(o.AutoRenewStatus) {
+	if o != nil && !IsNil(o.AutoRenewStatus) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *PendingRenewalInfo) SetAutoRenewStatus(v string) {
 
 // GetIsInBillingRetryPeriod returns the IsInBillingRetryPeriod field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetIsInBillingRetryPeriod() string {
-	if o == nil || isNil(o.IsInBillingRetryPeriod) {
+	if o == nil || IsNil(o.IsInBillingRetryPeriod) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *PendingRenewalInfo) GetIsInBillingRetryPeriod() string {
 // GetIsInBillingRetryPeriodOk returns a tuple with the IsInBillingRetryPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetIsInBillingRetryPeriodOk() (*string, bool) {
-	if o == nil || isNil(o.IsInBillingRetryPeriod) {
-    return nil, false
+	if o == nil || IsNil(o.IsInBillingRetryPeriod) {
+		return nil, false
 	}
 	return o.IsInBillingRetryPeriod, true
 }
 
 // HasIsInBillingRetryPeriod returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasIsInBillingRetryPeriod() bool {
-	if o != nil && !isNil(o.IsInBillingRetryPeriod) {
+	if o != nil && !IsNil(o.IsInBillingRetryPeriod) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *PendingRenewalInfo) SetIsInBillingRetryPeriod(v string) {
 
 // GetOriginalTransactionId returns the OriginalTransactionId field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetOriginalTransactionId() string {
-	if o == nil || isNil(o.OriginalTransactionId) {
+	if o == nil || IsNil(o.OriginalTransactionId) {
 		var ret string
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *PendingRenewalInfo) GetOriginalTransactionId() string {
 // GetOriginalTransactionIdOk returns a tuple with the OriginalTransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetOriginalTransactionIdOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalTransactionId) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalTransactionId) {
+		return nil, false
 	}
 	return o.OriginalTransactionId, true
 }
 
 // HasOriginalTransactionId returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasOriginalTransactionId() bool {
-	if o != nil && !isNil(o.OriginalTransactionId) {
+	if o != nil && !IsNil(o.OriginalTransactionId) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *PendingRenewalInfo) SetOriginalTransactionId(v string) {
 
 // GetProductId returns the ProductId field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetProductId() string {
-	if o == nil || isNil(o.ProductId) {
+	if o == nil || IsNil(o.ProductId) {
 		var ret string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *PendingRenewalInfo) GetProductId() string {
 // GetProductIdOk returns a tuple with the ProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.ProductId) {
-    return nil, false
+	if o == nil || IsNil(o.ProductId) {
+		return nil, false
 	}
 	return o.ProductId, true
 }
 
 // HasProductId returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasProductId() bool {
-	if o != nil && !isNil(o.ProductId) {
+	if o != nil && !IsNil(o.ProductId) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *PendingRenewalInfo) SetProductId(v string) {
 
 // GetExpirationIntent returns the ExpirationIntent field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetExpirationIntent() string {
-	if o == nil || isNil(o.ExpirationIntent) {
+	if o == nil || IsNil(o.ExpirationIntent) {
 		var ret string
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *PendingRenewalInfo) GetExpirationIntent() string {
 // GetExpirationIntentOk returns a tuple with the ExpirationIntent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetExpirationIntentOk() (*string, bool) {
-	if o == nil || isNil(o.ExpirationIntent) {
-    return nil, false
+	if o == nil || IsNil(o.ExpirationIntent) {
+		return nil, false
 	}
 	return o.ExpirationIntent, true
 }
 
 // HasExpirationIntent returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasExpirationIntent() bool {
-	if o != nil && !isNil(o.ExpirationIntent) {
+	if o != nil && !IsNil(o.ExpirationIntent) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *PendingRenewalInfo) SetExpirationIntent(v string) {
 
 // GetPriceConsentStatus returns the PriceConsentStatus field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetPriceConsentStatus() string {
-	if o == nil || isNil(o.PriceConsentStatus) {
+	if o == nil || IsNil(o.PriceConsentStatus) {
 		var ret string
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *PendingRenewalInfo) GetPriceConsentStatus() string {
 // GetPriceConsentStatusOk returns a tuple with the PriceConsentStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetPriceConsentStatusOk() (*string, bool) {
-	if o == nil || isNil(o.PriceConsentStatus) {
-    return nil, false
+	if o == nil || IsNil(o.PriceConsentStatus) {
+		return nil, false
 	}
 	return o.PriceConsentStatus, true
 }
 
 // HasPriceConsentStatus returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasPriceConsentStatus() bool {
-	if o != nil && !isNil(o.PriceConsentStatus) {
+	if o != nil && !IsNil(o.PriceConsentStatus) {
 		return true
 	}
 
@@ -271,7 +274,7 @@ func (o *PendingRenewalInfo) SetPriceConsentStatus(v string) {
 
 // GetGracePeriodExpiresDate returns the GracePeriodExpiresDate field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetGracePeriodExpiresDate() string {
-	if o == nil || isNil(o.GracePeriodExpiresDate) {
+	if o == nil || IsNil(o.GracePeriodExpiresDate) {
 		var ret string
 		return ret
 	}
@@ -281,15 +284,15 @@ func (o *PendingRenewalInfo) GetGracePeriodExpiresDate() string {
 // GetGracePeriodExpiresDateOk returns a tuple with the GracePeriodExpiresDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetGracePeriodExpiresDateOk() (*string, bool) {
-	if o == nil || isNil(o.GracePeriodExpiresDate) {
-    return nil, false
+	if o == nil || IsNil(o.GracePeriodExpiresDate) {
+		return nil, false
 	}
 	return o.GracePeriodExpiresDate, true
 }
 
 // HasGracePeriodExpiresDate returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasGracePeriodExpiresDate() bool {
-	if o != nil && !isNil(o.GracePeriodExpiresDate) {
+	if o != nil && !IsNil(o.GracePeriodExpiresDate) {
 		return true
 	}
 
@@ -303,7 +306,7 @@ func (o *PendingRenewalInfo) SetGracePeriodExpiresDate(v string) {
 
 // GetGracePeriodExpiresDateMs returns the GracePeriodExpiresDateMs field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetGracePeriodExpiresDateMs() string {
-	if o == nil || isNil(o.GracePeriodExpiresDateMs) {
+	if o == nil || IsNil(o.GracePeriodExpiresDateMs) {
 		var ret string
 		return ret
 	}
@@ -313,15 +316,15 @@ func (o *PendingRenewalInfo) GetGracePeriodExpiresDateMs() string {
 // GetGracePeriodExpiresDateMsOk returns a tuple with the GracePeriodExpiresDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetGracePeriodExpiresDateMsOk() (*string, bool) {
-	if o == nil || isNil(o.GracePeriodExpiresDateMs) {
-    return nil, false
+	if o == nil || IsNil(o.GracePeriodExpiresDateMs) {
+		return nil, false
 	}
 	return o.GracePeriodExpiresDateMs, true
 }
 
 // HasGracePeriodExpiresDateMs returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasGracePeriodExpiresDateMs() bool {
-	if o != nil && !isNil(o.GracePeriodExpiresDateMs) {
+	if o != nil && !IsNil(o.GracePeriodExpiresDateMs) {
 		return true
 	}
 
@@ -335,7 +338,7 @@ func (o *PendingRenewalInfo) SetGracePeriodExpiresDateMs(v string) {
 
 // GetGracePeriodExpiresDatePst returns the GracePeriodExpiresDatePst field value if set, zero value otherwise.
 func (o *PendingRenewalInfo) GetGracePeriodExpiresDatePst() string {
-	if o == nil || isNil(o.GracePeriodExpiresDatePst) {
+	if o == nil || IsNil(o.GracePeriodExpiresDatePst) {
 		var ret string
 		return ret
 	}
@@ -345,15 +348,15 @@ func (o *PendingRenewalInfo) GetGracePeriodExpiresDatePst() string {
 // GetGracePeriodExpiresDatePstOk returns a tuple with the GracePeriodExpiresDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PendingRenewalInfo) GetGracePeriodExpiresDatePstOk() (*string, bool) {
-	if o == nil || isNil(o.GracePeriodExpiresDatePst) {
-    return nil, false
+	if o == nil || IsNil(o.GracePeriodExpiresDatePst) {
+		return nil, false
 	}
 	return o.GracePeriodExpiresDatePst, true
 }
 
 // HasGracePeriodExpiresDatePst returns a boolean if a field has been set.
 func (o *PendingRenewalInfo) HasGracePeriodExpiresDatePst() bool {
-	if o != nil && !isNil(o.GracePeriodExpiresDatePst) {
+	if o != nil && !IsNil(o.GracePeriodExpiresDatePst) {
 		return true
 	}
 
@@ -366,38 +369,46 @@ func (o *PendingRenewalInfo) SetGracePeriodExpiresDatePst(v string) {
 }
 
 func (o PendingRenewalInfo) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.AutoRenewProductId) {
-		toSerialize["auto_renew_product_id"] = o.AutoRenewProductId
-	}
-	if !isNil(o.AutoRenewStatus) {
-		toSerialize["auto_renew_status"] = o.AutoRenewStatus
-	}
-	if !isNil(o.IsInBillingRetryPeriod) {
-		toSerialize["is_in_billing_retry_period"] = o.IsInBillingRetryPeriod
-	}
-	if !isNil(o.OriginalTransactionId) {
-		toSerialize["original_transaction_id"] = o.OriginalTransactionId
-	}
-	if !isNil(o.ProductId) {
-		toSerialize["product_id"] = o.ProductId
-	}
-	if !isNil(o.ExpirationIntent) {
-		toSerialize["expiration_intent"] = o.ExpirationIntent
-	}
-	if !isNil(o.PriceConsentStatus) {
-		toSerialize["price_consent_status"] = o.PriceConsentStatus
-	}
-	if !isNil(o.GracePeriodExpiresDate) {
-		toSerialize["grace_period_expires_date"] = o.GracePeriodExpiresDate
-	}
-	if !isNil(o.GracePeriodExpiresDateMs) {
-		toSerialize["grace_period_expires_date_ms"] = o.GracePeriodExpiresDateMs
-	}
-	if !isNil(o.GracePeriodExpiresDatePst) {
-		toSerialize["grace_period_expires_date_pst"] = o.GracePeriodExpiresDatePst
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PendingRenewalInfo) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AutoRenewProductId) {
+		toSerialize["auto_renew_product_id"] = o.AutoRenewProductId
+	}
+	if !IsNil(o.AutoRenewStatus) {
+		toSerialize["auto_renew_status"] = o.AutoRenewStatus
+	}
+	if !IsNil(o.IsInBillingRetryPeriod) {
+		toSerialize["is_in_billing_retry_period"] = o.IsInBillingRetryPeriod
+	}
+	if !IsNil(o.OriginalTransactionId) {
+		toSerialize["original_transaction_id"] = o.OriginalTransactionId
+	}
+	if !IsNil(o.ProductId) {
+		toSerialize["product_id"] = o.ProductId
+	}
+	if !IsNil(o.ExpirationIntent) {
+		toSerialize["expiration_intent"] = o.ExpirationIntent
+	}
+	if !IsNil(o.PriceConsentStatus) {
+		toSerialize["price_consent_status"] = o.PriceConsentStatus
+	}
+	if !IsNil(o.GracePeriodExpiresDate) {
+		toSerialize["grace_period_expires_date"] = o.GracePeriodExpiresDate
+	}
+	if !IsNil(o.GracePeriodExpiresDateMs) {
+		toSerialize["grace_period_expires_date_ms"] = o.GracePeriodExpiresDateMs
+	}
+	if !IsNil(o.GracePeriodExpiresDatePst) {
+		toSerialize["grace_period_expires_date_pst"] = o.GracePeriodExpiresDatePst
+	}
+	return toSerialize, nil
 }
 
 type NullablePendingRenewalInfo struct {

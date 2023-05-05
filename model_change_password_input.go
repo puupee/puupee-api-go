@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ChangePasswordInput type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ChangePasswordInput{}
+
 // ChangePasswordInput struct for ChangePasswordInput
 type ChangePasswordInput struct {
 	CurrentPassword *string `json:"currentPassword,omitempty"`
@@ -40,7 +43,7 @@ func NewChangePasswordInputWithDefaults() *ChangePasswordInput {
 
 // GetCurrentPassword returns the CurrentPassword field value if set, zero value otherwise.
 func (o *ChangePasswordInput) GetCurrentPassword() string {
-	if o == nil || isNil(o.CurrentPassword) {
+	if o == nil || IsNil(o.CurrentPassword) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *ChangePasswordInput) GetCurrentPassword() string {
 // GetCurrentPasswordOk returns a tuple with the CurrentPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ChangePasswordInput) GetCurrentPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.CurrentPassword) {
-    return nil, false
+	if o == nil || IsNil(o.CurrentPassword) {
+		return nil, false
 	}
 	return o.CurrentPassword, true
 }
 
 // HasCurrentPassword returns a boolean if a field has been set.
 func (o *ChangePasswordInput) HasCurrentPassword() bool {
-	if o != nil && !isNil(o.CurrentPassword) {
+	if o != nil && !IsNil(o.CurrentPassword) {
 		return true
 	}
 
@@ -84,7 +87,7 @@ func (o *ChangePasswordInput) GetNewPassword() string {
 // and a boolean to check if the value has been set.
 func (o *ChangePasswordInput) GetNewPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.NewPassword, true
 }
@@ -95,14 +98,20 @@ func (o *ChangePasswordInput) SetNewPassword(v string) {
 }
 
 func (o ChangePasswordInput) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.CurrentPassword) {
-		toSerialize["currentPassword"] = o.CurrentPassword
-	}
-	if true {
-		toSerialize["newPassword"] = o.NewPassword
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ChangePasswordInput) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CurrentPassword) {
+		toSerialize["currentPassword"] = o.CurrentPassword
+	}
+	toSerialize["newPassword"] = o.NewPassword
+	return toSerialize, nil
 }
 
 type NullableChangePasswordInput struct {

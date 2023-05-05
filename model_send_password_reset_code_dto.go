@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SendPasswordResetCodeDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SendPasswordResetCodeDto{}
+
 // SendPasswordResetCodeDto struct for SendPasswordResetCodeDto
 type SendPasswordResetCodeDto struct {
 	Email string `json:"email"`
@@ -55,7 +58,7 @@ func (o *SendPasswordResetCodeDto) GetEmail() string {
 // and a boolean to check if the value has been set.
 func (o *SendPasswordResetCodeDto) GetEmailOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Email, true
 }
@@ -79,7 +82,7 @@ func (o *SendPasswordResetCodeDto) GetAppName() string {
 // and a boolean to check if the value has been set.
 func (o *SendPasswordResetCodeDto) GetAppNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.AppName, true
 }
@@ -91,7 +94,7 @@ func (o *SendPasswordResetCodeDto) SetAppName(v string) {
 
 // GetReturnUrl returns the ReturnUrl field value if set, zero value otherwise.
 func (o *SendPasswordResetCodeDto) GetReturnUrl() string {
-	if o == nil || isNil(o.ReturnUrl) {
+	if o == nil || IsNil(o.ReturnUrl) {
 		var ret string
 		return ret
 	}
@@ -101,15 +104,15 @@ func (o *SendPasswordResetCodeDto) GetReturnUrl() string {
 // GetReturnUrlOk returns a tuple with the ReturnUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SendPasswordResetCodeDto) GetReturnUrlOk() (*string, bool) {
-	if o == nil || isNil(o.ReturnUrl) {
-    return nil, false
+	if o == nil || IsNil(o.ReturnUrl) {
+		return nil, false
 	}
 	return o.ReturnUrl, true
 }
 
 // HasReturnUrl returns a boolean if a field has been set.
 func (o *SendPasswordResetCodeDto) HasReturnUrl() bool {
-	if o != nil && !isNil(o.ReturnUrl) {
+	if o != nil && !IsNil(o.ReturnUrl) {
 		return true
 	}
 
@@ -123,7 +126,7 @@ func (o *SendPasswordResetCodeDto) SetReturnUrl(v string) {
 
 // GetReturnUrlHash returns the ReturnUrlHash field value if set, zero value otherwise.
 func (o *SendPasswordResetCodeDto) GetReturnUrlHash() string {
-	if o == nil || isNil(o.ReturnUrlHash) {
+	if o == nil || IsNil(o.ReturnUrlHash) {
 		var ret string
 		return ret
 	}
@@ -133,15 +136,15 @@ func (o *SendPasswordResetCodeDto) GetReturnUrlHash() string {
 // GetReturnUrlHashOk returns a tuple with the ReturnUrlHash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SendPasswordResetCodeDto) GetReturnUrlHashOk() (*string, bool) {
-	if o == nil || isNil(o.ReturnUrlHash) {
-    return nil, false
+	if o == nil || IsNil(o.ReturnUrlHash) {
+		return nil, false
 	}
 	return o.ReturnUrlHash, true
 }
 
 // HasReturnUrlHash returns a boolean if a field has been set.
 func (o *SendPasswordResetCodeDto) HasReturnUrlHash() bool {
-	if o != nil && !isNil(o.ReturnUrlHash) {
+	if o != nil && !IsNil(o.ReturnUrlHash) {
 		return true
 	}
 
@@ -154,20 +157,24 @@ func (o *SendPasswordResetCodeDto) SetReturnUrlHash(v string) {
 }
 
 func (o SendPasswordResetCodeDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["email"] = o.Email
-	}
-	if true {
-		toSerialize["appName"] = o.AppName
-	}
-	if !isNil(o.ReturnUrl) {
-		toSerialize["returnUrl"] = o.ReturnUrl
-	}
-	if !isNil(o.ReturnUrlHash) {
-		toSerialize["returnUrlHash"] = o.ReturnUrlHash
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SendPasswordResetCodeDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["email"] = o.Email
+	toSerialize["appName"] = o.AppName
+	if !IsNil(o.ReturnUrl) {
+		toSerialize["returnUrl"] = o.ReturnUrl
+	}
+	if !IsNil(o.ReturnUrlHash) {
+		toSerialize["returnUrlHash"] = o.ReturnUrlHash
+	}
+	return toSerialize, nil
 }
 
 type NullableSendPasswordResetCodeDto struct {

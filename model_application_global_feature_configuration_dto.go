@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationGlobalFeatureConfigurationDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationGlobalFeatureConfigurationDto{}
+
 // ApplicationGlobalFeatureConfigurationDto struct for ApplicationGlobalFeatureConfigurationDto
 type ApplicationGlobalFeatureConfigurationDto struct {
 	EnabledFeatures []string `json:"enabledFeatures,omitempty"`
@@ -38,7 +41,7 @@ func NewApplicationGlobalFeatureConfigurationDtoWithDefaults() *ApplicationGloba
 
 // GetEnabledFeatures returns the EnabledFeatures field value if set, zero value otherwise.
 func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeatures() []string {
-	if o == nil || isNil(o.EnabledFeatures) {
+	if o == nil || IsNil(o.EnabledFeatures) {
 		var ret []string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeatures() []string
 // GetEnabledFeaturesOk returns a tuple with the EnabledFeatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeaturesOk() ([]string, bool) {
-	if o == nil || isNil(o.EnabledFeatures) {
-    return nil, false
+	if o == nil || IsNil(o.EnabledFeatures) {
+		return nil, false
 	}
 	return o.EnabledFeatures, true
 }
 
 // HasEnabledFeatures returns a boolean if a field has been set.
 func (o *ApplicationGlobalFeatureConfigurationDto) HasEnabledFeatures() bool {
-	if o != nil && !isNil(o.EnabledFeatures) {
+	if o != nil && !IsNil(o.EnabledFeatures) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ApplicationGlobalFeatureConfigurationDto) SetEnabledFeatures(v []string
 }
 
 func (o ApplicationGlobalFeatureConfigurationDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.EnabledFeatures) {
-		toSerialize["enabledFeatures"] = o.EnabledFeatures
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationGlobalFeatureConfigurationDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EnabledFeatures) {
+		toSerialize["enabledFeatures"] = o.EnabledFeatures
+	}
+	return toSerialize, nil
 }
 
 type NullableApplicationGlobalFeatureConfigurationDto struct {

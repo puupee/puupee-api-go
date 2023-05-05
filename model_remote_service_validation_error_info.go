@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RemoteServiceValidationErrorInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RemoteServiceValidationErrorInfo{}
+
 // RemoteServiceValidationErrorInfo struct for RemoteServiceValidationErrorInfo
 type RemoteServiceValidationErrorInfo struct {
 	Message *string `json:"message,omitempty"`
@@ -39,7 +42,7 @@ func NewRemoteServiceValidationErrorInfoWithDefaults() *RemoteServiceValidationE
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *RemoteServiceValidationErrorInfo) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *RemoteServiceValidationErrorInfo) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceValidationErrorInfo) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *RemoteServiceValidationErrorInfo) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *RemoteServiceValidationErrorInfo) SetMessage(v string) {
 
 // GetMembers returns the Members field value if set, zero value otherwise.
 func (o *RemoteServiceValidationErrorInfo) GetMembers() []string {
-	if o == nil || isNil(o.Members) {
+	if o == nil || IsNil(o.Members) {
 		var ret []string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *RemoteServiceValidationErrorInfo) GetMembers() []string {
 // GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RemoteServiceValidationErrorInfo) GetMembersOk() ([]string, bool) {
-	if o == nil || isNil(o.Members) {
-    return nil, false
+	if o == nil || IsNil(o.Members) {
+		return nil, false
 	}
 	return o.Members, true
 }
 
 // HasMembers returns a boolean if a field has been set.
 func (o *RemoteServiceValidationErrorInfo) HasMembers() bool {
-	if o != nil && !isNil(o.Members) {
+	if o != nil && !IsNil(o.Members) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *RemoteServiceValidationErrorInfo) SetMembers(v []string) {
 }
 
 func (o RemoteServiceValidationErrorInfo) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if !isNil(o.Members) {
-		toSerialize["members"] = o.Members
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RemoteServiceValidationErrorInfo) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Members) {
+		toSerialize["members"] = o.Members
+	}
+	return toSerialize, nil
 }
 
 type NullableRemoteServiceValidationErrorInfo struct {

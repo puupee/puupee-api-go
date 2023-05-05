@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IdentityUserUpdateRolesDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IdentityUserUpdateRolesDto{}
+
 // IdentityUserUpdateRolesDto struct for IdentityUserUpdateRolesDto
 type IdentityUserUpdateRolesDto struct {
 	RoleNames []string `json:"roleNames"`
@@ -51,7 +54,7 @@ func (o *IdentityUserUpdateRolesDto) GetRoleNames() []string {
 // and a boolean to check if the value has been set.
 func (o *IdentityUserUpdateRolesDto) GetRoleNamesOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.RoleNames, true
 }
@@ -62,11 +65,17 @@ func (o *IdentityUserUpdateRolesDto) SetRoleNames(v []string) {
 }
 
 func (o IdentityUserUpdateRolesDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["roleNames"] = o.RoleNames
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IdentityUserUpdateRolesDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["roleNames"] = o.RoleNames
+	return toSerialize, nil
 }
 
 type NullableIdentityUserUpdateRolesDto struct {

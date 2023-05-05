@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EntityExtensionDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EntityExtensionDto{}
+
 // EntityExtensionDto struct for EntityExtensionDto
 type EntityExtensionDto struct {
 	Properties *map[string]ExtensionPropertyDto `json:"properties,omitempty"`
@@ -39,7 +42,7 @@ func NewEntityExtensionDtoWithDefaults() *EntityExtensionDto {
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *EntityExtensionDto) GetProperties() map[string]ExtensionPropertyDto {
-	if o == nil || isNil(o.Properties) {
+	if o == nil || IsNil(o.Properties) {
 		var ret map[string]ExtensionPropertyDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *EntityExtensionDto) GetProperties() map[string]ExtensionPropertyDto {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EntityExtensionDto) GetPropertiesOk() (*map[string]ExtensionPropertyDto, bool) {
-	if o == nil || isNil(o.Properties) {
-    return nil, false
+	if o == nil || IsNil(o.Properties) {
+		return nil, false
 	}
 	return o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.
 func (o *EntityExtensionDto) HasProperties() bool {
-	if o != nil && !isNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *EntityExtensionDto) SetProperties(v map[string]ExtensionPropertyDto) {
 
 // GetConfiguration returns the Configuration field value if set, zero value otherwise.
 func (o *EntityExtensionDto) GetConfiguration() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Configuration) {
+	if o == nil || IsNil(o.Configuration) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *EntityExtensionDto) GetConfiguration() map[string]map[string]interface{
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EntityExtensionDto) GetConfigurationOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Configuration) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Configuration) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *EntityExtensionDto) HasConfiguration() bool {
-	if o != nil && !isNil(o.Configuration) {
+	if o != nil && !IsNil(o.Configuration) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *EntityExtensionDto) SetConfiguration(v map[string]map[string]interface{
 }
 
 func (o EntityExtensionDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Properties) {
-		toSerialize["properties"] = o.Properties
-	}
-	if !isNil(o.Configuration) {
-		toSerialize["configuration"] = o.Configuration
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EntityExtensionDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Properties) {
+		toSerialize["properties"] = o.Properties
+	}
+	if !IsNil(o.Configuration) {
+		toSerialize["configuration"] = o.Configuration
+	}
+	return toSerialize, nil
 }
 
 type NullableEntityExtensionDto struct {

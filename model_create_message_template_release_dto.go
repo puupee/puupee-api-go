@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateMessageTemplateReleaseDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateMessageTemplateReleaseDto{}
+
 // CreateMessageTemplateReleaseDto struct for CreateMessageTemplateReleaseDto
 type CreateMessageTemplateReleaseDto struct {
 	Content *string `json:"content,omitempty"`
@@ -39,7 +42,7 @@ func NewCreateMessageTemplateReleaseDtoWithDefaults() *CreateMessageTemplateRele
 
 // GetContent returns the Content field value if set, zero value otherwise.
 func (o *CreateMessageTemplateReleaseDto) GetContent() string {
-	if o == nil || isNil(o.Content) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *CreateMessageTemplateReleaseDto) GetContent() string {
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateMessageTemplateReleaseDto) GetContentOk() (*string, bool) {
-	if o == nil || isNil(o.Content) {
-    return nil, false
+	if o == nil || IsNil(o.Content) {
+		return nil, false
 	}
 	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *CreateMessageTemplateReleaseDto) HasContent() bool {
-	if o != nil && !isNil(o.Content) {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *CreateMessageTemplateReleaseDto) SetContent(v string) {
 
 // GetTemplateId returns the TemplateId field value if set, zero value otherwise.
 func (o *CreateMessageTemplateReleaseDto) GetTemplateId() string {
-	if o == nil || isNil(o.TemplateId) {
+	if o == nil || IsNil(o.TemplateId) {
 		var ret string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *CreateMessageTemplateReleaseDto) GetTemplateId() string {
 // GetTemplateIdOk returns a tuple with the TemplateId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateMessageTemplateReleaseDto) GetTemplateIdOk() (*string, bool) {
-	if o == nil || isNil(o.TemplateId) {
-    return nil, false
+	if o == nil || IsNil(o.TemplateId) {
+		return nil, false
 	}
 	return o.TemplateId, true
 }
 
 // HasTemplateId returns a boolean if a field has been set.
 func (o *CreateMessageTemplateReleaseDto) HasTemplateId() bool {
-	if o != nil && !isNil(o.TemplateId) {
+	if o != nil && !IsNil(o.TemplateId) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *CreateMessageTemplateReleaseDto) SetTemplateId(v string) {
 }
 
 func (o CreateMessageTemplateReleaseDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Content) {
-		toSerialize["content"] = o.Content
-	}
-	if !isNil(o.TemplateId) {
-		toSerialize["templateId"] = o.TemplateId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateMessageTemplateReleaseDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
+	}
+	if !IsNil(o.TemplateId) {
+		toSerialize["templateId"] = o.TemplateId
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateMessageTemplateReleaseDto struct {

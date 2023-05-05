@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the TestDateTime type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TestDateTime{}
+
 // TestDateTime struct for TestDateTime
 type TestDateTime struct {
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
@@ -40,7 +43,7 @@ func NewTestDateTimeWithDefaults() *TestDateTime {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *TestDateTime) GetCreatedAt() time.Time {
-	if o == nil || isNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret time.Time
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *TestDateTime) GetCreatedAt() time.Time {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TestDateTime) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
 	}
 	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *TestDateTime) HasCreatedAt() bool {
-	if o != nil && !isNil(o.CreatedAt) {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *TestDateTime) SetCreatedAt(v time.Time) {
 
 // GetPuupee returns the Puupee field value if set, zero value otherwise.
 func (o *TestDateTime) GetPuupee() PuupeeDto {
-	if o == nil || isNil(o.Puupee) {
+	if o == nil || IsNil(o.Puupee) {
 		var ret PuupeeDto
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *TestDateTime) GetPuupee() PuupeeDto {
 // GetPuupeeOk returns a tuple with the Puupee field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TestDateTime) GetPuupeeOk() (*PuupeeDto, bool) {
-	if o == nil || isNil(o.Puupee) {
-    return nil, false
+	if o == nil || IsNil(o.Puupee) {
+		return nil, false
 	}
 	return o.Puupee, true
 }
 
 // HasPuupee returns a boolean if a field has been set.
 func (o *TestDateTime) HasPuupee() bool {
-	if o != nil && !isNil(o.Puupee) {
+	if o != nil && !IsNil(o.Puupee) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *TestDateTime) SetPuupee(v PuupeeDto) {
 }
 
 func (o TestDateTime) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
-	}
-	if !isNil(o.Puupee) {
-		toSerialize["puupee"] = o.Puupee
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o TestDateTime) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.Puupee) {
+		toSerialize["puupee"] = o.Puupee
+	}
+	return toSerialize, nil
 }
 
 type NullableTestDateTime struct {

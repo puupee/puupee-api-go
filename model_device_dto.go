@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the DeviceDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeviceDto{}
+
 // DeviceDto struct for DeviceDto
 type DeviceDto struct {
 	Id *string `json:"id,omitempty"`
@@ -53,7 +56,7 @@ func NewDeviceDtoWithDefaults() *DeviceDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *DeviceDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -63,15 +66,15 @@ func (o *DeviceDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *DeviceDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -85,7 +88,7 @@ func (o *DeviceDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *DeviceDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -95,15 +98,15 @@ func (o *DeviceDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *DeviceDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *DeviceDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *DeviceDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *DeviceDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *DeviceDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -149,7 +152,7 @@ func (o *DeviceDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *DeviceDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -159,15 +162,15 @@ func (o *DeviceDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *DeviceDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -181,7 +184,7 @@ func (o *DeviceDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *DeviceDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -191,15 +194,15 @@ func (o *DeviceDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *DeviceDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -213,7 +216,7 @@ func (o *DeviceDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *DeviceDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -223,15 +226,15 @@ func (o *DeviceDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *DeviceDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -245,7 +248,7 @@ func (o *DeviceDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *DeviceDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -255,15 +258,15 @@ func (o *DeviceDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *DeviceDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -277,7 +280,7 @@ func (o *DeviceDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *DeviceDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -287,15 +290,15 @@ func (o *DeviceDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *DeviceDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -309,7 +312,7 @@ func (o *DeviceDto) SetDeletionTime(v time.Time) {
 
 // GetToken returns the Token field value if set, zero value otherwise.
 func (o *DeviceDto) GetToken() string {
-	if o == nil || isNil(o.Token) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
@@ -319,15 +322,15 @@ func (o *DeviceDto) GetToken() string {
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetTokenOk() (*string, bool) {
-	if o == nil || isNil(o.Token) {
-    return nil, false
+	if o == nil || IsNil(o.Token) {
+		return nil, false
 	}
 	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *DeviceDto) HasToken() bool {
-	if o != nil && !isNil(o.Token) {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
@@ -341,7 +344,7 @@ func (o *DeviceDto) SetToken(v string) {
 
 // GetTpnsToken returns the TpnsToken field value if set, zero value otherwise.
 func (o *DeviceDto) GetTpnsToken() string {
-	if o == nil || isNil(o.TpnsToken) {
+	if o == nil || IsNil(o.TpnsToken) {
 		var ret string
 		return ret
 	}
@@ -351,15 +354,15 @@ func (o *DeviceDto) GetTpnsToken() string {
 // GetTpnsTokenOk returns a tuple with the TpnsToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetTpnsTokenOk() (*string, bool) {
-	if o == nil || isNil(o.TpnsToken) {
-    return nil, false
+	if o == nil || IsNil(o.TpnsToken) {
+		return nil, false
 	}
 	return o.TpnsToken, true
 }
 
 // HasTpnsToken returns a boolean if a field has been set.
 func (o *DeviceDto) HasTpnsToken() bool {
-	if o != nil && !isNil(o.TpnsToken) {
+	if o != nil && !IsNil(o.TpnsToken) {
 		return true
 	}
 
@@ -373,7 +376,7 @@ func (o *DeviceDto) SetTpnsToken(v string) {
 
 // GetIsPhysicalDevice returns the IsPhysicalDevice field value if set, zero value otherwise.
 func (o *DeviceDto) GetIsPhysicalDevice() bool {
-	if o == nil || isNil(o.IsPhysicalDevice) {
+	if o == nil || IsNil(o.IsPhysicalDevice) {
 		var ret bool
 		return ret
 	}
@@ -383,15 +386,15 @@ func (o *DeviceDto) GetIsPhysicalDevice() bool {
 // GetIsPhysicalDeviceOk returns a tuple with the IsPhysicalDevice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetIsPhysicalDeviceOk() (*bool, bool) {
-	if o == nil || isNil(o.IsPhysicalDevice) {
-    return nil, false
+	if o == nil || IsNil(o.IsPhysicalDevice) {
+		return nil, false
 	}
 	return o.IsPhysicalDevice, true
 }
 
 // HasIsPhysicalDevice returns a boolean if a field has been set.
 func (o *DeviceDto) HasIsPhysicalDevice() bool {
-	if o != nil && !isNil(o.IsPhysicalDevice) {
+	if o != nil && !IsNil(o.IsPhysicalDevice) {
 		return true
 	}
 
@@ -405,7 +408,7 @@ func (o *DeviceDto) SetIsPhysicalDevice(v bool) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *DeviceDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -415,15 +418,15 @@ func (o *DeviceDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *DeviceDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -437,7 +440,7 @@ func (o *DeviceDto) SetName(v string) {
 
 // GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *DeviceDto) GetPlatform() string {
-	if o == nil || isNil(o.Platform) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
@@ -447,15 +450,15 @@ func (o *DeviceDto) GetPlatform() string {
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetPlatformOk() (*string, bool) {
-	if o == nil || isNil(o.Platform) {
-    return nil, false
+	if o == nil || IsNil(o.Platform) {
+		return nil, false
 	}
 	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *DeviceDto) HasPlatform() bool {
-	if o != nil && !isNil(o.Platform) {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
@@ -469,7 +472,7 @@ func (o *DeviceDto) SetPlatform(v string) {
 
 // GetBrand returns the Brand field value if set, zero value otherwise.
 func (o *DeviceDto) GetBrand() string {
-	if o == nil || isNil(o.Brand) {
+	if o == nil || IsNil(o.Brand) {
 		var ret string
 		return ret
 	}
@@ -479,15 +482,15 @@ func (o *DeviceDto) GetBrand() string {
 // GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetBrandOk() (*string, bool) {
-	if o == nil || isNil(o.Brand) {
-    return nil, false
+	if o == nil || IsNil(o.Brand) {
+		return nil, false
 	}
 	return o.Brand, true
 }
 
 // HasBrand returns a boolean if a field has been set.
 func (o *DeviceDto) HasBrand() bool {
-	if o != nil && !isNil(o.Brand) {
+	if o != nil && !IsNil(o.Brand) {
 		return true
 	}
 
@@ -501,7 +504,7 @@ func (o *DeviceDto) SetBrand(v string) {
 
 // GetSystemVersion returns the SystemVersion field value if set, zero value otherwise.
 func (o *DeviceDto) GetSystemVersion() string {
-	if o == nil || isNil(o.SystemVersion) {
+	if o == nil || IsNil(o.SystemVersion) {
 		var ret string
 		return ret
 	}
@@ -511,15 +514,15 @@ func (o *DeviceDto) GetSystemVersion() string {
 // GetSystemVersionOk returns a tuple with the SystemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeviceDto) GetSystemVersionOk() (*string, bool) {
-	if o == nil || isNil(o.SystemVersion) {
-    return nil, false
+	if o == nil || IsNil(o.SystemVersion) {
+		return nil, false
 	}
 	return o.SystemVersion, true
 }
 
 // HasSystemVersion returns a boolean if a field has been set.
 func (o *DeviceDto) HasSystemVersion() bool {
-	if o != nil && !isNil(o.SystemVersion) {
+	if o != nil && !IsNil(o.SystemVersion) {
 		return true
 	}
 
@@ -532,53 +535,61 @@ func (o *DeviceDto) SetSystemVersion(v string) {
 }
 
 func (o DeviceDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.Token) {
-		toSerialize["token"] = o.Token
-	}
-	if !isNil(o.TpnsToken) {
-		toSerialize["tpnsToken"] = o.TpnsToken
-	}
-	if !isNil(o.IsPhysicalDevice) {
-		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Platform) {
-		toSerialize["platform"] = o.Platform
-	}
-	if !isNil(o.Brand) {
-		toSerialize["brand"] = o.Brand
-	}
-	if !isNil(o.SystemVersion) {
-		toSerialize["systemVersion"] = o.SystemVersion
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DeviceDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
+	}
+	if !IsNil(o.TpnsToken) {
+		toSerialize["tpnsToken"] = o.TpnsToken
+	}
+	if !IsNil(o.IsPhysicalDevice) {
+		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
+	}
+	if !IsNil(o.Brand) {
+		toSerialize["brand"] = o.Brand
+	}
+	if !IsNil(o.SystemVersion) {
+		toSerialize["systemVersion"] = o.SystemVersion
+	}
+	return toSerialize, nil
 }
 
 type NullableDeviceDto struct {

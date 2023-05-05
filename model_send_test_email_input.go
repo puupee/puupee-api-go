@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SendTestEmailInput type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SendTestEmailInput{}
+
 // SendTestEmailInput struct for SendTestEmailInput
 type SendTestEmailInput struct {
 	SenderEmailAddress string `json:"senderEmailAddress"`
@@ -56,7 +59,7 @@ func (o *SendTestEmailInput) GetSenderEmailAddress() string {
 // and a boolean to check if the value has been set.
 func (o *SendTestEmailInput) GetSenderEmailAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.SenderEmailAddress, true
 }
@@ -80,7 +83,7 @@ func (o *SendTestEmailInput) GetTargetEmailAddress() string {
 // and a boolean to check if the value has been set.
 func (o *SendTestEmailInput) GetTargetEmailAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.TargetEmailAddress, true
 }
@@ -104,7 +107,7 @@ func (o *SendTestEmailInput) GetSubject() string {
 // and a boolean to check if the value has been set.
 func (o *SendTestEmailInput) GetSubjectOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Subject, true
 }
@@ -116,7 +119,7 @@ func (o *SendTestEmailInput) SetSubject(v string) {
 
 // GetBody returns the Body field value if set, zero value otherwise.
 func (o *SendTestEmailInput) GetBody() string {
-	if o == nil || isNil(o.Body) {
+	if o == nil || IsNil(o.Body) {
 		var ret string
 		return ret
 	}
@@ -126,15 +129,15 @@ func (o *SendTestEmailInput) GetBody() string {
 // GetBodyOk returns a tuple with the Body field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SendTestEmailInput) GetBodyOk() (*string, bool) {
-	if o == nil || isNil(o.Body) {
-    return nil, false
+	if o == nil || IsNil(o.Body) {
+		return nil, false
 	}
 	return o.Body, true
 }
 
 // HasBody returns a boolean if a field has been set.
 func (o *SendTestEmailInput) HasBody() bool {
-	if o != nil && !isNil(o.Body) {
+	if o != nil && !IsNil(o.Body) {
 		return true
 	}
 
@@ -147,20 +150,22 @@ func (o *SendTestEmailInput) SetBody(v string) {
 }
 
 func (o SendTestEmailInput) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["senderEmailAddress"] = o.SenderEmailAddress
-	}
-	if true {
-		toSerialize["targetEmailAddress"] = o.TargetEmailAddress
-	}
-	if true {
-		toSerialize["subject"] = o.Subject
-	}
-	if !isNil(o.Body) {
-		toSerialize["body"] = o.Body
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SendTestEmailInput) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["senderEmailAddress"] = o.SenderEmailAddress
+	toSerialize["targetEmailAddress"] = o.TargetEmailAddress
+	toSerialize["subject"] = o.Subject
+	if !IsNil(o.Body) {
+		toSerialize["body"] = o.Body
+	}
+	return toSerialize, nil
 }
 
 type NullableSendTestEmailInput struct {

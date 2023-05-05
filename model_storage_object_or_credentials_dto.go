@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StorageObjectOrCredentialsDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StorageObjectOrCredentialsDto{}
+
 // StorageObjectOrCredentialsDto struct for StorageObjectOrCredentialsDto
 type StorageObjectOrCredentialsDto struct {
 	StorageObject *StorageObjectDto `json:"storageObject,omitempty"`
@@ -39,7 +42,7 @@ func NewStorageObjectOrCredentialsDtoWithDefaults() *StorageObjectOrCredentialsD
 
 // GetStorageObject returns the StorageObject field value if set, zero value otherwise.
 func (o *StorageObjectOrCredentialsDto) GetStorageObject() StorageObjectDto {
-	if o == nil || isNil(o.StorageObject) {
+	if o == nil || IsNil(o.StorageObject) {
 		var ret StorageObjectDto
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *StorageObjectOrCredentialsDto) GetStorageObject() StorageObjectDto {
 // GetStorageObjectOk returns a tuple with the StorageObject field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectOrCredentialsDto) GetStorageObjectOk() (*StorageObjectDto, bool) {
-	if o == nil || isNil(o.StorageObject) {
-    return nil, false
+	if o == nil || IsNil(o.StorageObject) {
+		return nil, false
 	}
 	return o.StorageObject, true
 }
 
 // HasStorageObject returns a boolean if a field has been set.
 func (o *StorageObjectOrCredentialsDto) HasStorageObject() bool {
-	if o != nil && !isNil(o.StorageObject) {
+	if o != nil && !IsNil(o.StorageObject) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *StorageObjectOrCredentialsDto) SetStorageObject(v StorageObjectDto) {
 
 // GetCredentials returns the Credentials field value if set, zero value otherwise.
 func (o *StorageObjectOrCredentialsDto) GetCredentials() StorageObjectCredentials {
-	if o == nil || isNil(o.Credentials) {
+	if o == nil || IsNil(o.Credentials) {
 		var ret StorageObjectCredentials
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *StorageObjectOrCredentialsDto) GetCredentials() StorageObjectCredential
 // GetCredentialsOk returns a tuple with the Credentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StorageObjectOrCredentialsDto) GetCredentialsOk() (*StorageObjectCredentials, bool) {
-	if o == nil || isNil(o.Credentials) {
-    return nil, false
+	if o == nil || IsNil(o.Credentials) {
+		return nil, false
 	}
 	return o.Credentials, true
 }
 
 // HasCredentials returns a boolean if a field has been set.
 func (o *StorageObjectOrCredentialsDto) HasCredentials() bool {
-	if o != nil && !isNil(o.Credentials) {
+	if o != nil && !IsNil(o.Credentials) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *StorageObjectOrCredentialsDto) SetCredentials(v StorageObjectCredential
 }
 
 func (o StorageObjectOrCredentialsDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.StorageObject) {
-		toSerialize["storageObject"] = o.StorageObject
-	}
-	if !isNil(o.Credentials) {
-		toSerialize["credentials"] = o.Credentials
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StorageObjectOrCredentialsDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.StorageObject) {
+		toSerialize["storageObject"] = o.StorageObject
+	}
+	if !IsNil(o.Credentials) {
+		toSerialize["credentials"] = o.Credentials
+	}
+	return toSerialize, nil
 }
 
 type NullableStorageObjectOrCredentialsDto struct {

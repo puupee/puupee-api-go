@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the SubscriptionDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SubscriptionDto{}
+
 // SubscriptionDto struct for SubscriptionDto
 type SubscriptionDto struct {
 	Id *string `json:"id,omitempty"`
@@ -50,7 +53,7 @@ func NewSubscriptionDtoWithDefaults() *SubscriptionDto {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -60,15 +63,15 @@ func (o *SubscriptionDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -82,7 +85,7 @@ func (o *SubscriptionDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -92,15 +95,15 @@ func (o *SubscriptionDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -114,7 +117,7 @@ func (o *SubscriptionDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -124,15 +127,15 @@ func (o *SubscriptionDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -146,7 +149,7 @@ func (o *SubscriptionDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -156,15 +159,15 @@ func (o *SubscriptionDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -178,7 +181,7 @@ func (o *SubscriptionDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -188,15 +191,15 @@ func (o *SubscriptionDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -210,7 +213,7 @@ func (o *SubscriptionDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -220,15 +223,15 @@ func (o *SubscriptionDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -242,7 +245,7 @@ func (o *SubscriptionDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -252,15 +255,15 @@ func (o *SubscriptionDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -274,7 +277,7 @@ func (o *SubscriptionDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -284,15 +287,15 @@ func (o *SubscriptionDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -306,7 +309,7 @@ func (o *SubscriptionDto) SetDeletionTime(v time.Time) {
 
 // GetExpireAt returns the ExpireAt field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetExpireAt() time.Time {
-	if o == nil || isNil(o.ExpireAt) {
+	if o == nil || IsNil(o.ExpireAt) {
 		var ret time.Time
 		return ret
 	}
@@ -316,15 +319,15 @@ func (o *SubscriptionDto) GetExpireAt() time.Time {
 // GetExpireAtOk returns a tuple with the ExpireAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetExpireAtOk() (*time.Time, bool) {
-	if o == nil || isNil(o.ExpireAt) {
-    return nil, false
+	if o == nil || IsNil(o.ExpireAt) {
+		return nil, false
 	}
 	return o.ExpireAt, true
 }
 
 // HasExpireAt returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasExpireAt() bool {
-	if o != nil && !isNil(o.ExpireAt) {
+	if o != nil && !IsNil(o.ExpireAt) {
 		return true
 	}
 
@@ -338,7 +341,7 @@ func (o *SubscriptionDto) SetExpireAt(v time.Time) {
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetAppId() string {
-	if o == nil || isNil(o.AppId) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
@@ -348,15 +351,15 @@ func (o *SubscriptionDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetAppIdOk() (*string, bool) {
-	if o == nil || isNil(o.AppId) {
-    return nil, false
+	if o == nil || IsNil(o.AppId) {
+		return nil, false
 	}
 	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasAppId() bool {
-	if o != nil && !isNil(o.AppId) {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
@@ -370,7 +373,7 @@ func (o *SubscriptionDto) SetAppId(v string) {
 
 // GetPriceNaming returns the PriceNaming field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetPriceNaming() string {
-	if o == nil || isNil(o.PriceNaming) {
+	if o == nil || IsNil(o.PriceNaming) {
 		var ret string
 		return ret
 	}
@@ -380,15 +383,15 @@ func (o *SubscriptionDto) GetPriceNaming() string {
 // GetPriceNamingOk returns a tuple with the PriceNaming field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetPriceNamingOk() (*string, bool) {
-	if o == nil || isNil(o.PriceNaming) {
-    return nil, false
+	if o == nil || IsNil(o.PriceNaming) {
+		return nil, false
 	}
 	return o.PriceNaming, true
 }
 
 // HasPriceNaming returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasPriceNaming() bool {
-	if o != nil && !isNil(o.PriceNaming) {
+	if o != nil && !IsNil(o.PriceNaming) {
 		return true
 	}
 
@@ -402,7 +405,7 @@ func (o *SubscriptionDto) SetPriceNaming(v string) {
 
 // GetPricingId returns the PricingId field value if set, zero value otherwise.
 func (o *SubscriptionDto) GetPricingId() string {
-	if o == nil || isNil(o.PricingId) {
+	if o == nil || IsNil(o.PricingId) {
 		var ret string
 		return ret
 	}
@@ -412,15 +415,15 @@ func (o *SubscriptionDto) GetPricingId() string {
 // GetPricingIdOk returns a tuple with the PricingId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionDto) GetPricingIdOk() (*string, bool) {
-	if o == nil || isNil(o.PricingId) {
-    return nil, false
+	if o == nil || IsNil(o.PricingId) {
+		return nil, false
 	}
 	return o.PricingId, true
 }
 
 // HasPricingId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasPricingId() bool {
-	if o != nil && !isNil(o.PricingId) {
+	if o != nil && !IsNil(o.PricingId) {
 		return true
 	}
 
@@ -433,44 +436,52 @@ func (o *SubscriptionDto) SetPricingId(v string) {
 }
 
 func (o SubscriptionDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.ExpireAt) {
-		toSerialize["expireAt"] = o.ExpireAt
-	}
-	if !isNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
-	}
-	if !isNil(o.PriceNaming) {
-		toSerialize["priceNaming"] = o.PriceNaming
-	}
-	if !isNil(o.PricingId) {
-		toSerialize["pricingId"] = o.PricingId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o SubscriptionDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.ExpireAt) {
+		toSerialize["expireAt"] = o.ExpireAt
+	}
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
+	}
+	if !IsNil(o.PriceNaming) {
+		toSerialize["priceNaming"] = o.PriceNaming
+	}
+	if !IsNil(o.PricingId) {
+		toSerialize["pricingId"] = o.PricingId
+	}
+	return toSerialize, nil
 }
 
 type NullableSubscriptionDto struct {

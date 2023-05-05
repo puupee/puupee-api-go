@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IdentityRoleDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IdentityRoleDto{}
+
 // IdentityRoleDto struct for IdentityRoleDto
 type IdentityRoleDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -44,7 +47,7 @@ func NewIdentityRoleDtoWithDefaults() *IdentityRoleDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *IdentityRoleDto) GetExtraProperties() map[string]map[string]interface{}
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *IdentityRoleDto) SetExtraProperties(v map[string]map[string]interface{}
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *IdentityRoleDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *IdentityRoleDto) SetId(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *IdentityRoleDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *IdentityRoleDto) SetName(v string) {
 
 // GetIsDefault returns the IsDefault field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetIsDefault() bool {
-	if o == nil || isNil(o.IsDefault) {
+	if o == nil || IsNil(o.IsDefault) {
 		var ret bool
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *IdentityRoleDto) GetIsDefault() bool {
 // GetIsDefaultOk returns a tuple with the IsDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetIsDefaultOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDefault) {
-    return nil, false
+	if o == nil || IsNil(o.IsDefault) {
+		return nil, false
 	}
 	return o.IsDefault, true
 }
 
 // HasIsDefault returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasIsDefault() bool {
-	if o != nil && !isNil(o.IsDefault) {
+	if o != nil && !IsNil(o.IsDefault) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *IdentityRoleDto) SetIsDefault(v bool) {
 
 // GetIsStatic returns the IsStatic field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetIsStatic() bool {
-	if o == nil || isNil(o.IsStatic) {
+	if o == nil || IsNil(o.IsStatic) {
 		var ret bool
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *IdentityRoleDto) GetIsStatic() bool {
 // GetIsStaticOk returns a tuple with the IsStatic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetIsStaticOk() (*bool, bool) {
-	if o == nil || isNil(o.IsStatic) {
-    return nil, false
+	if o == nil || IsNil(o.IsStatic) {
+		return nil, false
 	}
 	return o.IsStatic, true
 }
 
 // HasIsStatic returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasIsStatic() bool {
-	if o != nil && !isNil(o.IsStatic) {
+	if o != nil && !IsNil(o.IsStatic) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *IdentityRoleDto) SetIsStatic(v bool) {
 
 // GetIsPublic returns the IsPublic field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetIsPublic() bool {
-	if o == nil || isNil(o.IsPublic) {
+	if o == nil || IsNil(o.IsPublic) {
 		var ret bool
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *IdentityRoleDto) GetIsPublic() bool {
 // GetIsPublicOk returns a tuple with the IsPublic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetIsPublicOk() (*bool, bool) {
-	if o == nil || isNil(o.IsPublic) {
-    return nil, false
+	if o == nil || IsNil(o.IsPublic) {
+		return nil, false
 	}
 	return o.IsPublic, true
 }
 
 // HasIsPublic returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasIsPublic() bool {
-	if o != nil && !isNil(o.IsPublic) {
+	if o != nil && !IsNil(o.IsPublic) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *IdentityRoleDto) SetIsPublic(v bool) {
 
 // GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetConcurrencyStamp() string {
-	if o == nil || isNil(o.ConcurrencyStamp) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *IdentityRoleDto) GetConcurrencyStamp() string {
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityRoleDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil || isNil(o.ConcurrencyStamp) {
-    return nil, false
+	if o == nil || IsNil(o.ConcurrencyStamp) {
+		return nil, false
 	}
 	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasConcurrencyStamp() bool {
-	if o != nil && !isNil(o.ConcurrencyStamp) {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
@@ -267,29 +270,35 @@ func (o *IdentityRoleDto) SetConcurrencyStamp(v string) {
 }
 
 func (o IdentityRoleDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.IsDefault) {
-		toSerialize["isDefault"] = o.IsDefault
-	}
-	if !isNil(o.IsStatic) {
-		toSerialize["isStatic"] = o.IsStatic
-	}
-	if !isNil(o.IsPublic) {
-		toSerialize["isPublic"] = o.IsPublic
-	}
-	if !isNil(o.ConcurrencyStamp) {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IdentityRoleDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.IsDefault) {
+		toSerialize["isDefault"] = o.IsDefault
+	}
+	if !IsNil(o.IsStatic) {
+		toSerialize["isStatic"] = o.IsStatic
+	}
+	if !IsNil(o.IsPublic) {
+		toSerialize["isPublic"] = o.IsPublic
+	}
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	}
+	return toSerialize, nil
 }
 
 type NullableIdentityRoleDto struct {

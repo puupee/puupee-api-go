@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ModuleApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ModuleApiDescriptionModel{}
+
 // ModuleApiDescriptionModel struct for ModuleApiDescriptionModel
 type ModuleApiDescriptionModel struct {
 	RootPath *string `json:"rootPath,omitempty"`
@@ -40,7 +43,7 @@ func NewModuleApiDescriptionModelWithDefaults() *ModuleApiDescriptionModel {
 
 // GetRootPath returns the RootPath field value if set, zero value otherwise.
 func (o *ModuleApiDescriptionModel) GetRootPath() string {
-	if o == nil || isNil(o.RootPath) {
+	if o == nil || IsNil(o.RootPath) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *ModuleApiDescriptionModel) GetRootPath() string {
 // GetRootPathOk returns a tuple with the RootPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModuleApiDescriptionModel) GetRootPathOk() (*string, bool) {
-	if o == nil || isNil(o.RootPath) {
-    return nil, false
+	if o == nil || IsNil(o.RootPath) {
+		return nil, false
 	}
 	return o.RootPath, true
 }
 
 // HasRootPath returns a boolean if a field has been set.
 func (o *ModuleApiDescriptionModel) HasRootPath() bool {
-	if o != nil && !isNil(o.RootPath) {
+	if o != nil && !IsNil(o.RootPath) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *ModuleApiDescriptionModel) SetRootPath(v string) {
 
 // GetRemoteServiceName returns the RemoteServiceName field value if set, zero value otherwise.
 func (o *ModuleApiDescriptionModel) GetRemoteServiceName() string {
-	if o == nil || isNil(o.RemoteServiceName) {
+	if o == nil || IsNil(o.RemoteServiceName) {
 		var ret string
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *ModuleApiDescriptionModel) GetRemoteServiceName() string {
 // GetRemoteServiceNameOk returns a tuple with the RemoteServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModuleApiDescriptionModel) GetRemoteServiceNameOk() (*string, bool) {
-	if o == nil || isNil(o.RemoteServiceName) {
-    return nil, false
+	if o == nil || IsNil(o.RemoteServiceName) {
+		return nil, false
 	}
 	return o.RemoteServiceName, true
 }
 
 // HasRemoteServiceName returns a boolean if a field has been set.
 func (o *ModuleApiDescriptionModel) HasRemoteServiceName() bool {
-	if o != nil && !isNil(o.RemoteServiceName) {
+	if o != nil && !IsNil(o.RemoteServiceName) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *ModuleApiDescriptionModel) SetRemoteServiceName(v string) {
 
 // GetControllers returns the Controllers field value if set, zero value otherwise.
 func (o *ModuleApiDescriptionModel) GetControllers() map[string]ControllerApiDescriptionModel {
-	if o == nil || isNil(o.Controllers) {
+	if o == nil || IsNil(o.Controllers) {
 		var ret map[string]ControllerApiDescriptionModel
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *ModuleApiDescriptionModel) GetControllers() map[string]ControllerApiDes
 // GetControllersOk returns a tuple with the Controllers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModuleApiDescriptionModel) GetControllersOk() (*map[string]ControllerApiDescriptionModel, bool) {
-	if o == nil || isNil(o.Controllers) {
-    return nil, false
+	if o == nil || IsNil(o.Controllers) {
+		return nil, false
 	}
 	return o.Controllers, true
 }
 
 // HasControllers returns a boolean if a field has been set.
 func (o *ModuleApiDescriptionModel) HasControllers() bool {
-	if o != nil && !isNil(o.Controllers) {
+	if o != nil && !IsNil(o.Controllers) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *ModuleApiDescriptionModel) SetControllers(v map[string]ControllerApiDes
 }
 
 func (o ModuleApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.RootPath) {
-		toSerialize["rootPath"] = o.RootPath
-	}
-	if !isNil(o.RemoteServiceName) {
-		toSerialize["remoteServiceName"] = o.RemoteServiceName
-	}
-	if !isNil(o.Controllers) {
-		toSerialize["controllers"] = o.Controllers
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ModuleApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.RootPath) {
+		toSerialize["rootPath"] = o.RootPath
+	}
+	if !IsNil(o.RemoteServiceName) {
+		toSerialize["remoteServiceName"] = o.RemoteServiceName
+	}
+	if !IsNil(o.Controllers) {
+		toSerialize["controllers"] = o.Controllers
+	}
+	return toSerialize, nil
 }
 
 type NullableModuleApiDescriptionModel struct {

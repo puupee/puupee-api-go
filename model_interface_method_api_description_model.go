@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the InterfaceMethodApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InterfaceMethodApiDescriptionModel{}
+
 // InterfaceMethodApiDescriptionModel struct for InterfaceMethodApiDescriptionModel
 type InterfaceMethodApiDescriptionModel struct {
 	Name *string `json:"name,omitempty"`
@@ -40,7 +43,7 @@ func NewInterfaceMethodApiDescriptionModelWithDefaults() *InterfaceMethodApiDesc
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *InterfaceMethodApiDescriptionModel) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *InterfaceMethodApiDescriptionModel) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InterfaceMethodApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *InterfaceMethodApiDescriptionModel) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *InterfaceMethodApiDescriptionModel) SetName(v string) {
 
 // GetParametersOnMethod returns the ParametersOnMethod field value if set, zero value otherwise.
 func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethod() []MethodParameterApiDescriptionModel {
-	if o == nil || isNil(o.ParametersOnMethod) {
+	if o == nil || IsNil(o.ParametersOnMethod) {
 		var ret []MethodParameterApiDescriptionModel
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethod() []MethodPar
 // GetParametersOnMethodOk returns a tuple with the ParametersOnMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethodOk() ([]MethodParameterApiDescriptionModel, bool) {
-	if o == nil || isNil(o.ParametersOnMethod) {
-    return nil, false
+	if o == nil || IsNil(o.ParametersOnMethod) {
+		return nil, false
 	}
 	return o.ParametersOnMethod, true
 }
 
 // HasParametersOnMethod returns a boolean if a field has been set.
 func (o *InterfaceMethodApiDescriptionModel) HasParametersOnMethod() bool {
-	if o != nil && !isNil(o.ParametersOnMethod) {
+	if o != nil && !IsNil(o.ParametersOnMethod) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *InterfaceMethodApiDescriptionModel) SetParametersOnMethod(v []MethodPar
 
 // GetReturnValue returns the ReturnValue field value if set, zero value otherwise.
 func (o *InterfaceMethodApiDescriptionModel) GetReturnValue() ReturnValueApiDescriptionModel {
-	if o == nil || isNil(o.ReturnValue) {
+	if o == nil || IsNil(o.ReturnValue) {
 		var ret ReturnValueApiDescriptionModel
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *InterfaceMethodApiDescriptionModel) GetReturnValue() ReturnValueApiDesc
 // GetReturnValueOk returns a tuple with the ReturnValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InterfaceMethodApiDescriptionModel) GetReturnValueOk() (*ReturnValueApiDescriptionModel, bool) {
-	if o == nil || isNil(o.ReturnValue) {
-    return nil, false
+	if o == nil || IsNil(o.ReturnValue) {
+		return nil, false
 	}
 	return o.ReturnValue, true
 }
 
 // HasReturnValue returns a boolean if a field has been set.
 func (o *InterfaceMethodApiDescriptionModel) HasReturnValue() bool {
-	if o != nil && !isNil(o.ReturnValue) {
+	if o != nil && !IsNil(o.ReturnValue) {
 		return true
 	}
 
@@ -135,17 +138,25 @@ func (o *InterfaceMethodApiDescriptionModel) SetReturnValue(v ReturnValueApiDesc
 }
 
 func (o InterfaceMethodApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.ParametersOnMethod) {
-		toSerialize["parametersOnMethod"] = o.ParametersOnMethod
-	}
-	if !isNil(o.ReturnValue) {
-		toSerialize["returnValue"] = o.ReturnValue
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o InterfaceMethodApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.ParametersOnMethod) {
+		toSerialize["parametersOnMethod"] = o.ParametersOnMethod
+	}
+	if !IsNil(o.ReturnValue) {
+		toSerialize["returnValue"] = o.ReturnValue
+	}
+	return toSerialize, nil
 }
 
 type NullableInterfaceMethodApiDescriptionModel struct {

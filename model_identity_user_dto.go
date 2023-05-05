@@ -15,6 +15,9 @@ import (
 	"time"
 )
 
+// checks if the IdentityUserDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IdentityUserDto{}
+
 // IdentityUserDto struct for IdentityUserDto
 type IdentityUserDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -59,7 +62,7 @@ func NewIdentityUserDtoWithDefaults() *IdentityUserDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -69,15 +72,15 @@ func (o *IdentityUserDto) GetExtraProperties() map[string]map[string]interface{}
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -91,7 +94,7 @@ func (o *IdentityUserDto) SetExtraProperties(v map[string]map[string]interface{}
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -101,15 +104,15 @@ func (o *IdentityUserDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -123,7 +126,7 @@ func (o *IdentityUserDto) SetId(v string) {
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetCreationTime() time.Time {
-	if o == nil || isNil(o.CreationTime) {
+	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -133,15 +136,15 @@ func (o *IdentityUserDto) GetCreationTime() time.Time {
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetCreationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.CreationTime) {
-    return nil, false
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
 	}
 	return o.CreationTime, true
 }
 
 // HasCreationTime returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasCreationTime() bool {
-	if o != nil && !isNil(o.CreationTime) {
+	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
 
@@ -155,7 +158,7 @@ func (o *IdentityUserDto) SetCreationTime(v time.Time) {
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetCreatorId() string {
-	if o == nil || isNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
@@ -165,15 +168,15 @@ func (o *IdentityUserDto) GetCreatorId() string {
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreatorId) {
-    return nil, false
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
 	}
 	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasCreatorId() bool {
-	if o != nil && !isNil(o.CreatorId) {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
@@ -187,7 +190,7 @@ func (o *IdentityUserDto) SetCreatorId(v string) {
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLastModificationTime() time.Time {
-	if o == nil || isNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
@@ -197,15 +200,15 @@ func (o *IdentityUserDto) GetLastModificationTime() time.Time {
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LastModificationTime) {
-    return nil, false
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
 	}
 	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLastModificationTime() bool {
-	if o != nil && !isNil(o.LastModificationTime) {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
@@ -219,7 +222,7 @@ func (o *IdentityUserDto) SetLastModificationTime(v time.Time) {
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLastModifierId() string {
-	if o == nil || isNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
@@ -229,15 +232,15 @@ func (o *IdentityUserDto) GetLastModifierId() string {
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || isNil(o.LastModifierId) {
-    return nil, false
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
 	}
 	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLastModifierId() bool {
-	if o != nil && !isNil(o.LastModifierId) {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
@@ -251,7 +254,7 @@ func (o *IdentityUserDto) SetLastModifierId(v string) {
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetIsDeleted() bool {
-	if o == nil || isNil(o.IsDeleted) {
+	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
 	}
@@ -261,15 +264,15 @@ func (o *IdentityUserDto) GetIsDeleted() bool {
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDeleted) {
-    return nil, false
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
 	}
 	return o.IsDeleted, true
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasIsDeleted() bool {
-	if o != nil && !isNil(o.IsDeleted) {
+	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
 
@@ -283,7 +286,7 @@ func (o *IdentityUserDto) SetIsDeleted(v bool) {
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetDeleterId() string {
-	if o == nil || isNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
@@ -293,15 +296,15 @@ func (o *IdentityUserDto) GetDeleterId() string {
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || isNil(o.DeleterId) {
-    return nil, false
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
 	}
 	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasDeleterId() bool {
-	if o != nil && !isNil(o.DeleterId) {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
@@ -315,7 +318,7 @@ func (o *IdentityUserDto) SetDeleterId(v string) {
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetDeletionTime() time.Time {
-	if o == nil || isNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
@@ -325,15 +328,15 @@ func (o *IdentityUserDto) GetDeletionTime() time.Time {
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || isNil(o.DeletionTime) {
-    return nil, false
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
 	}
 	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasDeletionTime() bool {
-	if o != nil && !isNil(o.DeletionTime) {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
@@ -347,7 +350,7 @@ func (o *IdentityUserDto) SetDeletionTime(v time.Time) {
 
 // GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetTenantId() string {
-	if o == nil || isNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
@@ -357,15 +360,15 @@ func (o *IdentityUserDto) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetTenantIdOk() (*string, bool) {
-	if o == nil || isNil(o.TenantId) {
-    return nil, false
+	if o == nil || IsNil(o.TenantId) {
+		return nil, false
 	}
 	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasTenantId() bool {
-	if o != nil && !isNil(o.TenantId) {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
@@ -379,7 +382,7 @@ func (o *IdentityUserDto) SetTenantId(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -389,15 +392,15 @@ func (o *IdentityUserDto) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -411,7 +414,7 @@ func (o *IdentityUserDto) SetUserName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -421,15 +424,15 @@ func (o *IdentityUserDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -443,7 +446,7 @@ func (o *IdentityUserDto) SetName(v string) {
 
 // GetSurname returns the Surname field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetSurname() string {
-	if o == nil || isNil(o.Surname) {
+	if o == nil || IsNil(o.Surname) {
 		var ret string
 		return ret
 	}
@@ -453,15 +456,15 @@ func (o *IdentityUserDto) GetSurname() string {
 // GetSurnameOk returns a tuple with the Surname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetSurnameOk() (*string, bool) {
-	if o == nil || isNil(o.Surname) {
-    return nil, false
+	if o == nil || IsNil(o.Surname) {
+		return nil, false
 	}
 	return o.Surname, true
 }
 
 // HasSurname returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasSurname() bool {
-	if o != nil && !isNil(o.Surname) {
+	if o != nil && !IsNil(o.Surname) {
 		return true
 	}
 
@@ -475,7 +478,7 @@ func (o *IdentityUserDto) SetSurname(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -485,15 +488,15 @@ func (o *IdentityUserDto) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -507,7 +510,7 @@ func (o *IdentityUserDto) SetEmail(v string) {
 
 // GetEmailConfirmed returns the EmailConfirmed field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetEmailConfirmed() bool {
-	if o == nil || isNil(o.EmailConfirmed) {
+	if o == nil || IsNil(o.EmailConfirmed) {
 		var ret bool
 		return ret
 	}
@@ -517,15 +520,15 @@ func (o *IdentityUserDto) GetEmailConfirmed() bool {
 // GetEmailConfirmedOk returns a tuple with the EmailConfirmed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetEmailConfirmedOk() (*bool, bool) {
-	if o == nil || isNil(o.EmailConfirmed) {
-    return nil, false
+	if o == nil || IsNil(o.EmailConfirmed) {
+		return nil, false
 	}
 	return o.EmailConfirmed, true
 }
 
 // HasEmailConfirmed returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasEmailConfirmed() bool {
-	if o != nil && !isNil(o.EmailConfirmed) {
+	if o != nil && !IsNil(o.EmailConfirmed) {
 		return true
 	}
 
@@ -539,7 +542,7 @@ func (o *IdentityUserDto) SetEmailConfirmed(v bool) {
 
 // GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetPhoneNumber() string {
-	if o == nil || isNil(o.PhoneNumber) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
@@ -549,15 +552,15 @@ func (o *IdentityUserDto) GetPhoneNumber() string {
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetPhoneNumberOk() (*string, bool) {
-	if o == nil || isNil(o.PhoneNumber) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumber) {
+		return nil, false
 	}
 	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasPhoneNumber() bool {
-	if o != nil && !isNil(o.PhoneNumber) {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
@@ -571,7 +574,7 @@ func (o *IdentityUserDto) SetPhoneNumber(v string) {
 
 // GetPhoneNumberConfirmed returns the PhoneNumberConfirmed field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetPhoneNumberConfirmed() bool {
-	if o == nil || isNil(o.PhoneNumberConfirmed) {
+	if o == nil || IsNil(o.PhoneNumberConfirmed) {
 		var ret bool
 		return ret
 	}
@@ -581,15 +584,15 @@ func (o *IdentityUserDto) GetPhoneNumberConfirmed() bool {
 // GetPhoneNumberConfirmedOk returns a tuple with the PhoneNumberConfirmed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetPhoneNumberConfirmedOk() (*bool, bool) {
-	if o == nil || isNil(o.PhoneNumberConfirmed) {
-    return nil, false
+	if o == nil || IsNil(o.PhoneNumberConfirmed) {
+		return nil, false
 	}
 	return o.PhoneNumberConfirmed, true
 }
 
 // HasPhoneNumberConfirmed returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasPhoneNumberConfirmed() bool {
-	if o != nil && !isNil(o.PhoneNumberConfirmed) {
+	if o != nil && !IsNil(o.PhoneNumberConfirmed) {
 		return true
 	}
 
@@ -603,7 +606,7 @@ func (o *IdentityUserDto) SetPhoneNumberConfirmed(v bool) {
 
 // GetIsActive returns the IsActive field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetIsActive() bool {
-	if o == nil || isNil(o.IsActive) {
+	if o == nil || IsNil(o.IsActive) {
 		var ret bool
 		return ret
 	}
@@ -613,15 +616,15 @@ func (o *IdentityUserDto) GetIsActive() bool {
 // GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetIsActiveOk() (*bool, bool) {
-	if o == nil || isNil(o.IsActive) {
-    return nil, false
+	if o == nil || IsNil(o.IsActive) {
+		return nil, false
 	}
 	return o.IsActive, true
 }
 
 // HasIsActive returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasIsActive() bool {
-	if o != nil && !isNil(o.IsActive) {
+	if o != nil && !IsNil(o.IsActive) {
 		return true
 	}
 
@@ -635,7 +638,7 @@ func (o *IdentityUserDto) SetIsActive(v bool) {
 
 // GetLockoutEnabled returns the LockoutEnabled field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLockoutEnabled() bool {
-	if o == nil || isNil(o.LockoutEnabled) {
+	if o == nil || IsNil(o.LockoutEnabled) {
 		var ret bool
 		return ret
 	}
@@ -645,15 +648,15 @@ func (o *IdentityUserDto) GetLockoutEnabled() bool {
 // GetLockoutEnabledOk returns a tuple with the LockoutEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetLockoutEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.LockoutEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.LockoutEnabled) {
+		return nil, false
 	}
 	return o.LockoutEnabled, true
 }
 
 // HasLockoutEnabled returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLockoutEnabled() bool {
-	if o != nil && !isNil(o.LockoutEnabled) {
+	if o != nil && !IsNil(o.LockoutEnabled) {
 		return true
 	}
 
@@ -667,7 +670,7 @@ func (o *IdentityUserDto) SetLockoutEnabled(v bool) {
 
 // GetLockoutEnd returns the LockoutEnd field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLockoutEnd() time.Time {
-	if o == nil || isNil(o.LockoutEnd) {
+	if o == nil || IsNil(o.LockoutEnd) {
 		var ret time.Time
 		return ret
 	}
@@ -677,15 +680,15 @@ func (o *IdentityUserDto) GetLockoutEnd() time.Time {
 // GetLockoutEndOk returns a tuple with the LockoutEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetLockoutEndOk() (*time.Time, bool) {
-	if o == nil || isNil(o.LockoutEnd) {
-    return nil, false
+	if o == nil || IsNil(o.LockoutEnd) {
+		return nil, false
 	}
 	return o.LockoutEnd, true
 }
 
 // HasLockoutEnd returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLockoutEnd() bool {
-	if o != nil && !isNil(o.LockoutEnd) {
+	if o != nil && !IsNil(o.LockoutEnd) {
 		return true
 	}
 
@@ -699,7 +702,7 @@ func (o *IdentityUserDto) SetLockoutEnd(v time.Time) {
 
 // GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetConcurrencyStamp() string {
-	if o == nil || isNil(o.ConcurrencyStamp) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
@@ -709,15 +712,15 @@ func (o *IdentityUserDto) GetConcurrencyStamp() string {
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IdentityUserDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil || isNil(o.ConcurrencyStamp) {
-    return nil, false
+	if o == nil || IsNil(o.ConcurrencyStamp) {
+		return nil, false
 	}
 	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasConcurrencyStamp() bool {
-	if o != nil && !isNil(o.ConcurrencyStamp) {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
@@ -730,71 +733,77 @@ func (o *IdentityUserDto) SetConcurrencyStamp(v string) {
 }
 
 func (o IdentityUserDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.CreationTime) {
-		toSerialize["creationTime"] = o.CreationTime
-	}
-	if !isNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
-	}
-	if !isNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
-	}
-	if !isNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
-	}
-	if !isNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !isNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
-	}
-	if !isNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
-	}
-	if !isNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !isNil(o.UserName) {
-		toSerialize["userName"] = o.UserName
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Surname) {
-		toSerialize["surname"] = o.Surname
-	}
-	if !isNil(o.Email) {
-		toSerialize["email"] = o.Email
-	}
-	if !isNil(o.EmailConfirmed) {
-		toSerialize["emailConfirmed"] = o.EmailConfirmed
-	}
-	if !isNil(o.PhoneNumber) {
-		toSerialize["phoneNumber"] = o.PhoneNumber
-	}
-	if !isNil(o.PhoneNumberConfirmed) {
-		toSerialize["phoneNumberConfirmed"] = o.PhoneNumberConfirmed
-	}
-	if !isNil(o.IsActive) {
-		toSerialize["isActive"] = o.IsActive
-	}
-	if !isNil(o.LockoutEnabled) {
-		toSerialize["lockoutEnabled"] = o.LockoutEnabled
-	}
-	if !isNil(o.LockoutEnd) {
-		toSerialize["lockoutEnd"] = o.LockoutEnd
-	}
-	if !isNil(o.ConcurrencyStamp) {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IdentityUserDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreationTime) {
+		toSerialize["creationTime"] = o.CreationTime
+	}
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
+	}
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Surname) {
+		toSerialize["surname"] = o.Surname
+	}
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
+	}
+	if !IsNil(o.EmailConfirmed) {
+		toSerialize["emailConfirmed"] = o.EmailConfirmed
+	}
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
+	}
+	if !IsNil(o.PhoneNumberConfirmed) {
+		toSerialize["phoneNumberConfirmed"] = o.PhoneNumberConfirmed
+	}
+	if !IsNil(o.IsActive) {
+		toSerialize["isActive"] = o.IsActive
+	}
+	if !IsNil(o.LockoutEnabled) {
+		toSerialize["lockoutEnabled"] = o.LockoutEnabled
+	}
+	if !IsNil(o.LockoutEnd) {
+		toSerialize["lockoutEnd"] = o.LockoutEnd
+	}
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	}
+	return toSerialize, nil
 }
 
 type NullableIdentityUserDto struct {

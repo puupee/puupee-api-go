@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RefreshDeviceStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RefreshDeviceStatusDto{}
+
 // RefreshDeviceStatusDto struct for RefreshDeviceStatusDto
 type RefreshDeviceStatusDto struct {
 	Token *string `json:"token,omitempty"`
@@ -39,7 +42,7 @@ func NewRefreshDeviceStatusDtoWithDefaults() *RefreshDeviceStatusDto {
 
 // GetToken returns the Token field value if set, zero value otherwise.
 func (o *RefreshDeviceStatusDto) GetToken() string {
-	if o == nil || isNil(o.Token) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *RefreshDeviceStatusDto) GetToken() string {
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RefreshDeviceStatusDto) GetTokenOk() (*string, bool) {
-	if o == nil || isNil(o.Token) {
-    return nil, false
+	if o == nil || IsNil(o.Token) {
+		return nil, false
 	}
 	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *RefreshDeviceStatusDto) HasToken() bool {
-	if o != nil && !isNil(o.Token) {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *RefreshDeviceStatusDto) SetToken(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *RefreshDeviceStatusDto) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *RefreshDeviceStatusDto) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RefreshDeviceStatusDto) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || IsNil(o.Status) {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *RefreshDeviceStatusDto) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *RefreshDeviceStatusDto) SetStatus(v string) {
 }
 
 func (o RefreshDeviceStatusDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Token) {
-		toSerialize["token"] = o.Token
-	}
-	if !isNil(o.Status) {
-		toSerialize["status"] = o.Status
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RefreshDeviceStatusDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	return toSerialize, nil
 }
 
 type NullableRefreshDeviceStatusDto struct {

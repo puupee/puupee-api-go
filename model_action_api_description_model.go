@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ActionApiDescriptionModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ActionApiDescriptionModel{}
+
 // ActionApiDescriptionModel struct for ActionApiDescriptionModel
 type ActionApiDescriptionModel struct {
 	UniqueName *string `json:"uniqueName,omitempty"`
@@ -47,7 +50,7 @@ func NewActionApiDescriptionModelWithDefaults() *ActionApiDescriptionModel {
 
 // GetUniqueName returns the UniqueName field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetUniqueName() string {
-	if o == nil || isNil(o.UniqueName) {
+	if o == nil || IsNil(o.UniqueName) {
 		var ret string
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *ActionApiDescriptionModel) GetUniqueName() string {
 // GetUniqueNameOk returns a tuple with the UniqueName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetUniqueNameOk() (*string, bool) {
-	if o == nil || isNil(o.UniqueName) {
-    return nil, false
+	if o == nil || IsNil(o.UniqueName) {
+		return nil, false
 	}
 	return o.UniqueName, true
 }
 
 // HasUniqueName returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasUniqueName() bool {
-	if o != nil && !isNil(o.UniqueName) {
+	if o != nil && !IsNil(o.UniqueName) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *ActionApiDescriptionModel) SetUniqueName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *ActionApiDescriptionModel) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *ActionApiDescriptionModel) SetName(v string) {
 
 // GetHttpMethod returns the HttpMethod field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetHttpMethod() string {
-	if o == nil || isNil(o.HttpMethod) {
+	if o == nil || IsNil(o.HttpMethod) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *ActionApiDescriptionModel) GetHttpMethod() string {
 // GetHttpMethodOk returns a tuple with the HttpMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetHttpMethodOk() (*string, bool) {
-	if o == nil || isNil(o.HttpMethod) {
-    return nil, false
+	if o == nil || IsNil(o.HttpMethod) {
+		return nil, false
 	}
 	return o.HttpMethod, true
 }
 
 // HasHttpMethod returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasHttpMethod() bool {
-	if o != nil && !isNil(o.HttpMethod) {
+	if o != nil && !IsNil(o.HttpMethod) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *ActionApiDescriptionModel) SetHttpMethod(v string) {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *ActionApiDescriptionModel) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *ActionApiDescriptionModel) SetUrl(v string) {
 
 // GetSupportedVersions returns the SupportedVersions field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetSupportedVersions() []string {
-	if o == nil || isNil(o.SupportedVersions) {
+	if o == nil || IsNil(o.SupportedVersions) {
 		var ret []string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *ActionApiDescriptionModel) GetSupportedVersions() []string {
 // GetSupportedVersionsOk returns a tuple with the SupportedVersions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetSupportedVersionsOk() ([]string, bool) {
-	if o == nil || isNil(o.SupportedVersions) {
-    return nil, false
+	if o == nil || IsNil(o.SupportedVersions) {
+		return nil, false
 	}
 	return o.SupportedVersions, true
 }
 
 // HasSupportedVersions returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasSupportedVersions() bool {
-	if o != nil && !isNil(o.SupportedVersions) {
+	if o != nil && !IsNil(o.SupportedVersions) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *ActionApiDescriptionModel) SetSupportedVersions(v []string) {
 
 // GetParametersOnMethod returns the ParametersOnMethod field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetParametersOnMethod() []MethodParameterApiDescriptionModel {
-	if o == nil || isNil(o.ParametersOnMethod) {
+	if o == nil || IsNil(o.ParametersOnMethod) {
 		var ret []MethodParameterApiDescriptionModel
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *ActionApiDescriptionModel) GetParametersOnMethod() []MethodParameterApi
 // GetParametersOnMethodOk returns a tuple with the ParametersOnMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetParametersOnMethodOk() ([]MethodParameterApiDescriptionModel, bool) {
-	if o == nil || isNil(o.ParametersOnMethod) {
-    return nil, false
+	if o == nil || IsNil(o.ParametersOnMethod) {
+		return nil, false
 	}
 	return o.ParametersOnMethod, true
 }
 
 // HasParametersOnMethod returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasParametersOnMethod() bool {
-	if o != nil && !isNil(o.ParametersOnMethod) {
+	if o != nil && !IsNil(o.ParametersOnMethod) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *ActionApiDescriptionModel) SetParametersOnMethod(v []MethodParameterApi
 
 // GetParameters returns the Parameters field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetParameters() []ParameterApiDescriptionModel {
-	if o == nil || isNil(o.Parameters) {
+	if o == nil || IsNil(o.Parameters) {
 		var ret []ParameterApiDescriptionModel
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *ActionApiDescriptionModel) GetParameters() []ParameterApiDescriptionMod
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetParametersOk() ([]ParameterApiDescriptionModel, bool) {
-	if o == nil || isNil(o.Parameters) {
-    return nil, false
+	if o == nil || IsNil(o.Parameters) {
+		return nil, false
 	}
 	return o.Parameters, true
 }
 
 // HasParameters returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasParameters() bool {
-	if o != nil && !isNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -271,7 +274,7 @@ func (o *ActionApiDescriptionModel) SetParameters(v []ParameterApiDescriptionMod
 
 // GetReturnValue returns the ReturnValue field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetReturnValue() ReturnValueApiDescriptionModel {
-	if o == nil || isNil(o.ReturnValue) {
+	if o == nil || IsNil(o.ReturnValue) {
 		var ret ReturnValueApiDescriptionModel
 		return ret
 	}
@@ -281,15 +284,15 @@ func (o *ActionApiDescriptionModel) GetReturnValue() ReturnValueApiDescriptionMo
 // GetReturnValueOk returns a tuple with the ReturnValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetReturnValueOk() (*ReturnValueApiDescriptionModel, bool) {
-	if o == nil || isNil(o.ReturnValue) {
-    return nil, false
+	if o == nil || IsNil(o.ReturnValue) {
+		return nil, false
 	}
 	return o.ReturnValue, true
 }
 
 // HasReturnValue returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasReturnValue() bool {
-	if o != nil && !isNil(o.ReturnValue) {
+	if o != nil && !IsNil(o.ReturnValue) {
 		return true
 	}
 
@@ -303,7 +306,7 @@ func (o *ActionApiDescriptionModel) SetReturnValue(v ReturnValueApiDescriptionMo
 
 // GetAllowAnonymous returns the AllowAnonymous field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetAllowAnonymous() bool {
-	if o == nil || isNil(o.AllowAnonymous) {
+	if o == nil || IsNil(o.AllowAnonymous) {
 		var ret bool
 		return ret
 	}
@@ -313,15 +316,15 @@ func (o *ActionApiDescriptionModel) GetAllowAnonymous() bool {
 // GetAllowAnonymousOk returns a tuple with the AllowAnonymous field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetAllowAnonymousOk() (*bool, bool) {
-	if o == nil || isNil(o.AllowAnonymous) {
-    return nil, false
+	if o == nil || IsNil(o.AllowAnonymous) {
+		return nil, false
 	}
 	return o.AllowAnonymous, true
 }
 
 // HasAllowAnonymous returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasAllowAnonymous() bool {
-	if o != nil && !isNil(o.AllowAnonymous) {
+	if o != nil && !IsNil(o.AllowAnonymous) {
 		return true
 	}
 
@@ -335,7 +338,7 @@ func (o *ActionApiDescriptionModel) SetAllowAnonymous(v bool) {
 
 // GetImplementFrom returns the ImplementFrom field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetImplementFrom() string {
-	if o == nil || isNil(o.ImplementFrom) {
+	if o == nil || IsNil(o.ImplementFrom) {
 		var ret string
 		return ret
 	}
@@ -345,15 +348,15 @@ func (o *ActionApiDescriptionModel) GetImplementFrom() string {
 // GetImplementFromOk returns a tuple with the ImplementFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActionApiDescriptionModel) GetImplementFromOk() (*string, bool) {
-	if o == nil || isNil(o.ImplementFrom) {
-    return nil, false
+	if o == nil || IsNil(o.ImplementFrom) {
+		return nil, false
 	}
 	return o.ImplementFrom, true
 }
 
 // HasImplementFrom returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasImplementFrom() bool {
-	if o != nil && !isNil(o.ImplementFrom) {
+	if o != nil && !IsNil(o.ImplementFrom) {
 		return true
 	}
 
@@ -366,38 +369,46 @@ func (o *ActionApiDescriptionModel) SetImplementFrom(v string) {
 }
 
 func (o ActionApiDescriptionModel) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.UniqueName) {
-		toSerialize["uniqueName"] = o.UniqueName
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.HttpMethod) {
-		toSerialize["httpMethod"] = o.HttpMethod
-	}
-	if !isNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
-	if !isNil(o.SupportedVersions) {
-		toSerialize["supportedVersions"] = o.SupportedVersions
-	}
-	if !isNil(o.ParametersOnMethod) {
-		toSerialize["parametersOnMethod"] = o.ParametersOnMethod
-	}
-	if !isNil(o.Parameters) {
-		toSerialize["parameters"] = o.Parameters
-	}
-	if !isNil(o.ReturnValue) {
-		toSerialize["returnValue"] = o.ReturnValue
-	}
-	if !isNil(o.AllowAnonymous) {
-		toSerialize["allowAnonymous"] = o.AllowAnonymous
-	}
-	if !isNil(o.ImplementFrom) {
-		toSerialize["implementFrom"] = o.ImplementFrom
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ActionApiDescriptionModel) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.UniqueName) {
+		toSerialize["uniqueName"] = o.UniqueName
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.HttpMethod) {
+		toSerialize["httpMethod"] = o.HttpMethod
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.SupportedVersions) {
+		toSerialize["supportedVersions"] = o.SupportedVersions
+	}
+	if !IsNil(o.ParametersOnMethod) {
+		toSerialize["parametersOnMethod"] = o.ParametersOnMethod
+	}
+	if !IsNil(o.Parameters) {
+		toSerialize["parameters"] = o.Parameters
+	}
+	if !IsNil(o.ReturnValue) {
+		toSerialize["returnValue"] = o.ReturnValue
+	}
+	if !IsNil(o.AllowAnonymous) {
+		toSerialize["allowAnonymous"] = o.AllowAnonymous
+	}
+	if !IsNil(o.ImplementFrom) {
+		toSerialize["implementFrom"] = o.ImplementFrom
+	}
+	return toSerialize, nil
 }
 
 type NullableActionApiDescriptionModel struct {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VerifyReceiptResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VerifyReceiptResult{}
+
 // VerifyReceiptResult struct for VerifyReceiptResult
 type VerifyReceiptResult struct {
 	Ok *bool `json:"ok,omitempty"`
@@ -41,7 +44,7 @@ func NewVerifyReceiptResultWithDefaults() *VerifyReceiptResult {
 
 // GetOk returns the Ok field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetOk() bool {
-	if o == nil || isNil(o.Ok) {
+	if o == nil || IsNil(o.Ok) {
 		var ret bool
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *VerifyReceiptResult) GetOk() bool {
 // GetOkOk returns a tuple with the Ok field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptResult) GetOkOk() (*bool, bool) {
-	if o == nil || isNil(o.Ok) {
-    return nil, false
+	if o == nil || IsNil(o.Ok) {
+		return nil, false
 	}
 	return o.Ok, true
 }
 
 // HasOk returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasOk() bool {
-	if o != nil && !isNil(o.Ok) {
+	if o != nil && !IsNil(o.Ok) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *VerifyReceiptResult) SetOk(v bool) {
 
 // GetStatusCode returns the StatusCode field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetStatusCode() string {
-	if o == nil || isNil(o.StatusCode) {
+	if o == nil || IsNil(o.StatusCode) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *VerifyReceiptResult) GetStatusCode() string {
 // GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptResult) GetStatusCodeOk() (*string, bool) {
-	if o == nil || isNil(o.StatusCode) {
-    return nil, false
+	if o == nil || IsNil(o.StatusCode) {
+		return nil, false
 	}
 	return o.StatusCode, true
 }
 
 // HasStatusCode returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasStatusCode() bool {
-	if o != nil && !isNil(o.StatusCode) {
+	if o != nil && !IsNil(o.StatusCode) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *VerifyReceiptResult) SetStatusCode(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *VerifyReceiptResult) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptResult) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -137,7 +140,7 @@ func (o *VerifyReceiptResult) SetMessage(v string) {
 
 // GetAppleVerifyReceiptResult returns the AppleVerifyReceiptResult field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetAppleVerifyReceiptResult() AppleVerifyReceiptResult {
-	if o == nil || isNil(o.AppleVerifyReceiptResult) {
+	if o == nil || IsNil(o.AppleVerifyReceiptResult) {
 		var ret AppleVerifyReceiptResult
 		return ret
 	}
@@ -147,15 +150,15 @@ func (o *VerifyReceiptResult) GetAppleVerifyReceiptResult() AppleVerifyReceiptRe
 // GetAppleVerifyReceiptResultOk returns a tuple with the AppleVerifyReceiptResult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VerifyReceiptResult) GetAppleVerifyReceiptResultOk() (*AppleVerifyReceiptResult, bool) {
-	if o == nil || isNil(o.AppleVerifyReceiptResult) {
-    return nil, false
+	if o == nil || IsNil(o.AppleVerifyReceiptResult) {
+		return nil, false
 	}
 	return o.AppleVerifyReceiptResult, true
 }
 
 // HasAppleVerifyReceiptResult returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasAppleVerifyReceiptResult() bool {
-	if o != nil && !isNil(o.AppleVerifyReceiptResult) {
+	if o != nil && !IsNil(o.AppleVerifyReceiptResult) {
 		return true
 	}
 
@@ -168,20 +171,28 @@ func (o *VerifyReceiptResult) SetAppleVerifyReceiptResult(v AppleVerifyReceiptRe
 }
 
 func (o VerifyReceiptResult) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Ok) {
-		toSerialize["ok"] = o.Ok
-	}
-	if !isNil(o.StatusCode) {
-		toSerialize["statusCode"] = o.StatusCode
-	}
-	if !isNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if !isNil(o.AppleVerifyReceiptResult) {
-		toSerialize["appleVerifyReceiptResult"] = o.AppleVerifyReceiptResult
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o VerifyReceiptResult) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Ok) {
+		toSerialize["ok"] = o.Ok
+	}
+	if !IsNil(o.StatusCode) {
+		toSerialize["statusCode"] = o.StatusCode
+	}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.AppleVerifyReceiptResult) {
+		toSerialize["appleVerifyReceiptResult"] = o.AppleVerifyReceiptResult
+	}
+	return toSerialize, nil
 }
 
 type NullableVerifyReceiptResult struct {

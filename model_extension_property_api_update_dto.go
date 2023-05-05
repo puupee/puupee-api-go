@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExtensionPropertyApiUpdateDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExtensionPropertyApiUpdateDto{}
+
 // ExtensionPropertyApiUpdateDto struct for ExtensionPropertyApiUpdateDto
 type ExtensionPropertyApiUpdateDto struct {
 	IsAvailable *bool `json:"isAvailable,omitempty"`
@@ -38,7 +41,7 @@ func NewExtensionPropertyApiUpdateDtoWithDefaults() *ExtensionPropertyApiUpdateD
 
 // GetIsAvailable returns the IsAvailable field value if set, zero value otherwise.
 func (o *ExtensionPropertyApiUpdateDto) GetIsAvailable() bool {
-	if o == nil || isNil(o.IsAvailable) {
+	if o == nil || IsNil(o.IsAvailable) {
 		var ret bool
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *ExtensionPropertyApiUpdateDto) GetIsAvailable() bool {
 // GetIsAvailableOk returns a tuple with the IsAvailable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ExtensionPropertyApiUpdateDto) GetIsAvailableOk() (*bool, bool) {
-	if o == nil || isNil(o.IsAvailable) {
-    return nil, false
+	if o == nil || IsNil(o.IsAvailable) {
+		return nil, false
 	}
 	return o.IsAvailable, true
 }
 
 // HasIsAvailable returns a boolean if a field has been set.
 func (o *ExtensionPropertyApiUpdateDto) HasIsAvailable() bool {
-	if o != nil && !isNil(o.IsAvailable) {
+	if o != nil && !IsNil(o.IsAvailable) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *ExtensionPropertyApiUpdateDto) SetIsAvailable(v bool) {
 }
 
 func (o ExtensionPropertyApiUpdateDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.IsAvailable) {
-		toSerialize["isAvailable"] = o.IsAvailable
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ExtensionPropertyApiUpdateDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.IsAvailable) {
+		toSerialize["isAvailable"] = o.IsAvailable
+	}
+	return toSerialize, nil
 }
 
 type NullableExtensionPropertyApiUpdateDto struct {

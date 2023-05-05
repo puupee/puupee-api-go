@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateOrUpdateAppFeatureDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateOrUpdateAppFeatureDto{}
+
 // CreateOrUpdateAppFeatureDto struct for CreateOrUpdateAppFeatureDto
 type CreateOrUpdateAppFeatureDto struct {
 	Name *string `json:"name,omitempty"`
@@ -42,7 +45,7 @@ func NewCreateOrUpdateAppFeatureDtoWithDefaults() *CreateOrUpdateAppFeatureDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *CreateOrUpdateAppFeatureDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppFeatureDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *CreateOrUpdateAppFeatureDto) SetName(v string) {
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetDisplayName() string {
-	if o == nil || isNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *CreateOrUpdateAppFeatureDto) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppFeatureDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil || isNil(o.DisplayName) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayName) {
+		return nil, false
 	}
 	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasDisplayName() bool {
-	if o != nil && !isNil(o.DisplayName) {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *CreateOrUpdateAppFeatureDto) SetDisplayName(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *CreateOrUpdateAppFeatureDto) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppFeatureDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
-    return nil, false
+	if o == nil || IsNil(o.Description) {
+		return nil, false
 	}
 	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *CreateOrUpdateAppFeatureDto) SetDescription(v string) {
 
 // GetDetails returns the Details field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetDetails() string {
-	if o == nil || isNil(o.Details) {
+	if o == nil || IsNil(o.Details) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *CreateOrUpdateAppFeatureDto) GetDetails() string {
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppFeatureDto) GetDetailsOk() (*string, bool) {
-	if o == nil || isNil(o.Details) {
-    return nil, false
+	if o == nil || IsNil(o.Details) {
+		return nil, false
 	}
 	return o.Details, true
 }
 
 // HasDetails returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasDetails() bool {
-	if o != nil && !isNil(o.Details) {
+	if o != nil && !IsNil(o.Details) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *CreateOrUpdateAppFeatureDto) SetDetails(v string) {
 
 // GetScreenshotKeys returns the ScreenshotKeys field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetScreenshotKeys() string {
-	if o == nil || isNil(o.ScreenshotKeys) {
+	if o == nil || IsNil(o.ScreenshotKeys) {
 		var ret string
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *CreateOrUpdateAppFeatureDto) GetScreenshotKeys() string {
 // GetScreenshotKeysOk returns a tuple with the ScreenshotKeys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateOrUpdateAppFeatureDto) GetScreenshotKeysOk() (*string, bool) {
-	if o == nil || isNil(o.ScreenshotKeys) {
-    return nil, false
+	if o == nil || IsNil(o.ScreenshotKeys) {
+		return nil, false
 	}
 	return o.ScreenshotKeys, true
 }
 
 // HasScreenshotKeys returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasScreenshotKeys() bool {
-	if o != nil && !isNil(o.ScreenshotKeys) {
+	if o != nil && !IsNil(o.ScreenshotKeys) {
 		return true
 	}
 
@@ -201,23 +204,31 @@ func (o *CreateOrUpdateAppFeatureDto) SetScreenshotKeys(v string) {
 }
 
 func (o CreateOrUpdateAppFeatureDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
-	}
-	if !isNil(o.Description) {
-		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.Details) {
-		toSerialize["details"] = o.Details
-	}
-	if !isNil(o.ScreenshotKeys) {
-		toSerialize["screenshotKeys"] = o.ScreenshotKeys
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CreateOrUpdateAppFeatureDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Details) {
+		toSerialize["details"] = o.Details
+	}
+	if !IsNil(o.ScreenshotKeys) {
+		toSerialize["screenshotKeys"] = o.ScreenshotKeys
+	}
+	return toSerialize, nil
 }
 
 type NullableCreateOrUpdateAppFeatureDto struct {

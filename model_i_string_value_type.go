@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IStringValueType type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IStringValueType{}
+
 // IStringValueType struct for IStringValueType
 type IStringValueType struct {
 	Name *string `json:"name,omitempty"`
@@ -40,7 +43,7 @@ func NewIStringValueTypeWithDefaults() *IStringValueType {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *IStringValueType) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *IStringValueType) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IStringValueType) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IStringValueType) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *IStringValueType) SetName(v string) {
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *IStringValueType) GetProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.Properties) {
+	if o == nil || IsNil(o.Properties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *IStringValueType) GetProperties() map[string]map[string]interface{} {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IStringValueType) GetPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.Properties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.Properties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.
 func (o *IStringValueType) HasProperties() bool {
-	if o != nil && !isNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -104,7 +107,7 @@ func (o *IStringValueType) SetProperties(v map[string]map[string]interface{}) {
 
 // GetValidator returns the Validator field value if set, zero value otherwise.
 func (o *IStringValueType) GetValidator() IValueValidator {
-	if o == nil || isNil(o.Validator) {
+	if o == nil || IsNil(o.Validator) {
 		var ret IValueValidator
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *IStringValueType) GetValidator() IValueValidator {
 // GetValidatorOk returns a tuple with the Validator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IStringValueType) GetValidatorOk() (*IValueValidator, bool) {
-	if o == nil || isNil(o.Validator) {
-    return nil, false
+	if o == nil || IsNil(o.Validator) {
+		return nil, false
 	}
 	return o.Validator, true
 }
 
 // HasValidator returns a boolean if a field has been set.
 func (o *IStringValueType) HasValidator() bool {
-	if o != nil && !isNil(o.Validator) {
+	if o != nil && !IsNil(o.Validator) {
 		return true
 	}
 
@@ -135,17 +138,21 @@ func (o *IStringValueType) SetValidator(v IValueValidator) {
 }
 
 func (o IStringValueType) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Properties) {
-		toSerialize["properties"] = o.Properties
-	}
-	if !isNil(o.Validator) {
-		toSerialize["validator"] = o.Validator
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o IStringValueType) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: name is readOnly
+	// skip: properties is readOnly
+	if !IsNil(o.Validator) {
+		toSerialize["validator"] = o.Validator
+	}
+	return toSerialize, nil
 }
 
 type NullableIStringValueType struct {

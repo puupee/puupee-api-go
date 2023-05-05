@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MessageRecallDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MessageRecallDto{}
+
 // MessageRecallDto struct for MessageRecallDto
 type MessageRecallDto struct {
 	PuupeeId *string `json:"puupeeId,omitempty"`
@@ -38,7 +41,7 @@ func NewMessageRecallDtoWithDefaults() *MessageRecallDto {
 
 // GetPuupeeId returns the PuupeeId field value if set, zero value otherwise.
 func (o *MessageRecallDto) GetPuupeeId() string {
-	if o == nil || isNil(o.PuupeeId) {
+	if o == nil || IsNil(o.PuupeeId) {
 		var ret string
 		return ret
 	}
@@ -48,15 +51,15 @@ func (o *MessageRecallDto) GetPuupeeId() string {
 // GetPuupeeIdOk returns a tuple with the PuupeeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MessageRecallDto) GetPuupeeIdOk() (*string, bool) {
-	if o == nil || isNil(o.PuupeeId) {
-    return nil, false
+	if o == nil || IsNil(o.PuupeeId) {
+		return nil, false
 	}
 	return o.PuupeeId, true
 }
 
 // HasPuupeeId returns a boolean if a field has been set.
 func (o *MessageRecallDto) HasPuupeeId() bool {
-	if o != nil && !isNil(o.PuupeeId) {
+	if o != nil && !IsNil(o.PuupeeId) {
 		return true
 	}
 
@@ -69,11 +72,19 @@ func (o *MessageRecallDto) SetPuupeeId(v string) {
 }
 
 func (o MessageRecallDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.PuupeeId) {
-		toSerialize["puupeeId"] = o.PuupeeId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MessageRecallDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PuupeeId) {
+		toSerialize["puupeeId"] = o.PuupeeId
+	}
+	return toSerialize, nil
 }
 
 type NullableMessageRecallDto struct {

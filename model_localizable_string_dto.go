@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LocalizableStringDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LocalizableStringDto{}
+
 // LocalizableStringDto struct for LocalizableStringDto
 type LocalizableStringDto struct {
 	Name *string `json:"name,omitempty"`
@@ -39,7 +42,7 @@ func NewLocalizableStringDtoWithDefaults() *LocalizableStringDto {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *LocalizableStringDto) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *LocalizableStringDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LocalizableStringDto) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *LocalizableStringDto) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -71,7 +74,7 @@ func (o *LocalizableStringDto) SetName(v string) {
 
 // GetResource returns the Resource field value if set, zero value otherwise.
 func (o *LocalizableStringDto) GetResource() string {
-	if o == nil || isNil(o.Resource) {
+	if o == nil || IsNil(o.Resource) {
 		var ret string
 		return ret
 	}
@@ -81,15 +84,15 @@ func (o *LocalizableStringDto) GetResource() string {
 // GetResourceOk returns a tuple with the Resource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LocalizableStringDto) GetResourceOk() (*string, bool) {
-	if o == nil || isNil(o.Resource) {
-    return nil, false
+	if o == nil || IsNil(o.Resource) {
+		return nil, false
 	}
 	return o.Resource, true
 }
 
 // HasResource returns a boolean if a field has been set.
 func (o *LocalizableStringDto) HasResource() bool {
-	if o != nil && !isNil(o.Resource) {
+	if o != nil && !IsNil(o.Resource) {
 		return true
 	}
 
@@ -102,14 +105,22 @@ func (o *LocalizableStringDto) SetResource(v string) {
 }
 
 func (o LocalizableStringDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Resource) {
-		toSerialize["resource"] = o.Resource
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o LocalizableStringDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Resource) {
+		toSerialize["resource"] = o.Resource
+	}
+	return toSerialize, nil
 }
 
 type NullableLocalizableStringDto struct {

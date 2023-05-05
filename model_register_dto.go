@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RegisterDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RegisterDto{}
+
 // RegisterDto struct for RegisterDto
 type RegisterDto struct {
 	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
@@ -46,7 +49,7 @@ func NewRegisterDtoWithDefaults() *RegisterDto {
 
 // GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
 func (o *RegisterDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || isNil(o.ExtraProperties) {
+	if o == nil || IsNil(o.ExtraProperties) {
 		var ret map[string]map[string]interface{}
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *RegisterDto) GetExtraProperties() map[string]map[string]interface{} {
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RegisterDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
-	if o == nil || isNil(o.ExtraProperties) {
-    return map[string]map[string]interface{}{}, false
+	if o == nil || IsNil(o.ExtraProperties) {
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *RegisterDto) HasExtraProperties() bool {
-	if o != nil && !isNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
@@ -90,7 +93,7 @@ func (o *RegisterDto) GetUserName() string {
 // and a boolean to check if the value has been set.
 func (o *RegisterDto) GetUserNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.UserName, true
 }
@@ -114,7 +117,7 @@ func (o *RegisterDto) GetEmailAddress() string {
 // and a boolean to check if the value has been set.
 func (o *RegisterDto) GetEmailAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EmailAddress, true
 }
@@ -138,7 +141,7 @@ func (o *RegisterDto) GetPassword() string {
 // and a boolean to check if the value has been set.
 func (o *RegisterDto) GetPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Password, true
 }
@@ -162,7 +165,7 @@ func (o *RegisterDto) GetAppName() string {
 // and a boolean to check if the value has been set.
 func (o *RegisterDto) GetAppNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.AppName, true
 }
@@ -173,23 +176,21 @@ func (o *RegisterDto) SetAppName(v string) {
 }
 
 func (o RegisterDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ExtraProperties) {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
-	if true {
-		toSerialize["userName"] = o.UserName
-	}
-	if true {
-		toSerialize["emailAddress"] = o.EmailAddress
-	}
-	if true {
-		toSerialize["password"] = o.Password
-	}
-	if true {
-		toSerialize["appName"] = o.AppName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o RegisterDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	// skip: extraProperties is readOnly
+	toSerialize["userName"] = o.UserName
+	toSerialize["emailAddress"] = o.EmailAddress
+	toSerialize["password"] = o.Password
+	toSerialize["appName"] = o.AppName
+	return toSerialize, nil
 }
 
 type NullableRegisterDto struct {
