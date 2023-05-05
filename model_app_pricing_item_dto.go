@@ -34,6 +34,7 @@ type AppPricingItemDto struct {
 	AppId *string `json:"appId,omitempty"`
 	IsAvailable *bool `json:"isAvailable,omitempty"`
 	HasValue *bool `json:"hasValue,omitempty"`
+	SortIndex *int32 `json:"sortIndex,omitempty"`
 }
 
 // NewAppPricingItemDto instantiates a new AppPricingItemDto object
@@ -501,6 +502,38 @@ func (o *AppPricingItemDto) SetHasValue(v bool) {
 	o.HasValue = &v
 }
 
+// GetSortIndex returns the SortIndex field value if set, zero value otherwise.
+func (o *AppPricingItemDto) GetSortIndex() int32 {
+	if o == nil || IsNil(o.SortIndex) {
+		var ret int32
+		return ret
+	}
+	return *o.SortIndex
+}
+
+// GetSortIndexOk returns a tuple with the SortIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppPricingItemDto) GetSortIndexOk() (*int32, bool) {
+	if o == nil || IsNil(o.SortIndex) {
+		return nil, false
+	}
+	return o.SortIndex, true
+}
+
+// HasSortIndex returns a boolean if a field has been set.
+func (o *AppPricingItemDto) HasSortIndex() bool {
+	if o != nil && !IsNil(o.SortIndex) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortIndex gets a reference to the given int32 and assigns it to the SortIndex field.
+func (o *AppPricingItemDto) SetSortIndex(v int32) {
+	o.SortIndex = &v
+}
+
 func (o AppPricingItemDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -552,6 +585,9 @@ func (o AppPricingItemDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HasValue) {
 		toSerialize["hasValue"] = o.HasValue
+	}
+	if !IsNil(o.SortIndex) {
+		toSerialize["sortIndex"] = o.SortIndex
 	}
 	return toSerialize, nil
 }

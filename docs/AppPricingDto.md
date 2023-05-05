@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **YearDiscountPrice** | Pointer to **float64** |  | [optional] 
 **YearDiscountStartAt** | Pointer to **time.Time** |  | [optional] 
 **YearDiscountEndAt** | Pointer to **time.Time** |  | [optional] 
+**SortIndex** | Pointer to **int32** |  | [optional] 
 **Items** | Pointer to [**[]AppPricingItemDto**](AppPricingItemDto.md) |  | [optional] 
 
 ## Methods
@@ -622,6 +623,31 @@ SetYearDiscountEndAt sets YearDiscountEndAt field to given value.
 `func (o *AppPricingDto) HasYearDiscountEndAt() bool`
 
 HasYearDiscountEndAt returns a boolean if a field has been set.
+
+### GetSortIndex
+
+`func (o *AppPricingDto) GetSortIndex() int32`
+
+GetSortIndex returns the SortIndex field if non-nil, zero value otherwise.
+
+### GetSortIndexOk
+
+`func (o *AppPricingDto) GetSortIndexOk() (*int32, bool)`
+
+GetSortIndexOk returns a tuple with the SortIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSortIndex
+
+`func (o *AppPricingDto) SetSortIndex(v int32)`
+
+SetSortIndex sets SortIndex field to given value.
+
+### HasSortIndex
+
+`func (o *AppPricingDto) HasSortIndex() bool`
+
+HasSortIndex returns a boolean if a field has been set.
 
 ### GetItems
 

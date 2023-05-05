@@ -22,7 +22,9 @@ type CreateOrUpdateAppPricingItemDto struct {
 	Name *string `json:"name,omitempty"`
 	Display *string `json:"display,omitempty"`
 	AppId *string `json:"appId,omitempty"`
+	IsAvailable *bool `json:"isAvailable,omitempty"`
 	HasValue *bool `json:"hasValue,omitempty"`
+	SortIndex *int32 `json:"sortIndex,omitempty"`
 }
 
 // NewCreateOrUpdateAppPricingItemDto instantiates a new CreateOrUpdateAppPricingItemDto object
@@ -138,6 +140,38 @@ func (o *CreateOrUpdateAppPricingItemDto) SetAppId(v string) {
 	o.AppId = &v
 }
 
+// GetIsAvailable returns the IsAvailable field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppPricingItemDto) GetIsAvailable() bool {
+	if o == nil || IsNil(o.IsAvailable) {
+		var ret bool
+		return ret
+	}
+	return *o.IsAvailable
+}
+
+// GetIsAvailableOk returns a tuple with the IsAvailable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppPricingItemDto) GetIsAvailableOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsAvailable) {
+		return nil, false
+	}
+	return o.IsAvailable, true
+}
+
+// HasIsAvailable returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppPricingItemDto) HasIsAvailable() bool {
+	if o != nil && !IsNil(o.IsAvailable) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsAvailable gets a reference to the given bool and assigns it to the IsAvailable field.
+func (o *CreateOrUpdateAppPricingItemDto) SetIsAvailable(v bool) {
+	o.IsAvailable = &v
+}
+
 // GetHasValue returns the HasValue field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingItemDto) GetHasValue() bool {
 	if o == nil || IsNil(o.HasValue) {
@@ -170,6 +204,38 @@ func (o *CreateOrUpdateAppPricingItemDto) SetHasValue(v bool) {
 	o.HasValue = &v
 }
 
+// GetSortIndex returns the SortIndex field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppPricingItemDto) GetSortIndex() int32 {
+	if o == nil || IsNil(o.SortIndex) {
+		var ret int32
+		return ret
+	}
+	return *o.SortIndex
+}
+
+// GetSortIndexOk returns a tuple with the SortIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppPricingItemDto) GetSortIndexOk() (*int32, bool) {
+	if o == nil || IsNil(o.SortIndex) {
+		return nil, false
+	}
+	return o.SortIndex, true
+}
+
+// HasSortIndex returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppPricingItemDto) HasSortIndex() bool {
+	if o != nil && !IsNil(o.SortIndex) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortIndex gets a reference to the given int32 and assigns it to the SortIndex field.
+func (o *CreateOrUpdateAppPricingItemDto) SetSortIndex(v int32) {
+	o.SortIndex = &v
+}
+
 func (o CreateOrUpdateAppPricingItemDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -189,8 +255,14 @@ func (o CreateOrUpdateAppPricingItemDto) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.AppId) {
 		toSerialize["appId"] = o.AppId
 	}
+	if !IsNil(o.IsAvailable) {
+		toSerialize["isAvailable"] = o.IsAvailable
+	}
 	if !IsNil(o.HasValue) {
 		toSerialize["hasValue"] = o.HasValue
+	}
+	if !IsNil(o.SortIndex) {
+		toSerialize["sortIndex"] = o.SortIndex
 	}
 	return toSerialize, nil
 }

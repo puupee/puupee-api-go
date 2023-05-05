@@ -35,7 +35,8 @@ type CreateOrUpdateAppPricingDto struct {
 	YearDiscountPrice *float64 `json:"yearDiscountPrice,omitempty"`
 	YearDiscountStartAt *time.Time `json:"yearDiscountStartAt,omitempty"`
 	YearDiscountEndAt *time.Time `json:"yearDiscountEndAt,omitempty"`
-	Items []AppPricingItemDto `json:"items,omitempty"`
+	SortIndex *int32 `json:"sortIndex,omitempty"`
+	Items []CreateOrUpdateAppPricingItemDto `json:"items,omitempty"`
 }
 
 // NewCreateOrUpdateAppPricingDto instantiates a new CreateOrUpdateAppPricingDto object
@@ -535,10 +536,42 @@ func (o *CreateOrUpdateAppPricingDto) SetYearDiscountEndAt(v time.Time) {
 	o.YearDiscountEndAt = &v
 }
 
+// GetSortIndex returns the SortIndex field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppPricingDto) GetSortIndex() int32 {
+	if o == nil || IsNil(o.SortIndex) {
+		var ret int32
+		return ret
+	}
+	return *o.SortIndex
+}
+
+// GetSortIndexOk returns a tuple with the SortIndex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppPricingDto) GetSortIndexOk() (*int32, bool) {
+	if o == nil || IsNil(o.SortIndex) {
+		return nil, false
+	}
+	return o.SortIndex, true
+}
+
+// HasSortIndex returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppPricingDto) HasSortIndex() bool {
+	if o != nil && !IsNil(o.SortIndex) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortIndex gets a reference to the given int32 and assigns it to the SortIndex field.
+func (o *CreateOrUpdateAppPricingDto) SetSortIndex(v int32) {
+	o.SortIndex = &v
+}
+
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *CreateOrUpdateAppPricingDto) GetItems() []AppPricingItemDto {
+func (o *CreateOrUpdateAppPricingDto) GetItems() []CreateOrUpdateAppPricingItemDto {
 	if o == nil || IsNil(o.Items) {
-		var ret []AppPricingItemDto
+		var ret []CreateOrUpdateAppPricingItemDto
 		return ret
 	}
 	return o.Items
@@ -546,7 +579,7 @@ func (o *CreateOrUpdateAppPricingDto) GetItems() []AppPricingItemDto {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrUpdateAppPricingDto) GetItemsOk() ([]AppPricingItemDto, bool) {
+func (o *CreateOrUpdateAppPricingDto) GetItemsOk() ([]CreateOrUpdateAppPricingItemDto, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -562,8 +595,8 @@ func (o *CreateOrUpdateAppPricingDto) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []AppPricingItemDto and assigns it to the Items field.
-func (o *CreateOrUpdateAppPricingDto) SetItems(v []AppPricingItemDto) {
+// SetItems gets a reference to the given []CreateOrUpdateAppPricingItemDto and assigns it to the Items field.
+func (o *CreateOrUpdateAppPricingDto) SetItems(v []CreateOrUpdateAppPricingItemDto) {
 	o.Items = v
 }
 
@@ -621,6 +654,9 @@ func (o CreateOrUpdateAppPricingDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.YearDiscountEndAt) {
 		toSerialize["yearDiscountEndAt"] = o.YearDiscountEndAt
+	}
+	if !IsNil(o.SortIndex) {
+		toSerialize["sortIndex"] = o.SortIndex
 	}
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items

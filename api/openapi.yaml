@@ -14216,28 +14216,30 @@ components:
         monthProductId: monthProductId
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        sortIndex: 7
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
         yearProductId: yearProductId
+        isDeleted: true
+        yearDiscountPrice: 2.3021358869347655
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+        yearPrice: 5.962133916683182
         monthDiscount: 6.027456183070403
         yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
         yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
         monthPrice: 0.8008281904610115
-        isDeleted: true
-        yearDiscountPrice: 2.3021358869347655
         naming: naming
-        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        yearPrice: 5.962133916683182
         items:
         - isAvailable: true
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 9
           display: display
           values:
           - values
@@ -14254,6 +14256,7 @@ components:
         - isAvailable: true
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 9
           display: display
           values:
           - values
@@ -14334,6 +14337,9 @@ components:
         yearDiscountEndAt:
           format: date-time
           type: string
+        sortIndex:
+          format: int32
+          type: integer
         items:
           items:
             $ref: '#/components/schemas/AppPricingItemDto'
@@ -14341,33 +14347,35 @@ components:
       type: object
     AppPricingDtoPagedResultDto:
       example:
-        totalCount: 7
+        totalCount: 3
         items:
         - monthProductId: monthProductId
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 7
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           yearProductId: yearProductId
+          isDeleted: true
+          yearDiscountPrice: 2.3021358869347655
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+          yearPrice: 5.962133916683182
           monthDiscount: 6.027456183070403
           yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
           monthPrice: 0.8008281904610115
-          isDeleted: true
-          yearDiscountPrice: 2.3021358869347655
           naming: naming
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          yearPrice: 5.962133916683182
           items:
           - isAvailable: true
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            sortIndex: 9
             display: display
             values:
             - values
@@ -14384,6 +14392,7 @@ components:
           - isAvailable: true
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            sortIndex: 9
             display: display
             values:
             - values
@@ -14402,28 +14411,30 @@ components:
         - monthProductId: monthProductId
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 7
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           yearProductId: yearProductId
+          isDeleted: true
+          yearDiscountPrice: 2.3021358869347655
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
+          yearPrice: 5.962133916683182
           monthDiscount: 6.027456183070403
           yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
           monthPrice: 0.8008281904610115
-          isDeleted: true
-          yearDiscountPrice: 2.3021358869347655
           naming: naming
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          yearPrice: 5.962133916683182
           items:
           - isAvailable: true
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            sortIndex: 9
             display: display
             values:
             - values
@@ -14440,6 +14451,7 @@ components:
           - isAvailable: true
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
+            sortIndex: 9
             display: display
             values:
             - values
@@ -14469,6 +14481,7 @@ components:
         isAvailable: true
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        sortIndex: 9
         display: display
         values:
         - values
@@ -14521,6 +14534,9 @@ components:
           type: boolean
         hasValue:
           type: boolean
+        sortIndex:
+          format: int32
+          type: integer
       type: object
     AppReleaseDto:
       example:
@@ -16548,6 +16564,7 @@ components:
     CreateOrUpdateAppPricingDto:
       example:
         monthProductId: monthProductId
+        sortIndex: 7
         description: description
         yearProductId: yearProductId
         monthDiscount: 6.027456183070403
@@ -16562,37 +16579,17 @@ components:
         yearPrice: 5.962133916683182
         items:
         - isAvailable: true
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 9
           display: display
-          values:
-          - values
-          - values
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          hasValue: true
-          isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          hasValue: true
         - isAvailable: true
-          creationTime: 2000-01-23T04:56:07.000+00:00
-          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          sortIndex: 9
           display: display
-          values:
-          - values
-          - values
-          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deletionTime: 2000-01-23T04:56:07.000+00:00
-          hasValue: true
-          isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
-          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          hasValue: true
         monthDiscountPrice: 1.4658129805029452
         yearDiscount: 5.637376656633329
       properties:
@@ -16637,13 +16634,18 @@ components:
         yearDiscountEndAt:
           format: date-time
           type: string
+        sortIndex:
+          format: int32
+          type: integer
         items:
           items:
-            $ref: '#/components/schemas/AppPricingItemDto'
+            $ref: '#/components/schemas/CreateOrUpdateAppPricingItemDto'
           type: array
       type: object
     CreateOrUpdateAppPricingItemDto:
       example:
+        isAvailable: true
+        sortIndex: 9
         display: display
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
@@ -16656,8 +16658,13 @@ components:
         appId:
           format: uuid
           type: string
+        isAvailable:
+          type: boolean
         hasValue:
           type: boolean
+        sortIndex:
+          format: int32
+          type: integer
       type: object
     CreateOrUpdateAppReleaseDto:
       example:

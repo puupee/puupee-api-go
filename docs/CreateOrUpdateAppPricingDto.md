@@ -19,7 +19,8 @@ Name | Type | Description | Notes
 **YearDiscountPrice** | Pointer to **float64** |  | [optional] 
 **YearDiscountStartAt** | Pointer to **time.Time** |  | [optional] 
 **YearDiscountEndAt** | Pointer to **time.Time** |  | [optional] 
-**Items** | Pointer to [**[]AppPricingItemDto**](AppPricingItemDto.md) |  | [optional] 
+**SortIndex** | Pointer to **int32** |  | [optional] 
+**Items** | Pointer to [**[]CreateOrUpdateAppPricingItemDto**](CreateOrUpdateAppPricingItemDto.md) |  | [optional] 
 
 ## Methods
 
@@ -415,22 +416,47 @@ SetYearDiscountEndAt sets YearDiscountEndAt field to given value.
 
 HasYearDiscountEndAt returns a boolean if a field has been set.
 
+### GetSortIndex
+
+`func (o *CreateOrUpdateAppPricingDto) GetSortIndex() int32`
+
+GetSortIndex returns the SortIndex field if non-nil, zero value otherwise.
+
+### GetSortIndexOk
+
+`func (o *CreateOrUpdateAppPricingDto) GetSortIndexOk() (*int32, bool)`
+
+GetSortIndexOk returns a tuple with the SortIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSortIndex
+
+`func (o *CreateOrUpdateAppPricingDto) SetSortIndex(v int32)`
+
+SetSortIndex sets SortIndex field to given value.
+
+### HasSortIndex
+
+`func (o *CreateOrUpdateAppPricingDto) HasSortIndex() bool`
+
+HasSortIndex returns a boolean if a field has been set.
+
 ### GetItems
 
-`func (o *CreateOrUpdateAppPricingDto) GetItems() []AppPricingItemDto`
+`func (o *CreateOrUpdateAppPricingDto) GetItems() []CreateOrUpdateAppPricingItemDto`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *CreateOrUpdateAppPricingDto) GetItemsOk() (*[]AppPricingItemDto, bool)`
+`func (o *CreateOrUpdateAppPricingDto) GetItemsOk() (*[]CreateOrUpdateAppPricingItemDto, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *CreateOrUpdateAppPricingDto) SetItems(v []AppPricingItemDto)`
+`func (o *CreateOrUpdateAppPricingDto) SetItems(v []CreateOrUpdateAppPricingItemDto)`
 
 SetItems sets Items field to given value.
 
