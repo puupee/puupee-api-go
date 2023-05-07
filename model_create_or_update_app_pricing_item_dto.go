@@ -20,6 +20,8 @@ var _ MappedNullable = &CreateOrUpdateAppPricingItemDto{}
 // CreateOrUpdateAppPricingItemDto struct for CreateOrUpdateAppPricingItemDto
 type CreateOrUpdateAppPricingItemDto struct {
 	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	LinkUrl *string `json:"linkUrl,omitempty"`
 	Display *string `json:"display,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	IsAvailable *bool `json:"isAvailable,omitempty"`
@@ -74,6 +76,70 @@ func (o *CreateOrUpdateAppPricingItemDto) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CreateOrUpdateAppPricingItemDto) SetName(v string) {
 	o.Name = &v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppPricingItemDto) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppPricingItemDto) GetDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.Description) {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppPricingItemDto) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *CreateOrUpdateAppPricingItemDto) SetDescription(v string) {
+	o.Description = &v
+}
+
+// GetLinkUrl returns the LinkUrl field value if set, zero value otherwise.
+func (o *CreateOrUpdateAppPricingItemDto) GetLinkUrl() string {
+	if o == nil || IsNil(o.LinkUrl) {
+		var ret string
+		return ret
+	}
+	return *o.LinkUrl
+}
+
+// GetLinkUrlOk returns a tuple with the LinkUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrUpdateAppPricingItemDto) GetLinkUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.LinkUrl) {
+		return nil, false
+	}
+	return o.LinkUrl, true
+}
+
+// HasLinkUrl returns a boolean if a field has been set.
+func (o *CreateOrUpdateAppPricingItemDto) HasLinkUrl() bool {
+	if o != nil && !IsNil(o.LinkUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinkUrl gets a reference to the given string and assigns it to the LinkUrl field.
+func (o *CreateOrUpdateAppPricingItemDto) SetLinkUrl(v string) {
+	o.LinkUrl = &v
 }
 
 // GetDisplay returns the Display field value if set, zero value otherwise.
@@ -248,6 +314,12 @@ func (o CreateOrUpdateAppPricingItemDto) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.LinkUrl) {
+		toSerialize["linkUrl"] = o.LinkUrl
 	}
 	if !IsNil(o.Display) {
 		toSerialize["display"] = o.Display

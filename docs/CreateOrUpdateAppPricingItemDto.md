@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**LinkUrl** | Pointer to **string** |  | [optional] 
 **Display** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **IsAvailable** | Pointer to **bool** |  | [optional] 
@@ -54,6 +56,56 @@ SetName sets Name field to given value.
 `func (o *CreateOrUpdateAppPricingItemDto) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *CreateOrUpdateAppPricingItemDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *CreateOrUpdateAppPricingItemDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *CreateOrUpdateAppPricingItemDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *CreateOrUpdateAppPricingItemDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetLinkUrl
+
+`func (o *CreateOrUpdateAppPricingItemDto) GetLinkUrl() string`
+
+GetLinkUrl returns the LinkUrl field if non-nil, zero value otherwise.
+
+### GetLinkUrlOk
+
+`func (o *CreateOrUpdateAppPricingItemDto) GetLinkUrlOk() (*string, bool)`
+
+GetLinkUrlOk returns a tuple with the LinkUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinkUrl
+
+`func (o *CreateOrUpdateAppPricingItemDto) SetLinkUrl(v string)`
+
+SetLinkUrl sets LinkUrl field to given value.
+
+### HasLinkUrl
+
+`func (o *CreateOrUpdateAppPricingItemDto) HasLinkUrl() bool`
+
+HasLinkUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

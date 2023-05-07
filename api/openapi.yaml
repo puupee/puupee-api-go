@@ -14245,11 +14245,13 @@ components:
           - values
           - values
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           hasValue: true
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          linkUrl: linkUrl
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14262,11 +14264,13 @@ components:
           - values
           - values
           creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
           deletionTime: 2000-01-23T04:56:07.000+00:00
           hasValue: true
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          linkUrl: linkUrl
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14381,11 +14385,13 @@ components:
             - values
             - values
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             deletionTime: 2000-01-23T04:56:07.000+00:00
             hasValue: true
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             name: name
+            linkUrl: linkUrl
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14398,11 +14404,13 @@ components:
             - values
             - values
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             deletionTime: 2000-01-23T04:56:07.000+00:00
             hasValue: true
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             name: name
+            linkUrl: linkUrl
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14440,11 +14448,13 @@ components:
             - values
             - values
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             deletionTime: 2000-01-23T04:56:07.000+00:00
             hasValue: true
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             name: name
+            linkUrl: linkUrl
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14457,11 +14467,13 @@ components:
             - values
             - values
             creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             deletionTime: 2000-01-23T04:56:07.000+00:00
             hasValue: true
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             name: name
+            linkUrl: linkUrl
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14487,11 +14499,13 @@ components:
         - values
         - values
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
         deletionTime: 2000-01-23T04:56:07.000+00:00
         hasValue: true
         isDeleted: true
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+        linkUrl: linkUrl
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14520,6 +14534,10 @@ components:
           format: date-time
           type: string
         name:
+          type: string
+        description:
+          type: string
+        linkUrl:
           type: string
         display:
           type: string
@@ -16583,12 +16601,16 @@ components:
           display: display
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          linkUrl: linkUrl
+          description: description
           hasValue: true
         - isAvailable: true
           sortIndex: 9
           display: display
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          linkUrl: linkUrl
+          description: description
           hasValue: true
         monthDiscountPrice: 1.4658129805029452
         yearDiscount: 5.637376656633329
@@ -16649,9 +16671,15 @@ components:
         display: display
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+        linkUrl: linkUrl
+        description: description
         hasValue: true
       properties:
         name:
+          type: string
+        description:
+          type: string
+        linkUrl:
           type: string
         display:
           type: string
