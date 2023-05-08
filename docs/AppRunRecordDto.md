@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **AppName** | Pointer to **string** |  | [optional] 
-**Args** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
-**Envs** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
+**Args** | Pointer to **map[string]interface{}** |  | [optional] 
+**Envs** | Pointer to **map[string]interface{}** |  | [optional] 
 **Status** | Pointer to [**AppRunStatus**](AppRunStatus.md) |  | [optional] 
 **Result** | Pointer to **string** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
@@ -295,20 +295,20 @@ HasAppName returns a boolean if a field has been set.
 
 ### GetArgs
 
-`func (o *AppRunRecordDto) GetArgs() map[string]map[string]interface{}`
+`func (o *AppRunRecordDto) GetArgs() map[string]interface{}`
 
 GetArgs returns the Args field if non-nil, zero value otherwise.
 
 ### GetArgsOk
 
-`func (o *AppRunRecordDto) GetArgsOk() (*map[string]map[string]interface{}, bool)`
+`func (o *AppRunRecordDto) GetArgsOk() (*map[string]interface{}, bool)`
 
 GetArgsOk returns a tuple with the Args field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArgs
 
-`func (o *AppRunRecordDto) SetArgs(v map[string]map[string]interface{})`
+`func (o *AppRunRecordDto) SetArgs(v map[string]interface{})`
 
 SetArgs sets Args field to given value.
 
@@ -320,20 +320,20 @@ HasArgs returns a boolean if a field has been set.
 
 ### GetEnvs
 
-`func (o *AppRunRecordDto) GetEnvs() map[string]map[string]interface{}`
+`func (o *AppRunRecordDto) GetEnvs() map[string]interface{}`
 
 GetEnvs returns the Envs field if non-nil, zero value otherwise.
 
 ### GetEnvsOk
 
-`func (o *AppRunRecordDto) GetEnvsOk() (*map[string]map[string]interface{}, bool)`
+`func (o *AppRunRecordDto) GetEnvsOk() (*map[string]interface{}, bool)`
 
 GetEnvsOk returns a tuple with the Envs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnvs
 
-`func (o *AppRunRecordDto) SetEnvs(v map[string]map[string]interface{})`
+`func (o *AppRunRecordDto) SetEnvs(v map[string]interface{})`
 
 SetEnvs sets Envs field to given value.
 

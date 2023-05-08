@@ -14922,8 +14922,7 @@ components:
       type: object
     AppRunDto:
       example:
-        args:
-          key: "{}"
+        args: "{}"
         creationTime: 2000-01-23T04:56:07.000+00:00
         isDeleted: true
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14931,8 +14930,7 @@ components:
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        envs:
-          key: "{}"
+        envs: "{}"
         deletionTime: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14966,12 +14964,8 @@ components:
         appName:
           type: string
         args:
-          additionalProperties:
-            type: object
           type: object
         envs:
-          additionalProperties:
-            type: object
           type: object
       type: object
     AppRunRecordDto:
@@ -14981,12 +14975,10 @@ components:
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         appName: appName
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        envs:
-          key: "{}"
+        envs: "{}"
         deletionTime: 2000-01-23T04:56:07.000+00:00
         error: error
-        args:
-          key: "{}"
+        args: "{}"
         result: result
         output: output
         isDeleted: true
@@ -15029,12 +15021,8 @@ components:
         appName:
           type: string
         args:
-          additionalProperties:
-            type: object
           type: object
         envs:
-          additionalProperties:
-            type: object
           type: object
         status:
           $ref: '#/components/schemas/AppRunStatus'

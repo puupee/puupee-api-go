@@ -30,8 +30,8 @@ type AppRunDto struct {
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	AppName *string `json:"appName,omitempty"`
-	Args map[string]map[string]interface{} `json:"args,omitempty"`
-	Envs map[string]map[string]interface{} `json:"envs,omitempty"`
+	Args map[string]interface{} `json:"args,omitempty"`
+	Envs map[string]interface{} `json:"envs,omitempty"`
 }
 
 // NewAppRunDto instantiates a new AppRunDto object
@@ -372,9 +372,9 @@ func (o *AppRunDto) SetAppName(v string) {
 }
 
 // GetArgs returns the Args field value if set, zero value otherwise.
-func (o *AppRunDto) GetArgs() map[string]map[string]interface{} {
+func (o *AppRunDto) GetArgs() map[string]interface{} {
 	if o == nil || IsNil(o.Args) {
-		var ret map[string]map[string]interface{}
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.Args
@@ -382,9 +382,9 @@ func (o *AppRunDto) GetArgs() map[string]map[string]interface{} {
 
 // GetArgsOk returns a tuple with the Args field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppRunDto) GetArgsOk() (map[string]map[string]interface{}, bool) {
+func (o *AppRunDto) GetArgsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Args) {
-		return map[string]map[string]interface{}{}, false
+		return map[string]interface{}{}, false
 	}
 	return o.Args, true
 }
@@ -398,15 +398,15 @@ func (o *AppRunDto) HasArgs() bool {
 	return false
 }
 
-// SetArgs gets a reference to the given map[string]map[string]interface{} and assigns it to the Args field.
-func (o *AppRunDto) SetArgs(v map[string]map[string]interface{}) {
+// SetArgs gets a reference to the given map[string]interface{} and assigns it to the Args field.
+func (o *AppRunDto) SetArgs(v map[string]interface{}) {
 	o.Args = v
 }
 
 // GetEnvs returns the Envs field value if set, zero value otherwise.
-func (o *AppRunDto) GetEnvs() map[string]map[string]interface{} {
+func (o *AppRunDto) GetEnvs() map[string]interface{} {
 	if o == nil || IsNil(o.Envs) {
-		var ret map[string]map[string]interface{}
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.Envs
@@ -414,9 +414,9 @@ func (o *AppRunDto) GetEnvs() map[string]map[string]interface{} {
 
 // GetEnvsOk returns a tuple with the Envs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppRunDto) GetEnvsOk() (map[string]map[string]interface{}, bool) {
+func (o *AppRunDto) GetEnvsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Envs) {
-		return map[string]map[string]interface{}{}, false
+		return map[string]interface{}{}, false
 	}
 	return o.Envs, true
 }
@@ -430,8 +430,8 @@ func (o *AppRunDto) HasEnvs() bool {
 	return false
 }
 
-// SetEnvs gets a reference to the given map[string]map[string]interface{} and assigns it to the Envs field.
-func (o *AppRunDto) SetEnvs(v map[string]map[string]interface{}) {
+// SetEnvs gets a reference to the given map[string]interface{} and assigns it to the Envs field.
+func (o *AppRunDto) SetEnvs(v map[string]interface{}) {
 	o.Envs = v
 }
 
