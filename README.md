@@ -238,7 +238,6 @@ Class | Method | HTTP request | Description
  - [AppRunDto](docs/AppRunDto.md)
  - [AppRunRecordDto](docs/AppRunRecordDto.md)
  - [AppRunRecordUpdateDto](docs/AppRunRecordUpdateDto.md)
- - [AppRunStatus](docs/AppRunStatus.md)
  - [AppSdkDto](docs/AppSdkDto.md)
  - [AppTheme](docs/AppTheme.md)
  - [AppThemeMode](docs/AppThemeMode.md)

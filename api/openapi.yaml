@@ -14988,9 +14988,7 @@ components:
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         workerName: workerName
         finishAt: 2000-01-23T04:56:07.000+00:00
-        status:
-          name: name
-          value: value
+        status: status
       properties:
         id:
           format: uuid
@@ -15025,7 +15023,7 @@ components:
         envs:
           type: object
         status:
-          $ref: '#/components/schemas/AppRunStatus'
+          type: string
         result:
           type: string
         error:
@@ -15056,9 +15054,7 @@ components:
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         workerName: workerName
         finishAt: 2000-01-23T04:56:07.000+00:00
-        status:
-          name: name
-          value: value
+        status: status
       properties:
         id:
           format: uuid
@@ -15084,7 +15080,7 @@ components:
           format: date-time
           type: string
         status:
-          $ref: '#/components/schemas/AppRunStatus'
+          type: string
         result:
           type: string
         error:
@@ -15102,18 +15098,6 @@ components:
       - status
       - workerId
       - workerName
-      type: object
-    AppRunStatus:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          readOnly: true
-          type: string
-        value:
-          readOnly: true
-          type: string
       type: object
     AppSdkDto:
       example:

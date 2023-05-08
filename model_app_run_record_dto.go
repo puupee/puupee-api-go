@@ -32,7 +32,7 @@ type AppRunRecordDto struct {
 	AppName *string `json:"appName,omitempty"`
 	Args map[string]interface{} `json:"args,omitempty"`
 	Envs map[string]interface{} `json:"envs,omitempty"`
-	Status *AppRunStatus `json:"status,omitempty"`
+	Status *string `json:"status,omitempty"`
 	Result *string `json:"result,omitempty"`
 	Error *string `json:"error,omitempty"`
 	FinishAt *time.Time `json:"finishAt,omitempty"`
@@ -443,9 +443,9 @@ func (o *AppRunRecordDto) SetEnvs(v map[string]interface{}) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *AppRunRecordDto) GetStatus() AppRunStatus {
+func (o *AppRunRecordDto) GetStatus() string {
 	if o == nil || IsNil(o.Status) {
-		var ret AppRunStatus
+		var ret string
 		return ret
 	}
 	return *o.Status
@@ -453,7 +453,7 @@ func (o *AppRunRecordDto) GetStatus() AppRunStatus {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppRunRecordDto) GetStatusOk() (*AppRunStatus, bool) {
+func (o *AppRunRecordDto) GetStatusOk() (*string, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -469,8 +469,8 @@ func (o *AppRunRecordDto) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given AppRunStatus and assigns it to the Status field.
-func (o *AppRunRecordDto) SetStatus(v AppRunStatus) {
+// SetStatus gets a reference to the given string and assigns it to the Status field.
+func (o *AppRunRecordDto) SetStatus(v string) {
 	o.Status = &v
 }
 

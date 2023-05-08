@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
-**Status** | [**AppRunStatus**](AppRunStatus.md) |  | 
+**Status** | **string** |  | 
 **Result** | Pointer to **string** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
 **FinishAt** | Pointer to **time.Time** |  | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewAppRunRecordUpdateDto
 
-`func NewAppRunRecordUpdateDto(status AppRunStatus, workerId string, workerName string, ) *AppRunRecordUpdateDto`
+`func NewAppRunRecordUpdateDto(status string, workerId string, workerName string, ) *AppRunRecordUpdateDto`
 
 NewAppRunRecordUpdateDto instantiates a new AppRunRecordUpdateDto object
 This constructor will assign default values to properties that have it defined,
@@ -241,20 +241,20 @@ HasDeletionTime returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *AppRunRecordUpdateDto) GetStatus() AppRunStatus`
+`func (o *AppRunRecordUpdateDto) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *AppRunRecordUpdateDto) GetStatusOk() (*AppRunStatus, bool)`
+`func (o *AppRunRecordUpdateDto) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *AppRunRecordUpdateDto) SetStatus(v AppRunStatus)`
+`func (o *AppRunRecordUpdateDto) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 

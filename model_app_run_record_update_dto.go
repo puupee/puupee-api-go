@@ -28,7 +28,7 @@ type AppRunRecordUpdateDto struct {
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	Status AppRunStatus `json:"status"`
+	Status string `json:"status"`
 	Result *string `json:"result,omitempty"`
 	Error *string `json:"error,omitempty"`
 	FinishAt *time.Time `json:"finishAt,omitempty"`
@@ -41,7 +41,7 @@ type AppRunRecordUpdateDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppRunRecordUpdateDto(status AppRunStatus, workerId string, workerName string) *AppRunRecordUpdateDto {
+func NewAppRunRecordUpdateDto(status string, workerId string, workerName string) *AppRunRecordUpdateDto {
 	this := AppRunRecordUpdateDto{}
 	this.Status = status
 	this.WorkerId = workerId
@@ -314,9 +314,9 @@ func (o *AppRunRecordUpdateDto) SetDeletionTime(v time.Time) {
 }
 
 // GetStatus returns the Status field value
-func (o *AppRunRecordUpdateDto) GetStatus() AppRunStatus {
+func (o *AppRunRecordUpdateDto) GetStatus() string {
 	if o == nil {
-		var ret AppRunStatus
+		var ret string
 		return ret
 	}
 
@@ -325,7 +325,7 @@ func (o *AppRunRecordUpdateDto) GetStatus() AppRunStatus {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *AppRunRecordUpdateDto) GetStatusOk() (*AppRunStatus, bool) {
+func (o *AppRunRecordUpdateDto) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -333,7 +333,7 @@ func (o *AppRunRecordUpdateDto) GetStatusOk() (*AppRunStatus, bool) {
 }
 
 // SetStatus sets field value
-func (o *AppRunRecordUpdateDto) SetStatus(v AppRunStatus) {
+func (o *AppRunRecordUpdateDto) SetStatus(v string) {
 	o.Status = v
 }
 

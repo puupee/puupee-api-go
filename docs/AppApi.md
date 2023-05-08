@@ -442,7 +442,7 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewAppRunRecordUpdateDto(*openapiclient.NewAppRunStatus(), "WorkerId_example", "WorkerName_example") // AppRunRecordUpdateDto |  (optional)
+    body := *openapiclient.NewAppRunRecordUpdateDto("Status_example", "WorkerId_example", "WorkerName_example") // AppRunRecordUpdateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

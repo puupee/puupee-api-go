@@ -63,7 +63,6 @@ docs/AppReleaseDtoPagedResultDto.md
 docs/AppRunDto.md
 docs/AppRunRecordDto.md
 docs/AppRunRecordUpdateDto.md
-docs/AppRunStatus.md
 docs/AppSdkApi.md
 docs/AppSdkDto.md
 docs/AppTheme.md
@@ -276,7 +275,6 @@ model_app_release_dto_paged_result_dto.go
 model_app_run_dto.go
 model_app_run_record_dto.go
 model_app_run_record_update_dto.go
-model_app_run_status.go
 model_app_sdk_dto.go
 model_app_theme.go
 model_app_theme_mode.go
