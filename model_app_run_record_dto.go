@@ -37,6 +37,8 @@ type AppRunRecordDto struct {
 	Error *string `json:"error,omitempty"`
 	FinishAt *time.Time `json:"finishAt,omitempty"`
 	Output *string `json:"output,omitempty"`
+	WorkerId *string `json:"workerId,omitempty"`
+	WorkerName *string `json:"workerName,omitempty"`
 }
 
 // NewAppRunRecordDto instantiates a new AppRunRecordDto object
@@ -600,6 +602,70 @@ func (o *AppRunRecordDto) SetOutput(v string) {
 	o.Output = &v
 }
 
+// GetWorkerId returns the WorkerId field value if set, zero value otherwise.
+func (o *AppRunRecordDto) GetWorkerId() string {
+	if o == nil || IsNil(o.WorkerId) {
+		var ret string
+		return ret
+	}
+	return *o.WorkerId
+}
+
+// GetWorkerIdOk returns a tuple with the WorkerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppRunRecordDto) GetWorkerIdOk() (*string, bool) {
+	if o == nil || IsNil(o.WorkerId) {
+		return nil, false
+	}
+	return o.WorkerId, true
+}
+
+// HasWorkerId returns a boolean if a field has been set.
+func (o *AppRunRecordDto) HasWorkerId() bool {
+	if o != nil && !IsNil(o.WorkerId) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkerId gets a reference to the given string and assigns it to the WorkerId field.
+func (o *AppRunRecordDto) SetWorkerId(v string) {
+	o.WorkerId = &v
+}
+
+// GetWorkerName returns the WorkerName field value if set, zero value otherwise.
+func (o *AppRunRecordDto) GetWorkerName() string {
+	if o == nil || IsNil(o.WorkerName) {
+		var ret string
+		return ret
+	}
+	return *o.WorkerName
+}
+
+// GetWorkerNameOk returns a tuple with the WorkerName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppRunRecordDto) GetWorkerNameOk() (*string, bool) {
+	if o == nil || IsNil(o.WorkerName) {
+		return nil, false
+	}
+	return o.WorkerName, true
+}
+
+// HasWorkerName returns a boolean if a field has been set.
+func (o *AppRunRecordDto) HasWorkerName() bool {
+	if o != nil && !IsNil(o.WorkerName) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkerName gets a reference to the given string and assigns it to the WorkerName field.
+func (o *AppRunRecordDto) SetWorkerName(v string) {
+	o.WorkerName = &v
+}
+
 func (o AppRunRecordDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -660,6 +726,12 @@ func (o AppRunRecordDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Output) {
 		toSerialize["output"] = o.Output
+	}
+	if !IsNil(o.WorkerId) {
+		toSerialize["workerId"] = o.WorkerId
+	}
+	if !IsNil(o.WorkerName) {
+		toSerialize["workerName"] = o.WorkerName
 	}
 	return toSerialize, nil
 }

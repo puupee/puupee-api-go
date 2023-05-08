@@ -12,17 +12,19 @@ Name | Type | Description | Notes
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
-**Status** | Pointer to [**AppRunStatus**](AppRunStatus.md) |  | [optional] 
+**Status** | [**AppRunStatus**](AppRunStatus.md) |  | 
 **Result** | Pointer to **string** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
 **FinishAt** | Pointer to **time.Time** |  | [optional] 
 **Output** | Pointer to **string** |  | [optional] 
+**WorkerId** | **string** |  | 
+**WorkerName** | **string** |  | 
 
 ## Methods
 
 ### NewAppRunRecordUpdateDto
 
-`func NewAppRunRecordUpdateDto() *AppRunRecordUpdateDto`
+`func NewAppRunRecordUpdateDto(status AppRunStatus, workerId string, workerName string, ) *AppRunRecordUpdateDto`
 
 NewAppRunRecordUpdateDto instantiates a new AppRunRecordUpdateDto object
 This constructor will assign default values to properties that have it defined,
@@ -256,11 +258,6 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
-
-`func (o *AppRunRecordUpdateDto) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
 
 ### GetResult
 
@@ -361,6 +358,46 @@ SetOutput sets Output field to given value.
 `func (o *AppRunRecordUpdateDto) HasOutput() bool`
 
 HasOutput returns a boolean if a field has been set.
+
+### GetWorkerId
+
+`func (o *AppRunRecordUpdateDto) GetWorkerId() string`
+
+GetWorkerId returns the WorkerId field if non-nil, zero value otherwise.
+
+### GetWorkerIdOk
+
+`func (o *AppRunRecordUpdateDto) GetWorkerIdOk() (*string, bool)`
+
+GetWorkerIdOk returns a tuple with the WorkerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkerId
+
+`func (o *AppRunRecordUpdateDto) SetWorkerId(v string)`
+
+SetWorkerId sets WorkerId field to given value.
+
+
+### GetWorkerName
+
+`func (o *AppRunRecordUpdateDto) GetWorkerName() string`
+
+GetWorkerName returns the WorkerName field if non-nil, zero value otherwise.
+
+### GetWorkerNameOk
+
+`func (o *AppRunRecordUpdateDto) GetWorkerNameOk() (*string, bool)`
+
+GetWorkerNameOk returns a tuple with the WorkerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkerName
+
+`func (o *AppRunRecordUpdateDto) SetWorkerName(v string)`
+
+SetWorkerName sets WorkerName field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

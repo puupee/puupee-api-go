@@ -14976,6 +14976,7 @@ components:
       type: object
     AppRunRecordDto:
       example:
+        workerId: workerId
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         appName: appName
@@ -14993,6 +14994,7 @@ components:
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        workerName: workerName
         finishAt: 2000-01-23T04:56:07.000+00:00
         status:
           name: name
@@ -15045,9 +15047,14 @@ components:
           type: string
         output:
           type: string
+        workerId:
+          type: string
+        workerName:
+          type: string
       type: object
     AppRunRecordUpdateDto:
       example:
+        workerId: workerId
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15059,6 +15066,7 @@ components:
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        workerName: workerName
         finishAt: 2000-01-23T04:56:07.000+00:00
         status:
           name: name
@@ -15098,6 +15106,14 @@ components:
           type: string
         output:
           type: string
+        workerId:
+          type: string
+        workerName:
+          type: string
+      required:
+      - status
+      - workerId
+      - workerName
       type: object
     AppRunStatus:
       example:

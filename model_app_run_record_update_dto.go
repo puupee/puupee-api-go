@@ -28,19 +28,24 @@ type AppRunRecordUpdateDto struct {
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	Status *AppRunStatus `json:"status,omitempty"`
+	Status AppRunStatus `json:"status"`
 	Result *string `json:"result,omitempty"`
 	Error *string `json:"error,omitempty"`
 	FinishAt *time.Time `json:"finishAt,omitempty"`
 	Output *string `json:"output,omitempty"`
+	WorkerId string `json:"workerId"`
+	WorkerName string `json:"workerName"`
 }
 
 // NewAppRunRecordUpdateDto instantiates a new AppRunRecordUpdateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppRunRecordUpdateDto() *AppRunRecordUpdateDto {
+func NewAppRunRecordUpdateDto(status AppRunStatus, workerId string, workerName string) *AppRunRecordUpdateDto {
 	this := AppRunRecordUpdateDto{}
+	this.Status = status
+	this.WorkerId = workerId
+	this.WorkerName = workerName
 	return &this
 }
 
@@ -308,36 +313,28 @@ func (o *AppRunRecordUpdateDto) SetDeletionTime(v time.Time) {
 	o.DeletionTime = &v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value
 func (o *AppRunRecordUpdateDto) GetStatus() AppRunStatus {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		var ret AppRunStatus
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *AppRunRecordUpdateDto) GetStatusOk() (*AppRunStatus, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *AppRunRecordUpdateDto) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given AppRunStatus and assigns it to the Status field.
+// SetStatus sets field value
 func (o *AppRunRecordUpdateDto) SetStatus(v AppRunStatus) {
-	o.Status = &v
+	o.Status = v
 }
 
 // GetResult returns the Result field value if set, zero value otherwise.
@@ -468,6 +465,54 @@ func (o *AppRunRecordUpdateDto) SetOutput(v string) {
 	o.Output = &v
 }
 
+// GetWorkerId returns the WorkerId field value
+func (o *AppRunRecordUpdateDto) GetWorkerId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.WorkerId
+}
+
+// GetWorkerIdOk returns a tuple with the WorkerId field value
+// and a boolean to check if the value has been set.
+func (o *AppRunRecordUpdateDto) GetWorkerIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkerId, true
+}
+
+// SetWorkerId sets field value
+func (o *AppRunRecordUpdateDto) SetWorkerId(v string) {
+	o.WorkerId = v
+}
+
+// GetWorkerName returns the WorkerName field value
+func (o *AppRunRecordUpdateDto) GetWorkerName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.WorkerName
+}
+
+// GetWorkerNameOk returns a tuple with the WorkerName field value
+// and a boolean to check if the value has been set.
+func (o *AppRunRecordUpdateDto) GetWorkerNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkerName, true
+}
+
+// SetWorkerName sets field value
+func (o *AppRunRecordUpdateDto) SetWorkerName(v string) {
+	o.WorkerName = v
+}
+
 func (o AppRunRecordUpdateDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -502,9 +547,7 @@ func (o AppRunRecordUpdateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DeletionTime) {
 		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
+	toSerialize["status"] = o.Status
 	if !IsNil(o.Result) {
 		toSerialize["result"] = o.Result
 	}
@@ -517,6 +560,8 @@ func (o AppRunRecordUpdateDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Output) {
 		toSerialize["output"] = o.Output
 	}
+	toSerialize["workerId"] = o.WorkerId
+	toSerialize["workerName"] = o.WorkerName
 	return toSerialize, nil
 }
 

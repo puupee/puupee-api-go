@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **Error** | Pointer to **string** |  | [optional] 
 **FinishAt** | Pointer to **time.Time** |  | [optional] 
 **Output** | Pointer to **string** |  | [optional] 
+**WorkerId** | Pointer to **string** |  | [optional] 
+**WorkerName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -465,6 +467,56 @@ SetOutput sets Output field to given value.
 `func (o *AppRunRecordDto) HasOutput() bool`
 
 HasOutput returns a boolean if a field has been set.
+
+### GetWorkerId
+
+`func (o *AppRunRecordDto) GetWorkerId() string`
+
+GetWorkerId returns the WorkerId field if non-nil, zero value otherwise.
+
+### GetWorkerIdOk
+
+`func (o *AppRunRecordDto) GetWorkerIdOk() (*string, bool)`
+
+GetWorkerIdOk returns a tuple with the WorkerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkerId
+
+`func (o *AppRunRecordDto) SetWorkerId(v string)`
+
+SetWorkerId sets WorkerId field to given value.
+
+### HasWorkerId
+
+`func (o *AppRunRecordDto) HasWorkerId() bool`
+
+HasWorkerId returns a boolean if a field has been set.
+
+### GetWorkerName
+
+`func (o *AppRunRecordDto) GetWorkerName() string`
+
+GetWorkerName returns the WorkerName field if non-nil, zero value otherwise.
+
+### GetWorkerNameOk
+
+`func (o *AppRunRecordDto) GetWorkerNameOk() (*string, bool)`
+
+GetWorkerNameOk returns a tuple with the WorkerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkerName
+
+`func (o *AppRunRecordDto) SetWorkerName(v string)`
+
+SetWorkerName sets WorkerName field to given value.
+
+### HasWorkerName
+
+`func (o *AppRunRecordDto) HasWorkerName() bool`
+
+HasWorkerName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
