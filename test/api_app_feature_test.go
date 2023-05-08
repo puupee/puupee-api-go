@@ -10,66 +10,67 @@ Testing AppFeatureApiService
 package puupee
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func Test_puupee_AppFeatureApiService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test AppFeatureApiService ApiAppAppFeatureGet", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService ApiAppAppFeatureGet", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeatureGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeatureGet(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test AppFeatureApiService ApiAppAppFeatureIdDelete", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService ApiAppAppFeatureIdDelete", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        var id string
+		var id string
 
-        resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeatureIdDelete(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeatureIdDelete(context.Background(), id).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test AppFeatureApiService ApiAppAppFeaturePost", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService ApiAppAppFeatureIdPut", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeaturePost(context.Background()).Execute()
+		var id string
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeatureIdPut(context.Background(), id).Execute()
 
-    })
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    t.Run("Test AppFeatureApiService ApiAppAppFeaturePut", func(t *testing.T) {
+	})
 
-        t.Skip("skip test")  // remove to run test
+	t.Run("Test AppFeatureApiService ApiAppAppFeaturePost", func(t *testing.T) {
 
-        resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeaturePut(context.Background()).Execute()
+		t.Skip("skip test")  // remove to run test
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		resp, httpRes, err := apiClient.AppFeatureApi.ApiAppAppFeaturePost(context.Background()).Execute()
 
-    })
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
 
 }

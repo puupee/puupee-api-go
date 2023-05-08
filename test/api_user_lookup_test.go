@@ -10,68 +10,68 @@ Testing UserLookupApiService
 package puupee
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func Test_puupee_UserLookupApiService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test UserLookupApiService ApiIdentityUsersLookupByUsernameUserNameGet", func(t *testing.T) {
+	t.Run("Test UserLookupApiService ApiIdentityUsersLookupByUsernameUserNameGet", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        var userName string
+		var userName string
 
-        resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupByUsernameUserNameGet(context.Background(), userName).Execute()
+		resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupByUsernameUserNameGet(context.Background(), userName).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test UserLookupApiService ApiIdentityUsersLookupCountGet", func(t *testing.T) {
+	t.Run("Test UserLookupApiService ApiIdentityUsersLookupCountGet", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupCountGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupCountGet(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test UserLookupApiService ApiIdentityUsersLookupIdGet", func(t *testing.T) {
+	t.Run("Test UserLookupApiService ApiIdentityUsersLookupIdGet", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        var id string
+		var id string
 
-        resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupIdGet(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupIdGet(context.Background(), id).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test UserLookupApiService ApiIdentityUsersLookupSearchGet", func(t *testing.T) {
+	t.Run("Test UserLookupApiService ApiIdentityUsersLookupSearchGet", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupSearchGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserLookupApi.ApiIdentityUsersLookupSearchGet(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }
