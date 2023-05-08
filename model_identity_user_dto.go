@@ -41,6 +41,7 @@ type IdentityUserDto struct {
 	LockoutEnabled *bool `json:"lockoutEnabled,omitempty"`
 	LockoutEnd *time.Time `json:"lockoutEnd,omitempty"`
 	ConcurrencyStamp *string `json:"concurrencyStamp,omitempty"`
+	EntityVersion *int32 `json:"entityVersion,omitempty"`
 }
 
 // NewIdentityUserDto instantiates a new IdentityUserDto object
@@ -732,6 +733,38 @@ func (o *IdentityUserDto) SetConcurrencyStamp(v string) {
 	o.ConcurrencyStamp = &v
 }
 
+// GetEntityVersion returns the EntityVersion field value if set, zero value otherwise.
+func (o *IdentityUserDto) GetEntityVersion() int32 {
+	if o == nil || IsNil(o.EntityVersion) {
+		var ret int32
+		return ret
+	}
+	return *o.EntityVersion
+}
+
+// GetEntityVersionOk returns a tuple with the EntityVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IdentityUserDto) GetEntityVersionOk() (*int32, bool) {
+	if o == nil || IsNil(o.EntityVersion) {
+		return nil, false
+	}
+	return o.EntityVersion, true
+}
+
+// HasEntityVersion returns a boolean if a field has been set.
+func (o *IdentityUserDto) HasEntityVersion() bool {
+	if o != nil && !IsNil(o.EntityVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetEntityVersion gets a reference to the given int32 and assigns it to the EntityVersion field.
+func (o *IdentityUserDto) SetEntityVersion(v int32) {
+	o.EntityVersion = &v
+}
+
 func (o IdentityUserDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -802,6 +835,9 @@ func (o IdentityUserDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ConcurrencyStamp) {
 		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
+	}
+	if !IsNil(o.EntityVersion) {
+		toSerialize["entityVersion"] = o.EntityVersion
 	}
 	return toSerialize, nil
 }

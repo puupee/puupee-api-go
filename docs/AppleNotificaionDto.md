@@ -1,4 +1,4 @@
-# VerifyReceiptDto
+# AppleNotificaionDto
 
 ## Properties
 
@@ -12,309 +12,251 @@ Name | Type | Description | Notes
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
-**OrderId** | **string** |  | 
-**ReceiptData** | **string** |  | 
-**Platform** | **string** |  | 
-**DeviceToken** | **string** |  | 
+**SignedPayload** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
-### NewVerifyReceiptDto
+### NewAppleNotificaionDto
 
-`func NewVerifyReceiptDto(orderId string, receiptData string, platform string, deviceToken string, ) *VerifyReceiptDto`
+`func NewAppleNotificaionDto() *AppleNotificaionDto`
 
-NewVerifyReceiptDto instantiates a new VerifyReceiptDto object
+NewAppleNotificaionDto instantiates a new AppleNotificaionDto object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewVerifyReceiptDtoWithDefaults
+### NewAppleNotificaionDtoWithDefaults
 
-`func NewVerifyReceiptDtoWithDefaults() *VerifyReceiptDto`
+`func NewAppleNotificaionDtoWithDefaults() *AppleNotificaionDto`
 
-NewVerifyReceiptDtoWithDefaults instantiates a new VerifyReceiptDto object
+NewAppleNotificaionDtoWithDefaults instantiates a new AppleNotificaionDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *VerifyReceiptDto) GetId() string`
+`func (o *AppleNotificaionDto) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *VerifyReceiptDto) GetIdOk() (*string, bool)`
+`func (o *AppleNotificaionDto) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *VerifyReceiptDto) SetId(v string)`
+`func (o *AppleNotificaionDto) SetId(v string)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *VerifyReceiptDto) HasId() bool`
+`func (o *AppleNotificaionDto) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetCreationTime
 
-`func (o *VerifyReceiptDto) GetCreationTime() time.Time`
+`func (o *AppleNotificaionDto) GetCreationTime() time.Time`
 
 GetCreationTime returns the CreationTime field if non-nil, zero value otherwise.
 
 ### GetCreationTimeOk
 
-`func (o *VerifyReceiptDto) GetCreationTimeOk() (*time.Time, bool)`
+`func (o *AppleNotificaionDto) GetCreationTimeOk() (*time.Time, bool)`
 
 GetCreationTimeOk returns a tuple with the CreationTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreationTime
 
-`func (o *VerifyReceiptDto) SetCreationTime(v time.Time)`
+`func (o *AppleNotificaionDto) SetCreationTime(v time.Time)`
 
 SetCreationTime sets CreationTime field to given value.
 
 ### HasCreationTime
 
-`func (o *VerifyReceiptDto) HasCreationTime() bool`
+`func (o *AppleNotificaionDto) HasCreationTime() bool`
 
 HasCreationTime returns a boolean if a field has been set.
 
 ### GetCreatorId
 
-`func (o *VerifyReceiptDto) GetCreatorId() string`
+`func (o *AppleNotificaionDto) GetCreatorId() string`
 
 GetCreatorId returns the CreatorId field if non-nil, zero value otherwise.
 
 ### GetCreatorIdOk
 
-`func (o *VerifyReceiptDto) GetCreatorIdOk() (*string, bool)`
+`func (o *AppleNotificaionDto) GetCreatorIdOk() (*string, bool)`
 
 GetCreatorIdOk returns a tuple with the CreatorId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatorId
 
-`func (o *VerifyReceiptDto) SetCreatorId(v string)`
+`func (o *AppleNotificaionDto) SetCreatorId(v string)`
 
 SetCreatorId sets CreatorId field to given value.
 
 ### HasCreatorId
 
-`func (o *VerifyReceiptDto) HasCreatorId() bool`
+`func (o *AppleNotificaionDto) HasCreatorId() bool`
 
 HasCreatorId returns a boolean if a field has been set.
 
 ### GetLastModificationTime
 
-`func (o *VerifyReceiptDto) GetLastModificationTime() time.Time`
+`func (o *AppleNotificaionDto) GetLastModificationTime() time.Time`
 
 GetLastModificationTime returns the LastModificationTime field if non-nil, zero value otherwise.
 
 ### GetLastModificationTimeOk
 
-`func (o *VerifyReceiptDto) GetLastModificationTimeOk() (*time.Time, bool)`
+`func (o *AppleNotificaionDto) GetLastModificationTimeOk() (*time.Time, bool)`
 
 GetLastModificationTimeOk returns a tuple with the LastModificationTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastModificationTime
 
-`func (o *VerifyReceiptDto) SetLastModificationTime(v time.Time)`
+`func (o *AppleNotificaionDto) SetLastModificationTime(v time.Time)`
 
 SetLastModificationTime sets LastModificationTime field to given value.
 
 ### HasLastModificationTime
 
-`func (o *VerifyReceiptDto) HasLastModificationTime() bool`
+`func (o *AppleNotificaionDto) HasLastModificationTime() bool`
 
 HasLastModificationTime returns a boolean if a field has been set.
 
 ### GetLastModifierId
 
-`func (o *VerifyReceiptDto) GetLastModifierId() string`
+`func (o *AppleNotificaionDto) GetLastModifierId() string`
 
 GetLastModifierId returns the LastModifierId field if non-nil, zero value otherwise.
 
 ### GetLastModifierIdOk
 
-`func (o *VerifyReceiptDto) GetLastModifierIdOk() (*string, bool)`
+`func (o *AppleNotificaionDto) GetLastModifierIdOk() (*string, bool)`
 
 GetLastModifierIdOk returns a tuple with the LastModifierId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastModifierId
 
-`func (o *VerifyReceiptDto) SetLastModifierId(v string)`
+`func (o *AppleNotificaionDto) SetLastModifierId(v string)`
 
 SetLastModifierId sets LastModifierId field to given value.
 
 ### HasLastModifierId
 
-`func (o *VerifyReceiptDto) HasLastModifierId() bool`
+`func (o *AppleNotificaionDto) HasLastModifierId() bool`
 
 HasLastModifierId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
-`func (o *VerifyReceiptDto) GetIsDeleted() bool`
+`func (o *AppleNotificaionDto) GetIsDeleted() bool`
 
 GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
 
 ### GetIsDeletedOk
 
-`func (o *VerifyReceiptDto) GetIsDeletedOk() (*bool, bool)`
+`func (o *AppleNotificaionDto) GetIsDeletedOk() (*bool, bool)`
 
 GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsDeleted
 
-`func (o *VerifyReceiptDto) SetIsDeleted(v bool)`
+`func (o *AppleNotificaionDto) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
 
 ### HasIsDeleted
 
-`func (o *VerifyReceiptDto) HasIsDeleted() bool`
+`func (o *AppleNotificaionDto) HasIsDeleted() bool`
 
 HasIsDeleted returns a boolean if a field has been set.
 
 ### GetDeleterId
 
-`func (o *VerifyReceiptDto) GetDeleterId() string`
+`func (o *AppleNotificaionDto) GetDeleterId() string`
 
 GetDeleterId returns the DeleterId field if non-nil, zero value otherwise.
 
 ### GetDeleterIdOk
 
-`func (o *VerifyReceiptDto) GetDeleterIdOk() (*string, bool)`
+`func (o *AppleNotificaionDto) GetDeleterIdOk() (*string, bool)`
 
 GetDeleterIdOk returns a tuple with the DeleterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeleterId
 
-`func (o *VerifyReceiptDto) SetDeleterId(v string)`
+`func (o *AppleNotificaionDto) SetDeleterId(v string)`
 
 SetDeleterId sets DeleterId field to given value.
 
 ### HasDeleterId
 
-`func (o *VerifyReceiptDto) HasDeleterId() bool`
+`func (o *AppleNotificaionDto) HasDeleterId() bool`
 
 HasDeleterId returns a boolean if a field has been set.
 
 ### GetDeletionTime
 
-`func (o *VerifyReceiptDto) GetDeletionTime() time.Time`
+`func (o *AppleNotificaionDto) GetDeletionTime() time.Time`
 
 GetDeletionTime returns the DeletionTime field if non-nil, zero value otherwise.
 
 ### GetDeletionTimeOk
 
-`func (o *VerifyReceiptDto) GetDeletionTimeOk() (*time.Time, bool)`
+`func (o *AppleNotificaionDto) GetDeletionTimeOk() (*time.Time, bool)`
 
 GetDeletionTimeOk returns a tuple with the DeletionTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeletionTime
 
-`func (o *VerifyReceiptDto) SetDeletionTime(v time.Time)`
+`func (o *AppleNotificaionDto) SetDeletionTime(v time.Time)`
 
 SetDeletionTime sets DeletionTime field to given value.
 
 ### HasDeletionTime
 
-`func (o *VerifyReceiptDto) HasDeletionTime() bool`
+`func (o *AppleNotificaionDto) HasDeletionTime() bool`
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### GetOrderId
+### GetSignedPayload
 
-`func (o *VerifyReceiptDto) GetOrderId() string`
+`func (o *AppleNotificaionDto) GetSignedPayload() string`
 
-GetOrderId returns the OrderId field if non-nil, zero value otherwise.
+GetSignedPayload returns the SignedPayload field if non-nil, zero value otherwise.
 
-### GetOrderIdOk
+### GetSignedPayloadOk
 
-`func (o *VerifyReceiptDto) GetOrderIdOk() (*string, bool)`
+`func (o *AppleNotificaionDto) GetSignedPayloadOk() (*string, bool)`
 
-GetOrderIdOk returns a tuple with the OrderId field if it's non-nil, zero value otherwise
+GetSignedPayloadOk returns a tuple with the SignedPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrderId
+### SetSignedPayload
 
-`func (o *VerifyReceiptDto) SetOrderId(v string)`
+`func (o *AppleNotificaionDto) SetSignedPayload(v string)`
 
-SetOrderId sets OrderId field to given value.
+SetSignedPayload sets SignedPayload field to given value.
 
+### HasSignedPayload
 
-### GetReceiptData
+`func (o *AppleNotificaionDto) HasSignedPayload() bool`
 
-`func (o *VerifyReceiptDto) GetReceiptData() string`
-
-GetReceiptData returns the ReceiptData field if non-nil, zero value otherwise.
-
-### GetReceiptDataOk
-
-`func (o *VerifyReceiptDto) GetReceiptDataOk() (*string, bool)`
-
-GetReceiptDataOk returns a tuple with the ReceiptData field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReceiptData
-
-`func (o *VerifyReceiptDto) SetReceiptData(v string)`
-
-SetReceiptData sets ReceiptData field to given value.
-
-
-### GetPlatform
-
-`func (o *VerifyReceiptDto) GetPlatform() string`
-
-GetPlatform returns the Platform field if non-nil, zero value otherwise.
-
-### GetPlatformOk
-
-`func (o *VerifyReceiptDto) GetPlatformOk() (*string, bool)`
-
-GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPlatform
-
-`func (o *VerifyReceiptDto) SetPlatform(v string)`
-
-SetPlatform sets Platform field to given value.
-
-
-### GetDeviceToken
-
-`func (o *VerifyReceiptDto) GetDeviceToken() string`
-
-GetDeviceToken returns the DeviceToken field if non-nil, zero value otherwise.
-
-### GetDeviceTokenOk
-
-`func (o *VerifyReceiptDto) GetDeviceTokenOk() (*string, bool)`
-
-GetDeviceTokenOk returns a tuple with the DeviceToken field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeviceToken
-
-`func (o *VerifyReceiptDto) SetDeviceToken(v string)`
-
-SetDeviceToken sets DeviceToken field to given value.
-
+HasSignedPayload returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -21,7 +21,7 @@ var _ MappedNullable = &AppleVerifyReceiptResult{}
 type AppleVerifyReceiptResult struct {
 	Environment *string `json:"environment,omitempty"`
 	IsRetryable *bool `json:"is_retryable,omitempty"`
-	Status *int32 `json:"status,omitempty"`
+	Status *AppleVerifyRecceiptStatus `json:"status,omitempty"`
 	LatestReceiptInfo []LatestReceiptInfo `json:"latest_receipt_info,omitempty"`
 	LatestReceipt *string `json:"latest_receipt,omitempty"`
 	PendingRenewalInfo []PendingRenewalInfo `json:"pending_renewal_info,omitempty"`
@@ -110,9 +110,9 @@ func (o *AppleVerifyReceiptResult) SetIsRetryable(v bool) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *AppleVerifyReceiptResult) GetStatus() int32 {
+func (o *AppleVerifyReceiptResult) GetStatus() AppleVerifyRecceiptStatus {
 	if o == nil || IsNil(o.Status) {
-		var ret int32
+		var ret AppleVerifyRecceiptStatus
 		return ret
 	}
 	return *o.Status
@@ -120,7 +120,7 @@ func (o *AppleVerifyReceiptResult) GetStatus() int32 {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppleVerifyReceiptResult) GetStatusOk() (*int32, bool) {
+func (o *AppleVerifyReceiptResult) GetStatusOk() (*AppleVerifyRecceiptStatus, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -136,8 +136,8 @@ func (o *AppleVerifyReceiptResult) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *AppleVerifyReceiptResult) SetStatus(v int32) {
+// SetStatus gets a reference to the given AppleVerifyRecceiptStatus and assigns it to the Status field.
+func (o *AppleVerifyReceiptResult) SetStatus(v AppleVerifyRecceiptStatus) {
 	o.Status = &v
 }
 

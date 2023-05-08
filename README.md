@@ -94,9 +94,11 @@ Class | Method | HTTP request | Description
 *AppApi* | [**ApiAppAppIdDelete**](docs/AppApi.md#apiappappiddelete) | **Delete** /api/app/app/{id} | 
 *AppApi* | [**ApiAppAppIdGet**](docs/AppApi.md#apiappappidget) | **Get** /api/app/app/{id} | 
 *AppApi* | [**ApiAppAppIdPut**](docs/AppApi.md#apiappappidput) | **Put** /api/app/app/{id} | 
+*AppApi* | [**ApiAppAppIdRunStatePut**](docs/AppApi.md#apiappappidrunstateput) | **Put** /api/app/app/{id}/run-state | 
 *AppApi* | [**ApiAppAppIdWithUserGet**](docs/AppApi.md#apiappappidwithuserget) | **Get** /api/app/app/{id}/with-user | 
 *AppApi* | [**ApiAppAppPost**](docs/AppApi.md#apiappapppost) | **Post** /api/app/app | 
 *AppApi* | [**ApiAppAppPublicGet**](docs/AppApi.md#apiappapppublicget) | **Get** /api/app/app/public | 
+*AppApi* | [**ApiAppAppRunPost**](docs/AppApi.md#apiappapprunpost) | **Post** /api/app/app/run | 
 *AppApi* | [**ApiAppAppUploadCredentialsGet**](docs/AppApi.md#apiappappuploadcredentialsget) | **Get** /api/app/app/upload-credentials | 
 *AppApi* | [**ApiAppAppWithUserGet**](docs/AppApi.md#apiappappwithuserget) | **Get** /api/app/app/with-user | 
 *AppFeatureApi* | [**ApiAppAppFeatureGet**](docs/AppFeatureApi.md#apiappappfeatureget) | **Get** /api/app/app-feature | 
@@ -225,7 +227,6 @@ Class | Method | HTTP request | Description
 
  - [AbpLoginResult](docs/AbpLoginResult.md)
  - [ActionApiDescriptionModel](docs/ActionApiDescriptionModel.md)
- - [Anv2](docs/Anv2.md)
  - [AppDto](docs/AppDto.md)
  - [AppDtoPagedResultDto](docs/AppDtoPagedResultDto.md)
  - [AppFeatureDto](docs/AppFeatureDto.md)
@@ -234,12 +235,18 @@ Class | Method | HTTP request | Description
  - [AppPricingItemDto](docs/AppPricingItemDto.md)
  - [AppReleaseDto](docs/AppReleaseDto.md)
  - [AppReleaseDtoPagedResultDto](docs/AppReleaseDtoPagedResultDto.md)
+ - [AppRunDto](docs/AppRunDto.md)
+ - [AppRunRecordDto](docs/AppRunRecordDto.md)
+ - [AppRunRecordUpdateDto](docs/AppRunRecordUpdateDto.md)
+ - [AppRunStatus](docs/AppRunStatus.md)
  - [AppSdkDto](docs/AppSdkDto.md)
  - [AppTheme](docs/AppTheme.md)
  - [AppThemeMode](docs/AppThemeMode.md)
  - [AppUserScoreDto](docs/AppUserScoreDto.md)
  - [AppWithUserDto](docs/AppWithUserDto.md)
  - [AppWithUserDtoPagedResultDto](docs/AppWithUserDtoPagedResultDto.md)
+ - [AppleNotificaionDto](docs/AppleNotificaionDto.md)
+ - [AppleVerifyRecceiptStatus](docs/AppleVerifyRecceiptStatus.md)
  - [AppleVerifyReceiptResult](docs/AppleVerifyReceiptResult.md)
  - [ApplicationApiDescriptionModel](docs/ApplicationApiDescriptionModel.md)
  - [ApplicationAuthConfigurationDto](docs/ApplicationAuthConfigurationDto.md)
@@ -310,9 +317,15 @@ Class | Method | HTTP request | Description
  - [IdentityRoleDtoListResultDto](docs/IdentityRoleDtoListResultDto.md)
  - [IdentityRoleDtoPagedResultDto](docs/IdentityRoleDtoPagedResultDto.md)
  - [IdentityRoleUpdateDto](docs/IdentityRoleUpdateDto.md)
+ - [IdentityUser](docs/IdentityUser.md)
+ - [IdentityUserClaim](docs/IdentityUserClaim.md)
  - [IdentityUserCreateDto](docs/IdentityUserCreateDto.md)
  - [IdentityUserDto](docs/IdentityUserDto.md)
  - [IdentityUserDtoPagedResultDto](docs/IdentityUserDtoPagedResultDto.md)
+ - [IdentityUserLogin](docs/IdentityUserLogin.md)
+ - [IdentityUserOrganizationUnit](docs/IdentityUserOrganizationUnit.md)
+ - [IdentityUserRole](docs/IdentityUserRole.md)
+ - [IdentityUserToken](docs/IdentityUserToken.md)
  - [IdentityUserUpdateDto](docs/IdentityUserUpdateDto.md)
  - [IdentityUserUpdateRolesDto](docs/IdentityUserUpdateRolesDto.md)
  - [InApp](docs/InApp.md)

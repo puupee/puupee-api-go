@@ -15,11 +15,11 @@ import (
 	"time"
 )
 
-// checks if the VerifyReceiptDto type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &VerifyReceiptDto{}
+// checks if the AppleNotificaionDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AppleNotificaionDto{}
 
-// VerifyReceiptDto struct for VerifyReceiptDto
-type VerifyReceiptDto struct {
+// AppleNotificaionDto struct for AppleNotificaionDto
+type AppleNotificaionDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
 	CreatorId *string `json:"creatorId,omitempty"`
@@ -28,35 +28,28 @@ type VerifyReceiptDto struct {
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	OrderId string `json:"orderId"`
-	ReceiptData string `json:"receiptData"`
-	Platform string `json:"platform"`
-	DeviceToken string `json:"deviceToken"`
+	SignedPayload *string `json:"signedPayload,omitempty"`
 }
 
-// NewVerifyReceiptDto instantiates a new VerifyReceiptDto object
+// NewAppleNotificaionDto instantiates a new AppleNotificaionDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVerifyReceiptDto(orderId string, receiptData string, platform string, deviceToken string) *VerifyReceiptDto {
-	this := VerifyReceiptDto{}
-	this.OrderId = orderId
-	this.ReceiptData = receiptData
-	this.Platform = platform
-	this.DeviceToken = deviceToken
+func NewAppleNotificaionDto() *AppleNotificaionDto {
+	this := AppleNotificaionDto{}
 	return &this
 }
 
-// NewVerifyReceiptDtoWithDefaults instantiates a new VerifyReceiptDto object
+// NewAppleNotificaionDtoWithDefaults instantiates a new AppleNotificaionDto object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewVerifyReceiptDtoWithDefaults() *VerifyReceiptDto {
-	this := VerifyReceiptDto{}
+func NewAppleNotificaionDtoWithDefaults() *AppleNotificaionDto {
+	this := AppleNotificaionDto{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetId() string {
+func (o *AppleNotificaionDto) GetId() string {
 	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
@@ -66,7 +59,7 @@ func (o *VerifyReceiptDto) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetIdOk() (*string, bool) {
+func (o *AppleNotificaionDto) GetIdOk() (*string, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -74,7 +67,7 @@ func (o *VerifyReceiptDto) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasId() bool {
+func (o *AppleNotificaionDto) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -83,12 +76,12 @@ func (o *VerifyReceiptDto) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *VerifyReceiptDto) SetId(v string) {
+func (o *AppleNotificaionDto) SetId(v string) {
 	o.Id = &v
 }
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetCreationTime() time.Time {
+func (o *AppleNotificaionDto) GetCreationTime() time.Time {
 	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
@@ -98,7 +91,7 @@ func (o *VerifyReceiptDto) GetCreationTime() time.Time {
 
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetCreationTimeOk() (*time.Time, bool) {
+func (o *AppleNotificaionDto) GetCreationTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.CreationTime) {
 		return nil, false
 	}
@@ -106,7 +99,7 @@ func (o *VerifyReceiptDto) GetCreationTimeOk() (*time.Time, bool) {
 }
 
 // HasCreationTime returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasCreationTime() bool {
+func (o *AppleNotificaionDto) HasCreationTime() bool {
 	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
@@ -115,12 +108,12 @@ func (o *VerifyReceiptDto) HasCreationTime() bool {
 }
 
 // SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
-func (o *VerifyReceiptDto) SetCreationTime(v time.Time) {
+func (o *AppleNotificaionDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetCreatorId() string {
+func (o *AppleNotificaionDto) GetCreatorId() string {
 	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
@@ -130,7 +123,7 @@ func (o *VerifyReceiptDto) GetCreatorId() string {
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetCreatorIdOk() (*string, bool) {
+func (o *AppleNotificaionDto) GetCreatorIdOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
@@ -138,7 +131,7 @@ func (o *VerifyReceiptDto) GetCreatorIdOk() (*string, bool) {
 }
 
 // HasCreatorId returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasCreatorId() bool {
+func (o *AppleNotificaionDto) HasCreatorId() bool {
 	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
@@ -147,12 +140,12 @@ func (o *VerifyReceiptDto) HasCreatorId() bool {
 }
 
 // SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
-func (o *VerifyReceiptDto) SetCreatorId(v string) {
+func (o *AppleNotificaionDto) SetCreatorId(v string) {
 	o.CreatorId = &v
 }
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetLastModificationTime() time.Time {
+func (o *AppleNotificaionDto) GetLastModificationTime() time.Time {
 	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
@@ -162,7 +155,7 @@ func (o *VerifyReceiptDto) GetLastModificationTime() time.Time {
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetLastModificationTimeOk() (*time.Time, bool) {
+func (o *AppleNotificaionDto) GetLastModificationTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
@@ -170,7 +163,7 @@ func (o *VerifyReceiptDto) GetLastModificationTimeOk() (*time.Time, bool) {
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasLastModificationTime() bool {
+func (o *AppleNotificaionDto) HasLastModificationTime() bool {
 	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
@@ -179,12 +172,12 @@ func (o *VerifyReceiptDto) HasLastModificationTime() bool {
 }
 
 // SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
-func (o *VerifyReceiptDto) SetLastModificationTime(v time.Time) {
+func (o *AppleNotificaionDto) SetLastModificationTime(v time.Time) {
 	o.LastModificationTime = &v
 }
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetLastModifierId() string {
+func (o *AppleNotificaionDto) GetLastModifierId() string {
 	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
@@ -194,7 +187,7 @@ func (o *VerifyReceiptDto) GetLastModifierId() string {
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetLastModifierIdOk() (*string, bool) {
+func (o *AppleNotificaionDto) GetLastModifierIdOk() (*string, bool) {
 	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
@@ -202,7 +195,7 @@ func (o *VerifyReceiptDto) GetLastModifierIdOk() (*string, bool) {
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasLastModifierId() bool {
+func (o *AppleNotificaionDto) HasLastModifierId() bool {
 	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
@@ -211,12 +204,12 @@ func (o *VerifyReceiptDto) HasLastModifierId() bool {
 }
 
 // SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
-func (o *VerifyReceiptDto) SetLastModifierId(v string) {
+func (o *AppleNotificaionDto) SetLastModifierId(v string) {
 	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetIsDeleted() bool {
+func (o *AppleNotificaionDto) GetIsDeleted() bool {
 	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
@@ -226,7 +219,7 @@ func (o *VerifyReceiptDto) GetIsDeleted() bool {
 
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetIsDeletedOk() (*bool, bool) {
+func (o *AppleNotificaionDto) GetIsDeletedOk() (*bool, bool) {
 	if o == nil || IsNil(o.IsDeleted) {
 		return nil, false
 	}
@@ -234,7 +227,7 @@ func (o *VerifyReceiptDto) GetIsDeletedOk() (*bool, bool) {
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasIsDeleted() bool {
+func (o *AppleNotificaionDto) HasIsDeleted() bool {
 	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
@@ -243,12 +236,12 @@ func (o *VerifyReceiptDto) HasIsDeleted() bool {
 }
 
 // SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
-func (o *VerifyReceiptDto) SetIsDeleted(v bool) {
+func (o *AppleNotificaionDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetDeleterId() string {
+func (o *AppleNotificaionDto) GetDeleterId() string {
 	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
@@ -258,7 +251,7 @@ func (o *VerifyReceiptDto) GetDeleterId() string {
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetDeleterIdOk() (*string, bool) {
+func (o *AppleNotificaionDto) GetDeleterIdOk() (*string, bool) {
 	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
@@ -266,7 +259,7 @@ func (o *VerifyReceiptDto) GetDeleterIdOk() (*string, bool) {
 }
 
 // HasDeleterId returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasDeleterId() bool {
+func (o *AppleNotificaionDto) HasDeleterId() bool {
 	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
@@ -275,12 +268,12 @@ func (o *VerifyReceiptDto) HasDeleterId() bool {
 }
 
 // SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
-func (o *VerifyReceiptDto) SetDeleterId(v string) {
+func (o *AppleNotificaionDto) SetDeleterId(v string) {
 	o.DeleterId = &v
 }
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
-func (o *VerifyReceiptDto) GetDeletionTime() time.Time {
+func (o *AppleNotificaionDto) GetDeletionTime() time.Time {
 	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
@@ -290,7 +283,7 @@ func (o *VerifyReceiptDto) GetDeletionTime() time.Time {
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetDeletionTimeOk() (*time.Time, bool) {
+func (o *AppleNotificaionDto) GetDeletionTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
@@ -298,7 +291,7 @@ func (o *VerifyReceiptDto) GetDeletionTimeOk() (*time.Time, bool) {
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
-func (o *VerifyReceiptDto) HasDeletionTime() bool {
+func (o *AppleNotificaionDto) HasDeletionTime() bool {
 	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
@@ -307,107 +300,43 @@ func (o *VerifyReceiptDto) HasDeletionTime() bool {
 }
 
 // SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
-func (o *VerifyReceiptDto) SetDeletionTime(v time.Time) {
+func (o *AppleNotificaionDto) SetDeletionTime(v time.Time) {
 	o.DeletionTime = &v
 }
 
-// GetOrderId returns the OrderId field value
-func (o *VerifyReceiptDto) GetOrderId() string {
-	if o == nil {
+// GetSignedPayload returns the SignedPayload field value if set, zero value otherwise.
+func (o *AppleNotificaionDto) GetSignedPayload() string {
+	if o == nil || IsNil(o.SignedPayload) {
 		var ret string
 		return ret
 	}
-
-	return o.OrderId
+	return *o.SignedPayload
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value
+// GetSignedPayloadOk returns a tuple with the SignedPayload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetOrderIdOk() (*string, bool) {
-	if o == nil {
+func (o *AppleNotificaionDto) GetSignedPayloadOk() (*string, bool) {
+	if o == nil || IsNil(o.SignedPayload) {
 		return nil, false
 	}
-	return &o.OrderId, true
+	return o.SignedPayload, true
 }
 
-// SetOrderId sets field value
-func (o *VerifyReceiptDto) SetOrderId(v string) {
-	o.OrderId = v
-}
-
-// GetReceiptData returns the ReceiptData field value
-func (o *VerifyReceiptDto) GetReceiptData() string {
-	if o == nil {
-		var ret string
-		return ret
+// HasSignedPayload returns a boolean if a field has been set.
+func (o *AppleNotificaionDto) HasSignedPayload() bool {
+	if o != nil && !IsNil(o.SignedPayload) {
+		return true
 	}
 
-	return o.ReceiptData
+	return false
 }
 
-// GetReceiptDataOk returns a tuple with the ReceiptData field value
-// and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetReceiptDataOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ReceiptData, true
+// SetSignedPayload gets a reference to the given string and assigns it to the SignedPayload field.
+func (o *AppleNotificaionDto) SetSignedPayload(v string) {
+	o.SignedPayload = &v
 }
 
-// SetReceiptData sets field value
-func (o *VerifyReceiptDto) SetReceiptData(v string) {
-	o.ReceiptData = v
-}
-
-// GetPlatform returns the Platform field value
-func (o *VerifyReceiptDto) GetPlatform() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Platform
-}
-
-// GetPlatformOk returns a tuple with the Platform field value
-// and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetPlatformOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Platform, true
-}
-
-// SetPlatform sets field value
-func (o *VerifyReceiptDto) SetPlatform(v string) {
-	o.Platform = v
-}
-
-// GetDeviceToken returns the DeviceToken field value
-func (o *VerifyReceiptDto) GetDeviceToken() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DeviceToken
-}
-
-// GetDeviceTokenOk returns a tuple with the DeviceToken field value
-// and a boolean to check if the value has been set.
-func (o *VerifyReceiptDto) GetDeviceTokenOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DeviceToken, true
-}
-
-// SetDeviceToken sets field value
-func (o *VerifyReceiptDto) SetDeviceToken(v string) {
-	o.DeviceToken = v
-}
-
-func (o VerifyReceiptDto) MarshalJSON() ([]byte, error) {
+func (o AppleNotificaionDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -415,7 +344,7 @@ func (o VerifyReceiptDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o VerifyReceiptDto) ToMap() (map[string]interface{}, error) {
+func (o AppleNotificaionDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -441,45 +370,44 @@ func (o VerifyReceiptDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DeletionTime) {
 		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	toSerialize["orderId"] = o.OrderId
-	toSerialize["receiptData"] = o.ReceiptData
-	toSerialize["platform"] = o.Platform
-	toSerialize["deviceToken"] = o.DeviceToken
+	if !IsNil(o.SignedPayload) {
+		toSerialize["signedPayload"] = o.SignedPayload
+	}
 	return toSerialize, nil
 }
 
-type NullableVerifyReceiptDto struct {
-	value *VerifyReceiptDto
+type NullableAppleNotificaionDto struct {
+	value *AppleNotificaionDto
 	isSet bool
 }
 
-func (v NullableVerifyReceiptDto) Get() *VerifyReceiptDto {
+func (v NullableAppleNotificaionDto) Get() *AppleNotificaionDto {
 	return v.value
 }
 
-func (v *NullableVerifyReceiptDto) Set(val *VerifyReceiptDto) {
+func (v *NullableAppleNotificaionDto) Set(val *AppleNotificaionDto) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableVerifyReceiptDto) IsSet() bool {
+func (v NullableAppleNotificaionDto) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableVerifyReceiptDto) Unset() {
+func (v *NullableAppleNotificaionDto) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableVerifyReceiptDto(val *VerifyReceiptDto) *NullableVerifyReceiptDto {
-	return &NullableVerifyReceiptDto{value: val, isSet: true}
+func NewNullableAppleNotificaionDto(val *AppleNotificaionDto) *NullableAppleNotificaionDto {
+	return &NullableAppleNotificaionDto{value: val, isSet: true}
 }
 
-func (v NullableVerifyReceiptDto) MarshalJSON() ([]byte, error) {
+func (v NullableAppleNotificaionDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableVerifyReceiptDto) UnmarshalJSON(src []byte) error {
+func (v *NullableAppleNotificaionDto) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

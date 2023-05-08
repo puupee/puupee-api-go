@@ -2055,6 +2055,217 @@ paths:
           description: Server Error
       tags:
       - App
+  /api/app/app/run:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppRunDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AppRunDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AppRunDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppRunRecordDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppRunRecordDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppRunRecordDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - App
+      x-codegen-request-body-name: body
+  /api/app/app/{id}/run-state:
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppRunRecordUpdateDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AppRunRecordUpdateDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AppRunRecordUpdateDto'
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppRunRecordDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppRunRecordDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppRunRecordDto'
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - App
+      x-codegen-request-body-name: body
   /api/app/app-feature:
     get:
       responses:
@@ -10598,13 +10809,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Anv2'
+              $ref: '#/components/schemas/AppleNotificaionDto'
           text/json:
             schema:
-              $ref: '#/components/schemas/Anv2'
+              $ref: '#/components/schemas/AppleNotificaionDto'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/Anv2'
+              $ref: '#/components/schemas/AppleNotificaionDto'
         required: false
       responses:
         "200":
@@ -13606,13 +13817,6 @@ components:
         implementFrom:
           type: string
       type: object
-    Anv2:
-      example:
-        signedPayload: signedPayload
-      properties:
-        signedPayload:
-          type: string
-      type: object
     AppDto:
       example:
         creationTime: 2000-01-23T04:56:07.000+00:00
@@ -13652,6 +13856,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         homePage: homePage
+        specJsonSchema: specJsonSchema
         features:
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13746,6 +13951,7 @@ components:
           userName: userName
           isActive: true
           phoneNumberConfirmed: true
+          entityVersion: 0
           phoneNumber: phoneNumber
           isDeleted: true
           surname: surname
@@ -13827,6 +14033,8 @@ components:
           type: boolean
         subscriptionPlatforms:
           type: string
+        specJsonSchema:
+          type: string
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -13883,6 +14091,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           homePage: homePage
+          specJsonSchema: specJsonSchema
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -13977,6 +14186,7 @@ components:
             userName: userName
             isActive: true
             phoneNumberConfirmed: true
+            entityVersion: 0
             phoneNumber: phoneNumber
             isDeleted: true
             surname: surname
@@ -14036,6 +14246,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           homePage: homePage
+          specJsonSchema: specJsonSchema
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14130,6 +14341,7 @@ components:
             userName: userName
             isActive: true
             phoneNumberConfirmed: true
+            entityVersion: 0
             phoneNumber: phoneNumber
             isDeleted: true
             surname: surname
@@ -14708,6 +14920,197 @@ components:
           format: int64
           type: integer
       type: object
+    AppRunDto:
+      example:
+        args:
+          key: "{}"
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        appName: appName
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        envs:
+          key: "{}"
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        appId:
+          format: uuid
+          type: string
+        appName:
+          type: string
+        args:
+          additionalProperties:
+            type: object
+          type: object
+        envs:
+          additionalProperties:
+            type: object
+          type: object
+      type: object
+    AppRunRecordDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        appName: appName
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        envs:
+          key: "{}"
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        error: error
+        args:
+          key: "{}"
+        result: result
+        output: output
+        isDeleted: true
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        finishAt: 2000-01-23T04:56:07.000+00:00
+        status:
+          name: name
+          value: value
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        appId:
+          format: uuid
+          type: string
+        appName:
+          type: string
+        args:
+          additionalProperties:
+            type: object
+          type: object
+        envs:
+          additionalProperties:
+            type: object
+          type: object
+        status:
+          $ref: '#/components/schemas/AppRunStatus'
+        result:
+          type: string
+        error:
+          type: string
+        finishAt:
+          format: date-time
+          type: string
+        output:
+          type: string
+      type: object
+    AppRunRecordUpdateDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        error: error
+        result: result
+        output: output
+        isDeleted: true
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        finishAt: 2000-01-23T04:56:07.000+00:00
+        status:
+          name: name
+          value: value
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/AppRunStatus'
+        result:
+          type: string
+        error:
+          type: string
+        finishAt:
+          format: date-time
+          type: string
+        output:
+          type: string
+      type: object
+    AppRunStatus:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          readOnly: true
+          type: string
+        value:
+          readOnly: true
+          type: string
+      type: object
     AppSdkDto:
       example:
         privacyUrl: privacyUrl
@@ -14858,6 +15261,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         homePage: homePage
+        specJsonSchema: specJsonSchema
         features:
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -14953,6 +15357,7 @@ components:
           userName: userName
           isActive: true
           phoneNumberConfirmed: true
+          entityVersion: 0
           phoneNumber: phoneNumber
           isDeleted: true
           surname: surname
@@ -15034,6 +15439,8 @@ components:
           type: boolean
         subscriptionPlatforms:
           type: string
+        specJsonSchema:
+          type: string
         latestReleases:
           items:
             $ref: '#/components/schemas/AppReleaseDto'
@@ -15092,6 +15499,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           homePage: homePage
+          specJsonSchema: specJsonSchema
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15187,6 +15595,7 @@ components:
             userName: userName
             isActive: true
             phoneNumberConfirmed: true
+            entityVersion: 0
             phoneNumber: phoneNumber
             isDeleted: true
             surname: surname
@@ -15246,6 +15655,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           homePage: homePage
+          specJsonSchema: specJsonSchema
           features:
           - creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15341,6 +15751,7 @@ components:
             userName: userName
             isActive: true
             phoneNumberConfirmed: true
+            entityVersion: 0
             phoneNumber: phoneNumber
             isDeleted: true
             surname: surname
@@ -15370,6 +15781,57 @@ components:
           type: array
         totalCount:
           format: int64
+          type: integer
+      type: object
+    AppleNotificaionDto:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        signedPayload: signedPayload
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        signedPayload:
+          type: string
+      type: object
+    AppleVerifyRecceiptStatus:
+      example:
+        name: name
+        value: 1
+      properties:
+        name:
+          readOnly: true
+          type: string
+        value:
+          format: int32
+          readOnly: true
           type: integer
       type: object
     AppleVerifyReceiptResult:
@@ -15465,10 +15927,10 @@ components:
             product_id: product_id
             purchase_date: purchase_date
             web_order_line_item_id: web_order_line_item_id
-          adam_id: 6
+          adam_id: 5
           receipt_creation_date: receipt_creation_date
           original_application_version: original_application_version
-          app_item_id: 1
+          app_item_id: 5
           original_purchase_date_ms: original_purchase_date_ms
           request_date_ms: request_date_ms
           original_purchase_date_pst: original_purchase_date_pst
@@ -15478,19 +15940,20 @@ components:
           bundle_id: bundle_id
           receipt_creation_date_ms: receipt_creation_date_ms
           request_date: request_date
-          version_external_identifier: 5
+          version_external_identifier: 7
           request_date_pst: request_date_pst
-          download_id: 5
+          download_id: 2
           application_version: application_version
-        status: 0
+        status:
+          name: name
+          value: 1
       properties:
         environment:
           type: string
         is_retryable:
           type: boolean
         status:
-          format: int32
-          type: integer
+          $ref: '#/components/schemas/AppleVerifyRecceiptStatus'
         latest_receipt_info:
           items:
             $ref: '#/components/schemas/LatestReceiptInfo'
@@ -16382,6 +16845,7 @@ components:
       example:
         creationTime: 2000-01-23T04:56:07.000+00:00
         isDeleted: true
+        productId: productId
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -16389,6 +16853,9 @@ components:
         deletionTime: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type:
+          name: name
+          value: value
         pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
@@ -16419,6 +16886,10 @@ components:
           type: string
         pricingId:
           format: uuid
+          type: string
+        type:
+          $ref: '#/components/schemas/SubscriptionOrderType'
+        productId:
           type: string
       type: object
     CreateOrUpdateAppDto:
@@ -16460,6 +16931,7 @@ components:
         homePage: homePage
         gitRepositoryType: gitRepositoryType
         webhookUrl: webhookUrl
+        specJsonSchema: specJsonSchema
         features:
         - creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -16546,6 +17018,8 @@ components:
         subscriptionEnabled:
           type: boolean
         subscriptionPlatforms:
+          type: string
+        specJsonSchema:
           type: string
         isPublished:
           type: boolean
@@ -18040,6 +18514,237 @@ components:
       required:
       - name
       type: object
+    IdentityUser:
+      example:
+        shouldChangePasswordOnNextLogin: true
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        emailConfirmed: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        normalizedUserName: normalizedUserName
+        roles:
+        - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        normalizedEmail: normalizedEmail
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        isActive: true
+        passwordHash: passwordHash
+        phoneNumberConfirmed: true
+        entityVersion: 6
+        twoFactorEnabled: true
+        organizationUnits:
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - creationTime: 2000-01-23T04:56:07.000+00:00
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDeleted: true
+        surname: surname
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tokens:
+        - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          loginProvider: loginProvider
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+        - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          loginProvider: loginProvider
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        accessFailedCount: 0
+        email: email
+        lockoutEnd: 2000-01-23T04:56:07.000+00:00
+        isExternal: true
+        lastPasswordChangeTime: 2000-01-23T04:56:07.000+00:00
+        lockoutEnabled: true
+        extraProperties:
+          key: "{}"
+        userName: userName
+        phoneNumber: phoneNumber
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        claims:
+        - claimType: claimType
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          claimValue: claimValue
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - claimType: claimType
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          claimValue: claimValue
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        concurrencyStamp: concurrencyStamp
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        logins:
+        - providerDisplayName: providerDisplayName
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          loginProvider: loginProvider
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          providerKey: providerKey
+        - providerDisplayName: providerDisplayName
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          loginProvider: loginProvider
+          userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          providerKey: providerKey
+        securityStamp: securityStamp
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        extraProperties:
+          additionalProperties:
+            type: object
+          readOnly: true
+          type: object
+        concurrencyStamp:
+          type: string
+        creationTime:
+          format: date-time
+          type: string
+        creatorId:
+          format: uuid
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        tenantId:
+          format: uuid
+          type: string
+        userName:
+          type: string
+        normalizedUserName:
+          readOnly: true
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        email:
+          type: string
+        normalizedEmail:
+          readOnly: true
+          type: string
+        emailConfirmed:
+          readOnly: true
+          type: boolean
+        passwordHash:
+          readOnly: true
+          type: string
+        securityStamp:
+          readOnly: true
+          type: string
+        isExternal:
+          type: boolean
+        phoneNumber:
+          readOnly: true
+          type: string
+        phoneNumberConfirmed:
+          readOnly: true
+          type: boolean
+        isActive:
+          readOnly: true
+          type: boolean
+        twoFactorEnabled:
+          readOnly: true
+          type: boolean
+        lockoutEnd:
+          format: date-time
+          readOnly: true
+          type: string
+        lockoutEnabled:
+          readOnly: true
+          type: boolean
+        accessFailedCount:
+          format: int32
+          readOnly: true
+          type: integer
+        shouldChangePasswordOnNextLogin:
+          readOnly: true
+          type: boolean
+        entityVersion:
+          format: int32
+          readOnly: true
+          type: integer
+        lastPasswordChangeTime:
+          format: date-time
+          readOnly: true
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/IdentityUserRole'
+          readOnly: true
+          type: array
+        claims:
+          items:
+            $ref: '#/components/schemas/IdentityUserClaim'
+          readOnly: true
+          type: array
+        logins:
+          items:
+            $ref: '#/components/schemas/IdentityUserLogin'
+          readOnly: true
+          type: array
+        tokens:
+          items:
+            $ref: '#/components/schemas/IdentityUserToken'
+          readOnly: true
+          type: array
+        organizationUnits:
+          items:
+            $ref: '#/components/schemas/IdentityUserOrganizationUnit'
+          readOnly: true
+          type: array
+      type: object
+    IdentityUserClaim:
+      example:
+        claimType: claimType
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        claimValue: claimValue
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        tenantId:
+          format: uuid
+          readOnly: true
+          type: string
+        claimType:
+          readOnly: true
+          type: string
+        claimValue:
+          readOnly: true
+          type: string
+        userId:
+          format: uuid
+          type: string
+      type: object
     IdentityUserCreateDto:
       example:
         password: password
@@ -18112,6 +18817,7 @@ components:
         userName: userName
         isActive: true
         phoneNumberConfirmed: true
+        entityVersion: 0
         phoneNumber: phoneNumber
         isDeleted: true
         surname: surname
@@ -18178,6 +18884,9 @@ components:
           type: string
         concurrencyStamp:
           type: string
+        entityVersion:
+          format: int32
+          type: integer
       type: object
     IdentityUserDtoPagedResultDto:
       example:
@@ -18194,6 +18903,7 @@ components:
           userName: userName
           isActive: true
           phoneNumberConfirmed: true
+          entityVersion: 0
           phoneNumber: phoneNumber
           isDeleted: true
           surname: surname
@@ -18216,6 +18926,7 @@ components:
           userName: userName
           isActive: true
           phoneNumberConfirmed: true
+          entityVersion: 0
           phoneNumber: phoneNumber
           isDeleted: true
           surname: surname
@@ -18235,6 +18946,102 @@ components:
         totalCount:
           format: int64
           type: integer
+      type: object
+    IdentityUserLogin:
+      example:
+        providerDisplayName: providerDisplayName
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        loginProvider: loginProvider
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        providerKey: providerKey
+      properties:
+        tenantId:
+          format: uuid
+          readOnly: true
+          type: string
+        userId:
+          format: uuid
+          readOnly: true
+          type: string
+        loginProvider:
+          readOnly: true
+          type: string
+        providerKey:
+          readOnly: true
+          type: string
+        providerDisplayName:
+          readOnly: true
+          type: string
+      type: object
+    IdentityUserOrganizationUnit:
+      example:
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        creationTime:
+          format: date-time
+          readOnly: true
+          type: string
+        creatorId:
+          format: uuid
+          readOnly: true
+          type: string
+        tenantId:
+          format: uuid
+          type: string
+        userId:
+          format: uuid
+          type: string
+        organizationUnitId:
+          format: uuid
+          type: string
+      type: object
+    IdentityUserRole:
+      example:
+        roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        tenantId:
+          format: uuid
+          readOnly: true
+          type: string
+        userId:
+          format: uuid
+          readOnly: true
+          type: string
+        roleId:
+          format: uuid
+          readOnly: true
+          type: string
+      type: object
+    IdentityUserToken:
+      example:
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        loginProvider: loginProvider
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+      properties:
+        tenantId:
+          format: uuid
+          readOnly: true
+          type: string
+        userId:
+          format: uuid
+          readOnly: true
+          type: string
+        loginProvider:
+          readOnly: true
+          type: string
+        name:
+          readOnly: true
+          type: string
+        value:
+          type: string
       type: object
     IdentityUserUpdateDto:
       example:
@@ -19829,10 +20636,10 @@ components:
           product_id: product_id
           purchase_date: purchase_date
           web_order_line_item_id: web_order_line_item_id
-        adam_id: 6
+        adam_id: 5
         receipt_creation_date: receipt_creation_date
         original_application_version: original_application_version
-        app_item_id: 1
+        app_item_id: 5
         original_purchase_date_ms: original_purchase_date_ms
         request_date_ms: request_date_ms
         original_purchase_date_pst: original_purchase_date_pst
@@ -19842,9 +20649,9 @@ components:
         bundle_id: bundle_id
         receipt_creation_date_ms: receipt_creation_date_ms
         request_date: request_date
-        version_external_identifier: 5
+        version_external_identifier: 7
         request_date_pst: request_date_pst
-        download_id: 5
+        download_id: 2
         application_version: application_version
       properties:
         receipt_type:
@@ -20363,18 +21170,19 @@ components:
     SubscriptionOrderDto:
       example:
         creationTime: 2000-01-23T04:56:07.000+00:00
-        isDeleted: true
+        productId: productId
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
-        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type:
           name: name
           value: value
         pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDeleted: true
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         status:
           name: name
           value: value
@@ -20411,6 +21219,8 @@ components:
           type: string
         pricingId:
           format: uuid
+          type: string
+        productId:
           type: string
       type: object
     SubscriptionOrderStatus:
@@ -21087,9 +21897,102 @@ components:
           type: string
         deviceToken:
           type: string
+      required:
+      - deviceToken
+      - orderId
+      - platform
+      - receiptData
       type: object
     VerifyReceiptResult:
       example:
+        creator:
+          shouldChangePasswordOnNextLogin: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          emailConfirmed: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          normalizedUserName: normalizedUserName
+          roles:
+          - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          normalizedEmail: normalizedEmail
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isActive: true
+          passwordHash: passwordHash
+          phoneNumberConfirmed: true
+          entityVersion: 6
+          twoFactorEnabled: true
+          organizationUnits:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isDeleted: true
+          surname: surname
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tokens:
+          - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+          - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          accessFailedCount: 0
+          email: email
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          isExternal: true
+          lastPasswordChangeTime: 2000-01-23T04:56:07.000+00:00
+          lockoutEnabled: true
+          extraProperties:
+            key: "{}"
+          userName: userName
+          phoneNumber: phoneNumber
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          claims:
+          - claimType: claimType
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            claimValue: claimValue
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - claimType: claimType
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            claimValue: claimValue
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          concurrencyStamp: concurrencyStamp
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          logins:
+          - providerDisplayName: providerDisplayName
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            providerKey: providerKey
+          - providerDisplayName: providerDisplayName
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            providerKey: providerKey
+          securityStamp: securityStamp
+        creationTime: 2000-01-23T04:56:07.000+00:00
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        orderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        resultData: resultData
         appleVerifyReceiptResult:
           is_retryable: true
           latest_receipt_info:
@@ -21182,10 +22085,10 @@ components:
               product_id: product_id
               purchase_date: purchase_date
               web_order_line_item_id: web_order_line_item_id
-            adam_id: 6
+            adam_id: 5
             receipt_creation_date: receipt_creation_date
             original_application_version: original_application_version
-            app_item_id: 1
+            app_item_id: 5
             original_purchase_date_ms: original_purchase_date_ms
             request_date_ms: request_date_ms
             original_purchase_date_pst: original_purchase_date_pst
@@ -21195,20 +22098,246 @@ components:
             bundle_id: bundle_id
             receipt_creation_date_ms: receipt_creation_date_ms
             request_date: request_date
-            version_external_identifier: 5
+            version_external_identifier: 7
             request_date_pst: request_date_pst
-            download_id: 5
+            download_id: 2
             application_version: application_version
-          status: 0
-        ok: true
+          status:
+            name: name
+            value: 1
+        creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        lastModifier:
+          shouldChangePasswordOnNextLogin: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          emailConfirmed: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          normalizedUserName: normalizedUserName
+          roles:
+          - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          normalizedEmail: normalizedEmail
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isActive: true
+          passwordHash: passwordHash
+          phoneNumberConfirmed: true
+          entityVersion: 6
+          twoFactorEnabled: true
+          organizationUnits:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isDeleted: true
+          surname: surname
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tokens:
+          - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+          - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          accessFailedCount: 0
+          email: email
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          isExternal: true
+          lastPasswordChangeTime: 2000-01-23T04:56:07.000+00:00
+          lockoutEnabled: true
+          extraProperties:
+            key: "{}"
+          userName: userName
+          phoneNumber: phoneNumber
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          claims:
+          - claimType: claimType
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            claimValue: claimValue
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - claimType: claimType
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            claimValue: claimValue
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          concurrencyStamp: concurrencyStamp
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          logins:
+          - providerDisplayName: providerDisplayName
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            providerKey: providerKey
+          - providerDisplayName: providerDisplayName
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            providerKey: providerKey
+          securityStamp: securityStamp
+        deletionTime: 2000-01-23T04:56:07.000+00:00
+        receiptData: receiptData
         message: message
+        deleter:
+          shouldChangePasswordOnNextLogin: true
+          creationTime: 2000-01-23T04:56:07.000+00:00
+          emailConfirmed: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          normalizedUserName: normalizedUserName
+          roles:
+          - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - roleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          normalizedEmail: normalizedEmail
+          deletionTime: 2000-01-23T04:56:07.000+00:00
+          isActive: true
+          passwordHash: passwordHash
+          phoneNumberConfirmed: true
+          entityVersion: 6
+          twoFactorEnabled: true
+          organizationUnits:
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - creationTime: 2000-01-23T04:56:07.000+00:00
+            creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            organizationUnitId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isDeleted: true
+          surname: surname
+          lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tokens:
+          - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+          - tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          accessFailedCount: 0
+          email: email
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          isExternal: true
+          lastPasswordChangeTime: 2000-01-23T04:56:07.000+00:00
+          lockoutEnabled: true
+          extraProperties:
+            key: "{}"
+          userName: userName
+          phoneNumber: phoneNumber
+          tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          claims:
+          - claimType: claimType
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            claimValue: claimValue
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - claimType: claimType
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            claimValue: claimValue
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          concurrencyStamp: concurrencyStamp
+          deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          logins:
+          - providerDisplayName: providerDisplayName
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            providerKey: providerKey
+          - providerDisplayName: providerDisplayName
+            tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            loginProvider: loginProvider
+            userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            providerKey: providerKey
+          securityStamp: securityStamp
+        platform: platform
+        deviceToken: deviceToken
+        recordId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDeleted: true
+        lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ok: true
         statusCode: statusCode
       properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        creationTime:
+          format: date-time
+          readOnly: true
+          type: string
+        creatorId:
+          format: uuid
+          readOnly: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          type: string
+        lastModifierId:
+          format: uuid
+          type: string
+        isDeleted:
+          type: boolean
+        deleterId:
+          format: uuid
+          type: string
+        deletionTime:
+          format: date-time
+          type: string
+        deleter:
+          $ref: '#/components/schemas/IdentityUser'
+        creator:
+          $ref: '#/components/schemas/IdentityUser'
+        lastModifier:
+          $ref: '#/components/schemas/IdentityUser'
+        orderId:
+          format: uuid
+          type: string
+        receiptData:
+          type: string
+        platform:
+          type: string
+        deviceToken:
+          type: string
         ok:
           type: boolean
         statusCode:
           type: string
         message:
+          type: string
+        resultData:
+          type: string
+        recordId:
+          format: uuid
           type: string
         appleVerifyReceiptResult:
           $ref: '#/components/schemas/AppleVerifyReceiptResult'

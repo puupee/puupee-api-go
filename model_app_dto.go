@@ -45,6 +45,7 @@ type AppDto struct {
 	BusinessUrl *string `json:"businessUrl,omitempty"`
 	SubscriptionEnabled *bool `json:"subscriptionEnabled,omitempty"`
 	SubscriptionPlatforms *string `json:"subscriptionPlatforms,omitempty"`
+	SpecJsonSchema *string `json:"specJsonSchema,omitempty"`
 	LatestReleases []AppReleaseDto `json:"latestReleases,omitempty"`
 	Creator *IdentityUserDto `json:"creator,omitempty"`
 	Features []AppFeatureDto `json:"features,omitempty"`
@@ -868,6 +869,38 @@ func (o *AppDto) SetSubscriptionPlatforms(v string) {
 	o.SubscriptionPlatforms = &v
 }
 
+// GetSpecJsonSchema returns the SpecJsonSchema field value if set, zero value otherwise.
+func (o *AppDto) GetSpecJsonSchema() string {
+	if o == nil || IsNil(o.SpecJsonSchema) {
+		var ret string
+		return ret
+	}
+	return *o.SpecJsonSchema
+}
+
+// GetSpecJsonSchemaOk returns a tuple with the SpecJsonSchema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetSpecJsonSchemaOk() (*string, bool) {
+	if o == nil || IsNil(o.SpecJsonSchema) {
+		return nil, false
+	}
+	return o.SpecJsonSchema, true
+}
+
+// HasSpecJsonSchema returns a boolean if a field has been set.
+func (o *AppDto) HasSpecJsonSchema() bool {
+	if o != nil && !IsNil(o.SpecJsonSchema) {
+		return true
+	}
+
+	return false
+}
+
+// SetSpecJsonSchema gets a reference to the given string and assigns it to the SpecJsonSchema field.
+func (o *AppDto) SetSpecJsonSchema(v string) {
+	o.SpecJsonSchema = &v
+}
+
 // GetLatestReleases returns the LatestReleases field value if set, zero value otherwise.
 func (o *AppDto) GetLatestReleases() []AppReleaseDto {
 	if o == nil || IsNil(o.LatestReleases) {
@@ -1080,6 +1113,9 @@ func (o AppDto) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SubscriptionPlatforms) {
 		toSerialize["subscriptionPlatforms"] = o.SubscriptionPlatforms
+	}
+	if !IsNil(o.SpecJsonSchema) {
+		toSerialize["specJsonSchema"] = o.SpecJsonSchema
 	}
 	if !IsNil(o.LatestReleases) {
 		toSerialize["latestReleases"] = o.LatestReleases

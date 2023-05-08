@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewAnv2() // Anv2 |  (optional)
+    body := *openapiclient.NewAppleNotificaionDto() // AppleNotificaionDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiApiAppSubscriptionAppleNot
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Anv2**](Anv2.md) |  | 
+ **body** | [**AppleNotificaionDto**](AppleNotificaionDto.md) |  | 
 
 ### Return type
 
@@ -220,7 +220,7 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewVerifyReceiptDto() // VerifyReceiptDto |  (optional)
+    body := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", "Platform_example", "DeviceToken_example") // VerifyReceiptDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

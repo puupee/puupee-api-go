@@ -1,4 +1,4 @@
-# CreateOrGetSubscriptionOrderDto
+# AppRunDto
 
 ## Properties
 
@@ -13,328 +13,328 @@ Name | Type | Description | Notes
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
-**PricingId** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to [**SubscriptionOrderType**](SubscriptionOrderType.md) |  | [optional] 
-**ProductId** | Pointer to **string** |  | [optional] 
+**AppName** | Pointer to **string** |  | [optional] 
+**Args** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
+**Envs** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
 
 ## Methods
 
-### NewCreateOrGetSubscriptionOrderDto
+### NewAppRunDto
 
-`func NewCreateOrGetSubscriptionOrderDto() *CreateOrGetSubscriptionOrderDto`
+`func NewAppRunDto() *AppRunDto`
 
-NewCreateOrGetSubscriptionOrderDto instantiates a new CreateOrGetSubscriptionOrderDto object
+NewAppRunDto instantiates a new AppRunDto object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewCreateOrGetSubscriptionOrderDtoWithDefaults
+### NewAppRunDtoWithDefaults
 
-`func NewCreateOrGetSubscriptionOrderDtoWithDefaults() *CreateOrGetSubscriptionOrderDto`
+`func NewAppRunDtoWithDefaults() *AppRunDto`
 
-NewCreateOrGetSubscriptionOrderDtoWithDefaults instantiates a new CreateOrGetSubscriptionOrderDto object
+NewAppRunDtoWithDefaults instantiates a new AppRunDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetId() string`
+`func (o *AppRunDto) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetIdOk() (*string, bool)`
+`func (o *AppRunDto) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetId(v string)`
+`func (o *AppRunDto) SetId(v string)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasId() bool`
+`func (o *AppRunDto) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetCreationTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetCreationTime() time.Time`
+`func (o *AppRunDto) GetCreationTime() time.Time`
 
 GetCreationTime returns the CreationTime field if non-nil, zero value otherwise.
 
 ### GetCreationTimeOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetCreationTimeOk() (*time.Time, bool)`
+`func (o *AppRunDto) GetCreationTimeOk() (*time.Time, bool)`
 
 GetCreationTimeOk returns a tuple with the CreationTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreationTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetCreationTime(v time.Time)`
+`func (o *AppRunDto) SetCreationTime(v time.Time)`
 
 SetCreationTime sets CreationTime field to given value.
 
 ### HasCreationTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasCreationTime() bool`
+`func (o *AppRunDto) HasCreationTime() bool`
 
 HasCreationTime returns a boolean if a field has been set.
 
 ### GetCreatorId
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetCreatorId() string`
+`func (o *AppRunDto) GetCreatorId() string`
 
 GetCreatorId returns the CreatorId field if non-nil, zero value otherwise.
 
 ### GetCreatorIdOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetCreatorIdOk() (*string, bool)`
+`func (o *AppRunDto) GetCreatorIdOk() (*string, bool)`
 
 GetCreatorIdOk returns a tuple with the CreatorId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatorId
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetCreatorId(v string)`
+`func (o *AppRunDto) SetCreatorId(v string)`
 
 SetCreatorId sets CreatorId field to given value.
 
 ### HasCreatorId
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasCreatorId() bool`
+`func (o *AppRunDto) HasCreatorId() bool`
 
 HasCreatorId returns a boolean if a field has been set.
 
 ### GetLastModificationTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetLastModificationTime() time.Time`
+`func (o *AppRunDto) GetLastModificationTime() time.Time`
 
 GetLastModificationTime returns the LastModificationTime field if non-nil, zero value otherwise.
 
 ### GetLastModificationTimeOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetLastModificationTimeOk() (*time.Time, bool)`
+`func (o *AppRunDto) GetLastModificationTimeOk() (*time.Time, bool)`
 
 GetLastModificationTimeOk returns a tuple with the LastModificationTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastModificationTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetLastModificationTime(v time.Time)`
+`func (o *AppRunDto) SetLastModificationTime(v time.Time)`
 
 SetLastModificationTime sets LastModificationTime field to given value.
 
 ### HasLastModificationTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasLastModificationTime() bool`
+`func (o *AppRunDto) HasLastModificationTime() bool`
 
 HasLastModificationTime returns a boolean if a field has been set.
 
 ### GetLastModifierId
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetLastModifierId() string`
+`func (o *AppRunDto) GetLastModifierId() string`
 
 GetLastModifierId returns the LastModifierId field if non-nil, zero value otherwise.
 
 ### GetLastModifierIdOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetLastModifierIdOk() (*string, bool)`
+`func (o *AppRunDto) GetLastModifierIdOk() (*string, bool)`
 
 GetLastModifierIdOk returns a tuple with the LastModifierId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastModifierId
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetLastModifierId(v string)`
+`func (o *AppRunDto) SetLastModifierId(v string)`
 
 SetLastModifierId sets LastModifierId field to given value.
 
 ### HasLastModifierId
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasLastModifierId() bool`
+`func (o *AppRunDto) HasLastModifierId() bool`
 
 HasLastModifierId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetIsDeleted() bool`
+`func (o *AppRunDto) GetIsDeleted() bool`
 
 GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
 
 ### GetIsDeletedOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetIsDeletedOk() (*bool, bool)`
+`func (o *AppRunDto) GetIsDeletedOk() (*bool, bool)`
 
 GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsDeleted
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetIsDeleted(v bool)`
+`func (o *AppRunDto) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
 
 ### HasIsDeleted
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasIsDeleted() bool`
+`func (o *AppRunDto) HasIsDeleted() bool`
 
 HasIsDeleted returns a boolean if a field has been set.
 
 ### GetDeleterId
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetDeleterId() string`
+`func (o *AppRunDto) GetDeleterId() string`
 
 GetDeleterId returns the DeleterId field if non-nil, zero value otherwise.
 
 ### GetDeleterIdOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetDeleterIdOk() (*string, bool)`
+`func (o *AppRunDto) GetDeleterIdOk() (*string, bool)`
 
 GetDeleterIdOk returns a tuple with the DeleterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeleterId
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetDeleterId(v string)`
+`func (o *AppRunDto) SetDeleterId(v string)`
 
 SetDeleterId sets DeleterId field to given value.
 
 ### HasDeleterId
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasDeleterId() bool`
+`func (o *AppRunDto) HasDeleterId() bool`
 
 HasDeleterId returns a boolean if a field has been set.
 
 ### GetDeletionTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetDeletionTime() time.Time`
+`func (o *AppRunDto) GetDeletionTime() time.Time`
 
 GetDeletionTime returns the DeletionTime field if non-nil, zero value otherwise.
 
 ### GetDeletionTimeOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetDeletionTimeOk() (*time.Time, bool)`
+`func (o *AppRunDto) GetDeletionTimeOk() (*time.Time, bool)`
 
 GetDeletionTimeOk returns a tuple with the DeletionTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeletionTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetDeletionTime(v time.Time)`
+`func (o *AppRunDto) SetDeletionTime(v time.Time)`
 
 SetDeletionTime sets DeletionTime field to given value.
 
 ### HasDeletionTime
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasDeletionTime() bool`
+`func (o *AppRunDto) HasDeletionTime() bool`
 
 HasDeletionTime returns a boolean if a field has been set.
 
 ### GetAppId
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetAppId() string`
+`func (o *AppRunDto) GetAppId() string`
 
 GetAppId returns the AppId field if non-nil, zero value otherwise.
 
 ### GetAppIdOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetAppIdOk() (*string, bool)`
+`func (o *AppRunDto) GetAppIdOk() (*string, bool)`
 
 GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppId
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetAppId(v string)`
+`func (o *AppRunDto) SetAppId(v string)`
 
 SetAppId sets AppId field to given value.
 
 ### HasAppId
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasAppId() bool`
+`func (o *AppRunDto) HasAppId() bool`
 
 HasAppId returns a boolean if a field has been set.
 
-### GetPricingId
+### GetAppName
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetPricingId() string`
+`func (o *AppRunDto) GetAppName() string`
 
-GetPricingId returns the PricingId field if non-nil, zero value otherwise.
+GetAppName returns the AppName field if non-nil, zero value otherwise.
 
-### GetPricingIdOk
+### GetAppNameOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetPricingIdOk() (*string, bool)`
+`func (o *AppRunDto) GetAppNameOk() (*string, bool)`
 
-GetPricingIdOk returns a tuple with the PricingId field if it's non-nil, zero value otherwise
+GetAppNameOk returns a tuple with the AppName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPricingId
+### SetAppName
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetPricingId(v string)`
+`func (o *AppRunDto) SetAppName(v string)`
 
-SetPricingId sets PricingId field to given value.
+SetAppName sets AppName field to given value.
 
-### HasPricingId
+### HasAppName
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasPricingId() bool`
+`func (o *AppRunDto) HasAppName() bool`
 
-HasPricingId returns a boolean if a field has been set.
+HasAppName returns a boolean if a field has been set.
 
-### GetType
+### GetArgs
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetType() SubscriptionOrderType`
+`func (o *AppRunDto) GetArgs() map[string]map[string]interface{}`
 
-GetType returns the Type field if non-nil, zero value otherwise.
+GetArgs returns the Args field if non-nil, zero value otherwise.
 
-### GetTypeOk
+### GetArgsOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetTypeOk() (*SubscriptionOrderType, bool)`
+`func (o *AppRunDto) GetArgsOk() (*map[string]map[string]interface{}, bool)`
 
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+GetArgsOk returns a tuple with the Args field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetType
+### SetArgs
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetType(v SubscriptionOrderType)`
+`func (o *AppRunDto) SetArgs(v map[string]map[string]interface{})`
 
-SetType sets Type field to given value.
+SetArgs sets Args field to given value.
 
-### HasType
+### HasArgs
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasType() bool`
+`func (o *AppRunDto) HasArgs() bool`
 
-HasType returns a boolean if a field has been set.
+HasArgs returns a boolean if a field has been set.
 
-### GetProductId
+### GetEnvs
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetProductId() string`
+`func (o *AppRunDto) GetEnvs() map[string]map[string]interface{}`
 
-GetProductId returns the ProductId field if non-nil, zero value otherwise.
+GetEnvs returns the Envs field if non-nil, zero value otherwise.
 
-### GetProductIdOk
+### GetEnvsOk
 
-`func (o *CreateOrGetSubscriptionOrderDto) GetProductIdOk() (*string, bool)`
+`func (o *AppRunDto) GetEnvsOk() (*map[string]map[string]interface{}, bool)`
 
-GetProductIdOk returns a tuple with the ProductId field if it's non-nil, zero value otherwise
+GetEnvsOk returns a tuple with the Envs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProductId
+### SetEnvs
 
-`func (o *CreateOrGetSubscriptionOrderDto) SetProductId(v string)`
+`func (o *AppRunDto) SetEnvs(v map[string]map[string]interface{})`
 
-SetProductId sets ProductId field to given value.
+SetEnvs sets Envs field to given value.
 
-### HasProductId
+### HasEnvs
 
-`func (o *CreateOrGetSubscriptionOrderDto) HasProductId() bool`
+`func (o *AppRunDto) HasEnvs() bool`
 
-HasProductId returns a boolean if a field has been set.
+HasEnvs returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

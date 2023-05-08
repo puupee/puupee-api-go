@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Environment** | Pointer to **string** |  | [optional] 
 **IsRetryable** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to **int32** |  | [optional] 
+**Status** | Pointer to [**AppleVerifyRecceiptStatus**](AppleVerifyRecceiptStatus.md) |  | [optional] 
 **LatestReceiptInfo** | Pointer to [**[]LatestReceiptInfo**](LatestReceiptInfo.md) |  | [optional] 
 **LatestReceipt** | Pointer to **string** |  | [optional] 
 **PendingRenewalInfo** | Pointer to [**[]PendingRenewalInfo**](PendingRenewalInfo.md) |  | [optional] 
@@ -83,20 +83,20 @@ HasIsRetryable returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *AppleVerifyReceiptResult) GetStatus() int32`
+`func (o *AppleVerifyReceiptResult) GetStatus() AppleVerifyRecceiptStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *AppleVerifyReceiptResult) GetStatusOk() (*int32, bool)`
+`func (o *AppleVerifyReceiptResult) GetStatusOk() (*AppleVerifyRecceiptStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *AppleVerifyReceiptResult) SetStatus(v int32)`
+`func (o *AppleVerifyReceiptResult) SetStatus(v AppleVerifyRecceiptStatus)`
 
 SetStatus sets Status field to given value.
 

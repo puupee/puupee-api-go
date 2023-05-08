@@ -25,10 +25,10 @@ type SubscriptionApiService service
 type ApiApiAppSubscriptionAppleNotificationsPostRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionApiService
-	body *Anv2
+	body *AppleNotificaionDto
 }
 
-func (r ApiApiAppSubscriptionAppleNotificationsPostRequest) Body(body Anv2) ApiApiAppSubscriptionAppleNotificationsPostRequest {
+func (r ApiApiAppSubscriptionAppleNotificationsPostRequest) Body(body AppleNotificaionDto) ApiApiAppSubscriptionAppleNotificationsPostRequest {
 	r.body = &body
 	return r
 }

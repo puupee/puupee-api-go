@@ -15,11 +15,11 @@ import (
 	"time"
 )
 
-// checks if the SubscriptionOrderDto type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &SubscriptionOrderDto{}
+// checks if the AppRunDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AppRunDto{}
 
-// SubscriptionOrderDto struct for SubscriptionOrderDto
-type SubscriptionOrderDto struct {
+// AppRunDto struct for AppRunDto
+type AppRunDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
 	CreatorId *string `json:"creatorId,omitempty"`
@@ -28,32 +28,31 @@ type SubscriptionOrderDto struct {
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	DeleterId *string `json:"deleterId,omitempty"`
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	Type *SubscriptionOrderType `json:"type,omitempty"`
-	Status *SubscriptionOrderStatus `json:"status,omitempty"`
 	AppId *string `json:"appId,omitempty"`
-	PricingId *string `json:"pricingId,omitempty"`
-	ProductId *string `json:"productId,omitempty"`
+	AppName *string `json:"appName,omitempty"`
+	Args map[string]map[string]interface{} `json:"args,omitempty"`
+	Envs map[string]map[string]interface{} `json:"envs,omitempty"`
 }
 
-// NewSubscriptionOrderDto instantiates a new SubscriptionOrderDto object
+// NewAppRunDto instantiates a new AppRunDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionOrderDto() *SubscriptionOrderDto {
-	this := SubscriptionOrderDto{}
+func NewAppRunDto() *AppRunDto {
+	this := AppRunDto{}
 	return &this
 }
 
-// NewSubscriptionOrderDtoWithDefaults instantiates a new SubscriptionOrderDto object
+// NewAppRunDtoWithDefaults instantiates a new AppRunDto object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSubscriptionOrderDtoWithDefaults() *SubscriptionOrderDto {
-	this := SubscriptionOrderDto{}
+func NewAppRunDtoWithDefaults() *AppRunDto {
+	this := AppRunDto{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetId() string {
+func (o *AppRunDto) GetId() string {
 	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
@@ -63,7 +62,7 @@ func (o *SubscriptionOrderDto) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetIdOk() (*string, bool) {
+func (o *AppRunDto) GetIdOk() (*string, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -71,7 +70,7 @@ func (o *SubscriptionOrderDto) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasId() bool {
+func (o *AppRunDto) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -80,12 +79,12 @@ func (o *SubscriptionOrderDto) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *SubscriptionOrderDto) SetId(v string) {
+func (o *AppRunDto) SetId(v string) {
 	o.Id = &v
 }
 
 // GetCreationTime returns the CreationTime field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetCreationTime() time.Time {
+func (o *AppRunDto) GetCreationTime() time.Time {
 	if o == nil || IsNil(o.CreationTime) {
 		var ret time.Time
 		return ret
@@ -95,7 +94,7 @@ func (o *SubscriptionOrderDto) GetCreationTime() time.Time {
 
 // GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetCreationTimeOk() (*time.Time, bool) {
+func (o *AppRunDto) GetCreationTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.CreationTime) {
 		return nil, false
 	}
@@ -103,7 +102,7 @@ func (o *SubscriptionOrderDto) GetCreationTimeOk() (*time.Time, bool) {
 }
 
 // HasCreationTime returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasCreationTime() bool {
+func (o *AppRunDto) HasCreationTime() bool {
 	if o != nil && !IsNil(o.CreationTime) {
 		return true
 	}
@@ -112,12 +111,12 @@ func (o *SubscriptionOrderDto) HasCreationTime() bool {
 }
 
 // SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
-func (o *SubscriptionOrderDto) SetCreationTime(v time.Time) {
+func (o *AppRunDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
 // GetCreatorId returns the CreatorId field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetCreatorId() string {
+func (o *AppRunDto) GetCreatorId() string {
 	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
@@ -127,7 +126,7 @@ func (o *SubscriptionOrderDto) GetCreatorId() string {
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetCreatorIdOk() (*string, bool) {
+func (o *AppRunDto) GetCreatorIdOk() (*string, bool) {
 	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
@@ -135,7 +134,7 @@ func (o *SubscriptionOrderDto) GetCreatorIdOk() (*string, bool) {
 }
 
 // HasCreatorId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasCreatorId() bool {
+func (o *AppRunDto) HasCreatorId() bool {
 	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
@@ -144,12 +143,12 @@ func (o *SubscriptionOrderDto) HasCreatorId() bool {
 }
 
 // SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
-func (o *SubscriptionOrderDto) SetCreatorId(v string) {
+func (o *AppRunDto) SetCreatorId(v string) {
 	o.CreatorId = &v
 }
 
 // GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetLastModificationTime() time.Time {
+func (o *AppRunDto) GetLastModificationTime() time.Time {
 	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
@@ -159,7 +158,7 @@ func (o *SubscriptionOrderDto) GetLastModificationTime() time.Time {
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetLastModificationTimeOk() (*time.Time, bool) {
+func (o *AppRunDto) GetLastModificationTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
@@ -167,7 +166,7 @@ func (o *SubscriptionOrderDto) GetLastModificationTimeOk() (*time.Time, bool) {
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasLastModificationTime() bool {
+func (o *AppRunDto) HasLastModificationTime() bool {
 	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
@@ -176,12 +175,12 @@ func (o *SubscriptionOrderDto) HasLastModificationTime() bool {
 }
 
 // SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
-func (o *SubscriptionOrderDto) SetLastModificationTime(v time.Time) {
+func (o *AppRunDto) SetLastModificationTime(v time.Time) {
 	o.LastModificationTime = &v
 }
 
 // GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetLastModifierId() string {
+func (o *AppRunDto) GetLastModifierId() string {
 	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
@@ -191,7 +190,7 @@ func (o *SubscriptionOrderDto) GetLastModifierId() string {
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetLastModifierIdOk() (*string, bool) {
+func (o *AppRunDto) GetLastModifierIdOk() (*string, bool) {
 	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
@@ -199,7 +198,7 @@ func (o *SubscriptionOrderDto) GetLastModifierIdOk() (*string, bool) {
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasLastModifierId() bool {
+func (o *AppRunDto) HasLastModifierId() bool {
 	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
@@ -208,12 +207,12 @@ func (o *SubscriptionOrderDto) HasLastModifierId() bool {
 }
 
 // SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
-func (o *SubscriptionOrderDto) SetLastModifierId(v string) {
+func (o *AppRunDto) SetLastModifierId(v string) {
 	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetIsDeleted() bool {
+func (o *AppRunDto) GetIsDeleted() bool {
 	if o == nil || IsNil(o.IsDeleted) {
 		var ret bool
 		return ret
@@ -223,7 +222,7 @@ func (o *SubscriptionOrderDto) GetIsDeleted() bool {
 
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetIsDeletedOk() (*bool, bool) {
+func (o *AppRunDto) GetIsDeletedOk() (*bool, bool) {
 	if o == nil || IsNil(o.IsDeleted) {
 		return nil, false
 	}
@@ -231,7 +230,7 @@ func (o *SubscriptionOrderDto) GetIsDeletedOk() (*bool, bool) {
 }
 
 // HasIsDeleted returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasIsDeleted() bool {
+func (o *AppRunDto) HasIsDeleted() bool {
 	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
@@ -240,12 +239,12 @@ func (o *SubscriptionOrderDto) HasIsDeleted() bool {
 }
 
 // SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
-func (o *SubscriptionOrderDto) SetIsDeleted(v bool) {
+func (o *AppRunDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
 // GetDeleterId returns the DeleterId field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetDeleterId() string {
+func (o *AppRunDto) GetDeleterId() string {
 	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
@@ -255,7 +254,7 @@ func (o *SubscriptionOrderDto) GetDeleterId() string {
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetDeleterIdOk() (*string, bool) {
+func (o *AppRunDto) GetDeleterIdOk() (*string, bool) {
 	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
@@ -263,7 +262,7 @@ func (o *SubscriptionOrderDto) GetDeleterIdOk() (*string, bool) {
 }
 
 // HasDeleterId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasDeleterId() bool {
+func (o *AppRunDto) HasDeleterId() bool {
 	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
@@ -272,12 +271,12 @@ func (o *SubscriptionOrderDto) HasDeleterId() bool {
 }
 
 // SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
-func (o *SubscriptionOrderDto) SetDeleterId(v string) {
+func (o *AppRunDto) SetDeleterId(v string) {
 	o.DeleterId = &v
 }
 
 // GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetDeletionTime() time.Time {
+func (o *AppRunDto) GetDeletionTime() time.Time {
 	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
@@ -287,7 +286,7 @@ func (o *SubscriptionOrderDto) GetDeletionTime() time.Time {
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetDeletionTimeOk() (*time.Time, bool) {
+func (o *AppRunDto) GetDeletionTimeOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
@@ -295,7 +294,7 @@ func (o *SubscriptionOrderDto) GetDeletionTimeOk() (*time.Time, bool) {
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasDeletionTime() bool {
+func (o *AppRunDto) HasDeletionTime() bool {
 	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
@@ -304,76 +303,12 @@ func (o *SubscriptionOrderDto) HasDeletionTime() bool {
 }
 
 // SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
-func (o *SubscriptionOrderDto) SetDeletionTime(v time.Time) {
+func (o *AppRunDto) SetDeletionTime(v time.Time) {
 	o.DeletionTime = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetType() SubscriptionOrderType {
-	if o == nil || IsNil(o.Type) {
-		var ret SubscriptionOrderType
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetTypeOk() (*SubscriptionOrderType, bool) {
-	if o == nil || IsNil(o.Type) {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given SubscriptionOrderType and assigns it to the Type field.
-func (o *SubscriptionOrderDto) SetType(v SubscriptionOrderType) {
-	o.Type = &v
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetStatus() SubscriptionOrderStatus {
-	if o == nil || IsNil(o.Status) {
-		var ret SubscriptionOrderStatus
-		return ret
-	}
-	return *o.Status
-}
-
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetStatusOk() (*SubscriptionOrderStatus, bool) {
-	if o == nil || IsNil(o.Status) {
-		return nil, false
-	}
-	return o.Status, true
-}
-
-// HasStatus returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given SubscriptionOrderStatus and assigns it to the Status field.
-func (o *SubscriptionOrderDto) SetStatus(v SubscriptionOrderStatus) {
-	o.Status = &v
-}
-
 // GetAppId returns the AppId field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetAppId() string {
+func (o *AppRunDto) GetAppId() string {
 	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
@@ -383,7 +318,7 @@ func (o *SubscriptionOrderDto) GetAppId() string {
 
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetAppIdOk() (*string, bool) {
+func (o *AppRunDto) GetAppIdOk() (*string, bool) {
 	if o == nil || IsNil(o.AppId) {
 		return nil, false
 	}
@@ -391,7 +326,7 @@ func (o *SubscriptionOrderDto) GetAppIdOk() (*string, bool) {
 }
 
 // HasAppId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasAppId() bool {
+func (o *AppRunDto) HasAppId() bool {
 	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
@@ -400,75 +335,107 @@ func (o *SubscriptionOrderDto) HasAppId() bool {
 }
 
 // SetAppId gets a reference to the given string and assigns it to the AppId field.
-func (o *SubscriptionOrderDto) SetAppId(v string) {
+func (o *AppRunDto) SetAppId(v string) {
 	o.AppId = &v
 }
 
-// GetPricingId returns the PricingId field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetPricingId() string {
-	if o == nil || IsNil(o.PricingId) {
+// GetAppName returns the AppName field value if set, zero value otherwise.
+func (o *AppRunDto) GetAppName() string {
+	if o == nil || IsNil(o.AppName) {
 		var ret string
 		return ret
 	}
-	return *o.PricingId
+	return *o.AppName
 }
 
-// GetPricingIdOk returns a tuple with the PricingId field value if set, nil otherwise
+// GetAppNameOk returns a tuple with the AppName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetPricingIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PricingId) {
+func (o *AppRunDto) GetAppNameOk() (*string, bool) {
+	if o == nil || IsNil(o.AppName) {
 		return nil, false
 	}
-	return o.PricingId, true
+	return o.AppName, true
 }
 
-// HasPricingId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasPricingId() bool {
-	if o != nil && !IsNil(o.PricingId) {
+// HasAppName returns a boolean if a field has been set.
+func (o *AppRunDto) HasAppName() bool {
+	if o != nil && !IsNil(o.AppName) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricingId gets a reference to the given string and assigns it to the PricingId field.
-func (o *SubscriptionOrderDto) SetPricingId(v string) {
-	o.PricingId = &v
+// SetAppName gets a reference to the given string and assigns it to the AppName field.
+func (o *AppRunDto) SetAppName(v string) {
+	o.AppName = &v
 }
 
-// GetProductId returns the ProductId field value if set, zero value otherwise.
-func (o *SubscriptionOrderDto) GetProductId() string {
-	if o == nil || IsNil(o.ProductId) {
-		var ret string
+// GetArgs returns the Args field value if set, zero value otherwise.
+func (o *AppRunDto) GetArgs() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.Args) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
-	return *o.ProductId
+	return o.Args
 }
 
-// GetProductIdOk returns a tuple with the ProductId field value if set, nil otherwise
+// GetArgsOk returns a tuple with the Args field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionOrderDto) GetProductIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProductId) {
-		return nil, false
+func (o *AppRunDto) GetArgsOk() (map[string]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Args) {
+		return map[string]map[string]interface{}{}, false
 	}
-	return o.ProductId, true
+	return o.Args, true
 }
 
-// HasProductId returns a boolean if a field has been set.
-func (o *SubscriptionOrderDto) HasProductId() bool {
-	if o != nil && !IsNil(o.ProductId) {
+// HasArgs returns a boolean if a field has been set.
+func (o *AppRunDto) HasArgs() bool {
+	if o != nil && !IsNil(o.Args) {
 		return true
 	}
 
 	return false
 }
 
-// SetProductId gets a reference to the given string and assigns it to the ProductId field.
-func (o *SubscriptionOrderDto) SetProductId(v string) {
-	o.ProductId = &v
+// SetArgs gets a reference to the given map[string]map[string]interface{} and assigns it to the Args field.
+func (o *AppRunDto) SetArgs(v map[string]map[string]interface{}) {
+	o.Args = v
 }
 
-func (o SubscriptionOrderDto) MarshalJSON() ([]byte, error) {
+// GetEnvs returns the Envs field value if set, zero value otherwise.
+func (o *AppRunDto) GetEnvs() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.Envs) {
+		var ret map[string]map[string]interface{}
+		return ret
+	}
+	return o.Envs
+}
+
+// GetEnvsOk returns a tuple with the Envs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppRunDto) GetEnvsOk() (map[string]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Envs) {
+		return map[string]map[string]interface{}{}, false
+	}
+	return o.Envs, true
+}
+
+// HasEnvs returns a boolean if a field has been set.
+func (o *AppRunDto) HasEnvs() bool {
+	if o != nil && !IsNil(o.Envs) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnvs gets a reference to the given map[string]map[string]interface{} and assigns it to the Envs field.
+func (o *AppRunDto) SetEnvs(v map[string]map[string]interface{}) {
+	o.Envs = v
+}
+
+func (o AppRunDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -476,7 +443,7 @@ func (o SubscriptionOrderDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SubscriptionOrderDto) ToMap() (map[string]interface{}, error) {
+func (o AppRunDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -502,56 +469,53 @@ func (o SubscriptionOrderDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DeletionTime) {
 		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
 	if !IsNil(o.AppId) {
 		toSerialize["appId"] = o.AppId
 	}
-	if !IsNil(o.PricingId) {
-		toSerialize["pricingId"] = o.PricingId
+	if !IsNil(o.AppName) {
+		toSerialize["appName"] = o.AppName
 	}
-	if !IsNil(o.ProductId) {
-		toSerialize["productId"] = o.ProductId
+	if !IsNil(o.Args) {
+		toSerialize["args"] = o.Args
+	}
+	if !IsNil(o.Envs) {
+		toSerialize["envs"] = o.Envs
 	}
 	return toSerialize, nil
 }
 
-type NullableSubscriptionOrderDto struct {
-	value *SubscriptionOrderDto
+type NullableAppRunDto struct {
+	value *AppRunDto
 	isSet bool
 }
 
-func (v NullableSubscriptionOrderDto) Get() *SubscriptionOrderDto {
+func (v NullableAppRunDto) Get() *AppRunDto {
 	return v.value
 }
 
-func (v *NullableSubscriptionOrderDto) Set(val *SubscriptionOrderDto) {
+func (v *NullableAppRunDto) Set(val *AppRunDto) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSubscriptionOrderDto) IsSet() bool {
+func (v NullableAppRunDto) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSubscriptionOrderDto) Unset() {
+func (v *NullableAppRunDto) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSubscriptionOrderDto(val *SubscriptionOrderDto) *NullableSubscriptionOrderDto {
-	return &NullableSubscriptionOrderDto{value: val, isSet: true}
+func NewNullableAppRunDto(val *AppRunDto) *NullableAppRunDto {
+	return &NullableAppRunDto{value: val, isSet: true}
 }
 
-func (v NullableSubscriptionOrderDto) MarshalJSON() ([]byte, error) {
+func (v NullableAppRunDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSubscriptionOrderDto) UnmarshalJSON(src []byte) error {
+func (v *NullableAppRunDto) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -10,9 +10,11 @@ Method | HTTP request | Description
 [**ApiAppAppIdDelete**](AppApi.md#ApiAppAppIdDelete) | **Delete** /api/app/app/{id} | 
 [**ApiAppAppIdGet**](AppApi.md#ApiAppAppIdGet) | **Get** /api/app/app/{id} | 
 [**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
+[**ApiAppAppIdRunStatePut**](AppApi.md#ApiAppAppIdRunStatePut) | **Put** /api/app/app/{id}/run-state | 
 [**ApiAppAppIdWithUserGet**](AppApi.md#ApiAppAppIdWithUserGet) | **Get** /api/app/app/{id}/with-user | 
 [**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
 [**ApiAppAppPublicGet**](AppApi.md#ApiAppAppPublicGet) | **Get** /api/app/app/public | 
+[**ApiAppAppRunPost**](AppApi.md#ApiAppAppRunPost) | **Post** /api/app/app/run | 
 [**ApiAppAppUploadCredentialsGet**](AppApi.md#ApiAppAppUploadCredentialsGet) | **Get** /api/app/app/upload-credentials | 
 [**ApiAppAppWithUserGet**](AppApi.md#ApiAppAppWithUserGet) | **Get** /api/app/app/with-user | 
 
@@ -420,6 +422,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiAppAppIdRunStatePut
+
+> AppRunRecordDto ApiAppAppIdRunStatePut(ctx, id).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    body := *openapiclient.NewAppRunRecordUpdateDto() // AppRunRecordUpdateDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppAppIdRunStatePut(context.Background(), id).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdRunStatePut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppIdRunStatePut`: AppRunRecordDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdRunStatePut`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppIdRunStatePutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**AppRunRecordUpdateDto**](AppRunRecordUpdateDto.md) |  | 
+
+### Return type
+
+[**AppRunRecordDto**](AppRunRecordDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiAppAppIdWithUserGet
 
 > AppWithUserDto ApiAppAppIdWithUserGet(ctx, id).Execute()
@@ -613,6 +685,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiAppAppRunPost
+
+> AppRunRecordDto ApiAppAppRunPost(ctx).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    body := *openapiclient.NewAppRunDto() // AppRunDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppAppRunPost(context.Background()).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppRunPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiAppAppRunPost`: AppRunRecordDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppRunPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppAppRunPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AppRunDto**](AppRunDto.md) |  | 
+
+### Return type
+
+[**AppRunRecordDto**](AppRunRecordDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

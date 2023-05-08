@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **LockoutEnabled** | Pointer to **bool** |  | [optional] 
 **LockoutEnd** | Pointer to **time.Time** |  | [optional] 
 **ConcurrencyStamp** | Pointer to **string** |  | [optional] 
+**EntityVersion** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -569,6 +570,31 @@ SetConcurrencyStamp sets ConcurrencyStamp field to given value.
 `func (o *IdentityUserDto) HasConcurrencyStamp() bool`
 
 HasConcurrencyStamp returns a boolean if a field has been set.
+
+### GetEntityVersion
+
+`func (o *IdentityUserDto) GetEntityVersion() int32`
+
+GetEntityVersion returns the EntityVersion field if non-nil, zero value otherwise.
+
+### GetEntityVersionOk
+
+`func (o *IdentityUserDto) GetEntityVersionOk() (*int32, bool)`
+
+GetEntityVersionOk returns a tuple with the EntityVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEntityVersion
+
+`func (o *IdentityUserDto) SetEntityVersion(v int32)`
+
+SetEntityVersion sets EntityVersion field to given value.
+
+### HasEntityVersion
+
+`func (o *IdentityUserDto) HasEntityVersion() bool`
+
+HasEntityVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

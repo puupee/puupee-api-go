@@ -12,6 +12,7 @@ package puupee
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the VerifyReceiptResult type satisfies the MappedNullable interface at compile time
@@ -19,9 +20,26 @@ var _ MappedNullable = &VerifyReceiptResult{}
 
 // VerifyReceiptResult struct for VerifyReceiptResult
 type VerifyReceiptResult struct {
+	Id *string `json:"id,omitempty"`
+	CreationTime *time.Time `json:"creationTime,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
+	Deleter *IdentityUser `json:"deleter,omitempty"`
+	Creator *IdentityUser `json:"creator,omitempty"`
+	LastModifier *IdentityUser `json:"lastModifier,omitempty"`
+	OrderId *string `json:"orderId,omitempty"`
+	ReceiptData *string `json:"receiptData,omitempty"`
+	Platform *string `json:"platform,omitempty"`
+	DeviceToken *string `json:"deviceToken,omitempty"`
 	Ok *bool `json:"ok,omitempty"`
 	StatusCode *string `json:"statusCode,omitempty"`
 	Message *string `json:"message,omitempty"`
+	ResultData *string `json:"resultData,omitempty"`
+	RecordId *string `json:"recordId,omitempty"`
 	AppleVerifyReceiptResult *AppleVerifyReceiptResult `json:"appleVerifyReceiptResult,omitempty"`
 }
 
@@ -40,6 +58,486 @@ func NewVerifyReceiptResult() *VerifyReceiptResult {
 func NewVerifyReceiptResultWithDefaults() *VerifyReceiptResult {
 	this := VerifyReceiptResult{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *VerifyReceiptResult) SetId(v string) {
+	o.Id = &v
+}
+
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetCreationTime() time.Time {
+	if o == nil || IsNil(o.CreationTime) {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreationTime
+}
+
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetCreationTimeOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.CreationTime) {
+		return nil, false
+	}
+	return o.CreationTime, true
+}
+
+// HasCreationTime returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasCreationTime() bool {
+	if o != nil && !IsNil(o.CreationTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationTime gets a reference to the given time.Time and assigns it to the CreationTime field.
+func (o *VerifyReceiptResult) SetCreationTime(v time.Time) {
+	o.CreationTime = &v
+}
+
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetCreatorId() string {
+	if o == nil || IsNil(o.CreatorId) {
+		var ret string
+		return ret
+	}
+	return *o.CreatorId
+}
+
+// GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetCreatorIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatorId) {
+		return nil, false
+	}
+	return o.CreatorId, true
+}
+
+// HasCreatorId returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasCreatorId() bool {
+	if o != nil && !IsNil(o.CreatorId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
+func (o *VerifyReceiptResult) SetCreatorId(v string) {
+	o.CreatorId = &v
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetLastModificationTime() time.Time {
+	if o == nil || IsNil(o.LastModificationTime) {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastModificationTime
+}
+
+// GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetLastModificationTimeOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.LastModificationTime) {
+		return nil, false
+	}
+	return o.LastModificationTime, true
+}
+
+// HasLastModificationTime returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasLastModificationTime() bool {
+	if o != nil && !IsNil(o.LastModificationTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+func (o *VerifyReceiptResult) SetLastModificationTime(v time.Time) {
+	o.LastModificationTime = &v
+}
+
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetLastModifierId() string {
+	if o == nil || IsNil(o.LastModifierId) {
+		var ret string
+		return ret
+	}
+	return *o.LastModifierId
+}
+
+// GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetLastModifierIdOk() (*string, bool) {
+	if o == nil || IsNil(o.LastModifierId) {
+		return nil, false
+	}
+	return o.LastModifierId, true
+}
+
+// HasLastModifierId returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasLastModifierId() bool {
+	if o != nil && !IsNil(o.LastModifierId) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
+func (o *VerifyReceiptResult) SetLastModifierId(v string) {
+	o.LastModifierId = &v
+}
+
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetIsDeleted() bool {
+	if o == nil || IsNil(o.IsDeleted) {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsDeleted) {
+		return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasIsDeleted() bool {
+	if o != nil && !IsNil(o.IsDeleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *VerifyReceiptResult) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetDeleterId() string {
+	if o == nil || IsNil(o.DeleterId) {
+		var ret string
+		return ret
+	}
+	return *o.DeleterId
+}
+
+// GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetDeleterIdOk() (*string, bool) {
+	if o == nil || IsNil(o.DeleterId) {
+		return nil, false
+	}
+	return o.DeleterId, true
+}
+
+// HasDeleterId returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasDeleterId() bool {
+	if o != nil && !IsNil(o.DeleterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
+func (o *VerifyReceiptResult) SetDeleterId(v string) {
+	o.DeleterId = &v
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetDeletionTime() time.Time {
+	if o == nil || IsNil(o.DeletionTime) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DeletionTime
+}
+
+// GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetDeletionTimeOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.DeletionTime) {
+		return nil, false
+	}
+	return o.DeletionTime, true
+}
+
+// HasDeletionTime returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasDeletionTime() bool {
+	if o != nil && !IsNil(o.DeletionTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
+func (o *VerifyReceiptResult) SetDeletionTime(v time.Time) {
+	o.DeletionTime = &v
+}
+
+// GetDeleter returns the Deleter field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetDeleter() IdentityUser {
+	if o == nil || IsNil(o.Deleter) {
+		var ret IdentityUser
+		return ret
+	}
+	return *o.Deleter
+}
+
+// GetDeleterOk returns a tuple with the Deleter field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetDeleterOk() (*IdentityUser, bool) {
+	if o == nil || IsNil(o.Deleter) {
+		return nil, false
+	}
+	return o.Deleter, true
+}
+
+// HasDeleter returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasDeleter() bool {
+	if o != nil && !IsNil(o.Deleter) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleter gets a reference to the given IdentityUser and assigns it to the Deleter field.
+func (o *VerifyReceiptResult) SetDeleter(v IdentityUser) {
+	o.Deleter = &v
+}
+
+// GetCreator returns the Creator field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetCreator() IdentityUser {
+	if o == nil || IsNil(o.Creator) {
+		var ret IdentityUser
+		return ret
+	}
+	return *o.Creator
+}
+
+// GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetCreatorOk() (*IdentityUser, bool) {
+	if o == nil || IsNil(o.Creator) {
+		return nil, false
+	}
+	return o.Creator, true
+}
+
+// HasCreator returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasCreator() bool {
+	if o != nil && !IsNil(o.Creator) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreator gets a reference to the given IdentityUser and assigns it to the Creator field.
+func (o *VerifyReceiptResult) SetCreator(v IdentityUser) {
+	o.Creator = &v
+}
+
+// GetLastModifier returns the LastModifier field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetLastModifier() IdentityUser {
+	if o == nil || IsNil(o.LastModifier) {
+		var ret IdentityUser
+		return ret
+	}
+	return *o.LastModifier
+}
+
+// GetLastModifierOk returns a tuple with the LastModifier field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetLastModifierOk() (*IdentityUser, bool) {
+	if o == nil || IsNil(o.LastModifier) {
+		return nil, false
+	}
+	return o.LastModifier, true
+}
+
+// HasLastModifier returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasLastModifier() bool {
+	if o != nil && !IsNil(o.LastModifier) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastModifier gets a reference to the given IdentityUser and assigns it to the LastModifier field.
+func (o *VerifyReceiptResult) SetLastModifier(v IdentityUser) {
+	o.LastModifier = &v
+}
+
+// GetOrderId returns the OrderId field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetOrderId() string {
+	if o == nil || IsNil(o.OrderId) {
+		var ret string
+		return ret
+	}
+	return *o.OrderId
+}
+
+// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetOrderIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrderId) {
+		return nil, false
+	}
+	return o.OrderId, true
+}
+
+// HasOrderId returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasOrderId() bool {
+	if o != nil && !IsNil(o.OrderId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderId gets a reference to the given string and assigns it to the OrderId field.
+func (o *VerifyReceiptResult) SetOrderId(v string) {
+	o.OrderId = &v
+}
+
+// GetReceiptData returns the ReceiptData field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetReceiptData() string {
+	if o == nil || IsNil(o.ReceiptData) {
+		var ret string
+		return ret
+	}
+	return *o.ReceiptData
+}
+
+// GetReceiptDataOk returns a tuple with the ReceiptData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetReceiptDataOk() (*string, bool) {
+	if o == nil || IsNil(o.ReceiptData) {
+		return nil, false
+	}
+	return o.ReceiptData, true
+}
+
+// HasReceiptData returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasReceiptData() bool {
+	if o != nil && !IsNil(o.ReceiptData) {
+		return true
+	}
+
+	return false
+}
+
+// SetReceiptData gets a reference to the given string and assigns it to the ReceiptData field.
+func (o *VerifyReceiptResult) SetReceiptData(v string) {
+	o.ReceiptData = &v
+}
+
+// GetPlatform returns the Platform field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetPlatform() string {
+	if o == nil || IsNil(o.Platform) {
+		var ret string
+		return ret
+	}
+	return *o.Platform
+}
+
+// GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetPlatformOk() (*string, bool) {
+	if o == nil || IsNil(o.Platform) {
+		return nil, false
+	}
+	return o.Platform, true
+}
+
+// HasPlatform returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasPlatform() bool {
+	if o != nil && !IsNil(o.Platform) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
+func (o *VerifyReceiptResult) SetPlatform(v string) {
+	o.Platform = &v
+}
+
+// GetDeviceToken returns the DeviceToken field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetDeviceToken() string {
+	if o == nil || IsNil(o.DeviceToken) {
+		var ret string
+		return ret
+	}
+	return *o.DeviceToken
+}
+
+// GetDeviceTokenOk returns a tuple with the DeviceToken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetDeviceTokenOk() (*string, bool) {
+	if o == nil || IsNil(o.DeviceToken) {
+		return nil, false
+	}
+	return o.DeviceToken, true
+}
+
+// HasDeviceToken returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasDeviceToken() bool {
+	if o != nil && !IsNil(o.DeviceToken) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeviceToken gets a reference to the given string and assigns it to the DeviceToken field.
+func (o *VerifyReceiptResult) SetDeviceToken(v string) {
+	o.DeviceToken = &v
 }
 
 // GetOk returns the Ok field value if set, zero value otherwise.
@@ -138,6 +636,70 @@ func (o *VerifyReceiptResult) SetMessage(v string) {
 	o.Message = &v
 }
 
+// GetResultData returns the ResultData field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetResultData() string {
+	if o == nil || IsNil(o.ResultData) {
+		var ret string
+		return ret
+	}
+	return *o.ResultData
+}
+
+// GetResultDataOk returns a tuple with the ResultData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetResultDataOk() (*string, bool) {
+	if o == nil || IsNil(o.ResultData) {
+		return nil, false
+	}
+	return o.ResultData, true
+}
+
+// HasResultData returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasResultData() bool {
+	if o != nil && !IsNil(o.ResultData) {
+		return true
+	}
+
+	return false
+}
+
+// SetResultData gets a reference to the given string and assigns it to the ResultData field.
+func (o *VerifyReceiptResult) SetResultData(v string) {
+	o.ResultData = &v
+}
+
+// GetRecordId returns the RecordId field value if set, zero value otherwise.
+func (o *VerifyReceiptResult) GetRecordId() string {
+	if o == nil || IsNil(o.RecordId) {
+		var ret string
+		return ret
+	}
+	return *o.RecordId
+}
+
+// GetRecordIdOk returns a tuple with the RecordId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VerifyReceiptResult) GetRecordIdOk() (*string, bool) {
+	if o == nil || IsNil(o.RecordId) {
+		return nil, false
+	}
+	return o.RecordId, true
+}
+
+// HasRecordId returns a boolean if a field has been set.
+func (o *VerifyReceiptResult) HasRecordId() bool {
+	if o != nil && !IsNil(o.RecordId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordId gets a reference to the given string and assigns it to the RecordId field.
+func (o *VerifyReceiptResult) SetRecordId(v string) {
+	o.RecordId = &v
+}
+
 // GetAppleVerifyReceiptResult returns the AppleVerifyReceiptResult field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetAppleVerifyReceiptResult() AppleVerifyReceiptResult {
 	if o == nil || IsNil(o.AppleVerifyReceiptResult) {
@@ -180,6 +742,45 @@ func (o VerifyReceiptResult) MarshalJSON() ([]byte, error) {
 
 func (o VerifyReceiptResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	// skip: id is readOnly
+	// skip: creationTime is readOnly
+	// skip: creatorId is readOnly
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
+	}
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
+	}
+	if !IsNil(o.IsDeleted) {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
+	}
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
+	}
+	if !IsNil(o.Deleter) {
+		toSerialize["deleter"] = o.Deleter
+	}
+	if !IsNil(o.Creator) {
+		toSerialize["creator"] = o.Creator
+	}
+	if !IsNil(o.LastModifier) {
+		toSerialize["lastModifier"] = o.LastModifier
+	}
+	if !IsNil(o.OrderId) {
+		toSerialize["orderId"] = o.OrderId
+	}
+	if !IsNil(o.ReceiptData) {
+		toSerialize["receiptData"] = o.ReceiptData
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
+	}
+	if !IsNil(o.DeviceToken) {
+		toSerialize["deviceToken"] = o.DeviceToken
+	}
 	if !IsNil(o.Ok) {
 		toSerialize["ok"] = o.Ok
 	}
@@ -188,6 +789,12 @@ func (o VerifyReceiptResult) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.ResultData) {
+		toSerialize["resultData"] = o.ResultData
+	}
+	if !IsNil(o.RecordId) {
+		toSerialize["recordId"] = o.RecordId
 	}
 	if !IsNil(o.AppleVerifyReceiptResult) {
 		toSerialize["appleVerifyReceiptResult"] = o.AppleVerifyReceiptResult

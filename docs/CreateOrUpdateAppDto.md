@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **BusinessUrl** | Pointer to **string** |  | [optional] 
 **SubscriptionEnabled** | Pointer to **bool** |  | [optional] 
 **SubscriptionPlatforms** | Pointer to **string** |  | [optional] 
+**SpecJsonSchema** | Pointer to **string** |  | [optional] 
 **IsPublished** | Pointer to **bool** |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
 **Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
@@ -443,6 +444,31 @@ SetSubscriptionPlatforms sets SubscriptionPlatforms field to given value.
 `func (o *CreateOrUpdateAppDto) HasSubscriptionPlatforms() bool`
 
 HasSubscriptionPlatforms returns a boolean if a field has been set.
+
+### GetSpecJsonSchema
+
+`func (o *CreateOrUpdateAppDto) GetSpecJsonSchema() string`
+
+GetSpecJsonSchema returns the SpecJsonSchema field if non-nil, zero value otherwise.
+
+### GetSpecJsonSchemaOk
+
+`func (o *CreateOrUpdateAppDto) GetSpecJsonSchemaOk() (*string, bool)`
+
+GetSpecJsonSchemaOk returns a tuple with the SpecJsonSchema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpecJsonSchema
+
+`func (o *CreateOrUpdateAppDto) SetSpecJsonSchema(v string)`
+
+SetSpecJsonSchema sets SpecJsonSchema field to given value.
+
+### HasSpecJsonSchema
+
+`func (o *CreateOrUpdateAppDto) HasSpecJsonSchema() bool`
+
+HasSpecJsonSchema returns a boolean if a field has been set.
 
 ### GetIsPublished
 

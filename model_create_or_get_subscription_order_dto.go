@@ -30,6 +30,8 @@ type CreateOrGetSubscriptionOrderDto struct {
 	DeletionTime *time.Time `json:"deletionTime,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	PricingId *string `json:"pricingId,omitempty"`
+	Type *SubscriptionOrderType `json:"type,omitempty"`
+	ProductId *string `json:"productId,omitempty"`
 }
 
 // NewCreateOrGetSubscriptionOrderDto instantiates a new CreateOrGetSubscriptionOrderDto object
@@ -369,6 +371,70 @@ func (o *CreateOrGetSubscriptionOrderDto) SetPricingId(v string) {
 	o.PricingId = &v
 }
 
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *CreateOrGetSubscriptionOrderDto) GetType() SubscriptionOrderType {
+	if o == nil || IsNil(o.Type) {
+		var ret SubscriptionOrderType
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrGetSubscriptionOrderDto) GetTypeOk() (*SubscriptionOrderType, bool) {
+	if o == nil || IsNil(o.Type) {
+		return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *CreateOrGetSubscriptionOrderDto) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given SubscriptionOrderType and assigns it to the Type field.
+func (o *CreateOrGetSubscriptionOrderDto) SetType(v SubscriptionOrderType) {
+	o.Type = &v
+}
+
+// GetProductId returns the ProductId field value if set, zero value otherwise.
+func (o *CreateOrGetSubscriptionOrderDto) GetProductId() string {
+	if o == nil || IsNil(o.ProductId) {
+		var ret string
+		return ret
+	}
+	return *o.ProductId
+}
+
+// GetProductIdOk returns a tuple with the ProductId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateOrGetSubscriptionOrderDto) GetProductIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ProductId) {
+		return nil, false
+	}
+	return o.ProductId, true
+}
+
+// HasProductId returns a boolean if a field has been set.
+func (o *CreateOrGetSubscriptionOrderDto) HasProductId() bool {
+	if o != nil && !IsNil(o.ProductId) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductId gets a reference to the given string and assigns it to the ProductId field.
+func (o *CreateOrGetSubscriptionOrderDto) SetProductId(v string) {
+	o.ProductId = &v
+}
+
 func (o CreateOrGetSubscriptionOrderDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -408,6 +474,12 @@ func (o CreateOrGetSubscriptionOrderDto) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.PricingId) {
 		toSerialize["pricingId"] = o.PricingId
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.ProductId) {
+		toSerialize["productId"] = o.ProductId
 	}
 	return toSerialize, nil
 }

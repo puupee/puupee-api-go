@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**SubscriptionOrderStatus**](SubscriptionOrderStatus.md) |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **PricingId** | Pointer to **string** |  | [optional] 
+**ProductId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -335,6 +336,31 @@ SetPricingId sets PricingId field to given value.
 `func (o *SubscriptionOrderDto) HasPricingId() bool`
 
 HasPricingId returns a boolean if a field has been set.
+
+### GetProductId
+
+`func (o *SubscriptionOrderDto) GetProductId() string`
+
+GetProductId returns the ProductId field if non-nil, zero value otherwise.
+
+### GetProductIdOk
+
+`func (o *SubscriptionOrderDto) GetProductIdOk() (*string, bool)`
+
+GetProductIdOk returns a tuple with the ProductId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductId
+
+`func (o *SubscriptionOrderDto) SetProductId(v string)`
+
+SetProductId sets ProductId field to given value.
+
+### HasProductId
+
+`func (o *SubscriptionOrderDto) HasProductId() bool`
+
+HasProductId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
