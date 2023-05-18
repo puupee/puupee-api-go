@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ## ApiIdentityRolesIdPut
 
-> IdentityRoleDto ApiIdentityRolesIdPut(ctx, id).Body(body).Execute()
+> IdentityRoleDto ApiIdentityRolesIdPut(ctx, id).IdentityRoleUpdateDto(identityRoleUpdateDto).Execute()
 
 
 
@@ -296,11 +296,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewIdentityRoleUpdateDto("Name_example") // IdentityRoleUpdateDto |  (optional)
+    identityRoleUpdateDto := *openapiclient.NewIdentityRoleUpdateDto("Name_example") // IdentityRoleUpdateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.ApiIdentityRolesIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.RoleApi.ApiIdentityRolesIdPut(context.Background(), id).IdentityRoleUpdateDto(identityRoleUpdateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.ApiIdentityRolesIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -326,7 +326,7 @@ Other parameters are passed through a pointer to a apiApiIdentityRolesIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**IdentityRoleUpdateDto**](IdentityRoleUpdateDto.md) |  | 
+ **identityRoleUpdateDto** | [**IdentityRoleUpdateDto**](IdentityRoleUpdateDto.md) |  | 
 
 ### Return type
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ## ApiIdentityRolesPost
 
-> IdentityRoleDto ApiIdentityRolesPost(ctx).Body(body).Execute()
+> IdentityRoleDto ApiIdentityRolesPost(ctx).IdentityRoleCreateDto(identityRoleCreateDto).Execute()
 
 
 
@@ -365,11 +365,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewIdentityRoleCreateDto("Name_example") // IdentityRoleCreateDto |  (optional)
+    identityRoleCreateDto := *openapiclient.NewIdentityRoleCreateDto("Name_example") // IdentityRoleCreateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.ApiIdentityRolesPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.RoleApi.ApiIdentityRolesPost(context.Background()).IdentityRoleCreateDto(identityRoleCreateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.ApiIdentityRolesPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -390,7 +390,7 @@ Other parameters are passed through a pointer to a apiApiIdentityRolesPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**IdentityRoleCreateDto**](IdentityRoleCreateDto.md) |  | 
+ **identityRoleCreateDto** | [**IdentityRoleCreateDto**](IdentityRoleCreateDto.md) |  | 
 
 ### Return type
 

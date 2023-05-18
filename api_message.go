@@ -25,11 +25,11 @@ type MessageApiService service
 type ApiApiAppMessagePublishPostRequest struct {
 	ctx context.Context
 	ApiService *MessageApiService
-	body *MessagePublishDto
+	messagePublishDto *MessagePublishDto
 }
 
-func (r ApiApiAppMessagePublishPostRequest) Body(body MessagePublishDto) ApiApiAppMessagePublishPostRequest {
-	r.body = &body
+func (r ApiApiAppMessagePublishPostRequest) MessagePublishDto(messagePublishDto MessagePublishDto) ApiApiAppMessagePublishPostRequest {
+	r.messagePublishDto = &messagePublishDto
 	return r
 }
 
@@ -87,7 +87,7 @@ func (a *MessageApiService) ApiAppMessagePublishPostExecute(r ApiApiAppMessagePu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.messagePublishDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -184,11 +184,11 @@ func (a *MessageApiService) ApiAppMessagePublishPostExecute(r ApiApiAppMessagePu
 type ApiApiAppMessageRecallPostRequest struct {
 	ctx context.Context
 	ApiService *MessageApiService
-	body *MessageRecallDto
+	messageRecallDto *MessageRecallDto
 }
 
-func (r ApiApiAppMessageRecallPostRequest) Body(body MessageRecallDto) ApiApiAppMessageRecallPostRequest {
-	r.body = &body
+func (r ApiApiAppMessageRecallPostRequest) MessageRecallDto(messageRecallDto MessageRecallDto) ApiApiAppMessageRecallPostRequest {
+	r.messageRecallDto = &messageRecallDto
 	return r
 }
 
@@ -246,7 +246,7 @@ func (a *MessageApiService) ApiAppMessageRecallPostExecute(r ApiApiAppMessageRec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.messageRecallDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -343,11 +343,11 @@ func (a *MessageApiService) ApiAppMessageRecallPostExecute(r ApiApiAppMessageRec
 type ApiApiAppMessageSubscribePostRequest struct {
 	ctx context.Context
 	ApiService *MessageApiService
-	body *MessageSubscribeDto
+	messageSubscribeDto *MessageSubscribeDto
 }
 
-func (r ApiApiAppMessageSubscribePostRequest) Body(body MessageSubscribeDto) ApiApiAppMessageSubscribePostRequest {
-	r.body = &body
+func (r ApiApiAppMessageSubscribePostRequest) MessageSubscribeDto(messageSubscribeDto MessageSubscribeDto) ApiApiAppMessageSubscribePostRequest {
+	r.messageSubscribeDto = &messageSubscribeDto
 	return r
 }
 
@@ -405,7 +405,7 @@ func (a *MessageApiService) ApiAppMessageSubscribePostExecute(r ApiApiAppMessage
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.messageSubscribeDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -502,11 +502,11 @@ func (a *MessageApiService) ApiAppMessageSubscribePostExecute(r ApiApiAppMessage
 type ApiApiAppMessageUnsubscribePostRequest struct {
 	ctx context.Context
 	ApiService *MessageApiService
-	body *MessageUnsubscribeDto
+	messageUnsubscribeDto *MessageUnsubscribeDto
 }
 
-func (r ApiApiAppMessageUnsubscribePostRequest) Body(body MessageUnsubscribeDto) ApiApiAppMessageUnsubscribePostRequest {
-	r.body = &body
+func (r ApiApiAppMessageUnsubscribePostRequest) MessageUnsubscribeDto(messageUnsubscribeDto MessageUnsubscribeDto) ApiApiAppMessageUnsubscribePostRequest {
+	r.messageUnsubscribeDto = &messageUnsubscribeDto
 	return r
 }
 
@@ -564,7 +564,7 @@ func (a *MessageApiService) ApiAppMessageUnsubscribePostExecute(r ApiApiAppMessa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.messageUnsubscribeDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -39,9 +39,9 @@ func NewGetFeatureListResultDtoWithDefaults() *GetFeatureListResultDto {
 	return &this
 }
 
-// GetGroups returns the Groups field value if set, zero value otherwise.
+// GetGroups returns the Groups field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetFeatureListResultDto) GetGroups() []FeatureGroupDto {
-	if o == nil || IsNil(o.Groups) {
+	if o == nil {
 		var ret []FeatureGroupDto
 		return ret
 	}
@@ -50,6 +50,7 @@ func (o *GetFeatureListResultDto) GetGroups() []FeatureGroupDto {
 
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetFeatureListResultDto) GetGroupsOk() ([]FeatureGroupDto, bool) {
 	if o == nil || IsNil(o.Groups) {
 		return nil, false
@@ -59,7 +60,7 @@ func (o *GetFeatureListResultDto) GetGroupsOk() ([]FeatureGroupDto, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *GetFeatureListResultDto) HasGroups() bool {
-	if o != nil && !IsNil(o.Groups) {
+	if o != nil && IsNil(o.Groups) {
 		return true
 	}
 
@@ -81,7 +82,7 @@ func (o GetFeatureListResultDto) MarshalJSON() ([]byte, error) {
 
 func (o GetFeatureListResultDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Groups) {
+	if o.Groups != nil {
 		toSerialize["groups"] = o.Groups
 	}
 	return toSerialize, nil

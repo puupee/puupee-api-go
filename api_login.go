@@ -25,11 +25,11 @@ type LoginApiService service
 type ApiApiAccountCheckPasswordPostRequest struct {
 	ctx context.Context
 	ApiService *LoginApiService
-	body *UserLoginInfo
+	userLoginInfo *UserLoginInfo
 }
 
-func (r ApiApiAccountCheckPasswordPostRequest) Body(body UserLoginInfo) ApiApiAccountCheckPasswordPostRequest {
-	r.body = &body
+func (r ApiApiAccountCheckPasswordPostRequest) UserLoginInfo(userLoginInfo UserLoginInfo) ApiApiAccountCheckPasswordPostRequest {
+	r.userLoginInfo = &userLoginInfo
 	return r
 }
 
@@ -89,7 +89,7 @@ func (a *LoginApiService) ApiAccountCheckPasswordPostExecute(r ApiApiAccountChec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.userLoginInfo
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -195,11 +195,11 @@ func (a *LoginApiService) ApiAccountCheckPasswordPostExecute(r ApiApiAccountChec
 type ApiApiAccountLoginPostRequest struct {
 	ctx context.Context
 	ApiService *LoginApiService
-	body *UserLoginInfo
+	userLoginInfo *UserLoginInfo
 }
 
-func (r ApiApiAccountLoginPostRequest) Body(body UserLoginInfo) ApiApiAccountLoginPostRequest {
-	r.body = &body
+func (r ApiApiAccountLoginPostRequest) UserLoginInfo(userLoginInfo UserLoginInfo) ApiApiAccountLoginPostRequest {
+	r.userLoginInfo = &userLoginInfo
 	return r
 }
 
@@ -259,7 +259,7 @@ func (a *LoginApiService) ApiAccountLoginPostExecute(r ApiApiAccountLoginPostReq
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.userLoginInfo
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

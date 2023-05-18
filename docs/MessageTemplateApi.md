@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageTemplateIdPut
 
-> MessageTemplateDto ApiAppMessageTemplateIdPut(ctx, id).Body(body).Execute()
+> MessageTemplateDto ApiAppMessageTemplateIdPut(ctx, id).CreateOrUpdateMessageTemplateDto(createOrUpdateMessageTemplateDto).Execute()
 
 
 
@@ -225,11 +225,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateMessageTemplateDto() // CreateOrUpdateMessageTemplateDto |  (optional)
+    createOrUpdateMessageTemplateDto := *openapiclient.NewCreateOrUpdateMessageTemplateDto() // CreateOrUpdateMessageTemplateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplateIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplateIdPut(context.Background(), id).CreateOrUpdateMessageTemplateDto(createOrUpdateMessageTemplateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplateIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -255,7 +255,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageTemplateIdPut
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
+ **createOrUpdateMessageTemplateDto** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
 
 ### Return type
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageTemplatePost
 
-> MessageTemplateDto ApiAppMessageTemplatePost(ctx).Body(body).Execute()
+> MessageTemplateDto ApiAppMessageTemplatePost(ctx).CreateOrUpdateMessageTemplateDto(createOrUpdateMessageTemplateDto).Execute()
 
 
 
@@ -294,11 +294,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateMessageTemplateDto() // CreateOrUpdateMessageTemplateDto |  (optional)
+    createOrUpdateMessageTemplateDto := *openapiclient.NewCreateOrUpdateMessageTemplateDto() // CreateOrUpdateMessageTemplateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplatePost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplatePost(context.Background()).CreateOrUpdateMessageTemplateDto(createOrUpdateMessageTemplateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplatePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -319,7 +319,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageTemplatePostR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
+ **createOrUpdateMessageTemplateDto** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
 
 ### Return type
 

@@ -446,11 +446,11 @@ func (a *NotificationApiService) ApiAppNotificationGetExecute(r ApiApiAppNotific
 type ApiApiAppNotificationPushPostRequest struct {
 	ctx context.Context
 	ApiService *NotificationApiService
-	body *CreatePushNotificationDto
+	createPushNotificationDto *CreatePushNotificationDto
 }
 
-func (r ApiApiAppNotificationPushPostRequest) Body(body CreatePushNotificationDto) ApiApiAppNotificationPushPostRequest {
-	r.body = &body
+func (r ApiApiAppNotificationPushPostRequest) CreatePushNotificationDto(createPushNotificationDto CreatePushNotificationDto) ApiApiAppNotificationPushPostRequest {
+	r.createPushNotificationDto = &createPushNotificationDto
 	return r
 }
 
@@ -508,7 +508,7 @@ func (a *NotificationApiService) ApiAppNotificationPushPostExecute(r ApiApiAppNo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.createPushNotificationDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

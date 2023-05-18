@@ -22,55 +22,55 @@ var _ MappedNullable = &PuupeeDto{}
 type PuupeeDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId *string `json:"creatorId,omitempty"`
-	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
-	LastModifierId *string `json:"lastModifierId,omitempty"`
+	CreatorId NullableString `json:"creatorId,omitempty"`
+	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
+	LastModifierId NullableString `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId *string `json:"deleterId,omitempty"`
-	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Text *string `json:"text,omitempty"`
-	Content *string `json:"content,omitempty"`
-	Format *string `json:"format,omitempty"`
-	Password *string `json:"password,omitempty"`
-	ParentId *string `json:"parentId,omitempty"`
-	Key *string `json:"key,omitempty"`
-	Url *string `json:"url,omitempty"`
+	DeleterId NullableString `json:"deleterId,omitempty"`
+	DeletionTime NullableTime `json:"deletionTime,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Title NullableString `json:"title,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	Text NullableString `json:"text,omitempty"`
+	Content NullableString `json:"content,omitempty"`
+	Format NullableString `json:"format,omitempty"`
+	Password NullableString `json:"password,omitempty"`
+	ParentId NullableString `json:"parentId,omitempty"`
+	Key NullableString `json:"key,omitempty"`
+	Url NullableString `json:"url,omitempty"`
 	Size *int64 `json:"size,omitempty"`
-	Md5 *string `json:"md5,omitempty"`
-	SliceMd5 *string `json:"sliceMd5,omitempty"`
-	RapidCode *string `json:"rapidCode,omitempty"`
-	ContentType *string `json:"contentType,omitempty"`
-	Type *string `json:"type,omitempty"`
-	DisplayStyle *string `json:"displayStyle,omitempty"`
-	Extension *string `json:"extension,omitempty"`
-	StorageClass *string `json:"storageClass,omitempty"`
-	StorageObjectCreatedAt *time.Time `json:"storageObjectCreatedAt,omitempty"`
-	StorageObjectUpdatedAt *time.Time `json:"storageObjectUpdatedAt,omitempty"`
-	StorageObjectId *string `json:"storageObjectId,omitempty"`
+	Md5 NullableString `json:"md5,omitempty"`
+	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
+	RapidCode NullableString `json:"rapidCode,omitempty"`
+	ContentType NullableString `json:"contentType,omitempty"`
+	Type NullableString `json:"type,omitempty"`
+	DisplayStyle NullableString `json:"displayStyle,omitempty"`
+	Extension NullableString `json:"extension,omitempty"`
+	StorageClass NullableString `json:"storageClass,omitempty"`
+	StorageObjectCreatedAt NullableTime `json:"storageObjectCreatedAt,omitempty"`
+	StorageObjectUpdatedAt NullableTime `json:"storageObjectUpdatedAt,omitempty"`
+	StorageObjectId NullableString `json:"storageObjectId,omitempty"`
 	StorageObject *StorageObjectDto `json:"storageObject,omitempty"`
 	Thumb *StorageObjectDto `json:"thumb,omitempty"`
-	Priority *int32 `json:"priority,omitempty"`
-	DoneAt *time.Time `json:"doneAt,omitempty"`
+	Priority NullableInt32 `json:"priority,omitempty"`
+	DoneAt NullableTime `json:"doneAt,omitempty"`
 	IsDone *bool `json:"isDone,omitempty"`
-	StartAt *time.Time `json:"startAt,omitempty"`
-	EndAt *time.Time `json:"endAt,omitempty"`
-	NotifyAt *time.Time `json:"notifyAt,omitempty"`
-	NotifyTimingType *string `json:"notifyTimingType,omitempty"`
-	NotifyTimingUnit *string `json:"notifyTimingUnit,omitempty"`
-	NotifyTimingValue *int32 `json:"notifyTimingValue,omitempty"`
-	Repeat *string `json:"repeat,omitempty"`
-	RepeatOffAt *time.Time `json:"repeatOffAt,omitempty"`
-	RepeatOffTimes *int32 `json:"repeatOffTimes,omitempty"`
-	Repetitions *int32 `json:"repetitions,omitempty"`
+	StartAt NullableTime `json:"startAt,omitempty"`
+	EndAt NullableTime `json:"endAt,omitempty"`
+	NotifyAt NullableTime `json:"notifyAt,omitempty"`
+	NotifyTimingType NullableString `json:"notifyTimingType,omitempty"`
+	NotifyTimingUnit NullableString `json:"notifyTimingUnit,omitempty"`
+	NotifyTimingValue NullableInt32 `json:"notifyTimingValue,omitempty"`
+	Repeat NullableString `json:"repeat,omitempty"`
+	RepeatOffAt NullableTime `json:"repeatOffAt,omitempty"`
+	RepeatOffTimes NullableInt32 `json:"repeatOffTimes,omitempty"`
+	Repetitions NullableInt32 `json:"repetitions,omitempty"`
 	SyncVersion *int64 `json:"syncVersion,omitempty"`
 	IsHidden *bool `json:"isHidden,omitempty"`
-	Tagging *string `json:"tagging,omitempty"`
-	LastModifierDeviceToken *string `json:"lastModifierDeviceToken,omitempty"`
-	LastModifierDevice *string `json:"lastModifierDevice,omitempty"`
-	AppName *string `json:"appName,omitempty"`
+	Tagging NullableString `json:"tagging,omitempty"`
+	LastModifierDeviceToken NullableString `json:"lastModifierDeviceToken,omitempty"`
+	LastModifierDevice NullableString `json:"lastModifierDevice,omitempty"`
+	AppName NullableString `json:"appName,omitempty"`
 	SortIndex *int32 `json:"sortIndex,omitempty"`
 }
 
@@ -155,100 +155,130 @@ func (o *PuupeeDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId
+	return *o.CreatorId.Get()
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatorId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatorId, true
+	return o.CreatorId.Get(), o.CreatorId.IsSet()
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasCreatorId() bool {
-	if o != nil && !IsNil(o.CreatorId) {
+	if o != nil && o.CreatorId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
 func (o *PuupeeDto) SetCreatorId(v string) {
-	o.CreatorId = &v
+	o.CreatorId.Set(&v)
+}
+// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
+func (o *PuupeeDto) SetCreatorIdNil() {
+	o.CreatorId.Set(nil)
 }
 
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
+func (o *PuupeeDto) UnsetCreatorId() {
+	o.CreatorId.Unset()
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime
+	return *o.LastModificationTime.Get()
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastModificationTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModificationTime, true
+	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModificationTime() bool {
-	if o != nil && !IsNil(o.LastModificationTime) {
+	if o != nil && o.LastModificationTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
 func (o *PuupeeDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime = &v
+	o.LastModificationTime.Set(&v)
+}
+// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
+func (o *PuupeeDto) SetLastModificationTimeNil() {
+	o.LastModificationTime.Set(nil)
 }
 
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
+// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
+func (o *PuupeeDto) UnsetLastModificationTime() {
+	o.LastModificationTime.Unset()
+}
+
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId
+	return *o.LastModifierId.Get()
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || IsNil(o.LastModifierId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModifierId, true
+	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModifierId() bool {
-	if o != nil && !IsNil(o.LastModifierId) {
+	if o != nil && o.LastModifierId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
 func (o *PuupeeDto) SetLastModifierId(v string) {
-	o.LastModifierId = &v
+	o.LastModifierId.Set(&v)
+}
+// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
+func (o *PuupeeDto) SetLastModifierIdNil() {
+	o.LastModifierId.Set(nil)
+}
+
+// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
+func (o *PuupeeDto) UnsetLastModifierId() {
+	o.LastModifierId.Unset()
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -283,388 +313,508 @@ func (o *PuupeeDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId
+	return *o.DeleterId.Get()
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DeleterId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeleterId, true
+	return o.DeleterId.Get(), o.DeleterId.IsSet()
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDeleterId() bool {
-	if o != nil && !IsNil(o.DeleterId) {
+	if o != nil && o.DeleterId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
 func (o *PuupeeDto) SetDeleterId(v string) {
-	o.DeleterId = &v
+	o.DeleterId.Set(&v)
+}
+// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
+func (o *PuupeeDto) SetDeleterIdNil() {
+	o.DeleterId.Set(nil)
 }
 
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
+// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
+func (o *PuupeeDto) UnsetDeleterId() {
+	o.DeleterId.Unset()
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime
+	return *o.DeletionTime.Get()
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.DeletionTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeletionTime, true
+	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDeletionTime() bool {
-	if o != nil && !IsNil(o.DeletionTime) {
+	if o != nil && o.DeletionTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
 func (o *PuupeeDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime = &v
+	o.DeletionTime.Set(&v)
+}
+// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+func (o *PuupeeDto) SetDeletionTimeNil() {
+	o.DeletionTime.Set(nil)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+func (o *PuupeeDto) UnsetDeletionTime() {
+	o.DeletionTime.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PuupeeDto) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *PuupeeDto) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *PuupeeDto) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *PuupeeDto) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetTitle() string {
-	if o == nil || IsNil(o.Title) {
+	if o == nil || IsNil(o.Title.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Title
+	return *o.Title.Get()
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Title, true
+	return o.Title.Get(), o.Title.IsSet()
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *PuupeeDto) HasTitle() bool {
-	if o != nil && !IsNil(o.Title) {
+	if o != nil && o.Title.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given string and assigns it to the Title field.
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
 func (o *PuupeeDto) SetTitle(v string) {
-	o.Title = &v
+	o.Title.Set(&v)
+}
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *PuupeeDto) SetTitleNil() {
+	o.Title.Set(nil)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *PuupeeDto) UnsetTitle() {
+	o.Title.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *PuupeeDto) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *PuupeeDto) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetText returns the Text field value if set, zero value otherwise.
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *PuupeeDto) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetText returns the Text field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetText() string {
-	if o == nil || IsNil(o.Text) {
+	if o == nil || IsNil(o.Text.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Text
+	return *o.Text.Get()
 }
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Text, true
+	return o.Text.Get(), o.Text.IsSet()
 }
 
 // HasText returns a boolean if a field has been set.
 func (o *PuupeeDto) HasText() bool {
-	if o != nil && !IsNil(o.Text) {
+	if o != nil && o.Text.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetText gets a reference to the given string and assigns it to the Text field.
+// SetText gets a reference to the given NullableString and assigns it to the Text field.
 func (o *PuupeeDto) SetText(v string) {
-	o.Text = &v
+	o.Text.Set(&v)
+}
+// SetTextNil sets the value for Text to be an explicit nil
+func (o *PuupeeDto) SetTextNil() {
+	o.Text.Set(nil)
 }
 
-// GetContent returns the Content field value if set, zero value otherwise.
+// UnsetText ensures that no value is present for Text, not even an explicit nil
+func (o *PuupeeDto) UnsetText() {
+	o.Text.Unset()
+}
+
+// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetContent() string {
-	if o == nil || IsNil(o.Content) {
+	if o == nil || IsNil(o.Content.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Content
+	return *o.Content.Get()
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetContentOk() (*string, bool) {
-	if o == nil || IsNil(o.Content) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Content, true
+	return o.Content.Get(), o.Content.IsSet()
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *PuupeeDto) HasContent() bool {
-	if o != nil && !IsNil(o.Content) {
+	if o != nil && o.Content.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given string and assigns it to the Content field.
+// SetContent gets a reference to the given NullableString and assigns it to the Content field.
 func (o *PuupeeDto) SetContent(v string) {
-	o.Content = &v
+	o.Content.Set(&v)
+}
+// SetContentNil sets the value for Content to be an explicit nil
+func (o *PuupeeDto) SetContentNil() {
+	o.Content.Set(nil)
 }
 
-// GetFormat returns the Format field value if set, zero value otherwise.
+// UnsetContent ensures that no value is present for Content, not even an explicit nil
+func (o *PuupeeDto) UnsetContent() {
+	o.Content.Unset()
+}
+
+// GetFormat returns the Format field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetFormat() string {
-	if o == nil || IsNil(o.Format) {
+	if o == nil || IsNil(o.Format.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Format
+	return *o.Format.Get()
 }
 
 // GetFormatOk returns a tuple with the Format field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetFormatOk() (*string, bool) {
-	if o == nil || IsNil(o.Format) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Format, true
+	return o.Format.Get(), o.Format.IsSet()
 }
 
 // HasFormat returns a boolean if a field has been set.
 func (o *PuupeeDto) HasFormat() bool {
-	if o != nil && !IsNil(o.Format) {
+	if o != nil && o.Format.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFormat gets a reference to the given string and assigns it to the Format field.
+// SetFormat gets a reference to the given NullableString and assigns it to the Format field.
 func (o *PuupeeDto) SetFormat(v string) {
-	o.Format = &v
+	o.Format.Set(&v)
+}
+// SetFormatNil sets the value for Format to be an explicit nil
+func (o *PuupeeDto) SetFormatNil() {
+	o.Format.Set(nil)
 }
 
-// GetPassword returns the Password field value if set, zero value otherwise.
+// UnsetFormat ensures that no value is present for Format, not even an explicit nil
+func (o *PuupeeDto) UnsetFormat() {
+	o.Format.Unset()
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetPassword() string {
-	if o == nil || IsNil(o.Password) {
+	if o == nil || IsNil(o.Password.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Password
+	return *o.Password.Get()
 }
 
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.Password) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Password, true
+	return o.Password.Get(), o.Password.IsSet()
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *PuupeeDto) HasPassword() bool {
-	if o != nil && !IsNil(o.Password) {
+	if o != nil && o.Password.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPassword gets a reference to the given string and assigns it to the Password field.
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
 func (o *PuupeeDto) SetPassword(v string) {
-	o.Password = &v
+	o.Password.Set(&v)
+}
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *PuupeeDto) SetPasswordNil() {
+	o.Password.Set(nil)
 }
 
-// GetParentId returns the ParentId field value if set, zero value otherwise.
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *PuupeeDto) UnsetPassword() {
+	o.Password.Unset()
+}
+
+// GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetParentId() string {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil || IsNil(o.ParentId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ParentId
+	return *o.ParentId.Get()
 }
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetParentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ParentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ParentId, true
+	return o.ParentId.Get(), o.ParentId.IsSet()
 }
 
 // HasParentId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasParentId() bool {
-	if o != nil && !IsNil(o.ParentId) {
+	if o != nil && o.ParentId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetParentId gets a reference to the given string and assigns it to the ParentId field.
+// SetParentId gets a reference to the given NullableString and assigns it to the ParentId field.
 func (o *PuupeeDto) SetParentId(v string) {
-	o.ParentId = &v
+	o.ParentId.Set(&v)
+}
+// SetParentIdNil sets the value for ParentId to be an explicit nil
+func (o *PuupeeDto) SetParentIdNil() {
+	o.ParentId.Set(nil)
 }
 
-// GetKey returns the Key field value if set, zero value otherwise.
+// UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
+func (o *PuupeeDto) UnsetParentId() {
+	o.ParentId.Unset()
+}
+
+// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetKey() string {
-	if o == nil || IsNil(o.Key) {
+	if o == nil || IsNil(o.Key.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Key
+	return *o.Key.Get()
 }
 
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.Key) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Key, true
+	return o.Key.Get(), o.Key.IsSet()
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *PuupeeDto) HasKey() bool {
-	if o != nil && !IsNil(o.Key) {
+	if o != nil && o.Key.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetKey gets a reference to the given string and assigns it to the Key field.
+// SetKey gets a reference to the given NullableString and assigns it to the Key field.
 func (o *PuupeeDto) SetKey(v string) {
-	o.Key = &v
+	o.Key.Set(&v)
+}
+// SetKeyNil sets the value for Key to be an explicit nil
+func (o *PuupeeDto) SetKeyNil() {
+	o.Key.Set(nil)
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
+// UnsetKey ensures that no value is present for Key, not even an explicit nil
+func (o *PuupeeDto) UnsetKey() {
+	o.Key.Unset()
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Url
+	return *o.Url.Get()
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *PuupeeDto) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
+	if o != nil && o.Url.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *PuupeeDto) SetUrl(v string) {
-	o.Url = &v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *PuupeeDto) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *PuupeeDto) UnsetUrl() {
+	o.Url.Unset()
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
@@ -699,356 +849,466 @@ func (o *PuupeeDto) SetSize(v int64) {
 	o.Size = &v
 }
 
-// GetMd5 returns the Md5 field value if set, zero value otherwise.
+// GetMd5 returns the Md5 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetMd5() string {
-	if o == nil || IsNil(o.Md5) {
+	if o == nil || IsNil(o.Md5.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Md5
+	return *o.Md5.Get()
 }
 
 // GetMd5Ok returns a tuple with the Md5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetMd5Ok() (*string, bool) {
-	if o == nil || IsNil(o.Md5) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Md5, true
+	return o.Md5.Get(), o.Md5.IsSet()
 }
 
 // HasMd5 returns a boolean if a field has been set.
 func (o *PuupeeDto) HasMd5() bool {
-	if o != nil && !IsNil(o.Md5) {
+	if o != nil && o.Md5.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMd5 gets a reference to the given string and assigns it to the Md5 field.
+// SetMd5 gets a reference to the given NullableString and assigns it to the Md5 field.
 func (o *PuupeeDto) SetMd5(v string) {
-	o.Md5 = &v
+	o.Md5.Set(&v)
+}
+// SetMd5Nil sets the value for Md5 to be an explicit nil
+func (o *PuupeeDto) SetMd5Nil() {
+	o.Md5.Set(nil)
 }
 
-// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise.
+// UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
+func (o *PuupeeDto) UnsetMd5() {
+	o.Md5.Unset()
+}
+
+// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetSliceMd5() string {
-	if o == nil || IsNil(o.SliceMd5) {
+	if o == nil || IsNil(o.SliceMd5.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SliceMd5
+	return *o.SliceMd5.Get()
 }
 
 // GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetSliceMd5Ok() (*string, bool) {
-	if o == nil || IsNil(o.SliceMd5) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SliceMd5, true
+	return o.SliceMd5.Get(), o.SliceMd5.IsSet()
 }
 
 // HasSliceMd5 returns a boolean if a field has been set.
 func (o *PuupeeDto) HasSliceMd5() bool {
-	if o != nil && !IsNil(o.SliceMd5) {
+	if o != nil && o.SliceMd5.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSliceMd5 gets a reference to the given string and assigns it to the SliceMd5 field.
+// SetSliceMd5 gets a reference to the given NullableString and assigns it to the SliceMd5 field.
 func (o *PuupeeDto) SetSliceMd5(v string) {
-	o.SliceMd5 = &v
+	o.SliceMd5.Set(&v)
+}
+// SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+func (o *PuupeeDto) SetSliceMd5Nil() {
+	o.SliceMd5.Set(nil)
 }
 
-// GetRapidCode returns the RapidCode field value if set, zero value otherwise.
+// UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
+func (o *PuupeeDto) UnsetSliceMd5() {
+	o.SliceMd5.Unset()
+}
+
+// GetRapidCode returns the RapidCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetRapidCode() string {
-	if o == nil || IsNil(o.RapidCode) {
+	if o == nil || IsNil(o.RapidCode.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RapidCode
+	return *o.RapidCode.Get()
 }
 
 // GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetRapidCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.RapidCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RapidCode, true
+	return o.RapidCode.Get(), o.RapidCode.IsSet()
 }
 
 // HasRapidCode returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRapidCode() bool {
-	if o != nil && !IsNil(o.RapidCode) {
+	if o != nil && o.RapidCode.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRapidCode gets a reference to the given string and assigns it to the RapidCode field.
+// SetRapidCode gets a reference to the given NullableString and assigns it to the RapidCode field.
 func (o *PuupeeDto) SetRapidCode(v string) {
-	o.RapidCode = &v
+	o.RapidCode.Set(&v)
+}
+// SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+func (o *PuupeeDto) SetRapidCodeNil() {
+	o.RapidCode.Set(nil)
 }
 
-// GetContentType returns the ContentType field value if set, zero value otherwise.
+// UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
+func (o *PuupeeDto) UnsetRapidCode() {
+	o.RapidCode.Unset()
+}
+
+// GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetContentType() string {
-	if o == nil || IsNil(o.ContentType) {
+	if o == nil || IsNil(o.ContentType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ContentType
+	return *o.ContentType.Get()
 }
 
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetContentTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ContentType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ContentType, true
+	return o.ContentType.Get(), o.ContentType.IsSet()
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *PuupeeDto) HasContentType() bool {
-	if o != nil && !IsNil(o.ContentType) {
+	if o != nil && o.ContentType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetContentType gets a reference to the given string and assigns it to the ContentType field.
+// SetContentType gets a reference to the given NullableString and assigns it to the ContentType field.
 func (o *PuupeeDto) SetContentType(v string) {
-	o.ContentType = &v
+	o.ContentType.Set(&v)
+}
+// SetContentTypeNil sets the value for ContentType to be an explicit nil
+func (o *PuupeeDto) SetContentTypeNil() {
+	o.ContentType.Set(nil)
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
+func (o *PuupeeDto) UnsetContentType() {
+	o.ContentType.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *PuupeeDto) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *PuupeeDto) SetType(v string) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *PuupeeDto) SetTypeNil() {
+	o.Type.Set(nil)
 }
 
-// GetDisplayStyle returns the DisplayStyle field value if set, zero value otherwise.
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *PuupeeDto) UnsetType() {
+	o.Type.Unset()
+}
+
+// GetDisplayStyle returns the DisplayStyle field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetDisplayStyle() string {
-	if o == nil || IsNil(o.DisplayStyle) {
+	if o == nil || IsNil(o.DisplayStyle.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayStyle
+	return *o.DisplayStyle.Get()
 }
 
 // GetDisplayStyleOk returns a tuple with the DisplayStyle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetDisplayStyleOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayStyle) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayStyle, true
+	return o.DisplayStyle.Get(), o.DisplayStyle.IsSet()
 }
 
 // HasDisplayStyle returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDisplayStyle() bool {
-	if o != nil && !IsNil(o.DisplayStyle) {
+	if o != nil && o.DisplayStyle.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayStyle gets a reference to the given string and assigns it to the DisplayStyle field.
+// SetDisplayStyle gets a reference to the given NullableString and assigns it to the DisplayStyle field.
 func (o *PuupeeDto) SetDisplayStyle(v string) {
-	o.DisplayStyle = &v
+	o.DisplayStyle.Set(&v)
+}
+// SetDisplayStyleNil sets the value for DisplayStyle to be an explicit nil
+func (o *PuupeeDto) SetDisplayStyleNil() {
+	o.DisplayStyle.Set(nil)
 }
 
-// GetExtension returns the Extension field value if set, zero value otherwise.
+// UnsetDisplayStyle ensures that no value is present for DisplayStyle, not even an explicit nil
+func (o *PuupeeDto) UnsetDisplayStyle() {
+	o.DisplayStyle.Unset()
+}
+
+// GetExtension returns the Extension field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetExtension() string {
-	if o == nil || IsNil(o.Extension) {
+	if o == nil || IsNil(o.Extension.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Extension
+	return *o.Extension.Get()
 }
 
 // GetExtensionOk returns a tuple with the Extension field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetExtensionOk() (*string, bool) {
-	if o == nil || IsNil(o.Extension) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Extension, true
+	return o.Extension.Get(), o.Extension.IsSet()
 }
 
 // HasExtension returns a boolean if a field has been set.
 func (o *PuupeeDto) HasExtension() bool {
-	if o != nil && !IsNil(o.Extension) {
+	if o != nil && o.Extension.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExtension gets a reference to the given string and assigns it to the Extension field.
+// SetExtension gets a reference to the given NullableString and assigns it to the Extension field.
 func (o *PuupeeDto) SetExtension(v string) {
-	o.Extension = &v
+	o.Extension.Set(&v)
+}
+// SetExtensionNil sets the value for Extension to be an explicit nil
+func (o *PuupeeDto) SetExtensionNil() {
+	o.Extension.Set(nil)
 }
 
-// GetStorageClass returns the StorageClass field value if set, zero value otherwise.
+// UnsetExtension ensures that no value is present for Extension, not even an explicit nil
+func (o *PuupeeDto) UnsetExtension() {
+	o.Extension.Unset()
+}
+
+// GetStorageClass returns the StorageClass field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetStorageClass() string {
-	if o == nil || IsNil(o.StorageClass) {
+	if o == nil || IsNil(o.StorageClass.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StorageClass
+	return *o.StorageClass.Get()
 }
 
 // GetStorageClassOk returns a tuple with the StorageClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetStorageClassOk() (*string, bool) {
-	if o == nil || IsNil(o.StorageClass) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageClass, true
+	return o.StorageClass.Get(), o.StorageClass.IsSet()
 }
 
 // HasStorageClass returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageClass() bool {
-	if o != nil && !IsNil(o.StorageClass) {
+	if o != nil && o.StorageClass.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageClass gets a reference to the given string and assigns it to the StorageClass field.
+// SetStorageClass gets a reference to the given NullableString and assigns it to the StorageClass field.
 func (o *PuupeeDto) SetStorageClass(v string) {
-	o.StorageClass = &v
+	o.StorageClass.Set(&v)
+}
+// SetStorageClassNil sets the value for StorageClass to be an explicit nil
+func (o *PuupeeDto) SetStorageClassNil() {
+	o.StorageClass.Set(nil)
 }
 
-// GetStorageObjectCreatedAt returns the StorageObjectCreatedAt field value if set, zero value otherwise.
+// UnsetStorageClass ensures that no value is present for StorageClass, not even an explicit nil
+func (o *PuupeeDto) UnsetStorageClass() {
+	o.StorageClass.Unset()
+}
+
+// GetStorageObjectCreatedAt returns the StorageObjectCreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetStorageObjectCreatedAt() time.Time {
-	if o == nil || IsNil(o.StorageObjectCreatedAt) {
+	if o == nil || IsNil(o.StorageObjectCreatedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StorageObjectCreatedAt
+	return *o.StorageObjectCreatedAt.Get()
 }
 
 // GetStorageObjectCreatedAtOk returns a tuple with the StorageObjectCreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetStorageObjectCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StorageObjectCreatedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageObjectCreatedAt, true
+	return o.StorageObjectCreatedAt.Get(), o.StorageObjectCreatedAt.IsSet()
 }
 
 // HasStorageObjectCreatedAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObjectCreatedAt() bool {
-	if o != nil && !IsNil(o.StorageObjectCreatedAt) {
+	if o != nil && o.StorageObjectCreatedAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageObjectCreatedAt gets a reference to the given time.Time and assigns it to the StorageObjectCreatedAt field.
+// SetStorageObjectCreatedAt gets a reference to the given NullableTime and assigns it to the StorageObjectCreatedAt field.
 func (o *PuupeeDto) SetStorageObjectCreatedAt(v time.Time) {
-	o.StorageObjectCreatedAt = &v
+	o.StorageObjectCreatedAt.Set(&v)
+}
+// SetStorageObjectCreatedAtNil sets the value for StorageObjectCreatedAt to be an explicit nil
+func (o *PuupeeDto) SetStorageObjectCreatedAtNil() {
+	o.StorageObjectCreatedAt.Set(nil)
 }
 
-// GetStorageObjectUpdatedAt returns the StorageObjectUpdatedAt field value if set, zero value otherwise.
+// UnsetStorageObjectCreatedAt ensures that no value is present for StorageObjectCreatedAt, not even an explicit nil
+func (o *PuupeeDto) UnsetStorageObjectCreatedAt() {
+	o.StorageObjectCreatedAt.Unset()
+}
+
+// GetStorageObjectUpdatedAt returns the StorageObjectUpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetStorageObjectUpdatedAt() time.Time {
-	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
+	if o == nil || IsNil(o.StorageObjectUpdatedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StorageObjectUpdatedAt
+	return *o.StorageObjectUpdatedAt.Get()
 }
 
 // GetStorageObjectUpdatedAtOk returns a tuple with the StorageObjectUpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetStorageObjectUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageObjectUpdatedAt, true
+	return o.StorageObjectUpdatedAt.Get(), o.StorageObjectUpdatedAt.IsSet()
 }
 
 // HasStorageObjectUpdatedAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObjectUpdatedAt() bool {
-	if o != nil && !IsNil(o.StorageObjectUpdatedAt) {
+	if o != nil && o.StorageObjectUpdatedAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageObjectUpdatedAt gets a reference to the given time.Time and assigns it to the StorageObjectUpdatedAt field.
+// SetStorageObjectUpdatedAt gets a reference to the given NullableTime and assigns it to the StorageObjectUpdatedAt field.
 func (o *PuupeeDto) SetStorageObjectUpdatedAt(v time.Time) {
-	o.StorageObjectUpdatedAt = &v
+	o.StorageObjectUpdatedAt.Set(&v)
+}
+// SetStorageObjectUpdatedAtNil sets the value for StorageObjectUpdatedAt to be an explicit nil
+func (o *PuupeeDto) SetStorageObjectUpdatedAtNil() {
+	o.StorageObjectUpdatedAt.Set(nil)
 }
 
-// GetStorageObjectId returns the StorageObjectId field value if set, zero value otherwise.
+// UnsetStorageObjectUpdatedAt ensures that no value is present for StorageObjectUpdatedAt, not even an explicit nil
+func (o *PuupeeDto) UnsetStorageObjectUpdatedAt() {
+	o.StorageObjectUpdatedAt.Unset()
+}
+
+// GetStorageObjectId returns the StorageObjectId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetStorageObjectId() string {
-	if o == nil || IsNil(o.StorageObjectId) {
+	if o == nil || IsNil(o.StorageObjectId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StorageObjectId
+	return *o.StorageObjectId.Get()
 }
 
 // GetStorageObjectIdOk returns a tuple with the StorageObjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetStorageObjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.StorageObjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageObjectId, true
+	return o.StorageObjectId.Get(), o.StorageObjectId.IsSet()
 }
 
 // HasStorageObjectId returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStorageObjectId() bool {
-	if o != nil && !IsNil(o.StorageObjectId) {
+	if o != nil && o.StorageObjectId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageObjectId gets a reference to the given string and assigns it to the StorageObjectId field.
+// SetStorageObjectId gets a reference to the given NullableString and assigns it to the StorageObjectId field.
 func (o *PuupeeDto) SetStorageObjectId(v string) {
-	o.StorageObjectId = &v
+	o.StorageObjectId.Set(&v)
+}
+// SetStorageObjectIdNil sets the value for StorageObjectId to be an explicit nil
+func (o *PuupeeDto) SetStorageObjectIdNil() {
+	o.StorageObjectId.Set(nil)
+}
+
+// UnsetStorageObjectId ensures that no value is present for StorageObjectId, not even an explicit nil
+func (o *PuupeeDto) UnsetStorageObjectId() {
+	o.StorageObjectId.Unset()
 }
 
 // GetStorageObject returns the StorageObject field value if set, zero value otherwise.
@@ -1115,68 +1375,88 @@ func (o *PuupeeDto) SetThumb(v StorageObjectDto) {
 	o.Thumb = &v
 }
 
-// GetPriority returns the Priority field value if set, zero value otherwise.
+// GetPriority returns the Priority field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetPriority() int32 {
-	if o == nil || IsNil(o.Priority) {
+	if o == nil || IsNil(o.Priority.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Priority
+	return *o.Priority.Get()
 }
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetPriorityOk() (*int32, bool) {
-	if o == nil || IsNil(o.Priority) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Priority, true
+	return o.Priority.Get(), o.Priority.IsSet()
 }
 
 // HasPriority returns a boolean if a field has been set.
 func (o *PuupeeDto) HasPriority() bool {
-	if o != nil && !IsNil(o.Priority) {
+	if o != nil && o.Priority.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPriority gets a reference to the given int32 and assigns it to the Priority field.
+// SetPriority gets a reference to the given NullableInt32 and assigns it to the Priority field.
 func (o *PuupeeDto) SetPriority(v int32) {
-	o.Priority = &v
+	o.Priority.Set(&v)
+}
+// SetPriorityNil sets the value for Priority to be an explicit nil
+func (o *PuupeeDto) SetPriorityNil() {
+	o.Priority.Set(nil)
 }
 
-// GetDoneAt returns the DoneAt field value if set, zero value otherwise.
+// UnsetPriority ensures that no value is present for Priority, not even an explicit nil
+func (o *PuupeeDto) UnsetPriority() {
+	o.Priority.Unset()
+}
+
+// GetDoneAt returns the DoneAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetDoneAt() time.Time {
-	if o == nil || IsNil(o.DoneAt) {
+	if o == nil || IsNil(o.DoneAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DoneAt
+	return *o.DoneAt.Get()
 }
 
 // GetDoneAtOk returns a tuple with the DoneAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetDoneAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.DoneAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DoneAt, true
+	return o.DoneAt.Get(), o.DoneAt.IsSet()
 }
 
 // HasDoneAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasDoneAt() bool {
-	if o != nil && !IsNil(o.DoneAt) {
+	if o != nil && o.DoneAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDoneAt gets a reference to the given time.Time and assigns it to the DoneAt field.
+// SetDoneAt gets a reference to the given NullableTime and assigns it to the DoneAt field.
 func (o *PuupeeDto) SetDoneAt(v time.Time) {
-	o.DoneAt = &v
+	o.DoneAt.Set(&v)
+}
+// SetDoneAtNil sets the value for DoneAt to be an explicit nil
+func (o *PuupeeDto) SetDoneAtNil() {
+	o.DoneAt.Set(nil)
+}
+
+// UnsetDoneAt ensures that no value is present for DoneAt, not even an explicit nil
+func (o *PuupeeDto) UnsetDoneAt() {
+	o.DoneAt.Unset()
 }
 
 // GetIsDone returns the IsDone field value if set, zero value otherwise.
@@ -1211,324 +1491,424 @@ func (o *PuupeeDto) SetIsDone(v bool) {
 	o.IsDone = &v
 }
 
-// GetStartAt returns the StartAt field value if set, zero value otherwise.
+// GetStartAt returns the StartAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetStartAt() time.Time {
-	if o == nil || IsNil(o.StartAt) {
+	if o == nil || IsNil(o.StartAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartAt
+	return *o.StartAt.Get()
 }
 
 // GetStartAtOk returns a tuple with the StartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetStartAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartAt, true
+	return o.StartAt.Get(), o.StartAt.IsSet()
 }
 
 // HasStartAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasStartAt() bool {
-	if o != nil && !IsNil(o.StartAt) {
+	if o != nil && o.StartAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStartAt gets a reference to the given time.Time and assigns it to the StartAt field.
+// SetStartAt gets a reference to the given NullableTime and assigns it to the StartAt field.
 func (o *PuupeeDto) SetStartAt(v time.Time) {
-	o.StartAt = &v
+	o.StartAt.Set(&v)
+}
+// SetStartAtNil sets the value for StartAt to be an explicit nil
+func (o *PuupeeDto) SetStartAtNil() {
+	o.StartAt.Set(nil)
 }
 
-// GetEndAt returns the EndAt field value if set, zero value otherwise.
+// UnsetStartAt ensures that no value is present for StartAt, not even an explicit nil
+func (o *PuupeeDto) UnsetStartAt() {
+	o.StartAt.Unset()
+}
+
+// GetEndAt returns the EndAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetEndAt() time.Time {
-	if o == nil || IsNil(o.EndAt) {
+	if o == nil || IsNil(o.EndAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndAt
+	return *o.EndAt.Get()
 }
 
 // GetEndAtOk returns a tuple with the EndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetEndAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EndAt, true
+	return o.EndAt.Get(), o.EndAt.IsSet()
 }
 
 // HasEndAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasEndAt() bool {
-	if o != nil && !IsNil(o.EndAt) {
+	if o != nil && o.EndAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetEndAt gets a reference to the given time.Time and assigns it to the EndAt field.
+// SetEndAt gets a reference to the given NullableTime and assigns it to the EndAt field.
 func (o *PuupeeDto) SetEndAt(v time.Time) {
-	o.EndAt = &v
+	o.EndAt.Set(&v)
+}
+// SetEndAtNil sets the value for EndAt to be an explicit nil
+func (o *PuupeeDto) SetEndAtNil() {
+	o.EndAt.Set(nil)
 }
 
-// GetNotifyAt returns the NotifyAt field value if set, zero value otherwise.
+// UnsetEndAt ensures that no value is present for EndAt, not even an explicit nil
+func (o *PuupeeDto) UnsetEndAt() {
+	o.EndAt.Unset()
+}
+
+// GetNotifyAt returns the NotifyAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetNotifyAt() time.Time {
-	if o == nil || IsNil(o.NotifyAt) {
+	if o == nil || IsNil(o.NotifyAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.NotifyAt
+	return *o.NotifyAt.Get()
 }
 
 // GetNotifyAtOk returns a tuple with the NotifyAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetNotifyAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.NotifyAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NotifyAt, true
+	return o.NotifyAt.Get(), o.NotifyAt.IsSet()
 }
 
 // HasNotifyAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyAt() bool {
-	if o != nil && !IsNil(o.NotifyAt) {
+	if o != nil && o.NotifyAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNotifyAt gets a reference to the given time.Time and assigns it to the NotifyAt field.
+// SetNotifyAt gets a reference to the given NullableTime and assigns it to the NotifyAt field.
 func (o *PuupeeDto) SetNotifyAt(v time.Time) {
-	o.NotifyAt = &v
+	o.NotifyAt.Set(&v)
+}
+// SetNotifyAtNil sets the value for NotifyAt to be an explicit nil
+func (o *PuupeeDto) SetNotifyAtNil() {
+	o.NotifyAt.Set(nil)
 }
 
-// GetNotifyTimingType returns the NotifyTimingType field value if set, zero value otherwise.
+// UnsetNotifyAt ensures that no value is present for NotifyAt, not even an explicit nil
+func (o *PuupeeDto) UnsetNotifyAt() {
+	o.NotifyAt.Unset()
+}
+
+// GetNotifyTimingType returns the NotifyTimingType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetNotifyTimingType() string {
-	if o == nil || IsNil(o.NotifyTimingType) {
+	if o == nil || IsNil(o.NotifyTimingType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NotifyTimingType
+	return *o.NotifyTimingType.Get()
 }
 
 // GetNotifyTimingTypeOk returns a tuple with the NotifyTimingType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetNotifyTimingTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.NotifyTimingType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NotifyTimingType, true
+	return o.NotifyTimingType.Get(), o.NotifyTimingType.IsSet()
 }
 
 // HasNotifyTimingType returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyTimingType() bool {
-	if o != nil && !IsNil(o.NotifyTimingType) {
+	if o != nil && o.NotifyTimingType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNotifyTimingType gets a reference to the given string and assigns it to the NotifyTimingType field.
+// SetNotifyTimingType gets a reference to the given NullableString and assigns it to the NotifyTimingType field.
 func (o *PuupeeDto) SetNotifyTimingType(v string) {
-	o.NotifyTimingType = &v
+	o.NotifyTimingType.Set(&v)
+}
+// SetNotifyTimingTypeNil sets the value for NotifyTimingType to be an explicit nil
+func (o *PuupeeDto) SetNotifyTimingTypeNil() {
+	o.NotifyTimingType.Set(nil)
 }
 
-// GetNotifyTimingUnit returns the NotifyTimingUnit field value if set, zero value otherwise.
+// UnsetNotifyTimingType ensures that no value is present for NotifyTimingType, not even an explicit nil
+func (o *PuupeeDto) UnsetNotifyTimingType() {
+	o.NotifyTimingType.Unset()
+}
+
+// GetNotifyTimingUnit returns the NotifyTimingUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetNotifyTimingUnit() string {
-	if o == nil || IsNil(o.NotifyTimingUnit) {
+	if o == nil || IsNil(o.NotifyTimingUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NotifyTimingUnit
+	return *o.NotifyTimingUnit.Get()
 }
 
 // GetNotifyTimingUnitOk returns a tuple with the NotifyTimingUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetNotifyTimingUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.NotifyTimingUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NotifyTimingUnit, true
+	return o.NotifyTimingUnit.Get(), o.NotifyTimingUnit.IsSet()
 }
 
 // HasNotifyTimingUnit returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyTimingUnit() bool {
-	if o != nil && !IsNil(o.NotifyTimingUnit) {
+	if o != nil && o.NotifyTimingUnit.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNotifyTimingUnit gets a reference to the given string and assigns it to the NotifyTimingUnit field.
+// SetNotifyTimingUnit gets a reference to the given NullableString and assigns it to the NotifyTimingUnit field.
 func (o *PuupeeDto) SetNotifyTimingUnit(v string) {
-	o.NotifyTimingUnit = &v
+	o.NotifyTimingUnit.Set(&v)
+}
+// SetNotifyTimingUnitNil sets the value for NotifyTimingUnit to be an explicit nil
+func (o *PuupeeDto) SetNotifyTimingUnitNil() {
+	o.NotifyTimingUnit.Set(nil)
 }
 
-// GetNotifyTimingValue returns the NotifyTimingValue field value if set, zero value otherwise.
+// UnsetNotifyTimingUnit ensures that no value is present for NotifyTimingUnit, not even an explicit nil
+func (o *PuupeeDto) UnsetNotifyTimingUnit() {
+	o.NotifyTimingUnit.Unset()
+}
+
+// GetNotifyTimingValue returns the NotifyTimingValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetNotifyTimingValue() int32 {
-	if o == nil || IsNil(o.NotifyTimingValue) {
+	if o == nil || IsNil(o.NotifyTimingValue.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NotifyTimingValue
+	return *o.NotifyTimingValue.Get()
 }
 
 // GetNotifyTimingValueOk returns a tuple with the NotifyTimingValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetNotifyTimingValueOk() (*int32, bool) {
-	if o == nil || IsNil(o.NotifyTimingValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NotifyTimingValue, true
+	return o.NotifyTimingValue.Get(), o.NotifyTimingValue.IsSet()
 }
 
 // HasNotifyTimingValue returns a boolean if a field has been set.
 func (o *PuupeeDto) HasNotifyTimingValue() bool {
-	if o != nil && !IsNil(o.NotifyTimingValue) {
+	if o != nil && o.NotifyTimingValue.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNotifyTimingValue gets a reference to the given int32 and assigns it to the NotifyTimingValue field.
+// SetNotifyTimingValue gets a reference to the given NullableInt32 and assigns it to the NotifyTimingValue field.
 func (o *PuupeeDto) SetNotifyTimingValue(v int32) {
-	o.NotifyTimingValue = &v
+	o.NotifyTimingValue.Set(&v)
+}
+// SetNotifyTimingValueNil sets the value for NotifyTimingValue to be an explicit nil
+func (o *PuupeeDto) SetNotifyTimingValueNil() {
+	o.NotifyTimingValue.Set(nil)
 }
 
-// GetRepeat returns the Repeat field value if set, zero value otherwise.
+// UnsetNotifyTimingValue ensures that no value is present for NotifyTimingValue, not even an explicit nil
+func (o *PuupeeDto) UnsetNotifyTimingValue() {
+	o.NotifyTimingValue.Unset()
+}
+
+// GetRepeat returns the Repeat field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetRepeat() string {
-	if o == nil || IsNil(o.Repeat) {
+	if o == nil || IsNil(o.Repeat.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Repeat
+	return *o.Repeat.Get()
 }
 
 // GetRepeatOk returns a tuple with the Repeat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetRepeatOk() (*string, bool) {
-	if o == nil || IsNil(o.Repeat) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Repeat, true
+	return o.Repeat.Get(), o.Repeat.IsSet()
 }
 
 // HasRepeat returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepeat() bool {
-	if o != nil && !IsNil(o.Repeat) {
+	if o != nil && o.Repeat.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRepeat gets a reference to the given string and assigns it to the Repeat field.
+// SetRepeat gets a reference to the given NullableString and assigns it to the Repeat field.
 func (o *PuupeeDto) SetRepeat(v string) {
-	o.Repeat = &v
+	o.Repeat.Set(&v)
+}
+// SetRepeatNil sets the value for Repeat to be an explicit nil
+func (o *PuupeeDto) SetRepeatNil() {
+	o.Repeat.Set(nil)
 }
 
-// GetRepeatOffAt returns the RepeatOffAt field value if set, zero value otherwise.
+// UnsetRepeat ensures that no value is present for Repeat, not even an explicit nil
+func (o *PuupeeDto) UnsetRepeat() {
+	o.Repeat.Unset()
+}
+
+// GetRepeatOffAt returns the RepeatOffAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetRepeatOffAt() time.Time {
-	if o == nil || IsNil(o.RepeatOffAt) {
+	if o == nil || IsNil(o.RepeatOffAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RepeatOffAt
+	return *o.RepeatOffAt.Get()
 }
 
 // GetRepeatOffAtOk returns a tuple with the RepeatOffAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetRepeatOffAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.RepeatOffAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RepeatOffAt, true
+	return o.RepeatOffAt.Get(), o.RepeatOffAt.IsSet()
 }
 
 // HasRepeatOffAt returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepeatOffAt() bool {
-	if o != nil && !IsNil(o.RepeatOffAt) {
+	if o != nil && o.RepeatOffAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRepeatOffAt gets a reference to the given time.Time and assigns it to the RepeatOffAt field.
+// SetRepeatOffAt gets a reference to the given NullableTime and assigns it to the RepeatOffAt field.
 func (o *PuupeeDto) SetRepeatOffAt(v time.Time) {
-	o.RepeatOffAt = &v
+	o.RepeatOffAt.Set(&v)
+}
+// SetRepeatOffAtNil sets the value for RepeatOffAt to be an explicit nil
+func (o *PuupeeDto) SetRepeatOffAtNil() {
+	o.RepeatOffAt.Set(nil)
 }
 
-// GetRepeatOffTimes returns the RepeatOffTimes field value if set, zero value otherwise.
+// UnsetRepeatOffAt ensures that no value is present for RepeatOffAt, not even an explicit nil
+func (o *PuupeeDto) UnsetRepeatOffAt() {
+	o.RepeatOffAt.Unset()
+}
+
+// GetRepeatOffTimes returns the RepeatOffTimes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetRepeatOffTimes() int32 {
-	if o == nil || IsNil(o.RepeatOffTimes) {
+	if o == nil || IsNil(o.RepeatOffTimes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.RepeatOffTimes
+	return *o.RepeatOffTimes.Get()
 }
 
 // GetRepeatOffTimesOk returns a tuple with the RepeatOffTimes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetRepeatOffTimesOk() (*int32, bool) {
-	if o == nil || IsNil(o.RepeatOffTimes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RepeatOffTimes, true
+	return o.RepeatOffTimes.Get(), o.RepeatOffTimes.IsSet()
 }
 
 // HasRepeatOffTimes returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepeatOffTimes() bool {
-	if o != nil && !IsNil(o.RepeatOffTimes) {
+	if o != nil && o.RepeatOffTimes.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRepeatOffTimes gets a reference to the given int32 and assigns it to the RepeatOffTimes field.
+// SetRepeatOffTimes gets a reference to the given NullableInt32 and assigns it to the RepeatOffTimes field.
 func (o *PuupeeDto) SetRepeatOffTimes(v int32) {
-	o.RepeatOffTimes = &v
+	o.RepeatOffTimes.Set(&v)
+}
+// SetRepeatOffTimesNil sets the value for RepeatOffTimes to be an explicit nil
+func (o *PuupeeDto) SetRepeatOffTimesNil() {
+	o.RepeatOffTimes.Set(nil)
 }
 
-// GetRepetitions returns the Repetitions field value if set, zero value otherwise.
+// UnsetRepeatOffTimes ensures that no value is present for RepeatOffTimes, not even an explicit nil
+func (o *PuupeeDto) UnsetRepeatOffTimes() {
+	o.RepeatOffTimes.Unset()
+}
+
+// GetRepetitions returns the Repetitions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetRepetitions() int32 {
-	if o == nil || IsNil(o.Repetitions) {
+	if o == nil || IsNil(o.Repetitions.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Repetitions
+	return *o.Repetitions.Get()
 }
 
 // GetRepetitionsOk returns a tuple with the Repetitions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetRepetitionsOk() (*int32, bool) {
-	if o == nil || IsNil(o.Repetitions) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Repetitions, true
+	return o.Repetitions.Get(), o.Repetitions.IsSet()
 }
 
 // HasRepetitions returns a boolean if a field has been set.
 func (o *PuupeeDto) HasRepetitions() bool {
-	if o != nil && !IsNil(o.Repetitions) {
+	if o != nil && o.Repetitions.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRepetitions gets a reference to the given int32 and assigns it to the Repetitions field.
+// SetRepetitions gets a reference to the given NullableInt32 and assigns it to the Repetitions field.
 func (o *PuupeeDto) SetRepetitions(v int32) {
-	o.Repetitions = &v
+	o.Repetitions.Set(&v)
+}
+// SetRepetitionsNil sets the value for Repetitions to be an explicit nil
+func (o *PuupeeDto) SetRepetitionsNil() {
+	o.Repetitions.Set(nil)
+}
+
+// UnsetRepetitions ensures that no value is present for Repetitions, not even an explicit nil
+func (o *PuupeeDto) UnsetRepetitions() {
+	o.Repetitions.Unset()
 }
 
 // GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
@@ -1595,132 +1975,172 @@ func (o *PuupeeDto) SetIsHidden(v bool) {
 	o.IsHidden = &v
 }
 
-// GetTagging returns the Tagging field value if set, zero value otherwise.
+// GetTagging returns the Tagging field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetTagging() string {
-	if o == nil || IsNil(o.Tagging) {
+	if o == nil || IsNil(o.Tagging.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Tagging
+	return *o.Tagging.Get()
 }
 
 // GetTaggingOk returns a tuple with the Tagging field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetTaggingOk() (*string, bool) {
-	if o == nil || IsNil(o.Tagging) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Tagging, true
+	return o.Tagging.Get(), o.Tagging.IsSet()
 }
 
 // HasTagging returns a boolean if a field has been set.
 func (o *PuupeeDto) HasTagging() bool {
-	if o != nil && !IsNil(o.Tagging) {
+	if o != nil && o.Tagging.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTagging gets a reference to the given string and assigns it to the Tagging field.
+// SetTagging gets a reference to the given NullableString and assigns it to the Tagging field.
 func (o *PuupeeDto) SetTagging(v string) {
-	o.Tagging = &v
+	o.Tagging.Set(&v)
+}
+// SetTaggingNil sets the value for Tagging to be an explicit nil
+func (o *PuupeeDto) SetTaggingNil() {
+	o.Tagging.Set(nil)
 }
 
-// GetLastModifierDeviceToken returns the LastModifierDeviceToken field value if set, zero value otherwise.
+// UnsetTagging ensures that no value is present for Tagging, not even an explicit nil
+func (o *PuupeeDto) UnsetTagging() {
+	o.Tagging.Unset()
+}
+
+// GetLastModifierDeviceToken returns the LastModifierDeviceToken field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetLastModifierDeviceToken() string {
-	if o == nil || IsNil(o.LastModifierDeviceToken) {
+	if o == nil || IsNil(o.LastModifierDeviceToken.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierDeviceToken
+	return *o.LastModifierDeviceToken.Get()
 }
 
 // GetLastModifierDeviceTokenOk returns a tuple with the LastModifierDeviceToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetLastModifierDeviceTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.LastModifierDeviceToken) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModifierDeviceToken, true
+	return o.LastModifierDeviceToken.Get(), o.LastModifierDeviceToken.IsSet()
 }
 
 // HasLastModifierDeviceToken returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModifierDeviceToken() bool {
-	if o != nil && !IsNil(o.LastModifierDeviceToken) {
+	if o != nil && o.LastModifierDeviceToken.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierDeviceToken gets a reference to the given string and assigns it to the LastModifierDeviceToken field.
+// SetLastModifierDeviceToken gets a reference to the given NullableString and assigns it to the LastModifierDeviceToken field.
 func (o *PuupeeDto) SetLastModifierDeviceToken(v string) {
-	o.LastModifierDeviceToken = &v
+	o.LastModifierDeviceToken.Set(&v)
+}
+// SetLastModifierDeviceTokenNil sets the value for LastModifierDeviceToken to be an explicit nil
+func (o *PuupeeDto) SetLastModifierDeviceTokenNil() {
+	o.LastModifierDeviceToken.Set(nil)
 }
 
-// GetLastModifierDevice returns the LastModifierDevice field value if set, zero value otherwise.
+// UnsetLastModifierDeviceToken ensures that no value is present for LastModifierDeviceToken, not even an explicit nil
+func (o *PuupeeDto) UnsetLastModifierDeviceToken() {
+	o.LastModifierDeviceToken.Unset()
+}
+
+// GetLastModifierDevice returns the LastModifierDevice field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetLastModifierDevice() string {
-	if o == nil || IsNil(o.LastModifierDevice) {
+	if o == nil || IsNil(o.LastModifierDevice.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierDevice
+	return *o.LastModifierDevice.Get()
 }
 
 // GetLastModifierDeviceOk returns a tuple with the LastModifierDevice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetLastModifierDeviceOk() (*string, bool) {
-	if o == nil || IsNil(o.LastModifierDevice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModifierDevice, true
+	return o.LastModifierDevice.Get(), o.LastModifierDevice.IsSet()
 }
 
 // HasLastModifierDevice returns a boolean if a field has been set.
 func (o *PuupeeDto) HasLastModifierDevice() bool {
-	if o != nil && !IsNil(o.LastModifierDevice) {
+	if o != nil && o.LastModifierDevice.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierDevice gets a reference to the given string and assigns it to the LastModifierDevice field.
+// SetLastModifierDevice gets a reference to the given NullableString and assigns it to the LastModifierDevice field.
 func (o *PuupeeDto) SetLastModifierDevice(v string) {
-	o.LastModifierDevice = &v
+	o.LastModifierDevice.Set(&v)
+}
+// SetLastModifierDeviceNil sets the value for LastModifierDevice to be an explicit nil
+func (o *PuupeeDto) SetLastModifierDeviceNil() {
+	o.LastModifierDevice.Set(nil)
 }
 
-// GetAppName returns the AppName field value if set, zero value otherwise.
+// UnsetLastModifierDevice ensures that no value is present for LastModifierDevice, not even an explicit nil
+func (o *PuupeeDto) UnsetLastModifierDevice() {
+	o.LastModifierDevice.Unset()
+}
+
+// GetAppName returns the AppName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PuupeeDto) GetAppName() string {
-	if o == nil || IsNil(o.AppName) {
+	if o == nil || IsNil(o.AppName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AppName
+	return *o.AppName.Get()
 }
 
 // GetAppNameOk returns a tuple with the AppName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PuupeeDto) GetAppNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AppName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AppName, true
+	return o.AppName.Get(), o.AppName.IsSet()
 }
 
 // HasAppName returns a boolean if a field has been set.
 func (o *PuupeeDto) HasAppName() bool {
-	if o != nil && !IsNil(o.AppName) {
+	if o != nil && o.AppName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAppName gets a reference to the given string and assigns it to the AppName field.
+// SetAppName gets a reference to the given NullableString and assigns it to the AppName field.
 func (o *PuupeeDto) SetAppName(v string) {
-	o.AppName = &v
+	o.AppName.Set(&v)
+}
+// SetAppNameNil sets the value for AppName to be an explicit nil
+func (o *PuupeeDto) SetAppNameNil() {
+	o.AppName.Set(nil)
+}
+
+// UnsetAppName ensures that no value is present for AppName, not even an explicit nil
+func (o *PuupeeDto) UnsetAppName() {
+	o.AppName.Unset()
 }
 
 // GetSortIndex returns the SortIndex field value if set, zero value otherwise.
@@ -1771,89 +2191,89 @@ func (o PuupeeDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if !IsNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
+	if o.CreatorId.IsSet() {
+		toSerialize["creatorId"] = o.CreatorId.Get()
 	}
-	if !IsNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
+	if o.LastModificationTime.IsSet() {
+		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
 	}
-	if !IsNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
+	if o.LastModifierId.IsSet() {
+		toSerialize["lastModifierId"] = o.LastModifierId.Get()
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if !IsNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
+	if o.DeleterId.IsSet() {
+		toSerialize["deleterId"] = o.DeleterId.Get()
 	}
-	if !IsNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
+	if o.DeletionTime.IsSet() {
+		toSerialize["deletionTime"] = o.DeletionTime.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
+	if o.Title.IsSet() {
+		toSerialize["title"] = o.Title.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Text) {
-		toSerialize["text"] = o.Text
+	if o.Text.IsSet() {
+		toSerialize["text"] = o.Text.Get()
 	}
-	if !IsNil(o.Content) {
-		toSerialize["content"] = o.Content
+	if o.Content.IsSet() {
+		toSerialize["content"] = o.Content.Get()
 	}
-	if !IsNil(o.Format) {
-		toSerialize["format"] = o.Format
+	if o.Format.IsSet() {
+		toSerialize["format"] = o.Format.Get()
 	}
-	if !IsNil(o.Password) {
-		toSerialize["password"] = o.Password
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
 	}
-	if !IsNil(o.ParentId) {
-		toSerialize["parentId"] = o.ParentId
+	if o.ParentId.IsSet() {
+		toSerialize["parentId"] = o.ParentId.Get()
 	}
-	if !IsNil(o.Key) {
-		toSerialize["key"] = o.Key
+	if o.Key.IsSet() {
+		toSerialize["key"] = o.Key.Get()
 	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
 	}
 	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
-	if !IsNil(o.Md5) {
-		toSerialize["md5"] = o.Md5
+	if o.Md5.IsSet() {
+		toSerialize["md5"] = o.Md5.Get()
 	}
-	if !IsNil(o.SliceMd5) {
-		toSerialize["sliceMd5"] = o.SliceMd5
+	if o.SliceMd5.IsSet() {
+		toSerialize["sliceMd5"] = o.SliceMd5.Get()
 	}
-	if !IsNil(o.RapidCode) {
-		toSerialize["rapidCode"] = o.RapidCode
+	if o.RapidCode.IsSet() {
+		toSerialize["rapidCode"] = o.RapidCode.Get()
 	}
-	if !IsNil(o.ContentType) {
-		toSerialize["contentType"] = o.ContentType
+	if o.ContentType.IsSet() {
+		toSerialize["contentType"] = o.ContentType.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.DisplayStyle) {
-		toSerialize["displayStyle"] = o.DisplayStyle
+	if o.DisplayStyle.IsSet() {
+		toSerialize["displayStyle"] = o.DisplayStyle.Get()
 	}
-	if !IsNil(o.Extension) {
-		toSerialize["extension"] = o.Extension
+	if o.Extension.IsSet() {
+		toSerialize["extension"] = o.Extension.Get()
 	}
-	if !IsNil(o.StorageClass) {
-		toSerialize["storageClass"] = o.StorageClass
+	if o.StorageClass.IsSet() {
+		toSerialize["storageClass"] = o.StorageClass.Get()
 	}
-	if !IsNil(o.StorageObjectCreatedAt) {
-		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt
+	if o.StorageObjectCreatedAt.IsSet() {
+		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt.Get()
 	}
-	if !IsNil(o.StorageObjectUpdatedAt) {
-		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt
+	if o.StorageObjectUpdatedAt.IsSet() {
+		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt.Get()
 	}
-	if !IsNil(o.StorageObjectId) {
-		toSerialize["storageObjectId"] = o.StorageObjectId
+	if o.StorageObjectId.IsSet() {
+		toSerialize["storageObjectId"] = o.StorageObjectId.Get()
 	}
 	if !IsNil(o.StorageObject) {
 		toSerialize["storageObject"] = o.StorageObject
@@ -1861,44 +2281,44 @@ func (o PuupeeDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Thumb) {
 		toSerialize["thumb"] = o.Thumb
 	}
-	if !IsNil(o.Priority) {
-		toSerialize["priority"] = o.Priority
+	if o.Priority.IsSet() {
+		toSerialize["priority"] = o.Priority.Get()
 	}
-	if !IsNil(o.DoneAt) {
-		toSerialize["doneAt"] = o.DoneAt
+	if o.DoneAt.IsSet() {
+		toSerialize["doneAt"] = o.DoneAt.Get()
 	}
 	if !IsNil(o.IsDone) {
 		toSerialize["isDone"] = o.IsDone
 	}
-	if !IsNil(o.StartAt) {
-		toSerialize["startAt"] = o.StartAt
+	if o.StartAt.IsSet() {
+		toSerialize["startAt"] = o.StartAt.Get()
 	}
-	if !IsNil(o.EndAt) {
-		toSerialize["endAt"] = o.EndAt
+	if o.EndAt.IsSet() {
+		toSerialize["endAt"] = o.EndAt.Get()
 	}
-	if !IsNil(o.NotifyAt) {
-		toSerialize["notifyAt"] = o.NotifyAt
+	if o.NotifyAt.IsSet() {
+		toSerialize["notifyAt"] = o.NotifyAt.Get()
 	}
-	if !IsNil(o.NotifyTimingType) {
-		toSerialize["notifyTimingType"] = o.NotifyTimingType
+	if o.NotifyTimingType.IsSet() {
+		toSerialize["notifyTimingType"] = o.NotifyTimingType.Get()
 	}
-	if !IsNil(o.NotifyTimingUnit) {
-		toSerialize["notifyTimingUnit"] = o.NotifyTimingUnit
+	if o.NotifyTimingUnit.IsSet() {
+		toSerialize["notifyTimingUnit"] = o.NotifyTimingUnit.Get()
 	}
-	if !IsNil(o.NotifyTimingValue) {
-		toSerialize["notifyTimingValue"] = o.NotifyTimingValue
+	if o.NotifyTimingValue.IsSet() {
+		toSerialize["notifyTimingValue"] = o.NotifyTimingValue.Get()
 	}
-	if !IsNil(o.Repeat) {
-		toSerialize["repeat"] = o.Repeat
+	if o.Repeat.IsSet() {
+		toSerialize["repeat"] = o.Repeat.Get()
 	}
-	if !IsNil(o.RepeatOffAt) {
-		toSerialize["repeatOffAt"] = o.RepeatOffAt
+	if o.RepeatOffAt.IsSet() {
+		toSerialize["repeatOffAt"] = o.RepeatOffAt.Get()
 	}
-	if !IsNil(o.RepeatOffTimes) {
-		toSerialize["repeatOffTimes"] = o.RepeatOffTimes
+	if o.RepeatOffTimes.IsSet() {
+		toSerialize["repeatOffTimes"] = o.RepeatOffTimes.Get()
 	}
-	if !IsNil(o.Repetitions) {
-		toSerialize["repetitions"] = o.Repetitions
+	if o.Repetitions.IsSet() {
+		toSerialize["repetitions"] = o.Repetitions.Get()
 	}
 	if !IsNil(o.SyncVersion) {
 		toSerialize["syncVersion"] = o.SyncVersion
@@ -1906,17 +2326,17 @@ func (o PuupeeDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsHidden) {
 		toSerialize["isHidden"] = o.IsHidden
 	}
-	if !IsNil(o.Tagging) {
-		toSerialize["tagging"] = o.Tagging
+	if o.Tagging.IsSet() {
+		toSerialize["tagging"] = o.Tagging.Get()
 	}
-	if !IsNil(o.LastModifierDeviceToken) {
-		toSerialize["lastModifierDeviceToken"] = o.LastModifierDeviceToken
+	if o.LastModifierDeviceToken.IsSet() {
+		toSerialize["lastModifierDeviceToken"] = o.LastModifierDeviceToken.Get()
 	}
-	if !IsNil(o.LastModifierDevice) {
-		toSerialize["lastModifierDevice"] = o.LastModifierDevice
+	if o.LastModifierDevice.IsSet() {
+		toSerialize["lastModifierDevice"] = o.LastModifierDevice.Get()
 	}
-	if !IsNil(o.AppName) {
-		toSerialize["appName"] = o.AppName
+	if o.AppName.IsSet() {
+		toSerialize["appName"] = o.AppName.Get()
 	}
 	if !IsNil(o.SortIndex) {
 		toSerialize["sortIndex"] = o.SortIndex

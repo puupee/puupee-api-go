@@ -21,7 +21,7 @@ var _ MappedNullable = &DateTimeSetKeyValueDto{}
 // DateTimeSetKeyValueDto struct for DateTimeSetKeyValueDto
 type DateTimeSetKeyValueDto struct {
 	Value *time.Time `json:"value,omitempty"`
-	DurationSeconds *float64 `json:"durationSeconds,omitempty"`
+	DurationSeconds NullableFloat64 `json:"durationSeconds,omitempty"`
 }
 
 // NewDateTimeSetKeyValueDto instantiates a new DateTimeSetKeyValueDto object
@@ -73,36 +73,46 @@ func (o *DateTimeSetKeyValueDto) SetValue(v time.Time) {
 	o.Value = &v
 }
 
-// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
+// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DateTimeSetKeyValueDto) GetDurationSeconds() float64 {
-	if o == nil || IsNil(o.DurationSeconds) {
+	if o == nil || IsNil(o.DurationSeconds.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.DurationSeconds
+	return *o.DurationSeconds.Get()
 }
 
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeSetKeyValueDto) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil || IsNil(o.DurationSeconds) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DurationSeconds, true
+	return o.DurationSeconds.Get(), o.DurationSeconds.IsSet()
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *DateTimeSetKeyValueDto) HasDurationSeconds() bool {
-	if o != nil && !IsNil(o.DurationSeconds) {
+	if o != nil && o.DurationSeconds.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationSeconds gets a reference to the given float64 and assigns it to the DurationSeconds field.
+// SetDurationSeconds gets a reference to the given NullableFloat64 and assigns it to the DurationSeconds field.
 func (o *DateTimeSetKeyValueDto) SetDurationSeconds(v float64) {
-	o.DurationSeconds = &v
+	o.DurationSeconds.Set(&v)
+}
+// SetDurationSecondsNil sets the value for DurationSeconds to be an explicit nil
+func (o *DateTimeSetKeyValueDto) SetDurationSecondsNil() {
+	o.DurationSeconds.Set(nil)
+}
+
+// UnsetDurationSeconds ensures that no value is present for DurationSeconds, not even an explicit nil
+func (o *DateTimeSetKeyValueDto) UnsetDurationSeconds() {
+	o.DurationSeconds.Unset()
 }
 
 func (o DateTimeSetKeyValueDto) MarshalJSON() ([]byte, error) {
@@ -118,8 +128,8 @@ func (o DateTimeSetKeyValueDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
-	if !IsNil(o.DurationSeconds) {
-		toSerialize["durationSeconds"] = o.DurationSeconds
+	if o.DurationSeconds.IsSet() {
+		toSerialize["durationSeconds"] = o.DurationSeconds.Get()
 	}
 	return toSerialize, nil
 }

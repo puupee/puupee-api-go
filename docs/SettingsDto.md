@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AppTheme** | Pointer to [**AppTheme**](AppTheme.md) |  | [optional] 
-**Language** | Pointer to **string** |  | [optional] 
+**Language** | Pointer to **NullableString** |  | [optional] 
 **TodoSettings** | Pointer to [**TodoSettingsDto**](TodoSettingsDto.md) |  | [optional] 
 
 ## Methods
@@ -77,6 +77,16 @@ SetLanguage sets Language field to given value.
 
 HasLanguage returns a boolean if a field has been set.
 
+### SetLanguageNil
+
+`func (o *SettingsDto) SetLanguageNil(b bool)`
+
+ SetLanguageNil sets the value for Language to be an explicit nil
+
+### UnsetLanguage
+`func (o *SettingsDto) UnsetLanguage()`
+
+UnsetLanguage ensures that no value is present for Language, not even an explicit nil
 ### GetTodoSettings
 
 `func (o *SettingsDto) GetTodoSettings() TodoSettingsDto`

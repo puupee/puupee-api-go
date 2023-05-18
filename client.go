@@ -74,6 +74,8 @@ type APIClient struct {
 
 	AppUserScoreApi *AppUserScoreApiService
 
+	AvatarApi *AvatarApiService
+
 	DeviceApi *DeviceApiService
 
 	EmailSettingsApi *EmailSettingsApiService
@@ -85,6 +87,14 @@ type APIClient struct {
 	LoginApi *LoginApiService
 
 	MessageApi *MessageApiService
+
+	MessageSourceApi *MessageSourceApiService
+
+	MessageSourceCategoryApi *MessageSourceCategoryApiService
+
+	MessageSourceRouteApi *MessageSourceRouteApiService
+
+	MessageSourceRouteSubApi *MessageSourceRouteSubApiService
 
 	MessageTemplateApi *MessageTemplateApiService
 
@@ -151,12 +161,17 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AppReleaseApi = (*AppReleaseApiService)(&c.common)
 	c.AppSdkApi = (*AppSdkApiService)(&c.common)
 	c.AppUserScoreApi = (*AppUserScoreApiService)(&c.common)
+	c.AvatarApi = (*AvatarApiService)(&c.common)
 	c.DeviceApi = (*DeviceApiService)(&c.common)
 	c.EmailSettingsApi = (*EmailSettingsApiService)(&c.common)
 	c.FeaturesApi = (*FeaturesApiService)(&c.common)
 	c.KeyValueApi = (*KeyValueApiService)(&c.common)
 	c.LoginApi = (*LoginApiService)(&c.common)
 	c.MessageApi = (*MessageApiService)(&c.common)
+	c.MessageSourceApi = (*MessageSourceApiService)(&c.common)
+	c.MessageSourceCategoryApi = (*MessageSourceCategoryApiService)(&c.common)
+	c.MessageSourceRouteApi = (*MessageSourceRouteApiService)(&c.common)
+	c.MessageSourceRouteSubApi = (*MessageSourceRouteSubApiService)(&c.common)
 	c.MessageTemplateApi = (*MessageTemplateApiService)(&c.common)
 	c.MessageTemplateReleaseApi = (*MessageTemplateReleaseApiService)(&c.common)
 	c.NotificationApi = (*NotificationApiService)(&c.common)

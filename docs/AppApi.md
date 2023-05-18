@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppByNameGet
 
-> AppDto ApiAppAppByNameGet(ctx).Name(name).Execute()
+> AppDto ApiAppAppByNameGet(ctx).Name(name).Env(env).Execute()
 
 
 
@@ -104,10 +104,11 @@ import (
 
 func main() {
     name := "name_example" // string |  (optional)
+    env := "env_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppByNameGet(context.Background()).Name(name).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppByNameGet(context.Background()).Name(name).Env(env).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByNameGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -129,6 +130,7 @@ Other parameters are passed through a pointer to a apiApiAppAppByNameGetRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string** |  | 
+ **env** | **string** |  | 
 
 ### Return type
 
@@ -286,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppIdGet
 
-> AppDto ApiAppAppIdGet(ctx, id).Execute()
+> AppDto ApiAppAppIdGet(ctx, id).Env(env).Execute()
 
 
 
@@ -304,10 +306,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    env := "env_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppIdGet(context.Background(), id).Env(env).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -333,6 +336,7 @@ Other parameters are passed through a pointer to a apiApiAppAppIdGetRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **env** | **string** |  | 
 
 ### Return type
 
@@ -354,7 +358,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppIdPut
 
-> AppDto ApiAppAppIdPut(ctx, id).Body(body).Execute()
+> AppDto ApiAppAppIdPut(ctx, id).CreateOrUpdateAppDto(createOrUpdateAppDto).Execute()
 
 
 
@@ -372,11 +376,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
+    createOrUpdateAppDto := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppIdPut(context.Background(), id).CreateOrUpdateAppDto(createOrUpdateAppDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -402,7 +406,7 @@ Other parameters are passed through a pointer to a apiApiAppAppIdPutRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
+ **createOrUpdateAppDto** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
 
 ### Return type
 
@@ -424,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppIdRunStatePut
 
-> AppRunRecordDto ApiAppAppIdRunStatePut(ctx, id).Body(body).Execute()
+> AppRunRecordDto ApiAppAppIdRunStatePut(ctx, id).AppRunRecordUpdateDto(appRunRecordUpdateDto).Execute()
 
 
 
@@ -442,11 +446,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewAppRunRecordUpdateDto("Status_example", "WorkerId_example", "WorkerName_example") // AppRunRecordUpdateDto |  (optional)
+    appRunRecordUpdateDto := *openapiclient.NewAppRunRecordUpdateDto("Status_example", "WorkerId_example", "WorkerName_example") // AppRunRecordUpdateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdRunStatePut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppIdRunStatePut(context.Background(), id).AppRunRecordUpdateDto(appRunRecordUpdateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdRunStatePut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -472,7 +476,7 @@ Other parameters are passed through a pointer to a apiApiAppAppIdRunStatePutRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**AppRunRecordUpdateDto**](AppRunRecordUpdateDto.md) |  | 
+ **appRunRecordUpdateDto** | [**AppRunRecordUpdateDto**](AppRunRecordUpdateDto.md) |  | 
 
 ### Return type
 
@@ -494,7 +498,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppIdWithUserGet
 
-> AppWithUserDto ApiAppAppIdWithUserGet(ctx, id).Execute()
+> AppWithUserDto ApiAppAppIdWithUserGet(ctx, id).Env(env).Execute()
 
 
 
@@ -512,10 +516,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    env := "env_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdWithUserGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppIdWithUserGet(context.Background(), id).Env(env).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdWithUserGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -541,6 +546,7 @@ Other parameters are passed through a pointer to a apiApiAppAppIdWithUserGetRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **env** | **string** |  | 
 
 ### Return type
 
@@ -562,7 +568,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppPost
 
-> AppDto ApiAppAppPost(ctx).Body(body).Execute()
+> AppDto ApiAppAppPost(ctx).CreateOrUpdateAppDto(createOrUpdateAppDto).Execute()
 
 
 
@@ -579,11 +585,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
+    createOrUpdateAppDto := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppPost(context.Background()).CreateOrUpdateAppDto(createOrUpdateAppDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -604,7 +610,7 @@ Other parameters are passed through a pointer to a apiApiAppAppPostRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
+ **createOrUpdateAppDto** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
 
 ### Return type
 
@@ -694,7 +700,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppRunPost
 
-> AppRunRecordDto ApiAppAppRunPost(ctx).Body(body).Execute()
+> AppRunRecordDto ApiAppAppRunPost(ctx).AppRunDto(appRunDto).Execute()
 
 
 
@@ -711,11 +717,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewAppRunDto() // AppRunDto |  (optional)
+    appRunDto := *openapiclient.NewAppRunDto() // AppRunDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppRunPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppApi.ApiAppAppRunPost(context.Background()).AppRunDto(appRunDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppRunPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -736,7 +742,7 @@ Other parameters are passed through a pointer to a apiApiAppAppRunPostRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AppRunDto**](AppRunDto.md) |  | 
+ **appRunDto** | [**AppRunDto**](AppRunDto.md) |  | 
 
 ### Return type
 

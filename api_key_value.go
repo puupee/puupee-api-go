@@ -881,7 +881,7 @@ type ApiApiAppKeyValueSetBoolPostRequest struct {
 	ctx context.Context
 	ApiService *KeyValueApiService
 	key *string
-	body *BooleanSetKeyValueDto
+	booleanSetKeyValueDto *BooleanSetKeyValueDto
 }
 
 func (r ApiApiAppKeyValueSetBoolPostRequest) Key(key string) ApiApiAppKeyValueSetBoolPostRequest {
@@ -889,8 +889,8 @@ func (r ApiApiAppKeyValueSetBoolPostRequest) Key(key string) ApiApiAppKeyValueSe
 	return r
 }
 
-func (r ApiApiAppKeyValueSetBoolPostRequest) Body(body BooleanSetKeyValueDto) ApiApiAppKeyValueSetBoolPostRequest {
-	r.body = &body
+func (r ApiApiAppKeyValueSetBoolPostRequest) BooleanSetKeyValueDto(booleanSetKeyValueDto BooleanSetKeyValueDto) ApiApiAppKeyValueSetBoolPostRequest {
+	r.booleanSetKeyValueDto = &booleanSetKeyValueDto
 	return r
 }
 
@@ -951,7 +951,7 @@ func (a *KeyValueApiService) ApiAppKeyValueSetBoolPostExecute(r ApiApiAppKeyValu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.booleanSetKeyValueDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1049,7 +1049,7 @@ type ApiApiAppKeyValueSetDateTimePostRequest struct {
 	ctx context.Context
 	ApiService *KeyValueApiService
 	key *string
-	body *DateTimeSetKeyValueDto
+	dateTimeSetKeyValueDto *DateTimeSetKeyValueDto
 }
 
 func (r ApiApiAppKeyValueSetDateTimePostRequest) Key(key string) ApiApiAppKeyValueSetDateTimePostRequest {
@@ -1057,8 +1057,8 @@ func (r ApiApiAppKeyValueSetDateTimePostRequest) Key(key string) ApiApiAppKeyVal
 	return r
 }
 
-func (r ApiApiAppKeyValueSetDateTimePostRequest) Body(body DateTimeSetKeyValueDto) ApiApiAppKeyValueSetDateTimePostRequest {
-	r.body = &body
+func (r ApiApiAppKeyValueSetDateTimePostRequest) DateTimeSetKeyValueDto(dateTimeSetKeyValueDto DateTimeSetKeyValueDto) ApiApiAppKeyValueSetDateTimePostRequest {
+	r.dateTimeSetKeyValueDto = &dateTimeSetKeyValueDto
 	return r
 }
 
@@ -1119,7 +1119,7 @@ func (a *KeyValueApiService) ApiAppKeyValueSetDateTimePostExecute(r ApiApiAppKey
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.dateTimeSetKeyValueDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1217,7 +1217,7 @@ type ApiApiAppKeyValueSetDecimalPostRequest struct {
 	ctx context.Context
 	ApiService *KeyValueApiService
 	key *string
-	body *DecimalSetKeyValueDto
+	decimalSetKeyValueDto *DecimalSetKeyValueDto
 }
 
 func (r ApiApiAppKeyValueSetDecimalPostRequest) Key(key string) ApiApiAppKeyValueSetDecimalPostRequest {
@@ -1225,8 +1225,8 @@ func (r ApiApiAppKeyValueSetDecimalPostRequest) Key(key string) ApiApiAppKeyValu
 	return r
 }
 
-func (r ApiApiAppKeyValueSetDecimalPostRequest) Body(body DecimalSetKeyValueDto) ApiApiAppKeyValueSetDecimalPostRequest {
-	r.body = &body
+func (r ApiApiAppKeyValueSetDecimalPostRequest) DecimalSetKeyValueDto(decimalSetKeyValueDto DecimalSetKeyValueDto) ApiApiAppKeyValueSetDecimalPostRequest {
+	r.decimalSetKeyValueDto = &decimalSetKeyValueDto
 	return r
 }
 
@@ -1287,7 +1287,7 @@ func (a *KeyValueApiService) ApiAppKeyValueSetDecimalPostExecute(r ApiApiAppKeyV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.decimalSetKeyValueDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1385,7 +1385,7 @@ type ApiApiAppKeyValueSetDoublePostRequest struct {
 	ctx context.Context
 	ApiService *KeyValueApiService
 	key *string
-	body *DoubleSetKeyValueDto
+	doubleSetKeyValueDto *DoubleSetKeyValueDto
 }
 
 func (r ApiApiAppKeyValueSetDoublePostRequest) Key(key string) ApiApiAppKeyValueSetDoublePostRequest {
@@ -1393,8 +1393,8 @@ func (r ApiApiAppKeyValueSetDoublePostRequest) Key(key string) ApiApiAppKeyValue
 	return r
 }
 
-func (r ApiApiAppKeyValueSetDoublePostRequest) Body(body DoubleSetKeyValueDto) ApiApiAppKeyValueSetDoublePostRequest {
-	r.body = &body
+func (r ApiApiAppKeyValueSetDoublePostRequest) DoubleSetKeyValueDto(doubleSetKeyValueDto DoubleSetKeyValueDto) ApiApiAppKeyValueSetDoublePostRequest {
+	r.doubleSetKeyValueDto = &doubleSetKeyValueDto
 	return r
 }
 
@@ -1455,7 +1455,7 @@ func (a *KeyValueApiService) ApiAppKeyValueSetDoublePostExecute(r ApiApiAppKeyVa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.doubleSetKeyValueDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1553,7 +1553,7 @@ type ApiApiAppKeyValueSetIntPostRequest struct {
 	ctx context.Context
 	ApiService *KeyValueApiService
 	key *string
-	body *Int32SetKeyValueDto
+	int32SetKeyValueDto *Int32SetKeyValueDto
 }
 
 func (r ApiApiAppKeyValueSetIntPostRequest) Key(key string) ApiApiAppKeyValueSetIntPostRequest {
@@ -1561,8 +1561,8 @@ func (r ApiApiAppKeyValueSetIntPostRequest) Key(key string) ApiApiAppKeyValueSet
 	return r
 }
 
-func (r ApiApiAppKeyValueSetIntPostRequest) Body(body Int32SetKeyValueDto) ApiApiAppKeyValueSetIntPostRequest {
-	r.body = &body
+func (r ApiApiAppKeyValueSetIntPostRequest) Int32SetKeyValueDto(int32SetKeyValueDto Int32SetKeyValueDto) ApiApiAppKeyValueSetIntPostRequest {
+	r.int32SetKeyValueDto = &int32SetKeyValueDto
 	return r
 }
 
@@ -1623,7 +1623,7 @@ func (a *KeyValueApiService) ApiAppKeyValueSetIntPostExecute(r ApiApiAppKeyValue
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.int32SetKeyValueDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1721,7 +1721,7 @@ type ApiApiAppKeyValueSetStringPostRequest struct {
 	ctx context.Context
 	ApiService *KeyValueApiService
 	key *string
-	body *StringSetKeyValueDto
+	stringSetKeyValueDto *StringSetKeyValueDto
 }
 
 func (r ApiApiAppKeyValueSetStringPostRequest) Key(key string) ApiApiAppKeyValueSetStringPostRequest {
@@ -1729,8 +1729,8 @@ func (r ApiApiAppKeyValueSetStringPostRequest) Key(key string) ApiApiAppKeyValue
 	return r
 }
 
-func (r ApiApiAppKeyValueSetStringPostRequest) Body(body StringSetKeyValueDto) ApiApiAppKeyValueSetStringPostRequest {
-	r.body = &body
+func (r ApiApiAppKeyValueSetStringPostRequest) StringSetKeyValueDto(stringSetKeyValueDto StringSetKeyValueDto) ApiApiAppKeyValueSetStringPostRequest {
+	r.stringSetKeyValueDto = &stringSetKeyValueDto
 	return r
 }
 
@@ -1791,7 +1791,7 @@ func (a *KeyValueApiService) ApiAppKeyValueSetStringPostExecute(r ApiApiAppKeyVa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.stringSetKeyValueDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

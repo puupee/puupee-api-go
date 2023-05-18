@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ApiAccountRegisterPost
 
-> IdentityUserDto ApiAccountRegisterPost(ctx).Body(body).Execute()
+> IdentityUserDto ApiAccountRegisterPost(ctx).RegisterDto(registerDto).Execute()
 
 
 
@@ -31,11 +31,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewRegisterDto("UserName_example", "EmailAddress_example", "Password_example", "AppName_example") // RegisterDto |  (optional)
+    registerDto := *openapiclient.NewRegisterDto("UserName_example", "EmailAddress_example", "Password_example", "AppName_example") // RegisterDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.ApiAccountRegisterPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AccountApi.ApiAccountRegisterPost(context.Background()).RegisterDto(registerDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountRegisterPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiApiAccountRegisterPostRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RegisterDto**](RegisterDto.md) |  | 
+ **registerDto** | [**RegisterDto**](RegisterDto.md) |  | 
 
 ### Return type
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## ApiAccountResetPasswordPost
 
-> ApiAccountResetPasswordPost(ctx).Body(body).Execute()
+> ApiAccountResetPasswordPost(ctx).ResetPasswordDto(resetPasswordDto).Execute()
 
 
 
@@ -95,11 +95,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewResetPasswordDto("ResetToken_example", "Password_example") // ResetPasswordDto |  (optional)
+    resetPasswordDto := *openapiclient.NewResetPasswordDto("ResetToken_example", "Password_example") // ResetPasswordDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ApiAccountResetPasswordPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.AccountApi.ApiAccountResetPasswordPost(context.Background()).ResetPasswordDto(resetPasswordDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountResetPasswordPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -118,7 +118,7 @@ Other parameters are passed through a pointer to a apiApiAccountResetPasswordPos
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ResetPasswordDto**](ResetPasswordDto.md) |  | 
+ **resetPasswordDto** | [**ResetPasswordDto**](ResetPasswordDto.md) |  | 
 
 ### Return type
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ## ApiAccountSendPasswordResetCodePost
 
-> ApiAccountSendPasswordResetCodePost(ctx).Body(body).Execute()
+> ApiAccountSendPasswordResetCodePost(ctx).SendPasswordResetCodeDto(sendPasswordResetCodeDto).Execute()
 
 
 
@@ -157,11 +157,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewSendPasswordResetCodeDto("Email_example", "AppName_example") // SendPasswordResetCodeDto |  (optional)
+    sendPasswordResetCodeDto := *openapiclient.NewSendPasswordResetCodeDto("Email_example", "AppName_example") // SendPasswordResetCodeDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ApiAccountSendPasswordResetCodePost(context.Background()).Body(body).Execute()
+    r, err := apiClient.AccountApi.ApiAccountSendPasswordResetCodePost(context.Background()).SendPasswordResetCodeDto(sendPasswordResetCodeDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountSendPasswordResetCodePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -180,7 +180,7 @@ Other parameters are passed through a pointer to a apiApiAccountSendPasswordRese
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SendPasswordResetCodeDto**](SendPasswordResetCodeDto.md) |  | 
+ **sendPasswordResetCodeDto** | [**SendPasswordResetCodeDto**](SendPasswordResetCodeDto.md) |  | 
 
 ### Return type
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ## ApiAccountVerifyPasswordResetTokenPost
 
-> bool ApiAccountVerifyPasswordResetTokenPost(ctx).Body(body).Execute()
+> bool ApiAccountVerifyPasswordResetTokenPost(ctx).VerifyPasswordResetTokenInput(verifyPasswordResetTokenInput).Execute()
 
 
 
@@ -219,11 +219,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewVerifyPasswordResetTokenInput("ResetToken_example") // VerifyPasswordResetTokenInput |  (optional)
+    verifyPasswordResetTokenInput := *openapiclient.NewVerifyPasswordResetTokenInput("ResetToken_example") // VerifyPasswordResetTokenInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.ApiAccountVerifyPasswordResetTokenPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AccountApi.ApiAccountVerifyPasswordResetTokenPost(context.Background()).VerifyPasswordResetTokenInput(verifyPasswordResetTokenInput).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountVerifyPasswordResetTokenPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -244,7 +244,7 @@ Other parameters are passed through a pointer to a apiApiAccountVerifyPasswordRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**VerifyPasswordResetTokenInput**](VerifyPasswordResetTokenInput.md) |  | 
+ **verifyPasswordResetTokenInput** | [**VerifyPasswordResetTokenInput**](VerifyPasswordResetTokenInput.md) |  | 
 
 ### Return type
 

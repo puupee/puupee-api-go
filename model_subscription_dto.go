@@ -22,15 +22,15 @@ var _ MappedNullable = &SubscriptionDto{}
 type SubscriptionDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId *string `json:"creatorId,omitempty"`
-	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
-	LastModifierId *string `json:"lastModifierId,omitempty"`
+	CreatorId NullableString `json:"creatorId,omitempty"`
+	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
+	LastModifierId NullableString `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId *string `json:"deleterId,omitempty"`
-	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	ExpireAt *time.Time `json:"expireAt,omitempty"`
+	DeleterId NullableString `json:"deleterId,omitempty"`
+	DeletionTime NullableTime `json:"deletionTime,omitempty"`
+	ExpireAt NullableTime `json:"expireAt,omitempty"`
 	AppId *string `json:"appId,omitempty"`
-	PriceNaming *string `json:"priceNaming,omitempty"`
+	PriceNaming NullableString `json:"priceNaming,omitempty"`
 	PricingId *string `json:"pricingId,omitempty"`
 }
 
@@ -115,100 +115,130 @@ func (o *SubscriptionDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId
+	return *o.CreatorId.Get()
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatorId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatorId, true
+	return o.CreatorId.Get(), o.CreatorId.IsSet()
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasCreatorId() bool {
-	if o != nil && !IsNil(o.CreatorId) {
+	if o != nil && o.CreatorId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
 func (o *SubscriptionDto) SetCreatorId(v string) {
-	o.CreatorId = &v
+	o.CreatorId.Set(&v)
+}
+// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
+func (o *SubscriptionDto) SetCreatorIdNil() {
+	o.CreatorId.Set(nil)
 }
 
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
+func (o *SubscriptionDto) UnsetCreatorId() {
+	o.CreatorId.Unset()
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime
+	return *o.LastModificationTime.Get()
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastModificationTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModificationTime, true
+	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasLastModificationTime() bool {
-	if o != nil && !IsNil(o.LastModificationTime) {
+	if o != nil && o.LastModificationTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
 func (o *SubscriptionDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime = &v
+	o.LastModificationTime.Set(&v)
+}
+// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
+func (o *SubscriptionDto) SetLastModificationTimeNil() {
+	o.LastModificationTime.Set(nil)
 }
 
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
+// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
+func (o *SubscriptionDto) UnsetLastModificationTime() {
+	o.LastModificationTime.Unset()
+}
+
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId
+	return *o.LastModifierId.Get()
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || IsNil(o.LastModifierId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModifierId, true
+	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasLastModifierId() bool {
-	if o != nil && !IsNil(o.LastModifierId) {
+	if o != nil && o.LastModifierId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
 func (o *SubscriptionDto) SetLastModifierId(v string) {
-	o.LastModifierId = &v
+	o.LastModifierId.Set(&v)
+}
+// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
+func (o *SubscriptionDto) SetLastModifierIdNil() {
+	o.LastModifierId.Set(nil)
+}
+
+// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
+func (o *SubscriptionDto) UnsetLastModifierId() {
+	o.LastModifierId.Unset()
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -243,100 +273,130 @@ func (o *SubscriptionDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId
+	return *o.DeleterId.Get()
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DeleterId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeleterId, true
+	return o.DeleterId.Get(), o.DeleterId.IsSet()
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasDeleterId() bool {
-	if o != nil && !IsNil(o.DeleterId) {
+	if o != nil && o.DeleterId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
 func (o *SubscriptionDto) SetDeleterId(v string) {
-	o.DeleterId = &v
+	o.DeleterId.Set(&v)
+}
+// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
+func (o *SubscriptionDto) SetDeleterIdNil() {
+	o.DeleterId.Set(nil)
 }
 
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
+// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
+func (o *SubscriptionDto) UnsetDeleterId() {
+	o.DeleterId.Unset()
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime
+	return *o.DeletionTime.Get()
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.DeletionTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeletionTime, true
+	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasDeletionTime() bool {
-	if o != nil && !IsNil(o.DeletionTime) {
+	if o != nil && o.DeletionTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
 func (o *SubscriptionDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime = &v
+	o.DeletionTime.Set(&v)
+}
+// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+func (o *SubscriptionDto) SetDeletionTimeNil() {
+	o.DeletionTime.Set(nil)
 }
 
-// GetExpireAt returns the ExpireAt field value if set, zero value otherwise.
+// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+func (o *SubscriptionDto) UnsetDeletionTime() {
+	o.DeletionTime.Unset()
+}
+
+// GetExpireAt returns the ExpireAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetExpireAt() time.Time {
-	if o == nil || IsNil(o.ExpireAt) {
+	if o == nil || IsNil(o.ExpireAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ExpireAt
+	return *o.ExpireAt.Get()
 }
 
 // GetExpireAtOk returns a tuple with the ExpireAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetExpireAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ExpireAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExpireAt, true
+	return o.ExpireAt.Get(), o.ExpireAt.IsSet()
 }
 
 // HasExpireAt returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasExpireAt() bool {
-	if o != nil && !IsNil(o.ExpireAt) {
+	if o != nil && o.ExpireAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExpireAt gets a reference to the given time.Time and assigns it to the ExpireAt field.
+// SetExpireAt gets a reference to the given NullableTime and assigns it to the ExpireAt field.
 func (o *SubscriptionDto) SetExpireAt(v time.Time) {
-	o.ExpireAt = &v
+	o.ExpireAt.Set(&v)
+}
+// SetExpireAtNil sets the value for ExpireAt to be an explicit nil
+func (o *SubscriptionDto) SetExpireAtNil() {
+	o.ExpireAt.Set(nil)
+}
+
+// UnsetExpireAt ensures that no value is present for ExpireAt, not even an explicit nil
+func (o *SubscriptionDto) UnsetExpireAt() {
+	o.ExpireAt.Unset()
 }
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
@@ -371,36 +431,46 @@ func (o *SubscriptionDto) SetAppId(v string) {
 	o.AppId = &v
 }
 
-// GetPriceNaming returns the PriceNaming field value if set, zero value otherwise.
+// GetPriceNaming returns the PriceNaming field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionDto) GetPriceNaming() string {
-	if o == nil || IsNil(o.PriceNaming) {
+	if o == nil || IsNil(o.PriceNaming.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PriceNaming
+	return *o.PriceNaming.Get()
 }
 
 // GetPriceNamingOk returns a tuple with the PriceNaming field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionDto) GetPriceNamingOk() (*string, bool) {
-	if o == nil || IsNil(o.PriceNaming) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PriceNaming, true
+	return o.PriceNaming.Get(), o.PriceNaming.IsSet()
 }
 
 // HasPriceNaming returns a boolean if a field has been set.
 func (o *SubscriptionDto) HasPriceNaming() bool {
-	if o != nil && !IsNil(o.PriceNaming) {
+	if o != nil && o.PriceNaming.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPriceNaming gets a reference to the given string and assigns it to the PriceNaming field.
+// SetPriceNaming gets a reference to the given NullableString and assigns it to the PriceNaming field.
 func (o *SubscriptionDto) SetPriceNaming(v string) {
-	o.PriceNaming = &v
+	o.PriceNaming.Set(&v)
+}
+// SetPriceNamingNil sets the value for PriceNaming to be an explicit nil
+func (o *SubscriptionDto) SetPriceNamingNil() {
+	o.PriceNaming.Set(nil)
+}
+
+// UnsetPriceNaming ensures that no value is present for PriceNaming, not even an explicit nil
+func (o *SubscriptionDto) UnsetPriceNaming() {
+	o.PriceNaming.Unset()
 }
 
 // GetPricingId returns the PricingId field value if set, zero value otherwise.
@@ -451,32 +521,32 @@ func (o SubscriptionDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if !IsNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
+	if o.CreatorId.IsSet() {
+		toSerialize["creatorId"] = o.CreatorId.Get()
 	}
-	if !IsNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
+	if o.LastModificationTime.IsSet() {
+		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
 	}
-	if !IsNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
+	if o.LastModifierId.IsSet() {
+		toSerialize["lastModifierId"] = o.LastModifierId.Get()
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if !IsNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
+	if o.DeleterId.IsSet() {
+		toSerialize["deleterId"] = o.DeleterId.Get()
 	}
-	if !IsNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
+	if o.DeletionTime.IsSet() {
+		toSerialize["deletionTime"] = o.DeletionTime.Get()
 	}
-	if !IsNil(o.ExpireAt) {
-		toSerialize["expireAt"] = o.ExpireAt
+	if o.ExpireAt.IsSet() {
+		toSerialize["expireAt"] = o.ExpireAt.Get()
 	}
 	if !IsNil(o.AppId) {
 		toSerialize["appId"] = o.AppId
 	}
-	if !IsNil(o.PriceNaming) {
-		toSerialize["priceNaming"] = o.PriceNaming
+	if o.PriceNaming.IsSet() {
+		toSerialize["priceNaming"] = o.PriceNaming.Get()
 	}
 	if !IsNil(o.PricingId) {
 		toSerialize["pricingId"] = o.PricingId

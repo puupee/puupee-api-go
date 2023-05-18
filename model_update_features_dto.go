@@ -39,9 +39,9 @@ func NewUpdateFeaturesDtoWithDefaults() *UpdateFeaturesDto {
 	return &this
 }
 
-// GetFeatures returns the Features field value if set, zero value otherwise.
+// GetFeatures returns the Features field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateFeaturesDto) GetFeatures() []UpdateFeatureDto {
-	if o == nil || IsNil(o.Features) {
+	if o == nil {
 		var ret []UpdateFeatureDto
 		return ret
 	}
@@ -50,6 +50,7 @@ func (o *UpdateFeaturesDto) GetFeatures() []UpdateFeatureDto {
 
 // GetFeaturesOk returns a tuple with the Features field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateFeaturesDto) GetFeaturesOk() ([]UpdateFeatureDto, bool) {
 	if o == nil || IsNil(o.Features) {
 		return nil, false
@@ -59,7 +60,7 @@ func (o *UpdateFeaturesDto) GetFeaturesOk() ([]UpdateFeatureDto, bool) {
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *UpdateFeaturesDto) HasFeatures() bool {
-	if o != nil && !IsNil(o.Features) {
+	if o != nil && IsNil(o.Features) {
 		return true
 	}
 
@@ -81,7 +82,7 @@ func (o UpdateFeaturesDto) MarshalJSON() ([]byte, error) {
 
 func (o UpdateFeaturesDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Features) {
+	if o.Features != nil {
 		toSerialize["features"] = o.Features
 	}
 	return toSerialize, nil

@@ -25,11 +25,11 @@ type VerificationApiService service
 type ApiApiAppVerificationSendCodePostRequest struct {
 	ctx context.Context
 	ApiService *VerificationApiService
-	body *SendVerificationCodeDto
+	sendVerificationCodeDto *SendVerificationCodeDto
 }
 
-func (r ApiApiAppVerificationSendCodePostRequest) Body(body SendVerificationCodeDto) ApiApiAppVerificationSendCodePostRequest {
-	r.body = &body
+func (r ApiApiAppVerificationSendCodePostRequest) SendVerificationCodeDto(sendVerificationCodeDto SendVerificationCodeDto) ApiApiAppVerificationSendCodePostRequest {
+	r.sendVerificationCodeDto = &sendVerificationCodeDto
 	return r
 }
 
@@ -87,7 +87,7 @@ func (a *VerificationApiService) ApiAppVerificationSendCodePostExecute(r ApiApiA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.sendVerificationCodeDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

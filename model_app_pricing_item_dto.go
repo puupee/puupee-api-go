@@ -22,16 +22,16 @@ var _ MappedNullable = &AppPricingItemDto{}
 type AppPricingItemDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId *string `json:"creatorId,omitempty"`
-	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
-	LastModifierId *string `json:"lastModifierId,omitempty"`
+	CreatorId NullableString `json:"creatorId,omitempty"`
+	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
+	LastModifierId NullableString `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId *string `json:"deleterId,omitempty"`
-	DeletionTime *time.Time `json:"deletionTime,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	LinkUrl *string `json:"linkUrl,omitempty"`
-	Display *string `json:"display,omitempty"`
+	DeleterId NullableString `json:"deleterId,omitempty"`
+	DeletionTime NullableTime `json:"deletionTime,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	LinkUrl NullableString `json:"linkUrl,omitempty"`
+	Display NullableString `json:"display,omitempty"`
 	Values []string `json:"values,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	IsAvailable *bool `json:"isAvailable,omitempty"`
@@ -120,100 +120,130 @@ func (o *AppPricingItemDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId) {
+	if o == nil || IsNil(o.CreatorId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId
+	return *o.CreatorId.Get()
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatorId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatorId, true
+	return o.CreatorId.Get(), o.CreatorId.IsSet()
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasCreatorId() bool {
-	if o != nil && !IsNil(o.CreatorId) {
+	if o != nil && o.CreatorId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
 func (o *AppPricingItemDto) SetCreatorId(v string) {
-	o.CreatorId = &v
+	o.CreatorId.Set(&v)
+}
+// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
+func (o *AppPricingItemDto) SetCreatorIdNil() {
+	o.CreatorId.Set(nil)
 }
 
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
+// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
+func (o *AppPricingItemDto) UnsetCreatorId() {
+	o.CreatorId.Unset()
+}
+
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime) {
+	if o == nil || IsNil(o.LastModificationTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime
+	return *o.LastModificationTime.Get()
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastModificationTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModificationTime, true
+	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasLastModificationTime() bool {
-	if o != nil && !IsNil(o.LastModificationTime) {
+	if o != nil && o.LastModificationTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
 func (o *AppPricingItemDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime = &v
+	o.LastModificationTime.Set(&v)
+}
+// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
+func (o *AppPricingItemDto) SetLastModificationTimeNil() {
+	o.LastModificationTime.Set(nil)
 }
 
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
+// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
+func (o *AppPricingItemDto) UnsetLastModificationTime() {
+	o.LastModificationTime.Unset()
+}
+
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId) {
+	if o == nil || IsNil(o.LastModifierId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId
+	return *o.LastModifierId.Get()
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil || IsNil(o.LastModifierId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModifierId, true
+	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasLastModifierId() bool {
-	if o != nil && !IsNil(o.LastModifierId) {
+	if o != nil && o.LastModifierId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
 func (o *AppPricingItemDto) SetLastModifierId(v string) {
-	o.LastModifierId = &v
+	o.LastModifierId.Set(&v)
+}
+// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
+func (o *AppPricingItemDto) SetLastModifierIdNil() {
+	o.LastModifierId.Set(nil)
+}
+
+// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
+func (o *AppPricingItemDto) UnsetLastModifierId() {
+	o.LastModifierId.Unset()
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -248,201 +278,261 @@ func (o *AppPricingItemDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId) {
+	if o == nil || IsNil(o.DeleterId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId
+	return *o.DeleterId.Get()
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DeleterId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeleterId, true
+	return o.DeleterId.Get(), o.DeleterId.IsSet()
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasDeleterId() bool {
-	if o != nil && !IsNil(o.DeleterId) {
+	if o != nil && o.DeleterId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
 func (o *AppPricingItemDto) SetDeleterId(v string) {
-	o.DeleterId = &v
+	o.DeleterId.Set(&v)
+}
+// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
+func (o *AppPricingItemDto) SetDeleterIdNil() {
+	o.DeleterId.Set(nil)
 }
 
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
+// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
+func (o *AppPricingItemDto) UnsetDeleterId() {
+	o.DeleterId.Unset()
+}
+
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime) {
+	if o == nil || IsNil(o.DeletionTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime
+	return *o.DeletionTime.Get()
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.DeletionTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeletionTime, true
+	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasDeletionTime() bool {
-	if o != nil && !IsNil(o.DeletionTime) {
+	if o != nil && o.DeletionTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
 func (o *AppPricingItemDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime = &v
+	o.DeletionTime.Set(&v)
+}
+// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
+func (o *AppPricingItemDto) SetDeletionTimeNil() {
+	o.DeletionTime.Set(nil)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
+func (o *AppPricingItemDto) UnsetDeletionTime() {
+	o.DeletionTime.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *AppPricingItemDto) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AppPricingItemDto) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AppPricingItemDto) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *AppPricingItemDto) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *AppPricingItemDto) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetLinkUrl returns the LinkUrl field value if set, zero value otherwise.
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *AppPricingItemDto) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetLinkUrl returns the LinkUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetLinkUrl() string {
-	if o == nil || IsNil(o.LinkUrl) {
+	if o == nil || IsNil(o.LinkUrl.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LinkUrl
+	return *o.LinkUrl.Get()
 }
 
 // GetLinkUrlOk returns a tuple with the LinkUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetLinkUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.LinkUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LinkUrl, true
+	return o.LinkUrl.Get(), o.LinkUrl.IsSet()
 }
 
 // HasLinkUrl returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasLinkUrl() bool {
-	if o != nil && !IsNil(o.LinkUrl) {
+	if o != nil && o.LinkUrl.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLinkUrl gets a reference to the given string and assigns it to the LinkUrl field.
+// SetLinkUrl gets a reference to the given NullableString and assigns it to the LinkUrl field.
 func (o *AppPricingItemDto) SetLinkUrl(v string) {
-	o.LinkUrl = &v
+	o.LinkUrl.Set(&v)
+}
+// SetLinkUrlNil sets the value for LinkUrl to be an explicit nil
+func (o *AppPricingItemDto) SetLinkUrlNil() {
+	o.LinkUrl.Set(nil)
 }
 
-// GetDisplay returns the Display field value if set, zero value otherwise.
+// UnsetLinkUrl ensures that no value is present for LinkUrl, not even an explicit nil
+func (o *AppPricingItemDto) UnsetLinkUrl() {
+	o.LinkUrl.Unset()
+}
+
+// GetDisplay returns the Display field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetDisplay() string {
-	if o == nil || IsNil(o.Display) {
+	if o == nil || IsNil(o.Display.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Display
+	return *o.Display.Get()
 }
 
 // GetDisplayOk returns a tuple with the Display field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetDisplayOk() (*string, bool) {
-	if o == nil || IsNil(o.Display) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Display, true
+	return o.Display.Get(), o.Display.IsSet()
 }
 
 // HasDisplay returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasDisplay() bool {
-	if o != nil && !IsNil(o.Display) {
+	if o != nil && o.Display.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplay gets a reference to the given string and assigns it to the Display field.
+// SetDisplay gets a reference to the given NullableString and assigns it to the Display field.
 func (o *AppPricingItemDto) SetDisplay(v string) {
-	o.Display = &v
+	o.Display.Set(&v)
+}
+// SetDisplayNil sets the value for Display to be an explicit nil
+func (o *AppPricingItemDto) SetDisplayNil() {
+	o.Display.Set(nil)
 }
 
-// GetValues returns the Values field value if set, zero value otherwise.
+// UnsetDisplay ensures that no value is present for Display, not even an explicit nil
+func (o *AppPricingItemDto) UnsetDisplay() {
+	o.Display.Unset()
+}
+
+// GetValues returns the Values field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppPricingItemDto) GetValues() []string {
-	if o == nil || IsNil(o.Values) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -451,6 +541,7 @@ func (o *AppPricingItemDto) GetValues() []string {
 
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppPricingItemDto) GetValuesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Values) {
 		return nil, false
@@ -460,7 +551,7 @@ func (o *AppPricingItemDto) GetValuesOk() ([]string, bool) {
 
 // HasValues returns a boolean if a field has been set.
 func (o *AppPricingItemDto) HasValues() bool {
-	if o != nil && !IsNil(o.Values) {
+	if o != nil && IsNil(o.Values) {
 		return true
 	}
 
@@ -616,37 +707,37 @@ func (o AppPricingItemDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if !IsNil(o.CreatorId) {
-		toSerialize["creatorId"] = o.CreatorId
+	if o.CreatorId.IsSet() {
+		toSerialize["creatorId"] = o.CreatorId.Get()
 	}
-	if !IsNil(o.LastModificationTime) {
-		toSerialize["lastModificationTime"] = o.LastModificationTime
+	if o.LastModificationTime.IsSet() {
+		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
 	}
-	if !IsNil(o.LastModifierId) {
-		toSerialize["lastModifierId"] = o.LastModifierId
+	if o.LastModifierId.IsSet() {
+		toSerialize["lastModifierId"] = o.LastModifierId.Get()
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if !IsNil(o.DeleterId) {
-		toSerialize["deleterId"] = o.DeleterId
+	if o.DeleterId.IsSet() {
+		toSerialize["deleterId"] = o.DeleterId.Get()
 	}
-	if !IsNil(o.DeletionTime) {
-		toSerialize["deletionTime"] = o.DeletionTime
+	if o.DeletionTime.IsSet() {
+		toSerialize["deletionTime"] = o.DeletionTime.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.LinkUrl) {
-		toSerialize["linkUrl"] = o.LinkUrl
+	if o.LinkUrl.IsSet() {
+		toSerialize["linkUrl"] = o.LinkUrl.Get()
 	}
-	if !IsNil(o.Display) {
-		toSerialize["display"] = o.Display
+	if o.Display.IsSet() {
+		toSerialize["display"] = o.Display.Get()
 	}
-	if !IsNil(o.Values) {
+	if o.Values != nil {
 		toSerialize["values"] = o.Values
 	}
 	if !IsNil(o.AppId) {

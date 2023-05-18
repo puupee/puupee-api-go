@@ -22,7 +22,7 @@ type SendTestEmailInput struct {
 	SenderEmailAddress string `json:"senderEmailAddress"`
 	TargetEmailAddress string `json:"targetEmailAddress"`
 	Subject string `json:"subject"`
-	Body *string `json:"body,omitempty"`
+	Body NullableString `json:"body,omitempty"`
 }
 
 // NewSendTestEmailInput instantiates a new SendTestEmailInput object
@@ -117,36 +117,46 @@ func (o *SendTestEmailInput) SetSubject(v string) {
 	o.Subject = v
 }
 
-// GetBody returns the Body field value if set, zero value otherwise.
+// GetBody returns the Body field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SendTestEmailInput) GetBody() string {
-	if o == nil || IsNil(o.Body) {
+	if o == nil || IsNil(o.Body.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Body
+	return *o.Body.Get()
 }
 
 // GetBodyOk returns a tuple with the Body field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SendTestEmailInput) GetBodyOk() (*string, bool) {
-	if o == nil || IsNil(o.Body) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Body, true
+	return o.Body.Get(), o.Body.IsSet()
 }
 
 // HasBody returns a boolean if a field has been set.
 func (o *SendTestEmailInput) HasBody() bool {
-	if o != nil && !IsNil(o.Body) {
+	if o != nil && o.Body.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBody gets a reference to the given string and assigns it to the Body field.
+// SetBody gets a reference to the given NullableString and assigns it to the Body field.
 func (o *SendTestEmailInput) SetBody(v string) {
-	o.Body = &v
+	o.Body.Set(&v)
+}
+// SetBodyNil sets the value for Body to be an explicit nil
+func (o *SendTestEmailInput) SetBodyNil() {
+	o.Body.Set(nil)
+}
+
+// UnsetBody ensures that no value is present for Body, not even an explicit nil
+func (o *SendTestEmailInput) UnsetBody() {
+	o.Body.Unset()
 }
 
 func (o SendTestEmailInput) MarshalJSON() ([]byte, error) {
@@ -162,8 +172,8 @@ func (o SendTestEmailInput) ToMap() (map[string]interface{}, error) {
 	toSerialize["senderEmailAddress"] = o.SenderEmailAddress
 	toSerialize["targetEmailAddress"] = o.TargetEmailAddress
 	toSerialize["subject"] = o.Subject
-	if !IsNil(o.Body) {
-		toSerialize["body"] = o.Body
+	if o.Body.IsSet() {
+		toSerialize["body"] = o.Body.Get()
 	}
 	return toSerialize, nil
 }

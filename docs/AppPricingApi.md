@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppPricingIdPut
 
-> AppPricingDto ApiAppAppPricingIdPut(ctx, id).Body(body).Execute()
+> AppPricingDto ApiAppAppPricingIdPut(ctx, id).CreateOrUpdateAppPricingDto(createOrUpdateAppPricingDto).Execute()
 
 
 
@@ -303,11 +303,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
+    createOrUpdateAppPricingDto := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.ApiAppAppPricingIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppPricingApi.ApiAppAppPricingIdPut(context.Background(), id).CreateOrUpdateAppPricingDto(createOrUpdateAppPricingDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.ApiAppAppPricingIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -333,7 +333,7 @@ Other parameters are passed through a pointer to a apiApiAppAppPricingIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateOrUpdateAppPricingDto**](CreateOrUpdateAppPricingDto.md) |  | 
+ **createOrUpdateAppPricingDto** | [**CreateOrUpdateAppPricingDto**](CreateOrUpdateAppPricingDto.md) |  | 
 
 ### Return type
 
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppPricingPost
 
-> AppPricingDto ApiAppAppPricingPost(ctx).Body(body).Execute()
+> AppPricingDto ApiAppAppPricingPost(ctx).CreateOrUpdateAppPricingDto(createOrUpdateAppPricingDto).Execute()
 
 
 
@@ -372,11 +372,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
+    createOrUpdateAppPricingDto := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.ApiAppAppPricingPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppPricingApi.ApiAppAppPricingPost(context.Background()).CreateOrUpdateAppPricingDto(createOrUpdateAppPricingDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.ApiAppAppPricingPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -397,7 +397,7 @@ Other parameters are passed through a pointer to a apiApiAppAppPricingPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateOrUpdateAppPricingDto**](CreateOrUpdateAppPricingDto.md) |  | 
+ **createOrUpdateAppPricingDto** | [**CreateOrUpdateAppPricingDto**](CreateOrUpdateAppPricingDto.md) |  | 
 
 ### Return type
 

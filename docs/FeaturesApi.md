@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ## ApiFeatureManagementFeaturesPut
 
-> ApiFeatureManagementFeaturesPut(ctx).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+> ApiFeatureManagementFeaturesPut(ctx).ProviderName(providerName).ProviderKey(providerKey).UpdateFeaturesDto(updateFeaturesDto).Execute()
 
 
 
@@ -161,11 +161,11 @@ import (
 func main() {
     providerName := "providerName_example" // string |  (optional)
     providerKey := "providerKey_example" // string |  (optional)
-    body := *openapiclient.NewUpdateFeaturesDto() // UpdateFeaturesDto |  (optional)
+    updateFeaturesDto := *openapiclient.NewUpdateFeaturesDto() // UpdateFeaturesDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.FeaturesApi.ApiFeatureManagementFeaturesPut(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+    r, err := apiClient.FeaturesApi.ApiFeatureManagementFeaturesPut(context.Background()).ProviderName(providerName).ProviderKey(providerKey).UpdateFeaturesDto(updateFeaturesDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.ApiFeatureManagementFeaturesPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerName** | **string** |  | 
  **providerKey** | **string** |  | 
- **body** | [**UpdateFeaturesDto**](UpdateFeaturesDto.md) |  | 
+ **updateFeaturesDto** | [**UpdateFeaturesDto**](UpdateFeaturesDto.md) |  | 
 
 ### Return type
 

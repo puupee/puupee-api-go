@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Naming** | Pointer to **string** |  | [optional] 
-**MonthProductId** | Pointer to **string** |  | [optional] 
-**YearProductId** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
+**Naming** | Pointer to **NullableString** |  | [optional] 
+**MonthProductId** | Pointer to **NullableString** |  | [optional] 
+**YearProductId** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **MonthPrice** | Pointer to **float64** |  | [optional] 
-**MonthDiscount** | Pointer to **float64** |  | [optional] 
-**MonthDiscountPrice** | Pointer to **float64** |  | [optional] 
-**MonthDiscountStartAt** | Pointer to **time.Time** |  | [optional] 
-**MonthDiscountEndAt** | Pointer to **time.Time** |  | [optional] 
+**MonthDiscount** | Pointer to **NullableFloat64** |  | [optional] 
+**MonthDiscountPrice** | Pointer to **NullableFloat64** |  | [optional] 
+**MonthDiscountStartAt** | Pointer to **NullableTime** |  | [optional] 
+**MonthDiscountEndAt** | Pointer to **NullableTime** |  | [optional] 
 **YearPrice** | Pointer to **float64** |  | [optional] 
-**YearDiscount** | Pointer to **float64** |  | [optional] 
-**YearDiscountPrice** | Pointer to **float64** |  | [optional] 
-**YearDiscountStartAt** | Pointer to **time.Time** |  | [optional] 
-**YearDiscountEndAt** | Pointer to **time.Time** |  | [optional] 
+**YearDiscount** | Pointer to **NullableFloat64** |  | [optional] 
+**YearDiscountPrice** | Pointer to **NullableFloat64** |  | [optional] 
+**YearDiscountStartAt** | Pointer to **NullableTime** |  | [optional] 
+**YearDiscountEndAt** | Pointer to **NullableTime** |  | [optional] 
 **SortIndex** | Pointer to **int32** |  | [optional] 
 **Items** | Pointer to [**[]CreateOrUpdateAppPricingItemDto**](CreateOrUpdateAppPricingItemDto.md) |  | [optional] 
 
@@ -66,6 +66,16 @@ SetNaming sets Naming field to given value.
 
 HasNaming returns a boolean if a field has been set.
 
+### SetNamingNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetNamingNil(b bool)`
+
+ SetNamingNil sets the value for Naming to be an explicit nil
+
+### UnsetNaming
+`func (o *CreateOrUpdateAppPricingDto) UnsetNaming()`
+
+UnsetNaming ensures that no value is present for Naming, not even an explicit nil
 ### GetMonthProductId
 
 `func (o *CreateOrUpdateAppPricingDto) GetMonthProductId() string`
@@ -91,6 +101,16 @@ SetMonthProductId sets MonthProductId field to given value.
 
 HasMonthProductId returns a boolean if a field has been set.
 
+### SetMonthProductIdNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetMonthProductIdNil(b bool)`
+
+ SetMonthProductIdNil sets the value for MonthProductId to be an explicit nil
+
+### UnsetMonthProductId
+`func (o *CreateOrUpdateAppPricingDto) UnsetMonthProductId()`
+
+UnsetMonthProductId ensures that no value is present for MonthProductId, not even an explicit nil
 ### GetYearProductId
 
 `func (o *CreateOrUpdateAppPricingDto) GetYearProductId() string`
@@ -116,6 +136,16 @@ SetYearProductId sets YearProductId field to given value.
 
 HasYearProductId returns a boolean if a field has been set.
 
+### SetYearProductIdNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetYearProductIdNil(b bool)`
+
+ SetYearProductIdNil sets the value for YearProductId to be an explicit nil
+
+### UnsetYearProductId
+`func (o *CreateOrUpdateAppPricingDto) UnsetYearProductId()`
+
+UnsetYearProductId ensures that no value is present for YearProductId, not even an explicit nil
 ### GetDescription
 
 `func (o *CreateOrUpdateAppPricingDto) GetDescription() string`
@@ -141,6 +171,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateOrUpdateAppPricingDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetAppId
 
 `func (o *CreateOrUpdateAppPricingDto) GetAppId() string`
@@ -216,6 +256,16 @@ SetMonthDiscount sets MonthDiscount field to given value.
 
 HasMonthDiscount returns a boolean if a field has been set.
 
+### SetMonthDiscountNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountNil(b bool)`
+
+ SetMonthDiscountNil sets the value for MonthDiscount to be an explicit nil
+
+### UnsetMonthDiscount
+`func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscount()`
+
+UnsetMonthDiscount ensures that no value is present for MonthDiscount, not even an explicit nil
 ### GetMonthDiscountPrice
 
 `func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountPrice() float64`
@@ -241,6 +291,16 @@ SetMonthDiscountPrice sets MonthDiscountPrice field to given value.
 
 HasMonthDiscountPrice returns a boolean if a field has been set.
 
+### SetMonthDiscountPriceNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountPriceNil(b bool)`
+
+ SetMonthDiscountPriceNil sets the value for MonthDiscountPrice to be an explicit nil
+
+### UnsetMonthDiscountPrice
+`func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscountPrice()`
+
+UnsetMonthDiscountPrice ensures that no value is present for MonthDiscountPrice, not even an explicit nil
 ### GetMonthDiscountStartAt
 
 `func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountStartAt() time.Time`
@@ -266,6 +326,16 @@ SetMonthDiscountStartAt sets MonthDiscountStartAt field to given value.
 
 HasMonthDiscountStartAt returns a boolean if a field has been set.
 
+### SetMonthDiscountStartAtNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountStartAtNil(b bool)`
+
+ SetMonthDiscountStartAtNil sets the value for MonthDiscountStartAt to be an explicit nil
+
+### UnsetMonthDiscountStartAt
+`func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscountStartAt()`
+
+UnsetMonthDiscountStartAt ensures that no value is present for MonthDiscountStartAt, not even an explicit nil
 ### GetMonthDiscountEndAt
 
 `func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountEndAt() time.Time`
@@ -291,6 +361,16 @@ SetMonthDiscountEndAt sets MonthDiscountEndAt field to given value.
 
 HasMonthDiscountEndAt returns a boolean if a field has been set.
 
+### SetMonthDiscountEndAtNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountEndAtNil(b bool)`
+
+ SetMonthDiscountEndAtNil sets the value for MonthDiscountEndAt to be an explicit nil
+
+### UnsetMonthDiscountEndAt
+`func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscountEndAt()`
+
+UnsetMonthDiscountEndAt ensures that no value is present for MonthDiscountEndAt, not even an explicit nil
 ### GetYearPrice
 
 `func (o *CreateOrUpdateAppPricingDto) GetYearPrice() float64`
@@ -341,6 +421,16 @@ SetYearDiscount sets YearDiscount field to given value.
 
 HasYearDiscount returns a boolean if a field has been set.
 
+### SetYearDiscountNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetYearDiscountNil(b bool)`
+
+ SetYearDiscountNil sets the value for YearDiscount to be an explicit nil
+
+### UnsetYearDiscount
+`func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscount()`
+
+UnsetYearDiscount ensures that no value is present for YearDiscount, not even an explicit nil
 ### GetYearDiscountPrice
 
 `func (o *CreateOrUpdateAppPricingDto) GetYearDiscountPrice() float64`
@@ -366,6 +456,16 @@ SetYearDiscountPrice sets YearDiscountPrice field to given value.
 
 HasYearDiscountPrice returns a boolean if a field has been set.
 
+### SetYearDiscountPriceNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetYearDiscountPriceNil(b bool)`
+
+ SetYearDiscountPriceNil sets the value for YearDiscountPrice to be an explicit nil
+
+### UnsetYearDiscountPrice
+`func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscountPrice()`
+
+UnsetYearDiscountPrice ensures that no value is present for YearDiscountPrice, not even an explicit nil
 ### GetYearDiscountStartAt
 
 `func (o *CreateOrUpdateAppPricingDto) GetYearDiscountStartAt() time.Time`
@@ -391,6 +491,16 @@ SetYearDiscountStartAt sets YearDiscountStartAt field to given value.
 
 HasYearDiscountStartAt returns a boolean if a field has been set.
 
+### SetYearDiscountStartAtNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetYearDiscountStartAtNil(b bool)`
+
+ SetYearDiscountStartAtNil sets the value for YearDiscountStartAt to be an explicit nil
+
+### UnsetYearDiscountStartAt
+`func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscountStartAt()`
+
+UnsetYearDiscountStartAt ensures that no value is present for YearDiscountStartAt, not even an explicit nil
 ### GetYearDiscountEndAt
 
 `func (o *CreateOrUpdateAppPricingDto) GetYearDiscountEndAt() time.Time`
@@ -416,6 +526,16 @@ SetYearDiscountEndAt sets YearDiscountEndAt field to given value.
 
 HasYearDiscountEndAt returns a boolean if a field has been set.
 
+### SetYearDiscountEndAtNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetYearDiscountEndAtNil(b bool)`
+
+ SetYearDiscountEndAtNil sets the value for YearDiscountEndAt to be an explicit nil
+
+### UnsetYearDiscountEndAt
+`func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscountEndAt()`
+
+UnsetYearDiscountEndAt ensures that no value is present for YearDiscountEndAt, not even an explicit nil
 ### GetSortIndex
 
 `func (o *CreateOrUpdateAppPricingDto) GetSortIndex() int32`
@@ -466,6 +586,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *CreateOrUpdateAppPricingDto) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *CreateOrUpdateAppPricingDto) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

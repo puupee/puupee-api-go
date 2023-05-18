@@ -223,11 +223,11 @@ func (a *PuupeeApiService) ApiAppPuupeePullGetExecute(r ApiApiAppPuupeePullGetRe
 type ApiApiAppPuupeePushPostRequest struct {
 	ctx context.Context
 	ApiService *PuupeeApiService
-	body *CreateOrUpdatePuupeeDto
+	createOrUpdatePuupeeDto *CreateOrUpdatePuupeeDto
 }
 
-func (r ApiApiAppPuupeePushPostRequest) Body(body CreateOrUpdatePuupeeDto) ApiApiAppPuupeePushPostRequest {
-	r.body = &body
+func (r ApiApiAppPuupeePushPostRequest) CreateOrUpdatePuupeeDto(createOrUpdatePuupeeDto CreateOrUpdatePuupeeDto) ApiApiAppPuupeePushPostRequest {
+	r.createOrUpdatePuupeeDto = &createOrUpdatePuupeeDto
 	return r
 }
 
@@ -287,7 +287,7 @@ func (a *PuupeeApiService) ApiAppPuupeePushPostExecute(r ApiApiAppPuupeePushPost
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.createOrUpdatePuupeeDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

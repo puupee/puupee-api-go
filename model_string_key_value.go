@@ -20,10 +20,10 @@ var _ MappedNullable = &StringKeyValue{}
 
 // StringKeyValue struct for StringKeyValue
 type StringKeyValue struct {
-	Value *string `json:"value,omitempty"`
-	DurationSeconds *float64 `json:"durationSeconds,omitempty"`
-	ExpiredAt *time.Time `json:"expiredAt,omitempty"`
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	Value NullableString `json:"value,omitempty"`
+	DurationSeconds NullableFloat64 `json:"durationSeconds,omitempty"`
+	ExpiredAt NullableTime `json:"expiredAt,omitempty"`
+	CreatedAt NullableTime `json:"createdAt,omitempty"`
 }
 
 // NewStringKeyValue instantiates a new StringKeyValue object
@@ -43,132 +43,172 @@ func NewStringKeyValueWithDefaults() *StringKeyValue {
 	return &this
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StringKeyValue) GetValue() string {
-	if o == nil || IsNil(o.Value) {
+	if o == nil || IsNil(o.Value.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Value
+	return *o.Value.Get()
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringKeyValue) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return o.Value.Get(), o.Value.IsSet()
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *StringKeyValue) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
+	if o != nil && o.Value.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given string and assigns it to the Value field.
+// SetValue gets a reference to the given NullableString and assigns it to the Value field.
 func (o *StringKeyValue) SetValue(v string) {
-	o.Value = &v
+	o.Value.Set(&v)
+}
+// SetValueNil sets the value for Value to be an explicit nil
+func (o *StringKeyValue) SetValueNil() {
+	o.Value.Set(nil)
 }
 
-// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
+// UnsetValue ensures that no value is present for Value, not even an explicit nil
+func (o *StringKeyValue) UnsetValue() {
+	o.Value.Unset()
+}
+
+// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StringKeyValue) GetDurationSeconds() float64 {
-	if o == nil || IsNil(o.DurationSeconds) {
+	if o == nil || IsNil(o.DurationSeconds.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.DurationSeconds
+	return *o.DurationSeconds.Get()
 }
 
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringKeyValue) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil || IsNil(o.DurationSeconds) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DurationSeconds, true
+	return o.DurationSeconds.Get(), o.DurationSeconds.IsSet()
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *StringKeyValue) HasDurationSeconds() bool {
-	if o != nil && !IsNil(o.DurationSeconds) {
+	if o != nil && o.DurationSeconds.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationSeconds gets a reference to the given float64 and assigns it to the DurationSeconds field.
+// SetDurationSeconds gets a reference to the given NullableFloat64 and assigns it to the DurationSeconds field.
 func (o *StringKeyValue) SetDurationSeconds(v float64) {
-	o.DurationSeconds = &v
+	o.DurationSeconds.Set(&v)
+}
+// SetDurationSecondsNil sets the value for DurationSeconds to be an explicit nil
+func (o *StringKeyValue) SetDurationSecondsNil() {
+	o.DurationSeconds.Set(nil)
 }
 
-// GetExpiredAt returns the ExpiredAt field value if set, zero value otherwise.
+// UnsetDurationSeconds ensures that no value is present for DurationSeconds, not even an explicit nil
+func (o *StringKeyValue) UnsetDurationSeconds() {
+	o.DurationSeconds.Unset()
+}
+
+// GetExpiredAt returns the ExpiredAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StringKeyValue) GetExpiredAt() time.Time {
-	if o == nil || IsNil(o.ExpiredAt) {
+	if o == nil || IsNil(o.ExpiredAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ExpiredAt
+	return *o.ExpiredAt.Get()
 }
 
 // GetExpiredAtOk returns a tuple with the ExpiredAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringKeyValue) GetExpiredAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ExpiredAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExpiredAt, true
+	return o.ExpiredAt.Get(), o.ExpiredAt.IsSet()
 }
 
 // HasExpiredAt returns a boolean if a field has been set.
 func (o *StringKeyValue) HasExpiredAt() bool {
-	if o != nil && !IsNil(o.ExpiredAt) {
+	if o != nil && o.ExpiredAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiredAt gets a reference to the given time.Time and assigns it to the ExpiredAt field.
+// SetExpiredAt gets a reference to the given NullableTime and assigns it to the ExpiredAt field.
 func (o *StringKeyValue) SetExpiredAt(v time.Time) {
-	o.ExpiredAt = &v
+	o.ExpiredAt.Set(&v)
+}
+// SetExpiredAtNil sets the value for ExpiredAt to be an explicit nil
+func (o *StringKeyValue) SetExpiredAtNil() {
+	o.ExpiredAt.Set(nil)
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+// UnsetExpiredAt ensures that no value is present for ExpiredAt, not even an explicit nil
+func (o *StringKeyValue) UnsetExpiredAt() {
+	o.ExpiredAt.Unset()
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StringKeyValue) GetCreatedAt() time.Time {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedAt
+	return *o.CreatedAt.Get()
 }
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StringKeyValue) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedAt, true
+	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *StringKeyValue) HasCreatedAt() bool {
-	if o != nil && !IsNil(o.CreatedAt) {
+	if o != nil && o.CreatedAt.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
+// SetCreatedAt gets a reference to the given NullableTime and assigns it to the CreatedAt field.
 func (o *StringKeyValue) SetCreatedAt(v time.Time) {
-	o.CreatedAt = &v
+	o.CreatedAt.Set(&v)
+}
+// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
+func (o *StringKeyValue) SetCreatedAtNil() {
+	o.CreatedAt.Set(nil)
+}
+
+// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
+func (o *StringKeyValue) UnsetCreatedAt() {
+	o.CreatedAt.Unset()
 }
 
 func (o StringKeyValue) MarshalJSON() ([]byte, error) {
@@ -181,17 +221,17 @@ func (o StringKeyValue) MarshalJSON() ([]byte, error) {
 
 func (o StringKeyValue) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
+	if o.Value.IsSet() {
+		toSerialize["value"] = o.Value.Get()
 	}
-	if !IsNil(o.DurationSeconds) {
-		toSerialize["durationSeconds"] = o.DurationSeconds
+	if o.DurationSeconds.IsSet() {
+		toSerialize["durationSeconds"] = o.DurationSeconds.Get()
 	}
-	if !IsNil(o.ExpiredAt) {
-		toSerialize["expiredAt"] = o.ExpiredAt
+	if o.ExpiredAt.IsSet() {
+		toSerialize["expiredAt"] = o.ExpiredAt.Get()
 	}
-	if !IsNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
+	if o.CreatedAt.IsSet() {
+		toSerialize["createdAt"] = o.CreatedAt.Get()
 	}
 	return toSerialize, nil
 }

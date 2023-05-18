@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | Pointer to **string** |  | [optional] 
-**VersionName** | Pointer to **string** |  | [optional] 
+**Version** | Pointer to **NullableString** |  | [optional] 
+**VersionName** | Pointer to **NullableString** |  | [optional] 
 **VersionCode** | Pointer to **int64** |  | [optional] 
-**Notes** | Pointer to **string** |  | [optional] 
-**Platform** | Pointer to **string** |  | [optional] 
-**Key** | Pointer to **string** |  | [optional] 
-**RapidCode** | Pointer to **string** |  | [optional] 
-**Size** | Pointer to **int64** |  | [optional] 
-**Md5** | Pointer to **string** |  | [optional] 
-**SliceMd5** | Pointer to **string** |  | [optional] 
-**ProductType** | Pointer to **string** |  | [optional] 
+**Notes** | Pointer to **NullableString** |  | [optional] 
+**Platform** | Pointer to **NullableString** |  | [optional] 
+**Key** | Pointer to **NullableString** |  | [optional] 
+**RapidCode** | Pointer to **NullableString** |  | [optional] 
+**Size** | Pointer to **NullableInt64** |  | [optional] 
+**Md5** | Pointer to **NullableString** |  | [optional] 
+**SliceMd5** | Pointer to **NullableString** |  | [optional] 
+**ProductType** | Pointer to **NullableString** |  | [optional] 
 **IsForceUpdate** | Pointer to **bool** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
-**Channel** | Pointer to **string** |  | [optional] 
-**Environment** | Pointer to **string** |  | [optional] 
+**Channel** | Pointer to **NullableString** |  | [optional] 
+**Environment** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -65,6 +65,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *CreateOrUpdateAppReleaseDto) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetVersionName
 
 `func (o *CreateOrUpdateAppReleaseDto) GetVersionName() string`
@@ -90,6 +100,16 @@ SetVersionName sets VersionName field to given value.
 
 HasVersionName returns a boolean if a field has been set.
 
+### SetVersionNameNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetVersionNameNil(b bool)`
+
+ SetVersionNameNil sets the value for VersionName to be an explicit nil
+
+### UnsetVersionName
+`func (o *CreateOrUpdateAppReleaseDto) UnsetVersionName()`
+
+UnsetVersionName ensures that no value is present for VersionName, not even an explicit nil
 ### GetVersionCode
 
 `func (o *CreateOrUpdateAppReleaseDto) GetVersionCode() int64`
@@ -140,6 +160,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *CreateOrUpdateAppReleaseDto) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetPlatform
 
 `func (o *CreateOrUpdateAppReleaseDto) GetPlatform() string`
@@ -165,6 +195,16 @@ SetPlatform sets Platform field to given value.
 
 HasPlatform returns a boolean if a field has been set.
 
+### SetPlatformNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetPlatformNil(b bool)`
+
+ SetPlatformNil sets the value for Platform to be an explicit nil
+
+### UnsetPlatform
+`func (o *CreateOrUpdateAppReleaseDto) UnsetPlatform()`
+
+UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
 ### GetKey
 
 `func (o *CreateOrUpdateAppReleaseDto) GetKey() string`
@@ -190,6 +230,16 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
+### SetKeyNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetKeyNil(b bool)`
+
+ SetKeyNil sets the value for Key to be an explicit nil
+
+### UnsetKey
+`func (o *CreateOrUpdateAppReleaseDto) UnsetKey()`
+
+UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetRapidCode
 
 `func (o *CreateOrUpdateAppReleaseDto) GetRapidCode() string`
@@ -215,6 +265,16 @@ SetRapidCode sets RapidCode field to given value.
 
 HasRapidCode returns a boolean if a field has been set.
 
+### SetRapidCodeNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetRapidCodeNil(b bool)`
+
+ SetRapidCodeNil sets the value for RapidCode to be an explicit nil
+
+### UnsetRapidCode
+`func (o *CreateOrUpdateAppReleaseDto) UnsetRapidCode()`
+
+UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
 ### GetSize
 
 `func (o *CreateOrUpdateAppReleaseDto) GetSize() int64`
@@ -240,6 +300,16 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
+### SetSizeNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetSizeNil(b bool)`
+
+ SetSizeNil sets the value for Size to be an explicit nil
+
+### UnsetSize
+`func (o *CreateOrUpdateAppReleaseDto) UnsetSize()`
+
+UnsetSize ensures that no value is present for Size, not even an explicit nil
 ### GetMd5
 
 `func (o *CreateOrUpdateAppReleaseDto) GetMd5() string`
@@ -265,6 +335,16 @@ SetMd5 sets Md5 field to given value.
 
 HasMd5 returns a boolean if a field has been set.
 
+### SetMd5Nil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetMd5Nil(b bool)`
+
+ SetMd5Nil sets the value for Md5 to be an explicit nil
+
+### UnsetMd5
+`func (o *CreateOrUpdateAppReleaseDto) UnsetMd5()`
+
+UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
 ### GetSliceMd5
 
 `func (o *CreateOrUpdateAppReleaseDto) GetSliceMd5() string`
@@ -290,6 +370,16 @@ SetSliceMd5 sets SliceMd5 field to given value.
 
 HasSliceMd5 returns a boolean if a field has been set.
 
+### SetSliceMd5Nil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetSliceMd5Nil(b bool)`
+
+ SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
+
+### UnsetSliceMd5
+`func (o *CreateOrUpdateAppReleaseDto) UnsetSliceMd5()`
+
+UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
 ### GetProductType
 
 `func (o *CreateOrUpdateAppReleaseDto) GetProductType() string`
@@ -315,6 +405,16 @@ SetProductType sets ProductType field to given value.
 
 HasProductType returns a boolean if a field has been set.
 
+### SetProductTypeNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetProductTypeNil(b bool)`
+
+ SetProductTypeNil sets the value for ProductType to be an explicit nil
+
+### UnsetProductType
+`func (o *CreateOrUpdateAppReleaseDto) UnsetProductType()`
+
+UnsetProductType ensures that no value is present for ProductType, not even an explicit nil
 ### GetIsForceUpdate
 
 `func (o *CreateOrUpdateAppReleaseDto) GetIsForceUpdate() bool`
@@ -415,6 +515,16 @@ SetChannel sets Channel field to given value.
 
 HasChannel returns a boolean if a field has been set.
 
+### SetChannelNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetChannelNil(b bool)`
+
+ SetChannelNil sets the value for Channel to be an explicit nil
+
+### UnsetChannel
+`func (o *CreateOrUpdateAppReleaseDto) UnsetChannel()`
+
+UnsetChannel ensures that no value is present for Channel, not even an explicit nil
 ### GetEnvironment
 
 `func (o *CreateOrUpdateAppReleaseDto) GetEnvironment() string`
@@ -440,6 +550,16 @@ SetEnvironment sets Environment field to given value.
 
 HasEnvironment returns a boolean if a field has been set.
 
+### SetEnvironmentNil
+
+`func (o *CreateOrUpdateAppReleaseDto) SetEnvironmentNil(b bool)`
+
+ SetEnvironmentNil sets the value for Environment to be an explicit nil
+
+### UnsetEnvironment
+`func (o *CreateOrUpdateAppReleaseDto) UnsetEnvironment()`
+
+UnsetEnvironment ensures that no value is present for Environment, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

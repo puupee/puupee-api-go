@@ -19,7 +19,7 @@ var _ MappedNullable = &IdentityUserRole{}
 
 // IdentityUserRole struct for IdentityUserRole
 type IdentityUserRole struct {
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
 	UserId *string `json:"userId,omitempty"`
 	RoleId *string `json:"roleId,omitempty"`
 }
@@ -41,36 +41,46 @@ func NewIdentityUserRoleWithDefaults() *IdentityUserRole {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserRole) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+	return *o.TenantId.Get()
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserRole) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *IdentityUserRole) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
+	if o != nil && o.TenantId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *IdentityUserRole) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId.Set(&v)
+}
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *IdentityUserRole) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *IdentityUserRole) UnsetTenantId() {
+	o.TenantId.Unset()
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
@@ -147,7 +157,9 @@ func (o IdentityUserRole) MarshalJSON() ([]byte, error) {
 
 func (o IdentityUserRole) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: tenantId is readOnly
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
+	}
 	// skip: userId is readOnly
 	// skip: roleId is readOnly
 	return toSerialize, nil

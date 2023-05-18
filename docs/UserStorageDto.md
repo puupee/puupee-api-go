@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] 
-**DisplayName** | Pointer to **string** |  | [optional] 
-**MaxSize** | Pointer to **int64** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**DisplayName** | Pointer to **NullableString** |  | [optional] 
+**Size** | Pointer to **int64** |  | [optional] 
 **CurrentSize** | Pointer to **int64** |  | [optional] 
 **TotalCount** | Pointer to **int32** |  | [optional] 
 **SingleFileMaxSize** | Pointer to **int64** |  | [optional] 
@@ -56,6 +56,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *UserStorageDto) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *UserStorageDto) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDisplayName
 
 `func (o *UserStorageDto) GetDisplayName() string`
@@ -81,30 +91,40 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
-### GetMaxSize
+### SetDisplayNameNil
 
-`func (o *UserStorageDto) GetMaxSize() int64`
+`func (o *UserStorageDto) SetDisplayNameNil(b bool)`
 
-GetMaxSize returns the MaxSize field if non-nil, zero value otherwise.
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 
-### GetMaxSizeOk
+### UnsetDisplayName
+`func (o *UserStorageDto) UnsetDisplayName()`
 
-`func (o *UserStorageDto) GetMaxSizeOk() (*int64, bool)`
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+### GetSize
 
-GetMaxSizeOk returns a tuple with the MaxSize field if it's non-nil, zero value otherwise
+`func (o *UserStorageDto) GetSize() int64`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *UserStorageDto) GetSizeOk() (*int64, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxSize
+### SetSize
 
-`func (o *UserStorageDto) SetMaxSize(v int64)`
+`func (o *UserStorageDto) SetSize(v int64)`
 
-SetMaxSize sets MaxSize field to given value.
+SetSize sets Size field to given value.
 
-### HasMaxSize
+### HasSize
 
-`func (o *UserStorageDto) HasMaxSize() bool`
+`func (o *UserStorageDto) HasSize() bool`
 
-HasMaxSize returns a boolean if a field has been set.
+HasSize returns a boolean if a field has been set.
 
 ### GetCurrentSize
 
@@ -206,6 +226,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *UserStorageDto) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *UserStorageDto) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

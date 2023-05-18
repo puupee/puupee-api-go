@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ApiAppVerificationSendCodePost
 
-> ApiAppVerificationSendCodePost(ctx).Body(body).Execute()
+> ApiAppVerificationSendCodePost(ctx).SendVerificationCodeDto(sendVerificationCodeDto).Execute()
 
 
 
@@ -27,11 +27,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewSendVerificationCodeDto() // SendVerificationCodeDto |  (optional)
+    sendVerificationCodeDto := *openapiclient.NewSendVerificationCodeDto() // SendVerificationCodeDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.VerificationApi.ApiAppVerificationSendCodePost(context.Background()).Body(body).Execute()
+    r, err := apiClient.VerificationApi.ApiAppVerificationSendCodePost(context.Background()).SendVerificationCodeDto(sendVerificationCodeDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VerificationApi.ApiAppVerificationSendCodePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -50,7 +50,7 @@ Other parameters are passed through a pointer to a apiApiAppVerificationSendCode
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SendVerificationCodeDto**](SendVerificationCodeDto.md) |  | 
+ **sendVerificationCodeDto** | [**SendVerificationCodeDto**](SendVerificationCodeDto.md) |  | 
 
 ### Return type
 

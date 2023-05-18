@@ -25,11 +25,11 @@ type DeviceApiService service
 type ApiApiAppDeviceBindPostRequest struct {
 	ctx context.Context
 	ApiService *DeviceApiService
-	body *BindDeviceDto
+	bindDeviceDto *BindDeviceDto
 }
 
-func (r ApiApiAppDeviceBindPostRequest) Body(body BindDeviceDto) ApiApiAppDeviceBindPostRequest {
-	r.body = &body
+func (r ApiApiAppDeviceBindPostRequest) BindDeviceDto(bindDeviceDto BindDeviceDto) ApiApiAppDeviceBindPostRequest {
+	r.bindDeviceDto = &bindDeviceDto
 	return r
 }
 
@@ -87,7 +87,7 @@ func (a *DeviceApiService) ApiAppDeviceBindPostExecute(r ApiApiAppDeviceBindPost
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.bindDeviceDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -533,11 +533,11 @@ func (a *DeviceApiService) ApiAppDeviceGetExecute(r ApiApiAppDeviceGetRequest) (
 type ApiApiAppDeviceRefreshPostRequest struct {
 	ctx context.Context
 	ApiService *DeviceApiService
-	body *RefreshDeviceStatusDto
+	refreshDeviceStatusDto *RefreshDeviceStatusDto
 }
 
-func (r ApiApiAppDeviceRefreshPostRequest) Body(body RefreshDeviceStatusDto) ApiApiAppDeviceRefreshPostRequest {
-	r.body = &body
+func (r ApiApiAppDeviceRefreshPostRequest) RefreshDeviceStatusDto(refreshDeviceStatusDto RefreshDeviceStatusDto) ApiApiAppDeviceRefreshPostRequest {
+	r.refreshDeviceStatusDto = &refreshDeviceStatusDto
 	return r
 }
 
@@ -595,7 +595,7 @@ func (a *DeviceApiService) ApiAppDeviceRefreshPostExecute(r ApiApiAppDeviceRefre
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.refreshDeviceStatusDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

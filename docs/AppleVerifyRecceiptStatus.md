@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] [readonly] 
+**Name** | Pointer to **NullableString** |  | [optional] [readonly] 
 **Value** | Pointer to **int32** |  | [optional] [readonly] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AppleVerifyRecceiptStatus) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AppleVerifyRecceiptStatus) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValue
 
 `func (o *AppleVerifyRecceiptStatus) GetValue() int32`

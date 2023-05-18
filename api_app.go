@@ -198,10 +198,16 @@ type ApiApiAppAppByNameGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	name *string
+	env *string
 }
 
 func (r ApiApiAppAppByNameGetRequest) Name(name string) ApiApiAppAppByNameGetRequest {
 	r.name = &name
+	return r
+}
+
+func (r ApiApiAppAppByNameGetRequest) Env(env string) ApiApiAppAppByNameGetRequest {
+	r.env = &env
 	return r
 }
 
@@ -245,6 +251,9 @@ func (a *AppApiService) ApiAppAppByNameGetExecute(r ApiApiAppAppByNameGetRequest
 
 	if r.name != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+	}
+	if r.env != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -722,6 +731,12 @@ type ApiApiAppAppIdGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
+	env *string
+}
+
+func (r ApiApiAppAppIdGetRequest) Env(env string) ApiApiAppAppIdGetRequest {
+	r.env = &env
+	return r
 }
 
 func (r ApiApiAppAppIdGetRequest) Execute() (*AppDto, *http.Response, error) {
@@ -765,6 +780,9 @@ func (a *AppApiService) ApiAppAppIdGetExecute(r ApiApiAppAppIdGetRequest) (*AppD
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.env != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -888,11 +906,11 @@ type ApiApiAppAppIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
-	body *CreateOrUpdateAppDto
+	createOrUpdateAppDto *CreateOrUpdateAppDto
 }
 
-func (r ApiApiAppAppIdPutRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
-	r.body = &body
+func (r ApiApiAppAppIdPutRequest) CreateOrUpdateAppDto(createOrUpdateAppDto CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
+	r.createOrUpdateAppDto = &createOrUpdateAppDto
 	return r
 }
 
@@ -955,7 +973,7 @@ func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppD
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.createOrUpdateAppDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1062,11 +1080,11 @@ type ApiApiAppAppIdRunStatePutRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
-	body *AppRunRecordUpdateDto
+	appRunRecordUpdateDto *AppRunRecordUpdateDto
 }
 
-func (r ApiApiAppAppIdRunStatePutRequest) Body(body AppRunRecordUpdateDto) ApiApiAppAppIdRunStatePutRequest {
-	r.body = &body
+func (r ApiApiAppAppIdRunStatePutRequest) AppRunRecordUpdateDto(appRunRecordUpdateDto AppRunRecordUpdateDto) ApiApiAppAppIdRunStatePutRequest {
+	r.appRunRecordUpdateDto = &appRunRecordUpdateDto
 	return r
 }
 
@@ -1129,7 +1147,7 @@ func (a *AppApiService) ApiAppAppIdRunStatePutExecute(r ApiApiAppAppIdRunStatePu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.appRunRecordUpdateDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1236,6 +1254,12 @@ type ApiApiAppAppIdWithUserGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
+	env *string
+}
+
+func (r ApiApiAppAppIdWithUserGetRequest) Env(env string) ApiApiAppAppIdWithUserGetRequest {
+	r.env = &env
+	return r
 }
 
 func (r ApiApiAppAppIdWithUserGetRequest) Execute() (*AppWithUserDto, *http.Response, error) {
@@ -1279,6 +1303,9 @@ func (a *AppApiService) ApiAppAppIdWithUserGetExecute(r ApiApiAppAppIdWithUserGe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.env != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1401,11 +1428,11 @@ func (a *AppApiService) ApiAppAppIdWithUserGetExecute(r ApiApiAppAppIdWithUserGe
 type ApiApiAppAppPostRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	body *CreateOrUpdateAppDto
+	createOrUpdateAppDto *CreateOrUpdateAppDto
 }
 
-func (r ApiApiAppAppPostRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppPostRequest {
-	r.body = &body
+func (r ApiApiAppAppPostRequest) CreateOrUpdateAppDto(createOrUpdateAppDto CreateOrUpdateAppDto) ApiApiAppAppPostRequest {
+	r.createOrUpdateAppDto = &createOrUpdateAppDto
 	return r
 }
 
@@ -1465,7 +1492,7 @@ func (a *AppApiService) ApiAppAppPostExecute(r ApiApiAppAppPostRequest) (*AppDto
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.createOrUpdateAppDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1760,11 +1787,11 @@ func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest
 type ApiApiAppAppRunPostRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	body *AppRunDto
+	appRunDto *AppRunDto
 }
 
-func (r ApiApiAppAppRunPostRequest) Body(body AppRunDto) ApiApiAppAppRunPostRequest {
-	r.body = &body
+func (r ApiApiAppAppRunPostRequest) AppRunDto(appRunDto AppRunDto) ApiApiAppAppRunPostRequest {
+	r.appRunDto = &appRunDto
 	return r
 }
 
@@ -1824,7 +1851,7 @@ func (a *AppApiService) ApiAppAppRunPostExecute(r ApiApiAppAppRunPostRequest) (*
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.appRunDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

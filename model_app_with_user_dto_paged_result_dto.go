@@ -40,9 +40,9 @@ func NewAppWithUserDtoPagedResultDtoWithDefaults() *AppWithUserDtoPagedResultDto
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppWithUserDtoPagedResultDto) GetItems() []AppWithUserDto {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []AppWithUserDto
 		return ret
 	}
@@ -51,6 +51,7 @@ func (o *AppWithUserDtoPagedResultDto) GetItems() []AppWithUserDto {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppWithUserDtoPagedResultDto) GetItemsOk() ([]AppWithUserDto, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -60,7 +61,7 @@ func (o *AppWithUserDtoPagedResultDto) GetItemsOk() ([]AppWithUserDto, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *AppWithUserDtoPagedResultDto) HasItems() bool {
-	if o != nil && !IsNil(o.Items) {
+	if o != nil && IsNil(o.Items) {
 		return true
 	}
 
@@ -114,7 +115,7 @@ func (o AppWithUserDtoPagedResultDto) MarshalJSON() ([]byte, error) {
 
 func (o AppWithUserDtoPagedResultDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
 	if !IsNil(o.TotalCount) {

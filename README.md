@@ -127,6 +127,8 @@ Class | Method | HTTP request | Description
 *AppSdkApi* | [**ApiAppAppSdkIdPut**](docs/AppSdkApi.md#apiappappsdkidput) | **Put** /api/app/app-sdk/{id} | 
 *AppSdkApi* | [**ApiAppAppSdkPost**](docs/AppSdkApi.md#apiappappsdkpost) | **Post** /api/app/app-sdk | 
 *AppUserScoreApi* | [**ApiAppAppUserScorePost**](docs/AppUserScoreApi.md#apiappappuserscorepost) | **Post** /api/app/app-user-score | 
+*AvatarApi* | [**ApiAppAvatarCredentialsGet**](docs/AvatarApi.md#apiappavatarcredentialsget) | **Get** /api/app/avatar/credentials | 
+*AvatarApi* | [**ApiAppAvatarPost**](docs/AvatarApi.md#apiappavatarpost) | **Post** /api/app/avatar | 
 *DeviceApi* | [**ApiAppDeviceBindPost**](docs/DeviceApi.md#apiappdevicebindpost) | **Post** /api/app/device/bind | 
 *DeviceApi* | [**ApiAppDeviceDelete**](docs/DeviceApi.md#apiappdevicedelete) | **Delete** /api/app/device | 
 *DeviceApi* | [**ApiAppDeviceGet**](docs/DeviceApi.md#apiappdeviceget) | **Get** /api/app/device | 
@@ -156,6 +158,22 @@ Class | Method | HTTP request | Description
 *MessageApi* | [**ApiAppMessageRecallPost**](docs/MessageApi.md#apiappmessagerecallpost) | **Post** /api/app/message/recall | 
 *MessageApi* | [**ApiAppMessageSubscribePost**](docs/MessageApi.md#apiappmessagesubscribepost) | **Post** /api/app/message/subscribe | 
 *MessageApi* | [**ApiAppMessageUnsubscribePost**](docs/MessageApi.md#apiappmessageunsubscribepost) | **Post** /api/app/message/unsubscribe | 
+*MessageSourceApi* | [**ApiAppMessageSourceIdDelete**](docs/MessageSourceApi.md#apiappmessagesourceiddelete) | **Delete** /api/app/message-source/{id} | 
+*MessageSourceApi* | [**ApiAppMessageSourceIdGet**](docs/MessageSourceApi.md#apiappmessagesourceidget) | **Get** /api/app/message-source/{id} | 
+*MessageSourceApi* | [**ApiAppMessageSourceIdPut**](docs/MessageSourceApi.md#apiappmessagesourceidput) | **Put** /api/app/message-source/{id} | 
+*MessageSourceApi* | [**ApiAppMessageSourcePost**](docs/MessageSourceApi.md#apiappmessagesourcepost) | **Post** /api/app/message-source | 
+*MessageSourceApi* | [**ApiAppMessageSourcePublishedListCategoryIdGet**](docs/MessageSourceApi.md#apiappmessagesourcepublishedlistcategoryidget) | **Get** /api/app/message-source/published-list/{categoryId} | 
+*MessageSourceCategoryApi* | [**ApiAppMessageSourceCategoryGet**](docs/MessageSourceCategoryApi.md#apiappmessagesourcecategoryget) | **Get** /api/app/message-source-category | 
+*MessageSourceRouteApi* | [**ApiAppMessageSourceRouteIdDelete**](docs/MessageSourceRouteApi.md#apiappmessagesourcerouteiddelete) | **Delete** /api/app/message-source-route/{id} | 
+*MessageSourceRouteApi* | [**ApiAppMessageSourceRouteIdGet**](docs/MessageSourceRouteApi.md#apiappmessagesourcerouteidget) | **Get** /api/app/message-source-route/{id} | 
+*MessageSourceRouteApi* | [**ApiAppMessageSourceRouteIdPut**](docs/MessageSourceRouteApi.md#apiappmessagesourcerouteidput) | **Put** /api/app/message-source-route/{id} | 
+*MessageSourceRouteApi* | [**ApiAppMessageSourceRoutePost**](docs/MessageSourceRouteApi.md#apiappmessagesourceroutepost) | **Post** /api/app/message-source-route | 
+*MessageSourceRouteApi* | [**ApiAppMessageSourceRoutePublishedListSourceIdGet**](docs/MessageSourceRouteApi.md#apiappmessagesourceroutepublishedlistsourceidget) | **Get** /api/app/message-source-route/published-list/{sourceId} | 
+*MessageSourceRouteSubApi* | [**ApiAppMessageSourceRouteSubGet**](docs/MessageSourceRouteSubApi.md#apiappmessagesourceroutesubget) | **Get** /api/app/message-source-route-sub | 
+*MessageSourceRouteSubApi* | [**ApiAppMessageSourceRouteSubIdDelete**](docs/MessageSourceRouteSubApi.md#apiappmessagesourceroutesubiddelete) | **Delete** /api/app/message-source-route-sub/{id} | 
+*MessageSourceRouteSubApi* | [**ApiAppMessageSourceRouteSubIdGet**](docs/MessageSourceRouteSubApi.md#apiappmessagesourceroutesubidget) | **Get** /api/app/message-source-route-sub/{id} | 
+*MessageSourceRouteSubApi* | [**ApiAppMessageSourceRouteSubIdPut**](docs/MessageSourceRouteSubApi.md#apiappmessagesourceroutesubidput) | **Put** /api/app/message-source-route-sub/{id} | 
+*MessageSourceRouteSubApi* | [**ApiAppMessageSourceRouteSubPost**](docs/MessageSourceRouteSubApi.md#apiappmessagesourceroutesubpost) | **Post** /api/app/message-source-route-sub | 
 *MessageTemplateApi* | [**ApiAppMessageTemplateGet**](docs/MessageTemplateApi.md#apiappmessagetemplateget) | **Get** /api/app/message-template | 
 *MessageTemplateApi* | [**ApiAppMessageTemplateIdDelete**](docs/MessageTemplateApi.md#apiappmessagetemplateiddelete) | **Delete** /api/app/message-template/{id} | 
 *MessageTemplateApi* | [**ApiAppMessageTemplateIdGet**](docs/MessageTemplateApi.md#apiappmessagetemplateidget) | **Get** /api/app/message-template/{id} | 
@@ -256,6 +274,7 @@ Class | Method | HTTP request | Description
  - [ApplicationLocalizationDto](docs/ApplicationLocalizationDto.md)
  - [ApplicationLocalizationResourceDto](docs/ApplicationLocalizationResourceDto.md)
  - [ApplicationSettingConfigurationDto](docs/ApplicationSettingConfigurationDto.md)
+ - [AvatarDto](docs/AvatarDto.md)
  - [BindDeviceDto](docs/BindDeviceDto.md)
  - [BooleanKeyValue](docs/BooleanKeyValue.md)
  - [BooleanSetKeyValueDto](docs/BooleanSetKeyValueDto.md)
@@ -263,6 +282,7 @@ Class | Method | HTTP request | Description
  - [ClockDto](docs/ClockDto.md)
  - [ControllerApiDescriptionModel](docs/ControllerApiDescriptionModel.md)
  - [ControllerInterfaceApiDescriptionModel](docs/ControllerInterfaceApiDescriptionModel.md)
+ - [CreateAvatarDto](docs/CreateAvatarDto.md)
  - [CreateMessageTemplateReleaseDto](docs/CreateMessageTemplateReleaseDto.md)
  - [CreateOpenIddictApplicationDto](docs/CreateOpenIddictApplicationDto.md)
  - [CreateOrGetSubscriptionOrderDto](docs/CreateOrGetSubscriptionOrderDto.md)
@@ -276,6 +296,9 @@ Class | Method | HTTP request | Description
  - [CreateOrUpdateMessageTemplateDto](docs/CreateOrUpdateMessageTemplateDto.md)
  - [CreateOrUpdatePuupeeDto](docs/CreateOrUpdatePuupeeDto.md)
  - [CreatePushNotificationDto](docs/CreatePushNotificationDto.md)
+ - [CreateUpdateMessageSourceDto](docs/CreateUpdateMessageSourceDto.md)
+ - [CreateUpdateMessageSourceRouteDto](docs/CreateUpdateMessageSourceRouteDto.md)
+ - [CreateUpdateMessageSourceRouteSubDto](docs/CreateUpdateMessageSourceRouteSubDto.md)
  - [CurrentCultureDto](docs/CurrentCultureDto.md)
  - [CurrentTenantDto](docs/CurrentTenantDto.md)
  - [CurrentUserDto](docs/CurrentUserDto.md)
@@ -337,6 +360,10 @@ Class | Method | HTTP request | Description
  - [LoginResultType](docs/LoginResultType.md)
  - [MessagePublishDto](docs/MessagePublishDto.md)
  - [MessageRecallDto](docs/MessageRecallDto.md)
+ - [MessageSourceCategoryDto](docs/MessageSourceCategoryDto.md)
+ - [MessageSourceDto](docs/MessageSourceDto.md)
+ - [MessageSourceRouteDto](docs/MessageSourceRouteDto.md)
+ - [MessageSourceRouteSubDto](docs/MessageSourceRouteSubDto.md)
  - [MessageSubscribeDto](docs/MessageSubscribeDto.md)
  - [MessageTemplateDto](docs/MessageTemplateDto.md)
  - [MessageTemplateReleaseDto](docs/MessageTemplateReleaseDto.md)

@@ -1040,11 +1040,11 @@ type ApiApiIdentityUsersIdPutRequest struct {
 	ctx context.Context
 	ApiService *UserApiService
 	id string
-	body *IdentityUserUpdateDto
+	identityUserUpdateDto *IdentityUserUpdateDto
 }
 
-func (r ApiApiIdentityUsersIdPutRequest) Body(body IdentityUserUpdateDto) ApiApiIdentityUsersIdPutRequest {
-	r.body = &body
+func (r ApiApiIdentityUsersIdPutRequest) IdentityUserUpdateDto(identityUserUpdateDto IdentityUserUpdateDto) ApiApiIdentityUsersIdPutRequest {
+	r.identityUserUpdateDto = &identityUserUpdateDto
 	return r
 }
 
@@ -1107,7 +1107,7 @@ func (a *UserApiService) ApiIdentityUsersIdPutExecute(r ApiApiIdentityUsersIdPut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.identityUserUpdateDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1380,11 +1380,11 @@ type ApiApiIdentityUsersIdRolesPutRequest struct {
 	ctx context.Context
 	ApiService *UserApiService
 	id string
-	body *IdentityUserUpdateRolesDto
+	identityUserUpdateRolesDto *IdentityUserUpdateRolesDto
 }
 
-func (r ApiApiIdentityUsersIdRolesPutRequest) Body(body IdentityUserUpdateRolesDto) ApiApiIdentityUsersIdRolesPutRequest {
-	r.body = &body
+func (r ApiApiIdentityUsersIdRolesPutRequest) IdentityUserUpdateRolesDto(identityUserUpdateRolesDto IdentityUserUpdateRolesDto) ApiApiIdentityUsersIdRolesPutRequest {
+	r.identityUserUpdateRolesDto = &identityUserUpdateRolesDto
 	return r
 }
 
@@ -1445,7 +1445,7 @@ func (a *UserApiService) ApiIdentityUsersIdRolesPutExecute(r ApiApiIdentityUsers
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.identityUserUpdateRolesDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -1542,11 +1542,11 @@ func (a *UserApiService) ApiIdentityUsersIdRolesPutExecute(r ApiApiIdentityUsers
 type ApiApiIdentityUsersPostRequest struct {
 	ctx context.Context
 	ApiService *UserApiService
-	body *IdentityUserCreateDto
+	identityUserCreateDto *IdentityUserCreateDto
 }
 
-func (r ApiApiIdentityUsersPostRequest) Body(body IdentityUserCreateDto) ApiApiIdentityUsersPostRequest {
-	r.body = &body
+func (r ApiApiIdentityUsersPostRequest) IdentityUserCreateDto(identityUserCreateDto IdentityUserCreateDto) ApiApiIdentityUsersPostRequest {
+	r.identityUserCreateDto = &identityUserCreateDto
 	return r
 }
 
@@ -1606,7 +1606,7 @@ func (a *UserApiService) ApiIdentityUsersPostExecute(r ApiApiIdentityUsersPostRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.identityUserCreateDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

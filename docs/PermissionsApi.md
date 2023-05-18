@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## ApiPermissionManagementPermissionsPut
 
-> ApiPermissionManagementPermissionsPut(ctx).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+> ApiPermissionManagementPermissionsPut(ctx).ProviderName(providerName).ProviderKey(providerKey).UpdatePermissionsDto(updatePermissionsDto).Execute()
 
 
 
@@ -96,11 +96,11 @@ import (
 func main() {
     providerName := "providerName_example" // string |  (optional)
     providerKey := "providerKey_example" // string |  (optional)
-    body := *openapiclient.NewUpdatePermissionsDto() // UpdatePermissionsDto |  (optional)
+    updatePermissionsDto := *openapiclient.NewUpdatePermissionsDto() // UpdatePermissionsDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsApi.ApiPermissionManagementPermissionsPut(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+    r, err := apiClient.PermissionsApi.ApiPermissionManagementPermissionsPut(context.Background()).ProviderName(providerName).ProviderKey(providerKey).UpdatePermissionsDto(updatePermissionsDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.ApiPermissionManagementPermissionsPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerName** | **string** |  | 
  **providerKey** | **string** |  | 
- **body** | [**UpdatePermissionsDto**](UpdatePermissionsDto.md) |  | 
+ **updatePermissionsDto** | [**UpdatePermissionsDto**](UpdatePermissionsDto.md) |  | 
 
 ### Return type
 

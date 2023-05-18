@@ -25,11 +25,11 @@ type SubscriptionApiService service
 type ApiApiAppSubscriptionAppleNotificationsPostRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionApiService
-	body *AppleNotificaionDto
+	appleNotificaionDto *AppleNotificaionDto
 }
 
-func (r ApiApiAppSubscriptionAppleNotificationsPostRequest) Body(body AppleNotificaionDto) ApiApiAppSubscriptionAppleNotificationsPostRequest {
-	r.body = &body
+func (r ApiApiAppSubscriptionAppleNotificationsPostRequest) AppleNotificaionDto(appleNotificaionDto AppleNotificaionDto) ApiApiAppSubscriptionAppleNotificationsPostRequest {
+	r.appleNotificaionDto = &appleNotificaionDto
 	return r
 }
 
@@ -87,7 +87,7 @@ func (a *SubscriptionApiService) ApiAppSubscriptionAppleNotificationsPostExecute
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.appleNotificaionDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -355,11 +355,11 @@ func (a *SubscriptionApiService) ApiAppSubscriptionGetExecute(r ApiApiAppSubscri
 type ApiApiAppSubscriptionOrderPostRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionApiService
-	body *CreateOrGetSubscriptionOrderDto
+	createOrGetSubscriptionOrderDto *CreateOrGetSubscriptionOrderDto
 }
 
-func (r ApiApiAppSubscriptionOrderPostRequest) Body(body CreateOrGetSubscriptionOrderDto) ApiApiAppSubscriptionOrderPostRequest {
-	r.body = &body
+func (r ApiApiAppSubscriptionOrderPostRequest) CreateOrGetSubscriptionOrderDto(createOrGetSubscriptionOrderDto CreateOrGetSubscriptionOrderDto) ApiApiAppSubscriptionOrderPostRequest {
+	r.createOrGetSubscriptionOrderDto = &createOrGetSubscriptionOrderDto
 	return r
 }
 
@@ -419,7 +419,7 @@ func (a *SubscriptionApiService) ApiAppSubscriptionOrderPostExecute(r ApiApiAppS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.createOrGetSubscriptionOrderDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -525,11 +525,11 @@ func (a *SubscriptionApiService) ApiAppSubscriptionOrderPostExecute(r ApiApiAppS
 type ApiApiAppSubscriptionVerifyReceiptPostRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionApiService
-	body *VerifyReceiptDto
+	verifyReceiptDto *VerifyReceiptDto
 }
 
-func (r ApiApiAppSubscriptionVerifyReceiptPostRequest) Body(body VerifyReceiptDto) ApiApiAppSubscriptionVerifyReceiptPostRequest {
-	r.body = &body
+func (r ApiApiAppSubscriptionVerifyReceiptPostRequest) VerifyReceiptDto(verifyReceiptDto VerifyReceiptDto) ApiApiAppSubscriptionVerifyReceiptPostRequest {
+	r.verifyReceiptDto = &verifyReceiptDto
 	return r
 }
 
@@ -589,7 +589,7 @@ func (a *SubscriptionApiService) ApiAppSubscriptionVerifyReceiptPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.verifyReceiptDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

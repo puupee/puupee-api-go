@@ -187,11 +187,11 @@ func (a *SettingsApiService) ApiAppSettingsGetExecute(r ApiApiAppSettingsGetRequ
 type ApiApiAppSettingsSetPostRequest struct {
 	ctx context.Context
 	ApiService *SettingsApiService
-	body *SettingsDto
+	settingsDto *SettingsDto
 }
 
-func (r ApiApiAppSettingsSetPostRequest) Body(body SettingsDto) ApiApiAppSettingsSetPostRequest {
-	r.body = &body
+func (r ApiApiAppSettingsSetPostRequest) SettingsDto(settingsDto SettingsDto) ApiApiAppSettingsSetPostRequest {
+	r.settingsDto = &settingsDto
 	return r
 }
 
@@ -249,7 +249,7 @@ func (a *SettingsApiService) ApiAppSettingsSetPostExecute(r ApiApiAppSettingsSet
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.settingsDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

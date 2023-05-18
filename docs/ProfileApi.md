@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ApiAccountMyProfileChangePasswordPost
 
-> ApiAccountMyProfileChangePasswordPost(ctx).Body(body).Execute()
+> ApiAccountMyProfileChangePasswordPost(ctx).ChangePasswordInput(changePasswordInput).Execute()
 
 
 
@@ -29,11 +29,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewChangePasswordInput("NewPassword_example") // ChangePasswordInput |  (optional)
+    changePasswordInput := *openapiclient.NewChangePasswordInput("NewPassword_example") // ChangePasswordInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProfileApi.ApiAccountMyProfileChangePasswordPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.ProfileApi.ApiAccountMyProfileChangePasswordPost(context.Background()).ChangePasswordInput(changePasswordInput).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ApiAccountMyProfileChangePasswordPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -52,7 +52,7 @@ Other parameters are passed through a pointer to a apiApiAccountMyProfileChangeP
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ChangePasswordInput**](ChangePasswordInput.md) |  | 
+ **changePasswordInput** | [**ChangePasswordInput**](ChangePasswordInput.md) |  | 
 
 ### Return type
 
@@ -133,7 +133,7 @@ Other parameters are passed through a pointer to a apiApiAccountMyProfileGetRequ
 
 ## ApiAccountMyProfilePut
 
-> ProfileDto ApiAccountMyProfilePut(ctx).Body(body).Execute()
+> ProfileDto ApiAccountMyProfilePut(ctx).UpdateProfileDto(updateProfileDto).Execute()
 
 
 
@@ -150,11 +150,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewUpdateProfileDto() // UpdateProfileDto |  (optional)
+    updateProfileDto := *openapiclient.NewUpdateProfileDto() // UpdateProfileDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProfileApi.ApiAccountMyProfilePut(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.ProfileApi.ApiAccountMyProfilePut(context.Background()).UpdateProfileDto(updateProfileDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ApiAccountMyProfilePut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -175,7 +175,7 @@ Other parameters are passed through a pointer to a apiApiAccountMyProfilePutRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UpdateProfileDto**](UpdateProfileDto.md) |  | 
+ **updateProfileDto** | [**UpdateProfileDto**](UpdateProfileDto.md) |  | 
 
 ### Return type
 

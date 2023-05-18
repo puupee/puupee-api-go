@@ -25,11 +25,11 @@ type ProfileApiService service
 type ApiApiAccountMyProfileChangePasswordPostRequest struct {
 	ctx context.Context
 	ApiService *ProfileApiService
-	body *ChangePasswordInput
+	changePasswordInput *ChangePasswordInput
 }
 
-func (r ApiApiAccountMyProfileChangePasswordPostRequest) Body(body ChangePasswordInput) ApiApiAccountMyProfileChangePasswordPostRequest {
-	r.body = &body
+func (r ApiApiAccountMyProfileChangePasswordPostRequest) ChangePasswordInput(changePasswordInput ChangePasswordInput) ApiApiAccountMyProfileChangePasswordPostRequest {
+	r.changePasswordInput = &changePasswordInput
 	return r
 }
 
@@ -87,7 +87,7 @@ func (a *ProfileApiService) ApiAccountMyProfileChangePasswordPostExecute(r ApiAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.changePasswordInput
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -346,11 +346,11 @@ func (a *ProfileApiService) ApiAccountMyProfileGetExecute(r ApiApiAccountMyProfi
 type ApiApiAccountMyProfilePutRequest struct {
 	ctx context.Context
 	ApiService *ProfileApiService
-	body *UpdateProfileDto
+	updateProfileDto *UpdateProfileDto
 }
 
-func (r ApiApiAccountMyProfilePutRequest) Body(body UpdateProfileDto) ApiApiAccountMyProfilePutRequest {
-	r.body = &body
+func (r ApiApiAccountMyProfilePutRequest) UpdateProfileDto(updateProfileDto UpdateProfileDto) ApiApiAccountMyProfilePutRequest {
+	r.updateProfileDto = &updateProfileDto
 	return r
 }
 
@@ -410,7 +410,7 @@ func (a *ProfileApiService) ApiAccountMyProfilePutExecute(r ApiApiAccountMyProfi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updateProfileDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

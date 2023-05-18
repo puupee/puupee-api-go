@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 ## ApiMultiTenancyTenantsIdPut
 
-> TenantDto ApiMultiTenancyTenantsIdPut(ctx, id).Body(body).Execute()
+> TenantDto ApiMultiTenancyTenantsIdPut(ctx, id).TenantUpdateDto(tenantUpdateDto).Execute()
 
 
 
@@ -441,11 +441,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewTenantUpdateDto("Name_example") // TenantUpdateDto |  (optional)
+    tenantUpdateDto := *openapiclient.NewTenantUpdateDto("Name_example") // TenantUpdateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsIdPut(context.Background(), id).TenantUpdateDto(tenantUpdateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.ApiMultiTenancyTenantsIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -471,7 +471,7 @@ Other parameters are passed through a pointer to a apiApiMultiTenancyTenantsIdPu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**TenantUpdateDto**](TenantUpdateDto.md) |  | 
+ **tenantUpdateDto** | [**TenantUpdateDto**](TenantUpdateDto.md) |  | 
 
 ### Return type
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 
 ## ApiMultiTenancyTenantsPost
 
-> TenantDto ApiMultiTenancyTenantsPost(ctx).Body(body).Execute()
+> TenantDto ApiMultiTenancyTenantsPost(ctx).TenantCreateDto(tenantCreateDto).Execute()
 
 
 
@@ -510,11 +510,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewTenantCreateDto("Name_example", "AdminEmailAddress_example", "AdminPassword_example") // TenantCreateDto |  (optional)
+    tenantCreateDto := *openapiclient.NewTenantCreateDto("Name_example", "AdminEmailAddress_example", "AdminPassword_example") // TenantCreateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.TenantApi.ApiMultiTenancyTenantsPost(context.Background()).TenantCreateDto(tenantCreateDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.ApiMultiTenancyTenantsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -535,7 +535,7 @@ Other parameters are passed through a pointer to a apiApiMultiTenancyTenantsPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TenantCreateDto**](TenantCreateDto.md) |  | 
+ **tenantCreateDto** | [**TenantCreateDto**](TenantCreateDto.md) |  | 
 
 ### Return type
 

@@ -207,7 +207,7 @@ type ApiApiPermissionManagementPermissionsPutRequest struct {
 	ApiService *PermissionsApiService
 	providerName *string
 	providerKey *string
-	body *UpdatePermissionsDto
+	updatePermissionsDto *UpdatePermissionsDto
 }
 
 func (r ApiApiPermissionManagementPermissionsPutRequest) ProviderName(providerName string) ApiApiPermissionManagementPermissionsPutRequest {
@@ -220,8 +220,8 @@ func (r ApiApiPermissionManagementPermissionsPutRequest) ProviderKey(providerKey
 	return r
 }
 
-func (r ApiApiPermissionManagementPermissionsPutRequest) Body(body UpdatePermissionsDto) ApiApiPermissionManagementPermissionsPutRequest {
-	r.body = &body
+func (r ApiApiPermissionManagementPermissionsPutRequest) UpdatePermissionsDto(updatePermissionsDto UpdatePermissionsDto) ApiApiPermissionManagementPermissionsPutRequest {
+	r.updatePermissionsDto = &updatePermissionsDto
 	return r
 }
 
@@ -285,7 +285,7 @@ func (a *PermissionsApiService) ApiPermissionManagementPermissionsPutExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updatePermissionsDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

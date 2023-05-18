@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ApiAppAppUserScorePost
 
-> AppUserScoreDto ApiAppAppUserScorePost(ctx).Body(body).Execute()
+> AppUserScoreDto ApiAppAppUserScorePost(ctx).CreateOrUpdateAppUserScoreDto(createOrUpdateAppUserScoreDto).Execute()
 
 
 
@@ -27,11 +27,11 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppUserScoreDto() // CreateOrUpdateAppUserScoreDto |  (optional)
+    createOrUpdateAppUserScoreDto := *openapiclient.NewCreateOrUpdateAppUserScoreDto() // CreateOrUpdateAppUserScoreDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppUserScoreApi.ApiAppAppUserScorePost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppUserScoreApi.ApiAppAppUserScorePost(context.Background()).CreateOrUpdateAppUserScoreDto(createOrUpdateAppUserScoreDto).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppUserScoreApi.ApiAppAppUserScorePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -52,7 +52,7 @@ Other parameters are passed through a pointer to a apiApiAppAppUserScorePostRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateOrUpdateAppUserScoreDto**](CreateOrUpdateAppUserScoreDto.md) |  | 
+ **createOrUpdateAppUserScoreDto** | [**CreateOrUpdateAppUserScoreDto**](CreateOrUpdateAppUserScoreDto.md) |  | 
 
 ### Return type
 

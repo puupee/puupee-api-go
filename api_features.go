@@ -376,7 +376,7 @@ type ApiApiFeatureManagementFeaturesPutRequest struct {
 	ApiService *FeaturesApiService
 	providerName *string
 	providerKey *string
-	body *UpdateFeaturesDto
+	updateFeaturesDto *UpdateFeaturesDto
 }
 
 func (r ApiApiFeatureManagementFeaturesPutRequest) ProviderName(providerName string) ApiApiFeatureManagementFeaturesPutRequest {
@@ -389,8 +389,8 @@ func (r ApiApiFeatureManagementFeaturesPutRequest) ProviderKey(providerKey strin
 	return r
 }
 
-func (r ApiApiFeatureManagementFeaturesPutRequest) Body(body UpdateFeaturesDto) ApiApiFeatureManagementFeaturesPutRequest {
-	r.body = &body
+func (r ApiApiFeatureManagementFeaturesPutRequest) UpdateFeaturesDto(updateFeaturesDto UpdateFeaturesDto) ApiApiFeatureManagementFeaturesPutRequest {
+	r.updateFeaturesDto = &updateFeaturesDto
 	return r
 }
 
@@ -454,7 +454,7 @@ func (a *FeaturesApiService) ApiFeatureManagementFeaturesPutExecute(r ApiApiFeat
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updateFeaturesDto
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

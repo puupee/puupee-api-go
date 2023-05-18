@@ -51,6 +51,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *SimpleDataDtoPagedResultDto) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *SimpleDataDtoPagedResultDto) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetTotalCount
 
 `func (o *SimpleDataDtoPagedResultDto) GetTotalCount() int64`

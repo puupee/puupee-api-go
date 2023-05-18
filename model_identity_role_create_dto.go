@@ -19,7 +19,7 @@ var _ MappedNullable = &IdentityRoleCreateDto{}
 
 // IdentityRoleCreateDto struct for IdentityRoleCreateDto
 type IdentityRoleCreateDto struct {
-	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
+	ExtraProperties map[string]interface{} `json:"extraProperties,omitempty"`
 	Name string `json:"name"`
 	IsDefault *bool `json:"isDefault,omitempty"`
 	IsPublic *bool `json:"isPublic,omitempty"`
@@ -43,10 +43,10 @@ func NewIdentityRoleCreateDtoWithDefaults() *IdentityRoleCreateDto {
 	return &this
 }
 
-// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
-func (o *IdentityRoleCreateDto) GetExtraProperties() map[string]map[string]interface{} {
-	if o == nil || IsNil(o.ExtraProperties) {
-		var ret map[string]map[string]interface{}
+// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IdentityRoleCreateDto) GetExtraProperties() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.ExtraProperties
@@ -54,24 +54,25 @@ func (o *IdentityRoleCreateDto) GetExtraProperties() map[string]map[string]inter
 
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IdentityRoleCreateDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IdentityRoleCreateDto) GetExtraPropertiesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ExtraProperties) {
-		return map[string]map[string]interface{}{}, false
+		return map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *IdentityRoleCreateDto) HasExtraProperties() bool {
-	if o != nil && !IsNil(o.ExtraProperties) {
+	if o != nil && IsNil(o.ExtraProperties) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtraProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the ExtraProperties field.
-func (o *IdentityRoleCreateDto) SetExtraProperties(v map[string]map[string]interface{}) {
+// SetExtraProperties gets a reference to the given map[string]interface{} and assigns it to the ExtraProperties field.
+func (o *IdentityRoleCreateDto) SetExtraProperties(v map[string]interface{}) {
 	o.ExtraProperties = v
 }
 
@@ -173,7 +174,9 @@ func (o IdentityRoleCreateDto) MarshalJSON() ([]byte, error) {
 
 func (o IdentityRoleCreateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: extraProperties is readOnly
+	if o.ExtraProperties != nil {
+		toSerialize["extraProperties"] = o.ExtraProperties
+	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.IsDefault) {
 		toSerialize["isDefault"] = o.IsDefault
