@@ -344,11 +344,11 @@ type ApiApiAppAppFeatureIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppFeatureApiService
 	id string
-	createOrUpdateAppFeatureDto *CreateOrUpdateAppFeatureDto
+	body *CreateOrUpdateAppFeatureDto
 }
 
-func (r ApiApiAppAppFeatureIdPutRequest) CreateOrUpdateAppFeatureDto(createOrUpdateAppFeatureDto CreateOrUpdateAppFeatureDto) ApiApiAppAppFeatureIdPutRequest {
-	r.createOrUpdateAppFeatureDto = &createOrUpdateAppFeatureDto
+func (r ApiApiAppAppFeatureIdPutRequest) Body(body CreateOrUpdateAppFeatureDto) ApiApiAppAppFeatureIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -411,7 +411,7 @@ func (a *AppFeatureApiService) ApiAppAppFeatureIdPutExecute(r ApiApiAppAppFeatur
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppFeatureDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -517,11 +517,11 @@ func (a *AppFeatureApiService) ApiAppAppFeatureIdPutExecute(r ApiApiAppAppFeatur
 type ApiApiAppAppFeaturePostRequest struct {
 	ctx context.Context
 	ApiService *AppFeatureApiService
-	createOrUpdateAppFeatureDto *CreateOrUpdateAppFeatureDto
+	body *CreateOrUpdateAppFeatureDto
 }
 
-func (r ApiApiAppAppFeaturePostRequest) CreateOrUpdateAppFeatureDto(createOrUpdateAppFeatureDto CreateOrUpdateAppFeatureDto) ApiApiAppAppFeaturePostRequest {
-	r.createOrUpdateAppFeatureDto = &createOrUpdateAppFeatureDto
+func (r ApiApiAppAppFeaturePostRequest) Body(body CreateOrUpdateAppFeatureDto) ApiApiAppAppFeaturePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -581,7 +581,7 @@ func (a *AppFeatureApiService) ApiAppAppFeaturePostExecute(r ApiApiAppAppFeature
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppFeatureDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

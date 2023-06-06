@@ -19,16 +19,16 @@ var _ MappedNullable = &PropertyApiDescriptionModel{}
 
 // PropertyApiDescriptionModel struct for PropertyApiDescriptionModel
 type PropertyApiDescriptionModel struct {
-	Name NullableString `json:"name,omitempty"`
-	JsonName NullableString `json:"jsonName,omitempty"`
-	Type NullableString `json:"type,omitempty"`
-	TypeSimple NullableString `json:"typeSimple,omitempty"`
+	Name *string `json:"name,omitempty"`
+	JsonName *string `json:"jsonName,omitempty"`
+	Type *string `json:"type,omitempty"`
+	TypeSimple *string `json:"typeSimple,omitempty"`
 	IsRequired *bool `json:"isRequired,omitempty"`
-	MinLength NullableInt32 `json:"minLength,omitempty"`
-	MaxLength NullableInt32 `json:"maxLength,omitempty"`
-	Minimum NullableString `json:"minimum,omitempty"`
-	Maximum NullableString `json:"maximum,omitempty"`
-	Regex NullableString `json:"regex,omitempty"`
+	MinLength *int32 `json:"minLength,omitempty"`
+	MaxLength *int32 `json:"maxLength,omitempty"`
+	Minimum *string `json:"minimum,omitempty"`
+	Maximum *string `json:"maximum,omitempty"`
+	Regex *string `json:"regex,omitempty"`
 }
 
 // NewPropertyApiDescriptionModel instantiates a new PropertyApiDescriptionModel object
@@ -48,172 +48,132 @@ func NewPropertyApiDescriptionModelWithDefaults() *PropertyApiDescriptionModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *PropertyApiDescriptionModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetJsonName returns the JsonName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetJsonName returns the JsonName field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetJsonName() string {
-	if o == nil || IsNil(o.JsonName.Get()) {
+	if o == nil || IsNil(o.JsonName) {
 		var ret string
 		return ret
 	}
-	return *o.JsonName.Get()
+	return *o.JsonName
 }
 
 // GetJsonNameOk returns a tuple with the JsonName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetJsonNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.JsonName) {
 		return nil, false
 	}
-	return o.JsonName.Get(), o.JsonName.IsSet()
+	return o.JsonName, true
 }
 
 // HasJsonName returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasJsonName() bool {
-	if o != nil && o.JsonName.IsSet() {
+	if o != nil && !IsNil(o.JsonName) {
 		return true
 	}
 
 	return false
 }
 
-// SetJsonName gets a reference to the given NullableString and assigns it to the JsonName field.
+// SetJsonName gets a reference to the given string and assigns it to the JsonName field.
 func (o *PropertyApiDescriptionModel) SetJsonName(v string) {
-	o.JsonName.Set(&v)
-}
-// SetJsonNameNil sets the value for JsonName to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetJsonNameNil() {
-	o.JsonName.Set(nil)
+	o.JsonName = &v
 }
 
-// UnsetJsonName ensures that no value is present for JsonName, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetJsonName() {
-	o.JsonName.Unset()
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetType() string {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableString and assigns it to the Type field.
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *PropertyApiDescriptionModel) SetType(v string) {
-	o.Type.Set(&v)
-}
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetTypeNil() {
-	o.Type.Set(nil)
+	o.Type = &v
 }
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetTypeSimple() string {
-	if o == nil || IsNil(o.TypeSimple.Get()) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
-	return *o.TypeSimple.Get()
+	return *o.TypeSimple
 }
 
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetTypeSimpleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TypeSimple) {
 		return nil, false
 	}
-	return o.TypeSimple.Get(), o.TypeSimple.IsSet()
+	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasTypeSimple() bool {
-	if o != nil && o.TypeSimple.IsSet() {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
 	return false
 }
 
-// SetTypeSimple gets a reference to the given NullableString and assigns it to the TypeSimple field.
+// SetTypeSimple gets a reference to the given string and assigns it to the TypeSimple field.
 func (o *PropertyApiDescriptionModel) SetTypeSimple(v string) {
-	o.TypeSimple.Set(&v)
-}
-// SetTypeSimpleNil sets the value for TypeSimple to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetTypeSimpleNil() {
-	o.TypeSimple.Set(nil)
-}
-
-// UnsetTypeSimple ensures that no value is present for TypeSimple, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetTypeSimple() {
-	o.TypeSimple.Unset()
+	o.TypeSimple = &v
 }
 
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise.
@@ -248,214 +208,164 @@ func (o *PropertyApiDescriptionModel) SetIsRequired(v bool) {
 	o.IsRequired = &v
 }
 
-// GetMinLength returns the MinLength field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinLength returns the MinLength field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMinLength() int32 {
-	if o == nil || IsNil(o.MinLength.Get()) {
+	if o == nil || IsNil(o.MinLength) {
 		var ret int32
 		return ret
 	}
-	return *o.MinLength.Get()
+	return *o.MinLength
 }
 
 // GetMinLengthOk returns a tuple with the MinLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetMinLengthOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MinLength) {
 		return nil, false
 	}
-	return o.MinLength.Get(), o.MinLength.IsSet()
+	return o.MinLength, true
 }
 
 // HasMinLength returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMinLength() bool {
-	if o != nil && o.MinLength.IsSet() {
+	if o != nil && !IsNil(o.MinLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetMinLength gets a reference to the given NullableInt32 and assigns it to the MinLength field.
+// SetMinLength gets a reference to the given int32 and assigns it to the MinLength field.
 func (o *PropertyApiDescriptionModel) SetMinLength(v int32) {
-	o.MinLength.Set(&v)
-}
-// SetMinLengthNil sets the value for MinLength to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetMinLengthNil() {
-	o.MinLength.Set(nil)
+	o.MinLength = &v
 }
 
-// UnsetMinLength ensures that no value is present for MinLength, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetMinLength() {
-	o.MinLength.Unset()
-}
-
-// GetMaxLength returns the MaxLength field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaxLength returns the MaxLength field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMaxLength() int32 {
-	if o == nil || IsNil(o.MaxLength.Get()) {
+	if o == nil || IsNil(o.MaxLength) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxLength.Get()
+	return *o.MaxLength
 }
 
 // GetMaxLengthOk returns a tuple with the MaxLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetMaxLengthOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MaxLength) {
 		return nil, false
 	}
-	return o.MaxLength.Get(), o.MaxLength.IsSet()
+	return o.MaxLength, true
 }
 
 // HasMaxLength returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMaxLength() bool {
-	if o != nil && o.MaxLength.IsSet() {
+	if o != nil && !IsNil(o.MaxLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxLength gets a reference to the given NullableInt32 and assigns it to the MaxLength field.
+// SetMaxLength gets a reference to the given int32 and assigns it to the MaxLength field.
 func (o *PropertyApiDescriptionModel) SetMaxLength(v int32) {
-	o.MaxLength.Set(&v)
-}
-// SetMaxLengthNil sets the value for MaxLength to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetMaxLengthNil() {
-	o.MaxLength.Set(nil)
+	o.MaxLength = &v
 }
 
-// UnsetMaxLength ensures that no value is present for MaxLength, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetMaxLength() {
-	o.MaxLength.Unset()
-}
-
-// GetMinimum returns the Minimum field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinimum returns the Minimum field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMinimum() string {
-	if o == nil || IsNil(o.Minimum.Get()) {
+	if o == nil || IsNil(o.Minimum) {
 		var ret string
 		return ret
 	}
-	return *o.Minimum.Get()
+	return *o.Minimum
 }
 
 // GetMinimumOk returns a tuple with the Minimum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetMinimumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Minimum) {
 		return nil, false
 	}
-	return o.Minimum.Get(), o.Minimum.IsSet()
+	return o.Minimum, true
 }
 
 // HasMinimum returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMinimum() bool {
-	if o != nil && o.Minimum.IsSet() {
+	if o != nil && !IsNil(o.Minimum) {
 		return true
 	}
 
 	return false
 }
 
-// SetMinimum gets a reference to the given NullableString and assigns it to the Minimum field.
+// SetMinimum gets a reference to the given string and assigns it to the Minimum field.
 func (o *PropertyApiDescriptionModel) SetMinimum(v string) {
-	o.Minimum.Set(&v)
-}
-// SetMinimumNil sets the value for Minimum to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetMinimumNil() {
-	o.Minimum.Set(nil)
+	o.Minimum = &v
 }
 
-// UnsetMinimum ensures that no value is present for Minimum, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetMinimum() {
-	o.Minimum.Unset()
-}
-
-// GetMaximum returns the Maximum field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMaximum returns the Maximum field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetMaximum() string {
-	if o == nil || IsNil(o.Maximum.Get()) {
+	if o == nil || IsNil(o.Maximum) {
 		var ret string
 		return ret
 	}
-	return *o.Maximum.Get()
+	return *o.Maximum
 }
 
 // GetMaximumOk returns a tuple with the Maximum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetMaximumOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Maximum) {
 		return nil, false
 	}
-	return o.Maximum.Get(), o.Maximum.IsSet()
+	return o.Maximum, true
 }
 
 // HasMaximum returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasMaximum() bool {
-	if o != nil && o.Maximum.IsSet() {
+	if o != nil && !IsNil(o.Maximum) {
 		return true
 	}
 
 	return false
 }
 
-// SetMaximum gets a reference to the given NullableString and assigns it to the Maximum field.
+// SetMaximum gets a reference to the given string and assigns it to the Maximum field.
 func (o *PropertyApiDescriptionModel) SetMaximum(v string) {
-	o.Maximum.Set(&v)
-}
-// SetMaximumNil sets the value for Maximum to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetMaximumNil() {
-	o.Maximum.Set(nil)
+	o.Maximum = &v
 }
 
-// UnsetMaximum ensures that no value is present for Maximum, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetMaximum() {
-	o.Maximum.Unset()
-}
-
-// GetRegex returns the Regex field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRegex returns the Regex field value if set, zero value otherwise.
 func (o *PropertyApiDescriptionModel) GetRegex() string {
-	if o == nil || IsNil(o.Regex.Get()) {
+	if o == nil || IsNil(o.Regex) {
 		var ret string
 		return ret
 	}
-	return *o.Regex.Get()
+	return *o.Regex
 }
 
 // GetRegexOk returns a tuple with the Regex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PropertyApiDescriptionModel) GetRegexOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Regex) {
 		return nil, false
 	}
-	return o.Regex.Get(), o.Regex.IsSet()
+	return o.Regex, true
 }
 
 // HasRegex returns a boolean if a field has been set.
 func (o *PropertyApiDescriptionModel) HasRegex() bool {
-	if o != nil && o.Regex.IsSet() {
+	if o != nil && !IsNil(o.Regex) {
 		return true
 	}
 
 	return false
 }
 
-// SetRegex gets a reference to the given NullableString and assigns it to the Regex field.
+// SetRegex gets a reference to the given string and assigns it to the Regex field.
 func (o *PropertyApiDescriptionModel) SetRegex(v string) {
-	o.Regex.Set(&v)
-}
-// SetRegexNil sets the value for Regex to be an explicit nil
-func (o *PropertyApiDescriptionModel) SetRegexNil() {
-	o.Regex.Set(nil)
-}
-
-// UnsetRegex ensures that no value is present for Regex, not even an explicit nil
-func (o *PropertyApiDescriptionModel) UnsetRegex() {
-	o.Regex.Unset()
+	o.Regex = &v
 }
 
 func (o PropertyApiDescriptionModel) MarshalJSON() ([]byte, error) {
@@ -468,35 +378,35 @@ func (o PropertyApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o PropertyApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.JsonName.IsSet() {
-		toSerialize["jsonName"] = o.JsonName.Get()
+	if !IsNil(o.JsonName) {
+		toSerialize["jsonName"] = o.JsonName
 	}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.TypeSimple.IsSet() {
-		toSerialize["typeSimple"] = o.TypeSimple.Get()
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
 	}
 	if !IsNil(o.IsRequired) {
 		toSerialize["isRequired"] = o.IsRequired
 	}
-	if o.MinLength.IsSet() {
-		toSerialize["minLength"] = o.MinLength.Get()
+	if !IsNil(o.MinLength) {
+		toSerialize["minLength"] = o.MinLength
 	}
-	if o.MaxLength.IsSet() {
-		toSerialize["maxLength"] = o.MaxLength.Get()
+	if !IsNil(o.MaxLength) {
+		toSerialize["maxLength"] = o.MaxLength
 	}
-	if o.Minimum.IsSet() {
-		toSerialize["minimum"] = o.Minimum.Get()
+	if !IsNil(o.Minimum) {
+		toSerialize["minimum"] = o.Minimum
 	}
-	if o.Maximum.IsSet() {
-		toSerialize["maximum"] = o.Maximum.Get()
+	if !IsNil(o.Maximum) {
+		toSerialize["maximum"] = o.Maximum
 	}
-	if o.Regex.IsSet() {
-		toSerialize["regex"] = o.Regex.Get()
+	if !IsNil(o.Regex) {
+		toSerialize["regex"] = o.Regex
 	}
 	return toSerialize, nil
 }

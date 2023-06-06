@@ -20,8 +20,8 @@ var _ MappedNullable = &FindTenantResultDto{}
 // FindTenantResultDto struct for FindTenantResultDto
 type FindTenantResultDto struct {
 	Success *bool `json:"success,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	Name NullableString `json:"name,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
+	Name *string `json:"name,omitempty"`
 	IsActive *bool `json:"isActive,omitempty"`
 }
 
@@ -74,88 +74,68 @@ func (o *FindTenantResultDto) SetSuccess(v bool) {
 	o.Success = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *FindTenantResultDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId.Get()
+	return *o.TenantId
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FindTenantResultDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId) {
 		return nil, false
 	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
+	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *FindTenantResultDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *FindTenantResultDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *FindTenantResultDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
+	o.TenantId = &v
 }
 
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *FindTenantResultDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FindTenantResultDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FindTenantResultDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FindTenantResultDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FindTenantResultDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *FindTenantResultDto) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *FindTenantResultDto) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetIsActive returns the IsActive field value if set, zero value otherwise.
@@ -203,11 +183,11 @@ func (o FindTenantResultDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Success) {
 		toSerialize["success"] = o.Success
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.IsActive) {
 		toSerialize["isActive"] = o.IsActive

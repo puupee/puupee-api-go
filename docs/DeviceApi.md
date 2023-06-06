@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## ApiAppDeviceBindPost
 
-> ApiAppDeviceBindPost(ctx).BindDeviceDto(bindDeviceDto).Execute()
+> ApiAppDeviceBindPost(ctx).Body(body).Execute()
 
 
 
@@ -30,11 +30,11 @@ import (
 )
 
 func main() {
-    bindDeviceDto := *openapiclient.NewBindDeviceDto() // BindDeviceDto |  (optional)
+    body := *openapiclient.NewBindDeviceDto() // BindDeviceDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeviceApi.ApiAppDeviceBindPost(context.Background()).BindDeviceDto(bindDeviceDto).Execute()
+    r, err := apiClient.DeviceApi.ApiAppDeviceBindPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.ApiAppDeviceBindPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiApiAppDeviceBindPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bindDeviceDto** | [**BindDeviceDto**](BindDeviceDto.md) |  | 
+ **body** | [**BindDeviceDto**](BindDeviceDto.md) |  | 
 
 ### Return type
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppDeviceRefreshPost
 
-> ApiAppDeviceRefreshPost(ctx).RefreshDeviceStatusDto(refreshDeviceStatusDto).Execute()
+> ApiAppDeviceRefreshPost(ctx).Body(body).Execute()
 
 
 
@@ -222,11 +222,11 @@ import (
 )
 
 func main() {
-    refreshDeviceStatusDto := *openapiclient.NewRefreshDeviceStatusDto() // RefreshDeviceStatusDto |  (optional)
+    body := *openapiclient.NewRefreshDeviceStatusDto() // RefreshDeviceStatusDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeviceApi.ApiAppDeviceRefreshPost(context.Background()).RefreshDeviceStatusDto(refreshDeviceStatusDto).Execute()
+    r, err := apiClient.DeviceApi.ApiAppDeviceRefreshPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.ApiAppDeviceRefreshPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -245,7 +245,7 @@ Other parameters are passed through a pointer to a apiApiAppDeviceRefreshPostReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **refreshDeviceStatusDto** | [**RefreshDeviceStatusDto**](RefreshDeviceStatusDto.md) |  | 
+ **body** | [**RefreshDeviceStatusDto**](RefreshDeviceStatusDto.md) |  | 
 
 ### Return type
 

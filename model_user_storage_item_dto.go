@@ -19,8 +19,8 @@ var _ MappedNullable = &UserStorageItemDto{}
 
 // UserStorageItemDto struct for UserStorageItemDto
 type UserStorageItemDto struct {
-	Name NullableString `json:"name,omitempty"`
-	Title NullableString `json:"title,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Title *string `json:"title,omitempty"`
 	Count *int32 `json:"count,omitempty"`
 	Size *int64 `json:"size,omitempty"`
 }
@@ -42,88 +42,68 @@ func NewUserStorageItemDtoWithDefaults() *UserStorageItemDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *UserStorageItemDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserStorageItemDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UserStorageItemDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UserStorageItemDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *UserStorageItemDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *UserStorageItemDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *UserStorageItemDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+	return *o.Title
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserStorageItemDto) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *UserStorageItemDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *UserStorageItemDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *UserStorageItemDto) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *UserStorageItemDto) UnsetTitle() {
-	o.Title.Unset()
+	o.Title = &v
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
@@ -200,11 +180,11 @@ func (o UserStorageItemDto) MarshalJSON() ([]byte, error) {
 
 func (o UserStorageItemDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
 	if !IsNil(o.Count) {
 		toSerialize["count"] = o.Count

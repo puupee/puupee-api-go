@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageSourceRouteIdPut
 
-> ApiAppMessageSourceRouteIdPut(ctx, id).CreateUpdateMessageSourceRouteDto(createUpdateMessageSourceRouteDto).Execute()
+> ApiAppMessageSourceRouteIdPut(ctx, id).Body(body).Execute()
 
 
 
@@ -166,11 +166,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    createUpdateMessageSourceRouteDto := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
+    body := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRouteIdPut(context.Background(), id).CreateUpdateMessageSourceRouteDto(createUpdateMessageSourceRouteDto).Execute()
+    r, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRouteIdPut(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.ApiAppMessageSourceRouteIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,7 +194,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteId
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createUpdateMessageSourceRouteDto** | [**CreateUpdateMessageSourceRouteDto**](CreateUpdateMessageSourceRouteDto.md) |  | 
+ **body** | [**CreateUpdateMessageSourceRouteDto**](CreateUpdateMessageSourceRouteDto.md) |  | 
 
 ### Return type
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageSourceRoutePost
 
-> ApiAppMessageSourceRoutePost(ctx).CreateUpdateMessageSourceRouteDto(createUpdateMessageSourceRouteDto).Execute()
+> ApiAppMessageSourceRoutePost(ctx).Body(body).Execute()
 
 
 
@@ -233,11 +233,11 @@ import (
 )
 
 func main() {
-    createUpdateMessageSourceRouteDto := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
+    body := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRoutePost(context.Background()).CreateUpdateMessageSourceRouteDto(createUpdateMessageSourceRouteDto).Execute()
+    r, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRoutePost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.ApiAppMessageSourceRoutePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,7 +256,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageSourceRoutePo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createUpdateMessageSourceRouteDto** | [**CreateUpdateMessageSourceRouteDto**](CreateUpdateMessageSourceRouteDto.md) |  | 
+ **body** | [**CreateUpdateMessageSourceRouteDto**](CreateUpdateMessageSourceRouteDto.md) |  | 
 
 ### Return type
 

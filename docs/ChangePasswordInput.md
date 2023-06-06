@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CurrentPassword** | Pointer to **NullableString** |  | [optional] 
+**CurrentPassword** | Pointer to **string** |  | [optional] 
 **NewPassword** | **string** |  | 
 
 ## Methods
@@ -51,16 +51,6 @@ SetCurrentPassword sets CurrentPassword field to given value.
 
 HasCurrentPassword returns a boolean if a field has been set.
 
-### SetCurrentPasswordNil
-
-`func (o *ChangePasswordInput) SetCurrentPasswordNil(b bool)`
-
- SetCurrentPasswordNil sets the value for CurrentPassword to be an explicit nil
-
-### UnsetCurrentPassword
-`func (o *ChangePasswordInput) UnsetCurrentPassword()`
-
-UnsetCurrentPassword ensures that no value is present for CurrentPassword, not even an explicit nil
 ### GetNewPassword
 
 `func (o *ChangePasswordInput) GetNewPassword() string`

@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
-**AppId** | Pointer to **NullableString** |  | [optional] 
-**AppName** | Pointer to **NullableString** |  | [optional] 
-**Args** | Pointer to **interface{}** |  | [optional] 
-**Envs** | Pointer to **interface{}** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
+**AppId** | Pointer to **string** |  | [optional] 
+**AppName** | Pointer to **string** |  | [optional] 
+**Args** | Pointer to **map[string]interface{}** |  | [optional] 
+**Envs** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -111,16 +111,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *AppRunDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *AppRunDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModificationTime
 
 `func (o *AppRunDto) GetLastModificationTime() time.Time`
@@ -146,16 +136,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *AppRunDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *AppRunDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *AppRunDto) GetLastModifierId() string`
@@ -181,16 +161,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *AppRunDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *AppRunDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *AppRunDto) GetIsDeleted() bool`
@@ -241,16 +211,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *AppRunDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *AppRunDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetDeletionTime
 
 `func (o *AppRunDto) GetDeletionTime() time.Time`
@@ -276,16 +236,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *AppRunDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *AppRunDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetAppId
 
 `func (o *AppRunDto) GetAppId() string`
@@ -311,16 +261,6 @@ SetAppId sets AppId field to given value.
 
 HasAppId returns a boolean if a field has been set.
 
-### SetAppIdNil
-
-`func (o *AppRunDto) SetAppIdNil(b bool)`
-
- SetAppIdNil sets the value for AppId to be an explicit nil
-
-### UnsetAppId
-`func (o *AppRunDto) UnsetAppId()`
-
-UnsetAppId ensures that no value is present for AppId, not even an explicit nil
 ### GetAppName
 
 `func (o *AppRunDto) GetAppName() string`
@@ -346,32 +286,22 @@ SetAppName sets AppName field to given value.
 
 HasAppName returns a boolean if a field has been set.
 
-### SetAppNameNil
-
-`func (o *AppRunDto) SetAppNameNil(b bool)`
-
- SetAppNameNil sets the value for AppName to be an explicit nil
-
-### UnsetAppName
-`func (o *AppRunDto) UnsetAppName()`
-
-UnsetAppName ensures that no value is present for AppName, not even an explicit nil
 ### GetArgs
 
-`func (o *AppRunDto) GetArgs() interface{}`
+`func (o *AppRunDto) GetArgs() map[string]interface{}`
 
 GetArgs returns the Args field if non-nil, zero value otherwise.
 
 ### GetArgsOk
 
-`func (o *AppRunDto) GetArgsOk() (*interface{}, bool)`
+`func (o *AppRunDto) GetArgsOk() (*map[string]interface{}, bool)`
 
 GetArgsOk returns a tuple with the Args field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArgs
 
-`func (o *AppRunDto) SetArgs(v interface{})`
+`func (o *AppRunDto) SetArgs(v map[string]interface{})`
 
 SetArgs sets Args field to given value.
 
@@ -381,32 +311,22 @@ SetArgs sets Args field to given value.
 
 HasArgs returns a boolean if a field has been set.
 
-### SetArgsNil
-
-`func (o *AppRunDto) SetArgsNil(b bool)`
-
- SetArgsNil sets the value for Args to be an explicit nil
-
-### UnsetArgs
-`func (o *AppRunDto) UnsetArgs()`
-
-UnsetArgs ensures that no value is present for Args, not even an explicit nil
 ### GetEnvs
 
-`func (o *AppRunDto) GetEnvs() interface{}`
+`func (o *AppRunDto) GetEnvs() map[string]interface{}`
 
 GetEnvs returns the Envs field if non-nil, zero value otherwise.
 
 ### GetEnvsOk
 
-`func (o *AppRunDto) GetEnvsOk() (*interface{}, bool)`
+`func (o *AppRunDto) GetEnvsOk() (*map[string]interface{}, bool)`
 
 GetEnvsOk returns a tuple with the Envs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnvs
 
-`func (o *AppRunDto) SetEnvs(v interface{})`
+`func (o *AppRunDto) SetEnvs(v map[string]interface{})`
 
 SetEnvs sets Envs field to given value.
 
@@ -416,16 +336,6 @@ SetEnvs sets Envs field to given value.
 
 HasEnvs returns a boolean if a field has been set.
 
-### SetEnvsNil
-
-`func (o *AppRunDto) SetEnvsNil(b bool)`
-
- SetEnvsNil sets the value for Envs to be an explicit nil
-
-### UnsetEnvs
-`func (o *AppRunDto) UnsetEnvs()`
-
-UnsetEnvs ensures that no value is present for Envs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

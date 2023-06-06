@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppNotificationPushPost
 
-> ApiAppNotificationPushPost(ctx).CreatePushNotificationDto(createPushNotificationDto).Execute()
+> ApiAppNotificationPushPost(ctx).Body(body).Execute()
 
 
 
@@ -182,11 +182,11 @@ import (
 )
 
 func main() {
-    createPushNotificationDto := *openapiclient.NewCreatePushNotificationDto() // CreatePushNotificationDto |  (optional)
+    body := *openapiclient.NewCreatePushNotificationDto() // CreatePushNotificationDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.NotificationApi.ApiAppNotificationPushPost(context.Background()).CreatePushNotificationDto(createPushNotificationDto).Execute()
+    r, err := apiClient.NotificationApi.ApiAppNotificationPushPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationPushPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -205,7 +205,7 @@ Other parameters are passed through a pointer to a apiApiAppNotificationPushPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createPushNotificationDto** | [**CreatePushNotificationDto**](CreatePushNotificationDto.md) |  | 
+ **body** | [**CreatePushNotificationDto**](CreatePushNotificationDto.md) |  | 
 
 ### Return type
 

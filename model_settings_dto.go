@@ -20,7 +20,7 @@ var _ MappedNullable = &SettingsDto{}
 // SettingsDto struct for SettingsDto
 type SettingsDto struct {
 	AppTheme *AppTheme `json:"appTheme,omitempty"`
-	Language NullableString `json:"language,omitempty"`
+	Language *string `json:"language,omitempty"`
 	TodoSettings *TodoSettingsDto `json:"todoSettings,omitempty"`
 }
 
@@ -73,46 +73,36 @@ func (o *SettingsDto) SetAppTheme(v AppTheme) {
 	o.AppTheme = &v
 }
 
-// GetLanguage returns the Language field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLanguage returns the Language field value if set, zero value otherwise.
 func (o *SettingsDto) GetLanguage() string {
-	if o == nil || IsNil(o.Language.Get()) {
+	if o == nil || IsNil(o.Language) {
 		var ret string
 		return ret
 	}
-	return *o.Language.Get()
+	return *o.Language
 }
 
 // GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SettingsDto) GetLanguageOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Language) {
 		return nil, false
 	}
-	return o.Language.Get(), o.Language.IsSet()
+	return o.Language, true
 }
 
 // HasLanguage returns a boolean if a field has been set.
 func (o *SettingsDto) HasLanguage() bool {
-	if o != nil && o.Language.IsSet() {
+	if o != nil && !IsNil(o.Language) {
 		return true
 	}
 
 	return false
 }
 
-// SetLanguage gets a reference to the given NullableString and assigns it to the Language field.
+// SetLanguage gets a reference to the given string and assigns it to the Language field.
 func (o *SettingsDto) SetLanguage(v string) {
-	o.Language.Set(&v)
-}
-// SetLanguageNil sets the value for Language to be an explicit nil
-func (o *SettingsDto) SetLanguageNil() {
-	o.Language.Set(nil)
-}
-
-// UnsetLanguage ensures that no value is present for Language, not even an explicit nil
-func (o *SettingsDto) UnsetLanguage() {
-	o.Language.Unset()
+	o.Language = &v
 }
 
 // GetTodoSettings returns the TodoSettings field value if set, zero value otherwise.
@@ -160,8 +150,8 @@ func (o SettingsDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AppTheme) {
 		toSerialize["appTheme"] = o.AppTheme
 	}
-	if o.Language.IsSet() {
-		toSerialize["language"] = o.Language.Get()
+	if !IsNil(o.Language) {
+		toSerialize["language"] = o.Language
 	}
 	if !IsNil(o.TodoSettings) {
 		toSerialize["todoSettings"] = o.TodoSettings

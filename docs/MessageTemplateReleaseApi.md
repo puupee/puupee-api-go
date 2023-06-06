@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppMessageTemplateReleasePost
 
-> MessageTemplateReleaseDto ApiAppMessageTemplateReleasePost(ctx).CreateMessageTemplateReleaseDto(createMessageTemplateReleaseDto).Execute()
+> MessageTemplateReleaseDto ApiAppMessageTemplateReleasePost(ctx).Body(body).Execute()
 
 
 
@@ -161,11 +161,11 @@ import (
 )
 
 func main() {
-    createMessageTemplateReleaseDto := *openapiclient.NewCreateMessageTemplateReleaseDto() // CreateMessageTemplateReleaseDto |  (optional)
+    body := *openapiclient.NewCreateMessageTemplateReleaseDto() // CreateMessageTemplateReleaseDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.ApiAppMessageTemplateReleasePost(context.Background()).CreateMessageTemplateReleaseDto(createMessageTemplateReleaseDto).Execute()
+    resp, r, err := apiClient.MessageTemplateReleaseApi.ApiAppMessageTemplateReleasePost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.ApiAppMessageTemplateReleasePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,7 +186,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageTemplateRelea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createMessageTemplateReleaseDto** | [**CreateMessageTemplateReleaseDto**](CreateMessageTemplateReleaseDto.md) |  | 
+ **body** | [**CreateMessageTemplateReleaseDto**](CreateMessageTemplateReleaseDto.md) |  | 
 
 ### Return type
 

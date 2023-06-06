@@ -19,8 +19,8 @@ var _ MappedNullable = &ExtensionEnumFieldDto{}
 
 // ExtensionEnumFieldDto struct for ExtensionEnumFieldDto
 type ExtensionEnumFieldDto struct {
-	Name NullableString `json:"name,omitempty"`
-	Value interface{} `json:"value,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Value map[string]interface{} `json:"value,omitempty"`
 }
 
 // NewExtensionEnumFieldDto instantiates a new ExtensionEnumFieldDto object
@@ -40,52 +40,42 @@ func NewExtensionEnumFieldDtoWithDefaults() *ExtensionEnumFieldDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ExtensionEnumFieldDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionEnumFieldDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ExtensionEnumFieldDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ExtensionEnumFieldDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ExtensionEnumFieldDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ExtensionEnumFieldDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExtensionEnumFieldDto) GetValue() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *ExtensionEnumFieldDto) GetValue() map[string]interface{} {
+	if o == nil || IsNil(o.Value) {
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.Value
@@ -93,25 +83,24 @@ func (o *ExtensionEnumFieldDto) GetValue() interface{} {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExtensionEnumFieldDto) GetValueOk() (*interface{}, bool) {
+func (o *ExtensionEnumFieldDto) GetValueOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Value) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.Value, true
+	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *ExtensionEnumFieldDto) HasValue() bool {
-	if o != nil && IsNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given interface{} and assigns it to the Value field.
-func (o *ExtensionEnumFieldDto) SetValue(v interface{}) {
+// SetValue gets a reference to the given map[string]interface{} and assigns it to the Value field.
+func (o *ExtensionEnumFieldDto) SetValue(v map[string]interface{}) {
 	o.Value = v
 }
 
@@ -125,10 +114,10 @@ func (o ExtensionEnumFieldDto) MarshalJSON() ([]byte, error) {
 
 func (o ExtensionEnumFieldDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Value != nil {
+	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
 	return toSerialize, nil

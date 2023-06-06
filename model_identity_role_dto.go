@@ -19,13 +19,13 @@ var _ MappedNullable = &IdentityRoleDto{}
 
 // IdentityRoleDto struct for IdentityRoleDto
 type IdentityRoleDto struct {
-	ExtraProperties map[string]interface{} `json:"extraProperties,omitempty"`
+	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
 	Id *string `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	IsDefault *bool `json:"isDefault,omitempty"`
 	IsStatic *bool `json:"isStatic,omitempty"`
 	IsPublic *bool `json:"isPublic,omitempty"`
-	ConcurrencyStamp NullableString `json:"concurrencyStamp,omitempty"`
+	ConcurrencyStamp *string `json:"concurrencyStamp,omitempty"`
 }
 
 // NewIdentityRoleDto instantiates a new IdentityRoleDto object
@@ -45,10 +45,10 @@ func NewIdentityRoleDtoWithDefaults() *IdentityRoleDto {
 	return &this
 }
 
-// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IdentityRoleDto) GetExtraProperties() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
+func (o *IdentityRoleDto) GetExtraProperties() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.ExtraProperties) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.ExtraProperties
@@ -56,25 +56,24 @@ func (o *IdentityRoleDto) GetExtraProperties() map[string]interface{} {
 
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IdentityRoleDto) GetExtraPropertiesOk() (map[string]interface{}, bool) {
+func (o *IdentityRoleDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ExtraProperties) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasExtraProperties() bool {
-	if o != nil && IsNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtraProperties gets a reference to the given map[string]interface{} and assigns it to the ExtraProperties field.
-func (o *IdentityRoleDto) SetExtraProperties(v map[string]interface{}) {
+// SetExtraProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the ExtraProperties field.
+func (o *IdentityRoleDto) SetExtraProperties(v map[string]map[string]interface{}) {
 	o.ExtraProperties = v
 }
 
@@ -110,46 +109,36 @@ func (o *IdentityRoleDto) SetId(v string) {
 	o.Id = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityRoleDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *IdentityRoleDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *IdentityRoleDto) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *IdentityRoleDto) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetIsDefault returns the IsDefault field value if set, zero value otherwise.
@@ -248,46 +237,36 @@ func (o *IdentityRoleDto) SetIsPublic(v bool) {
 	o.IsPublic = &v
 }
 
-// GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *IdentityRoleDto) GetConcurrencyStamp() string {
-	if o == nil || IsNil(o.ConcurrencyStamp.Get()) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
-	return *o.ConcurrencyStamp.Get()
+	return *o.ConcurrencyStamp
 }
 
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityRoleDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		return nil, false
 	}
-	return o.ConcurrencyStamp.Get(), o.ConcurrencyStamp.IsSet()
+	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *IdentityRoleDto) HasConcurrencyStamp() bool {
-	if o != nil && o.ConcurrencyStamp.IsSet() {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetConcurrencyStamp gets a reference to the given NullableString and assigns it to the ConcurrencyStamp field.
+// SetConcurrencyStamp gets a reference to the given string and assigns it to the ConcurrencyStamp field.
 func (o *IdentityRoleDto) SetConcurrencyStamp(v string) {
-	o.ConcurrencyStamp.Set(&v)
-}
-// SetConcurrencyStampNil sets the value for ConcurrencyStamp to be an explicit nil
-func (o *IdentityRoleDto) SetConcurrencyStampNil() {
-	o.ConcurrencyStamp.Set(nil)
-}
-
-// UnsetConcurrencyStamp ensures that no value is present for ConcurrencyStamp, not even an explicit nil
-func (o *IdentityRoleDto) UnsetConcurrencyStamp() {
-	o.ConcurrencyStamp.Unset()
+	o.ConcurrencyStamp = &v
 }
 
 func (o IdentityRoleDto) MarshalJSON() ([]byte, error) {
@@ -300,14 +279,12 @@ func (o IdentityRoleDto) MarshalJSON() ([]byte, error) {
 
 func (o IdentityRoleDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ExtraProperties != nil {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
+	// skip: extraProperties is readOnly
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.IsDefault) {
 		toSerialize["isDefault"] = o.IsDefault
@@ -318,8 +295,8 @@ func (o IdentityRoleDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsPublic) {
 		toSerialize["isPublic"] = o.IsPublic
 	}
-	if o.ConcurrencyStamp.IsSet() {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp.Get()
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
 	}
 	return toSerialize, nil
 }

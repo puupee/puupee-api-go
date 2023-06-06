@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateMessageTemplateReleaseDto{}
 
 // CreateMessageTemplateReleaseDto struct for CreateMessageTemplateReleaseDto
 type CreateMessageTemplateReleaseDto struct {
-	Content NullableString `json:"content,omitempty"`
+	Content *string `json:"content,omitempty"`
 	TemplateId *string `json:"templateId,omitempty"`
 }
 
@@ -40,46 +40,36 @@ func NewCreateMessageTemplateReleaseDtoWithDefaults() *CreateMessageTemplateRele
 	return &this
 }
 
-// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContent returns the Content field value if set, zero value otherwise.
 func (o *CreateMessageTemplateReleaseDto) GetContent() string {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
-	return *o.Content.Get()
+	return *o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateMessageTemplateReleaseDto) GetContentOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *CreateMessageTemplateReleaseDto) HasContent() bool {
-	if o != nil && o.Content.IsSet() {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given NullableString and assigns it to the Content field.
+// SetContent gets a reference to the given string and assigns it to the Content field.
 func (o *CreateMessageTemplateReleaseDto) SetContent(v string) {
-	o.Content.Set(&v)
-}
-// SetContentNil sets the value for Content to be an explicit nil
-func (o *CreateMessageTemplateReleaseDto) SetContentNil() {
-	o.Content.Set(nil)
-}
-
-// UnsetContent ensures that no value is present for Content, not even an explicit nil
-func (o *CreateMessageTemplateReleaseDto) UnsetContent() {
-	o.Content.Unset()
+	o.Content = &v
 }
 
 // GetTemplateId returns the TemplateId field value if set, zero value otherwise.
@@ -124,8 +114,8 @@ func (o CreateMessageTemplateReleaseDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateMessageTemplateReleaseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Content.IsSet() {
-		toSerialize["content"] = o.Content.Get()
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
 	}
 	if !IsNil(o.TemplateId) {
 		toSerialize["templateId"] = o.TemplateId

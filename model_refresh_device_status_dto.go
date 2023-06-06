@@ -19,8 +19,8 @@ var _ MappedNullable = &RefreshDeviceStatusDto{}
 
 // RefreshDeviceStatusDto struct for RefreshDeviceStatusDto
 type RefreshDeviceStatusDto struct {
-	Token NullableString `json:"token,omitempty"`
-	Status NullableString `json:"status,omitempty"`
+	Token *string `json:"token,omitempty"`
+	Status *string `json:"status,omitempty"`
 }
 
 // NewRefreshDeviceStatusDto instantiates a new RefreshDeviceStatusDto object
@@ -40,88 +40,68 @@ func NewRefreshDeviceStatusDtoWithDefaults() *RefreshDeviceStatusDto {
 	return &this
 }
 
-// GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetToken returns the Token field value if set, zero value otherwise.
 func (o *RefreshDeviceStatusDto) GetToken() string {
-	if o == nil || IsNil(o.Token.Get()) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
-	return *o.Token.Get()
+	return *o.Token
 }
 
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RefreshDeviceStatusDto) GetTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Token) {
 		return nil, false
 	}
-	return o.Token.Get(), o.Token.IsSet()
+	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *RefreshDeviceStatusDto) HasToken() bool {
-	if o != nil && o.Token.IsSet() {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
 	return false
 }
 
-// SetToken gets a reference to the given NullableString and assigns it to the Token field.
+// SetToken gets a reference to the given string and assigns it to the Token field.
 func (o *RefreshDeviceStatusDto) SetToken(v string) {
-	o.Token.Set(&v)
-}
-// SetTokenNil sets the value for Token to be an explicit nil
-func (o *RefreshDeviceStatusDto) SetTokenNil() {
-	o.Token.Set(nil)
+	o.Token = &v
 }
 
-// UnsetToken ensures that no value is present for Token, not even an explicit nil
-func (o *RefreshDeviceStatusDto) UnsetToken() {
-	o.Token.Unset()
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *RefreshDeviceStatusDto) GetStatus() string {
-	if o == nil || IsNil(o.Status.Get()) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-	return *o.Status.Get()
+	return *o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RefreshDeviceStatusDto) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *RefreshDeviceStatusDto) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *RefreshDeviceStatusDto) SetStatus(v string) {
-	o.Status.Set(&v)
-}
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *RefreshDeviceStatusDto) SetStatusNil() {
-	o.Status.Set(nil)
-}
-
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *RefreshDeviceStatusDto) UnsetStatus() {
-	o.Status.Unset()
+	o.Status = &v
 }
 
 func (o RefreshDeviceStatusDto) MarshalJSON() ([]byte, error) {
@@ -134,11 +114,11 @@ func (o RefreshDeviceStatusDto) MarshalJSON() ([]byte, error) {
 
 func (o RefreshDeviceStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Token.IsSet() {
-		toSerialize["token"] = o.Token.Get()
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
 	}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	return toSerialize, nil
 }

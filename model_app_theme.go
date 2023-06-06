@@ -19,7 +19,7 @@ var _ MappedNullable = &AppTheme{}
 
 // AppTheme struct for AppTheme
 type AppTheme struct {
-	SourceColor NullableString `json:"sourceColor,omitempty"`
+	SourceColor *string `json:"sourceColor,omitempty"`
 	ThemeMode *AppThemeMode `json:"themeMode,omitempty"`
 }
 
@@ -40,46 +40,36 @@ func NewAppThemeWithDefaults() *AppTheme {
 	return &this
 }
 
-// GetSourceColor returns the SourceColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSourceColor returns the SourceColor field value if set, zero value otherwise.
 func (o *AppTheme) GetSourceColor() string {
-	if o == nil || IsNil(o.SourceColor.Get()) {
+	if o == nil || IsNil(o.SourceColor) {
 		var ret string
 		return ret
 	}
-	return *o.SourceColor.Get()
+	return *o.SourceColor
 }
 
 // GetSourceColorOk returns a tuple with the SourceColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppTheme) GetSourceColorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SourceColor) {
 		return nil, false
 	}
-	return o.SourceColor.Get(), o.SourceColor.IsSet()
+	return o.SourceColor, true
 }
 
 // HasSourceColor returns a boolean if a field has been set.
 func (o *AppTheme) HasSourceColor() bool {
-	if o != nil && o.SourceColor.IsSet() {
+	if o != nil && !IsNil(o.SourceColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceColor gets a reference to the given NullableString and assigns it to the SourceColor field.
+// SetSourceColor gets a reference to the given string and assigns it to the SourceColor field.
 func (o *AppTheme) SetSourceColor(v string) {
-	o.SourceColor.Set(&v)
-}
-// SetSourceColorNil sets the value for SourceColor to be an explicit nil
-func (o *AppTheme) SetSourceColorNil() {
-	o.SourceColor.Set(nil)
-}
-
-// UnsetSourceColor ensures that no value is present for SourceColor, not even an explicit nil
-func (o *AppTheme) UnsetSourceColor() {
-	o.SourceColor.Unset()
+	o.SourceColor = &v
 }
 
 // GetThemeMode returns the ThemeMode field value if set, zero value otherwise.
@@ -124,8 +114,8 @@ func (o AppTheme) MarshalJSON() ([]byte, error) {
 
 func (o AppTheme) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.SourceColor.IsSet() {
-		toSerialize["sourceColor"] = o.SourceColor.Get()
+	if !IsNil(o.SourceColor) {
+		toSerialize["sourceColor"] = o.SourceColor
 	}
 	if !IsNil(o.ThemeMode) {
 		toSerialize["themeMode"] = o.ThemeMode

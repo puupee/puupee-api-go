@@ -363,11 +363,11 @@ func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleaseIdGetExec
 type ApiApiAppMessageTemplateReleasePostRequest struct {
 	ctx context.Context
 	ApiService *MessageTemplateReleaseApiService
-	createMessageTemplateReleaseDto *CreateMessageTemplateReleaseDto
+	body *CreateMessageTemplateReleaseDto
 }
 
-func (r ApiApiAppMessageTemplateReleasePostRequest) CreateMessageTemplateReleaseDto(createMessageTemplateReleaseDto CreateMessageTemplateReleaseDto) ApiApiAppMessageTemplateReleasePostRequest {
-	r.createMessageTemplateReleaseDto = &createMessageTemplateReleaseDto
+func (r ApiApiAppMessageTemplateReleasePostRequest) Body(body CreateMessageTemplateReleaseDto) ApiApiAppMessageTemplateReleasePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -427,7 +427,7 @@ func (a *MessageTemplateReleaseApiService) ApiAppMessageTemplateReleasePostExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createMessageTemplateReleaseDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -19,22 +19,22 @@ var _ MappedNullable = &InApp{}
 
 // InApp struct for InApp
 type InApp struct {
-	Quantity NullableString `json:"quantity,omitempty"`
-	ProductId NullableString `json:"product_id,omitempty"`
-	TransactionId NullableString `json:"transaction_id,omitempty"`
-	OriginalTransactionId NullableString `json:"original_transaction_id,omitempty"`
-	PurchaseDate NullableString `json:"purchase_date,omitempty"`
-	PurchaseDateMs NullableString `json:"purchase_date_ms,omitempty"`
-	PurchaseDatePst NullableString `json:"purchase_date_pst,omitempty"`
-	OriginalPurchaseDate NullableString `json:"original_purchase_date,omitempty"`
-	OriginalPurchaseDateMs NullableString `json:"original_purchase_date_ms,omitempty"`
-	OriginalPurchaseDatePst NullableString `json:"original_purchase_date_pst,omitempty"`
-	ExpiresDate NullableString `json:"expires_date,omitempty"`
-	ExpiresDateMs NullableString `json:"expires_date_ms,omitempty"`
-	ExpiresDatePst NullableString `json:"expires_date_pst,omitempty"`
-	WebOrderLineItemId NullableString `json:"web_order_line_item_id,omitempty"`
-	IsTrialPeriod NullableString `json:"is_trial_period,omitempty"`
-	IsInIntroOfferPeriod NullableString `json:"is_in_intro_offer_period,omitempty"`
+	Quantity *string `json:"quantity,omitempty"`
+	ProductId *string `json:"product_id,omitempty"`
+	TransactionId *string `json:"transaction_id,omitempty"`
+	OriginalTransactionId *string `json:"original_transaction_id,omitempty"`
+	PurchaseDate *string `json:"purchase_date,omitempty"`
+	PurchaseDateMs *string `json:"purchase_date_ms,omitempty"`
+	PurchaseDatePst *string `json:"purchase_date_pst,omitempty"`
+	OriginalPurchaseDate *string `json:"original_purchase_date,omitempty"`
+	OriginalPurchaseDateMs *string `json:"original_purchase_date_ms,omitempty"`
+	OriginalPurchaseDatePst *string `json:"original_purchase_date_pst,omitempty"`
+	ExpiresDate *string `json:"expires_date,omitempty"`
+	ExpiresDateMs *string `json:"expires_date_ms,omitempty"`
+	ExpiresDatePst *string `json:"expires_date_pst,omitempty"`
+	WebOrderLineItemId *string `json:"web_order_line_item_id,omitempty"`
+	IsTrialPeriod *string `json:"is_trial_period,omitempty"`
+	IsInIntroOfferPeriod *string `json:"is_in_intro_offer_period,omitempty"`
 }
 
 // NewInApp instantiates a new InApp object
@@ -54,676 +54,516 @@ func NewInAppWithDefaults() *InApp {
 	return &this
 }
 
-// GetQuantity returns the Quantity field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetQuantity returns the Quantity field value if set, zero value otherwise.
 func (o *InApp) GetQuantity() string {
-	if o == nil || IsNil(o.Quantity.Get()) {
+	if o == nil || IsNil(o.Quantity) {
 		var ret string
 		return ret
 	}
-	return *o.Quantity.Get()
+	return *o.Quantity
 }
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetQuantityOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Quantity) {
 		return nil, false
 	}
-	return o.Quantity.Get(), o.Quantity.IsSet()
+	return o.Quantity, true
 }
 
 // HasQuantity returns a boolean if a field has been set.
 func (o *InApp) HasQuantity() bool {
-	if o != nil && o.Quantity.IsSet() {
+	if o != nil && !IsNil(o.Quantity) {
 		return true
 	}
 
 	return false
 }
 
-// SetQuantity gets a reference to the given NullableString and assigns it to the Quantity field.
+// SetQuantity gets a reference to the given string and assigns it to the Quantity field.
 func (o *InApp) SetQuantity(v string) {
-	o.Quantity.Set(&v)
-}
-// SetQuantityNil sets the value for Quantity to be an explicit nil
-func (o *InApp) SetQuantityNil() {
-	o.Quantity.Set(nil)
+	o.Quantity = &v
 }
 
-// UnsetQuantity ensures that no value is present for Quantity, not even an explicit nil
-func (o *InApp) UnsetQuantity() {
-	o.Quantity.Unset()
-}
-
-// GetProductId returns the ProductId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProductId returns the ProductId field value if set, zero value otherwise.
 func (o *InApp) GetProductId() string {
-	if o == nil || IsNil(o.ProductId.Get()) {
+	if o == nil || IsNil(o.ProductId) {
 		var ret string
 		return ret
 	}
-	return *o.ProductId.Get()
+	return *o.ProductId
 }
 
 // GetProductIdOk returns a tuple with the ProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetProductIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductId) {
 		return nil, false
 	}
-	return o.ProductId.Get(), o.ProductId.IsSet()
+	return o.ProductId, true
 }
 
 // HasProductId returns a boolean if a field has been set.
 func (o *InApp) HasProductId() bool {
-	if o != nil && o.ProductId.IsSet() {
+	if o != nil && !IsNil(o.ProductId) {
 		return true
 	}
 
 	return false
 }
 
-// SetProductId gets a reference to the given NullableString and assigns it to the ProductId field.
+// SetProductId gets a reference to the given string and assigns it to the ProductId field.
 func (o *InApp) SetProductId(v string) {
-	o.ProductId.Set(&v)
-}
-// SetProductIdNil sets the value for ProductId to be an explicit nil
-func (o *InApp) SetProductIdNil() {
-	o.ProductId.Set(nil)
+	o.ProductId = &v
 }
 
-// UnsetProductId ensures that no value is present for ProductId, not even an explicit nil
-func (o *InApp) UnsetProductId() {
-	o.ProductId.Unset()
-}
-
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
 func (o *InApp) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId.Get()) {
+	if o == nil || IsNil(o.TransactionId) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId.Get()
+	return *o.TransactionId
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetTransactionIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TransactionId) {
 		return nil, false
 	}
-	return o.TransactionId.Get(), o.TransactionId.IsSet()
+	return o.TransactionId, true
 }
 
 // HasTransactionId returns a boolean if a field has been set.
 func (o *InApp) HasTransactionId() bool {
-	if o != nil && o.TransactionId.IsSet() {
+	if o != nil && !IsNil(o.TransactionId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
 func (o *InApp) SetTransactionId(v string) {
-	o.TransactionId.Set(&v)
-}
-// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
-func (o *InApp) SetTransactionIdNil() {
-	o.TransactionId.Set(nil)
+	o.TransactionId = &v
 }
 
-// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
-func (o *InApp) UnsetTransactionId() {
-	o.TransactionId.Unset()
-}
-
-// GetOriginalTransactionId returns the OriginalTransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalTransactionId returns the OriginalTransactionId field value if set, zero value otherwise.
 func (o *InApp) GetOriginalTransactionId() string {
-	if o == nil || IsNil(o.OriginalTransactionId.Get()) {
+	if o == nil || IsNil(o.OriginalTransactionId) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalTransactionId.Get()
+	return *o.OriginalTransactionId
 }
 
 // GetOriginalTransactionIdOk returns a tuple with the OriginalTransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetOriginalTransactionIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalTransactionId) {
 		return nil, false
 	}
-	return o.OriginalTransactionId.Get(), o.OriginalTransactionId.IsSet()
+	return o.OriginalTransactionId, true
 }
 
 // HasOriginalTransactionId returns a boolean if a field has been set.
 func (o *InApp) HasOriginalTransactionId() bool {
-	if o != nil && o.OriginalTransactionId.IsSet() {
+	if o != nil && !IsNil(o.OriginalTransactionId) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalTransactionId gets a reference to the given NullableString and assigns it to the OriginalTransactionId field.
+// SetOriginalTransactionId gets a reference to the given string and assigns it to the OriginalTransactionId field.
 func (o *InApp) SetOriginalTransactionId(v string) {
-	o.OriginalTransactionId.Set(&v)
-}
-// SetOriginalTransactionIdNil sets the value for OriginalTransactionId to be an explicit nil
-func (o *InApp) SetOriginalTransactionIdNil() {
-	o.OriginalTransactionId.Set(nil)
+	o.OriginalTransactionId = &v
 }
 
-// UnsetOriginalTransactionId ensures that no value is present for OriginalTransactionId, not even an explicit nil
-func (o *InApp) UnsetOriginalTransactionId() {
-	o.OriginalTransactionId.Unset()
-}
-
-// GetPurchaseDate returns the PurchaseDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPurchaseDate returns the PurchaseDate field value if set, zero value otherwise.
 func (o *InApp) GetPurchaseDate() string {
-	if o == nil || IsNil(o.PurchaseDate.Get()) {
+	if o == nil || IsNil(o.PurchaseDate) {
 		var ret string
 		return ret
 	}
-	return *o.PurchaseDate.Get()
+	return *o.PurchaseDate
 }
 
 // GetPurchaseDateOk returns a tuple with the PurchaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetPurchaseDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PurchaseDate) {
 		return nil, false
 	}
-	return o.PurchaseDate.Get(), o.PurchaseDate.IsSet()
+	return o.PurchaseDate, true
 }
 
 // HasPurchaseDate returns a boolean if a field has been set.
 func (o *InApp) HasPurchaseDate() bool {
-	if o != nil && o.PurchaseDate.IsSet() {
+	if o != nil && !IsNil(o.PurchaseDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetPurchaseDate gets a reference to the given NullableString and assigns it to the PurchaseDate field.
+// SetPurchaseDate gets a reference to the given string and assigns it to the PurchaseDate field.
 func (o *InApp) SetPurchaseDate(v string) {
-	o.PurchaseDate.Set(&v)
-}
-// SetPurchaseDateNil sets the value for PurchaseDate to be an explicit nil
-func (o *InApp) SetPurchaseDateNil() {
-	o.PurchaseDate.Set(nil)
+	o.PurchaseDate = &v
 }
 
-// UnsetPurchaseDate ensures that no value is present for PurchaseDate, not even an explicit nil
-func (o *InApp) UnsetPurchaseDate() {
-	o.PurchaseDate.Unset()
-}
-
-// GetPurchaseDateMs returns the PurchaseDateMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPurchaseDateMs returns the PurchaseDateMs field value if set, zero value otherwise.
 func (o *InApp) GetPurchaseDateMs() string {
-	if o == nil || IsNil(o.PurchaseDateMs.Get()) {
+	if o == nil || IsNil(o.PurchaseDateMs) {
 		var ret string
 		return ret
 	}
-	return *o.PurchaseDateMs.Get()
+	return *o.PurchaseDateMs
 }
 
 // GetPurchaseDateMsOk returns a tuple with the PurchaseDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetPurchaseDateMsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PurchaseDateMs) {
 		return nil, false
 	}
-	return o.PurchaseDateMs.Get(), o.PurchaseDateMs.IsSet()
+	return o.PurchaseDateMs, true
 }
 
 // HasPurchaseDateMs returns a boolean if a field has been set.
 func (o *InApp) HasPurchaseDateMs() bool {
-	if o != nil && o.PurchaseDateMs.IsSet() {
+	if o != nil && !IsNil(o.PurchaseDateMs) {
 		return true
 	}
 
 	return false
 }
 
-// SetPurchaseDateMs gets a reference to the given NullableString and assigns it to the PurchaseDateMs field.
+// SetPurchaseDateMs gets a reference to the given string and assigns it to the PurchaseDateMs field.
 func (o *InApp) SetPurchaseDateMs(v string) {
-	o.PurchaseDateMs.Set(&v)
-}
-// SetPurchaseDateMsNil sets the value for PurchaseDateMs to be an explicit nil
-func (o *InApp) SetPurchaseDateMsNil() {
-	o.PurchaseDateMs.Set(nil)
+	o.PurchaseDateMs = &v
 }
 
-// UnsetPurchaseDateMs ensures that no value is present for PurchaseDateMs, not even an explicit nil
-func (o *InApp) UnsetPurchaseDateMs() {
-	o.PurchaseDateMs.Unset()
-}
-
-// GetPurchaseDatePst returns the PurchaseDatePst field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPurchaseDatePst returns the PurchaseDatePst field value if set, zero value otherwise.
 func (o *InApp) GetPurchaseDatePst() string {
-	if o == nil || IsNil(o.PurchaseDatePst.Get()) {
+	if o == nil || IsNil(o.PurchaseDatePst) {
 		var ret string
 		return ret
 	}
-	return *o.PurchaseDatePst.Get()
+	return *o.PurchaseDatePst
 }
 
 // GetPurchaseDatePstOk returns a tuple with the PurchaseDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetPurchaseDatePstOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PurchaseDatePst) {
 		return nil, false
 	}
-	return o.PurchaseDatePst.Get(), o.PurchaseDatePst.IsSet()
+	return o.PurchaseDatePst, true
 }
 
 // HasPurchaseDatePst returns a boolean if a field has been set.
 func (o *InApp) HasPurchaseDatePst() bool {
-	if o != nil && o.PurchaseDatePst.IsSet() {
+	if o != nil && !IsNil(o.PurchaseDatePst) {
 		return true
 	}
 
 	return false
 }
 
-// SetPurchaseDatePst gets a reference to the given NullableString and assigns it to the PurchaseDatePst field.
+// SetPurchaseDatePst gets a reference to the given string and assigns it to the PurchaseDatePst field.
 func (o *InApp) SetPurchaseDatePst(v string) {
-	o.PurchaseDatePst.Set(&v)
-}
-// SetPurchaseDatePstNil sets the value for PurchaseDatePst to be an explicit nil
-func (o *InApp) SetPurchaseDatePstNil() {
-	o.PurchaseDatePst.Set(nil)
+	o.PurchaseDatePst = &v
 }
 
-// UnsetPurchaseDatePst ensures that no value is present for PurchaseDatePst, not even an explicit nil
-func (o *InApp) UnsetPurchaseDatePst() {
-	o.PurchaseDatePst.Unset()
-}
-
-// GetOriginalPurchaseDate returns the OriginalPurchaseDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalPurchaseDate returns the OriginalPurchaseDate field value if set, zero value otherwise.
 func (o *InApp) GetOriginalPurchaseDate() string {
-	if o == nil || IsNil(o.OriginalPurchaseDate.Get()) {
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalPurchaseDate.Get()
+	return *o.OriginalPurchaseDate
 }
 
 // GetOriginalPurchaseDateOk returns a tuple with the OriginalPurchaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetOriginalPurchaseDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
 		return nil, false
 	}
-	return o.OriginalPurchaseDate.Get(), o.OriginalPurchaseDate.IsSet()
+	return o.OriginalPurchaseDate, true
 }
 
 // HasOriginalPurchaseDate returns a boolean if a field has been set.
 func (o *InApp) HasOriginalPurchaseDate() bool {
-	if o != nil && o.OriginalPurchaseDate.IsSet() {
+	if o != nil && !IsNil(o.OriginalPurchaseDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalPurchaseDate gets a reference to the given NullableString and assigns it to the OriginalPurchaseDate field.
+// SetOriginalPurchaseDate gets a reference to the given string and assigns it to the OriginalPurchaseDate field.
 func (o *InApp) SetOriginalPurchaseDate(v string) {
-	o.OriginalPurchaseDate.Set(&v)
-}
-// SetOriginalPurchaseDateNil sets the value for OriginalPurchaseDate to be an explicit nil
-func (o *InApp) SetOriginalPurchaseDateNil() {
-	o.OriginalPurchaseDate.Set(nil)
+	o.OriginalPurchaseDate = &v
 }
 
-// UnsetOriginalPurchaseDate ensures that no value is present for OriginalPurchaseDate, not even an explicit nil
-func (o *InApp) UnsetOriginalPurchaseDate() {
-	o.OriginalPurchaseDate.Unset()
-}
-
-// GetOriginalPurchaseDateMs returns the OriginalPurchaseDateMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalPurchaseDateMs returns the OriginalPurchaseDateMs field value if set, zero value otherwise.
 func (o *InApp) GetOriginalPurchaseDateMs() string {
-	if o == nil || IsNil(o.OriginalPurchaseDateMs.Get()) {
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalPurchaseDateMs.Get()
+	return *o.OriginalPurchaseDateMs
 }
 
 // GetOriginalPurchaseDateMsOk returns a tuple with the OriginalPurchaseDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetOriginalPurchaseDateMsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
 		return nil, false
 	}
-	return o.OriginalPurchaseDateMs.Get(), o.OriginalPurchaseDateMs.IsSet()
+	return o.OriginalPurchaseDateMs, true
 }
 
 // HasOriginalPurchaseDateMs returns a boolean if a field has been set.
 func (o *InApp) HasOriginalPurchaseDateMs() bool {
-	if o != nil && o.OriginalPurchaseDateMs.IsSet() {
+	if o != nil && !IsNil(o.OriginalPurchaseDateMs) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalPurchaseDateMs gets a reference to the given NullableString and assigns it to the OriginalPurchaseDateMs field.
+// SetOriginalPurchaseDateMs gets a reference to the given string and assigns it to the OriginalPurchaseDateMs field.
 func (o *InApp) SetOriginalPurchaseDateMs(v string) {
-	o.OriginalPurchaseDateMs.Set(&v)
-}
-// SetOriginalPurchaseDateMsNil sets the value for OriginalPurchaseDateMs to be an explicit nil
-func (o *InApp) SetOriginalPurchaseDateMsNil() {
-	o.OriginalPurchaseDateMs.Set(nil)
+	o.OriginalPurchaseDateMs = &v
 }
 
-// UnsetOriginalPurchaseDateMs ensures that no value is present for OriginalPurchaseDateMs, not even an explicit nil
-func (o *InApp) UnsetOriginalPurchaseDateMs() {
-	o.OriginalPurchaseDateMs.Unset()
-}
-
-// GetOriginalPurchaseDatePst returns the OriginalPurchaseDatePst field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalPurchaseDatePst returns the OriginalPurchaseDatePst field value if set, zero value otherwise.
 func (o *InApp) GetOriginalPurchaseDatePst() string {
-	if o == nil || IsNil(o.OriginalPurchaseDatePst.Get()) {
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalPurchaseDatePst.Get()
+	return *o.OriginalPurchaseDatePst
 }
 
 // GetOriginalPurchaseDatePstOk returns a tuple with the OriginalPurchaseDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetOriginalPurchaseDatePstOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
 		return nil, false
 	}
-	return o.OriginalPurchaseDatePst.Get(), o.OriginalPurchaseDatePst.IsSet()
+	return o.OriginalPurchaseDatePst, true
 }
 
 // HasOriginalPurchaseDatePst returns a boolean if a field has been set.
 func (o *InApp) HasOriginalPurchaseDatePst() bool {
-	if o != nil && o.OriginalPurchaseDatePst.IsSet() {
+	if o != nil && !IsNil(o.OriginalPurchaseDatePst) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalPurchaseDatePst gets a reference to the given NullableString and assigns it to the OriginalPurchaseDatePst field.
+// SetOriginalPurchaseDatePst gets a reference to the given string and assigns it to the OriginalPurchaseDatePst field.
 func (o *InApp) SetOriginalPurchaseDatePst(v string) {
-	o.OriginalPurchaseDatePst.Set(&v)
-}
-// SetOriginalPurchaseDatePstNil sets the value for OriginalPurchaseDatePst to be an explicit nil
-func (o *InApp) SetOriginalPurchaseDatePstNil() {
-	o.OriginalPurchaseDatePst.Set(nil)
+	o.OriginalPurchaseDatePst = &v
 }
 
-// UnsetOriginalPurchaseDatePst ensures that no value is present for OriginalPurchaseDatePst, not even an explicit nil
-func (o *InApp) UnsetOriginalPurchaseDatePst() {
-	o.OriginalPurchaseDatePst.Unset()
-}
-
-// GetExpiresDate returns the ExpiresDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresDate returns the ExpiresDate field value if set, zero value otherwise.
 func (o *InApp) GetExpiresDate() string {
-	if o == nil || IsNil(o.ExpiresDate.Get()) {
+	if o == nil || IsNil(o.ExpiresDate) {
 		var ret string
 		return ret
 	}
-	return *o.ExpiresDate.Get()
+	return *o.ExpiresDate
 }
 
 // GetExpiresDateOk returns a tuple with the ExpiresDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetExpiresDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExpiresDate) {
 		return nil, false
 	}
-	return o.ExpiresDate.Get(), o.ExpiresDate.IsSet()
+	return o.ExpiresDate, true
 }
 
 // HasExpiresDate returns a boolean if a field has been set.
 func (o *InApp) HasExpiresDate() bool {
-	if o != nil && o.ExpiresDate.IsSet() {
+	if o != nil && !IsNil(o.ExpiresDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresDate gets a reference to the given NullableString and assigns it to the ExpiresDate field.
+// SetExpiresDate gets a reference to the given string and assigns it to the ExpiresDate field.
 func (o *InApp) SetExpiresDate(v string) {
-	o.ExpiresDate.Set(&v)
-}
-// SetExpiresDateNil sets the value for ExpiresDate to be an explicit nil
-func (o *InApp) SetExpiresDateNil() {
-	o.ExpiresDate.Set(nil)
+	o.ExpiresDate = &v
 }
 
-// UnsetExpiresDate ensures that no value is present for ExpiresDate, not even an explicit nil
-func (o *InApp) UnsetExpiresDate() {
-	o.ExpiresDate.Unset()
-}
-
-// GetExpiresDateMs returns the ExpiresDateMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresDateMs returns the ExpiresDateMs field value if set, zero value otherwise.
 func (o *InApp) GetExpiresDateMs() string {
-	if o == nil || IsNil(o.ExpiresDateMs.Get()) {
+	if o == nil || IsNil(o.ExpiresDateMs) {
 		var ret string
 		return ret
 	}
-	return *o.ExpiresDateMs.Get()
+	return *o.ExpiresDateMs
 }
 
 // GetExpiresDateMsOk returns a tuple with the ExpiresDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetExpiresDateMsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExpiresDateMs) {
 		return nil, false
 	}
-	return o.ExpiresDateMs.Get(), o.ExpiresDateMs.IsSet()
+	return o.ExpiresDateMs, true
 }
 
 // HasExpiresDateMs returns a boolean if a field has been set.
 func (o *InApp) HasExpiresDateMs() bool {
-	if o != nil && o.ExpiresDateMs.IsSet() {
+	if o != nil && !IsNil(o.ExpiresDateMs) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresDateMs gets a reference to the given NullableString and assigns it to the ExpiresDateMs field.
+// SetExpiresDateMs gets a reference to the given string and assigns it to the ExpiresDateMs field.
 func (o *InApp) SetExpiresDateMs(v string) {
-	o.ExpiresDateMs.Set(&v)
-}
-// SetExpiresDateMsNil sets the value for ExpiresDateMs to be an explicit nil
-func (o *InApp) SetExpiresDateMsNil() {
-	o.ExpiresDateMs.Set(nil)
+	o.ExpiresDateMs = &v
 }
 
-// UnsetExpiresDateMs ensures that no value is present for ExpiresDateMs, not even an explicit nil
-func (o *InApp) UnsetExpiresDateMs() {
-	o.ExpiresDateMs.Unset()
-}
-
-// GetExpiresDatePst returns the ExpiresDatePst field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresDatePst returns the ExpiresDatePst field value if set, zero value otherwise.
 func (o *InApp) GetExpiresDatePst() string {
-	if o == nil || IsNil(o.ExpiresDatePst.Get()) {
+	if o == nil || IsNil(o.ExpiresDatePst) {
 		var ret string
 		return ret
 	}
-	return *o.ExpiresDatePst.Get()
+	return *o.ExpiresDatePst
 }
 
 // GetExpiresDatePstOk returns a tuple with the ExpiresDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetExpiresDatePstOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExpiresDatePst) {
 		return nil, false
 	}
-	return o.ExpiresDatePst.Get(), o.ExpiresDatePst.IsSet()
+	return o.ExpiresDatePst, true
 }
 
 // HasExpiresDatePst returns a boolean if a field has been set.
 func (o *InApp) HasExpiresDatePst() bool {
-	if o != nil && o.ExpiresDatePst.IsSet() {
+	if o != nil && !IsNil(o.ExpiresDatePst) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresDatePst gets a reference to the given NullableString and assigns it to the ExpiresDatePst field.
+// SetExpiresDatePst gets a reference to the given string and assigns it to the ExpiresDatePst field.
 func (o *InApp) SetExpiresDatePst(v string) {
-	o.ExpiresDatePst.Set(&v)
-}
-// SetExpiresDatePstNil sets the value for ExpiresDatePst to be an explicit nil
-func (o *InApp) SetExpiresDatePstNil() {
-	o.ExpiresDatePst.Set(nil)
+	o.ExpiresDatePst = &v
 }
 
-// UnsetExpiresDatePst ensures that no value is present for ExpiresDatePst, not even an explicit nil
-func (o *InApp) UnsetExpiresDatePst() {
-	o.ExpiresDatePst.Unset()
-}
-
-// GetWebOrderLineItemId returns the WebOrderLineItemId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWebOrderLineItemId returns the WebOrderLineItemId field value if set, zero value otherwise.
 func (o *InApp) GetWebOrderLineItemId() string {
-	if o == nil || IsNil(o.WebOrderLineItemId.Get()) {
+	if o == nil || IsNil(o.WebOrderLineItemId) {
 		var ret string
 		return ret
 	}
-	return *o.WebOrderLineItemId.Get()
+	return *o.WebOrderLineItemId
 }
 
 // GetWebOrderLineItemIdOk returns a tuple with the WebOrderLineItemId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetWebOrderLineItemIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WebOrderLineItemId) {
 		return nil, false
 	}
-	return o.WebOrderLineItemId.Get(), o.WebOrderLineItemId.IsSet()
+	return o.WebOrderLineItemId, true
 }
 
 // HasWebOrderLineItemId returns a boolean if a field has been set.
 func (o *InApp) HasWebOrderLineItemId() bool {
-	if o != nil && o.WebOrderLineItemId.IsSet() {
+	if o != nil && !IsNil(o.WebOrderLineItemId) {
 		return true
 	}
 
 	return false
 }
 
-// SetWebOrderLineItemId gets a reference to the given NullableString and assigns it to the WebOrderLineItemId field.
+// SetWebOrderLineItemId gets a reference to the given string and assigns it to the WebOrderLineItemId field.
 func (o *InApp) SetWebOrderLineItemId(v string) {
-	o.WebOrderLineItemId.Set(&v)
-}
-// SetWebOrderLineItemIdNil sets the value for WebOrderLineItemId to be an explicit nil
-func (o *InApp) SetWebOrderLineItemIdNil() {
-	o.WebOrderLineItemId.Set(nil)
+	o.WebOrderLineItemId = &v
 }
 
-// UnsetWebOrderLineItemId ensures that no value is present for WebOrderLineItemId, not even an explicit nil
-func (o *InApp) UnsetWebOrderLineItemId() {
-	o.WebOrderLineItemId.Unset()
-}
-
-// GetIsTrialPeriod returns the IsTrialPeriod field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsTrialPeriod returns the IsTrialPeriod field value if set, zero value otherwise.
 func (o *InApp) GetIsTrialPeriod() string {
-	if o == nil || IsNil(o.IsTrialPeriod.Get()) {
+	if o == nil || IsNil(o.IsTrialPeriod) {
 		var ret string
 		return ret
 	}
-	return *o.IsTrialPeriod.Get()
+	return *o.IsTrialPeriod
 }
 
 // GetIsTrialPeriodOk returns a tuple with the IsTrialPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetIsTrialPeriodOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsTrialPeriod) {
 		return nil, false
 	}
-	return o.IsTrialPeriod.Get(), o.IsTrialPeriod.IsSet()
+	return o.IsTrialPeriod, true
 }
 
 // HasIsTrialPeriod returns a boolean if a field has been set.
 func (o *InApp) HasIsTrialPeriod() bool {
-	if o != nil && o.IsTrialPeriod.IsSet() {
+	if o != nil && !IsNil(o.IsTrialPeriod) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsTrialPeriod gets a reference to the given NullableString and assigns it to the IsTrialPeriod field.
+// SetIsTrialPeriod gets a reference to the given string and assigns it to the IsTrialPeriod field.
 func (o *InApp) SetIsTrialPeriod(v string) {
-	o.IsTrialPeriod.Set(&v)
-}
-// SetIsTrialPeriodNil sets the value for IsTrialPeriod to be an explicit nil
-func (o *InApp) SetIsTrialPeriodNil() {
-	o.IsTrialPeriod.Set(nil)
+	o.IsTrialPeriod = &v
 }
 
-// UnsetIsTrialPeriod ensures that no value is present for IsTrialPeriod, not even an explicit nil
-func (o *InApp) UnsetIsTrialPeriod() {
-	o.IsTrialPeriod.Unset()
-}
-
-// GetIsInIntroOfferPeriod returns the IsInIntroOfferPeriod field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsInIntroOfferPeriod returns the IsInIntroOfferPeriod field value if set, zero value otherwise.
 func (o *InApp) GetIsInIntroOfferPeriod() string {
-	if o == nil || IsNil(o.IsInIntroOfferPeriod.Get()) {
+	if o == nil || IsNil(o.IsInIntroOfferPeriod) {
 		var ret string
 		return ret
 	}
-	return *o.IsInIntroOfferPeriod.Get()
+	return *o.IsInIntroOfferPeriod
 }
 
 // GetIsInIntroOfferPeriodOk returns a tuple with the IsInIntroOfferPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InApp) GetIsInIntroOfferPeriodOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsInIntroOfferPeriod) {
 		return nil, false
 	}
-	return o.IsInIntroOfferPeriod.Get(), o.IsInIntroOfferPeriod.IsSet()
+	return o.IsInIntroOfferPeriod, true
 }
 
 // HasIsInIntroOfferPeriod returns a boolean if a field has been set.
 func (o *InApp) HasIsInIntroOfferPeriod() bool {
-	if o != nil && o.IsInIntroOfferPeriod.IsSet() {
+	if o != nil && !IsNil(o.IsInIntroOfferPeriod) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsInIntroOfferPeriod gets a reference to the given NullableString and assigns it to the IsInIntroOfferPeriod field.
+// SetIsInIntroOfferPeriod gets a reference to the given string and assigns it to the IsInIntroOfferPeriod field.
 func (o *InApp) SetIsInIntroOfferPeriod(v string) {
-	o.IsInIntroOfferPeriod.Set(&v)
-}
-// SetIsInIntroOfferPeriodNil sets the value for IsInIntroOfferPeriod to be an explicit nil
-func (o *InApp) SetIsInIntroOfferPeriodNil() {
-	o.IsInIntroOfferPeriod.Set(nil)
-}
-
-// UnsetIsInIntroOfferPeriod ensures that no value is present for IsInIntroOfferPeriod, not even an explicit nil
-func (o *InApp) UnsetIsInIntroOfferPeriod() {
-	o.IsInIntroOfferPeriod.Unset()
+	o.IsInIntroOfferPeriod = &v
 }
 
 func (o InApp) MarshalJSON() ([]byte, error) {
@@ -736,53 +576,53 @@ func (o InApp) MarshalJSON() ([]byte, error) {
 
 func (o InApp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Quantity.IsSet() {
-		toSerialize["quantity"] = o.Quantity.Get()
+	if !IsNil(o.Quantity) {
+		toSerialize["quantity"] = o.Quantity
 	}
-	if o.ProductId.IsSet() {
-		toSerialize["product_id"] = o.ProductId.Get()
+	if !IsNil(o.ProductId) {
+		toSerialize["product_id"] = o.ProductId
 	}
-	if o.TransactionId.IsSet() {
-		toSerialize["transaction_id"] = o.TransactionId.Get()
+	if !IsNil(o.TransactionId) {
+		toSerialize["transaction_id"] = o.TransactionId
 	}
-	if o.OriginalTransactionId.IsSet() {
-		toSerialize["original_transaction_id"] = o.OriginalTransactionId.Get()
+	if !IsNil(o.OriginalTransactionId) {
+		toSerialize["original_transaction_id"] = o.OriginalTransactionId
 	}
-	if o.PurchaseDate.IsSet() {
-		toSerialize["purchase_date"] = o.PurchaseDate.Get()
+	if !IsNil(o.PurchaseDate) {
+		toSerialize["purchase_date"] = o.PurchaseDate
 	}
-	if o.PurchaseDateMs.IsSet() {
-		toSerialize["purchase_date_ms"] = o.PurchaseDateMs.Get()
+	if !IsNil(o.PurchaseDateMs) {
+		toSerialize["purchase_date_ms"] = o.PurchaseDateMs
 	}
-	if o.PurchaseDatePst.IsSet() {
-		toSerialize["purchase_date_pst"] = o.PurchaseDatePst.Get()
+	if !IsNil(o.PurchaseDatePst) {
+		toSerialize["purchase_date_pst"] = o.PurchaseDatePst
 	}
-	if o.OriginalPurchaseDate.IsSet() {
-		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate.Get()
+	if !IsNil(o.OriginalPurchaseDate) {
+		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate
 	}
-	if o.OriginalPurchaseDateMs.IsSet() {
-		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs.Get()
+	if !IsNil(o.OriginalPurchaseDateMs) {
+		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs
 	}
-	if o.OriginalPurchaseDatePst.IsSet() {
-		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst.Get()
+	if !IsNil(o.OriginalPurchaseDatePst) {
+		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst
 	}
-	if o.ExpiresDate.IsSet() {
-		toSerialize["expires_date"] = o.ExpiresDate.Get()
+	if !IsNil(o.ExpiresDate) {
+		toSerialize["expires_date"] = o.ExpiresDate
 	}
-	if o.ExpiresDateMs.IsSet() {
-		toSerialize["expires_date_ms"] = o.ExpiresDateMs.Get()
+	if !IsNil(o.ExpiresDateMs) {
+		toSerialize["expires_date_ms"] = o.ExpiresDateMs
 	}
-	if o.ExpiresDatePst.IsSet() {
-		toSerialize["expires_date_pst"] = o.ExpiresDatePst.Get()
+	if !IsNil(o.ExpiresDatePst) {
+		toSerialize["expires_date_pst"] = o.ExpiresDatePst
 	}
-	if o.WebOrderLineItemId.IsSet() {
-		toSerialize["web_order_line_item_id"] = o.WebOrderLineItemId.Get()
+	if !IsNil(o.WebOrderLineItemId) {
+		toSerialize["web_order_line_item_id"] = o.WebOrderLineItemId
 	}
-	if o.IsTrialPeriod.IsSet() {
-		toSerialize["is_trial_period"] = o.IsTrialPeriod.Get()
+	if !IsNil(o.IsTrialPeriod) {
+		toSerialize["is_trial_period"] = o.IsTrialPeriod
 	}
-	if o.IsInIntroOfferPeriod.IsSet() {
-		toSerialize["is_in_intro_offer_period"] = o.IsInIntroOfferPeriod.Get()
+	if !IsNil(o.IsInIntroOfferPeriod) {
+		toSerialize["is_in_intro_offer_period"] = o.IsInIntroOfferPeriod
 	}
 	return toSerialize, nil
 }

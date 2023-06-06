@@ -21,8 +21,8 @@ var _ MappedNullable = &IdentityUserOrganizationUnit{}
 // IdentityUserOrganizationUnit struct for IdentityUserOrganizationUnit
 type IdentityUserOrganizationUnit struct {
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 	UserId *string `json:"userId,omitempty"`
 	OrganizationUnitId *string `json:"organizationUnitId,omitempty"`
 }
@@ -76,88 +76,68 @@ func (o *IdentityUserOrganizationUnit) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *IdentityUserOrganizationUnit) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserOrganizationUnit) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *IdentityUserOrganizationUnit) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *IdentityUserOrganizationUnit) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *IdentityUserOrganizationUnit) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *IdentityUserOrganizationUnit) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *IdentityUserOrganizationUnit) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId.Get()
+	return *o.TenantId
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserOrganizationUnit) GetTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId) {
 		return nil, false
 	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
+	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *IdentityUserOrganizationUnit) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *IdentityUserOrganizationUnit) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *IdentityUserOrganizationUnit) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *IdentityUserOrganizationUnit) UnsetTenantId() {
-	o.TenantId.Unset()
+	o.TenantId = &v
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
@@ -235,11 +215,9 @@ func (o IdentityUserOrganizationUnit) MarshalJSON() ([]byte, error) {
 func (o IdentityUserOrganizationUnit) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	// skip: creationTime is readOnly
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
-	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
+	// skip: creatorId is readOnly
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
 	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId

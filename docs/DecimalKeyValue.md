@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | Pointer to **float64** |  | [optional] 
-**DurationSeconds** | Pointer to **NullableFloat64** |  | [optional] 
-**ExpiredAt** | Pointer to **NullableTime** |  | [optional] 
-**CreatedAt** | Pointer to **NullableTime** |  | [optional] 
+**DurationSeconds** | Pointer to **float64** |  | [optional] 
+**ExpiredAt** | Pointer to **time.Time** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -78,16 +78,6 @@ SetDurationSeconds sets DurationSeconds field to given value.
 
 HasDurationSeconds returns a boolean if a field has been set.
 
-### SetDurationSecondsNil
-
-`func (o *DecimalKeyValue) SetDurationSecondsNil(b bool)`
-
- SetDurationSecondsNil sets the value for DurationSeconds to be an explicit nil
-
-### UnsetDurationSeconds
-`func (o *DecimalKeyValue) UnsetDurationSeconds()`
-
-UnsetDurationSeconds ensures that no value is present for DurationSeconds, not even an explicit nil
 ### GetExpiredAt
 
 `func (o *DecimalKeyValue) GetExpiredAt() time.Time`
@@ -113,16 +103,6 @@ SetExpiredAt sets ExpiredAt field to given value.
 
 HasExpiredAt returns a boolean if a field has been set.
 
-### SetExpiredAtNil
-
-`func (o *DecimalKeyValue) SetExpiredAtNil(b bool)`
-
- SetExpiredAtNil sets the value for ExpiredAt to be an explicit nil
-
-### UnsetExpiredAt
-`func (o *DecimalKeyValue) UnsetExpiredAt()`
-
-UnsetExpiredAt ensures that no value is present for ExpiredAt, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *DecimalKeyValue) GetCreatedAt() time.Time`
@@ -148,16 +128,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-### SetCreatedAtNil
-
-`func (o *DecimalKeyValue) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *DecimalKeyValue) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

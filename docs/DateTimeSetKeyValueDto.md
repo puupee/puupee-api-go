@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | Pointer to **time.Time** |  | [optional] 
-**DurationSeconds** | Pointer to **NullableFloat64** |  | [optional] 
+**DurationSeconds** | Pointer to **float64** |  | [optional] 
 
 ## Methods
 
@@ -76,16 +76,6 @@ SetDurationSeconds sets DurationSeconds field to given value.
 
 HasDurationSeconds returns a boolean if a field has been set.
 
-### SetDurationSecondsNil
-
-`func (o *DateTimeSetKeyValueDto) SetDurationSecondsNil(b bool)`
-
- SetDurationSecondsNil sets the value for DurationSeconds to be an explicit nil
-
-### UnsetDurationSeconds
-`func (o *DateTimeSetKeyValueDto) UnsetDurationSeconds()`
-
-UnsetDurationSeconds ensures that no value is present for DurationSeconds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

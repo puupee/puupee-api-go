@@ -510,11 +510,11 @@ type ApiApiAppMessageTemplateIdPutRequest struct {
 	ctx context.Context
 	ApiService *MessageTemplateApiService
 	id string
-	createOrUpdateMessageTemplateDto *CreateOrUpdateMessageTemplateDto
+	body *CreateOrUpdateMessageTemplateDto
 }
 
-func (r ApiApiAppMessageTemplateIdPutRequest) CreateOrUpdateMessageTemplateDto(createOrUpdateMessageTemplateDto CreateOrUpdateMessageTemplateDto) ApiApiAppMessageTemplateIdPutRequest {
-	r.createOrUpdateMessageTemplateDto = &createOrUpdateMessageTemplateDto
+func (r ApiApiAppMessageTemplateIdPutRequest) Body(body CreateOrUpdateMessageTemplateDto) ApiApiAppMessageTemplateIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -577,7 +577,7 @@ func (a *MessageTemplateApiService) ApiAppMessageTemplateIdPutExecute(r ApiApiAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateMessageTemplateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -683,11 +683,11 @@ func (a *MessageTemplateApiService) ApiAppMessageTemplateIdPutExecute(r ApiApiAp
 type ApiApiAppMessageTemplatePostRequest struct {
 	ctx context.Context
 	ApiService *MessageTemplateApiService
-	createOrUpdateMessageTemplateDto *CreateOrUpdateMessageTemplateDto
+	body *CreateOrUpdateMessageTemplateDto
 }
 
-func (r ApiApiAppMessageTemplatePostRequest) CreateOrUpdateMessageTemplateDto(createOrUpdateMessageTemplateDto CreateOrUpdateMessageTemplateDto) ApiApiAppMessageTemplatePostRequest {
-	r.createOrUpdateMessageTemplateDto = &createOrUpdateMessageTemplateDto
+func (r ApiApiAppMessageTemplatePostRequest) Body(body CreateOrUpdateMessageTemplateDto) ApiApiAppMessageTemplatePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -747,7 +747,7 @@ func (a *MessageTemplateApiService) ApiAppMessageTemplatePostExecute(r ApiApiApp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateMessageTemplateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

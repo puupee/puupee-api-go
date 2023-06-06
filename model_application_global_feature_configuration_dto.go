@@ -39,9 +39,9 @@ func NewApplicationGlobalFeatureConfigurationDtoWithDefaults() *ApplicationGloba
 	return &this
 }
 
-// GetEnabledFeatures returns the EnabledFeatures field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnabledFeatures returns the EnabledFeatures field value if set, zero value otherwise.
 func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeatures() []string {
-	if o == nil {
+	if o == nil || IsNil(o.EnabledFeatures) {
 		var ret []string
 		return ret
 	}
@@ -50,7 +50,6 @@ func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeatures() []string
 
 // GetEnabledFeaturesOk returns a tuple with the EnabledFeatures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeaturesOk() ([]string, bool) {
 	if o == nil || IsNil(o.EnabledFeatures) {
 		return nil, false
@@ -60,7 +59,7 @@ func (o *ApplicationGlobalFeatureConfigurationDto) GetEnabledFeaturesOk() ([]str
 
 // HasEnabledFeatures returns a boolean if a field has been set.
 func (o *ApplicationGlobalFeatureConfigurationDto) HasEnabledFeatures() bool {
-	if o != nil && IsNil(o.EnabledFeatures) {
+	if o != nil && !IsNil(o.EnabledFeatures) {
 		return true
 	}
 
@@ -82,7 +81,7 @@ func (o ApplicationGlobalFeatureConfigurationDto) MarshalJSON() ([]byte, error) 
 
 func (o ApplicationGlobalFeatureConfigurationDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.EnabledFeatures != nil {
+	if !IsNil(o.EnabledFeatures) {
 		toSerialize["enabledFeatures"] = o.EnabledFeatures
 	}
 	return toSerialize, nil

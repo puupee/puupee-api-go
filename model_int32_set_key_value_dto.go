@@ -20,7 +20,7 @@ var _ MappedNullable = &Int32SetKeyValueDto{}
 // Int32SetKeyValueDto struct for Int32SetKeyValueDto
 type Int32SetKeyValueDto struct {
 	Value *int32 `json:"value,omitempty"`
-	DurationSeconds NullableFloat64 `json:"durationSeconds,omitempty"`
+	DurationSeconds *float64 `json:"durationSeconds,omitempty"`
 }
 
 // NewInt32SetKeyValueDto instantiates a new Int32SetKeyValueDto object
@@ -72,46 +72,36 @@ func (o *Int32SetKeyValueDto) SetValue(v int32) {
 	o.Value = &v
 }
 
-// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationSeconds returns the DurationSeconds field value if set, zero value otherwise.
 func (o *Int32SetKeyValueDto) GetDurationSeconds() float64 {
-	if o == nil || IsNil(o.DurationSeconds.Get()) {
+	if o == nil || IsNil(o.DurationSeconds) {
 		var ret float64
 		return ret
 	}
-	return *o.DurationSeconds.Get()
+	return *o.DurationSeconds
 }
 
 // GetDurationSecondsOk returns a tuple with the DurationSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Int32SetKeyValueDto) GetDurationSecondsOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationSeconds) {
 		return nil, false
 	}
-	return o.DurationSeconds.Get(), o.DurationSeconds.IsSet()
+	return o.DurationSeconds, true
 }
 
 // HasDurationSeconds returns a boolean if a field has been set.
 func (o *Int32SetKeyValueDto) HasDurationSeconds() bool {
-	if o != nil && o.DurationSeconds.IsSet() {
+	if o != nil && !IsNil(o.DurationSeconds) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationSeconds gets a reference to the given NullableFloat64 and assigns it to the DurationSeconds field.
+// SetDurationSeconds gets a reference to the given float64 and assigns it to the DurationSeconds field.
 func (o *Int32SetKeyValueDto) SetDurationSeconds(v float64) {
-	o.DurationSeconds.Set(&v)
-}
-// SetDurationSecondsNil sets the value for DurationSeconds to be an explicit nil
-func (o *Int32SetKeyValueDto) SetDurationSecondsNil() {
-	o.DurationSeconds.Set(nil)
-}
-
-// UnsetDurationSeconds ensures that no value is present for DurationSeconds, not even an explicit nil
-func (o *Int32SetKeyValueDto) UnsetDurationSeconds() {
-	o.DurationSeconds.Unset()
+	o.DurationSeconds = &v
 }
 
 func (o Int32SetKeyValueDto) MarshalJSON() ([]byte, error) {
@@ -127,8 +117,8 @@ func (o Int32SetKeyValueDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
-	if o.DurationSeconds.IsSet() {
-		toSerialize["durationSeconds"] = o.DurationSeconds.Get()
+	if !IsNil(o.DurationSeconds) {
+		toSerialize["durationSeconds"] = o.DurationSeconds
 	}
 	return toSerialize, nil
 }

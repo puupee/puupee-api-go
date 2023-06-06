@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | **string** |  | 
 **AppName** | **string** |  | 
-**ReturnUrl** | Pointer to **NullableString** |  | [optional] 
-**ReturnUrlHash** | Pointer to **NullableString** |  | [optional] 
+**ReturnUrl** | Pointer to **string** |  | [optional] 
+**ReturnUrlHash** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -93,16 +93,6 @@ SetReturnUrl sets ReturnUrl field to given value.
 
 HasReturnUrl returns a boolean if a field has been set.
 
-### SetReturnUrlNil
-
-`func (o *SendPasswordResetCodeDto) SetReturnUrlNil(b bool)`
-
- SetReturnUrlNil sets the value for ReturnUrl to be an explicit nil
-
-### UnsetReturnUrl
-`func (o *SendPasswordResetCodeDto) UnsetReturnUrl()`
-
-UnsetReturnUrl ensures that no value is present for ReturnUrl, not even an explicit nil
 ### GetReturnUrlHash
 
 `func (o *SendPasswordResetCodeDto) GetReturnUrlHash() string`
@@ -128,16 +118,6 @@ SetReturnUrlHash sets ReturnUrlHash field to given value.
 
 HasReturnUrlHash returns a boolean if a field has been set.
 
-### SetReturnUrlHashNil
-
-`func (o *SendPasswordResetCodeDto) SetReturnUrlHashNil(b bool)`
-
- SetReturnUrlHashNil sets the value for ReturnUrlHash to be an explicit nil
-
-### UnsetReturnUrlHash
-`func (o *SendPasswordResetCodeDto) UnsetReturnUrlHash()`
-
-UnsetReturnUrlHash ensures that no value is present for ReturnUrlHash, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

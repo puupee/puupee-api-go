@@ -22,23 +22,23 @@ var _ MappedNullable = &VerifyReceiptResult{}
 type VerifyReceiptResult struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
-	LastModifierId NullableString `json:"lastModifierId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId NullableString `json:"deleterId,omitempty"`
-	DeletionTime NullableTime `json:"deletionTime,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
 	Deleter *IdentityUser `json:"deleter,omitempty"`
 	Creator *IdentityUser `json:"creator,omitempty"`
 	LastModifier *IdentityUser `json:"lastModifier,omitempty"`
 	OrderId *string `json:"orderId,omitempty"`
-	ReceiptData NullableString `json:"receiptData,omitempty"`
-	Platform NullableString `json:"platform,omitempty"`
-	DeviceToken NullableString `json:"deviceToken,omitempty"`
+	ReceiptData *string `json:"receiptData,omitempty"`
+	Platform *string `json:"platform,omitempty"`
+	DeviceToken *string `json:"deviceToken,omitempty"`
 	Ok *bool `json:"ok,omitempty"`
-	StatusCode NullableString `json:"statusCode,omitempty"`
-	Message NullableString `json:"message,omitempty"`
-	ResultData NullableString `json:"resultData,omitempty"`
+	StatusCode *string `json:"statusCode,omitempty"`
+	Message *string `json:"message,omitempty"`
+	ResultData *string `json:"resultData,omitempty"`
 	RecordId *string `json:"recordId,omitempty"`
 	AppleVerifyReceiptResult *AppleVerifyReceiptResult `json:"appleVerifyReceiptResult,omitempty"`
 }
@@ -124,130 +124,100 @@ func (o *VerifyReceiptResult) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *VerifyReceiptResult) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *VerifyReceiptResult) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime.Get()) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime.Get()
+	return *o.LastModificationTime
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
-	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
+	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasLastModificationTime() bool {
-	if o != nil && o.LastModificationTime.IsSet() {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
 func (o *VerifyReceiptResult) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime.Set(&v)
-}
-// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-func (o *VerifyReceiptResult) SetLastModificationTimeNil() {
-	o.LastModificationTime.Set(nil)
+	o.LastModificationTime = &v
 }
 
-// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetLastModificationTime() {
-	o.LastModificationTime.Unset()
-}
-
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId.Get()) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId.Get()
+	return *o.LastModifierId
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetLastModifierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
-	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
+	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasLastModifierId() bool {
-	if o != nil && o.LastModifierId.IsSet() {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
 func (o *VerifyReceiptResult) SetLastModifierId(v string) {
-	o.LastModifierId.Set(&v)
-}
-// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-func (o *VerifyReceiptResult) SetLastModifierIdNil() {
-	o.LastModifierId.Set(nil)
-}
-
-// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetLastModifierId() {
-	o.LastModifierId.Unset()
+	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -282,88 +252,68 @@ func (o *VerifyReceiptResult) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId.Get()) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId.Get()
+	return *o.DeleterId
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetDeleterIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
-	return o.DeleterId.Get(), o.DeleterId.IsSet()
+	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasDeleterId() bool {
-	if o != nil && o.DeleterId.IsSet() {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
 func (o *VerifyReceiptResult) SetDeleterId(v string) {
-	o.DeleterId.Set(&v)
-}
-// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-func (o *VerifyReceiptResult) SetDeleterIdNil() {
-	o.DeleterId.Set(nil)
+	o.DeleterId = &v
 }
 
-// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetDeleterId() {
-	o.DeleterId.Unset()
-}
-
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime.Get()) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime.Get()
+	return *o.DeletionTime
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
-	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasDeletionTime() bool {
-	if o != nil && o.DeletionTime.IsSet() {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
 func (o *VerifyReceiptResult) SetDeletionTime(v time.Time) {
-	o.DeletionTime.Set(&v)
-}
-// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-func (o *VerifyReceiptResult) SetDeletionTimeNil() {
-	o.DeletionTime.Set(nil)
-}
-
-// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetDeletionTime() {
-	o.DeletionTime.Unset()
+	o.DeletionTime = &v
 }
 
 // GetDeleter returns the Deleter field value if set, zero value otherwise.
@@ -494,130 +444,100 @@ func (o *VerifyReceiptResult) SetOrderId(v string) {
 	o.OrderId = &v
 }
 
-// GetReceiptData returns the ReceiptData field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReceiptData returns the ReceiptData field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetReceiptData() string {
-	if o == nil || IsNil(o.ReceiptData.Get()) {
+	if o == nil || IsNil(o.ReceiptData) {
 		var ret string
 		return ret
 	}
-	return *o.ReceiptData.Get()
+	return *o.ReceiptData
 }
 
 // GetReceiptDataOk returns a tuple with the ReceiptData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetReceiptDataOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReceiptData) {
 		return nil, false
 	}
-	return o.ReceiptData.Get(), o.ReceiptData.IsSet()
+	return o.ReceiptData, true
 }
 
 // HasReceiptData returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasReceiptData() bool {
-	if o != nil && o.ReceiptData.IsSet() {
+	if o != nil && !IsNil(o.ReceiptData) {
 		return true
 	}
 
 	return false
 }
 
-// SetReceiptData gets a reference to the given NullableString and assigns it to the ReceiptData field.
+// SetReceiptData gets a reference to the given string and assigns it to the ReceiptData field.
 func (o *VerifyReceiptResult) SetReceiptData(v string) {
-	o.ReceiptData.Set(&v)
-}
-// SetReceiptDataNil sets the value for ReceiptData to be an explicit nil
-func (o *VerifyReceiptResult) SetReceiptDataNil() {
-	o.ReceiptData.Set(nil)
+	o.ReceiptData = &v
 }
 
-// UnsetReceiptData ensures that no value is present for ReceiptData, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetReceiptData() {
-	o.ReceiptData.Unset()
-}
-
-// GetPlatform returns the Platform field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetPlatform() string {
-	if o == nil || IsNil(o.Platform.Get()) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
-	return *o.Platform.Get()
+	return *o.Platform
 }
 
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetPlatformOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Platform) {
 		return nil, false
 	}
-	return o.Platform.Get(), o.Platform.IsSet()
+	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasPlatform() bool {
-	if o != nil && o.Platform.IsSet() {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatform gets a reference to the given NullableString and assigns it to the Platform field.
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
 func (o *VerifyReceiptResult) SetPlatform(v string) {
-	o.Platform.Set(&v)
-}
-// SetPlatformNil sets the value for Platform to be an explicit nil
-func (o *VerifyReceiptResult) SetPlatformNil() {
-	o.Platform.Set(nil)
+	o.Platform = &v
 }
 
-// UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetPlatform() {
-	o.Platform.Unset()
-}
-
-// GetDeviceToken returns the DeviceToken field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeviceToken returns the DeviceToken field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetDeviceToken() string {
-	if o == nil || IsNil(o.DeviceToken.Get()) {
+	if o == nil || IsNil(o.DeviceToken) {
 		var ret string
 		return ret
 	}
-	return *o.DeviceToken.Get()
+	return *o.DeviceToken
 }
 
 // GetDeviceTokenOk returns a tuple with the DeviceToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetDeviceTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeviceToken) {
 		return nil, false
 	}
-	return o.DeviceToken.Get(), o.DeviceToken.IsSet()
+	return o.DeviceToken, true
 }
 
 // HasDeviceToken returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasDeviceToken() bool {
-	if o != nil && o.DeviceToken.IsSet() {
+	if o != nil && !IsNil(o.DeviceToken) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeviceToken gets a reference to the given NullableString and assigns it to the DeviceToken field.
+// SetDeviceToken gets a reference to the given string and assigns it to the DeviceToken field.
 func (o *VerifyReceiptResult) SetDeviceToken(v string) {
-	o.DeviceToken.Set(&v)
-}
-// SetDeviceTokenNil sets the value for DeviceToken to be an explicit nil
-func (o *VerifyReceiptResult) SetDeviceTokenNil() {
-	o.DeviceToken.Set(nil)
-}
-
-// UnsetDeviceToken ensures that no value is present for DeviceToken, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetDeviceToken() {
-	o.DeviceToken.Unset()
+	o.DeviceToken = &v
 }
 
 // GetOk returns the Ok field value if set, zero value otherwise.
@@ -652,130 +572,100 @@ func (o *VerifyReceiptResult) SetOk(v bool) {
 	o.Ok = &v
 }
 
-// GetStatusCode returns the StatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatusCode returns the StatusCode field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetStatusCode() string {
-	if o == nil || IsNil(o.StatusCode.Get()) {
+	if o == nil || IsNil(o.StatusCode) {
 		var ret string
 		return ret
 	}
-	return *o.StatusCode.Get()
+	return *o.StatusCode
 }
 
 // GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetStatusCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StatusCode) {
 		return nil, false
 	}
-	return o.StatusCode.Get(), o.StatusCode.IsSet()
+	return o.StatusCode, true
 }
 
 // HasStatusCode returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasStatusCode() bool {
-	if o != nil && o.StatusCode.IsSet() {
+	if o != nil && !IsNil(o.StatusCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetStatusCode gets a reference to the given NullableString and assigns it to the StatusCode field.
+// SetStatusCode gets a reference to the given string and assigns it to the StatusCode field.
 func (o *VerifyReceiptResult) SetStatusCode(v string) {
-	o.StatusCode.Set(&v)
-}
-// SetStatusCodeNil sets the value for StatusCode to be an explicit nil
-func (o *VerifyReceiptResult) SetStatusCodeNil() {
-	o.StatusCode.Set(nil)
+	o.StatusCode = &v
 }
 
-// UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetStatusCode() {
-	o.StatusCode.Unset()
-}
-
-// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMessage returns the Message field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetMessage() string {
-	if o == nil || IsNil(o.Message.Get()) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
-	return *o.Message.Get()
+	return *o.Message
 }
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetMessageOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
-	return o.Message.Get(), o.Message.IsSet()
+	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasMessage() bool {
-	if o != nil && o.Message.IsSet() {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
+// SetMessage gets a reference to the given string and assigns it to the Message field.
 func (o *VerifyReceiptResult) SetMessage(v string) {
-	o.Message.Set(&v)
-}
-// SetMessageNil sets the value for Message to be an explicit nil
-func (o *VerifyReceiptResult) SetMessageNil() {
-	o.Message.Set(nil)
+	o.Message = &v
 }
 
-// UnsetMessage ensures that no value is present for Message, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetMessage() {
-	o.Message.Unset()
-}
-
-// GetResultData returns the ResultData field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResultData returns the ResultData field value if set, zero value otherwise.
 func (o *VerifyReceiptResult) GetResultData() string {
-	if o == nil || IsNil(o.ResultData.Get()) {
+	if o == nil || IsNil(o.ResultData) {
 		var ret string
 		return ret
 	}
-	return *o.ResultData.Get()
+	return *o.ResultData
 }
 
 // GetResultDataOk returns a tuple with the ResultData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VerifyReceiptResult) GetResultDataOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResultData) {
 		return nil, false
 	}
-	return o.ResultData.Get(), o.ResultData.IsSet()
+	return o.ResultData, true
 }
 
 // HasResultData returns a boolean if a field has been set.
 func (o *VerifyReceiptResult) HasResultData() bool {
-	if o != nil && o.ResultData.IsSet() {
+	if o != nil && !IsNil(o.ResultData) {
 		return true
 	}
 
 	return false
 }
 
-// SetResultData gets a reference to the given NullableString and assigns it to the ResultData field.
+// SetResultData gets a reference to the given string and assigns it to the ResultData field.
 func (o *VerifyReceiptResult) SetResultData(v string) {
-	o.ResultData.Set(&v)
-}
-// SetResultDataNil sets the value for ResultData to be an explicit nil
-func (o *VerifyReceiptResult) SetResultDataNil() {
-	o.ResultData.Set(nil)
-}
-
-// UnsetResultData ensures that no value is present for ResultData, not even an explicit nil
-func (o *VerifyReceiptResult) UnsetResultData() {
-	o.ResultData.Unset()
+	o.ResultData = &v
 }
 
 // GetRecordId returns the RecordId field value if set, zero value otherwise.
@@ -854,23 +744,21 @@ func (o VerifyReceiptResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	// skip: id is readOnly
 	// skip: creationTime is readOnly
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
+	// skip: creatorId is readOnly
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
-	if o.LastModificationTime.IsSet() {
-		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
-	}
-	if o.LastModifierId.IsSet() {
-		toSerialize["lastModifierId"] = o.LastModifierId.Get()
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.DeleterId.IsSet() {
-		toSerialize["deleterId"] = o.DeleterId.Get()
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
 	}
-	if o.DeletionTime.IsSet() {
-		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
 	}
 	if !IsNil(o.Deleter) {
 		toSerialize["deleter"] = o.Deleter
@@ -884,26 +772,26 @@ func (o VerifyReceiptResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrderId) {
 		toSerialize["orderId"] = o.OrderId
 	}
-	if o.ReceiptData.IsSet() {
-		toSerialize["receiptData"] = o.ReceiptData.Get()
+	if !IsNil(o.ReceiptData) {
+		toSerialize["receiptData"] = o.ReceiptData
 	}
-	if o.Platform.IsSet() {
-		toSerialize["platform"] = o.Platform.Get()
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
-	if o.DeviceToken.IsSet() {
-		toSerialize["deviceToken"] = o.DeviceToken.Get()
+	if !IsNil(o.DeviceToken) {
+		toSerialize["deviceToken"] = o.DeviceToken
 	}
 	if !IsNil(o.Ok) {
 		toSerialize["ok"] = o.Ok
 	}
-	if o.StatusCode.IsSet() {
-		toSerialize["statusCode"] = o.StatusCode.Get()
+	if !IsNil(o.StatusCode) {
+		toSerialize["statusCode"] = o.StatusCode
 	}
-	if o.Message.IsSet() {
-		toSerialize["message"] = o.Message.Get()
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
 	}
-	if o.ResultData.IsSet() {
-		toSerialize["resultData"] = o.ResultData.Get()
+	if !IsNil(o.ResultData) {
+		toSerialize["resultData"] = o.ResultData
 	}
 	if !IsNil(o.RecordId) {
 		toSerialize["recordId"] = o.RecordId

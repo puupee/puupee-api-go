@@ -19,13 +19,13 @@ var _ MappedNullable = &UpdateProfileDto{}
 
 // UpdateProfileDto struct for UpdateProfileDto
 type UpdateProfileDto struct {
-	ExtraProperties map[string]interface{} `json:"extraProperties,omitempty"`
-	UserName NullableString `json:"userName,omitempty"`
-	Email NullableString `json:"email,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Surname NullableString `json:"surname,omitempty"`
-	PhoneNumber NullableString `json:"phoneNumber,omitempty"`
-	ConcurrencyStamp NullableString `json:"concurrencyStamp,omitempty"`
+	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
+	UserName *string `json:"userName,omitempty"`
+	Email *string `json:"email,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Surname *string `json:"surname,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	ConcurrencyStamp *string `json:"concurrencyStamp,omitempty"`
 }
 
 // NewUpdateProfileDto instantiates a new UpdateProfileDto object
@@ -45,10 +45,10 @@ func NewUpdateProfileDtoWithDefaults() *UpdateProfileDto {
 	return &this
 }
 
-// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdateProfileDto) GetExtraProperties() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
+func (o *UpdateProfileDto) GetExtraProperties() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.ExtraProperties) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.ExtraProperties
@@ -56,278 +56,217 @@ func (o *UpdateProfileDto) GetExtraProperties() map[string]interface{} {
 
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateProfileDto) GetExtraPropertiesOk() (map[string]interface{}, bool) {
+func (o *UpdateProfileDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ExtraProperties) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasExtraProperties() bool {
-	if o != nil && IsNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtraProperties gets a reference to the given map[string]interface{} and assigns it to the ExtraProperties field.
-func (o *UpdateProfileDto) SetExtraProperties(v map[string]interface{}) {
+// SetExtraProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the ExtraProperties field.
+func (o *UpdateProfileDto) SetExtraProperties(v map[string]map[string]interface{}) {
 	o.ExtraProperties = v
 }
 
-// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *UpdateProfileDto) GetUserName() string {
-	if o == nil || IsNil(o.UserName.Get()) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
-	return *o.UserName.Get()
+	return *o.UserName
 }
 
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateProfileDto) GetUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		return nil, false
 	}
-	return o.UserName.Get(), o.UserName.IsSet()
+	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasUserName() bool {
-	if o != nil && o.UserName.IsSet() {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *UpdateProfileDto) SetUserName(v string) {
-	o.UserName.Set(&v)
-}
-// SetUserNameNil sets the value for UserName to be an explicit nil
-func (o *UpdateProfileDto) SetUserNameNil() {
-	o.UserName.Set(nil)
+	o.UserName = &v
 }
 
-// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
-func (o *UpdateProfileDto) UnsetUserName() {
-	o.UserName.Unset()
-}
-
-// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *UpdateProfileDto) GetEmail() string {
-	if o == nil || IsNil(o.Email.Get()) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-	return *o.Email.Get()
+	return *o.Email
 }
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateProfileDto) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return o.Email.Get(), o.Email.IsSet()
+	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasEmail() bool {
-	if o != nil && o.Email.IsSet() {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *UpdateProfileDto) SetEmail(v string) {
-	o.Email.Set(&v)
-}
-// SetEmailNil sets the value for Email to be an explicit nil
-func (o *UpdateProfileDto) SetEmailNil() {
-	o.Email.Set(nil)
+	o.Email = &v
 }
 
-// UnsetEmail ensures that no value is present for Email, not even an explicit nil
-func (o *UpdateProfileDto) UnsetEmail() {
-	o.Email.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *UpdateProfileDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateProfileDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *UpdateProfileDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *UpdateProfileDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *UpdateProfileDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetSurname returns the Surname field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSurname returns the Surname field value if set, zero value otherwise.
 func (o *UpdateProfileDto) GetSurname() string {
-	if o == nil || IsNil(o.Surname.Get()) {
+	if o == nil || IsNil(o.Surname) {
 		var ret string
 		return ret
 	}
-	return *o.Surname.Get()
+	return *o.Surname
 }
 
 // GetSurnameOk returns a tuple with the Surname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateProfileDto) GetSurnameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Surname) {
 		return nil, false
 	}
-	return o.Surname.Get(), o.Surname.IsSet()
+	return o.Surname, true
 }
 
 // HasSurname returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasSurname() bool {
-	if o != nil && o.Surname.IsSet() {
+	if o != nil && !IsNil(o.Surname) {
 		return true
 	}
 
 	return false
 }
 
-// SetSurname gets a reference to the given NullableString and assigns it to the Surname field.
+// SetSurname gets a reference to the given string and assigns it to the Surname field.
 func (o *UpdateProfileDto) SetSurname(v string) {
-	o.Surname.Set(&v)
-}
-// SetSurnameNil sets the value for Surname to be an explicit nil
-func (o *UpdateProfileDto) SetSurnameNil() {
-	o.Surname.Set(nil)
+	o.Surname = &v
 }
 
-// UnsetSurname ensures that no value is present for Surname, not even an explicit nil
-func (o *UpdateProfileDto) UnsetSurname() {
-	o.Surname.Unset()
-}
-
-// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *UpdateProfileDto) GetPhoneNumber() string {
-	if o == nil || IsNil(o.PhoneNumber.Get()) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
-	return *o.PhoneNumber.Get()
+	return *o.PhoneNumber
 }
 
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateProfileDto) GetPhoneNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PhoneNumber) {
 		return nil, false
 	}
-	return o.PhoneNumber.Get(), o.PhoneNumber.IsSet()
+	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasPhoneNumber() bool {
-	if o != nil && o.PhoneNumber.IsSet() {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetPhoneNumber gets a reference to the given NullableString and assigns it to the PhoneNumber field.
+// SetPhoneNumber gets a reference to the given string and assigns it to the PhoneNumber field.
 func (o *UpdateProfileDto) SetPhoneNumber(v string) {
-	o.PhoneNumber.Set(&v)
-}
-// SetPhoneNumberNil sets the value for PhoneNumber to be an explicit nil
-func (o *UpdateProfileDto) SetPhoneNumberNil() {
-	o.PhoneNumber.Set(nil)
+	o.PhoneNumber = &v
 }
 
-// UnsetPhoneNumber ensures that no value is present for PhoneNumber, not even an explicit nil
-func (o *UpdateProfileDto) UnsetPhoneNumber() {
-	o.PhoneNumber.Unset()
-}
-
-// GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *UpdateProfileDto) GetConcurrencyStamp() string {
-	if o == nil || IsNil(o.ConcurrencyStamp.Get()) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
-	return *o.ConcurrencyStamp.Get()
+	return *o.ConcurrencyStamp
 }
 
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateProfileDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		return nil, false
 	}
-	return o.ConcurrencyStamp.Get(), o.ConcurrencyStamp.IsSet()
+	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *UpdateProfileDto) HasConcurrencyStamp() bool {
-	if o != nil && o.ConcurrencyStamp.IsSet() {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetConcurrencyStamp gets a reference to the given NullableString and assigns it to the ConcurrencyStamp field.
+// SetConcurrencyStamp gets a reference to the given string and assigns it to the ConcurrencyStamp field.
 func (o *UpdateProfileDto) SetConcurrencyStamp(v string) {
-	o.ConcurrencyStamp.Set(&v)
-}
-// SetConcurrencyStampNil sets the value for ConcurrencyStamp to be an explicit nil
-func (o *UpdateProfileDto) SetConcurrencyStampNil() {
-	o.ConcurrencyStamp.Set(nil)
-}
-
-// UnsetConcurrencyStamp ensures that no value is present for ConcurrencyStamp, not even an explicit nil
-func (o *UpdateProfileDto) UnsetConcurrencyStamp() {
-	o.ConcurrencyStamp.Unset()
+	o.ConcurrencyStamp = &v
 }
 
 func (o UpdateProfileDto) MarshalJSON() ([]byte, error) {
@@ -340,26 +279,24 @@ func (o UpdateProfileDto) MarshalJSON() ([]byte, error) {
 
 func (o UpdateProfileDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ExtraProperties != nil {
-		toSerialize["extraProperties"] = o.ExtraProperties
+	// skip: extraProperties is readOnly
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
 	}
-	if o.UserName.IsSet() {
-		toSerialize["userName"] = o.UserName.Get()
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
 	}
-	if o.Email.IsSet() {
-		toSerialize["email"] = o.Email.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Surname) {
+		toSerialize["surname"] = o.Surname
 	}
-	if o.Surname.IsSet() {
-		toSerialize["surname"] = o.Surname.Get()
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
 	}
-	if o.PhoneNumber.IsSet() {
-		toSerialize["phoneNumber"] = o.PhoneNumber.Get()
-	}
-	if o.ConcurrencyStamp.IsSet() {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp.Get()
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
 	}
 	return toSerialize, nil
 }

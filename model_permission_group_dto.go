@@ -19,10 +19,10 @@ var _ MappedNullable = &PermissionGroupDto{}
 
 // PermissionGroupDto struct for PermissionGroupDto
 type PermissionGroupDto struct {
-	Name NullableString `json:"name,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	DisplayNameKey NullableString `json:"displayNameKey,omitempty"`
-	DisplayNameResource NullableString `json:"displayNameResource,omitempty"`
+	Name *string `json:"name,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	DisplayNameKey *string `json:"displayNameKey,omitempty"`
+	DisplayNameResource *string `json:"displayNameResource,omitempty"`
 	Permissions []PermissionGrantInfoDto `json:"permissions,omitempty"`
 }
 
@@ -43,177 +43,137 @@ func NewPermissionGroupDtoWithDefaults() *PermissionGroupDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PermissionGroupDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *PermissionGroupDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *PermissionGroupDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *PermissionGroupDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName.Get()) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName.Get()
+	return *o.DisplayName
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PermissionGroupDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayName) {
 		return nil, false
 	}
-	return o.DisplayName.Get(), o.DisplayName.IsSet()
+	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasDisplayName() bool {
-	if o != nil && o.DisplayName.IsSet() {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
 func (o *PermissionGroupDto) SetDisplayName(v string) {
-	o.DisplayName.Set(&v)
-}
-// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-func (o *PermissionGroupDto) SetDisplayNameNil() {
-	o.DisplayName.Set(nil)
+	o.DisplayName = &v
 }
 
-// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-func (o *PermissionGroupDto) UnsetDisplayName() {
-	o.DisplayName.Unset()
-}
-
-// GetDisplayNameKey returns the DisplayNameKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayNameKey returns the DisplayNameKey field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetDisplayNameKey() string {
-	if o == nil || IsNil(o.DisplayNameKey.Get()) {
+	if o == nil || IsNil(o.DisplayNameKey) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayNameKey.Get()
+	return *o.DisplayNameKey
 }
 
 // GetDisplayNameKeyOk returns a tuple with the DisplayNameKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PermissionGroupDto) GetDisplayNameKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayNameKey) {
 		return nil, false
 	}
-	return o.DisplayNameKey.Get(), o.DisplayNameKey.IsSet()
+	return o.DisplayNameKey, true
 }
 
 // HasDisplayNameKey returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasDisplayNameKey() bool {
-	if o != nil && o.DisplayNameKey.IsSet() {
+	if o != nil && !IsNil(o.DisplayNameKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayNameKey gets a reference to the given NullableString and assigns it to the DisplayNameKey field.
+// SetDisplayNameKey gets a reference to the given string and assigns it to the DisplayNameKey field.
 func (o *PermissionGroupDto) SetDisplayNameKey(v string) {
-	o.DisplayNameKey.Set(&v)
-}
-// SetDisplayNameKeyNil sets the value for DisplayNameKey to be an explicit nil
-func (o *PermissionGroupDto) SetDisplayNameKeyNil() {
-	o.DisplayNameKey.Set(nil)
+	o.DisplayNameKey = &v
 }
 
-// UnsetDisplayNameKey ensures that no value is present for DisplayNameKey, not even an explicit nil
-func (o *PermissionGroupDto) UnsetDisplayNameKey() {
-	o.DisplayNameKey.Unset()
-}
-
-// GetDisplayNameResource returns the DisplayNameResource field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayNameResource returns the DisplayNameResource field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetDisplayNameResource() string {
-	if o == nil || IsNil(o.DisplayNameResource.Get()) {
+	if o == nil || IsNil(o.DisplayNameResource) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayNameResource.Get()
+	return *o.DisplayNameResource
 }
 
 // GetDisplayNameResourceOk returns a tuple with the DisplayNameResource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PermissionGroupDto) GetDisplayNameResourceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayNameResource) {
 		return nil, false
 	}
-	return o.DisplayNameResource.Get(), o.DisplayNameResource.IsSet()
+	return o.DisplayNameResource, true
 }
 
 // HasDisplayNameResource returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasDisplayNameResource() bool {
-	if o != nil && o.DisplayNameResource.IsSet() {
+	if o != nil && !IsNil(o.DisplayNameResource) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayNameResource gets a reference to the given NullableString and assigns it to the DisplayNameResource field.
+// SetDisplayNameResource gets a reference to the given string and assigns it to the DisplayNameResource field.
 func (o *PermissionGroupDto) SetDisplayNameResource(v string) {
-	o.DisplayNameResource.Set(&v)
-}
-// SetDisplayNameResourceNil sets the value for DisplayNameResource to be an explicit nil
-func (o *PermissionGroupDto) SetDisplayNameResourceNil() {
-	o.DisplayNameResource.Set(nil)
+	o.DisplayNameResource = &v
 }
 
-// UnsetDisplayNameResource ensures that no value is present for DisplayNameResource, not even an explicit nil
-func (o *PermissionGroupDto) UnsetDisplayNameResource() {
-	o.DisplayNameResource.Unset()
-}
-
-// GetPermissions returns the Permissions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *PermissionGroupDto) GetPermissions() []PermissionGrantInfoDto {
-	if o == nil {
+	if o == nil || IsNil(o.Permissions) {
 		var ret []PermissionGrantInfoDto
 		return ret
 	}
@@ -222,7 +182,6 @@ func (o *PermissionGroupDto) GetPermissions() []PermissionGrantInfoDto {
 
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PermissionGroupDto) GetPermissionsOk() ([]PermissionGrantInfoDto, bool) {
 	if o == nil || IsNil(o.Permissions) {
 		return nil, false
@@ -232,7 +191,7 @@ func (o *PermissionGroupDto) GetPermissionsOk() ([]PermissionGrantInfoDto, bool)
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *PermissionGroupDto) HasPermissions() bool {
-	if o != nil && IsNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -254,19 +213,19 @@ func (o PermissionGroupDto) MarshalJSON() ([]byte, error) {
 
 func (o PermissionGroupDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.DisplayName.IsSet() {
-		toSerialize["displayName"] = o.DisplayName.Get()
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
 	}
-	if o.DisplayNameKey.IsSet() {
-		toSerialize["displayNameKey"] = o.DisplayNameKey.Get()
+	if !IsNil(o.DisplayNameKey) {
+		toSerialize["displayNameKey"] = o.DisplayNameKey
 	}
-	if o.DisplayNameResource.IsSet() {
-		toSerialize["displayNameResource"] = o.DisplayNameResource.Get()
+	if !IsNil(o.DisplayNameResource) {
+		toSerialize["displayNameResource"] = o.DisplayNameResource
 	}
-	if o.Permissions != nil {
+	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}
 	return toSerialize, nil

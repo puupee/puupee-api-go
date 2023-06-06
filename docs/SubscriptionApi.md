@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## ApiAppSubscriptionAppleNotificationsPost
 
-> ApiAppSubscriptionAppleNotificationsPost(ctx).AppleNotificaionDto(appleNotificaionDto).Execute()
+> ApiAppSubscriptionAppleNotificationsPost(ctx).Body(body).Execute()
 
 
 
@@ -30,11 +30,11 @@ import (
 )
 
 func main() {
-    appleNotificaionDto := *openapiclient.NewAppleNotificaionDto() // AppleNotificaionDto |  (optional)
+    body := *openapiclient.NewAppleNotificaionDto() // AppleNotificaionDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost(context.Background()).AppleNotificaionDto(appleNotificaionDto).Execute()
+    r, err := apiClient.SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiApiAppSubscriptionAppleNot
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appleNotificaionDto** | [**AppleNotificaionDto**](AppleNotificaionDto.md) |  | 
+ **body** | [**AppleNotificaionDto**](AppleNotificaionDto.md) |  | 
 
 ### Return type
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppSubscriptionOrderPost
 
-> SubscriptionOrderDto ApiAppSubscriptionOrderPost(ctx).CreateOrGetSubscriptionOrderDto(createOrGetSubscriptionOrderDto).Execute()
+> SubscriptionOrderDto ApiAppSubscriptionOrderPost(ctx).Body(body).Execute()
 
 
 
@@ -156,11 +156,11 @@ import (
 )
 
 func main() {
-    createOrGetSubscriptionOrderDto := *openapiclient.NewCreateOrGetSubscriptionOrderDto() // CreateOrGetSubscriptionOrderDto |  (optional)
+    body := *openapiclient.NewCreateOrGetSubscriptionOrderDto() // CreateOrGetSubscriptionOrderDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionOrderPost(context.Background()).CreateOrGetSubscriptionOrderDto(createOrGetSubscriptionOrderDto).Execute()
+    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionOrderPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionOrderPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -181,7 +181,7 @@ Other parameters are passed through a pointer to a apiApiAppSubscriptionOrderPos
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createOrGetSubscriptionOrderDto** | [**CreateOrGetSubscriptionOrderDto**](CreateOrGetSubscriptionOrderDto.md) |  | 
+ **body** | [**CreateOrGetSubscriptionOrderDto**](CreateOrGetSubscriptionOrderDto.md) |  | 
 
 ### Return type
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppSubscriptionVerifyReceiptPost
 
-> VerifyReceiptResult ApiAppSubscriptionVerifyReceiptPost(ctx).VerifyReceiptDto(verifyReceiptDto).Execute()
+> VerifyReceiptResult ApiAppSubscriptionVerifyReceiptPost(ctx).Body(body).Execute()
 
 
 
@@ -220,11 +220,11 @@ import (
 )
 
 func main() {
-    verifyReceiptDto := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", "Platform_example", "DeviceToken_example") // VerifyReceiptDto |  (optional)
+    body := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", "Platform_example", "DeviceToken_example") // VerifyReceiptDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionVerifyReceiptPost(context.Background()).VerifyReceiptDto(verifyReceiptDto).Execute()
+    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionVerifyReceiptPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionVerifyReceiptPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -245,7 +245,7 @@ Other parameters are passed through a pointer to a apiApiAppSubscriptionVerifyRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **verifyReceiptDto** | [**VerifyReceiptDto**](VerifyReceiptDto.md) |  | 
+ **body** | [**VerifyReceiptDto**](VerifyReceiptDto.md) |  | 
 
 ### Return type
 

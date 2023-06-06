@@ -19,13 +19,13 @@ var _ MappedNullable = &BindDeviceDto{}
 
 // BindDeviceDto struct for BindDeviceDto
 type BindDeviceDto struct {
-	Token NullableString `json:"token,omitempty"`
-	TpnsToken NullableString `json:"tpnsToken,omitempty"`
+	Token *string `json:"token,omitempty"`
+	TpnsToken *string `json:"tpnsToken,omitempty"`
 	IsPhysicalDevice *bool `json:"isPhysicalDevice,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Platform NullableString `json:"platform,omitempty"`
-	Brand NullableString `json:"brand,omitempty"`
-	SystemVersion NullableString `json:"systemVersion,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Platform *string `json:"platform,omitempty"`
+	Brand *string `json:"brand,omitempty"`
+	SystemVersion *string `json:"systemVersion,omitempty"`
 }
 
 // NewBindDeviceDto instantiates a new BindDeviceDto object
@@ -45,88 +45,68 @@ func NewBindDeviceDtoWithDefaults() *BindDeviceDto {
 	return &this
 }
 
-// GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetToken returns the Token field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetToken() string {
-	if o == nil || IsNil(o.Token.Get()) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
-	return *o.Token.Get()
+	return *o.Token
 }
 
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindDeviceDto) GetTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Token) {
 		return nil, false
 	}
-	return o.Token.Get(), o.Token.IsSet()
+	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasToken() bool {
-	if o != nil && o.Token.IsSet() {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
 	return false
 }
 
-// SetToken gets a reference to the given NullableString and assigns it to the Token field.
+// SetToken gets a reference to the given string and assigns it to the Token field.
 func (o *BindDeviceDto) SetToken(v string) {
-	o.Token.Set(&v)
-}
-// SetTokenNil sets the value for Token to be an explicit nil
-func (o *BindDeviceDto) SetTokenNil() {
-	o.Token.Set(nil)
+	o.Token = &v
 }
 
-// UnsetToken ensures that no value is present for Token, not even an explicit nil
-func (o *BindDeviceDto) UnsetToken() {
-	o.Token.Unset()
-}
-
-// GetTpnsToken returns the TpnsToken field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTpnsToken returns the TpnsToken field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetTpnsToken() string {
-	if o == nil || IsNil(o.TpnsToken.Get()) {
+	if o == nil || IsNil(o.TpnsToken) {
 		var ret string
 		return ret
 	}
-	return *o.TpnsToken.Get()
+	return *o.TpnsToken
 }
 
 // GetTpnsTokenOk returns a tuple with the TpnsToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindDeviceDto) GetTpnsTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TpnsToken) {
 		return nil, false
 	}
-	return o.TpnsToken.Get(), o.TpnsToken.IsSet()
+	return o.TpnsToken, true
 }
 
 // HasTpnsToken returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasTpnsToken() bool {
-	if o != nil && o.TpnsToken.IsSet() {
+	if o != nil && !IsNil(o.TpnsToken) {
 		return true
 	}
 
 	return false
 }
 
-// SetTpnsToken gets a reference to the given NullableString and assigns it to the TpnsToken field.
+// SetTpnsToken gets a reference to the given string and assigns it to the TpnsToken field.
 func (o *BindDeviceDto) SetTpnsToken(v string) {
-	o.TpnsToken.Set(&v)
-}
-// SetTpnsTokenNil sets the value for TpnsToken to be an explicit nil
-func (o *BindDeviceDto) SetTpnsTokenNil() {
-	o.TpnsToken.Set(nil)
-}
-
-// UnsetTpnsToken ensures that no value is present for TpnsToken, not even an explicit nil
-func (o *BindDeviceDto) UnsetTpnsToken() {
-	o.TpnsToken.Unset()
+	o.TpnsToken = &v
 }
 
 // GetIsPhysicalDevice returns the IsPhysicalDevice field value if set, zero value otherwise.
@@ -161,172 +141,132 @@ func (o *BindDeviceDto) SetIsPhysicalDevice(v bool) {
 	o.IsPhysicalDevice = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindDeviceDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *BindDeviceDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *BindDeviceDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *BindDeviceDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPlatform returns the Platform field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetPlatform() string {
-	if o == nil || IsNil(o.Platform.Get()) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
-	return *o.Platform.Get()
+	return *o.Platform
 }
 
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindDeviceDto) GetPlatformOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Platform) {
 		return nil, false
 	}
-	return o.Platform.Get(), o.Platform.IsSet()
+	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasPlatform() bool {
-	if o != nil && o.Platform.IsSet() {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatform gets a reference to the given NullableString and assigns it to the Platform field.
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
 func (o *BindDeviceDto) SetPlatform(v string) {
-	o.Platform.Set(&v)
-}
-// SetPlatformNil sets the value for Platform to be an explicit nil
-func (o *BindDeviceDto) SetPlatformNil() {
-	o.Platform.Set(nil)
+	o.Platform = &v
 }
 
-// UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
-func (o *BindDeviceDto) UnsetPlatform() {
-	o.Platform.Unset()
-}
-
-// GetBrand returns the Brand field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBrand returns the Brand field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetBrand() string {
-	if o == nil || IsNil(o.Brand.Get()) {
+	if o == nil || IsNil(o.Brand) {
 		var ret string
 		return ret
 	}
-	return *o.Brand.Get()
+	return *o.Brand
 }
 
 // GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindDeviceDto) GetBrandOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Brand) {
 		return nil, false
 	}
-	return o.Brand.Get(), o.Brand.IsSet()
+	return o.Brand, true
 }
 
 // HasBrand returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasBrand() bool {
-	if o != nil && o.Brand.IsSet() {
+	if o != nil && !IsNil(o.Brand) {
 		return true
 	}
 
 	return false
 }
 
-// SetBrand gets a reference to the given NullableString and assigns it to the Brand field.
+// SetBrand gets a reference to the given string and assigns it to the Brand field.
 func (o *BindDeviceDto) SetBrand(v string) {
-	o.Brand.Set(&v)
-}
-// SetBrandNil sets the value for Brand to be an explicit nil
-func (o *BindDeviceDto) SetBrandNil() {
-	o.Brand.Set(nil)
+	o.Brand = &v
 }
 
-// UnsetBrand ensures that no value is present for Brand, not even an explicit nil
-func (o *BindDeviceDto) UnsetBrand() {
-	o.Brand.Unset()
-}
-
-// GetSystemVersion returns the SystemVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSystemVersion returns the SystemVersion field value if set, zero value otherwise.
 func (o *BindDeviceDto) GetSystemVersion() string {
-	if o == nil || IsNil(o.SystemVersion.Get()) {
+	if o == nil || IsNil(o.SystemVersion) {
 		var ret string
 		return ret
 	}
-	return *o.SystemVersion.Get()
+	return *o.SystemVersion
 }
 
 // GetSystemVersionOk returns a tuple with the SystemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BindDeviceDto) GetSystemVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SystemVersion) {
 		return nil, false
 	}
-	return o.SystemVersion.Get(), o.SystemVersion.IsSet()
+	return o.SystemVersion, true
 }
 
 // HasSystemVersion returns a boolean if a field has been set.
 func (o *BindDeviceDto) HasSystemVersion() bool {
-	if o != nil && o.SystemVersion.IsSet() {
+	if o != nil && !IsNil(o.SystemVersion) {
 		return true
 	}
 
 	return false
 }
 
-// SetSystemVersion gets a reference to the given NullableString and assigns it to the SystemVersion field.
+// SetSystemVersion gets a reference to the given string and assigns it to the SystemVersion field.
 func (o *BindDeviceDto) SetSystemVersion(v string) {
-	o.SystemVersion.Set(&v)
-}
-// SetSystemVersionNil sets the value for SystemVersion to be an explicit nil
-func (o *BindDeviceDto) SetSystemVersionNil() {
-	o.SystemVersion.Set(nil)
-}
-
-// UnsetSystemVersion ensures that no value is present for SystemVersion, not even an explicit nil
-func (o *BindDeviceDto) UnsetSystemVersion() {
-	o.SystemVersion.Unset()
+	o.SystemVersion = &v
 }
 
 func (o BindDeviceDto) MarshalJSON() ([]byte, error) {
@@ -339,26 +279,26 @@ func (o BindDeviceDto) MarshalJSON() ([]byte, error) {
 
 func (o BindDeviceDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Token.IsSet() {
-		toSerialize["token"] = o.Token.Get()
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
 	}
-	if o.TpnsToken.IsSet() {
-		toSerialize["tpnsToken"] = o.TpnsToken.Get()
+	if !IsNil(o.TpnsToken) {
+		toSerialize["tpnsToken"] = o.TpnsToken
 	}
 	if !IsNil(o.IsPhysicalDevice) {
 		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Platform.IsSet() {
-		toSerialize["platform"] = o.Platform.Get()
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
-	if o.Brand.IsSet() {
-		toSerialize["brand"] = o.Brand.Get()
+	if !IsNil(o.Brand) {
+		toSerialize["brand"] = o.Brand
 	}
-	if o.SystemVersion.IsSet() {
-		toSerialize["systemVersion"] = o.SystemVersion.Get()
+	if !IsNil(o.SystemVersion) {
+		toSerialize["systemVersion"] = o.SystemVersion
 	}
 	return toSerialize, nil
 }

@@ -545,11 +545,11 @@ func (a *SimpleDataApiService) ApiAppSimpleDataIdGetExecute(r ApiApiAppSimpleDat
 type ApiApiAppSimpleDataSavePostRequest struct {
 	ctx context.Context
 	ApiService *SimpleDataApiService
-	simpleDataDto *SimpleDataDto
+	body *SimpleDataDto
 }
 
-func (r ApiApiAppSimpleDataSavePostRequest) SimpleDataDto(simpleDataDto SimpleDataDto) ApiApiAppSimpleDataSavePostRequest {
-	r.simpleDataDto = &simpleDataDto
+func (r ApiApiAppSimpleDataSavePostRequest) Body(body SimpleDataDto) ApiApiAppSimpleDataSavePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -609,7 +609,7 @@ func (a *SimpleDataApiService) ApiAppSimpleDataSavePostExecute(r ApiApiAppSimple
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.simpleDataDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

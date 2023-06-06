@@ -19,14 +19,14 @@ var _ MappedNullable = &FeatureDto{}
 
 // FeatureDto struct for FeatureDto
 type FeatureDto struct {
-	Name NullableString `json:"name,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	Value NullableString `json:"value,omitempty"`
+	Name *string `json:"name,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	Value *string `json:"value,omitempty"`
 	Provider *FeatureProviderDto `json:"provider,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	ValueType *IStringValueType `json:"valueType,omitempty"`
 	Depth *int32 `json:"depth,omitempty"`
-	ParentName NullableString `json:"parentName,omitempty"`
+	ParentName *string `json:"parentName,omitempty"`
 }
 
 // NewFeatureDto instantiates a new FeatureDto object
@@ -46,130 +46,100 @@ func NewFeatureDtoWithDefaults() *FeatureDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FeatureDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FeatureDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FeatureDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *FeatureDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *FeatureDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *FeatureDto) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName.Get()) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName.Get()
+	return *o.DisplayName
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayName) {
 		return nil, false
 	}
-	return o.DisplayName.Get(), o.DisplayName.IsSet()
+	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *FeatureDto) HasDisplayName() bool {
-	if o != nil && o.DisplayName.IsSet() {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
 func (o *FeatureDto) SetDisplayName(v string) {
-	o.DisplayName.Set(&v)
-}
-// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-func (o *FeatureDto) SetDisplayNameNil() {
-	o.DisplayName.Set(nil)
+	o.DisplayName = &v
 }
 
-// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-func (o *FeatureDto) UnsetDisplayName() {
-	o.DisplayName.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value if set, zero value otherwise.
 func (o *FeatureDto) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+	return *o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureDto) GetValueOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *FeatureDto) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *FeatureDto) SetValue(v string) {
-	o.Value.Set(&v)
-}
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *FeatureDto) SetValueNil() {
-	o.Value.Set(nil)
-}
-
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *FeatureDto) UnsetValue() {
-	o.Value.Unset()
+	o.Value = &v
 }
 
 // GetProvider returns the Provider field value if set, zero value otherwise.
@@ -204,46 +174,36 @@ func (o *FeatureDto) SetProvider(v FeatureProviderDto) {
 	o.Provider = &v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *FeatureDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *FeatureDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FeatureDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *FeatureDto) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *FeatureDto) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetValueType returns the ValueType field value if set, zero value otherwise.
@@ -310,46 +270,36 @@ func (o *FeatureDto) SetDepth(v int32) {
 	o.Depth = &v
 }
 
-// GetParentName returns the ParentName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetParentName returns the ParentName field value if set, zero value otherwise.
 func (o *FeatureDto) GetParentName() string {
-	if o == nil || IsNil(o.ParentName.Get()) {
+	if o == nil || IsNil(o.ParentName) {
 		var ret string
 		return ret
 	}
-	return *o.ParentName.Get()
+	return *o.ParentName
 }
 
 // GetParentNameOk returns a tuple with the ParentName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureDto) GetParentNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ParentName) {
 		return nil, false
 	}
-	return o.ParentName.Get(), o.ParentName.IsSet()
+	return o.ParentName, true
 }
 
 // HasParentName returns a boolean if a field has been set.
 func (o *FeatureDto) HasParentName() bool {
-	if o != nil && o.ParentName.IsSet() {
+	if o != nil && !IsNil(o.ParentName) {
 		return true
 	}
 
 	return false
 }
 
-// SetParentName gets a reference to the given NullableString and assigns it to the ParentName field.
+// SetParentName gets a reference to the given string and assigns it to the ParentName field.
 func (o *FeatureDto) SetParentName(v string) {
-	o.ParentName.Set(&v)
-}
-// SetParentNameNil sets the value for ParentName to be an explicit nil
-func (o *FeatureDto) SetParentNameNil() {
-	o.ParentName.Set(nil)
-}
-
-// UnsetParentName ensures that no value is present for ParentName, not even an explicit nil
-func (o *FeatureDto) UnsetParentName() {
-	o.ParentName.Unset()
+	o.ParentName = &v
 }
 
 func (o FeatureDto) MarshalJSON() ([]byte, error) {
@@ -362,20 +312,20 @@ func (o FeatureDto) MarshalJSON() ([]byte, error) {
 
 func (o FeatureDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.DisplayName.IsSet() {
-		toSerialize["displayName"] = o.DisplayName.Get()
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
 	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
 	if !IsNil(o.Provider) {
 		toSerialize["provider"] = o.Provider
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.ValueType) {
 		toSerialize["valueType"] = o.ValueType
@@ -383,8 +333,8 @@ func (o FeatureDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Depth) {
 		toSerialize["depth"] = o.Depth
 	}
-	if o.ParentName.IsSet() {
-		toSerialize["parentName"] = o.ParentName.Get()
+	if !IsNil(o.ParentName) {
+		toSerialize["parentName"] = o.ParentName
 	}
 	return toSerialize, nil
 }

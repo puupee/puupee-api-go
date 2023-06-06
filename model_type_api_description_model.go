@@ -19,10 +19,10 @@ var _ MappedNullable = &TypeApiDescriptionModel{}
 
 // TypeApiDescriptionModel struct for TypeApiDescriptionModel
 type TypeApiDescriptionModel struct {
-	BaseType NullableString `json:"baseType,omitempty"`
+	BaseType *string `json:"baseType,omitempty"`
 	IsEnum *bool `json:"isEnum,omitempty"`
 	EnumNames []string `json:"enumNames,omitempty"`
-	EnumValues []interface{} `json:"enumValues,omitempty"`
+	EnumValues []map[string]interface{} `json:"enumValues,omitempty"`
 	GenericArguments []string `json:"genericArguments,omitempty"`
 	Properties []PropertyApiDescriptionModel `json:"properties,omitempty"`
 }
@@ -44,46 +44,36 @@ func NewTypeApiDescriptionModelWithDefaults() *TypeApiDescriptionModel {
 	return &this
 }
 
-// GetBaseType returns the BaseType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBaseType returns the BaseType field value if set, zero value otherwise.
 func (o *TypeApiDescriptionModel) GetBaseType() string {
-	if o == nil || IsNil(o.BaseType.Get()) {
+	if o == nil || IsNil(o.BaseType) {
 		var ret string
 		return ret
 	}
-	return *o.BaseType.Get()
+	return *o.BaseType
 }
 
 // GetBaseTypeOk returns a tuple with the BaseType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TypeApiDescriptionModel) GetBaseTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BaseType) {
 		return nil, false
 	}
-	return o.BaseType.Get(), o.BaseType.IsSet()
+	return o.BaseType, true
 }
 
 // HasBaseType returns a boolean if a field has been set.
 func (o *TypeApiDescriptionModel) HasBaseType() bool {
-	if o != nil && o.BaseType.IsSet() {
+	if o != nil && !IsNil(o.BaseType) {
 		return true
 	}
 
 	return false
 }
 
-// SetBaseType gets a reference to the given NullableString and assigns it to the BaseType field.
+// SetBaseType gets a reference to the given string and assigns it to the BaseType field.
 func (o *TypeApiDescriptionModel) SetBaseType(v string) {
-	o.BaseType.Set(&v)
-}
-// SetBaseTypeNil sets the value for BaseType to be an explicit nil
-func (o *TypeApiDescriptionModel) SetBaseTypeNil() {
-	o.BaseType.Set(nil)
-}
-
-// UnsetBaseType ensures that no value is present for BaseType, not even an explicit nil
-func (o *TypeApiDescriptionModel) UnsetBaseType() {
-	o.BaseType.Unset()
+	o.BaseType = &v
 }
 
 // GetIsEnum returns the IsEnum field value if set, zero value otherwise.
@@ -118,9 +108,9 @@ func (o *TypeApiDescriptionModel) SetIsEnum(v bool) {
 	o.IsEnum = &v
 }
 
-// GetEnumNames returns the EnumNames field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnumNames returns the EnumNames field value if set, zero value otherwise.
 func (o *TypeApiDescriptionModel) GetEnumNames() []string {
-	if o == nil {
+	if o == nil || IsNil(o.EnumNames) {
 		var ret []string
 		return ret
 	}
@@ -129,7 +119,6 @@ func (o *TypeApiDescriptionModel) GetEnumNames() []string {
 
 // GetEnumNamesOk returns a tuple with the EnumNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TypeApiDescriptionModel) GetEnumNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.EnumNames) {
 		return nil, false
@@ -139,7 +128,7 @@ func (o *TypeApiDescriptionModel) GetEnumNamesOk() ([]string, bool) {
 
 // HasEnumNames returns a boolean if a field has been set.
 func (o *TypeApiDescriptionModel) HasEnumNames() bool {
-	if o != nil && IsNil(o.EnumNames) {
+	if o != nil && !IsNil(o.EnumNames) {
 		return true
 	}
 
@@ -151,10 +140,10 @@ func (o *TypeApiDescriptionModel) SetEnumNames(v []string) {
 	o.EnumNames = v
 }
 
-// GetEnumValues returns the EnumValues field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TypeApiDescriptionModel) GetEnumValues() []interface{} {
-	if o == nil {
-		var ret []interface{}
+// GetEnumValues returns the EnumValues field value if set, zero value otherwise.
+func (o *TypeApiDescriptionModel) GetEnumValues() []map[string]interface{} {
+	if o == nil || IsNil(o.EnumValues) {
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.EnumValues
@@ -162,8 +151,7 @@ func (o *TypeApiDescriptionModel) GetEnumValues() []interface{} {
 
 // GetEnumValuesOk returns a tuple with the EnumValues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TypeApiDescriptionModel) GetEnumValuesOk() ([]interface{}, bool) {
+func (o *TypeApiDescriptionModel) GetEnumValuesOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.EnumValues) {
 		return nil, false
 	}
@@ -172,21 +160,21 @@ func (o *TypeApiDescriptionModel) GetEnumValuesOk() ([]interface{}, bool) {
 
 // HasEnumValues returns a boolean if a field has been set.
 func (o *TypeApiDescriptionModel) HasEnumValues() bool {
-	if o != nil && IsNil(o.EnumValues) {
+	if o != nil && !IsNil(o.EnumValues) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnumValues gets a reference to the given []interface{} and assigns it to the EnumValues field.
-func (o *TypeApiDescriptionModel) SetEnumValues(v []interface{}) {
+// SetEnumValues gets a reference to the given []map[string]interface{} and assigns it to the EnumValues field.
+func (o *TypeApiDescriptionModel) SetEnumValues(v []map[string]interface{}) {
 	o.EnumValues = v
 }
 
-// GetGenericArguments returns the GenericArguments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGenericArguments returns the GenericArguments field value if set, zero value otherwise.
 func (o *TypeApiDescriptionModel) GetGenericArguments() []string {
-	if o == nil {
+	if o == nil || IsNil(o.GenericArguments) {
 		var ret []string
 		return ret
 	}
@@ -195,7 +183,6 @@ func (o *TypeApiDescriptionModel) GetGenericArguments() []string {
 
 // GetGenericArgumentsOk returns a tuple with the GenericArguments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TypeApiDescriptionModel) GetGenericArgumentsOk() ([]string, bool) {
 	if o == nil || IsNil(o.GenericArguments) {
 		return nil, false
@@ -205,7 +192,7 @@ func (o *TypeApiDescriptionModel) GetGenericArgumentsOk() ([]string, bool) {
 
 // HasGenericArguments returns a boolean if a field has been set.
 func (o *TypeApiDescriptionModel) HasGenericArguments() bool {
-	if o != nil && IsNil(o.GenericArguments) {
+	if o != nil && !IsNil(o.GenericArguments) {
 		return true
 	}
 
@@ -217,9 +204,9 @@ func (o *TypeApiDescriptionModel) SetGenericArguments(v []string) {
 	o.GenericArguments = v
 }
 
-// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *TypeApiDescriptionModel) GetProperties() []PropertyApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.Properties) {
 		var ret []PropertyApiDescriptionModel
 		return ret
 	}
@@ -228,7 +215,6 @@ func (o *TypeApiDescriptionModel) GetProperties() []PropertyApiDescriptionModel 
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TypeApiDescriptionModel) GetPropertiesOk() ([]PropertyApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.Properties) {
 		return nil, false
@@ -238,7 +224,7 @@ func (o *TypeApiDescriptionModel) GetPropertiesOk() ([]PropertyApiDescriptionMod
 
 // HasProperties returns a boolean if a field has been set.
 func (o *TypeApiDescriptionModel) HasProperties() bool {
-	if o != nil && IsNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -260,22 +246,22 @@ func (o TypeApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o TypeApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.BaseType.IsSet() {
-		toSerialize["baseType"] = o.BaseType.Get()
+	if !IsNil(o.BaseType) {
+		toSerialize["baseType"] = o.BaseType
 	}
 	if !IsNil(o.IsEnum) {
 		toSerialize["isEnum"] = o.IsEnum
 	}
-	if o.EnumNames != nil {
+	if !IsNil(o.EnumNames) {
 		toSerialize["enumNames"] = o.EnumNames
 	}
-	if o.EnumValues != nil {
+	if !IsNil(o.EnumValues) {
 		toSerialize["enumValues"] = o.EnumValues
 	}
-	if o.GenericArguments != nil {
+	if !IsNil(o.GenericArguments) {
 		toSerialize["genericArguments"] = o.GenericArguments
 	}
-	if o.Properties != nil {
+	if !IsNil(o.Properties) {
 		toSerialize["properties"] = o.Properties
 	}
 	return toSerialize, nil

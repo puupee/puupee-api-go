@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**LinkUrl** | Pointer to **NullableString** |  | [optional] 
-**Display** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**LinkUrl** | Pointer to **string** |  | [optional] 
+**Display** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **IsAvailable** | Pointer to **bool** |  | [optional] 
 **HasValue** | Pointer to **bool** |  | [optional] 
@@ -57,16 +57,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CreateOrUpdateAppPricingItemDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *CreateOrUpdateAppPricingItemDto) GetDescription() string`
@@ -92,16 +82,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *CreateOrUpdateAppPricingItemDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetLinkUrl
 
 `func (o *CreateOrUpdateAppPricingItemDto) GetLinkUrl() string`
@@ -127,16 +107,6 @@ SetLinkUrl sets LinkUrl field to given value.
 
 HasLinkUrl returns a boolean if a field has been set.
 
-### SetLinkUrlNil
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetLinkUrlNil(b bool)`
-
- SetLinkUrlNil sets the value for LinkUrl to be an explicit nil
-
-### UnsetLinkUrl
-`func (o *CreateOrUpdateAppPricingItemDto) UnsetLinkUrl()`
-
-UnsetLinkUrl ensures that no value is present for LinkUrl, not even an explicit nil
 ### GetDisplay
 
 `func (o *CreateOrUpdateAppPricingItemDto) GetDisplay() string`
@@ -162,16 +132,6 @@ SetDisplay sets Display field to given value.
 
 HasDisplay returns a boolean if a field has been set.
 
-### SetDisplayNil
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetDisplayNil(b bool)`
-
- SetDisplayNil sets the value for Display to be an explicit nil
-
-### UnsetDisplay
-`func (o *CreateOrUpdateAppPricingItemDto) UnsetDisplay()`
-
-UnsetDisplay ensures that no value is present for Display, not even an explicit nil
 ### GetAppId
 
 `func (o *CreateOrUpdateAppPricingItemDto) GetAppId() string`

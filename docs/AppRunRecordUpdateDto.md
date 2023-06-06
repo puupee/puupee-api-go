@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Status** | **string** |  | 
-**Result** | Pointer to **NullableString** |  | [optional] 
-**Error** | Pointer to **NullableString** |  | [optional] 
-**FinishAt** | Pointer to **NullableTime** |  | [optional] 
-**Output** | Pointer to **NullableString** |  | [optional] 
+**Result** | Pointer to **string** |  | [optional] 
+**Error** | Pointer to **string** |  | [optional] 
+**FinishAt** | Pointer to **time.Time** |  | [optional] 
+**Output** | Pointer to **string** |  | [optional] 
 **WorkerId** | **string** |  | 
 **WorkerName** | **string** |  | 
 
@@ -114,16 +114,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *AppRunRecordUpdateDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *AppRunRecordUpdateDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModificationTime
 
 `func (o *AppRunRecordUpdateDto) GetLastModificationTime() time.Time`
@@ -149,16 +139,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *AppRunRecordUpdateDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *AppRunRecordUpdateDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *AppRunRecordUpdateDto) GetLastModifierId() string`
@@ -184,16 +164,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *AppRunRecordUpdateDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *AppRunRecordUpdateDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *AppRunRecordUpdateDto) GetIsDeleted() bool`
@@ -244,16 +214,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *AppRunRecordUpdateDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *AppRunRecordUpdateDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetDeletionTime
 
 `func (o *AppRunRecordUpdateDto) GetDeletionTime() time.Time`
@@ -279,16 +239,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *AppRunRecordUpdateDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *AppRunRecordUpdateDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetStatus
 
 `func (o *AppRunRecordUpdateDto) GetStatus() string`
@@ -334,16 +284,6 @@ SetResult sets Result field to given value.
 
 HasResult returns a boolean if a field has been set.
 
-### SetResultNil
-
-`func (o *AppRunRecordUpdateDto) SetResultNil(b bool)`
-
- SetResultNil sets the value for Result to be an explicit nil
-
-### UnsetResult
-`func (o *AppRunRecordUpdateDto) UnsetResult()`
-
-UnsetResult ensures that no value is present for Result, not even an explicit nil
 ### GetError
 
 `func (o *AppRunRecordUpdateDto) GetError() string`
@@ -369,16 +309,6 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
-### SetErrorNil
-
-`func (o *AppRunRecordUpdateDto) SetErrorNil(b bool)`
-
- SetErrorNil sets the value for Error to be an explicit nil
-
-### UnsetError
-`func (o *AppRunRecordUpdateDto) UnsetError()`
-
-UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetFinishAt
 
 `func (o *AppRunRecordUpdateDto) GetFinishAt() time.Time`
@@ -404,16 +334,6 @@ SetFinishAt sets FinishAt field to given value.
 
 HasFinishAt returns a boolean if a field has been set.
 
-### SetFinishAtNil
-
-`func (o *AppRunRecordUpdateDto) SetFinishAtNil(b bool)`
-
- SetFinishAtNil sets the value for FinishAt to be an explicit nil
-
-### UnsetFinishAt
-`func (o *AppRunRecordUpdateDto) UnsetFinishAt()`
-
-UnsetFinishAt ensures that no value is present for FinishAt, not even an explicit nil
 ### GetOutput
 
 `func (o *AppRunRecordUpdateDto) GetOutput() string`
@@ -439,16 +359,6 @@ SetOutput sets Output field to given value.
 
 HasOutput returns a boolean if a field has been set.
 
-### SetOutputNil
-
-`func (o *AppRunRecordUpdateDto) SetOutputNil(b bool)`
-
- SetOutputNil sets the value for Output to be an explicit nil
-
-### UnsetOutput
-`func (o *AppRunRecordUpdateDto) UnsetOutput()`
-
-UnsetOutput ensures that no value is present for Output, not even an explicit nil
 ### GetWorkerId
 
 `func (o *AppRunRecordUpdateDto) GetWorkerId() string`

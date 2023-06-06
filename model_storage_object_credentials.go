@@ -19,17 +19,17 @@ var _ MappedNullable = &StorageObjectCredentials{}
 
 // StorageObjectCredentials struct for StorageObjectCredentials
 type StorageObjectCredentials struct {
-	StorageClass NullableString `json:"storageClass,omitempty"`
-	EndPoint NullableString `json:"endPoint,omitempty"`
-	Protocal NullableString `json:"protocal,omitempty"`
-	BucketName NullableString `json:"bucketName,omitempty"`
-	RegionId NullableString `json:"regionId,omitempty"`
-	SecurityToken NullableString `json:"securityToken,omitempty"`
-	AccessKeyId NullableString `json:"accessKeyId,omitempty"`
-	AccessKeySecret NullableString `json:"accessKeySecret,omitempty"`
-	Expiration NullableString `json:"expiration,omitempty"`
+	StorageClass *string `json:"storageClass,omitempty"`
+	EndPoint *string `json:"endPoint,omitempty"`
+	Protocal *string `json:"protocal,omitempty"`
+	BucketName *string `json:"bucketName,omitempty"`
+	RegionId *string `json:"regionId,omitempty"`
+	SecurityToken *string `json:"securityToken,omitempty"`
+	AccessKeyId *string `json:"accessKeyId,omitempty"`
+	AccessKeySecret *string `json:"accessKeySecret,omitempty"`
+	Expiration *string `json:"expiration,omitempty"`
 	ExpiredTime *int64 `json:"expiredTime,omitempty"`
-	AppId NullableString `json:"appId,omitempty"`
+	AppId *string `json:"appId,omitempty"`
 }
 
 // NewStorageObjectCredentials instantiates a new StorageObjectCredentials object
@@ -49,382 +49,292 @@ func NewStorageObjectCredentialsWithDefaults() *StorageObjectCredentials {
 	return &this
 }
 
-// GetStorageClass returns the StorageClass field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStorageClass returns the StorageClass field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetStorageClass() string {
-	if o == nil || IsNil(o.StorageClass.Get()) {
+	if o == nil || IsNil(o.StorageClass) {
 		var ret string
 		return ret
 	}
-	return *o.StorageClass.Get()
+	return *o.StorageClass
 }
 
 // GetStorageClassOk returns a tuple with the StorageClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetStorageClassOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StorageClass) {
 		return nil, false
 	}
-	return o.StorageClass.Get(), o.StorageClass.IsSet()
+	return o.StorageClass, true
 }
 
 // HasStorageClass returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasStorageClass() bool {
-	if o != nil && o.StorageClass.IsSet() {
+	if o != nil && !IsNil(o.StorageClass) {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageClass gets a reference to the given NullableString and assigns it to the StorageClass field.
+// SetStorageClass gets a reference to the given string and assigns it to the StorageClass field.
 func (o *StorageObjectCredentials) SetStorageClass(v string) {
-	o.StorageClass.Set(&v)
-}
-// SetStorageClassNil sets the value for StorageClass to be an explicit nil
-func (o *StorageObjectCredentials) SetStorageClassNil() {
-	o.StorageClass.Set(nil)
+	o.StorageClass = &v
 }
 
-// UnsetStorageClass ensures that no value is present for StorageClass, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetStorageClass() {
-	o.StorageClass.Unset()
-}
-
-// GetEndPoint returns the EndPoint field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndPoint returns the EndPoint field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetEndPoint() string {
-	if o == nil || IsNil(o.EndPoint.Get()) {
+	if o == nil || IsNil(o.EndPoint) {
 		var ret string
 		return ret
 	}
-	return *o.EndPoint.Get()
+	return *o.EndPoint
 }
 
 // GetEndPointOk returns a tuple with the EndPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetEndPointOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndPoint) {
 		return nil, false
 	}
-	return o.EndPoint.Get(), o.EndPoint.IsSet()
+	return o.EndPoint, true
 }
 
 // HasEndPoint returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasEndPoint() bool {
-	if o != nil && o.EndPoint.IsSet() {
+	if o != nil && !IsNil(o.EndPoint) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndPoint gets a reference to the given NullableString and assigns it to the EndPoint field.
+// SetEndPoint gets a reference to the given string and assigns it to the EndPoint field.
 func (o *StorageObjectCredentials) SetEndPoint(v string) {
-	o.EndPoint.Set(&v)
-}
-// SetEndPointNil sets the value for EndPoint to be an explicit nil
-func (o *StorageObjectCredentials) SetEndPointNil() {
-	o.EndPoint.Set(nil)
+	o.EndPoint = &v
 }
 
-// UnsetEndPoint ensures that no value is present for EndPoint, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetEndPoint() {
-	o.EndPoint.Unset()
-}
-
-// GetProtocal returns the Protocal field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProtocal returns the Protocal field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetProtocal() string {
-	if o == nil || IsNil(o.Protocal.Get()) {
+	if o == nil || IsNil(o.Protocal) {
 		var ret string
 		return ret
 	}
-	return *o.Protocal.Get()
+	return *o.Protocal
 }
 
 // GetProtocalOk returns a tuple with the Protocal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetProtocalOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Protocal) {
 		return nil, false
 	}
-	return o.Protocal.Get(), o.Protocal.IsSet()
+	return o.Protocal, true
 }
 
 // HasProtocal returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasProtocal() bool {
-	if o != nil && o.Protocal.IsSet() {
+	if o != nil && !IsNil(o.Protocal) {
 		return true
 	}
 
 	return false
 }
 
-// SetProtocal gets a reference to the given NullableString and assigns it to the Protocal field.
+// SetProtocal gets a reference to the given string and assigns it to the Protocal field.
 func (o *StorageObjectCredentials) SetProtocal(v string) {
-	o.Protocal.Set(&v)
-}
-// SetProtocalNil sets the value for Protocal to be an explicit nil
-func (o *StorageObjectCredentials) SetProtocalNil() {
-	o.Protocal.Set(nil)
+	o.Protocal = &v
 }
 
-// UnsetProtocal ensures that no value is present for Protocal, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetProtocal() {
-	o.Protocal.Unset()
-}
-
-// GetBucketName returns the BucketName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBucketName returns the BucketName field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetBucketName() string {
-	if o == nil || IsNil(o.BucketName.Get()) {
+	if o == nil || IsNil(o.BucketName) {
 		var ret string
 		return ret
 	}
-	return *o.BucketName.Get()
+	return *o.BucketName
 }
 
 // GetBucketNameOk returns a tuple with the BucketName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetBucketNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BucketName) {
 		return nil, false
 	}
-	return o.BucketName.Get(), o.BucketName.IsSet()
+	return o.BucketName, true
 }
 
 // HasBucketName returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasBucketName() bool {
-	if o != nil && o.BucketName.IsSet() {
+	if o != nil && !IsNil(o.BucketName) {
 		return true
 	}
 
 	return false
 }
 
-// SetBucketName gets a reference to the given NullableString and assigns it to the BucketName field.
+// SetBucketName gets a reference to the given string and assigns it to the BucketName field.
 func (o *StorageObjectCredentials) SetBucketName(v string) {
-	o.BucketName.Set(&v)
-}
-// SetBucketNameNil sets the value for BucketName to be an explicit nil
-func (o *StorageObjectCredentials) SetBucketNameNil() {
-	o.BucketName.Set(nil)
+	o.BucketName = &v
 }
 
-// UnsetBucketName ensures that no value is present for BucketName, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetBucketName() {
-	o.BucketName.Unset()
-}
-
-// GetRegionId returns the RegionId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRegionId returns the RegionId field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetRegionId() string {
-	if o == nil || IsNil(o.RegionId.Get()) {
+	if o == nil || IsNil(o.RegionId) {
 		var ret string
 		return ret
 	}
-	return *o.RegionId.Get()
+	return *o.RegionId
 }
 
 // GetRegionIdOk returns a tuple with the RegionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetRegionIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionId) {
 		return nil, false
 	}
-	return o.RegionId.Get(), o.RegionId.IsSet()
+	return o.RegionId, true
 }
 
 // HasRegionId returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasRegionId() bool {
-	if o != nil && o.RegionId.IsSet() {
+	if o != nil && !IsNil(o.RegionId) {
 		return true
 	}
 
 	return false
 }
 
-// SetRegionId gets a reference to the given NullableString and assigns it to the RegionId field.
+// SetRegionId gets a reference to the given string and assigns it to the RegionId field.
 func (o *StorageObjectCredentials) SetRegionId(v string) {
-	o.RegionId.Set(&v)
-}
-// SetRegionIdNil sets the value for RegionId to be an explicit nil
-func (o *StorageObjectCredentials) SetRegionIdNil() {
-	o.RegionId.Set(nil)
+	o.RegionId = &v
 }
 
-// UnsetRegionId ensures that no value is present for RegionId, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetRegionId() {
-	o.RegionId.Unset()
-}
-
-// GetSecurityToken returns the SecurityToken field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSecurityToken returns the SecurityToken field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetSecurityToken() string {
-	if o == nil || IsNil(o.SecurityToken.Get()) {
+	if o == nil || IsNil(o.SecurityToken) {
 		var ret string
 		return ret
 	}
-	return *o.SecurityToken.Get()
+	return *o.SecurityToken
 }
 
 // GetSecurityTokenOk returns a tuple with the SecurityToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetSecurityTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SecurityToken) {
 		return nil, false
 	}
-	return o.SecurityToken.Get(), o.SecurityToken.IsSet()
+	return o.SecurityToken, true
 }
 
 // HasSecurityToken returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasSecurityToken() bool {
-	if o != nil && o.SecurityToken.IsSet() {
+	if o != nil && !IsNil(o.SecurityToken) {
 		return true
 	}
 
 	return false
 }
 
-// SetSecurityToken gets a reference to the given NullableString and assigns it to the SecurityToken field.
+// SetSecurityToken gets a reference to the given string and assigns it to the SecurityToken field.
 func (o *StorageObjectCredentials) SetSecurityToken(v string) {
-	o.SecurityToken.Set(&v)
-}
-// SetSecurityTokenNil sets the value for SecurityToken to be an explicit nil
-func (o *StorageObjectCredentials) SetSecurityTokenNil() {
-	o.SecurityToken.Set(nil)
+	o.SecurityToken = &v
 }
 
-// UnsetSecurityToken ensures that no value is present for SecurityToken, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetSecurityToken() {
-	o.SecurityToken.Unset()
-}
-
-// GetAccessKeyId returns the AccessKeyId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccessKeyId returns the AccessKeyId field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetAccessKeyId() string {
-	if o == nil || IsNil(o.AccessKeyId.Get()) {
+	if o == nil || IsNil(o.AccessKeyId) {
 		var ret string
 		return ret
 	}
-	return *o.AccessKeyId.Get()
+	return *o.AccessKeyId
 }
 
 // GetAccessKeyIdOk returns a tuple with the AccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetAccessKeyIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccessKeyId) {
 		return nil, false
 	}
-	return o.AccessKeyId.Get(), o.AccessKeyId.IsSet()
+	return o.AccessKeyId, true
 }
 
 // HasAccessKeyId returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasAccessKeyId() bool {
-	if o != nil && o.AccessKeyId.IsSet() {
+	if o != nil && !IsNil(o.AccessKeyId) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccessKeyId gets a reference to the given NullableString and assigns it to the AccessKeyId field.
+// SetAccessKeyId gets a reference to the given string and assigns it to the AccessKeyId field.
 func (o *StorageObjectCredentials) SetAccessKeyId(v string) {
-	o.AccessKeyId.Set(&v)
-}
-// SetAccessKeyIdNil sets the value for AccessKeyId to be an explicit nil
-func (o *StorageObjectCredentials) SetAccessKeyIdNil() {
-	o.AccessKeyId.Set(nil)
+	o.AccessKeyId = &v
 }
 
-// UnsetAccessKeyId ensures that no value is present for AccessKeyId, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetAccessKeyId() {
-	o.AccessKeyId.Unset()
-}
-
-// GetAccessKeySecret returns the AccessKeySecret field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccessKeySecret returns the AccessKeySecret field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetAccessKeySecret() string {
-	if o == nil || IsNil(o.AccessKeySecret.Get()) {
+	if o == nil || IsNil(o.AccessKeySecret) {
 		var ret string
 		return ret
 	}
-	return *o.AccessKeySecret.Get()
+	return *o.AccessKeySecret
 }
 
 // GetAccessKeySecretOk returns a tuple with the AccessKeySecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetAccessKeySecretOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccessKeySecret) {
 		return nil, false
 	}
-	return o.AccessKeySecret.Get(), o.AccessKeySecret.IsSet()
+	return o.AccessKeySecret, true
 }
 
 // HasAccessKeySecret returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasAccessKeySecret() bool {
-	if o != nil && o.AccessKeySecret.IsSet() {
+	if o != nil && !IsNil(o.AccessKeySecret) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccessKeySecret gets a reference to the given NullableString and assigns it to the AccessKeySecret field.
+// SetAccessKeySecret gets a reference to the given string and assigns it to the AccessKeySecret field.
 func (o *StorageObjectCredentials) SetAccessKeySecret(v string) {
-	o.AccessKeySecret.Set(&v)
-}
-// SetAccessKeySecretNil sets the value for AccessKeySecret to be an explicit nil
-func (o *StorageObjectCredentials) SetAccessKeySecretNil() {
-	o.AccessKeySecret.Set(nil)
+	o.AccessKeySecret = &v
 }
 
-// UnsetAccessKeySecret ensures that no value is present for AccessKeySecret, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetAccessKeySecret() {
-	o.AccessKeySecret.Unset()
-}
-
-// GetExpiration returns the Expiration field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiration returns the Expiration field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetExpiration() string {
-	if o == nil || IsNil(o.Expiration.Get()) {
+	if o == nil || IsNil(o.Expiration) {
 		var ret string
 		return ret
 	}
-	return *o.Expiration.Get()
+	return *o.Expiration
 }
 
 // GetExpirationOk returns a tuple with the Expiration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetExpirationOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Expiration) {
 		return nil, false
 	}
-	return o.Expiration.Get(), o.Expiration.IsSet()
+	return o.Expiration, true
 }
 
 // HasExpiration returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasExpiration() bool {
-	if o != nil && o.Expiration.IsSet() {
+	if o != nil && !IsNil(o.Expiration) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiration gets a reference to the given NullableString and assigns it to the Expiration field.
+// SetExpiration gets a reference to the given string and assigns it to the Expiration field.
 func (o *StorageObjectCredentials) SetExpiration(v string) {
-	o.Expiration.Set(&v)
-}
-// SetExpirationNil sets the value for Expiration to be an explicit nil
-func (o *StorageObjectCredentials) SetExpirationNil() {
-	o.Expiration.Set(nil)
-}
-
-// UnsetExpiration ensures that no value is present for Expiration, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetExpiration() {
-	o.Expiration.Unset()
+	o.Expiration = &v
 }
 
 // GetExpiredTime returns the ExpiredTime field value if set, zero value otherwise.
@@ -459,46 +369,36 @@ func (o *StorageObjectCredentials) SetExpiredTime(v int64) {
 	o.ExpiredTime = &v
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *StorageObjectCredentials) GetAppId() string {
-	if o == nil || IsNil(o.AppId.Get()) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
-	return *o.AppId.Get()
+	return *o.AppId
 }
 
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectCredentials) GetAppIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppId) {
 		return nil, false
 	}
-	return o.AppId.Get(), o.AppId.IsSet()
+	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *StorageObjectCredentials) HasAppId() bool {
-	if o != nil && o.AppId.IsSet() {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
 	return false
 }
 
-// SetAppId gets a reference to the given NullableString and assigns it to the AppId field.
+// SetAppId gets a reference to the given string and assigns it to the AppId field.
 func (o *StorageObjectCredentials) SetAppId(v string) {
-	o.AppId.Set(&v)
-}
-// SetAppIdNil sets the value for AppId to be an explicit nil
-func (o *StorageObjectCredentials) SetAppIdNil() {
-	o.AppId.Set(nil)
-}
-
-// UnsetAppId ensures that no value is present for AppId, not even an explicit nil
-func (o *StorageObjectCredentials) UnsetAppId() {
-	o.AppId.Unset()
+	o.AppId = &v
 }
 
 func (o StorageObjectCredentials) MarshalJSON() ([]byte, error) {
@@ -511,38 +411,38 @@ func (o StorageObjectCredentials) MarshalJSON() ([]byte, error) {
 
 func (o StorageObjectCredentials) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.StorageClass.IsSet() {
-		toSerialize["storageClass"] = o.StorageClass.Get()
+	if !IsNil(o.StorageClass) {
+		toSerialize["storageClass"] = o.StorageClass
 	}
-	if o.EndPoint.IsSet() {
-		toSerialize["endPoint"] = o.EndPoint.Get()
+	if !IsNil(o.EndPoint) {
+		toSerialize["endPoint"] = o.EndPoint
 	}
-	if o.Protocal.IsSet() {
-		toSerialize["protocal"] = o.Protocal.Get()
+	if !IsNil(o.Protocal) {
+		toSerialize["protocal"] = o.Protocal
 	}
-	if o.BucketName.IsSet() {
-		toSerialize["bucketName"] = o.BucketName.Get()
+	if !IsNil(o.BucketName) {
+		toSerialize["bucketName"] = o.BucketName
 	}
-	if o.RegionId.IsSet() {
-		toSerialize["regionId"] = o.RegionId.Get()
+	if !IsNil(o.RegionId) {
+		toSerialize["regionId"] = o.RegionId
 	}
-	if o.SecurityToken.IsSet() {
-		toSerialize["securityToken"] = o.SecurityToken.Get()
+	if !IsNil(o.SecurityToken) {
+		toSerialize["securityToken"] = o.SecurityToken
 	}
-	if o.AccessKeyId.IsSet() {
-		toSerialize["accessKeyId"] = o.AccessKeyId.Get()
+	if !IsNil(o.AccessKeyId) {
+		toSerialize["accessKeyId"] = o.AccessKeyId
 	}
-	if o.AccessKeySecret.IsSet() {
-		toSerialize["accessKeySecret"] = o.AccessKeySecret.Get()
+	if !IsNil(o.AccessKeySecret) {
+		toSerialize["accessKeySecret"] = o.AccessKeySecret
 	}
-	if o.Expiration.IsSet() {
-		toSerialize["expiration"] = o.Expiration.Get()
+	if !IsNil(o.Expiration) {
+		toSerialize["expiration"] = o.Expiration
 	}
 	if !IsNil(o.ExpiredTime) {
 		toSerialize["expiredTime"] = o.ExpiredTime
 	}
-	if o.AppId.IsSet() {
-		toSerialize["appId"] = o.AppId.Get()
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
 	}
 	return toSerialize, nil
 }

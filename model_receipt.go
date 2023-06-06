@@ -19,23 +19,23 @@ var _ MappedNullable = &Receipt{}
 
 // Receipt struct for Receipt
 type Receipt struct {
-	ReceiptType NullableString `json:"receipt_type,omitempty"`
+	ReceiptType *string `json:"receipt_type,omitempty"`
 	AdamId *int32 `json:"adam_id,omitempty"`
 	AppItemId *int32 `json:"app_item_id,omitempty"`
-	BundleId NullableString `json:"bundle_id,omitempty"`
-	ApplicationVersion NullableString `json:"application_version,omitempty"`
+	BundleId *string `json:"bundle_id,omitempty"`
+	ApplicationVersion *string `json:"application_version,omitempty"`
 	DownloadId *int32 `json:"download_id,omitempty"`
 	VersionExternalIdentifier *int32 `json:"version_external_identifier,omitempty"`
-	ReceiptCreationDate NullableString `json:"receipt_creation_date,omitempty"`
-	ReceiptCreationDateMs NullableString `json:"receipt_creation_date_ms,omitempty"`
-	ReceiptCreationDatePst NullableString `json:"receipt_creation_date_pst,omitempty"`
-	RequestDate NullableString `json:"request_date,omitempty"`
-	RequestDateMs NullableString `json:"request_date_ms,omitempty"`
-	RequestDatePst NullableString `json:"request_date_pst,omitempty"`
-	OriginalPurchaseDate NullableString `json:"original_purchase_date,omitempty"`
-	OriginalPurchaseDateMs NullableString `json:"original_purchase_date_ms,omitempty"`
-	OriginalPurchaseDatePst NullableString `json:"original_purchase_date_pst,omitempty"`
-	OriginalApplicationVersion NullableString `json:"original_application_version,omitempty"`
+	ReceiptCreationDate *string `json:"receipt_creation_date,omitempty"`
+	ReceiptCreationDateMs *string `json:"receipt_creation_date_ms,omitempty"`
+	ReceiptCreationDatePst *string `json:"receipt_creation_date_pst,omitempty"`
+	RequestDate *string `json:"request_date,omitempty"`
+	RequestDateMs *string `json:"request_date_ms,omitempty"`
+	RequestDatePst *string `json:"request_date_pst,omitempty"`
+	OriginalPurchaseDate *string `json:"original_purchase_date,omitempty"`
+	OriginalPurchaseDateMs *string `json:"original_purchase_date_ms,omitempty"`
+	OriginalPurchaseDatePst *string `json:"original_purchase_date_pst,omitempty"`
+	OriginalApplicationVersion *string `json:"original_application_version,omitempty"`
 	InApp []InApp `json:"in_app,omitempty"`
 }
 
@@ -56,46 +56,36 @@ func NewReceiptWithDefaults() *Receipt {
 	return &this
 }
 
-// GetReceiptType returns the ReceiptType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReceiptType returns the ReceiptType field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptType() string {
-	if o == nil || IsNil(o.ReceiptType.Get()) {
+	if o == nil || IsNil(o.ReceiptType) {
 		var ret string
 		return ret
 	}
-	return *o.ReceiptType.Get()
+	return *o.ReceiptType
 }
 
 // GetReceiptTypeOk returns a tuple with the ReceiptType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetReceiptTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReceiptType) {
 		return nil, false
 	}
-	return o.ReceiptType.Get(), o.ReceiptType.IsSet()
+	return o.ReceiptType, true
 }
 
 // HasReceiptType returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptType() bool {
-	if o != nil && o.ReceiptType.IsSet() {
+	if o != nil && !IsNil(o.ReceiptType) {
 		return true
 	}
 
 	return false
 }
 
-// SetReceiptType gets a reference to the given NullableString and assigns it to the ReceiptType field.
+// SetReceiptType gets a reference to the given string and assigns it to the ReceiptType field.
 func (o *Receipt) SetReceiptType(v string) {
-	o.ReceiptType.Set(&v)
-}
-// SetReceiptTypeNil sets the value for ReceiptType to be an explicit nil
-func (o *Receipt) SetReceiptTypeNil() {
-	o.ReceiptType.Set(nil)
-}
-
-// UnsetReceiptType ensures that no value is present for ReceiptType, not even an explicit nil
-func (o *Receipt) UnsetReceiptType() {
-	o.ReceiptType.Unset()
+	o.ReceiptType = &v
 }
 
 // GetAdamId returns the AdamId field value if set, zero value otherwise.
@@ -162,88 +152,68 @@ func (o *Receipt) SetAppItemId(v int32) {
 	o.AppItemId = &v
 }
 
-// GetBundleId returns the BundleId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBundleId returns the BundleId field value if set, zero value otherwise.
 func (o *Receipt) GetBundleId() string {
-	if o == nil || IsNil(o.BundleId.Get()) {
+	if o == nil || IsNil(o.BundleId) {
 		var ret string
 		return ret
 	}
-	return *o.BundleId.Get()
+	return *o.BundleId
 }
 
 // GetBundleIdOk returns a tuple with the BundleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetBundleIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BundleId) {
 		return nil, false
 	}
-	return o.BundleId.Get(), o.BundleId.IsSet()
+	return o.BundleId, true
 }
 
 // HasBundleId returns a boolean if a field has been set.
 func (o *Receipt) HasBundleId() bool {
-	if o != nil && o.BundleId.IsSet() {
+	if o != nil && !IsNil(o.BundleId) {
 		return true
 	}
 
 	return false
 }
 
-// SetBundleId gets a reference to the given NullableString and assigns it to the BundleId field.
+// SetBundleId gets a reference to the given string and assigns it to the BundleId field.
 func (o *Receipt) SetBundleId(v string) {
-	o.BundleId.Set(&v)
-}
-// SetBundleIdNil sets the value for BundleId to be an explicit nil
-func (o *Receipt) SetBundleIdNil() {
-	o.BundleId.Set(nil)
+	o.BundleId = &v
 }
 
-// UnsetBundleId ensures that no value is present for BundleId, not even an explicit nil
-func (o *Receipt) UnsetBundleId() {
-	o.BundleId.Unset()
-}
-
-// GetApplicationVersion returns the ApplicationVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApplicationVersion returns the ApplicationVersion field value if set, zero value otherwise.
 func (o *Receipt) GetApplicationVersion() string {
-	if o == nil || IsNil(o.ApplicationVersion.Get()) {
+	if o == nil || IsNil(o.ApplicationVersion) {
 		var ret string
 		return ret
 	}
-	return *o.ApplicationVersion.Get()
+	return *o.ApplicationVersion
 }
 
 // GetApplicationVersionOk returns a tuple with the ApplicationVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetApplicationVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ApplicationVersion) {
 		return nil, false
 	}
-	return o.ApplicationVersion.Get(), o.ApplicationVersion.IsSet()
+	return o.ApplicationVersion, true
 }
 
 // HasApplicationVersion returns a boolean if a field has been set.
 func (o *Receipt) HasApplicationVersion() bool {
-	if o != nil && o.ApplicationVersion.IsSet() {
+	if o != nil && !IsNil(o.ApplicationVersion) {
 		return true
 	}
 
 	return false
 }
 
-// SetApplicationVersion gets a reference to the given NullableString and assigns it to the ApplicationVersion field.
+// SetApplicationVersion gets a reference to the given string and assigns it to the ApplicationVersion field.
 func (o *Receipt) SetApplicationVersion(v string) {
-	o.ApplicationVersion.Set(&v)
-}
-// SetApplicationVersionNil sets the value for ApplicationVersion to be an explicit nil
-func (o *Receipt) SetApplicationVersionNil() {
-	o.ApplicationVersion.Set(nil)
-}
-
-// UnsetApplicationVersion ensures that no value is present for ApplicationVersion, not even an explicit nil
-func (o *Receipt) UnsetApplicationVersion() {
-	o.ApplicationVersion.Unset()
+	o.ApplicationVersion = &v
 }
 
 // GetDownloadId returns the DownloadId field value if set, zero value otherwise.
@@ -310,429 +280,329 @@ func (o *Receipt) SetVersionExternalIdentifier(v int32) {
 	o.VersionExternalIdentifier = &v
 }
 
-// GetReceiptCreationDate returns the ReceiptCreationDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReceiptCreationDate returns the ReceiptCreationDate field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptCreationDate() string {
-	if o == nil || IsNil(o.ReceiptCreationDate.Get()) {
+	if o == nil || IsNil(o.ReceiptCreationDate) {
 		var ret string
 		return ret
 	}
-	return *o.ReceiptCreationDate.Get()
+	return *o.ReceiptCreationDate
 }
 
 // GetReceiptCreationDateOk returns a tuple with the ReceiptCreationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetReceiptCreationDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReceiptCreationDate) {
 		return nil, false
 	}
-	return o.ReceiptCreationDate.Get(), o.ReceiptCreationDate.IsSet()
+	return o.ReceiptCreationDate, true
 }
 
 // HasReceiptCreationDate returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptCreationDate() bool {
-	if o != nil && o.ReceiptCreationDate.IsSet() {
+	if o != nil && !IsNil(o.ReceiptCreationDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetReceiptCreationDate gets a reference to the given NullableString and assigns it to the ReceiptCreationDate field.
+// SetReceiptCreationDate gets a reference to the given string and assigns it to the ReceiptCreationDate field.
 func (o *Receipt) SetReceiptCreationDate(v string) {
-	o.ReceiptCreationDate.Set(&v)
-}
-// SetReceiptCreationDateNil sets the value for ReceiptCreationDate to be an explicit nil
-func (o *Receipt) SetReceiptCreationDateNil() {
-	o.ReceiptCreationDate.Set(nil)
+	o.ReceiptCreationDate = &v
 }
 
-// UnsetReceiptCreationDate ensures that no value is present for ReceiptCreationDate, not even an explicit nil
-func (o *Receipt) UnsetReceiptCreationDate() {
-	o.ReceiptCreationDate.Unset()
-}
-
-// GetReceiptCreationDateMs returns the ReceiptCreationDateMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReceiptCreationDateMs returns the ReceiptCreationDateMs field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptCreationDateMs() string {
-	if o == nil || IsNil(o.ReceiptCreationDateMs.Get()) {
+	if o == nil || IsNil(o.ReceiptCreationDateMs) {
 		var ret string
 		return ret
 	}
-	return *o.ReceiptCreationDateMs.Get()
+	return *o.ReceiptCreationDateMs
 }
 
 // GetReceiptCreationDateMsOk returns a tuple with the ReceiptCreationDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetReceiptCreationDateMsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReceiptCreationDateMs) {
 		return nil, false
 	}
-	return o.ReceiptCreationDateMs.Get(), o.ReceiptCreationDateMs.IsSet()
+	return o.ReceiptCreationDateMs, true
 }
 
 // HasReceiptCreationDateMs returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptCreationDateMs() bool {
-	if o != nil && o.ReceiptCreationDateMs.IsSet() {
+	if o != nil && !IsNil(o.ReceiptCreationDateMs) {
 		return true
 	}
 
 	return false
 }
 
-// SetReceiptCreationDateMs gets a reference to the given NullableString and assigns it to the ReceiptCreationDateMs field.
+// SetReceiptCreationDateMs gets a reference to the given string and assigns it to the ReceiptCreationDateMs field.
 func (o *Receipt) SetReceiptCreationDateMs(v string) {
-	o.ReceiptCreationDateMs.Set(&v)
-}
-// SetReceiptCreationDateMsNil sets the value for ReceiptCreationDateMs to be an explicit nil
-func (o *Receipt) SetReceiptCreationDateMsNil() {
-	o.ReceiptCreationDateMs.Set(nil)
+	o.ReceiptCreationDateMs = &v
 }
 
-// UnsetReceiptCreationDateMs ensures that no value is present for ReceiptCreationDateMs, not even an explicit nil
-func (o *Receipt) UnsetReceiptCreationDateMs() {
-	o.ReceiptCreationDateMs.Unset()
-}
-
-// GetReceiptCreationDatePst returns the ReceiptCreationDatePst field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReceiptCreationDatePst returns the ReceiptCreationDatePst field value if set, zero value otherwise.
 func (o *Receipt) GetReceiptCreationDatePst() string {
-	if o == nil || IsNil(o.ReceiptCreationDatePst.Get()) {
+	if o == nil || IsNil(o.ReceiptCreationDatePst) {
 		var ret string
 		return ret
 	}
-	return *o.ReceiptCreationDatePst.Get()
+	return *o.ReceiptCreationDatePst
 }
 
 // GetReceiptCreationDatePstOk returns a tuple with the ReceiptCreationDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetReceiptCreationDatePstOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReceiptCreationDatePst) {
 		return nil, false
 	}
-	return o.ReceiptCreationDatePst.Get(), o.ReceiptCreationDatePst.IsSet()
+	return o.ReceiptCreationDatePst, true
 }
 
 // HasReceiptCreationDatePst returns a boolean if a field has been set.
 func (o *Receipt) HasReceiptCreationDatePst() bool {
-	if o != nil && o.ReceiptCreationDatePst.IsSet() {
+	if o != nil && !IsNil(o.ReceiptCreationDatePst) {
 		return true
 	}
 
 	return false
 }
 
-// SetReceiptCreationDatePst gets a reference to the given NullableString and assigns it to the ReceiptCreationDatePst field.
+// SetReceiptCreationDatePst gets a reference to the given string and assigns it to the ReceiptCreationDatePst field.
 func (o *Receipt) SetReceiptCreationDatePst(v string) {
-	o.ReceiptCreationDatePst.Set(&v)
-}
-// SetReceiptCreationDatePstNil sets the value for ReceiptCreationDatePst to be an explicit nil
-func (o *Receipt) SetReceiptCreationDatePstNil() {
-	o.ReceiptCreationDatePst.Set(nil)
+	o.ReceiptCreationDatePst = &v
 }
 
-// UnsetReceiptCreationDatePst ensures that no value is present for ReceiptCreationDatePst, not even an explicit nil
-func (o *Receipt) UnsetReceiptCreationDatePst() {
-	o.ReceiptCreationDatePst.Unset()
-}
-
-// GetRequestDate returns the RequestDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequestDate returns the RequestDate field value if set, zero value otherwise.
 func (o *Receipt) GetRequestDate() string {
-	if o == nil || IsNil(o.RequestDate.Get()) {
+	if o == nil || IsNil(o.RequestDate) {
 		var ret string
 		return ret
 	}
-	return *o.RequestDate.Get()
+	return *o.RequestDate
 }
 
 // GetRequestDateOk returns a tuple with the RequestDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetRequestDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequestDate) {
 		return nil, false
 	}
-	return o.RequestDate.Get(), o.RequestDate.IsSet()
+	return o.RequestDate, true
 }
 
 // HasRequestDate returns a boolean if a field has been set.
 func (o *Receipt) HasRequestDate() bool {
-	if o != nil && o.RequestDate.IsSet() {
+	if o != nil && !IsNil(o.RequestDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestDate gets a reference to the given NullableString and assigns it to the RequestDate field.
+// SetRequestDate gets a reference to the given string and assigns it to the RequestDate field.
 func (o *Receipt) SetRequestDate(v string) {
-	o.RequestDate.Set(&v)
-}
-// SetRequestDateNil sets the value for RequestDate to be an explicit nil
-func (o *Receipt) SetRequestDateNil() {
-	o.RequestDate.Set(nil)
+	o.RequestDate = &v
 }
 
-// UnsetRequestDate ensures that no value is present for RequestDate, not even an explicit nil
-func (o *Receipt) UnsetRequestDate() {
-	o.RequestDate.Unset()
-}
-
-// GetRequestDateMs returns the RequestDateMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequestDateMs returns the RequestDateMs field value if set, zero value otherwise.
 func (o *Receipt) GetRequestDateMs() string {
-	if o == nil || IsNil(o.RequestDateMs.Get()) {
+	if o == nil || IsNil(o.RequestDateMs) {
 		var ret string
 		return ret
 	}
-	return *o.RequestDateMs.Get()
+	return *o.RequestDateMs
 }
 
 // GetRequestDateMsOk returns a tuple with the RequestDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetRequestDateMsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequestDateMs) {
 		return nil, false
 	}
-	return o.RequestDateMs.Get(), o.RequestDateMs.IsSet()
+	return o.RequestDateMs, true
 }
 
 // HasRequestDateMs returns a boolean if a field has been set.
 func (o *Receipt) HasRequestDateMs() bool {
-	if o != nil && o.RequestDateMs.IsSet() {
+	if o != nil && !IsNil(o.RequestDateMs) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestDateMs gets a reference to the given NullableString and assigns it to the RequestDateMs field.
+// SetRequestDateMs gets a reference to the given string and assigns it to the RequestDateMs field.
 func (o *Receipt) SetRequestDateMs(v string) {
-	o.RequestDateMs.Set(&v)
-}
-// SetRequestDateMsNil sets the value for RequestDateMs to be an explicit nil
-func (o *Receipt) SetRequestDateMsNil() {
-	o.RequestDateMs.Set(nil)
+	o.RequestDateMs = &v
 }
 
-// UnsetRequestDateMs ensures that no value is present for RequestDateMs, not even an explicit nil
-func (o *Receipt) UnsetRequestDateMs() {
-	o.RequestDateMs.Unset()
-}
-
-// GetRequestDatePst returns the RequestDatePst field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRequestDatePst returns the RequestDatePst field value if set, zero value otherwise.
 func (o *Receipt) GetRequestDatePst() string {
-	if o == nil || IsNil(o.RequestDatePst.Get()) {
+	if o == nil || IsNil(o.RequestDatePst) {
 		var ret string
 		return ret
 	}
-	return *o.RequestDatePst.Get()
+	return *o.RequestDatePst
 }
 
 // GetRequestDatePstOk returns a tuple with the RequestDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetRequestDatePstOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RequestDatePst) {
 		return nil, false
 	}
-	return o.RequestDatePst.Get(), o.RequestDatePst.IsSet()
+	return o.RequestDatePst, true
 }
 
 // HasRequestDatePst returns a boolean if a field has been set.
 func (o *Receipt) HasRequestDatePst() bool {
-	if o != nil && o.RequestDatePst.IsSet() {
+	if o != nil && !IsNil(o.RequestDatePst) {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestDatePst gets a reference to the given NullableString and assigns it to the RequestDatePst field.
+// SetRequestDatePst gets a reference to the given string and assigns it to the RequestDatePst field.
 func (o *Receipt) SetRequestDatePst(v string) {
-	o.RequestDatePst.Set(&v)
-}
-// SetRequestDatePstNil sets the value for RequestDatePst to be an explicit nil
-func (o *Receipt) SetRequestDatePstNil() {
-	o.RequestDatePst.Set(nil)
+	o.RequestDatePst = &v
 }
 
-// UnsetRequestDatePst ensures that no value is present for RequestDatePst, not even an explicit nil
-func (o *Receipt) UnsetRequestDatePst() {
-	o.RequestDatePst.Unset()
-}
-
-// GetOriginalPurchaseDate returns the OriginalPurchaseDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalPurchaseDate returns the OriginalPurchaseDate field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalPurchaseDate() string {
-	if o == nil || IsNil(o.OriginalPurchaseDate.Get()) {
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalPurchaseDate.Get()
+	return *o.OriginalPurchaseDate
 }
 
 // GetOriginalPurchaseDateOk returns a tuple with the OriginalPurchaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetOriginalPurchaseDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalPurchaseDate) {
 		return nil, false
 	}
-	return o.OriginalPurchaseDate.Get(), o.OriginalPurchaseDate.IsSet()
+	return o.OriginalPurchaseDate, true
 }
 
 // HasOriginalPurchaseDate returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalPurchaseDate() bool {
-	if o != nil && o.OriginalPurchaseDate.IsSet() {
+	if o != nil && !IsNil(o.OriginalPurchaseDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalPurchaseDate gets a reference to the given NullableString and assigns it to the OriginalPurchaseDate field.
+// SetOriginalPurchaseDate gets a reference to the given string and assigns it to the OriginalPurchaseDate field.
 func (o *Receipt) SetOriginalPurchaseDate(v string) {
-	o.OriginalPurchaseDate.Set(&v)
-}
-// SetOriginalPurchaseDateNil sets the value for OriginalPurchaseDate to be an explicit nil
-func (o *Receipt) SetOriginalPurchaseDateNil() {
-	o.OriginalPurchaseDate.Set(nil)
+	o.OriginalPurchaseDate = &v
 }
 
-// UnsetOriginalPurchaseDate ensures that no value is present for OriginalPurchaseDate, not even an explicit nil
-func (o *Receipt) UnsetOriginalPurchaseDate() {
-	o.OriginalPurchaseDate.Unset()
-}
-
-// GetOriginalPurchaseDateMs returns the OriginalPurchaseDateMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalPurchaseDateMs returns the OriginalPurchaseDateMs field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalPurchaseDateMs() string {
-	if o == nil || IsNil(o.OriginalPurchaseDateMs.Get()) {
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalPurchaseDateMs.Get()
+	return *o.OriginalPurchaseDateMs
 }
 
 // GetOriginalPurchaseDateMsOk returns a tuple with the OriginalPurchaseDateMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetOriginalPurchaseDateMsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalPurchaseDateMs) {
 		return nil, false
 	}
-	return o.OriginalPurchaseDateMs.Get(), o.OriginalPurchaseDateMs.IsSet()
+	return o.OriginalPurchaseDateMs, true
 }
 
 // HasOriginalPurchaseDateMs returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalPurchaseDateMs() bool {
-	if o != nil && o.OriginalPurchaseDateMs.IsSet() {
+	if o != nil && !IsNil(o.OriginalPurchaseDateMs) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalPurchaseDateMs gets a reference to the given NullableString and assigns it to the OriginalPurchaseDateMs field.
+// SetOriginalPurchaseDateMs gets a reference to the given string and assigns it to the OriginalPurchaseDateMs field.
 func (o *Receipt) SetOriginalPurchaseDateMs(v string) {
-	o.OriginalPurchaseDateMs.Set(&v)
-}
-// SetOriginalPurchaseDateMsNil sets the value for OriginalPurchaseDateMs to be an explicit nil
-func (o *Receipt) SetOriginalPurchaseDateMsNil() {
-	o.OriginalPurchaseDateMs.Set(nil)
+	o.OriginalPurchaseDateMs = &v
 }
 
-// UnsetOriginalPurchaseDateMs ensures that no value is present for OriginalPurchaseDateMs, not even an explicit nil
-func (o *Receipt) UnsetOriginalPurchaseDateMs() {
-	o.OriginalPurchaseDateMs.Unset()
-}
-
-// GetOriginalPurchaseDatePst returns the OriginalPurchaseDatePst field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalPurchaseDatePst returns the OriginalPurchaseDatePst field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalPurchaseDatePst() string {
-	if o == nil || IsNil(o.OriginalPurchaseDatePst.Get()) {
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalPurchaseDatePst.Get()
+	return *o.OriginalPurchaseDatePst
 }
 
 // GetOriginalPurchaseDatePstOk returns a tuple with the OriginalPurchaseDatePst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetOriginalPurchaseDatePstOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalPurchaseDatePst) {
 		return nil, false
 	}
-	return o.OriginalPurchaseDatePst.Get(), o.OriginalPurchaseDatePst.IsSet()
+	return o.OriginalPurchaseDatePst, true
 }
 
 // HasOriginalPurchaseDatePst returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalPurchaseDatePst() bool {
-	if o != nil && o.OriginalPurchaseDatePst.IsSet() {
+	if o != nil && !IsNil(o.OriginalPurchaseDatePst) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalPurchaseDatePst gets a reference to the given NullableString and assigns it to the OriginalPurchaseDatePst field.
+// SetOriginalPurchaseDatePst gets a reference to the given string and assigns it to the OriginalPurchaseDatePst field.
 func (o *Receipt) SetOriginalPurchaseDatePst(v string) {
-	o.OriginalPurchaseDatePst.Set(&v)
-}
-// SetOriginalPurchaseDatePstNil sets the value for OriginalPurchaseDatePst to be an explicit nil
-func (o *Receipt) SetOriginalPurchaseDatePstNil() {
-	o.OriginalPurchaseDatePst.Set(nil)
+	o.OriginalPurchaseDatePst = &v
 }
 
-// UnsetOriginalPurchaseDatePst ensures that no value is present for OriginalPurchaseDatePst, not even an explicit nil
-func (o *Receipt) UnsetOriginalPurchaseDatePst() {
-	o.OriginalPurchaseDatePst.Unset()
-}
-
-// GetOriginalApplicationVersion returns the OriginalApplicationVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOriginalApplicationVersion returns the OriginalApplicationVersion field value if set, zero value otherwise.
 func (o *Receipt) GetOriginalApplicationVersion() string {
-	if o == nil || IsNil(o.OriginalApplicationVersion.Get()) {
+	if o == nil || IsNil(o.OriginalApplicationVersion) {
 		var ret string
 		return ret
 	}
-	return *o.OriginalApplicationVersion.Get()
+	return *o.OriginalApplicationVersion
 }
 
 // GetOriginalApplicationVersionOk returns a tuple with the OriginalApplicationVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetOriginalApplicationVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OriginalApplicationVersion) {
 		return nil, false
 	}
-	return o.OriginalApplicationVersion.Get(), o.OriginalApplicationVersion.IsSet()
+	return o.OriginalApplicationVersion, true
 }
 
 // HasOriginalApplicationVersion returns a boolean if a field has been set.
 func (o *Receipt) HasOriginalApplicationVersion() bool {
-	if o != nil && o.OriginalApplicationVersion.IsSet() {
+	if o != nil && !IsNil(o.OriginalApplicationVersion) {
 		return true
 	}
 
 	return false
 }
 
-// SetOriginalApplicationVersion gets a reference to the given NullableString and assigns it to the OriginalApplicationVersion field.
+// SetOriginalApplicationVersion gets a reference to the given string and assigns it to the OriginalApplicationVersion field.
 func (o *Receipt) SetOriginalApplicationVersion(v string) {
-	o.OriginalApplicationVersion.Set(&v)
-}
-// SetOriginalApplicationVersionNil sets the value for OriginalApplicationVersion to be an explicit nil
-func (o *Receipt) SetOriginalApplicationVersionNil() {
-	o.OriginalApplicationVersion.Set(nil)
+	o.OriginalApplicationVersion = &v
 }
 
-// UnsetOriginalApplicationVersion ensures that no value is present for OriginalApplicationVersion, not even an explicit nil
-func (o *Receipt) UnsetOriginalApplicationVersion() {
-	o.OriginalApplicationVersion.Unset()
-}
-
-// GetInApp returns the InApp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInApp returns the InApp field value if set, zero value otherwise.
 func (o *Receipt) GetInApp() []InApp {
-	if o == nil {
+	if o == nil || IsNil(o.InApp) {
 		var ret []InApp
 		return ret
 	}
@@ -741,7 +611,6 @@ func (o *Receipt) GetInApp() []InApp {
 
 // GetInAppOk returns a tuple with the InApp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Receipt) GetInAppOk() ([]InApp, bool) {
 	if o == nil || IsNil(o.InApp) {
 		return nil, false
@@ -751,7 +620,7 @@ func (o *Receipt) GetInAppOk() ([]InApp, bool) {
 
 // HasInApp returns a boolean if a field has been set.
 func (o *Receipt) HasInApp() bool {
-	if o != nil && IsNil(o.InApp) {
+	if o != nil && !IsNil(o.InApp) {
 		return true
 	}
 
@@ -773,8 +642,8 @@ func (o Receipt) MarshalJSON() ([]byte, error) {
 
 func (o Receipt) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ReceiptType.IsSet() {
-		toSerialize["receipt_type"] = o.ReceiptType.Get()
+	if !IsNil(o.ReceiptType) {
+		toSerialize["receipt_type"] = o.ReceiptType
 	}
 	if !IsNil(o.AdamId) {
 		toSerialize["adam_id"] = o.AdamId
@@ -782,11 +651,11 @@ func (o Receipt) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AppItemId) {
 		toSerialize["app_item_id"] = o.AppItemId
 	}
-	if o.BundleId.IsSet() {
-		toSerialize["bundle_id"] = o.BundleId.Get()
+	if !IsNil(o.BundleId) {
+		toSerialize["bundle_id"] = o.BundleId
 	}
-	if o.ApplicationVersion.IsSet() {
-		toSerialize["application_version"] = o.ApplicationVersion.Get()
+	if !IsNil(o.ApplicationVersion) {
+		toSerialize["application_version"] = o.ApplicationVersion
 	}
 	if !IsNil(o.DownloadId) {
 		toSerialize["download_id"] = o.DownloadId
@@ -794,37 +663,37 @@ func (o Receipt) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VersionExternalIdentifier) {
 		toSerialize["version_external_identifier"] = o.VersionExternalIdentifier
 	}
-	if o.ReceiptCreationDate.IsSet() {
-		toSerialize["receipt_creation_date"] = o.ReceiptCreationDate.Get()
+	if !IsNil(o.ReceiptCreationDate) {
+		toSerialize["receipt_creation_date"] = o.ReceiptCreationDate
 	}
-	if o.ReceiptCreationDateMs.IsSet() {
-		toSerialize["receipt_creation_date_ms"] = o.ReceiptCreationDateMs.Get()
+	if !IsNil(o.ReceiptCreationDateMs) {
+		toSerialize["receipt_creation_date_ms"] = o.ReceiptCreationDateMs
 	}
-	if o.ReceiptCreationDatePst.IsSet() {
-		toSerialize["receipt_creation_date_pst"] = o.ReceiptCreationDatePst.Get()
+	if !IsNil(o.ReceiptCreationDatePst) {
+		toSerialize["receipt_creation_date_pst"] = o.ReceiptCreationDatePst
 	}
-	if o.RequestDate.IsSet() {
-		toSerialize["request_date"] = o.RequestDate.Get()
+	if !IsNil(o.RequestDate) {
+		toSerialize["request_date"] = o.RequestDate
 	}
-	if o.RequestDateMs.IsSet() {
-		toSerialize["request_date_ms"] = o.RequestDateMs.Get()
+	if !IsNil(o.RequestDateMs) {
+		toSerialize["request_date_ms"] = o.RequestDateMs
 	}
-	if o.RequestDatePst.IsSet() {
-		toSerialize["request_date_pst"] = o.RequestDatePst.Get()
+	if !IsNil(o.RequestDatePst) {
+		toSerialize["request_date_pst"] = o.RequestDatePst
 	}
-	if o.OriginalPurchaseDate.IsSet() {
-		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate.Get()
+	if !IsNil(o.OriginalPurchaseDate) {
+		toSerialize["original_purchase_date"] = o.OriginalPurchaseDate
 	}
-	if o.OriginalPurchaseDateMs.IsSet() {
-		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs.Get()
+	if !IsNil(o.OriginalPurchaseDateMs) {
+		toSerialize["original_purchase_date_ms"] = o.OriginalPurchaseDateMs
 	}
-	if o.OriginalPurchaseDatePst.IsSet() {
-		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst.Get()
+	if !IsNil(o.OriginalPurchaseDatePst) {
+		toSerialize["original_purchase_date_pst"] = o.OriginalPurchaseDatePst
 	}
-	if o.OriginalApplicationVersion.IsSet() {
-		toSerialize["original_application_version"] = o.OriginalApplicationVersion.Get()
+	if !IsNil(o.OriginalApplicationVersion) {
+		toSerialize["original_application_version"] = o.OriginalApplicationVersion
 	}
-	if o.InApp != nil {
+	if !IsNil(o.InApp) {
 		toSerialize["in_app"] = o.InApp
 	}
 	return toSerialize, nil

@@ -19,10 +19,10 @@ var _ MappedNullable = &CreateUpdateMessageSourceDto{}
 
 // CreateUpdateMessageSourceDto struct for CreateUpdateMessageSourceDto
 type CreateUpdateMessageSourceDto struct {
-	Name NullableString `json:"name,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
 	IsPublished *bool `json:"isPublished,omitempty"`
-	IconUrl NullableString `json:"iconUrl,omitempty"`
+	IconUrl *string `json:"iconUrl,omitempty"`
 	Routes []CreateUpdateMessageSourceRouteSubDto `json:"routes,omitempty"`
 }
 
@@ -43,88 +43,68 @@ func NewCreateUpdateMessageSourceDtoWithDefaults() *CreateUpdateMessageSourceDto
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateUpdateMessageSourceDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUpdateMessageSourceDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateUpdateMessageSourceDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CreateUpdateMessageSourceDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CreateUpdateMessageSourceDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CreateUpdateMessageSourceDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateUpdateMessageSourceDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUpdateMessageSourceDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateUpdateMessageSourceDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *CreateUpdateMessageSourceDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *CreateUpdateMessageSourceDto) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *CreateUpdateMessageSourceDto) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetIsPublished returns the IsPublished field value if set, zero value otherwise.
@@ -159,51 +139,41 @@ func (o *CreateUpdateMessageSourceDto) SetIsPublished(v bool) {
 	o.IsPublished = &v
 }
 
-// GetIconUrl returns the IconUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIconUrl returns the IconUrl field value if set, zero value otherwise.
 func (o *CreateUpdateMessageSourceDto) GetIconUrl() string {
-	if o == nil || IsNil(o.IconUrl.Get()) {
+	if o == nil || IsNil(o.IconUrl) {
 		var ret string
 		return ret
 	}
-	return *o.IconUrl.Get()
+	return *o.IconUrl
 }
 
 // GetIconUrlOk returns a tuple with the IconUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUpdateMessageSourceDto) GetIconUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IconUrl) {
 		return nil, false
 	}
-	return o.IconUrl.Get(), o.IconUrl.IsSet()
+	return o.IconUrl, true
 }
 
 // HasIconUrl returns a boolean if a field has been set.
 func (o *CreateUpdateMessageSourceDto) HasIconUrl() bool {
-	if o != nil && o.IconUrl.IsSet() {
+	if o != nil && !IsNil(o.IconUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetIconUrl gets a reference to the given NullableString and assigns it to the IconUrl field.
+// SetIconUrl gets a reference to the given string and assigns it to the IconUrl field.
 func (o *CreateUpdateMessageSourceDto) SetIconUrl(v string) {
-	o.IconUrl.Set(&v)
-}
-// SetIconUrlNil sets the value for IconUrl to be an explicit nil
-func (o *CreateUpdateMessageSourceDto) SetIconUrlNil() {
-	o.IconUrl.Set(nil)
+	o.IconUrl = &v
 }
 
-// UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
-func (o *CreateUpdateMessageSourceDto) UnsetIconUrl() {
-	o.IconUrl.Unset()
-}
-
-// GetRoutes returns the Routes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRoutes returns the Routes field value if set, zero value otherwise.
 func (o *CreateUpdateMessageSourceDto) GetRoutes() []CreateUpdateMessageSourceRouteSubDto {
-	if o == nil {
+	if o == nil || IsNil(o.Routes) {
 		var ret []CreateUpdateMessageSourceRouteSubDto
 		return ret
 	}
@@ -212,7 +182,6 @@ func (o *CreateUpdateMessageSourceDto) GetRoutes() []CreateUpdateMessageSourceRo
 
 // GetRoutesOk returns a tuple with the Routes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUpdateMessageSourceDto) GetRoutesOk() ([]CreateUpdateMessageSourceRouteSubDto, bool) {
 	if o == nil || IsNil(o.Routes) {
 		return nil, false
@@ -222,7 +191,7 @@ func (o *CreateUpdateMessageSourceDto) GetRoutesOk() ([]CreateUpdateMessageSourc
 
 // HasRoutes returns a boolean if a field has been set.
 func (o *CreateUpdateMessageSourceDto) HasRoutes() bool {
-	if o != nil && IsNil(o.Routes) {
+	if o != nil && !IsNil(o.Routes) {
 		return true
 	}
 
@@ -244,19 +213,19 @@ func (o CreateUpdateMessageSourceDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateUpdateMessageSourceDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.IsPublished) {
 		toSerialize["isPublished"] = o.IsPublished
 	}
-	if o.IconUrl.IsSet() {
-		toSerialize["iconUrl"] = o.IconUrl.Get()
+	if !IsNil(o.IconUrl) {
+		toSerialize["iconUrl"] = o.IconUrl
 	}
-	if o.Routes != nil {
+	if !IsNil(o.Routes) {
 		toSerialize["routes"] = o.Routes
 	}
 	return toSerialize, nil

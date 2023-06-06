@@ -19,16 +19,16 @@ var _ MappedNullable = &ParameterApiDescriptionModel{}
 
 // ParameterApiDescriptionModel struct for ParameterApiDescriptionModel
 type ParameterApiDescriptionModel struct {
-	NameOnMethod NullableString `json:"nameOnMethod,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	JsonName NullableString `json:"jsonName,omitempty"`
-	Type NullableString `json:"type,omitempty"`
-	TypeSimple NullableString `json:"typeSimple,omitempty"`
+	NameOnMethod *string `json:"nameOnMethod,omitempty"`
+	Name *string `json:"name,omitempty"`
+	JsonName *string `json:"jsonName,omitempty"`
+	Type *string `json:"type,omitempty"`
+	TypeSimple *string `json:"typeSimple,omitempty"`
 	IsOptional *bool `json:"isOptional,omitempty"`
-	DefaultValue interface{} `json:"defaultValue,omitempty"`
+	DefaultValue map[string]interface{} `json:"defaultValue,omitempty"`
 	ConstraintTypes []string `json:"constraintTypes,omitempty"`
-	BindingSourceId NullableString `json:"bindingSourceId,omitempty"`
-	DescriptorName NullableString `json:"descriptorName,omitempty"`
+	BindingSourceId *string `json:"bindingSourceId,omitempty"`
+	DescriptorName *string `json:"descriptorName,omitempty"`
 }
 
 // NewParameterApiDescriptionModel instantiates a new ParameterApiDescriptionModel object
@@ -48,214 +48,164 @@ func NewParameterApiDescriptionModelWithDefaults() *ParameterApiDescriptionModel
 	return &this
 }
 
-// GetNameOnMethod returns the NameOnMethod field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNameOnMethod returns the NameOnMethod field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetNameOnMethod() string {
-	if o == nil || IsNil(o.NameOnMethod.Get()) {
+	if o == nil || IsNil(o.NameOnMethod) {
 		var ret string
 		return ret
 	}
-	return *o.NameOnMethod.Get()
+	return *o.NameOnMethod
 }
 
 // GetNameOnMethodOk returns a tuple with the NameOnMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetNameOnMethodOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NameOnMethod) {
 		return nil, false
 	}
-	return o.NameOnMethod.Get(), o.NameOnMethod.IsSet()
+	return o.NameOnMethod, true
 }
 
 // HasNameOnMethod returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasNameOnMethod() bool {
-	if o != nil && o.NameOnMethod.IsSet() {
+	if o != nil && !IsNil(o.NameOnMethod) {
 		return true
 	}
 
 	return false
 }
 
-// SetNameOnMethod gets a reference to the given NullableString and assigns it to the NameOnMethod field.
+// SetNameOnMethod gets a reference to the given string and assigns it to the NameOnMethod field.
 func (o *ParameterApiDescriptionModel) SetNameOnMethod(v string) {
-	o.NameOnMethod.Set(&v)
-}
-// SetNameOnMethodNil sets the value for NameOnMethod to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetNameOnMethodNil() {
-	o.NameOnMethod.Set(nil)
+	o.NameOnMethod = &v
 }
 
-// UnsetNameOnMethod ensures that no value is present for NameOnMethod, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetNameOnMethod() {
-	o.NameOnMethod.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ParameterApiDescriptionModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetJsonName returns the JsonName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetJsonName returns the JsonName field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetJsonName() string {
-	if o == nil || IsNil(o.JsonName.Get()) {
+	if o == nil || IsNil(o.JsonName) {
 		var ret string
 		return ret
 	}
-	return *o.JsonName.Get()
+	return *o.JsonName
 }
 
 // GetJsonNameOk returns a tuple with the JsonName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetJsonNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.JsonName) {
 		return nil, false
 	}
-	return o.JsonName.Get(), o.JsonName.IsSet()
+	return o.JsonName, true
 }
 
 // HasJsonName returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasJsonName() bool {
-	if o != nil && o.JsonName.IsSet() {
+	if o != nil && !IsNil(o.JsonName) {
 		return true
 	}
 
 	return false
 }
 
-// SetJsonName gets a reference to the given NullableString and assigns it to the JsonName field.
+// SetJsonName gets a reference to the given string and assigns it to the JsonName field.
 func (o *ParameterApiDescriptionModel) SetJsonName(v string) {
-	o.JsonName.Set(&v)
-}
-// SetJsonNameNil sets the value for JsonName to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetJsonNameNil() {
-	o.JsonName.Set(nil)
+	o.JsonName = &v
 }
 
-// UnsetJsonName ensures that no value is present for JsonName, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetJsonName() {
-	o.JsonName.Unset()
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetType() string {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableString and assigns it to the Type field.
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *ParameterApiDescriptionModel) SetType(v string) {
-	o.Type.Set(&v)
-}
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetTypeNil() {
-	o.Type.Set(nil)
+	o.Type = &v
 }
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetTypeSimple() string {
-	if o == nil || IsNil(o.TypeSimple.Get()) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
-	return *o.TypeSimple.Get()
+	return *o.TypeSimple
 }
 
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetTypeSimpleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TypeSimple) {
 		return nil, false
 	}
-	return o.TypeSimple.Get(), o.TypeSimple.IsSet()
+	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasTypeSimple() bool {
-	if o != nil && o.TypeSimple.IsSet() {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
 	return false
 }
 
-// SetTypeSimple gets a reference to the given NullableString and assigns it to the TypeSimple field.
+// SetTypeSimple gets a reference to the given string and assigns it to the TypeSimple field.
 func (o *ParameterApiDescriptionModel) SetTypeSimple(v string) {
-	o.TypeSimple.Set(&v)
-}
-// SetTypeSimpleNil sets the value for TypeSimple to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetTypeSimpleNil() {
-	o.TypeSimple.Set(nil)
-}
-
-// UnsetTypeSimple ensures that no value is present for TypeSimple, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetTypeSimple() {
-	o.TypeSimple.Unset()
+	o.TypeSimple = &v
 }
 
 // GetIsOptional returns the IsOptional field value if set, zero value otherwise.
@@ -290,10 +240,10 @@ func (o *ParameterApiDescriptionModel) SetIsOptional(v bool) {
 	o.IsOptional = &v
 }
 
-// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ParameterApiDescriptionModel) GetDefaultValue() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
+func (o *ParameterApiDescriptionModel) GetDefaultValue() map[string]interface{} {
+	if o == nil || IsNil(o.DefaultValue) {
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.DefaultValue
@@ -301,31 +251,30 @@ func (o *ParameterApiDescriptionModel) GetDefaultValue() interface{} {
 
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ParameterApiDescriptionModel) GetDefaultValueOk() (*interface{}, bool) {
+func (o *ParameterApiDescriptionModel) GetDefaultValueOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.DefaultValue) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.DefaultValue, true
+	return o.DefaultValue, true
 }
 
 // HasDefaultValue returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasDefaultValue() bool {
-	if o != nil && IsNil(o.DefaultValue) {
+	if o != nil && !IsNil(o.DefaultValue) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultValue gets a reference to the given interface{} and assigns it to the DefaultValue field.
-func (o *ParameterApiDescriptionModel) SetDefaultValue(v interface{}) {
+// SetDefaultValue gets a reference to the given map[string]interface{} and assigns it to the DefaultValue field.
+func (o *ParameterApiDescriptionModel) SetDefaultValue(v map[string]interface{}) {
 	o.DefaultValue = v
 }
 
-// GetConstraintTypes returns the ConstraintTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConstraintTypes returns the ConstraintTypes field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetConstraintTypes() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ConstraintTypes) {
 		var ret []string
 		return ret
 	}
@@ -334,7 +283,6 @@ func (o *ParameterApiDescriptionModel) GetConstraintTypes() []string {
 
 // GetConstraintTypesOk returns a tuple with the ConstraintTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetConstraintTypesOk() ([]string, bool) {
 	if o == nil || IsNil(o.ConstraintTypes) {
 		return nil, false
@@ -344,7 +292,7 @@ func (o *ParameterApiDescriptionModel) GetConstraintTypesOk() ([]string, bool) {
 
 // HasConstraintTypes returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasConstraintTypes() bool {
-	if o != nil && IsNil(o.ConstraintTypes) {
+	if o != nil && !IsNil(o.ConstraintTypes) {
 		return true
 	}
 
@@ -356,88 +304,68 @@ func (o *ParameterApiDescriptionModel) SetConstraintTypes(v []string) {
 	o.ConstraintTypes = v
 }
 
-// GetBindingSourceId returns the BindingSourceId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBindingSourceId returns the BindingSourceId field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetBindingSourceId() string {
-	if o == nil || IsNil(o.BindingSourceId.Get()) {
+	if o == nil || IsNil(o.BindingSourceId) {
 		var ret string
 		return ret
 	}
-	return *o.BindingSourceId.Get()
+	return *o.BindingSourceId
 }
 
 // GetBindingSourceIdOk returns a tuple with the BindingSourceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetBindingSourceIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BindingSourceId) {
 		return nil, false
 	}
-	return o.BindingSourceId.Get(), o.BindingSourceId.IsSet()
+	return o.BindingSourceId, true
 }
 
 // HasBindingSourceId returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasBindingSourceId() bool {
-	if o != nil && o.BindingSourceId.IsSet() {
+	if o != nil && !IsNil(o.BindingSourceId) {
 		return true
 	}
 
 	return false
 }
 
-// SetBindingSourceId gets a reference to the given NullableString and assigns it to the BindingSourceId field.
+// SetBindingSourceId gets a reference to the given string and assigns it to the BindingSourceId field.
 func (o *ParameterApiDescriptionModel) SetBindingSourceId(v string) {
-	o.BindingSourceId.Set(&v)
-}
-// SetBindingSourceIdNil sets the value for BindingSourceId to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetBindingSourceIdNil() {
-	o.BindingSourceId.Set(nil)
+	o.BindingSourceId = &v
 }
 
-// UnsetBindingSourceId ensures that no value is present for BindingSourceId, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetBindingSourceId() {
-	o.BindingSourceId.Unset()
-}
-
-// GetDescriptorName returns the DescriptorName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescriptorName returns the DescriptorName field value if set, zero value otherwise.
 func (o *ParameterApiDescriptionModel) GetDescriptorName() string {
-	if o == nil || IsNil(o.DescriptorName.Get()) {
+	if o == nil || IsNil(o.DescriptorName) {
 		var ret string
 		return ret
 	}
-	return *o.DescriptorName.Get()
+	return *o.DescriptorName
 }
 
 // GetDescriptorNameOk returns a tuple with the DescriptorName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterApiDescriptionModel) GetDescriptorNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DescriptorName) {
 		return nil, false
 	}
-	return o.DescriptorName.Get(), o.DescriptorName.IsSet()
+	return o.DescriptorName, true
 }
 
 // HasDescriptorName returns a boolean if a field has been set.
 func (o *ParameterApiDescriptionModel) HasDescriptorName() bool {
-	if o != nil && o.DescriptorName.IsSet() {
+	if o != nil && !IsNil(o.DescriptorName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescriptorName gets a reference to the given NullableString and assigns it to the DescriptorName field.
+// SetDescriptorName gets a reference to the given string and assigns it to the DescriptorName field.
 func (o *ParameterApiDescriptionModel) SetDescriptorName(v string) {
-	o.DescriptorName.Set(&v)
-}
-// SetDescriptorNameNil sets the value for DescriptorName to be an explicit nil
-func (o *ParameterApiDescriptionModel) SetDescriptorNameNil() {
-	o.DescriptorName.Set(nil)
-}
-
-// UnsetDescriptorName ensures that no value is present for DescriptorName, not even an explicit nil
-func (o *ParameterApiDescriptionModel) UnsetDescriptorName() {
-	o.DescriptorName.Unset()
+	o.DescriptorName = &v
 }
 
 func (o ParameterApiDescriptionModel) MarshalJSON() ([]byte, error) {
@@ -450,35 +378,35 @@ func (o ParameterApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o ParameterApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.NameOnMethod.IsSet() {
-		toSerialize["nameOnMethod"] = o.NameOnMethod.Get()
+	if !IsNil(o.NameOnMethod) {
+		toSerialize["nameOnMethod"] = o.NameOnMethod
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.JsonName.IsSet() {
-		toSerialize["jsonName"] = o.JsonName.Get()
+	if !IsNil(o.JsonName) {
+		toSerialize["jsonName"] = o.JsonName
 	}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.TypeSimple.IsSet() {
-		toSerialize["typeSimple"] = o.TypeSimple.Get()
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
 	}
 	if !IsNil(o.IsOptional) {
 		toSerialize["isOptional"] = o.IsOptional
 	}
-	if o.DefaultValue != nil {
+	if !IsNil(o.DefaultValue) {
 		toSerialize["defaultValue"] = o.DefaultValue
 	}
-	if o.ConstraintTypes != nil {
+	if !IsNil(o.ConstraintTypes) {
 		toSerialize["constraintTypes"] = o.ConstraintTypes
 	}
-	if o.BindingSourceId.IsSet() {
-		toSerialize["bindingSourceId"] = o.BindingSourceId.Get()
+	if !IsNil(o.BindingSourceId) {
+		toSerialize["bindingSourceId"] = o.BindingSourceId
 	}
-	if o.DescriptorName.IsSet() {
-		toSerialize["descriptorName"] = o.DescriptorName.Get()
+	if !IsNil(o.DescriptorName) {
+		toSerialize["descriptorName"] = o.DescriptorName
 	}
 	return toSerialize, nil
 }

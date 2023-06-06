@@ -19,7 +19,7 @@ var _ MappedNullable = &ClockDto{}
 
 // ClockDto struct for ClockDto
 type ClockDto struct {
-	Kind NullableString `json:"kind,omitempty"`
+	Kind *string `json:"kind,omitempty"`
 }
 
 // NewClockDto instantiates a new ClockDto object
@@ -39,46 +39,36 @@ func NewClockDtoWithDefaults() *ClockDto {
 	return &this
 }
 
-// GetKind returns the Kind field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ClockDto) GetKind() string {
-	if o == nil || IsNil(o.Kind.Get()) {
+	if o == nil || IsNil(o.Kind) {
 		var ret string
 		return ret
 	}
-	return *o.Kind.Get()
+	return *o.Kind
 }
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ClockDto) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Kind) {
 		return nil, false
 	}
-	return o.Kind.Get(), o.Kind.IsSet()
+	return o.Kind, true
 }
 
 // HasKind returns a boolean if a field has been set.
 func (o *ClockDto) HasKind() bool {
-	if o != nil && o.Kind.IsSet() {
+	if o != nil && !IsNil(o.Kind) {
 		return true
 	}
 
 	return false
 }
 
-// SetKind gets a reference to the given NullableString and assigns it to the Kind field.
+// SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *ClockDto) SetKind(v string) {
-	o.Kind.Set(&v)
-}
-// SetKindNil sets the value for Kind to be an explicit nil
-func (o *ClockDto) SetKindNil() {
-	o.Kind.Set(nil)
-}
-
-// UnsetKind ensures that no value is present for Kind, not even an explicit nil
-func (o *ClockDto) UnsetKind() {
-	o.Kind.Unset()
+	o.Kind = &v
 }
 
 func (o ClockDto) MarshalJSON() ([]byte, error) {
@@ -91,8 +81,8 @@ func (o ClockDto) MarshalJSON() ([]byte, error) {
 
 func (o ClockDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Kind.IsSet() {
-		toSerialize["kind"] = o.Kind.Get()
+	if !IsNil(o.Kind) {
+		toSerialize["kind"] = o.Kind
 	}
 	return toSerialize, nil
 }

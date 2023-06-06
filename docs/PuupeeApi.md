@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppPuupeePushPost
 
-> PuupeeDto ApiAppPuupeePushPost(ctx).CreateOrUpdatePuupeeDto(createOrUpdatePuupeeDto).Execute()
+> PuupeeDto ApiAppPuupeePushPost(ctx).Body(body).Execute()
 
 
 
@@ -98,11 +98,11 @@ import (
 )
 
 func main() {
-    createOrUpdatePuupeeDto := *openapiclient.NewCreateOrUpdatePuupeeDto("Id_example", "Name_example") // CreateOrUpdatePuupeeDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdatePuupeeDto("Id_example", "Name_example") // CreateOrUpdatePuupeeDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PuupeeApi.ApiAppPuupeePushPost(context.Background()).CreateOrUpdatePuupeeDto(createOrUpdatePuupeeDto).Execute()
+    resp, r, err := apiClient.PuupeeApi.ApiAppPuupeePushPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PuupeeApi.ApiAppPuupeePushPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,7 +123,7 @@ Other parameters are passed through a pointer to a apiApiAppPuupeePushPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createOrUpdatePuupeeDto** | [**CreateOrUpdatePuupeeDto**](CreateOrUpdatePuupeeDto.md) |  | 
+ **body** | [**CreateOrUpdatePuupeeDto**](CreateOrUpdatePuupeeDto.md) |  | 
 
 ### Return type
 

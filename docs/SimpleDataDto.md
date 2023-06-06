@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExtraProperties** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
+**ExtraProperties** | Pointer to **map[string]map[string]interface{}** |  | [optional] [readonly] 
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**Collection** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**Collection** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetExtraProperties
 
-`func (o *SimpleDataDto) GetExtraProperties() map[string]interface{}`
+`func (o *SimpleDataDto) GetExtraProperties() map[string]map[string]interface{}`
 
 GetExtraProperties returns the ExtraProperties field if non-nil, zero value otherwise.
 
 ### GetExtraPropertiesOk
 
-`func (o *SimpleDataDto) GetExtraPropertiesOk() (*map[string]interface{}, bool)`
+`func (o *SimpleDataDto) GetExtraPropertiesOk() (*map[string]map[string]interface{}, bool)`
 
 GetExtraPropertiesOk returns a tuple with the ExtraProperties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtraProperties
 
-`func (o *SimpleDataDto) SetExtraProperties(v map[string]interface{})`
+`func (o *SimpleDataDto) SetExtraProperties(v map[string]map[string]interface{})`
 
 SetExtraProperties sets ExtraProperties field to given value.
 
@@ -54,16 +54,6 @@ SetExtraProperties sets ExtraProperties field to given value.
 
 HasExtraProperties returns a boolean if a field has been set.
 
-### SetExtraPropertiesNil
-
-`func (o *SimpleDataDto) SetExtraPropertiesNil(b bool)`
-
- SetExtraPropertiesNil sets the value for ExtraProperties to be an explicit nil
-
-### UnsetExtraProperties
-`func (o *SimpleDataDto) UnsetExtraProperties()`
-
-UnsetExtraProperties ensures that no value is present for ExtraProperties, not even an explicit nil
 ### GetId
 
 `func (o *SimpleDataDto) GetId() string`
@@ -139,16 +129,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *SimpleDataDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *SimpleDataDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetCollection
 
 `func (o *SimpleDataDto) GetCollection() string`
@@ -174,16 +154,6 @@ SetCollection sets Collection field to given value.
 
 HasCollection returns a boolean if a field has been set.
 
-### SetCollectionNil
-
-`func (o *SimpleDataDto) SetCollectionNil(b bool)`
-
- SetCollectionNil sets the value for Collection to be an explicit nil
-
-### UnsetCollection
-`func (o *SimpleDataDto) UnsetCollection()`
-
-UnsetCollection ensures that no value is present for Collection, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

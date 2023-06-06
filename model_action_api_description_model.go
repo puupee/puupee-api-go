@@ -19,16 +19,16 @@ var _ MappedNullable = &ActionApiDescriptionModel{}
 
 // ActionApiDescriptionModel struct for ActionApiDescriptionModel
 type ActionApiDescriptionModel struct {
-	UniqueName NullableString `json:"uniqueName,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	HttpMethod NullableString `json:"httpMethod,omitempty"`
-	Url NullableString `json:"url,omitempty"`
+	UniqueName *string `json:"uniqueName,omitempty"`
+	Name *string `json:"name,omitempty"`
+	HttpMethod *string `json:"httpMethod,omitempty"`
+	Url *string `json:"url,omitempty"`
 	SupportedVersions []string `json:"supportedVersions,omitempty"`
 	ParametersOnMethod []MethodParameterApiDescriptionModel `json:"parametersOnMethod,omitempty"`
 	Parameters []ParameterApiDescriptionModel `json:"parameters,omitempty"`
 	ReturnValue *ReturnValueApiDescriptionModel `json:"returnValue,omitempty"`
-	AllowAnonymous NullableBool `json:"allowAnonymous,omitempty"`
-	ImplementFrom NullableString `json:"implementFrom,omitempty"`
+	AllowAnonymous *bool `json:"allowAnonymous,omitempty"`
+	ImplementFrom *string `json:"implementFrom,omitempty"`
 }
 
 // NewActionApiDescriptionModel instantiates a new ActionApiDescriptionModel object
@@ -48,177 +48,137 @@ func NewActionApiDescriptionModelWithDefaults() *ActionApiDescriptionModel {
 	return &this
 }
 
-// GetUniqueName returns the UniqueName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUniqueName returns the UniqueName field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetUniqueName() string {
-	if o == nil || IsNil(o.UniqueName.Get()) {
+	if o == nil || IsNil(o.UniqueName) {
 		var ret string
 		return ret
 	}
-	return *o.UniqueName.Get()
+	return *o.UniqueName
 }
 
 // GetUniqueNameOk returns a tuple with the UniqueName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetUniqueNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UniqueName) {
 		return nil, false
 	}
-	return o.UniqueName.Get(), o.UniqueName.IsSet()
+	return o.UniqueName, true
 }
 
 // HasUniqueName returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasUniqueName() bool {
-	if o != nil && o.UniqueName.IsSet() {
+	if o != nil && !IsNil(o.UniqueName) {
 		return true
 	}
 
 	return false
 }
 
-// SetUniqueName gets a reference to the given NullableString and assigns it to the UniqueName field.
+// SetUniqueName gets a reference to the given string and assigns it to the UniqueName field.
 func (o *ActionApiDescriptionModel) SetUniqueName(v string) {
-	o.UniqueName.Set(&v)
-}
-// SetUniqueNameNil sets the value for UniqueName to be an explicit nil
-func (o *ActionApiDescriptionModel) SetUniqueNameNil() {
-	o.UniqueName.Set(nil)
+	o.UniqueName = &v
 }
 
-// UnsetUniqueName ensures that no value is present for UniqueName, not even an explicit nil
-func (o *ActionApiDescriptionModel) UnsetUniqueName() {
-	o.UniqueName.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ActionApiDescriptionModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ActionApiDescriptionModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ActionApiDescriptionModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetHttpMethod returns the HttpMethod field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHttpMethod returns the HttpMethod field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetHttpMethod() string {
-	if o == nil || IsNil(o.HttpMethod.Get()) {
+	if o == nil || IsNil(o.HttpMethod) {
 		var ret string
 		return ret
 	}
-	return *o.HttpMethod.Get()
+	return *o.HttpMethod
 }
 
 // GetHttpMethodOk returns a tuple with the HttpMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetHttpMethodOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HttpMethod) {
 		return nil, false
 	}
-	return o.HttpMethod.Get(), o.HttpMethod.IsSet()
+	return o.HttpMethod, true
 }
 
 // HasHttpMethod returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasHttpMethod() bool {
-	if o != nil && o.HttpMethod.IsSet() {
+	if o != nil && !IsNil(o.HttpMethod) {
 		return true
 	}
 
 	return false
 }
 
-// SetHttpMethod gets a reference to the given NullableString and assigns it to the HttpMethod field.
+// SetHttpMethod gets a reference to the given string and assigns it to the HttpMethod field.
 func (o *ActionApiDescriptionModel) SetHttpMethod(v string) {
-	o.HttpMethod.Set(&v)
-}
-// SetHttpMethodNil sets the value for HttpMethod to be an explicit nil
-func (o *ActionApiDescriptionModel) SetHttpMethodNil() {
-	o.HttpMethod.Set(nil)
+	o.HttpMethod = &v
 }
 
-// UnsetHttpMethod ensures that no value is present for HttpMethod, not even an explicit nil
-func (o *ActionApiDescriptionModel) UnsetHttpMethod() {
-	o.HttpMethod.Unset()
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *ActionApiDescriptionModel) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *ActionApiDescriptionModel) SetUrlNil() {
-	o.Url.Set(nil)
+	o.Url = &v
 }
 
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *ActionApiDescriptionModel) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetSupportedVersions returns the SupportedVersions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSupportedVersions returns the SupportedVersions field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetSupportedVersions() []string {
-	if o == nil {
+	if o == nil || IsNil(o.SupportedVersions) {
 		var ret []string
 		return ret
 	}
@@ -227,7 +187,6 @@ func (o *ActionApiDescriptionModel) GetSupportedVersions() []string {
 
 // GetSupportedVersionsOk returns a tuple with the SupportedVersions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetSupportedVersionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.SupportedVersions) {
 		return nil, false
@@ -237,7 +196,7 @@ func (o *ActionApiDescriptionModel) GetSupportedVersionsOk() ([]string, bool) {
 
 // HasSupportedVersions returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasSupportedVersions() bool {
-	if o != nil && IsNil(o.SupportedVersions) {
+	if o != nil && !IsNil(o.SupportedVersions) {
 		return true
 	}
 
@@ -249,9 +208,9 @@ func (o *ActionApiDescriptionModel) SetSupportedVersions(v []string) {
 	o.SupportedVersions = v
 }
 
-// GetParametersOnMethod returns the ParametersOnMethod field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetParametersOnMethod returns the ParametersOnMethod field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetParametersOnMethod() []MethodParameterApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.ParametersOnMethod) {
 		var ret []MethodParameterApiDescriptionModel
 		return ret
 	}
@@ -260,7 +219,6 @@ func (o *ActionApiDescriptionModel) GetParametersOnMethod() []MethodParameterApi
 
 // GetParametersOnMethodOk returns a tuple with the ParametersOnMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetParametersOnMethodOk() ([]MethodParameterApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.ParametersOnMethod) {
 		return nil, false
@@ -270,7 +228,7 @@ func (o *ActionApiDescriptionModel) GetParametersOnMethodOk() ([]MethodParameter
 
 // HasParametersOnMethod returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasParametersOnMethod() bool {
-	if o != nil && IsNil(o.ParametersOnMethod) {
+	if o != nil && !IsNil(o.ParametersOnMethod) {
 		return true
 	}
 
@@ -282,9 +240,9 @@ func (o *ActionApiDescriptionModel) SetParametersOnMethod(v []MethodParameterApi
 	o.ParametersOnMethod = v
 }
 
-// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetParameters returns the Parameters field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetParameters() []ParameterApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.Parameters) {
 		var ret []ParameterApiDescriptionModel
 		return ret
 	}
@@ -293,7 +251,6 @@ func (o *ActionApiDescriptionModel) GetParameters() []ParameterApiDescriptionMod
 
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetParametersOk() ([]ParameterApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.Parameters) {
 		return nil, false
@@ -303,7 +260,7 @@ func (o *ActionApiDescriptionModel) GetParametersOk() ([]ParameterApiDescription
 
 // HasParameters returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -347,88 +304,68 @@ func (o *ActionApiDescriptionModel) SetReturnValue(v ReturnValueApiDescriptionMo
 	o.ReturnValue = &v
 }
 
-// GetAllowAnonymous returns the AllowAnonymous field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAllowAnonymous returns the AllowAnonymous field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetAllowAnonymous() bool {
-	if o == nil || IsNil(o.AllowAnonymous.Get()) {
+	if o == nil || IsNil(o.AllowAnonymous) {
 		var ret bool
 		return ret
 	}
-	return *o.AllowAnonymous.Get()
+	return *o.AllowAnonymous
 }
 
 // GetAllowAnonymousOk returns a tuple with the AllowAnonymous field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetAllowAnonymousOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AllowAnonymous) {
 		return nil, false
 	}
-	return o.AllowAnonymous.Get(), o.AllowAnonymous.IsSet()
+	return o.AllowAnonymous, true
 }
 
 // HasAllowAnonymous returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasAllowAnonymous() bool {
-	if o != nil && o.AllowAnonymous.IsSet() {
+	if o != nil && !IsNil(o.AllowAnonymous) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllowAnonymous gets a reference to the given NullableBool and assigns it to the AllowAnonymous field.
+// SetAllowAnonymous gets a reference to the given bool and assigns it to the AllowAnonymous field.
 func (o *ActionApiDescriptionModel) SetAllowAnonymous(v bool) {
-	o.AllowAnonymous.Set(&v)
-}
-// SetAllowAnonymousNil sets the value for AllowAnonymous to be an explicit nil
-func (o *ActionApiDescriptionModel) SetAllowAnonymousNil() {
-	o.AllowAnonymous.Set(nil)
+	o.AllowAnonymous = &v
 }
 
-// UnsetAllowAnonymous ensures that no value is present for AllowAnonymous, not even an explicit nil
-func (o *ActionApiDescriptionModel) UnsetAllowAnonymous() {
-	o.AllowAnonymous.Unset()
-}
-
-// GetImplementFrom returns the ImplementFrom field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImplementFrom returns the ImplementFrom field value if set, zero value otherwise.
 func (o *ActionApiDescriptionModel) GetImplementFrom() string {
-	if o == nil || IsNil(o.ImplementFrom.Get()) {
+	if o == nil || IsNil(o.ImplementFrom) {
 		var ret string
 		return ret
 	}
-	return *o.ImplementFrom.Get()
+	return *o.ImplementFrom
 }
 
 // GetImplementFromOk returns a tuple with the ImplementFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ActionApiDescriptionModel) GetImplementFromOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImplementFrom) {
 		return nil, false
 	}
-	return o.ImplementFrom.Get(), o.ImplementFrom.IsSet()
+	return o.ImplementFrom, true
 }
 
 // HasImplementFrom returns a boolean if a field has been set.
 func (o *ActionApiDescriptionModel) HasImplementFrom() bool {
-	if o != nil && o.ImplementFrom.IsSet() {
+	if o != nil && !IsNil(o.ImplementFrom) {
 		return true
 	}
 
 	return false
 }
 
-// SetImplementFrom gets a reference to the given NullableString and assigns it to the ImplementFrom field.
+// SetImplementFrom gets a reference to the given string and assigns it to the ImplementFrom field.
 func (o *ActionApiDescriptionModel) SetImplementFrom(v string) {
-	o.ImplementFrom.Set(&v)
-}
-// SetImplementFromNil sets the value for ImplementFrom to be an explicit nil
-func (o *ActionApiDescriptionModel) SetImplementFromNil() {
-	o.ImplementFrom.Set(nil)
-}
-
-// UnsetImplementFrom ensures that no value is present for ImplementFrom, not even an explicit nil
-func (o *ActionApiDescriptionModel) UnsetImplementFrom() {
-	o.ImplementFrom.Unset()
+	o.ImplementFrom = &v
 }
 
 func (o ActionApiDescriptionModel) MarshalJSON() ([]byte, error) {
@@ -441,35 +378,35 @@ func (o ActionApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o ActionApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.UniqueName.IsSet() {
-		toSerialize["uniqueName"] = o.UniqueName.Get()
+	if !IsNil(o.UniqueName) {
+		toSerialize["uniqueName"] = o.UniqueName
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.HttpMethod.IsSet() {
-		toSerialize["httpMethod"] = o.HttpMethod.Get()
+	if !IsNil(o.HttpMethod) {
+		toSerialize["httpMethod"] = o.HttpMethod
 	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
-	if o.SupportedVersions != nil {
+	if !IsNil(o.SupportedVersions) {
 		toSerialize["supportedVersions"] = o.SupportedVersions
 	}
-	if o.ParametersOnMethod != nil {
+	if !IsNil(o.ParametersOnMethod) {
 		toSerialize["parametersOnMethod"] = o.ParametersOnMethod
 	}
-	if o.Parameters != nil {
+	if !IsNil(o.Parameters) {
 		toSerialize["parameters"] = o.Parameters
 	}
 	if !IsNil(o.ReturnValue) {
 		toSerialize["returnValue"] = o.ReturnValue
 	}
-	if o.AllowAnonymous.IsSet() {
-		toSerialize["allowAnonymous"] = o.AllowAnonymous.Get()
+	if !IsNil(o.AllowAnonymous) {
+		toSerialize["allowAnonymous"] = o.AllowAnonymous
 	}
-	if o.ImplementFrom.IsSet() {
-		toSerialize["implementFrom"] = o.ImplementFrom.Get()
+	if !IsNil(o.ImplementFrom) {
+		toSerialize["implementFrom"] = o.ImplementFrom
 	}
 	return toSerialize, nil
 }

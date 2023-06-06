@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
-**ExpireAt** | Pointer to **NullableTime** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
+**ExpireAt** | Pointer to **time.Time** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
-**PriceNaming** | Pointer to **NullableString** |  | [optional] 
+**PriceNaming** | Pointer to **string** |  | [optional] 
 **PricingId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -111,16 +111,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *SubscriptionDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *SubscriptionDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModificationTime
 
 `func (o *SubscriptionDto) GetLastModificationTime() time.Time`
@@ -146,16 +136,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *SubscriptionDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *SubscriptionDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *SubscriptionDto) GetLastModifierId() string`
@@ -181,16 +161,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *SubscriptionDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *SubscriptionDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *SubscriptionDto) GetIsDeleted() bool`
@@ -241,16 +211,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *SubscriptionDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *SubscriptionDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetDeletionTime
 
 `func (o *SubscriptionDto) GetDeletionTime() time.Time`
@@ -276,16 +236,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *SubscriptionDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *SubscriptionDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetExpireAt
 
 `func (o *SubscriptionDto) GetExpireAt() time.Time`
@@ -311,16 +261,6 @@ SetExpireAt sets ExpireAt field to given value.
 
 HasExpireAt returns a boolean if a field has been set.
 
-### SetExpireAtNil
-
-`func (o *SubscriptionDto) SetExpireAtNil(b bool)`
-
- SetExpireAtNil sets the value for ExpireAt to be an explicit nil
-
-### UnsetExpireAt
-`func (o *SubscriptionDto) UnsetExpireAt()`
-
-UnsetExpireAt ensures that no value is present for ExpireAt, not even an explicit nil
 ### GetAppId
 
 `func (o *SubscriptionDto) GetAppId() string`
@@ -371,16 +311,6 @@ SetPriceNaming sets PriceNaming field to given value.
 
 HasPriceNaming returns a boolean if a field has been set.
 
-### SetPriceNamingNil
-
-`func (o *SubscriptionDto) SetPriceNamingNil(b bool)`
-
- SetPriceNamingNil sets the value for PriceNaming to be an explicit nil
-
-### UnsetPriceNaming
-`func (o *SubscriptionDto) UnsetPriceNaming()`
-
-UnsetPriceNaming ensures that no value is present for PriceNaming, not even an explicit nil
 ### GetPricingId
 
 `func (o *SubscriptionDto) GetPricingId() string`

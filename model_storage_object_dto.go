@@ -22,26 +22,26 @@ var _ MappedNullable = &StorageObjectDto{}
 type StorageObjectDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
-	LastModifierId NullableString `json:"lastModifierId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId NullableString `json:"deleterId,omitempty"`
-	DeletionTime NullableTime `json:"deletionTime,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Key NullableString `json:"key,omitempty"`
-	Url NullableString `json:"url,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Key *string `json:"key,omitempty"`
+	Url *string `json:"url,omitempty"`
 	Size *int64 `json:"size,omitempty"`
-	Md5 NullableString `json:"md5,omitempty"`
-	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
-	RapidCode NullableString `json:"rapidCode,omitempty"`
-	ContentType NullableString `json:"contentType,omitempty"`
-	Extension NullableString `json:"extension,omitempty"`
-	StorageClass NullableString `json:"storageClass,omitempty"`
-	StorageObjectCreatedAt NullableTime `json:"storageObjectCreatedAt,omitempty"`
-	StorageObjectUpdatedAt NullableTime `json:"storageObjectUpdatedAt,omitempty"`
+	Md5 *string `json:"md5,omitempty"`
+	SliceMd5 *string `json:"sliceMd5,omitempty"`
+	RapidCode *string `json:"rapidCode,omitempty"`
+	ContentType *string `json:"contentType,omitempty"`
+	Extension *string `json:"extension,omitempty"`
+	StorageClass *string `json:"storageClass,omitempty"`
+	StorageObjectCreatedAt *time.Time `json:"storageObjectCreatedAt,omitempty"`
+	StorageObjectUpdatedAt *time.Time `json:"storageObjectUpdatedAt,omitempty"`
 	SyncVersion *int64 `json:"syncVersion,omitempty"`
-	Password NullableString `json:"password,omitempty"`
+	Password *string `json:"password,omitempty"`
 }
 
 // NewStorageObjectDto instantiates a new StorageObjectDto object
@@ -125,130 +125,100 @@ func (o *StorageObjectDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *StorageObjectDto) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *StorageObjectDto) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *StorageObjectDto) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime.Get()) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime.Get()
+	return *o.LastModificationTime
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
-	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
+	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasLastModificationTime() bool {
-	if o != nil && o.LastModificationTime.IsSet() {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
 func (o *StorageObjectDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime.Set(&v)
-}
-// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-func (o *StorageObjectDto) SetLastModificationTimeNil() {
-	o.LastModificationTime.Set(nil)
+	o.LastModificationTime = &v
 }
 
-// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
-func (o *StorageObjectDto) UnsetLastModificationTime() {
-	o.LastModificationTime.Unset()
-}
-
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId.Get()) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId.Get()
+	return *o.LastModifierId
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
-	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
+	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasLastModifierId() bool {
-	if o != nil && o.LastModifierId.IsSet() {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
 func (o *StorageObjectDto) SetLastModifierId(v string) {
-	o.LastModifierId.Set(&v)
-}
-// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-func (o *StorageObjectDto) SetLastModifierIdNil() {
-	o.LastModifierId.Set(nil)
-}
-
-// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
-func (o *StorageObjectDto) UnsetLastModifierId() {
-	o.LastModifierId.Unset()
+	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -283,214 +253,164 @@ func (o *StorageObjectDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId.Get()) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId.Get()
+	return *o.DeleterId
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
-	return o.DeleterId.Get(), o.DeleterId.IsSet()
+	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasDeleterId() bool {
-	if o != nil && o.DeleterId.IsSet() {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
 func (o *StorageObjectDto) SetDeleterId(v string) {
-	o.DeleterId.Set(&v)
-}
-// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-func (o *StorageObjectDto) SetDeleterIdNil() {
-	o.DeleterId.Set(nil)
+	o.DeleterId = &v
 }
 
-// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
-func (o *StorageObjectDto) UnsetDeleterId() {
-	o.DeleterId.Unset()
-}
-
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime.Get()) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime.Get()
+	return *o.DeletionTime
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
-	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasDeletionTime() bool {
-	if o != nil && o.DeletionTime.IsSet() {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
 func (o *StorageObjectDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime.Set(&v)
-}
-// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-func (o *StorageObjectDto) SetDeletionTimeNil() {
-	o.DeletionTime.Set(nil)
+	o.DeletionTime = &v
 }
 
-// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
-func (o *StorageObjectDto) UnsetDeletionTime() {
-	o.DeletionTime.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *StorageObjectDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *StorageObjectDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *StorageObjectDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetKey() string {
-	if o == nil || IsNil(o.Key.Get()) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+	return *o.Key
 }
 
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Key) {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
 	return false
 }
 
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey gets a reference to the given string and assigns it to the Key field.
 func (o *StorageObjectDto) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *StorageObjectDto) SetKeyNil() {
-	o.Key.Set(nil)
+	o.Key = &v
 }
 
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *StorageObjectDto) UnsetKey() {
-	o.Key.Unset()
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *StorageObjectDto) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *StorageObjectDto) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *StorageObjectDto) UnsetUrl() {
-	o.Url.Unset()
+	o.Url = &v
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
@@ -525,340 +445,260 @@ func (o *StorageObjectDto) SetSize(v int64) {
 	o.Size = &v
 }
 
-// GetMd5 returns the Md5 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMd5 returns the Md5 field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetMd5() string {
-	if o == nil || IsNil(o.Md5.Get()) {
+	if o == nil || IsNil(o.Md5) {
 		var ret string
 		return ret
 	}
-	return *o.Md5.Get()
+	return *o.Md5
 }
 
 // GetMd5Ok returns a tuple with the Md5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetMd5Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Md5) {
 		return nil, false
 	}
-	return o.Md5.Get(), o.Md5.IsSet()
+	return o.Md5, true
 }
 
 // HasMd5 returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasMd5() bool {
-	if o != nil && o.Md5.IsSet() {
+	if o != nil && !IsNil(o.Md5) {
 		return true
 	}
 
 	return false
 }
 
-// SetMd5 gets a reference to the given NullableString and assigns it to the Md5 field.
+// SetMd5 gets a reference to the given string and assigns it to the Md5 field.
 func (o *StorageObjectDto) SetMd5(v string) {
-	o.Md5.Set(&v)
-}
-// SetMd5Nil sets the value for Md5 to be an explicit nil
-func (o *StorageObjectDto) SetMd5Nil() {
-	o.Md5.Set(nil)
+	o.Md5 = &v
 }
 
-// UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
-func (o *StorageObjectDto) UnsetMd5() {
-	o.Md5.Unset()
-}
-
-// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetSliceMd5() string {
-	if o == nil || IsNil(o.SliceMd5.Get()) {
+	if o == nil || IsNil(o.SliceMd5) {
 		var ret string
 		return ret
 	}
-	return *o.SliceMd5.Get()
+	return *o.SliceMd5
 }
 
 // GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetSliceMd5Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SliceMd5) {
 		return nil, false
 	}
-	return o.SliceMd5.Get(), o.SliceMd5.IsSet()
+	return o.SliceMd5, true
 }
 
 // HasSliceMd5 returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasSliceMd5() bool {
-	if o != nil && o.SliceMd5.IsSet() {
+	if o != nil && !IsNil(o.SliceMd5) {
 		return true
 	}
 
 	return false
 }
 
-// SetSliceMd5 gets a reference to the given NullableString and assigns it to the SliceMd5 field.
+// SetSliceMd5 gets a reference to the given string and assigns it to the SliceMd5 field.
 func (o *StorageObjectDto) SetSliceMd5(v string) {
-	o.SliceMd5.Set(&v)
-}
-// SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
-func (o *StorageObjectDto) SetSliceMd5Nil() {
-	o.SliceMd5.Set(nil)
+	o.SliceMd5 = &v
 }
 
-// UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
-func (o *StorageObjectDto) UnsetSliceMd5() {
-	o.SliceMd5.Unset()
-}
-
-// GetRapidCode returns the RapidCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRapidCode returns the RapidCode field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetRapidCode() string {
-	if o == nil || IsNil(o.RapidCode.Get()) {
+	if o == nil || IsNil(o.RapidCode) {
 		var ret string
 		return ret
 	}
-	return *o.RapidCode.Get()
+	return *o.RapidCode
 }
 
 // GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetRapidCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RapidCode) {
 		return nil, false
 	}
-	return o.RapidCode.Get(), o.RapidCode.IsSet()
+	return o.RapidCode, true
 }
 
 // HasRapidCode returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasRapidCode() bool {
-	if o != nil && o.RapidCode.IsSet() {
+	if o != nil && !IsNil(o.RapidCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetRapidCode gets a reference to the given NullableString and assigns it to the RapidCode field.
+// SetRapidCode gets a reference to the given string and assigns it to the RapidCode field.
 func (o *StorageObjectDto) SetRapidCode(v string) {
-	o.RapidCode.Set(&v)
-}
-// SetRapidCodeNil sets the value for RapidCode to be an explicit nil
-func (o *StorageObjectDto) SetRapidCodeNil() {
-	o.RapidCode.Set(nil)
+	o.RapidCode = &v
 }
 
-// UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
-func (o *StorageObjectDto) UnsetRapidCode() {
-	o.RapidCode.Unset()
-}
-
-// GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContentType returns the ContentType field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetContentType() string {
-	if o == nil || IsNil(o.ContentType.Get()) {
+	if o == nil || IsNil(o.ContentType) {
 		var ret string
 		return ret
 	}
-	return *o.ContentType.Get()
+	return *o.ContentType
 }
 
 // GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetContentTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ContentType) {
 		return nil, false
 	}
-	return o.ContentType.Get(), o.ContentType.IsSet()
+	return o.ContentType, true
 }
 
 // HasContentType returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasContentType() bool {
-	if o != nil && o.ContentType.IsSet() {
+	if o != nil && !IsNil(o.ContentType) {
 		return true
 	}
 
 	return false
 }
 
-// SetContentType gets a reference to the given NullableString and assigns it to the ContentType field.
+// SetContentType gets a reference to the given string and assigns it to the ContentType field.
 func (o *StorageObjectDto) SetContentType(v string) {
-	o.ContentType.Set(&v)
-}
-// SetContentTypeNil sets the value for ContentType to be an explicit nil
-func (o *StorageObjectDto) SetContentTypeNil() {
-	o.ContentType.Set(nil)
+	o.ContentType = &v
 }
 
-// UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
-func (o *StorageObjectDto) UnsetContentType() {
-	o.ContentType.Unset()
-}
-
-// GetExtension returns the Extension field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExtension returns the Extension field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetExtension() string {
-	if o == nil || IsNil(o.Extension.Get()) {
+	if o == nil || IsNil(o.Extension) {
 		var ret string
 		return ret
 	}
-	return *o.Extension.Get()
+	return *o.Extension
 }
 
 // GetExtensionOk returns a tuple with the Extension field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetExtensionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Extension) {
 		return nil, false
 	}
-	return o.Extension.Get(), o.Extension.IsSet()
+	return o.Extension, true
 }
 
 // HasExtension returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasExtension() bool {
-	if o != nil && o.Extension.IsSet() {
+	if o != nil && !IsNil(o.Extension) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtension gets a reference to the given NullableString and assigns it to the Extension field.
+// SetExtension gets a reference to the given string and assigns it to the Extension field.
 func (o *StorageObjectDto) SetExtension(v string) {
-	o.Extension.Set(&v)
-}
-// SetExtensionNil sets the value for Extension to be an explicit nil
-func (o *StorageObjectDto) SetExtensionNil() {
-	o.Extension.Set(nil)
+	o.Extension = &v
 }
 
-// UnsetExtension ensures that no value is present for Extension, not even an explicit nil
-func (o *StorageObjectDto) UnsetExtension() {
-	o.Extension.Unset()
-}
-
-// GetStorageClass returns the StorageClass field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStorageClass returns the StorageClass field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetStorageClass() string {
-	if o == nil || IsNil(o.StorageClass.Get()) {
+	if o == nil || IsNil(o.StorageClass) {
 		var ret string
 		return ret
 	}
-	return *o.StorageClass.Get()
+	return *o.StorageClass
 }
 
 // GetStorageClassOk returns a tuple with the StorageClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetStorageClassOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StorageClass) {
 		return nil, false
 	}
-	return o.StorageClass.Get(), o.StorageClass.IsSet()
+	return o.StorageClass, true
 }
 
 // HasStorageClass returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasStorageClass() bool {
-	if o != nil && o.StorageClass.IsSet() {
+	if o != nil && !IsNil(o.StorageClass) {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageClass gets a reference to the given NullableString and assigns it to the StorageClass field.
+// SetStorageClass gets a reference to the given string and assigns it to the StorageClass field.
 func (o *StorageObjectDto) SetStorageClass(v string) {
-	o.StorageClass.Set(&v)
-}
-// SetStorageClassNil sets the value for StorageClass to be an explicit nil
-func (o *StorageObjectDto) SetStorageClassNil() {
-	o.StorageClass.Set(nil)
+	o.StorageClass = &v
 }
 
-// UnsetStorageClass ensures that no value is present for StorageClass, not even an explicit nil
-func (o *StorageObjectDto) UnsetStorageClass() {
-	o.StorageClass.Unset()
-}
-
-// GetStorageObjectCreatedAt returns the StorageObjectCreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStorageObjectCreatedAt returns the StorageObjectCreatedAt field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetStorageObjectCreatedAt() time.Time {
-	if o == nil || IsNil(o.StorageObjectCreatedAt.Get()) {
+	if o == nil || IsNil(o.StorageObjectCreatedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StorageObjectCreatedAt.Get()
+	return *o.StorageObjectCreatedAt
 }
 
 // GetStorageObjectCreatedAtOk returns a tuple with the StorageObjectCreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetStorageObjectCreatedAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StorageObjectCreatedAt) {
 		return nil, false
 	}
-	return o.StorageObjectCreatedAt.Get(), o.StorageObjectCreatedAt.IsSet()
+	return o.StorageObjectCreatedAt, true
 }
 
 // HasStorageObjectCreatedAt returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasStorageObjectCreatedAt() bool {
-	if o != nil && o.StorageObjectCreatedAt.IsSet() {
+	if o != nil && !IsNil(o.StorageObjectCreatedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageObjectCreatedAt gets a reference to the given NullableTime and assigns it to the StorageObjectCreatedAt field.
+// SetStorageObjectCreatedAt gets a reference to the given time.Time and assigns it to the StorageObjectCreatedAt field.
 func (o *StorageObjectDto) SetStorageObjectCreatedAt(v time.Time) {
-	o.StorageObjectCreatedAt.Set(&v)
-}
-// SetStorageObjectCreatedAtNil sets the value for StorageObjectCreatedAt to be an explicit nil
-func (o *StorageObjectDto) SetStorageObjectCreatedAtNil() {
-	o.StorageObjectCreatedAt.Set(nil)
+	o.StorageObjectCreatedAt = &v
 }
 
-// UnsetStorageObjectCreatedAt ensures that no value is present for StorageObjectCreatedAt, not even an explicit nil
-func (o *StorageObjectDto) UnsetStorageObjectCreatedAt() {
-	o.StorageObjectCreatedAt.Unset()
-}
-
-// GetStorageObjectUpdatedAt returns the StorageObjectUpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStorageObjectUpdatedAt returns the StorageObjectUpdatedAt field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetStorageObjectUpdatedAt() time.Time {
-	if o == nil || IsNil(o.StorageObjectUpdatedAt.Get()) {
+	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StorageObjectUpdatedAt.Get()
+	return *o.StorageObjectUpdatedAt
 }
 
 // GetStorageObjectUpdatedAtOk returns a tuple with the StorageObjectUpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetStorageObjectUpdatedAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StorageObjectUpdatedAt) {
 		return nil, false
 	}
-	return o.StorageObjectUpdatedAt.Get(), o.StorageObjectUpdatedAt.IsSet()
+	return o.StorageObjectUpdatedAt, true
 }
 
 // HasStorageObjectUpdatedAt returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasStorageObjectUpdatedAt() bool {
-	if o != nil && o.StorageObjectUpdatedAt.IsSet() {
+	if o != nil && !IsNil(o.StorageObjectUpdatedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageObjectUpdatedAt gets a reference to the given NullableTime and assigns it to the StorageObjectUpdatedAt field.
+// SetStorageObjectUpdatedAt gets a reference to the given time.Time and assigns it to the StorageObjectUpdatedAt field.
 func (o *StorageObjectDto) SetStorageObjectUpdatedAt(v time.Time) {
-	o.StorageObjectUpdatedAt.Set(&v)
-}
-// SetStorageObjectUpdatedAtNil sets the value for StorageObjectUpdatedAt to be an explicit nil
-func (o *StorageObjectDto) SetStorageObjectUpdatedAtNil() {
-	o.StorageObjectUpdatedAt.Set(nil)
-}
-
-// UnsetStorageObjectUpdatedAt ensures that no value is present for StorageObjectUpdatedAt, not even an explicit nil
-func (o *StorageObjectDto) UnsetStorageObjectUpdatedAt() {
-	o.StorageObjectUpdatedAt.Unset()
+	o.StorageObjectUpdatedAt = &v
 }
 
 // GetSyncVersion returns the SyncVersion field value if set, zero value otherwise.
@@ -893,46 +733,36 @@ func (o *StorageObjectDto) SetSyncVersion(v int64) {
 	o.SyncVersion = &v
 }
 
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPassword returns the Password field value if set, zero value otherwise.
 func (o *StorageObjectDto) GetPassword() string {
-	if o == nil || IsNil(o.Password.Get()) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
-	return *o.Password.Get()
+	return *o.Password
 }
 
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageObjectDto) GetPasswordOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Password) {
 		return nil, false
 	}
-	return o.Password.Get(), o.Password.IsSet()
+	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *StorageObjectDto) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
 	return false
 }
 
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
+// SetPassword gets a reference to the given string and assigns it to the Password field.
 func (o *StorageObjectDto) SetPassword(v string) {
-	o.Password.Set(&v)
-}
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *StorageObjectDto) SetPasswordNil() {
-	o.Password.Set(nil)
-}
-
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *StorageObjectDto) UnsetPassword() {
-	o.Password.Unset()
+	o.Password = &v
 }
 
 func (o StorageObjectDto) MarshalJSON() ([]byte, error) {
@@ -951,65 +781,65 @@ func (o StorageObjectDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
 	}
-	if o.LastModificationTime.IsSet() {
-		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
-	if o.LastModifierId.IsSet() {
-		toSerialize["lastModifierId"] = o.LastModifierId.Get()
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.DeleterId.IsSet() {
-		toSerialize["deleterId"] = o.DeleterId.Get()
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
 	}
-	if o.DeletionTime.IsSet() {
-		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
 	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
 	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
-	if o.Md5.IsSet() {
-		toSerialize["md5"] = o.Md5.Get()
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
 	}
-	if o.SliceMd5.IsSet() {
-		toSerialize["sliceMd5"] = o.SliceMd5.Get()
+	if !IsNil(o.SliceMd5) {
+		toSerialize["sliceMd5"] = o.SliceMd5
 	}
-	if o.RapidCode.IsSet() {
-		toSerialize["rapidCode"] = o.RapidCode.Get()
+	if !IsNil(o.RapidCode) {
+		toSerialize["rapidCode"] = o.RapidCode
 	}
-	if o.ContentType.IsSet() {
-		toSerialize["contentType"] = o.ContentType.Get()
+	if !IsNil(o.ContentType) {
+		toSerialize["contentType"] = o.ContentType
 	}
-	if o.Extension.IsSet() {
-		toSerialize["extension"] = o.Extension.Get()
+	if !IsNil(o.Extension) {
+		toSerialize["extension"] = o.Extension
 	}
-	if o.StorageClass.IsSet() {
-		toSerialize["storageClass"] = o.StorageClass.Get()
+	if !IsNil(o.StorageClass) {
+		toSerialize["storageClass"] = o.StorageClass
 	}
-	if o.StorageObjectCreatedAt.IsSet() {
-		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt.Get()
+	if !IsNil(o.StorageObjectCreatedAt) {
+		toSerialize["storageObjectCreatedAt"] = o.StorageObjectCreatedAt
 	}
-	if o.StorageObjectUpdatedAt.IsSet() {
-		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt.Get()
+	if !IsNil(o.StorageObjectUpdatedAt) {
+		toSerialize["storageObjectUpdatedAt"] = o.StorageObjectUpdatedAt
 	}
 	if !IsNil(o.SyncVersion) {
 		toSerialize["syncVersion"] = o.SyncVersion
 	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
 	}
 	return toSerialize, nil
 }

@@ -19,13 +19,13 @@ var _ MappedNullable = &DateTimeFormatDto{}
 
 // DateTimeFormatDto struct for DateTimeFormatDto
 type DateTimeFormatDto struct {
-	CalendarAlgorithmType NullableString `json:"calendarAlgorithmType,omitempty"`
-	DateTimeFormatLong NullableString `json:"dateTimeFormatLong,omitempty"`
-	ShortDatePattern NullableString `json:"shortDatePattern,omitempty"`
-	FullDateTimePattern NullableString `json:"fullDateTimePattern,omitempty"`
-	DateSeparator NullableString `json:"dateSeparator,omitempty"`
-	ShortTimePattern NullableString `json:"shortTimePattern,omitempty"`
-	LongTimePattern NullableString `json:"longTimePattern,omitempty"`
+	CalendarAlgorithmType *string `json:"calendarAlgorithmType,omitempty"`
+	DateTimeFormatLong *string `json:"dateTimeFormatLong,omitempty"`
+	ShortDatePattern *string `json:"shortDatePattern,omitempty"`
+	FullDateTimePattern *string `json:"fullDateTimePattern,omitempty"`
+	DateSeparator *string `json:"dateSeparator,omitempty"`
+	ShortTimePattern *string `json:"shortTimePattern,omitempty"`
+	LongTimePattern *string `json:"longTimePattern,omitempty"`
 }
 
 // NewDateTimeFormatDto instantiates a new DateTimeFormatDto object
@@ -45,298 +45,228 @@ func NewDateTimeFormatDtoWithDefaults() *DateTimeFormatDto {
 	return &this
 }
 
-// GetCalendarAlgorithmType returns the CalendarAlgorithmType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCalendarAlgorithmType returns the CalendarAlgorithmType field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetCalendarAlgorithmType() string {
-	if o == nil || IsNil(o.CalendarAlgorithmType.Get()) {
+	if o == nil || IsNil(o.CalendarAlgorithmType) {
 		var ret string
 		return ret
 	}
-	return *o.CalendarAlgorithmType.Get()
+	return *o.CalendarAlgorithmType
 }
 
 // GetCalendarAlgorithmTypeOk returns a tuple with the CalendarAlgorithmType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetCalendarAlgorithmTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CalendarAlgorithmType) {
 		return nil, false
 	}
-	return o.CalendarAlgorithmType.Get(), o.CalendarAlgorithmType.IsSet()
+	return o.CalendarAlgorithmType, true
 }
 
 // HasCalendarAlgorithmType returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasCalendarAlgorithmType() bool {
-	if o != nil && o.CalendarAlgorithmType.IsSet() {
+	if o != nil && !IsNil(o.CalendarAlgorithmType) {
 		return true
 	}
 
 	return false
 }
 
-// SetCalendarAlgorithmType gets a reference to the given NullableString and assigns it to the CalendarAlgorithmType field.
+// SetCalendarAlgorithmType gets a reference to the given string and assigns it to the CalendarAlgorithmType field.
 func (o *DateTimeFormatDto) SetCalendarAlgorithmType(v string) {
-	o.CalendarAlgorithmType.Set(&v)
-}
-// SetCalendarAlgorithmTypeNil sets the value for CalendarAlgorithmType to be an explicit nil
-func (o *DateTimeFormatDto) SetCalendarAlgorithmTypeNil() {
-	o.CalendarAlgorithmType.Set(nil)
+	o.CalendarAlgorithmType = &v
 }
 
-// UnsetCalendarAlgorithmType ensures that no value is present for CalendarAlgorithmType, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetCalendarAlgorithmType() {
-	o.CalendarAlgorithmType.Unset()
-}
-
-// GetDateTimeFormatLong returns the DateTimeFormatLong field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDateTimeFormatLong returns the DateTimeFormatLong field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetDateTimeFormatLong() string {
-	if o == nil || IsNil(o.DateTimeFormatLong.Get()) {
+	if o == nil || IsNil(o.DateTimeFormatLong) {
 		var ret string
 		return ret
 	}
-	return *o.DateTimeFormatLong.Get()
+	return *o.DateTimeFormatLong
 }
 
 // GetDateTimeFormatLongOk returns a tuple with the DateTimeFormatLong field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetDateTimeFormatLongOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateTimeFormatLong) {
 		return nil, false
 	}
-	return o.DateTimeFormatLong.Get(), o.DateTimeFormatLong.IsSet()
+	return o.DateTimeFormatLong, true
 }
 
 // HasDateTimeFormatLong returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasDateTimeFormatLong() bool {
-	if o != nil && o.DateTimeFormatLong.IsSet() {
+	if o != nil && !IsNil(o.DateTimeFormatLong) {
 		return true
 	}
 
 	return false
 }
 
-// SetDateTimeFormatLong gets a reference to the given NullableString and assigns it to the DateTimeFormatLong field.
+// SetDateTimeFormatLong gets a reference to the given string and assigns it to the DateTimeFormatLong field.
 func (o *DateTimeFormatDto) SetDateTimeFormatLong(v string) {
-	o.DateTimeFormatLong.Set(&v)
-}
-// SetDateTimeFormatLongNil sets the value for DateTimeFormatLong to be an explicit nil
-func (o *DateTimeFormatDto) SetDateTimeFormatLongNil() {
-	o.DateTimeFormatLong.Set(nil)
+	o.DateTimeFormatLong = &v
 }
 
-// UnsetDateTimeFormatLong ensures that no value is present for DateTimeFormatLong, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetDateTimeFormatLong() {
-	o.DateTimeFormatLong.Unset()
-}
-
-// GetShortDatePattern returns the ShortDatePattern field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetShortDatePattern returns the ShortDatePattern field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetShortDatePattern() string {
-	if o == nil || IsNil(o.ShortDatePattern.Get()) {
+	if o == nil || IsNil(o.ShortDatePattern) {
 		var ret string
 		return ret
 	}
-	return *o.ShortDatePattern.Get()
+	return *o.ShortDatePattern
 }
 
 // GetShortDatePatternOk returns a tuple with the ShortDatePattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetShortDatePatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShortDatePattern) {
 		return nil, false
 	}
-	return o.ShortDatePattern.Get(), o.ShortDatePattern.IsSet()
+	return o.ShortDatePattern, true
 }
 
 // HasShortDatePattern returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasShortDatePattern() bool {
-	if o != nil && o.ShortDatePattern.IsSet() {
+	if o != nil && !IsNil(o.ShortDatePattern) {
 		return true
 	}
 
 	return false
 }
 
-// SetShortDatePattern gets a reference to the given NullableString and assigns it to the ShortDatePattern field.
+// SetShortDatePattern gets a reference to the given string and assigns it to the ShortDatePattern field.
 func (o *DateTimeFormatDto) SetShortDatePattern(v string) {
-	o.ShortDatePattern.Set(&v)
-}
-// SetShortDatePatternNil sets the value for ShortDatePattern to be an explicit nil
-func (o *DateTimeFormatDto) SetShortDatePatternNil() {
-	o.ShortDatePattern.Set(nil)
+	o.ShortDatePattern = &v
 }
 
-// UnsetShortDatePattern ensures that no value is present for ShortDatePattern, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetShortDatePattern() {
-	o.ShortDatePattern.Unset()
-}
-
-// GetFullDateTimePattern returns the FullDateTimePattern field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFullDateTimePattern returns the FullDateTimePattern field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetFullDateTimePattern() string {
-	if o == nil || IsNil(o.FullDateTimePattern.Get()) {
+	if o == nil || IsNil(o.FullDateTimePattern) {
 		var ret string
 		return ret
 	}
-	return *o.FullDateTimePattern.Get()
+	return *o.FullDateTimePattern
 }
 
 // GetFullDateTimePatternOk returns a tuple with the FullDateTimePattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetFullDateTimePatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FullDateTimePattern) {
 		return nil, false
 	}
-	return o.FullDateTimePattern.Get(), o.FullDateTimePattern.IsSet()
+	return o.FullDateTimePattern, true
 }
 
 // HasFullDateTimePattern returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasFullDateTimePattern() bool {
-	if o != nil && o.FullDateTimePattern.IsSet() {
+	if o != nil && !IsNil(o.FullDateTimePattern) {
 		return true
 	}
 
 	return false
 }
 
-// SetFullDateTimePattern gets a reference to the given NullableString and assigns it to the FullDateTimePattern field.
+// SetFullDateTimePattern gets a reference to the given string and assigns it to the FullDateTimePattern field.
 func (o *DateTimeFormatDto) SetFullDateTimePattern(v string) {
-	o.FullDateTimePattern.Set(&v)
-}
-// SetFullDateTimePatternNil sets the value for FullDateTimePattern to be an explicit nil
-func (o *DateTimeFormatDto) SetFullDateTimePatternNil() {
-	o.FullDateTimePattern.Set(nil)
+	o.FullDateTimePattern = &v
 }
 
-// UnsetFullDateTimePattern ensures that no value is present for FullDateTimePattern, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetFullDateTimePattern() {
-	o.FullDateTimePattern.Unset()
-}
-
-// GetDateSeparator returns the DateSeparator field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDateSeparator returns the DateSeparator field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetDateSeparator() string {
-	if o == nil || IsNil(o.DateSeparator.Get()) {
+	if o == nil || IsNil(o.DateSeparator) {
 		var ret string
 		return ret
 	}
-	return *o.DateSeparator.Get()
+	return *o.DateSeparator
 }
 
 // GetDateSeparatorOk returns a tuple with the DateSeparator field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetDateSeparatorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DateSeparator) {
 		return nil, false
 	}
-	return o.DateSeparator.Get(), o.DateSeparator.IsSet()
+	return o.DateSeparator, true
 }
 
 // HasDateSeparator returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasDateSeparator() bool {
-	if o != nil && o.DateSeparator.IsSet() {
+	if o != nil && !IsNil(o.DateSeparator) {
 		return true
 	}
 
 	return false
 }
 
-// SetDateSeparator gets a reference to the given NullableString and assigns it to the DateSeparator field.
+// SetDateSeparator gets a reference to the given string and assigns it to the DateSeparator field.
 func (o *DateTimeFormatDto) SetDateSeparator(v string) {
-	o.DateSeparator.Set(&v)
-}
-// SetDateSeparatorNil sets the value for DateSeparator to be an explicit nil
-func (o *DateTimeFormatDto) SetDateSeparatorNil() {
-	o.DateSeparator.Set(nil)
+	o.DateSeparator = &v
 }
 
-// UnsetDateSeparator ensures that no value is present for DateSeparator, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetDateSeparator() {
-	o.DateSeparator.Unset()
-}
-
-// GetShortTimePattern returns the ShortTimePattern field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetShortTimePattern returns the ShortTimePattern field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetShortTimePattern() string {
-	if o == nil || IsNil(o.ShortTimePattern.Get()) {
+	if o == nil || IsNil(o.ShortTimePattern) {
 		var ret string
 		return ret
 	}
-	return *o.ShortTimePattern.Get()
+	return *o.ShortTimePattern
 }
 
 // GetShortTimePatternOk returns a tuple with the ShortTimePattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetShortTimePatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ShortTimePattern) {
 		return nil, false
 	}
-	return o.ShortTimePattern.Get(), o.ShortTimePattern.IsSet()
+	return o.ShortTimePattern, true
 }
 
 // HasShortTimePattern returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasShortTimePattern() bool {
-	if o != nil && o.ShortTimePattern.IsSet() {
+	if o != nil && !IsNil(o.ShortTimePattern) {
 		return true
 	}
 
 	return false
 }
 
-// SetShortTimePattern gets a reference to the given NullableString and assigns it to the ShortTimePattern field.
+// SetShortTimePattern gets a reference to the given string and assigns it to the ShortTimePattern field.
 func (o *DateTimeFormatDto) SetShortTimePattern(v string) {
-	o.ShortTimePattern.Set(&v)
-}
-// SetShortTimePatternNil sets the value for ShortTimePattern to be an explicit nil
-func (o *DateTimeFormatDto) SetShortTimePatternNil() {
-	o.ShortTimePattern.Set(nil)
+	o.ShortTimePattern = &v
 }
 
-// UnsetShortTimePattern ensures that no value is present for ShortTimePattern, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetShortTimePattern() {
-	o.ShortTimePattern.Unset()
-}
-
-// GetLongTimePattern returns the LongTimePattern field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLongTimePattern returns the LongTimePattern field value if set, zero value otherwise.
 func (o *DateTimeFormatDto) GetLongTimePattern() string {
-	if o == nil || IsNil(o.LongTimePattern.Get()) {
+	if o == nil || IsNil(o.LongTimePattern) {
 		var ret string
 		return ret
 	}
-	return *o.LongTimePattern.Get()
+	return *o.LongTimePattern
 }
 
 // GetLongTimePatternOk returns a tuple with the LongTimePattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DateTimeFormatDto) GetLongTimePatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LongTimePattern) {
 		return nil, false
 	}
-	return o.LongTimePattern.Get(), o.LongTimePattern.IsSet()
+	return o.LongTimePattern, true
 }
 
 // HasLongTimePattern returns a boolean if a field has been set.
 func (o *DateTimeFormatDto) HasLongTimePattern() bool {
-	if o != nil && o.LongTimePattern.IsSet() {
+	if o != nil && !IsNil(o.LongTimePattern) {
 		return true
 	}
 
 	return false
 }
 
-// SetLongTimePattern gets a reference to the given NullableString and assigns it to the LongTimePattern field.
+// SetLongTimePattern gets a reference to the given string and assigns it to the LongTimePattern field.
 func (o *DateTimeFormatDto) SetLongTimePattern(v string) {
-	o.LongTimePattern.Set(&v)
-}
-// SetLongTimePatternNil sets the value for LongTimePattern to be an explicit nil
-func (o *DateTimeFormatDto) SetLongTimePatternNil() {
-	o.LongTimePattern.Set(nil)
-}
-
-// UnsetLongTimePattern ensures that no value is present for LongTimePattern, not even an explicit nil
-func (o *DateTimeFormatDto) UnsetLongTimePattern() {
-	o.LongTimePattern.Unset()
+	o.LongTimePattern = &v
 }
 
 func (o DateTimeFormatDto) MarshalJSON() ([]byte, error) {
@@ -349,26 +279,26 @@ func (o DateTimeFormatDto) MarshalJSON() ([]byte, error) {
 
 func (o DateTimeFormatDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CalendarAlgorithmType.IsSet() {
-		toSerialize["calendarAlgorithmType"] = o.CalendarAlgorithmType.Get()
+	if !IsNil(o.CalendarAlgorithmType) {
+		toSerialize["calendarAlgorithmType"] = o.CalendarAlgorithmType
 	}
-	if o.DateTimeFormatLong.IsSet() {
-		toSerialize["dateTimeFormatLong"] = o.DateTimeFormatLong.Get()
+	if !IsNil(o.DateTimeFormatLong) {
+		toSerialize["dateTimeFormatLong"] = o.DateTimeFormatLong
 	}
-	if o.ShortDatePattern.IsSet() {
-		toSerialize["shortDatePattern"] = o.ShortDatePattern.Get()
+	if !IsNil(o.ShortDatePattern) {
+		toSerialize["shortDatePattern"] = o.ShortDatePattern
 	}
-	if o.FullDateTimePattern.IsSet() {
-		toSerialize["fullDateTimePattern"] = o.FullDateTimePattern.Get()
+	if !IsNil(o.FullDateTimePattern) {
+		toSerialize["fullDateTimePattern"] = o.FullDateTimePattern
 	}
-	if o.DateSeparator.IsSet() {
-		toSerialize["dateSeparator"] = o.DateSeparator.Get()
+	if !IsNil(o.DateSeparator) {
+		toSerialize["dateSeparator"] = o.DateSeparator
 	}
-	if o.ShortTimePattern.IsSet() {
-		toSerialize["shortTimePattern"] = o.ShortTimePattern.Get()
+	if !IsNil(o.ShortTimePattern) {
+		toSerialize["shortTimePattern"] = o.ShortTimePattern
 	}
-	if o.LongTimePattern.IsSet() {
-		toSerialize["longTimePattern"] = o.LongTimePattern.Get()
+	if !IsNil(o.LongTimePattern) {
+		toSerialize["longTimePattern"] = o.LongTimePattern
 	}
 	return toSerialize, nil
 }

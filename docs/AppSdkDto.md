@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Privacy** | Pointer to **NullableString** |  | [optional] 
-**PrivacyUrl** | Pointer to **NullableString** |  | [optional] 
-**HomePage** | Pointer to **NullableString** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Privacy** | Pointer to **string** |  | [optional] 
+**PrivacyUrl** | Pointer to **string** |  | [optional] 
+**HomePage** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -112,16 +112,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *AppSdkDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *AppSdkDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModificationTime
 
 `func (o *AppSdkDto) GetLastModificationTime() time.Time`
@@ -147,16 +137,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *AppSdkDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *AppSdkDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *AppSdkDto) GetLastModifierId() string`
@@ -182,16 +162,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *AppSdkDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *AppSdkDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *AppSdkDto) GetIsDeleted() bool`
@@ -242,16 +212,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *AppSdkDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *AppSdkDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetDeletionTime
 
 `func (o *AppSdkDto) GetDeletionTime() time.Time`
@@ -277,16 +237,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *AppSdkDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *AppSdkDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetName
 
 `func (o *AppSdkDto) GetName() string`
@@ -312,16 +262,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *AppSdkDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AppSdkDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *AppSdkDto) GetDescription() string`
@@ -347,16 +287,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *AppSdkDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *AppSdkDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetPrivacy
 
 `func (o *AppSdkDto) GetPrivacy() string`
@@ -382,16 +312,6 @@ SetPrivacy sets Privacy field to given value.
 
 HasPrivacy returns a boolean if a field has been set.
 
-### SetPrivacyNil
-
-`func (o *AppSdkDto) SetPrivacyNil(b bool)`
-
- SetPrivacyNil sets the value for Privacy to be an explicit nil
-
-### UnsetPrivacy
-`func (o *AppSdkDto) UnsetPrivacy()`
-
-UnsetPrivacy ensures that no value is present for Privacy, not even an explicit nil
 ### GetPrivacyUrl
 
 `func (o *AppSdkDto) GetPrivacyUrl() string`
@@ -417,16 +337,6 @@ SetPrivacyUrl sets PrivacyUrl field to given value.
 
 HasPrivacyUrl returns a boolean if a field has been set.
 
-### SetPrivacyUrlNil
-
-`func (o *AppSdkDto) SetPrivacyUrlNil(b bool)`
-
- SetPrivacyUrlNil sets the value for PrivacyUrl to be an explicit nil
-
-### UnsetPrivacyUrl
-`func (o *AppSdkDto) UnsetPrivacyUrl()`
-
-UnsetPrivacyUrl ensures that no value is present for PrivacyUrl, not even an explicit nil
 ### GetHomePage
 
 `func (o *AppSdkDto) GetHomePage() string`
@@ -452,16 +362,6 @@ SetHomePage sets HomePage field to given value.
 
 HasHomePage returns a boolean if a field has been set.
 
-### SetHomePageNil
-
-`func (o *AppSdkDto) SetHomePageNil(b bool)`
-
- SetHomePageNil sets the value for HomePage to be an explicit nil
-
-### UnsetHomePage
-`func (o *AppSdkDto) UnsetHomePage()`
-
-UnsetHomePage ensures that no value is present for HomePage, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,11 +19,11 @@ var _ MappedNullable = &ExtensionPropertyUiLookupDto{}
 
 // ExtensionPropertyUiLookupDto struct for ExtensionPropertyUiLookupDto
 type ExtensionPropertyUiLookupDto struct {
-	Url NullableString `json:"url,omitempty"`
-	ResultListPropertyName NullableString `json:"resultListPropertyName,omitempty"`
-	DisplayPropertyName NullableString `json:"displayPropertyName,omitempty"`
-	ValuePropertyName NullableString `json:"valuePropertyName,omitempty"`
-	FilterParamName NullableString `json:"filterParamName,omitempty"`
+	Url *string `json:"url,omitempty"`
+	ResultListPropertyName *string `json:"resultListPropertyName,omitempty"`
+	DisplayPropertyName *string `json:"displayPropertyName,omitempty"`
+	ValuePropertyName *string `json:"valuePropertyName,omitempty"`
+	FilterParamName *string `json:"filterParamName,omitempty"`
 }
 
 // NewExtensionPropertyUiLookupDto instantiates a new ExtensionPropertyUiLookupDto object
@@ -43,214 +43,164 @@ func NewExtensionPropertyUiLookupDtoWithDefaults() *ExtensionPropertyUiLookupDto
 	return &this
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyUiLookupDto) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *ExtensionPropertyUiLookupDto) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *ExtensionPropertyUiLookupDto) SetUrlNil() {
-	o.Url.Set(nil)
+	o.Url = &v
 }
 
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *ExtensionPropertyUiLookupDto) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetResultListPropertyName returns the ResultListPropertyName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResultListPropertyName returns the ResultListPropertyName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetResultListPropertyName() string {
-	if o == nil || IsNil(o.ResultListPropertyName.Get()) {
+	if o == nil || IsNil(o.ResultListPropertyName) {
 		var ret string
 		return ret
 	}
-	return *o.ResultListPropertyName.Get()
+	return *o.ResultListPropertyName
 }
 
 // GetResultListPropertyNameOk returns a tuple with the ResultListPropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyUiLookupDto) GetResultListPropertyNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResultListPropertyName) {
 		return nil, false
 	}
-	return o.ResultListPropertyName.Get(), o.ResultListPropertyName.IsSet()
+	return o.ResultListPropertyName, true
 }
 
 // HasResultListPropertyName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasResultListPropertyName() bool {
-	if o != nil && o.ResultListPropertyName.IsSet() {
+	if o != nil && !IsNil(o.ResultListPropertyName) {
 		return true
 	}
 
 	return false
 }
 
-// SetResultListPropertyName gets a reference to the given NullableString and assigns it to the ResultListPropertyName field.
+// SetResultListPropertyName gets a reference to the given string and assigns it to the ResultListPropertyName field.
 func (o *ExtensionPropertyUiLookupDto) SetResultListPropertyName(v string) {
-	o.ResultListPropertyName.Set(&v)
-}
-// SetResultListPropertyNameNil sets the value for ResultListPropertyName to be an explicit nil
-func (o *ExtensionPropertyUiLookupDto) SetResultListPropertyNameNil() {
-	o.ResultListPropertyName.Set(nil)
+	o.ResultListPropertyName = &v
 }
 
-// UnsetResultListPropertyName ensures that no value is present for ResultListPropertyName, not even an explicit nil
-func (o *ExtensionPropertyUiLookupDto) UnsetResultListPropertyName() {
-	o.ResultListPropertyName.Unset()
-}
-
-// GetDisplayPropertyName returns the DisplayPropertyName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayPropertyName returns the DisplayPropertyName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetDisplayPropertyName() string {
-	if o == nil || IsNil(o.DisplayPropertyName.Get()) {
+	if o == nil || IsNil(o.DisplayPropertyName) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayPropertyName.Get()
+	return *o.DisplayPropertyName
 }
 
 // GetDisplayPropertyNameOk returns a tuple with the DisplayPropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyUiLookupDto) GetDisplayPropertyNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayPropertyName) {
 		return nil, false
 	}
-	return o.DisplayPropertyName.Get(), o.DisplayPropertyName.IsSet()
+	return o.DisplayPropertyName, true
 }
 
 // HasDisplayPropertyName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasDisplayPropertyName() bool {
-	if o != nil && o.DisplayPropertyName.IsSet() {
+	if o != nil && !IsNil(o.DisplayPropertyName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayPropertyName gets a reference to the given NullableString and assigns it to the DisplayPropertyName field.
+// SetDisplayPropertyName gets a reference to the given string and assigns it to the DisplayPropertyName field.
 func (o *ExtensionPropertyUiLookupDto) SetDisplayPropertyName(v string) {
-	o.DisplayPropertyName.Set(&v)
-}
-// SetDisplayPropertyNameNil sets the value for DisplayPropertyName to be an explicit nil
-func (o *ExtensionPropertyUiLookupDto) SetDisplayPropertyNameNil() {
-	o.DisplayPropertyName.Set(nil)
+	o.DisplayPropertyName = &v
 }
 
-// UnsetDisplayPropertyName ensures that no value is present for DisplayPropertyName, not even an explicit nil
-func (o *ExtensionPropertyUiLookupDto) UnsetDisplayPropertyName() {
-	o.DisplayPropertyName.Unset()
-}
-
-// GetValuePropertyName returns the ValuePropertyName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValuePropertyName returns the ValuePropertyName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetValuePropertyName() string {
-	if o == nil || IsNil(o.ValuePropertyName.Get()) {
+	if o == nil || IsNil(o.ValuePropertyName) {
 		var ret string
 		return ret
 	}
-	return *o.ValuePropertyName.Get()
+	return *o.ValuePropertyName
 }
 
 // GetValuePropertyNameOk returns a tuple with the ValuePropertyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyUiLookupDto) GetValuePropertyNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ValuePropertyName) {
 		return nil, false
 	}
-	return o.ValuePropertyName.Get(), o.ValuePropertyName.IsSet()
+	return o.ValuePropertyName, true
 }
 
 // HasValuePropertyName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasValuePropertyName() bool {
-	if o != nil && o.ValuePropertyName.IsSet() {
+	if o != nil && !IsNil(o.ValuePropertyName) {
 		return true
 	}
 
 	return false
 }
 
-// SetValuePropertyName gets a reference to the given NullableString and assigns it to the ValuePropertyName field.
+// SetValuePropertyName gets a reference to the given string and assigns it to the ValuePropertyName field.
 func (o *ExtensionPropertyUiLookupDto) SetValuePropertyName(v string) {
-	o.ValuePropertyName.Set(&v)
-}
-// SetValuePropertyNameNil sets the value for ValuePropertyName to be an explicit nil
-func (o *ExtensionPropertyUiLookupDto) SetValuePropertyNameNil() {
-	o.ValuePropertyName.Set(nil)
+	o.ValuePropertyName = &v
 }
 
-// UnsetValuePropertyName ensures that no value is present for ValuePropertyName, not even an explicit nil
-func (o *ExtensionPropertyUiLookupDto) UnsetValuePropertyName() {
-	o.ValuePropertyName.Unset()
-}
-
-// GetFilterParamName returns the FilterParamName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFilterParamName returns the FilterParamName field value if set, zero value otherwise.
 func (o *ExtensionPropertyUiLookupDto) GetFilterParamName() string {
-	if o == nil || IsNil(o.FilterParamName.Get()) {
+	if o == nil || IsNil(o.FilterParamName) {
 		var ret string
 		return ret
 	}
-	return *o.FilterParamName.Get()
+	return *o.FilterParamName
 }
 
 // GetFilterParamNameOk returns a tuple with the FilterParamName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyUiLookupDto) GetFilterParamNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FilterParamName) {
 		return nil, false
 	}
-	return o.FilterParamName.Get(), o.FilterParamName.IsSet()
+	return o.FilterParamName, true
 }
 
 // HasFilterParamName returns a boolean if a field has been set.
 func (o *ExtensionPropertyUiLookupDto) HasFilterParamName() bool {
-	if o != nil && o.FilterParamName.IsSet() {
+	if o != nil && !IsNil(o.FilterParamName) {
 		return true
 	}
 
 	return false
 }
 
-// SetFilterParamName gets a reference to the given NullableString and assigns it to the FilterParamName field.
+// SetFilterParamName gets a reference to the given string and assigns it to the FilterParamName field.
 func (o *ExtensionPropertyUiLookupDto) SetFilterParamName(v string) {
-	o.FilterParamName.Set(&v)
-}
-// SetFilterParamNameNil sets the value for FilterParamName to be an explicit nil
-func (o *ExtensionPropertyUiLookupDto) SetFilterParamNameNil() {
-	o.FilterParamName.Set(nil)
-}
-
-// UnsetFilterParamName ensures that no value is present for FilterParamName, not even an explicit nil
-func (o *ExtensionPropertyUiLookupDto) UnsetFilterParamName() {
-	o.FilterParamName.Unset()
+	o.FilterParamName = &v
 }
 
 func (o ExtensionPropertyUiLookupDto) MarshalJSON() ([]byte, error) {
@@ -263,20 +213,20 @@ func (o ExtensionPropertyUiLookupDto) MarshalJSON() ([]byte, error) {
 
 func (o ExtensionPropertyUiLookupDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
-	if o.ResultListPropertyName.IsSet() {
-		toSerialize["resultListPropertyName"] = o.ResultListPropertyName.Get()
+	if !IsNil(o.ResultListPropertyName) {
+		toSerialize["resultListPropertyName"] = o.ResultListPropertyName
 	}
-	if o.DisplayPropertyName.IsSet() {
-		toSerialize["displayPropertyName"] = o.DisplayPropertyName.Get()
+	if !IsNil(o.DisplayPropertyName) {
+		toSerialize["displayPropertyName"] = o.DisplayPropertyName
 	}
-	if o.ValuePropertyName.IsSet() {
-		toSerialize["valuePropertyName"] = o.ValuePropertyName.Get()
+	if !IsNil(o.ValuePropertyName) {
+		toSerialize["valuePropertyName"] = o.ValuePropertyName
 	}
-	if o.FilterParamName.IsSet() {
-		toSerialize["filterParamName"] = o.FilterParamName.Get()
+	if !IsNil(o.FilterParamName) {
+		toSerialize["filterParamName"] = o.FilterParamName
 	}
 	return toSerialize, nil
 }

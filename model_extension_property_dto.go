@@ -19,14 +19,14 @@ var _ MappedNullable = &ExtensionPropertyDto{}
 
 // ExtensionPropertyDto struct for ExtensionPropertyDto
 type ExtensionPropertyDto struct {
-	Type NullableString `json:"type,omitempty"`
-	TypeSimple NullableString `json:"typeSimple,omitempty"`
+	Type *string `json:"type,omitempty"`
+	TypeSimple *string `json:"typeSimple,omitempty"`
 	DisplayName *LocalizableStringDto `json:"displayName,omitempty"`
 	Api *ExtensionPropertyApiDto `json:"api,omitempty"`
 	Ui *ExtensionPropertyUiDto `json:"ui,omitempty"`
 	Attributes []ExtensionPropertyAttributeDto `json:"attributes,omitempty"`
-	Configuration map[string]interface{} `json:"configuration,omitempty"`
-	DefaultValue interface{} `json:"defaultValue,omitempty"`
+	Configuration map[string]map[string]interface{} `json:"configuration,omitempty"`
+	DefaultValue map[string]interface{} `json:"defaultValue,omitempty"`
 }
 
 // NewExtensionPropertyDto instantiates a new ExtensionPropertyDto object
@@ -46,88 +46,68 @@ func NewExtensionPropertyDtoWithDefaults() *ExtensionPropertyDto {
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *ExtensionPropertyDto) GetType() string {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyDto) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ExtensionPropertyDto) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableString and assigns it to the Type field.
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *ExtensionPropertyDto) SetType(v string) {
-	o.Type.Set(&v)
-}
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *ExtensionPropertyDto) SetTypeNil() {
-	o.Type.Set(nil)
+	o.Type = &v
 }
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *ExtensionPropertyDto) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *ExtensionPropertyDto) GetTypeSimple() string {
-	if o == nil || IsNil(o.TypeSimple.Get()) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
-	return *o.TypeSimple.Get()
+	return *o.TypeSimple
 }
 
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyDto) GetTypeSimpleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TypeSimple) {
 		return nil, false
 	}
-	return o.TypeSimple.Get(), o.TypeSimple.IsSet()
+	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *ExtensionPropertyDto) HasTypeSimple() bool {
-	if o != nil && o.TypeSimple.IsSet() {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
 	return false
 }
 
-// SetTypeSimple gets a reference to the given NullableString and assigns it to the TypeSimple field.
+// SetTypeSimple gets a reference to the given string and assigns it to the TypeSimple field.
 func (o *ExtensionPropertyDto) SetTypeSimple(v string) {
-	o.TypeSimple.Set(&v)
-}
-// SetTypeSimpleNil sets the value for TypeSimple to be an explicit nil
-func (o *ExtensionPropertyDto) SetTypeSimpleNil() {
-	o.TypeSimple.Set(nil)
-}
-
-// UnsetTypeSimple ensures that no value is present for TypeSimple, not even an explicit nil
-func (o *ExtensionPropertyDto) UnsetTypeSimple() {
-	o.TypeSimple.Unset()
+	o.TypeSimple = &v
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
@@ -226,9 +206,9 @@ func (o *ExtensionPropertyDto) SetUi(v ExtensionPropertyUiDto) {
 	o.Ui = &v
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *ExtensionPropertyDto) GetAttributes() []ExtensionPropertyAttributeDto {
-	if o == nil {
+	if o == nil || IsNil(o.Attributes) {
 		var ret []ExtensionPropertyAttributeDto
 		return ret
 	}
@@ -237,7 +217,6 @@ func (o *ExtensionPropertyDto) GetAttributes() []ExtensionPropertyAttributeDto {
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionPropertyDto) GetAttributesOk() ([]ExtensionPropertyAttributeDto, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return nil, false
@@ -247,7 +226,7 @@ func (o *ExtensionPropertyDto) GetAttributesOk() ([]ExtensionPropertyAttributeDt
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *ExtensionPropertyDto) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -259,10 +238,10 @@ func (o *ExtensionPropertyDto) SetAttributes(v []ExtensionPropertyAttributeDto) 
 	o.Attributes = v
 }
 
-// GetConfiguration returns the Configuration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExtensionPropertyDto) GetConfiguration() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetConfiguration returns the Configuration field value if set, zero value otherwise.
+func (o *ExtensionPropertyDto) GetConfiguration() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.Configuration) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.Configuration
@@ -270,32 +249,31 @@ func (o *ExtensionPropertyDto) GetConfiguration() map[string]interface{} {
 
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExtensionPropertyDto) GetConfigurationOk() (map[string]interface{}, bool) {
+func (o *ExtensionPropertyDto) GetConfigurationOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Configuration) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *ExtensionPropertyDto) HasConfiguration() bool {
-	if o != nil && IsNil(o.Configuration) {
+	if o != nil && !IsNil(o.Configuration) {
 		return true
 	}
 
 	return false
 }
 
-// SetConfiguration gets a reference to the given map[string]interface{} and assigns it to the Configuration field.
-func (o *ExtensionPropertyDto) SetConfiguration(v map[string]interface{}) {
+// SetConfiguration gets a reference to the given map[string]map[string]interface{} and assigns it to the Configuration field.
+func (o *ExtensionPropertyDto) SetConfiguration(v map[string]map[string]interface{}) {
 	o.Configuration = v
 }
 
-// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExtensionPropertyDto) GetDefaultValue() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
+func (o *ExtensionPropertyDto) GetDefaultValue() map[string]interface{} {
+	if o == nil || IsNil(o.DefaultValue) {
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.DefaultValue
@@ -303,25 +281,24 @@ func (o *ExtensionPropertyDto) GetDefaultValue() interface{} {
 
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExtensionPropertyDto) GetDefaultValueOk() (*interface{}, bool) {
+func (o *ExtensionPropertyDto) GetDefaultValueOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.DefaultValue) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.DefaultValue, true
+	return o.DefaultValue, true
 }
 
 // HasDefaultValue returns a boolean if a field has been set.
 func (o *ExtensionPropertyDto) HasDefaultValue() bool {
-	if o != nil && IsNil(o.DefaultValue) {
+	if o != nil && !IsNil(o.DefaultValue) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultValue gets a reference to the given interface{} and assigns it to the DefaultValue field.
-func (o *ExtensionPropertyDto) SetDefaultValue(v interface{}) {
+// SetDefaultValue gets a reference to the given map[string]interface{} and assigns it to the DefaultValue field.
+func (o *ExtensionPropertyDto) SetDefaultValue(v map[string]interface{}) {
 	o.DefaultValue = v
 }
 
@@ -335,11 +312,11 @@ func (o ExtensionPropertyDto) MarshalJSON() ([]byte, error) {
 
 func (o ExtensionPropertyDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.TypeSimple.IsSet() {
-		toSerialize["typeSimple"] = o.TypeSimple.Get()
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
 	}
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
@@ -350,13 +327,13 @@ func (o ExtensionPropertyDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Ui) {
 		toSerialize["ui"] = o.Ui
 	}
-	if o.Attributes != nil {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
-	if o.Configuration != nil {
+	if !IsNil(o.Configuration) {
 		toSerialize["configuration"] = o.Configuration
 	}
-	if o.DefaultValue != nil {
+	if !IsNil(o.DefaultValue) {
 		toSerialize["defaultValue"] = o.DefaultValue
 	}
 	return toSerialize, nil

@@ -19,8 +19,8 @@ var _ MappedNullable = &ObjectExtensionsDto{}
 
 // ObjectExtensionsDto struct for ObjectExtensionsDto
 type ObjectExtensionsDto struct {
-	Modules map[string]ModuleExtensionDto `json:"modules,omitempty"`
-	Enums map[string]ExtensionEnumDto `json:"enums,omitempty"`
+	Modules *map[string]ModuleExtensionDto `json:"modules,omitempty"`
+	Enums *map[string]ExtensionEnumDto `json:"enums,omitempty"`
 }
 
 // NewObjectExtensionsDto instantiates a new ObjectExtensionsDto object
@@ -40,28 +40,27 @@ func NewObjectExtensionsDtoWithDefaults() *ObjectExtensionsDto {
 	return &this
 }
 
-// GetModules returns the Modules field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetModules returns the Modules field value if set, zero value otherwise.
 func (o *ObjectExtensionsDto) GetModules() map[string]ModuleExtensionDto {
-	if o == nil {
+	if o == nil || IsNil(o.Modules) {
 		var ret map[string]ModuleExtensionDto
 		return ret
 	}
-	return o.Modules
+	return *o.Modules
 }
 
 // GetModulesOk returns a tuple with the Modules field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectExtensionsDto) GetModulesOk() (*map[string]ModuleExtensionDto, bool) {
 	if o == nil || IsNil(o.Modules) {
 		return nil, false
 	}
-	return &o.Modules, true
+	return o.Modules, true
 }
 
 // HasModules returns a boolean if a field has been set.
 func (o *ObjectExtensionsDto) HasModules() bool {
-	if o != nil && IsNil(o.Modules) {
+	if o != nil && !IsNil(o.Modules) {
 		return true
 	}
 
@@ -70,31 +69,30 @@ func (o *ObjectExtensionsDto) HasModules() bool {
 
 // SetModules gets a reference to the given map[string]ModuleExtensionDto and assigns it to the Modules field.
 func (o *ObjectExtensionsDto) SetModules(v map[string]ModuleExtensionDto) {
-	o.Modules = v
+	o.Modules = &v
 }
 
-// GetEnums returns the Enums field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnums returns the Enums field value if set, zero value otherwise.
 func (o *ObjectExtensionsDto) GetEnums() map[string]ExtensionEnumDto {
-	if o == nil {
+	if o == nil || IsNil(o.Enums) {
 		var ret map[string]ExtensionEnumDto
 		return ret
 	}
-	return o.Enums
+	return *o.Enums
 }
 
 // GetEnumsOk returns a tuple with the Enums field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectExtensionsDto) GetEnumsOk() (*map[string]ExtensionEnumDto, bool) {
 	if o == nil || IsNil(o.Enums) {
 		return nil, false
 	}
-	return &o.Enums, true
+	return o.Enums, true
 }
 
 // HasEnums returns a boolean if a field has been set.
 func (o *ObjectExtensionsDto) HasEnums() bool {
-	if o != nil && IsNil(o.Enums) {
+	if o != nil && !IsNil(o.Enums) {
 		return true
 	}
 
@@ -103,7 +101,7 @@ func (o *ObjectExtensionsDto) HasEnums() bool {
 
 // SetEnums gets a reference to the given map[string]ExtensionEnumDto and assigns it to the Enums field.
 func (o *ObjectExtensionsDto) SetEnums(v map[string]ExtensionEnumDto) {
-	o.Enums = v
+	o.Enums = &v
 }
 
 func (o ObjectExtensionsDto) MarshalJSON() ([]byte, error) {
@@ -116,10 +114,10 @@ func (o ObjectExtensionsDto) MarshalJSON() ([]byte, error) {
 
 func (o ObjectExtensionsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Modules != nil {
+	if !IsNil(o.Modules) {
 		toSerialize["modules"] = o.Modules
 	}
-	if o.Enums != nil {
+	if !IsNil(o.Enums) {
 		toSerialize["enums"] = o.Enums
 	}
 	return toSerialize, nil

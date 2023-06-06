@@ -19,7 +19,7 @@ var _ MappedNullable = &ChangePasswordInput{}
 
 // ChangePasswordInput struct for ChangePasswordInput
 type ChangePasswordInput struct {
-	CurrentPassword NullableString `json:"currentPassword,omitempty"`
+	CurrentPassword *string `json:"currentPassword,omitempty"`
 	NewPassword string `json:"newPassword"`
 }
 
@@ -41,46 +41,36 @@ func NewChangePasswordInputWithDefaults() *ChangePasswordInput {
 	return &this
 }
 
-// GetCurrentPassword returns the CurrentPassword field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCurrentPassword returns the CurrentPassword field value if set, zero value otherwise.
 func (o *ChangePasswordInput) GetCurrentPassword() string {
-	if o == nil || IsNil(o.CurrentPassword.Get()) {
+	if o == nil || IsNil(o.CurrentPassword) {
 		var ret string
 		return ret
 	}
-	return *o.CurrentPassword.Get()
+	return *o.CurrentPassword
 }
 
 // GetCurrentPasswordOk returns a tuple with the CurrentPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChangePasswordInput) GetCurrentPasswordOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentPassword) {
 		return nil, false
 	}
-	return o.CurrentPassword.Get(), o.CurrentPassword.IsSet()
+	return o.CurrentPassword, true
 }
 
 // HasCurrentPassword returns a boolean if a field has been set.
 func (o *ChangePasswordInput) HasCurrentPassword() bool {
-	if o != nil && o.CurrentPassword.IsSet() {
+	if o != nil && !IsNil(o.CurrentPassword) {
 		return true
 	}
 
 	return false
 }
 
-// SetCurrentPassword gets a reference to the given NullableString and assigns it to the CurrentPassword field.
+// SetCurrentPassword gets a reference to the given string and assigns it to the CurrentPassword field.
 func (o *ChangePasswordInput) SetCurrentPassword(v string) {
-	o.CurrentPassword.Set(&v)
-}
-// SetCurrentPasswordNil sets the value for CurrentPassword to be an explicit nil
-func (o *ChangePasswordInput) SetCurrentPasswordNil() {
-	o.CurrentPassword.Set(nil)
-}
-
-// UnsetCurrentPassword ensures that no value is present for CurrentPassword, not even an explicit nil
-func (o *ChangePasswordInput) UnsetCurrentPassword() {
-	o.CurrentPassword.Unset()
+	o.CurrentPassword = &v
 }
 
 // GetNewPassword returns the NewPassword field value
@@ -117,8 +107,8 @@ func (o ChangePasswordInput) MarshalJSON() ([]byte, error) {
 
 func (o ChangePasswordInput) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CurrentPassword.IsSet() {
-		toSerialize["currentPassword"] = o.CurrentPassword.Get()
+	if !IsNil(o.CurrentPassword) {
+		toSerialize["currentPassword"] = o.CurrentPassword
 	}
 	toSerialize["newPassword"] = o.NewPassword
 	return toSerialize, nil

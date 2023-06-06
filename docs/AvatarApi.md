@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAvatarPost
 
-> AvatarDto ApiAppAvatarPost(ctx).CreateAvatarDto(createAvatarDto).Execute()
+> AvatarDto ApiAppAvatarPost(ctx).Body(body).Execute()
 
 
 
@@ -92,11 +92,11 @@ import (
 )
 
 func main() {
-    createAvatarDto := *openapiclient.NewCreateAvatarDto() // CreateAvatarDto |  (optional)
+    body := *openapiclient.NewCreateAvatarDto() // CreateAvatarDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AvatarApi.ApiAppAvatarPost(context.Background()).CreateAvatarDto(createAvatarDto).Execute()
+    resp, r, err := apiClient.AvatarApi.ApiAppAvatarPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.ApiAppAvatarPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -117,7 +117,7 @@ Other parameters are passed through a pointer to a apiApiAppAvatarPostRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createAvatarDto** | [**CreateAvatarDto**](CreateAvatarDto.md) |  | 
+ **body** | [**CreateAvatarDto**](CreateAvatarDto.md) |  | 
 
 ### Return type
 

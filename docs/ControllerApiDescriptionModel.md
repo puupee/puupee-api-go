@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ControllerName** | Pointer to **NullableString** |  | [optional] 
-**ControllerGroupName** | Pointer to **NullableString** |  | [optional] 
+**ControllerName** | Pointer to **string** |  | [optional] 
+**ControllerGroupName** | Pointer to **string** |  | [optional] 
 **IsRemoteService** | Pointer to **bool** |  | [optional] 
 **IsIntegrationService** | Pointer to **bool** |  | [optional] 
-**ApiVersion** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to **NullableString** |  | [optional] 
+**ApiVersion** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
 **Interfaces** | Pointer to [**[]ControllerInterfaceApiDescriptionModel**](ControllerInterfaceApiDescriptionModel.md) |  | [optional] 
 **Actions** | Pointer to [**map[string]ActionApiDescriptionModel**](ActionApiDescriptionModel.md) |  | [optional] 
 
@@ -57,16 +57,6 @@ SetControllerName sets ControllerName field to given value.
 
 HasControllerName returns a boolean if a field has been set.
 
-### SetControllerNameNil
-
-`func (o *ControllerApiDescriptionModel) SetControllerNameNil(b bool)`
-
- SetControllerNameNil sets the value for ControllerName to be an explicit nil
-
-### UnsetControllerName
-`func (o *ControllerApiDescriptionModel) UnsetControllerName()`
-
-UnsetControllerName ensures that no value is present for ControllerName, not even an explicit nil
 ### GetControllerGroupName
 
 `func (o *ControllerApiDescriptionModel) GetControllerGroupName() string`
@@ -92,16 +82,6 @@ SetControllerGroupName sets ControllerGroupName field to given value.
 
 HasControllerGroupName returns a boolean if a field has been set.
 
-### SetControllerGroupNameNil
-
-`func (o *ControllerApiDescriptionModel) SetControllerGroupNameNil(b bool)`
-
- SetControllerGroupNameNil sets the value for ControllerGroupName to be an explicit nil
-
-### UnsetControllerGroupName
-`func (o *ControllerApiDescriptionModel) UnsetControllerGroupName()`
-
-UnsetControllerGroupName ensures that no value is present for ControllerGroupName, not even an explicit nil
 ### GetIsRemoteService
 
 `func (o *ControllerApiDescriptionModel) GetIsRemoteService() bool`
@@ -177,16 +157,6 @@ SetApiVersion sets ApiVersion field to given value.
 
 HasApiVersion returns a boolean if a field has been set.
 
-### SetApiVersionNil
-
-`func (o *ControllerApiDescriptionModel) SetApiVersionNil(b bool)`
-
- SetApiVersionNil sets the value for ApiVersion to be an explicit nil
-
-### UnsetApiVersion
-`func (o *ControllerApiDescriptionModel) UnsetApiVersion()`
-
-UnsetApiVersion ensures that no value is present for ApiVersion, not even an explicit nil
 ### GetType
 
 `func (o *ControllerApiDescriptionModel) GetType() string`
@@ -212,16 +182,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *ControllerApiDescriptionModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ControllerApiDescriptionModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetInterfaces
 
 `func (o *ControllerApiDescriptionModel) GetInterfaces() []ControllerInterfaceApiDescriptionModel`
@@ -247,16 +207,6 @@ SetInterfaces sets Interfaces field to given value.
 
 HasInterfaces returns a boolean if a field has been set.
 
-### SetInterfacesNil
-
-`func (o *ControllerApiDescriptionModel) SetInterfacesNil(b bool)`
-
- SetInterfacesNil sets the value for Interfaces to be an explicit nil
-
-### UnsetInterfaces
-`func (o *ControllerApiDescriptionModel) UnsetInterfaces()`
-
-UnsetInterfaces ensures that no value is present for Interfaces, not even an explicit nil
 ### GetActions
 
 `func (o *ControllerApiDescriptionModel) GetActions() map[string]ActionApiDescriptionModel`
@@ -282,16 +232,6 @@ SetActions sets Actions field to given value.
 
 HasActions returns a boolean if a field has been set.
 
-### SetActionsNil
-
-`func (o *ControllerApiDescriptionModel) SetActionsNil(b bool)`
-
- SetActionsNil sets the value for Actions to be an explicit nil
-
-### UnsetActions
-`func (o *ControllerApiDescriptionModel) UnsetActions()`
-
-UnsetActions ensures that no value is present for Actions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

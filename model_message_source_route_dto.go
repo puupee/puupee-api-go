@@ -19,16 +19,16 @@ var _ MappedNullable = &MessageSourceRouteDto{}
 
 // MessageSourceRouteDto struct for MessageSourceRouteDto
 type MessageSourceRouteDto struct {
-	Title NullableString `json:"title,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	Path NullableString `json:"path,omitempty"`
+	Title *string `json:"title,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Path *string `json:"path,omitempty"`
 	SourceId *string `json:"sourceId,omitempty"`
-	Extra NullableString `json:"extra,omitempty"`
+	Extra *string `json:"extra,omitempty"`
 	Anticrawler *bool `json:"anticrawler,omitempty"`
 	Radar *bool `json:"radar,omitempty"`
 	Rssbud *bool `json:"rssbud,omitempty"`
 	IsPublished *bool `json:"isPublished,omitempty"`
-	IconUrl NullableString `json:"iconUrl,omitempty"`
+	IconUrl *string `json:"iconUrl,omitempty"`
 }
 
 // NewMessageSourceRouteDto instantiates a new MessageSourceRouteDto object
@@ -48,130 +48,100 @@ func NewMessageSourceRouteDtoWithDefaults() *MessageSourceRouteDto {
 	return &this
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *MessageSourceRouteDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+	return *o.Title
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSourceRouteDto) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *MessageSourceRouteDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *MessageSourceRouteDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *MessageSourceRouteDto) SetTitleNil() {
-	o.Title.Set(nil)
+	o.Title = &v
 }
 
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *MessageSourceRouteDto) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *MessageSourceRouteDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSourceRouteDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *MessageSourceRouteDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *MessageSourceRouteDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *MessageSourceRouteDto) SetDescriptionNil() {
-	o.Description.Set(nil)
+	o.Description = &v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *MessageSourceRouteDto) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetPath returns the Path field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPath returns the Path field value if set, zero value otherwise.
 func (o *MessageSourceRouteDto) GetPath() string {
-	if o == nil || IsNil(o.Path.Get()) {
+	if o == nil || IsNil(o.Path) {
 		var ret string
 		return ret
 	}
-	return *o.Path.Get()
+	return *o.Path
 }
 
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSourceRouteDto) GetPathOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Path) {
 		return nil, false
 	}
-	return o.Path.Get(), o.Path.IsSet()
+	return o.Path, true
 }
 
 // HasPath returns a boolean if a field has been set.
 func (o *MessageSourceRouteDto) HasPath() bool {
-	if o != nil && o.Path.IsSet() {
+	if o != nil && !IsNil(o.Path) {
 		return true
 	}
 
 	return false
 }
 
-// SetPath gets a reference to the given NullableString and assigns it to the Path field.
+// SetPath gets a reference to the given string and assigns it to the Path field.
 func (o *MessageSourceRouteDto) SetPath(v string) {
-	o.Path.Set(&v)
-}
-// SetPathNil sets the value for Path to be an explicit nil
-func (o *MessageSourceRouteDto) SetPathNil() {
-	o.Path.Set(nil)
-}
-
-// UnsetPath ensures that no value is present for Path, not even an explicit nil
-func (o *MessageSourceRouteDto) UnsetPath() {
-	o.Path.Unset()
+	o.Path = &v
 }
 
 // GetSourceId returns the SourceId field value if set, zero value otherwise.
@@ -206,46 +176,36 @@ func (o *MessageSourceRouteDto) SetSourceId(v string) {
 	o.SourceId = &v
 }
 
-// GetExtra returns the Extra field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExtra returns the Extra field value if set, zero value otherwise.
 func (o *MessageSourceRouteDto) GetExtra() string {
-	if o == nil || IsNil(o.Extra.Get()) {
+	if o == nil || IsNil(o.Extra) {
 		var ret string
 		return ret
 	}
-	return *o.Extra.Get()
+	return *o.Extra
 }
 
 // GetExtraOk returns a tuple with the Extra field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSourceRouteDto) GetExtraOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Extra) {
 		return nil, false
 	}
-	return o.Extra.Get(), o.Extra.IsSet()
+	return o.Extra, true
 }
 
 // HasExtra returns a boolean if a field has been set.
 func (o *MessageSourceRouteDto) HasExtra() bool {
-	if o != nil && o.Extra.IsSet() {
+	if o != nil && !IsNil(o.Extra) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtra gets a reference to the given NullableString and assigns it to the Extra field.
+// SetExtra gets a reference to the given string and assigns it to the Extra field.
 func (o *MessageSourceRouteDto) SetExtra(v string) {
-	o.Extra.Set(&v)
-}
-// SetExtraNil sets the value for Extra to be an explicit nil
-func (o *MessageSourceRouteDto) SetExtraNil() {
-	o.Extra.Set(nil)
-}
-
-// UnsetExtra ensures that no value is present for Extra, not even an explicit nil
-func (o *MessageSourceRouteDto) UnsetExtra() {
-	o.Extra.Unset()
+	o.Extra = &v
 }
 
 // GetAnticrawler returns the Anticrawler field value if set, zero value otherwise.
@@ -376,46 +336,36 @@ func (o *MessageSourceRouteDto) SetIsPublished(v bool) {
 	o.IsPublished = &v
 }
 
-// GetIconUrl returns the IconUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIconUrl returns the IconUrl field value if set, zero value otherwise.
 func (o *MessageSourceRouteDto) GetIconUrl() string {
-	if o == nil || IsNil(o.IconUrl.Get()) {
+	if o == nil || IsNil(o.IconUrl) {
 		var ret string
 		return ret
 	}
-	return *o.IconUrl.Get()
+	return *o.IconUrl
 }
 
 // GetIconUrlOk returns a tuple with the IconUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSourceRouteDto) GetIconUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IconUrl) {
 		return nil, false
 	}
-	return o.IconUrl.Get(), o.IconUrl.IsSet()
+	return o.IconUrl, true
 }
 
 // HasIconUrl returns a boolean if a field has been set.
 func (o *MessageSourceRouteDto) HasIconUrl() bool {
-	if o != nil && o.IconUrl.IsSet() {
+	if o != nil && !IsNil(o.IconUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetIconUrl gets a reference to the given NullableString and assigns it to the IconUrl field.
+// SetIconUrl gets a reference to the given string and assigns it to the IconUrl field.
 func (o *MessageSourceRouteDto) SetIconUrl(v string) {
-	o.IconUrl.Set(&v)
-}
-// SetIconUrlNil sets the value for IconUrl to be an explicit nil
-func (o *MessageSourceRouteDto) SetIconUrlNil() {
-	o.IconUrl.Set(nil)
-}
-
-// UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
-func (o *MessageSourceRouteDto) UnsetIconUrl() {
-	o.IconUrl.Unset()
+	o.IconUrl = &v
 }
 
 func (o MessageSourceRouteDto) MarshalJSON() ([]byte, error) {
@@ -428,20 +378,20 @@ func (o MessageSourceRouteDto) MarshalJSON() ([]byte, error) {
 
 func (o MessageSourceRouteDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Path.IsSet() {
-		toSerialize["path"] = o.Path.Get()
+	if !IsNil(o.Path) {
+		toSerialize["path"] = o.Path
 	}
 	if !IsNil(o.SourceId) {
 		toSerialize["sourceId"] = o.SourceId
 	}
-	if o.Extra.IsSet() {
-		toSerialize["extra"] = o.Extra.Get()
+	if !IsNil(o.Extra) {
+		toSerialize["extra"] = o.Extra
 	}
 	if !IsNil(o.Anticrawler) {
 		toSerialize["anticrawler"] = o.Anticrawler
@@ -455,8 +405,8 @@ func (o MessageSourceRouteDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsPublished) {
 		toSerialize["isPublished"] = o.IsPublished
 	}
-	if o.IconUrl.IsSet() {
-		toSerialize["iconUrl"] = o.IconUrl.Get()
+	if !IsNil(o.IconUrl) {
+		toSerialize["iconUrl"] = o.IconUrl
 	}
 	return toSerialize, nil
 }

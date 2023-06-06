@@ -196,11 +196,11 @@ func (a *AvatarApiService) ApiAppAvatarCredentialsGetExecute(r ApiApiAppAvatarCr
 type ApiApiAppAvatarPostRequest struct {
 	ctx context.Context
 	ApiService *AvatarApiService
-	createAvatarDto *CreateAvatarDto
+	body *CreateAvatarDto
 }
 
-func (r ApiApiAppAvatarPostRequest) CreateAvatarDto(createAvatarDto CreateAvatarDto) ApiApiAppAvatarPostRequest {
-	r.createAvatarDto = &createAvatarDto
+func (r ApiApiAppAvatarPostRequest) Body(body CreateAvatarDto) ApiApiAppAvatarPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -260,7 +260,7 @@ func (a *AvatarApiService) ApiAppAvatarPostExecute(r ApiApiAppAvatarPostRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createAvatarDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

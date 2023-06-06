@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **PricingId** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to [**SubscriptionOrderType**](SubscriptionOrderType.md) |  | [optional] 
-**ProductId** | Pointer to **NullableString** |  | [optional] 
+**ProductId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -111,16 +111,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *CreateOrGetSubscriptionOrderDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *CreateOrGetSubscriptionOrderDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModificationTime
 
 `func (o *CreateOrGetSubscriptionOrderDto) GetLastModificationTime() time.Time`
@@ -146,16 +136,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *CreateOrGetSubscriptionOrderDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *CreateOrGetSubscriptionOrderDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *CreateOrGetSubscriptionOrderDto) GetLastModifierId() string`
@@ -181,16 +161,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *CreateOrGetSubscriptionOrderDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *CreateOrGetSubscriptionOrderDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *CreateOrGetSubscriptionOrderDto) GetIsDeleted() bool`
@@ -241,16 +211,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *CreateOrGetSubscriptionOrderDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *CreateOrGetSubscriptionOrderDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetDeletionTime
 
 `func (o *CreateOrGetSubscriptionOrderDto) GetDeletionTime() time.Time`
@@ -276,16 +236,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *CreateOrGetSubscriptionOrderDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *CreateOrGetSubscriptionOrderDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetAppId
 
 `func (o *CreateOrGetSubscriptionOrderDto) GetAppId() string`
@@ -386,16 +336,6 @@ SetProductId sets ProductId field to given value.
 
 HasProductId returns a boolean if a field has been set.
 
-### SetProductIdNil
-
-`func (o *CreateOrGetSubscriptionOrderDto) SetProductIdNil(b bool)`
-
- SetProductIdNil sets the value for ProductId to be an explicit nil
-
-### UnsetProductId
-`func (o *CreateOrGetSubscriptionOrderDto) UnsetProductId()`
-
-UnsetProductId ensures that no value is present for ProductId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

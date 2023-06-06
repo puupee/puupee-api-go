@@ -19,8 +19,8 @@ var _ MappedNullable = &ApplicationApiDescriptionModel{}
 
 // ApplicationApiDescriptionModel struct for ApplicationApiDescriptionModel
 type ApplicationApiDescriptionModel struct {
-	Modules map[string]ModuleApiDescriptionModel `json:"modules,omitempty"`
-	Types map[string]TypeApiDescriptionModel `json:"types,omitempty"`
+	Modules *map[string]ModuleApiDescriptionModel `json:"modules,omitempty"`
+	Types *map[string]TypeApiDescriptionModel `json:"types,omitempty"`
 }
 
 // NewApplicationApiDescriptionModel instantiates a new ApplicationApiDescriptionModel object
@@ -40,28 +40,27 @@ func NewApplicationApiDescriptionModelWithDefaults() *ApplicationApiDescriptionM
 	return &this
 }
 
-// GetModules returns the Modules field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetModules returns the Modules field value if set, zero value otherwise.
 func (o *ApplicationApiDescriptionModel) GetModules() map[string]ModuleApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.Modules) {
 		var ret map[string]ModuleApiDescriptionModel
 		return ret
 	}
-	return o.Modules
+	return *o.Modules
 }
 
 // GetModulesOk returns a tuple with the Modules field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationApiDescriptionModel) GetModulesOk() (*map[string]ModuleApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.Modules) {
 		return nil, false
 	}
-	return &o.Modules, true
+	return o.Modules, true
 }
 
 // HasModules returns a boolean if a field has been set.
 func (o *ApplicationApiDescriptionModel) HasModules() bool {
-	if o != nil && IsNil(o.Modules) {
+	if o != nil && !IsNil(o.Modules) {
 		return true
 	}
 
@@ -70,31 +69,30 @@ func (o *ApplicationApiDescriptionModel) HasModules() bool {
 
 // SetModules gets a reference to the given map[string]ModuleApiDescriptionModel and assigns it to the Modules field.
 func (o *ApplicationApiDescriptionModel) SetModules(v map[string]ModuleApiDescriptionModel) {
-	o.Modules = v
+	o.Modules = &v
 }
 
-// GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypes returns the Types field value if set, zero value otherwise.
 func (o *ApplicationApiDescriptionModel) GetTypes() map[string]TypeApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.Types) {
 		var ret map[string]TypeApiDescriptionModel
 		return ret
 	}
-	return o.Types
+	return *o.Types
 }
 
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationApiDescriptionModel) GetTypesOk() (*map[string]TypeApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
 	}
-	return &o.Types, true
+	return o.Types, true
 }
 
 // HasTypes returns a boolean if a field has been set.
 func (o *ApplicationApiDescriptionModel) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -103,7 +101,7 @@ func (o *ApplicationApiDescriptionModel) HasTypes() bool {
 
 // SetTypes gets a reference to the given map[string]TypeApiDescriptionModel and assigns it to the Types field.
 func (o *ApplicationApiDescriptionModel) SetTypes(v map[string]TypeApiDescriptionModel) {
-	o.Types = v
+	o.Types = &v
 }
 
 func (o ApplicationApiDescriptionModel) MarshalJSON() ([]byte, error) {
@@ -116,10 +114,10 @@ func (o ApplicationApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Modules != nil {
+	if !IsNil(o.Modules) {
 		toSerialize["modules"] = o.Modules
 	}
-	if o.Types != nil {
+	if !IsNil(o.Types) {
 		toSerialize["types"] = o.Types
 	}
 	return toSerialize, nil

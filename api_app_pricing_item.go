@@ -519,11 +519,11 @@ type ApiApiAppAppPricingItemIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppPricingItemApiService
 	id string
-	createOrUpdateAppPricingItemDto *CreateOrUpdateAppPricingItemDto
+	body *CreateOrUpdateAppPricingItemDto
 }
 
-func (r ApiApiAppAppPricingItemIdPutRequest) CreateOrUpdateAppPricingItemDto(createOrUpdateAppPricingItemDto CreateOrUpdateAppPricingItemDto) ApiApiAppAppPricingItemIdPutRequest {
-	r.createOrUpdateAppPricingItemDto = &createOrUpdateAppPricingItemDto
+func (r ApiApiAppAppPricingItemIdPutRequest) Body(body CreateOrUpdateAppPricingItemDto) ApiApiAppAppPricingItemIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -586,7 +586,7 @@ func (a *AppPricingItemApiService) ApiAppAppPricingItemIdPutExecute(r ApiApiAppA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppPricingItemDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -692,11 +692,11 @@ func (a *AppPricingItemApiService) ApiAppAppPricingItemIdPutExecute(r ApiApiAppA
 type ApiApiAppAppPricingItemPostRequest struct {
 	ctx context.Context
 	ApiService *AppPricingItemApiService
-	createOrUpdateAppPricingItemDto *CreateOrUpdateAppPricingItemDto
+	body *CreateOrUpdateAppPricingItemDto
 }
 
-func (r ApiApiAppAppPricingItemPostRequest) CreateOrUpdateAppPricingItemDto(createOrUpdateAppPricingItemDto CreateOrUpdateAppPricingItemDto) ApiApiAppAppPricingItemPostRequest {
-	r.createOrUpdateAppPricingItemDto = &createOrUpdateAppPricingItemDto
+func (r ApiApiAppAppPricingItemPostRequest) Body(body CreateOrUpdateAppPricingItemDto) ApiApiAppAppPricingItemPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -756,7 +756,7 @@ func (a *AppPricingItemApiService) ApiAppAppPricingItemPostExecute(r ApiApiAppAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppPricingItemDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

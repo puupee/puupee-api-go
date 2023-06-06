@@ -20,9 +20,9 @@ var _ MappedNullable = &IdentityUserClaim{}
 // IdentityUserClaim struct for IdentityUserClaim
 type IdentityUserClaim struct {
 	Id *string `json:"id,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	ClaimType NullableString `json:"claimType,omitempty"`
-	ClaimValue NullableString `json:"claimValue,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
+	ClaimType *string `json:"claimType,omitempty"`
+	ClaimValue *string `json:"claimValue,omitempty"`
 	UserId *string `json:"userId,omitempty"`
 }
 
@@ -75,130 +75,100 @@ func (o *IdentityUserClaim) SetId(v string) {
 	o.Id = &v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *IdentityUserClaim) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId.Get()
+	return *o.TenantId
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserClaim) GetTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId) {
 		return nil, false
 	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
+	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *IdentityUserClaim) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *IdentityUserClaim) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *IdentityUserClaim) SetTenantIdNil() {
-	o.TenantId.Set(nil)
+	o.TenantId = &v
 }
 
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *IdentityUserClaim) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetClaimType returns the ClaimType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetClaimType returns the ClaimType field value if set, zero value otherwise.
 func (o *IdentityUserClaim) GetClaimType() string {
-	if o == nil || IsNil(o.ClaimType.Get()) {
+	if o == nil || IsNil(o.ClaimType) {
 		var ret string
 		return ret
 	}
-	return *o.ClaimType.Get()
+	return *o.ClaimType
 }
 
 // GetClaimTypeOk returns a tuple with the ClaimType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserClaim) GetClaimTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ClaimType) {
 		return nil, false
 	}
-	return o.ClaimType.Get(), o.ClaimType.IsSet()
+	return o.ClaimType, true
 }
 
 // HasClaimType returns a boolean if a field has been set.
 func (o *IdentityUserClaim) HasClaimType() bool {
-	if o != nil && o.ClaimType.IsSet() {
+	if o != nil && !IsNil(o.ClaimType) {
 		return true
 	}
 
 	return false
 }
 
-// SetClaimType gets a reference to the given NullableString and assigns it to the ClaimType field.
+// SetClaimType gets a reference to the given string and assigns it to the ClaimType field.
 func (o *IdentityUserClaim) SetClaimType(v string) {
-	o.ClaimType.Set(&v)
-}
-// SetClaimTypeNil sets the value for ClaimType to be an explicit nil
-func (o *IdentityUserClaim) SetClaimTypeNil() {
-	o.ClaimType.Set(nil)
+	o.ClaimType = &v
 }
 
-// UnsetClaimType ensures that no value is present for ClaimType, not even an explicit nil
-func (o *IdentityUserClaim) UnsetClaimType() {
-	o.ClaimType.Unset()
-}
-
-// GetClaimValue returns the ClaimValue field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetClaimValue returns the ClaimValue field value if set, zero value otherwise.
 func (o *IdentityUserClaim) GetClaimValue() string {
-	if o == nil || IsNil(o.ClaimValue.Get()) {
+	if o == nil || IsNil(o.ClaimValue) {
 		var ret string
 		return ret
 	}
-	return *o.ClaimValue.Get()
+	return *o.ClaimValue
 }
 
 // GetClaimValueOk returns a tuple with the ClaimValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserClaim) GetClaimValueOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ClaimValue) {
 		return nil, false
 	}
-	return o.ClaimValue.Get(), o.ClaimValue.IsSet()
+	return o.ClaimValue, true
 }
 
 // HasClaimValue returns a boolean if a field has been set.
 func (o *IdentityUserClaim) HasClaimValue() bool {
-	if o != nil && o.ClaimValue.IsSet() {
+	if o != nil && !IsNil(o.ClaimValue) {
 		return true
 	}
 
 	return false
 }
 
-// SetClaimValue gets a reference to the given NullableString and assigns it to the ClaimValue field.
+// SetClaimValue gets a reference to the given string and assigns it to the ClaimValue field.
 func (o *IdentityUserClaim) SetClaimValue(v string) {
-	o.ClaimValue.Set(&v)
-}
-// SetClaimValueNil sets the value for ClaimValue to be an explicit nil
-func (o *IdentityUserClaim) SetClaimValueNil() {
-	o.ClaimValue.Set(nil)
-}
-
-// UnsetClaimValue ensures that no value is present for ClaimValue, not even an explicit nil
-func (o *IdentityUserClaim) UnsetClaimValue() {
-	o.ClaimValue.Unset()
+	o.ClaimValue = &v
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
@@ -244,15 +214,9 @@ func (o IdentityUserClaim) MarshalJSON() ([]byte, error) {
 func (o IdentityUserClaim) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	// skip: id is readOnly
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
-	if o.ClaimType.IsSet() {
-		toSerialize["claimType"] = o.ClaimType.Get()
-	}
-	if o.ClaimValue.IsSet() {
-		toSerialize["claimValue"] = o.ClaimValue.Get()
-	}
+	// skip: tenantId is readOnly
+	// skip: claimType is readOnly
+	// skip: claimValue is readOnly
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
 	}

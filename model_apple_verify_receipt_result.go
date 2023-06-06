@@ -19,11 +19,11 @@ var _ MappedNullable = &AppleVerifyReceiptResult{}
 
 // AppleVerifyReceiptResult struct for AppleVerifyReceiptResult
 type AppleVerifyReceiptResult struct {
-	Environment NullableString `json:"environment,omitempty"`
+	Environment *string `json:"environment,omitempty"`
 	IsRetryable *bool `json:"is_retryable,omitempty"`
 	Status *AppleVerifyRecceiptStatus `json:"status,omitempty"`
 	LatestReceiptInfo []LatestReceiptInfo `json:"latest_receipt_info,omitempty"`
-	LatestReceipt NullableString `json:"latest_receipt,omitempty"`
+	LatestReceipt *string `json:"latest_receipt,omitempty"`
 	PendingRenewalInfo []PendingRenewalInfo `json:"pending_renewal_info,omitempty"`
 	Receipt *Receipt `json:"receipt,omitempty"`
 }
@@ -45,46 +45,36 @@ func NewAppleVerifyReceiptResultWithDefaults() *AppleVerifyReceiptResult {
 	return &this
 }
 
-// GetEnvironment returns the Environment field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnvironment returns the Environment field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetEnvironment() string {
-	if o == nil || IsNil(o.Environment.Get()) {
+	if o == nil || IsNil(o.Environment) {
 		var ret string
 		return ret
 	}
-	return *o.Environment.Get()
+	return *o.Environment
 }
 
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppleVerifyReceiptResult) GetEnvironmentOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Environment) {
 		return nil, false
 	}
-	return o.Environment.Get(), o.Environment.IsSet()
+	return o.Environment, true
 }
 
 // HasEnvironment returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasEnvironment() bool {
-	if o != nil && o.Environment.IsSet() {
+	if o != nil && !IsNil(o.Environment) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnvironment gets a reference to the given NullableString and assigns it to the Environment field.
+// SetEnvironment gets a reference to the given string and assigns it to the Environment field.
 func (o *AppleVerifyReceiptResult) SetEnvironment(v string) {
-	o.Environment.Set(&v)
-}
-// SetEnvironmentNil sets the value for Environment to be an explicit nil
-func (o *AppleVerifyReceiptResult) SetEnvironmentNil() {
-	o.Environment.Set(nil)
-}
-
-// UnsetEnvironment ensures that no value is present for Environment, not even an explicit nil
-func (o *AppleVerifyReceiptResult) UnsetEnvironment() {
-	o.Environment.Unset()
+	o.Environment = &v
 }
 
 // GetIsRetryable returns the IsRetryable field value if set, zero value otherwise.
@@ -151,9 +141,9 @@ func (o *AppleVerifyReceiptResult) SetStatus(v AppleVerifyRecceiptStatus) {
 	o.Status = &v
 }
 
-// GetLatestReceiptInfo returns the LatestReceiptInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLatestReceiptInfo returns the LatestReceiptInfo field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetLatestReceiptInfo() []LatestReceiptInfo {
-	if o == nil {
+	if o == nil || IsNil(o.LatestReceiptInfo) {
 		var ret []LatestReceiptInfo
 		return ret
 	}
@@ -162,7 +152,6 @@ func (o *AppleVerifyReceiptResult) GetLatestReceiptInfo() []LatestReceiptInfo {
 
 // GetLatestReceiptInfoOk returns a tuple with the LatestReceiptInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppleVerifyReceiptResult) GetLatestReceiptInfoOk() ([]LatestReceiptInfo, bool) {
 	if o == nil || IsNil(o.LatestReceiptInfo) {
 		return nil, false
@@ -172,7 +161,7 @@ func (o *AppleVerifyReceiptResult) GetLatestReceiptInfoOk() ([]LatestReceiptInfo
 
 // HasLatestReceiptInfo returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasLatestReceiptInfo() bool {
-	if o != nil && IsNil(o.LatestReceiptInfo) {
+	if o != nil && !IsNil(o.LatestReceiptInfo) {
 		return true
 	}
 
@@ -184,51 +173,41 @@ func (o *AppleVerifyReceiptResult) SetLatestReceiptInfo(v []LatestReceiptInfo) {
 	o.LatestReceiptInfo = v
 }
 
-// GetLatestReceipt returns the LatestReceipt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLatestReceipt returns the LatestReceipt field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetLatestReceipt() string {
-	if o == nil || IsNil(o.LatestReceipt.Get()) {
+	if o == nil || IsNil(o.LatestReceipt) {
 		var ret string
 		return ret
 	}
-	return *o.LatestReceipt.Get()
+	return *o.LatestReceipt
 }
 
 // GetLatestReceiptOk returns a tuple with the LatestReceipt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppleVerifyReceiptResult) GetLatestReceiptOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LatestReceipt) {
 		return nil, false
 	}
-	return o.LatestReceipt.Get(), o.LatestReceipt.IsSet()
+	return o.LatestReceipt, true
 }
 
 // HasLatestReceipt returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasLatestReceipt() bool {
-	if o != nil && o.LatestReceipt.IsSet() {
+	if o != nil && !IsNil(o.LatestReceipt) {
 		return true
 	}
 
 	return false
 }
 
-// SetLatestReceipt gets a reference to the given NullableString and assigns it to the LatestReceipt field.
+// SetLatestReceipt gets a reference to the given string and assigns it to the LatestReceipt field.
 func (o *AppleVerifyReceiptResult) SetLatestReceipt(v string) {
-	o.LatestReceipt.Set(&v)
-}
-// SetLatestReceiptNil sets the value for LatestReceipt to be an explicit nil
-func (o *AppleVerifyReceiptResult) SetLatestReceiptNil() {
-	o.LatestReceipt.Set(nil)
+	o.LatestReceipt = &v
 }
 
-// UnsetLatestReceipt ensures that no value is present for LatestReceipt, not even an explicit nil
-func (o *AppleVerifyReceiptResult) UnsetLatestReceipt() {
-	o.LatestReceipt.Unset()
-}
-
-// GetPendingRenewalInfo returns the PendingRenewalInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPendingRenewalInfo returns the PendingRenewalInfo field value if set, zero value otherwise.
 func (o *AppleVerifyReceiptResult) GetPendingRenewalInfo() []PendingRenewalInfo {
-	if o == nil {
+	if o == nil || IsNil(o.PendingRenewalInfo) {
 		var ret []PendingRenewalInfo
 		return ret
 	}
@@ -237,7 +216,6 @@ func (o *AppleVerifyReceiptResult) GetPendingRenewalInfo() []PendingRenewalInfo 
 
 // GetPendingRenewalInfoOk returns a tuple with the PendingRenewalInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppleVerifyReceiptResult) GetPendingRenewalInfoOk() ([]PendingRenewalInfo, bool) {
 	if o == nil || IsNil(o.PendingRenewalInfo) {
 		return nil, false
@@ -247,7 +225,7 @@ func (o *AppleVerifyReceiptResult) GetPendingRenewalInfoOk() ([]PendingRenewalIn
 
 // HasPendingRenewalInfo returns a boolean if a field has been set.
 func (o *AppleVerifyReceiptResult) HasPendingRenewalInfo() bool {
-	if o != nil && IsNil(o.PendingRenewalInfo) {
+	if o != nil && !IsNil(o.PendingRenewalInfo) {
 		return true
 	}
 
@@ -301,8 +279,8 @@ func (o AppleVerifyReceiptResult) MarshalJSON() ([]byte, error) {
 
 func (o AppleVerifyReceiptResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Environment.IsSet() {
-		toSerialize["environment"] = o.Environment.Get()
+	if !IsNil(o.Environment) {
+		toSerialize["environment"] = o.Environment
 	}
 	if !IsNil(o.IsRetryable) {
 		toSerialize["is_retryable"] = o.IsRetryable
@@ -310,13 +288,13 @@ func (o AppleVerifyReceiptResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if o.LatestReceiptInfo != nil {
+	if !IsNil(o.LatestReceiptInfo) {
 		toSerialize["latest_receipt_info"] = o.LatestReceiptInfo
 	}
-	if o.LatestReceipt.IsSet() {
-		toSerialize["latest_receipt"] = o.LatestReceipt.Get()
+	if !IsNil(o.LatestReceipt) {
+		toSerialize["latest_receipt"] = o.LatestReceipt
 	}
-	if o.PendingRenewalInfo != nil {
+	if !IsNil(o.PendingRenewalInfo) {
 		toSerialize["pending_renewal_info"] = o.PendingRenewalInfo
 	}
 	if !IsNil(o.Receipt) {

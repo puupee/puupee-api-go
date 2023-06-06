@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BaseType** | Pointer to **NullableString** |  | [optional] 
+**BaseType** | Pointer to **string** |  | [optional] 
 **IsEnum** | Pointer to **bool** |  | [optional] 
 **EnumNames** | Pointer to **[]string** |  | [optional] 
-**EnumValues** | Pointer to **[]interface{}** |  | [optional] 
+**EnumValues** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **GenericArguments** | Pointer to **[]string** |  | [optional] 
 **Properties** | Pointer to [**[]PropertyApiDescriptionModel**](PropertyApiDescriptionModel.md) |  | [optional] 
 
@@ -55,16 +55,6 @@ SetBaseType sets BaseType field to given value.
 
 HasBaseType returns a boolean if a field has been set.
 
-### SetBaseTypeNil
-
-`func (o *TypeApiDescriptionModel) SetBaseTypeNil(b bool)`
-
- SetBaseTypeNil sets the value for BaseType to be an explicit nil
-
-### UnsetBaseType
-`func (o *TypeApiDescriptionModel) UnsetBaseType()`
-
-UnsetBaseType ensures that no value is present for BaseType, not even an explicit nil
 ### GetIsEnum
 
 `func (o *TypeApiDescriptionModel) GetIsEnum() bool`
@@ -115,32 +105,22 @@ SetEnumNames sets EnumNames field to given value.
 
 HasEnumNames returns a boolean if a field has been set.
 
-### SetEnumNamesNil
-
-`func (o *TypeApiDescriptionModel) SetEnumNamesNil(b bool)`
-
- SetEnumNamesNil sets the value for EnumNames to be an explicit nil
-
-### UnsetEnumNames
-`func (o *TypeApiDescriptionModel) UnsetEnumNames()`
-
-UnsetEnumNames ensures that no value is present for EnumNames, not even an explicit nil
 ### GetEnumValues
 
-`func (o *TypeApiDescriptionModel) GetEnumValues() []interface{}`
+`func (o *TypeApiDescriptionModel) GetEnumValues() []map[string]interface{}`
 
 GetEnumValues returns the EnumValues field if non-nil, zero value otherwise.
 
 ### GetEnumValuesOk
 
-`func (o *TypeApiDescriptionModel) GetEnumValuesOk() (*[]interface{}, bool)`
+`func (o *TypeApiDescriptionModel) GetEnumValuesOk() (*[]map[string]interface{}, bool)`
 
 GetEnumValuesOk returns a tuple with the EnumValues field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnumValues
 
-`func (o *TypeApiDescriptionModel) SetEnumValues(v []interface{})`
+`func (o *TypeApiDescriptionModel) SetEnumValues(v []map[string]interface{})`
 
 SetEnumValues sets EnumValues field to given value.
 
@@ -150,16 +130,6 @@ SetEnumValues sets EnumValues field to given value.
 
 HasEnumValues returns a boolean if a field has been set.
 
-### SetEnumValuesNil
-
-`func (o *TypeApiDescriptionModel) SetEnumValuesNil(b bool)`
-
- SetEnumValuesNil sets the value for EnumValues to be an explicit nil
-
-### UnsetEnumValues
-`func (o *TypeApiDescriptionModel) UnsetEnumValues()`
-
-UnsetEnumValues ensures that no value is present for EnumValues, not even an explicit nil
 ### GetGenericArguments
 
 `func (o *TypeApiDescriptionModel) GetGenericArguments() []string`
@@ -185,16 +155,6 @@ SetGenericArguments sets GenericArguments field to given value.
 
 HasGenericArguments returns a boolean if a field has been set.
 
-### SetGenericArgumentsNil
-
-`func (o *TypeApiDescriptionModel) SetGenericArgumentsNil(b bool)`
-
- SetGenericArgumentsNil sets the value for GenericArguments to be an explicit nil
-
-### UnsetGenericArguments
-`func (o *TypeApiDescriptionModel) UnsetGenericArguments()`
-
-UnsetGenericArguments ensures that no value is present for GenericArguments, not even an explicit nil
 ### GetProperties
 
 `func (o *TypeApiDescriptionModel) GetProperties() []PropertyApiDescriptionModel`
@@ -220,16 +180,6 @@ SetProperties sets Properties field to given value.
 
 HasProperties returns a boolean if a field has been set.
 
-### SetPropertiesNil
-
-`func (o *TypeApiDescriptionModel) SetPropertiesNil(b bool)`
-
- SetPropertiesNil sets the value for Properties to be an explicit nil
-
-### UnsetProperties
-`func (o *TypeApiDescriptionModel) UnsetProperties()`
-
-UnsetProperties ensures that no value is present for Properties, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,9 +19,9 @@ var _ MappedNullable = &SendVerificationCodeDto{}
 
 // SendVerificationCodeDto struct for SendVerificationCodeDto
 type SendVerificationCodeDto struct {
-	CodeSender NullableString `json:"codeSender,omitempty"`
-	Account NullableString `json:"account,omitempty"`
-	Purpose NullableString `json:"purpose,omitempty"`
+	CodeSender *string `json:"codeSender,omitempty"`
+	Account *string `json:"account,omitempty"`
+	Purpose *string `json:"purpose,omitempty"`
 }
 
 // NewSendVerificationCodeDto instantiates a new SendVerificationCodeDto object
@@ -41,130 +41,100 @@ func NewSendVerificationCodeDtoWithDefaults() *SendVerificationCodeDto {
 	return &this
 }
 
-// GetCodeSender returns the CodeSender field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCodeSender returns the CodeSender field value if set, zero value otherwise.
 func (o *SendVerificationCodeDto) GetCodeSender() string {
-	if o == nil || IsNil(o.CodeSender.Get()) {
+	if o == nil || IsNil(o.CodeSender) {
 		var ret string
 		return ret
 	}
-	return *o.CodeSender.Get()
+	return *o.CodeSender
 }
 
 // GetCodeSenderOk returns a tuple with the CodeSender field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SendVerificationCodeDto) GetCodeSenderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CodeSender) {
 		return nil, false
 	}
-	return o.CodeSender.Get(), o.CodeSender.IsSet()
+	return o.CodeSender, true
 }
 
 // HasCodeSender returns a boolean if a field has been set.
 func (o *SendVerificationCodeDto) HasCodeSender() bool {
-	if o != nil && o.CodeSender.IsSet() {
+	if o != nil && !IsNil(o.CodeSender) {
 		return true
 	}
 
 	return false
 }
 
-// SetCodeSender gets a reference to the given NullableString and assigns it to the CodeSender field.
+// SetCodeSender gets a reference to the given string and assigns it to the CodeSender field.
 func (o *SendVerificationCodeDto) SetCodeSender(v string) {
-	o.CodeSender.Set(&v)
-}
-// SetCodeSenderNil sets the value for CodeSender to be an explicit nil
-func (o *SendVerificationCodeDto) SetCodeSenderNil() {
-	o.CodeSender.Set(nil)
+	o.CodeSender = &v
 }
 
-// UnsetCodeSender ensures that no value is present for CodeSender, not even an explicit nil
-func (o *SendVerificationCodeDto) UnsetCodeSender() {
-	o.CodeSender.Unset()
-}
-
-// GetAccount returns the Account field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccount returns the Account field value if set, zero value otherwise.
 func (o *SendVerificationCodeDto) GetAccount() string {
-	if o == nil || IsNil(o.Account.Get()) {
+	if o == nil || IsNil(o.Account) {
 		var ret string
 		return ret
 	}
-	return *o.Account.Get()
+	return *o.Account
 }
 
 // GetAccountOk returns a tuple with the Account field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SendVerificationCodeDto) GetAccountOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Account) {
 		return nil, false
 	}
-	return o.Account.Get(), o.Account.IsSet()
+	return o.Account, true
 }
 
 // HasAccount returns a boolean if a field has been set.
 func (o *SendVerificationCodeDto) HasAccount() bool {
-	if o != nil && o.Account.IsSet() {
+	if o != nil && !IsNil(o.Account) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccount gets a reference to the given NullableString and assigns it to the Account field.
+// SetAccount gets a reference to the given string and assigns it to the Account field.
 func (o *SendVerificationCodeDto) SetAccount(v string) {
-	o.Account.Set(&v)
-}
-// SetAccountNil sets the value for Account to be an explicit nil
-func (o *SendVerificationCodeDto) SetAccountNil() {
-	o.Account.Set(nil)
+	o.Account = &v
 }
 
-// UnsetAccount ensures that no value is present for Account, not even an explicit nil
-func (o *SendVerificationCodeDto) UnsetAccount() {
-	o.Account.Unset()
-}
-
-// GetPurpose returns the Purpose field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPurpose returns the Purpose field value if set, zero value otherwise.
 func (o *SendVerificationCodeDto) GetPurpose() string {
-	if o == nil || IsNil(o.Purpose.Get()) {
+	if o == nil || IsNil(o.Purpose) {
 		var ret string
 		return ret
 	}
-	return *o.Purpose.Get()
+	return *o.Purpose
 }
 
 // GetPurposeOk returns a tuple with the Purpose field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SendVerificationCodeDto) GetPurposeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Purpose) {
 		return nil, false
 	}
-	return o.Purpose.Get(), o.Purpose.IsSet()
+	return o.Purpose, true
 }
 
 // HasPurpose returns a boolean if a field has been set.
 func (o *SendVerificationCodeDto) HasPurpose() bool {
-	if o != nil && o.Purpose.IsSet() {
+	if o != nil && !IsNil(o.Purpose) {
 		return true
 	}
 
 	return false
 }
 
-// SetPurpose gets a reference to the given NullableString and assigns it to the Purpose field.
+// SetPurpose gets a reference to the given string and assigns it to the Purpose field.
 func (o *SendVerificationCodeDto) SetPurpose(v string) {
-	o.Purpose.Set(&v)
-}
-// SetPurposeNil sets the value for Purpose to be an explicit nil
-func (o *SendVerificationCodeDto) SetPurposeNil() {
-	o.Purpose.Set(nil)
-}
-
-// UnsetPurpose ensures that no value is present for Purpose, not even an explicit nil
-func (o *SendVerificationCodeDto) UnsetPurpose() {
-	o.Purpose.Unset()
+	o.Purpose = &v
 }
 
 func (o SendVerificationCodeDto) MarshalJSON() ([]byte, error) {
@@ -177,14 +147,14 @@ func (o SendVerificationCodeDto) MarshalJSON() ([]byte, error) {
 
 func (o SendVerificationCodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CodeSender.IsSet() {
-		toSerialize["codeSender"] = o.CodeSender.Get()
+	if !IsNil(o.CodeSender) {
+		toSerialize["codeSender"] = o.CodeSender
 	}
-	if o.Account.IsSet() {
-		toSerialize["account"] = o.Account.Get()
+	if !IsNil(o.Account) {
+		toSerialize["account"] = o.Account
 	}
-	if o.Purpose.IsSet() {
-		toSerialize["purpose"] = o.Purpose.Get()
+	if !IsNil(o.Purpose) {
+		toSerialize["purpose"] = o.Purpose
 	}
 	return toSerialize, nil
 }

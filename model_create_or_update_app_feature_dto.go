@@ -19,11 +19,11 @@ var _ MappedNullable = &CreateOrUpdateAppFeatureDto{}
 
 // CreateOrUpdateAppFeatureDto struct for CreateOrUpdateAppFeatureDto
 type CreateOrUpdateAppFeatureDto struct {
-	Name NullableString `json:"name,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	Details NullableString `json:"details,omitempty"`
-	ScreenshotKeys NullableString `json:"screenshotKeys,omitempty"`
+	Name *string `json:"name,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Details *string `json:"details,omitempty"`
+	ScreenshotKeys *string `json:"screenshotKeys,omitempty"`
 }
 
 // NewCreateOrUpdateAppFeatureDto instantiates a new CreateOrUpdateAppFeatureDto object
@@ -43,214 +43,164 @@ func NewCreateOrUpdateAppFeatureDtoWithDefaults() *CreateOrUpdateAppFeatureDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppFeatureDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CreateOrUpdateAppFeatureDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName.Get()) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName.Get()
+	return *o.DisplayName
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppFeatureDto) GetDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayName) {
 		return nil, false
 	}
-	return o.DisplayName.Get(), o.DisplayName.IsSet()
+	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasDisplayName() bool {
-	if o != nil && o.DisplayName.IsSet() {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
 func (o *CreateOrUpdateAppFeatureDto) SetDisplayName(v string) {
-	o.DisplayName.Set(&v)
-}
-// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) SetDisplayNameNil() {
-	o.DisplayName.Set(nil)
+	o.DisplayName = &v
 }
 
-// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) UnsetDisplayName() {
-	o.DisplayName.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppFeatureDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *CreateOrUpdateAppFeatureDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) SetDescriptionNil() {
-	o.Description.Set(nil)
+	o.Description = &v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetDetails returns the Details field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDetails returns the Details field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetDetails() string {
-	if o == nil || IsNil(o.Details.Get()) {
+	if o == nil || IsNil(o.Details) {
 		var ret string
 		return ret
 	}
-	return *o.Details.Get()
+	return *o.Details
 }
 
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppFeatureDto) GetDetailsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Details) {
 		return nil, false
 	}
-	return o.Details.Get(), o.Details.IsSet()
+	return o.Details, true
 }
 
 // HasDetails returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasDetails() bool {
-	if o != nil && o.Details.IsSet() {
+	if o != nil && !IsNil(o.Details) {
 		return true
 	}
 
 	return false
 }
 
-// SetDetails gets a reference to the given NullableString and assigns it to the Details field.
+// SetDetails gets a reference to the given string and assigns it to the Details field.
 func (o *CreateOrUpdateAppFeatureDto) SetDetails(v string) {
-	o.Details.Set(&v)
-}
-// SetDetailsNil sets the value for Details to be an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) SetDetailsNil() {
-	o.Details.Set(nil)
+	o.Details = &v
 }
 
-// UnsetDetails ensures that no value is present for Details, not even an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) UnsetDetails() {
-	o.Details.Unset()
-}
-
-// GetScreenshotKeys returns the ScreenshotKeys field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetScreenshotKeys returns the ScreenshotKeys field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppFeatureDto) GetScreenshotKeys() string {
-	if o == nil || IsNil(o.ScreenshotKeys.Get()) {
+	if o == nil || IsNil(o.ScreenshotKeys) {
 		var ret string
 		return ret
 	}
-	return *o.ScreenshotKeys.Get()
+	return *o.ScreenshotKeys
 }
 
 // GetScreenshotKeysOk returns a tuple with the ScreenshotKeys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppFeatureDto) GetScreenshotKeysOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ScreenshotKeys) {
 		return nil, false
 	}
-	return o.ScreenshotKeys.Get(), o.ScreenshotKeys.IsSet()
+	return o.ScreenshotKeys, true
 }
 
 // HasScreenshotKeys returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppFeatureDto) HasScreenshotKeys() bool {
-	if o != nil && o.ScreenshotKeys.IsSet() {
+	if o != nil && !IsNil(o.ScreenshotKeys) {
 		return true
 	}
 
 	return false
 }
 
-// SetScreenshotKeys gets a reference to the given NullableString and assigns it to the ScreenshotKeys field.
+// SetScreenshotKeys gets a reference to the given string and assigns it to the ScreenshotKeys field.
 func (o *CreateOrUpdateAppFeatureDto) SetScreenshotKeys(v string) {
-	o.ScreenshotKeys.Set(&v)
-}
-// SetScreenshotKeysNil sets the value for ScreenshotKeys to be an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) SetScreenshotKeysNil() {
-	o.ScreenshotKeys.Set(nil)
-}
-
-// UnsetScreenshotKeys ensures that no value is present for ScreenshotKeys, not even an explicit nil
-func (o *CreateOrUpdateAppFeatureDto) UnsetScreenshotKeys() {
-	o.ScreenshotKeys.Unset()
+	o.ScreenshotKeys = &v
 }
 
 func (o CreateOrUpdateAppFeatureDto) MarshalJSON() ([]byte, error) {
@@ -263,20 +213,20 @@ func (o CreateOrUpdateAppFeatureDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateOrUpdateAppFeatureDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.DisplayName.IsSet() {
-		toSerialize["displayName"] = o.DisplayName.Get()
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Details.IsSet() {
-		toSerialize["details"] = o.Details.Get()
+	if !IsNil(o.Details) {
+		toSerialize["details"] = o.Details
 	}
-	if o.ScreenshotKeys.IsSet() {
-		toSerialize["screenshotKeys"] = o.ScreenshotKeys.Get()
+	if !IsNil(o.ScreenshotKeys) {
+		toSerialize["screenshotKeys"] = o.ScreenshotKeys
 	}
 	return toSerialize, nil
 }

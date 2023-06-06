@@ -19,8 +19,8 @@ var _ MappedNullable = &LocalizableStringDto{}
 
 // LocalizableStringDto struct for LocalizableStringDto
 type LocalizableStringDto struct {
-	Name NullableString `json:"name,omitempty"`
-	Resource NullableString `json:"resource,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Resource *string `json:"resource,omitempty"`
 }
 
 // NewLocalizableStringDto instantiates a new LocalizableStringDto object
@@ -40,88 +40,68 @@ func NewLocalizableStringDtoWithDefaults() *LocalizableStringDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *LocalizableStringDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocalizableStringDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *LocalizableStringDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *LocalizableStringDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *LocalizableStringDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *LocalizableStringDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetResource returns the Resource field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResource returns the Resource field value if set, zero value otherwise.
 func (o *LocalizableStringDto) GetResource() string {
-	if o == nil || IsNil(o.Resource.Get()) {
+	if o == nil || IsNil(o.Resource) {
 		var ret string
 		return ret
 	}
-	return *o.Resource.Get()
+	return *o.Resource
 }
 
 // GetResourceOk returns a tuple with the Resource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocalizableStringDto) GetResourceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Resource) {
 		return nil, false
 	}
-	return o.Resource.Get(), o.Resource.IsSet()
+	return o.Resource, true
 }
 
 // HasResource returns a boolean if a field has been set.
 func (o *LocalizableStringDto) HasResource() bool {
-	if o != nil && o.Resource.IsSet() {
+	if o != nil && !IsNil(o.Resource) {
 		return true
 	}
 
 	return false
 }
 
-// SetResource gets a reference to the given NullableString and assigns it to the Resource field.
+// SetResource gets a reference to the given string and assigns it to the Resource field.
 func (o *LocalizableStringDto) SetResource(v string) {
-	o.Resource.Set(&v)
-}
-// SetResourceNil sets the value for Resource to be an explicit nil
-func (o *LocalizableStringDto) SetResourceNil() {
-	o.Resource.Set(nil)
-}
-
-// UnsetResource ensures that no value is present for Resource, not even an explicit nil
-func (o *LocalizableStringDto) UnsetResource() {
-	o.Resource.Unset()
+	o.Resource = &v
 }
 
 func (o LocalizableStringDto) MarshalJSON() ([]byte, error) {
@@ -134,11 +114,11 @@ func (o LocalizableStringDto) MarshalJSON() ([]byte, error) {
 
 func (o LocalizableStringDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Resource.IsSet() {
-		toSerialize["resource"] = o.Resource.Get()
+	if !IsNil(o.Resource) {
+		toSerialize["resource"] = o.Resource
 	}
 	return toSerialize, nil
 }

@@ -19,8 +19,8 @@ var _ MappedNullable = &FeatureProviderDto{}
 
 // FeatureProviderDto struct for FeatureProviderDto
 type FeatureProviderDto struct {
-	Name NullableString `json:"name,omitempty"`
-	Key NullableString `json:"key,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Key *string `json:"key,omitempty"`
 }
 
 // NewFeatureProviderDto instantiates a new FeatureProviderDto object
@@ -40,88 +40,68 @@ func NewFeatureProviderDtoWithDefaults() *FeatureProviderDto {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FeatureProviderDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureProviderDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FeatureProviderDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FeatureProviderDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *FeatureProviderDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *FeatureProviderDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value if set, zero value otherwise.
 func (o *FeatureProviderDto) GetKey() string {
-	if o == nil || IsNil(o.Key.Get()) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+	return *o.Key
 }
 
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FeatureProviderDto) GetKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Key) {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *FeatureProviderDto) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
 	return false
 }
 
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey gets a reference to the given string and assigns it to the Key field.
 func (o *FeatureProviderDto) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *FeatureProviderDto) SetKeyNil() {
-	o.Key.Set(nil)
-}
-
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *FeatureProviderDto) UnsetKey() {
-	o.Key.Unset()
+	o.Key = &v
 }
 
 func (o FeatureProviderDto) MarshalJSON() ([]byte, error) {
@@ -134,11 +114,11 @@ func (o FeatureProviderDto) MarshalJSON() ([]byte, error) {
 
 func (o FeatureProviderDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
 	}
 	return toSerialize, nil
 }

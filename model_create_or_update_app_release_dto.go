@@ -19,22 +19,22 @@ var _ MappedNullable = &CreateOrUpdateAppReleaseDto{}
 
 // CreateOrUpdateAppReleaseDto struct for CreateOrUpdateAppReleaseDto
 type CreateOrUpdateAppReleaseDto struct {
-	Version NullableString `json:"version,omitempty"`
-	VersionName NullableString `json:"versionName,omitempty"`
+	Version *string `json:"version,omitempty"`
+	VersionName *string `json:"versionName,omitempty"`
 	VersionCode *int64 `json:"versionCode,omitempty"`
-	Notes NullableString `json:"notes,omitempty"`
-	Platform NullableString `json:"platform,omitempty"`
-	Key NullableString `json:"key,omitempty"`
-	RapidCode NullableString `json:"rapidCode,omitempty"`
-	Size NullableInt64 `json:"size,omitempty"`
-	Md5 NullableString `json:"md5,omitempty"`
-	SliceMd5 NullableString `json:"sliceMd5,omitempty"`
-	ProductType NullableString `json:"productType,omitempty"`
+	Notes *string `json:"notes,omitempty"`
+	Platform *string `json:"platform,omitempty"`
+	Key *string `json:"key,omitempty"`
+	RapidCode *string `json:"rapidCode,omitempty"`
+	Size *int64 `json:"size,omitempty"`
+	Md5 *string `json:"md5,omitempty"`
+	SliceMd5 *string `json:"sliceMd5,omitempty"`
+	ProductType *string `json:"productType,omitempty"`
 	IsForceUpdate *bool `json:"isForceUpdate,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	IsEnabled *bool `json:"isEnabled,omitempty"`
-	Channel NullableString `json:"channel,omitempty"`
-	Environment NullableString `json:"environment,omitempty"`
+	Channel *string `json:"channel,omitempty"`
+	Environment *string `json:"environment,omitempty"`
 }
 
 // NewCreateOrUpdateAppReleaseDto instantiates a new CreateOrUpdateAppReleaseDto object
@@ -54,88 +54,68 @@ func NewCreateOrUpdateAppReleaseDtoWithDefaults() *CreateOrUpdateAppReleaseDto {
 	return &this
 }
 
-// GetVersion returns the Version field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVersion returns the Version field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetVersion() string {
-	if o == nil || IsNil(o.Version.Get()) {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
-	return *o.Version.Get()
+	return *o.Version
 }
 
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
-	return o.Version.Get(), o.Version.IsSet()
+	return o.Version, true
 }
 
 // HasVersion returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasVersion() bool {
-	if o != nil && o.Version.IsSet() {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
 	return false
 }
 
-// SetVersion gets a reference to the given NullableString and assigns it to the Version field.
+// SetVersion gets a reference to the given string and assigns it to the Version field.
 func (o *CreateOrUpdateAppReleaseDto) SetVersion(v string) {
-	o.Version.Set(&v)
-}
-// SetVersionNil sets the value for Version to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetVersionNil() {
-	o.Version.Set(nil)
+	o.Version = &v
 }
 
-// UnsetVersion ensures that no value is present for Version, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetVersion() {
-	o.Version.Unset()
-}
-
-// GetVersionName returns the VersionName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVersionName returns the VersionName field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetVersionName() string {
-	if o == nil || IsNil(o.VersionName.Get()) {
+	if o == nil || IsNil(o.VersionName) {
 		var ret string
 		return ret
 	}
-	return *o.VersionName.Get()
+	return *o.VersionName
 }
 
 // GetVersionNameOk returns a tuple with the VersionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetVersionNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VersionName) {
 		return nil, false
 	}
-	return o.VersionName.Get(), o.VersionName.IsSet()
+	return o.VersionName, true
 }
 
 // HasVersionName returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasVersionName() bool {
-	if o != nil && o.VersionName.IsSet() {
+	if o != nil && !IsNil(o.VersionName) {
 		return true
 	}
 
 	return false
 }
 
-// SetVersionName gets a reference to the given NullableString and assigns it to the VersionName field.
+// SetVersionName gets a reference to the given string and assigns it to the VersionName field.
 func (o *CreateOrUpdateAppReleaseDto) SetVersionName(v string) {
-	o.VersionName.Set(&v)
-}
-// SetVersionNameNil sets the value for VersionName to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetVersionNameNil() {
-	o.VersionName.Set(nil)
-}
-
-// UnsetVersionName ensures that no value is present for VersionName, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetVersionName() {
-	o.VersionName.Unset()
+	o.VersionName = &v
 }
 
 // GetVersionCode returns the VersionCode field value if set, zero value otherwise.
@@ -170,340 +150,260 @@ func (o *CreateOrUpdateAppReleaseDto) SetVersionCode(v int64) {
 	o.VersionCode = &v
 }
 
-// GetNotes returns the Notes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNotes returns the Notes field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetNotes() string {
-	if o == nil || IsNil(o.Notes.Get()) {
+	if o == nil || IsNil(o.Notes) {
 		var ret string
 		return ret
 	}
-	return *o.Notes.Get()
+	return *o.Notes
 }
 
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetNotesOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Notes) {
 		return nil, false
 	}
-	return o.Notes.Get(), o.Notes.IsSet()
+	return o.Notes, true
 }
 
 // HasNotes returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasNotes() bool {
-	if o != nil && o.Notes.IsSet() {
+	if o != nil && !IsNil(o.Notes) {
 		return true
 	}
 
 	return false
 }
 
-// SetNotes gets a reference to the given NullableString and assigns it to the Notes field.
+// SetNotes gets a reference to the given string and assigns it to the Notes field.
 func (o *CreateOrUpdateAppReleaseDto) SetNotes(v string) {
-	o.Notes.Set(&v)
-}
-// SetNotesNil sets the value for Notes to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetNotesNil() {
-	o.Notes.Set(nil)
+	o.Notes = &v
 }
 
-// UnsetNotes ensures that no value is present for Notes, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetNotes() {
-	o.Notes.Unset()
-}
-
-// GetPlatform returns the Platform field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetPlatform() string {
-	if o == nil || IsNil(o.Platform.Get()) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
-	return *o.Platform.Get()
+	return *o.Platform
 }
 
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetPlatformOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Platform) {
 		return nil, false
 	}
-	return o.Platform.Get(), o.Platform.IsSet()
+	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasPlatform() bool {
-	if o != nil && o.Platform.IsSet() {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatform gets a reference to the given NullableString and assigns it to the Platform field.
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
 func (o *CreateOrUpdateAppReleaseDto) SetPlatform(v string) {
-	o.Platform.Set(&v)
-}
-// SetPlatformNil sets the value for Platform to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetPlatformNil() {
-	o.Platform.Set(nil)
+	o.Platform = &v
 }
 
-// UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetPlatform() {
-	o.Platform.Unset()
-}
-
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetKey() string {
-	if o == nil || IsNil(o.Key.Get()) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+	return *o.Key
 }
 
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Key) {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
 	return false
 }
 
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey gets a reference to the given string and assigns it to the Key field.
 func (o *CreateOrUpdateAppReleaseDto) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetKeyNil() {
-	o.Key.Set(nil)
+	o.Key = &v
 }
 
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetKey() {
-	o.Key.Unset()
-}
-
-// GetRapidCode returns the RapidCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRapidCode returns the RapidCode field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetRapidCode() string {
-	if o == nil || IsNil(o.RapidCode.Get()) {
+	if o == nil || IsNil(o.RapidCode) {
 		var ret string
 		return ret
 	}
-	return *o.RapidCode.Get()
+	return *o.RapidCode
 }
 
 // GetRapidCodeOk returns a tuple with the RapidCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetRapidCodeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RapidCode) {
 		return nil, false
 	}
-	return o.RapidCode.Get(), o.RapidCode.IsSet()
+	return o.RapidCode, true
 }
 
 // HasRapidCode returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasRapidCode() bool {
-	if o != nil && o.RapidCode.IsSet() {
+	if o != nil && !IsNil(o.RapidCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetRapidCode gets a reference to the given NullableString and assigns it to the RapidCode field.
+// SetRapidCode gets a reference to the given string and assigns it to the RapidCode field.
 func (o *CreateOrUpdateAppReleaseDto) SetRapidCode(v string) {
-	o.RapidCode.Set(&v)
-}
-// SetRapidCodeNil sets the value for RapidCode to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetRapidCodeNil() {
-	o.RapidCode.Set(nil)
+	o.RapidCode = &v
 }
 
-// UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetRapidCode() {
-	o.RapidCode.Unset()
-}
-
-// GetSize returns the Size field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSize returns the Size field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetSize() int64 {
-	if o == nil || IsNil(o.Size.Get()) {
+	if o == nil || IsNil(o.Size) {
 		var ret int64
 		return ret
 	}
-	return *o.Size.Get()
+	return *o.Size
 }
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetSizeOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
-	return o.Size.Get(), o.Size.IsSet()
+	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasSize() bool {
-	if o != nil && o.Size.IsSet() {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
 	return false
 }
 
-// SetSize gets a reference to the given NullableInt64 and assigns it to the Size field.
+// SetSize gets a reference to the given int64 and assigns it to the Size field.
 func (o *CreateOrUpdateAppReleaseDto) SetSize(v int64) {
-	o.Size.Set(&v)
-}
-// SetSizeNil sets the value for Size to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetSizeNil() {
-	o.Size.Set(nil)
+	o.Size = &v
 }
 
-// UnsetSize ensures that no value is present for Size, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetSize() {
-	o.Size.Unset()
-}
-
-// GetMd5 returns the Md5 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMd5 returns the Md5 field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetMd5() string {
-	if o == nil || IsNil(o.Md5.Get()) {
+	if o == nil || IsNil(o.Md5) {
 		var ret string
 		return ret
 	}
-	return *o.Md5.Get()
+	return *o.Md5
 }
 
 // GetMd5Ok returns a tuple with the Md5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetMd5Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Md5) {
 		return nil, false
 	}
-	return o.Md5.Get(), o.Md5.IsSet()
+	return o.Md5, true
 }
 
 // HasMd5 returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasMd5() bool {
-	if o != nil && o.Md5.IsSet() {
+	if o != nil && !IsNil(o.Md5) {
 		return true
 	}
 
 	return false
 }
 
-// SetMd5 gets a reference to the given NullableString and assigns it to the Md5 field.
+// SetMd5 gets a reference to the given string and assigns it to the Md5 field.
 func (o *CreateOrUpdateAppReleaseDto) SetMd5(v string) {
-	o.Md5.Set(&v)
-}
-// SetMd5Nil sets the value for Md5 to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetMd5Nil() {
-	o.Md5.Set(nil)
+	o.Md5 = &v
 }
 
-// UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetMd5() {
-	o.Md5.Unset()
-}
-
-// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSliceMd5 returns the SliceMd5 field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetSliceMd5() string {
-	if o == nil || IsNil(o.SliceMd5.Get()) {
+	if o == nil || IsNil(o.SliceMd5) {
 		var ret string
 		return ret
 	}
-	return *o.SliceMd5.Get()
+	return *o.SliceMd5
 }
 
 // GetSliceMd5Ok returns a tuple with the SliceMd5 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetSliceMd5Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SliceMd5) {
 		return nil, false
 	}
-	return o.SliceMd5.Get(), o.SliceMd5.IsSet()
+	return o.SliceMd5, true
 }
 
 // HasSliceMd5 returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasSliceMd5() bool {
-	if o != nil && o.SliceMd5.IsSet() {
+	if o != nil && !IsNil(o.SliceMd5) {
 		return true
 	}
 
 	return false
 }
 
-// SetSliceMd5 gets a reference to the given NullableString and assigns it to the SliceMd5 field.
+// SetSliceMd5 gets a reference to the given string and assigns it to the SliceMd5 field.
 func (o *CreateOrUpdateAppReleaseDto) SetSliceMd5(v string) {
-	o.SliceMd5.Set(&v)
-}
-// SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetSliceMd5Nil() {
-	o.SliceMd5.Set(nil)
+	o.SliceMd5 = &v
 }
 
-// UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetSliceMd5() {
-	o.SliceMd5.Unset()
-}
-
-// GetProductType returns the ProductType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProductType returns the ProductType field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetProductType() string {
-	if o == nil || IsNil(o.ProductType.Get()) {
+	if o == nil || IsNil(o.ProductType) {
 		var ret string
 		return ret
 	}
-	return *o.ProductType.Get()
+	return *o.ProductType
 }
 
 // GetProductTypeOk returns a tuple with the ProductType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetProductTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProductType) {
 		return nil, false
 	}
-	return o.ProductType.Get(), o.ProductType.IsSet()
+	return o.ProductType, true
 }
 
 // HasProductType returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasProductType() bool {
-	if o != nil && o.ProductType.IsSet() {
+	if o != nil && !IsNil(o.ProductType) {
 		return true
 	}
 
 	return false
 }
 
-// SetProductType gets a reference to the given NullableString and assigns it to the ProductType field.
+// SetProductType gets a reference to the given string and assigns it to the ProductType field.
 func (o *CreateOrUpdateAppReleaseDto) SetProductType(v string) {
-	o.ProductType.Set(&v)
-}
-// SetProductTypeNil sets the value for ProductType to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetProductTypeNil() {
-	o.ProductType.Set(nil)
-}
-
-// UnsetProductType ensures that no value is present for ProductType, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetProductType() {
-	o.ProductType.Unset()
+	o.ProductType = &v
 }
 
 // GetIsForceUpdate returns the IsForceUpdate field value if set, zero value otherwise.
@@ -602,88 +502,68 @@ func (o *CreateOrUpdateAppReleaseDto) SetIsEnabled(v bool) {
 	o.IsEnabled = &v
 }
 
-// GetChannel returns the Channel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetChannel() string {
-	if o == nil || IsNil(o.Channel.Get()) {
+	if o == nil || IsNil(o.Channel) {
 		var ret string
 		return ret
 	}
-	return *o.Channel.Get()
+	return *o.Channel
 }
 
 // GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetChannelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Channel) {
 		return nil, false
 	}
-	return o.Channel.Get(), o.Channel.IsSet()
+	return o.Channel, true
 }
 
 // HasChannel returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasChannel() bool {
-	if o != nil && o.Channel.IsSet() {
+	if o != nil && !IsNil(o.Channel) {
 		return true
 	}
 
 	return false
 }
 
-// SetChannel gets a reference to the given NullableString and assigns it to the Channel field.
+// SetChannel gets a reference to the given string and assigns it to the Channel field.
 func (o *CreateOrUpdateAppReleaseDto) SetChannel(v string) {
-	o.Channel.Set(&v)
-}
-// SetChannelNil sets the value for Channel to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetChannelNil() {
-	o.Channel.Set(nil)
+	o.Channel = &v
 }
 
-// UnsetChannel ensures that no value is present for Channel, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetChannel() {
-	o.Channel.Unset()
-}
-
-// GetEnvironment returns the Environment field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnvironment returns the Environment field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppReleaseDto) GetEnvironment() string {
-	if o == nil || IsNil(o.Environment.Get()) {
+	if o == nil || IsNil(o.Environment) {
 		var ret string
 		return ret
 	}
-	return *o.Environment.Get()
+	return *o.Environment
 }
 
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppReleaseDto) GetEnvironmentOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Environment) {
 		return nil, false
 	}
-	return o.Environment.Get(), o.Environment.IsSet()
+	return o.Environment, true
 }
 
 // HasEnvironment returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppReleaseDto) HasEnvironment() bool {
-	if o != nil && o.Environment.IsSet() {
+	if o != nil && !IsNil(o.Environment) {
 		return true
 	}
 
 	return false
 }
 
-// SetEnvironment gets a reference to the given NullableString and assigns it to the Environment field.
+// SetEnvironment gets a reference to the given string and assigns it to the Environment field.
 func (o *CreateOrUpdateAppReleaseDto) SetEnvironment(v string) {
-	o.Environment.Set(&v)
-}
-// SetEnvironmentNil sets the value for Environment to be an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) SetEnvironmentNil() {
-	o.Environment.Set(nil)
-}
-
-// UnsetEnvironment ensures that no value is present for Environment, not even an explicit nil
-func (o *CreateOrUpdateAppReleaseDto) UnsetEnvironment() {
-	o.Environment.Unset()
+	o.Environment = &v
 }
 
 func (o CreateOrUpdateAppReleaseDto) MarshalJSON() ([]byte, error) {
@@ -696,38 +576,38 @@ func (o CreateOrUpdateAppReleaseDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateOrUpdateAppReleaseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Version.IsSet() {
-		toSerialize["version"] = o.Version.Get()
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
 	}
-	if o.VersionName.IsSet() {
-		toSerialize["versionName"] = o.VersionName.Get()
+	if !IsNil(o.VersionName) {
+		toSerialize["versionName"] = o.VersionName
 	}
 	if !IsNil(o.VersionCode) {
 		toSerialize["versionCode"] = o.VersionCode
 	}
-	if o.Notes.IsSet() {
-		toSerialize["notes"] = o.Notes.Get()
+	if !IsNil(o.Notes) {
+		toSerialize["notes"] = o.Notes
 	}
-	if o.Platform.IsSet() {
-		toSerialize["platform"] = o.Platform.Get()
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
 	}
-	if o.RapidCode.IsSet() {
-		toSerialize["rapidCode"] = o.RapidCode.Get()
+	if !IsNil(o.RapidCode) {
+		toSerialize["rapidCode"] = o.RapidCode
 	}
-	if o.Size.IsSet() {
-		toSerialize["size"] = o.Size.Get()
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
 	}
-	if o.Md5.IsSet() {
-		toSerialize["md5"] = o.Md5.Get()
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
 	}
-	if o.SliceMd5.IsSet() {
-		toSerialize["sliceMd5"] = o.SliceMd5.Get()
+	if !IsNil(o.SliceMd5) {
+		toSerialize["sliceMd5"] = o.SliceMd5
 	}
-	if o.ProductType.IsSet() {
-		toSerialize["productType"] = o.ProductType.Get()
+	if !IsNil(o.ProductType) {
+		toSerialize["productType"] = o.ProductType
 	}
 	if !IsNil(o.IsForceUpdate) {
 		toSerialize["isForceUpdate"] = o.IsForceUpdate
@@ -738,11 +618,11 @@ func (o CreateOrUpdateAppReleaseDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsEnabled) {
 		toSerialize["isEnabled"] = o.IsEnabled
 	}
-	if o.Channel.IsSet() {
-		toSerialize["channel"] = o.Channel.Get()
+	if !IsNil(o.Channel) {
+		toSerialize["channel"] = o.Channel
 	}
-	if o.Environment.IsSet() {
-		toSerialize["environment"] = o.Environment.Get()
+	if !IsNil(o.Environment) {
+		toSerialize["environment"] = o.Environment
 	}
 	return toSerialize, nil
 }

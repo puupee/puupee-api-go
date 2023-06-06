@@ -19,7 +19,7 @@ var _ MappedNullable = &ApplicationAuthConfigurationDto{}
 
 // ApplicationAuthConfigurationDto struct for ApplicationAuthConfigurationDto
 type ApplicationAuthConfigurationDto struct {
-	GrantedPolicies map[string]bool `json:"grantedPolicies,omitempty"`
+	GrantedPolicies *map[string]bool `json:"grantedPolicies,omitempty"`
 }
 
 // NewApplicationAuthConfigurationDto instantiates a new ApplicationAuthConfigurationDto object
@@ -39,28 +39,27 @@ func NewApplicationAuthConfigurationDtoWithDefaults() *ApplicationAuthConfigurat
 	return &this
 }
 
-// GetGrantedPolicies returns the GrantedPolicies field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGrantedPolicies returns the GrantedPolicies field value if set, zero value otherwise.
 func (o *ApplicationAuthConfigurationDto) GetGrantedPolicies() map[string]bool {
-	if o == nil {
+	if o == nil || IsNil(o.GrantedPolicies) {
 		var ret map[string]bool
 		return ret
 	}
-	return o.GrantedPolicies
+	return *o.GrantedPolicies
 }
 
 // GetGrantedPoliciesOk returns a tuple with the GrantedPolicies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationAuthConfigurationDto) GetGrantedPoliciesOk() (*map[string]bool, bool) {
 	if o == nil || IsNil(o.GrantedPolicies) {
 		return nil, false
 	}
-	return &o.GrantedPolicies, true
+	return o.GrantedPolicies, true
 }
 
 // HasGrantedPolicies returns a boolean if a field has been set.
 func (o *ApplicationAuthConfigurationDto) HasGrantedPolicies() bool {
-	if o != nil && IsNil(o.GrantedPolicies) {
+	if o != nil && !IsNil(o.GrantedPolicies) {
 		return true
 	}
 
@@ -69,7 +68,7 @@ func (o *ApplicationAuthConfigurationDto) HasGrantedPolicies() bool {
 
 // SetGrantedPolicies gets a reference to the given map[string]bool and assigns it to the GrantedPolicies field.
 func (o *ApplicationAuthConfigurationDto) SetGrantedPolicies(v map[string]bool) {
-	o.GrantedPolicies = v
+	o.GrantedPolicies = &v
 }
 
 func (o ApplicationAuthConfigurationDto) MarshalJSON() ([]byte, error) {
@@ -82,7 +81,7 @@ func (o ApplicationAuthConfigurationDto) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationAuthConfigurationDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.GrantedPolicies != nil {
+	if !IsNil(o.GrantedPolicies) {
 		toSerialize["grantedPolicies"] = o.GrantedPolicies
 	}
 	return toSerialize, nil

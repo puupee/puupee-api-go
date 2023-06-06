@@ -20,8 +20,8 @@ var _ MappedNullable = &CreateUpdateMessageSourceRouteSubDto{}
 // CreateUpdateMessageSourceRouteSubDto struct for CreateUpdateMessageSourceRouteSubDto
 type CreateUpdateMessageSourceRouteSubDto struct {
 	RouteId *string `json:"routeId,omitempty"`
-	Path NullableString `json:"path,omitempty"`
-	Values interface{} `json:"values,omitempty"`
+	Path *string `json:"path,omitempty"`
+	Values map[string]interface{} `json:"values,omitempty"`
 }
 
 // NewCreateUpdateMessageSourceRouteSubDto instantiates a new CreateUpdateMessageSourceRouteSubDto object
@@ -73,52 +73,42 @@ func (o *CreateUpdateMessageSourceRouteSubDto) SetRouteId(v string) {
 	o.RouteId = &v
 }
 
-// GetPath returns the Path field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPath returns the Path field value if set, zero value otherwise.
 func (o *CreateUpdateMessageSourceRouteSubDto) GetPath() string {
-	if o == nil || IsNil(o.Path.Get()) {
+	if o == nil || IsNil(o.Path) {
 		var ret string
 		return ret
 	}
-	return *o.Path.Get()
+	return *o.Path
 }
 
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUpdateMessageSourceRouteSubDto) GetPathOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Path) {
 		return nil, false
 	}
-	return o.Path.Get(), o.Path.IsSet()
+	return o.Path, true
 }
 
 // HasPath returns a boolean if a field has been set.
 func (o *CreateUpdateMessageSourceRouteSubDto) HasPath() bool {
-	if o != nil && o.Path.IsSet() {
+	if o != nil && !IsNil(o.Path) {
 		return true
 	}
 
 	return false
 }
 
-// SetPath gets a reference to the given NullableString and assigns it to the Path field.
+// SetPath gets a reference to the given string and assigns it to the Path field.
 func (o *CreateUpdateMessageSourceRouteSubDto) SetPath(v string) {
-	o.Path.Set(&v)
-}
-// SetPathNil sets the value for Path to be an explicit nil
-func (o *CreateUpdateMessageSourceRouteSubDto) SetPathNil() {
-	o.Path.Set(nil)
+	o.Path = &v
 }
 
-// UnsetPath ensures that no value is present for Path, not even an explicit nil
-func (o *CreateUpdateMessageSourceRouteSubDto) UnsetPath() {
-	o.Path.Unset()
-}
-
-// GetValues returns the Values field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateUpdateMessageSourceRouteSubDto) GetValues() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetValues returns the Values field value if set, zero value otherwise.
+func (o *CreateUpdateMessageSourceRouteSubDto) GetValues() map[string]interface{} {
+	if o == nil || IsNil(o.Values) {
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.Values
@@ -126,25 +116,24 @@ func (o *CreateUpdateMessageSourceRouteSubDto) GetValues() interface{} {
 
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateUpdateMessageSourceRouteSubDto) GetValuesOk() (*interface{}, bool) {
+func (o *CreateUpdateMessageSourceRouteSubDto) GetValuesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Values) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.Values, true
+	return o.Values, true
 }
 
 // HasValues returns a boolean if a field has been set.
 func (o *CreateUpdateMessageSourceRouteSubDto) HasValues() bool {
-	if o != nil && IsNil(o.Values) {
+	if o != nil && !IsNil(o.Values) {
 		return true
 	}
 
 	return false
 }
 
-// SetValues gets a reference to the given interface{} and assigns it to the Values field.
-func (o *CreateUpdateMessageSourceRouteSubDto) SetValues(v interface{}) {
+// SetValues gets a reference to the given map[string]interface{} and assigns it to the Values field.
+func (o *CreateUpdateMessageSourceRouteSubDto) SetValues(v map[string]interface{}) {
 	o.Values = v
 }
 
@@ -161,10 +150,10 @@ func (o CreateUpdateMessageSourceRouteSubDto) ToMap() (map[string]interface{}, e
 	if !IsNil(o.RouteId) {
 		toSerialize["routeId"] = o.RouteId
 	}
-	if o.Path.IsSet() {
-		toSerialize["path"] = o.Path.Get()
+	if !IsNil(o.Path) {
+		toSerialize["path"] = o.Path
 	}
-	if o.Values != nil {
+	if !IsNil(o.Values) {
 		toSerialize["values"] = o.Values
 	}
 	return toSerialize, nil

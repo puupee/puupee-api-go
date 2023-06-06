@@ -20,27 +20,27 @@ var _ MappedNullable = &IdentityUserDto{}
 
 // IdentityUserDto struct for IdentityUserDto
 type IdentityUserDto struct {
-	ExtraProperties map[string]interface{} `json:"extraProperties,omitempty"`
+	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
-	LastModifierId NullableString `json:"lastModifierId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId NullableString `json:"deleterId,omitempty"`
-	DeletionTime NullableTime `json:"deletionTime,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	UserName NullableString `json:"userName,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Surname NullableString `json:"surname,omitempty"`
-	Email NullableString `json:"email,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
+	UserName *string `json:"userName,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Surname *string `json:"surname,omitempty"`
+	Email *string `json:"email,omitempty"`
 	EmailConfirmed *bool `json:"emailConfirmed,omitempty"`
-	PhoneNumber NullableString `json:"phoneNumber,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	PhoneNumberConfirmed *bool `json:"phoneNumberConfirmed,omitempty"`
 	IsActive *bool `json:"isActive,omitempty"`
 	LockoutEnabled *bool `json:"lockoutEnabled,omitempty"`
-	LockoutEnd NullableTime `json:"lockoutEnd,omitempty"`
-	ConcurrencyStamp NullableString `json:"concurrencyStamp,omitempty"`
+	LockoutEnd *time.Time `json:"lockoutEnd,omitempty"`
+	ConcurrencyStamp *string `json:"concurrencyStamp,omitempty"`
 	EntityVersion *int32 `json:"entityVersion,omitempty"`
 }
 
@@ -61,10 +61,10 @@ func NewIdentityUserDtoWithDefaults() *IdentityUserDto {
 	return &this
 }
 
-// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IdentityUserDto) GetExtraProperties() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
+func (o *IdentityUserDto) GetExtraProperties() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.ExtraProperties) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.ExtraProperties
@@ -72,25 +72,24 @@ func (o *IdentityUserDto) GetExtraProperties() map[string]interface{} {
 
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IdentityUserDto) GetExtraPropertiesOk() (map[string]interface{}, bool) {
+func (o *IdentityUserDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ExtraProperties) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasExtraProperties() bool {
-	if o != nil && IsNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtraProperties gets a reference to the given map[string]interface{} and assigns it to the ExtraProperties field.
-func (o *IdentityUserDto) SetExtraProperties(v map[string]interface{}) {
+// SetExtraProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the ExtraProperties field.
+func (o *IdentityUserDto) SetExtraProperties(v map[string]map[string]interface{}) {
 	o.ExtraProperties = v
 }
 
@@ -158,130 +157,100 @@ func (o *IdentityUserDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *IdentityUserDto) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *IdentityUserDto) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *IdentityUserDto) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime.Get()) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime.Get()
+	return *o.LastModificationTime
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
-	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
+	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLastModificationTime() bool {
-	if o != nil && o.LastModificationTime.IsSet() {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
 func (o *IdentityUserDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime.Set(&v)
-}
-// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-func (o *IdentityUserDto) SetLastModificationTimeNil() {
-	o.LastModificationTime.Set(nil)
+	o.LastModificationTime = &v
 }
 
-// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
-func (o *IdentityUserDto) UnsetLastModificationTime() {
-	o.LastModificationTime.Unset()
-}
-
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId.Get()) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId.Get()
+	return *o.LastModifierId
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
-	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
+	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLastModifierId() bool {
-	if o != nil && o.LastModifierId.IsSet() {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
 func (o *IdentityUserDto) SetLastModifierId(v string) {
-	o.LastModifierId.Set(&v)
-}
-// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-func (o *IdentityUserDto) SetLastModifierIdNil() {
-	o.LastModifierId.Set(nil)
-}
-
-// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
-func (o *IdentityUserDto) UnsetLastModifierId() {
-	o.LastModifierId.Unset()
+	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -316,298 +285,228 @@ func (o *IdentityUserDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId.Get()) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId.Get()
+	return *o.DeleterId
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
-	return o.DeleterId.Get(), o.DeleterId.IsSet()
+	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasDeleterId() bool {
-	if o != nil && o.DeleterId.IsSet() {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
 func (o *IdentityUserDto) SetDeleterId(v string) {
-	o.DeleterId.Set(&v)
-}
-// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-func (o *IdentityUserDto) SetDeleterIdNil() {
-	o.DeleterId.Set(nil)
+	o.DeleterId = &v
 }
 
-// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
-func (o *IdentityUserDto) UnsetDeleterId() {
-	o.DeleterId.Unset()
-}
-
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime.Get()) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime.Get()
+	return *o.DeletionTime
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
-	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasDeletionTime() bool {
-	if o != nil && o.DeletionTime.IsSet() {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
 func (o *IdentityUserDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime.Set(&v)
-}
-// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-func (o *IdentityUserDto) SetDeletionTimeNil() {
-	o.DeletionTime.Set(nil)
+	o.DeletionTime = &v
 }
 
-// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
-func (o *IdentityUserDto) UnsetDeletionTime() {
-	o.DeletionTime.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId.Get()
+	return *o.TenantId
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId) {
 		return nil, false
 	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
+	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *IdentityUserDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *IdentityUserDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
+	o.TenantId = &v
 }
 
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *IdentityUserDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetUserName() string {
-	if o == nil || IsNil(o.UserName.Get()) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
-	return *o.UserName.Get()
+	return *o.UserName
 }
 
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		return nil, false
 	}
-	return o.UserName.Get(), o.UserName.IsSet()
+	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasUserName() bool {
-	if o != nil && o.UserName.IsSet() {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *IdentityUserDto) SetUserName(v string) {
-	o.UserName.Set(&v)
-}
-// SetUserNameNil sets the value for UserName to be an explicit nil
-func (o *IdentityUserDto) SetUserNameNil() {
-	o.UserName.Set(nil)
+	o.UserName = &v
 }
 
-// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
-func (o *IdentityUserDto) UnsetUserName() {
-	o.UserName.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *IdentityUserDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *IdentityUserDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *IdentityUserDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetSurname returns the Surname field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSurname returns the Surname field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetSurname() string {
-	if o == nil || IsNil(o.Surname.Get()) {
+	if o == nil || IsNil(o.Surname) {
 		var ret string
 		return ret
 	}
-	return *o.Surname.Get()
+	return *o.Surname
 }
 
 // GetSurnameOk returns a tuple with the Surname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetSurnameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Surname) {
 		return nil, false
 	}
-	return o.Surname.Get(), o.Surname.IsSet()
+	return o.Surname, true
 }
 
 // HasSurname returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasSurname() bool {
-	if o != nil && o.Surname.IsSet() {
+	if o != nil && !IsNil(o.Surname) {
 		return true
 	}
 
 	return false
 }
 
-// SetSurname gets a reference to the given NullableString and assigns it to the Surname field.
+// SetSurname gets a reference to the given string and assigns it to the Surname field.
 func (o *IdentityUserDto) SetSurname(v string) {
-	o.Surname.Set(&v)
-}
-// SetSurnameNil sets the value for Surname to be an explicit nil
-func (o *IdentityUserDto) SetSurnameNil() {
-	o.Surname.Set(nil)
+	o.Surname = &v
 }
 
-// UnsetSurname ensures that no value is present for Surname, not even an explicit nil
-func (o *IdentityUserDto) UnsetSurname() {
-	o.Surname.Unset()
-}
-
-// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetEmail() string {
-	if o == nil || IsNil(o.Email.Get()) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-	return *o.Email.Get()
+	return *o.Email
 }
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return o.Email.Get(), o.Email.IsSet()
+	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasEmail() bool {
-	if o != nil && o.Email.IsSet() {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *IdentityUserDto) SetEmail(v string) {
-	o.Email.Set(&v)
-}
-// SetEmailNil sets the value for Email to be an explicit nil
-func (o *IdentityUserDto) SetEmailNil() {
-	o.Email.Set(nil)
-}
-
-// UnsetEmail ensures that no value is present for Email, not even an explicit nil
-func (o *IdentityUserDto) UnsetEmail() {
-	o.Email.Unset()
+	o.Email = &v
 }
 
 // GetEmailConfirmed returns the EmailConfirmed field value if set, zero value otherwise.
@@ -642,46 +541,36 @@ func (o *IdentityUserDto) SetEmailConfirmed(v bool) {
 	o.EmailConfirmed = &v
 }
 
-// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetPhoneNumber() string {
-	if o == nil || IsNil(o.PhoneNumber.Get()) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
-	return *o.PhoneNumber.Get()
+	return *o.PhoneNumber
 }
 
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetPhoneNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PhoneNumber) {
 		return nil, false
 	}
-	return o.PhoneNumber.Get(), o.PhoneNumber.IsSet()
+	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasPhoneNumber() bool {
-	if o != nil && o.PhoneNumber.IsSet() {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetPhoneNumber gets a reference to the given NullableString and assigns it to the PhoneNumber field.
+// SetPhoneNumber gets a reference to the given string and assigns it to the PhoneNumber field.
 func (o *IdentityUserDto) SetPhoneNumber(v string) {
-	o.PhoneNumber.Set(&v)
-}
-// SetPhoneNumberNil sets the value for PhoneNumber to be an explicit nil
-func (o *IdentityUserDto) SetPhoneNumberNil() {
-	o.PhoneNumber.Set(nil)
-}
-
-// UnsetPhoneNumber ensures that no value is present for PhoneNumber, not even an explicit nil
-func (o *IdentityUserDto) UnsetPhoneNumber() {
-	o.PhoneNumber.Unset()
+	o.PhoneNumber = &v
 }
 
 // GetPhoneNumberConfirmed returns the PhoneNumberConfirmed field value if set, zero value otherwise.
@@ -780,88 +669,68 @@ func (o *IdentityUserDto) SetLockoutEnabled(v bool) {
 	o.LockoutEnabled = &v
 }
 
-// GetLockoutEnd returns the LockoutEnd field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLockoutEnd returns the LockoutEnd field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetLockoutEnd() time.Time {
-	if o == nil || IsNil(o.LockoutEnd.Get()) {
+	if o == nil || IsNil(o.LockoutEnd) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LockoutEnd.Get()
+	return *o.LockoutEnd
 }
 
 // GetLockoutEndOk returns a tuple with the LockoutEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetLockoutEndOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LockoutEnd) {
 		return nil, false
 	}
-	return o.LockoutEnd.Get(), o.LockoutEnd.IsSet()
+	return o.LockoutEnd, true
 }
 
 // HasLockoutEnd returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasLockoutEnd() bool {
-	if o != nil && o.LockoutEnd.IsSet() {
+	if o != nil && !IsNil(o.LockoutEnd) {
 		return true
 	}
 
 	return false
 }
 
-// SetLockoutEnd gets a reference to the given NullableTime and assigns it to the LockoutEnd field.
+// SetLockoutEnd gets a reference to the given time.Time and assigns it to the LockoutEnd field.
 func (o *IdentityUserDto) SetLockoutEnd(v time.Time) {
-	o.LockoutEnd.Set(&v)
-}
-// SetLockoutEndNil sets the value for LockoutEnd to be an explicit nil
-func (o *IdentityUserDto) SetLockoutEndNil() {
-	o.LockoutEnd.Set(nil)
+	o.LockoutEnd = &v
 }
 
-// UnsetLockoutEnd ensures that no value is present for LockoutEnd, not even an explicit nil
-func (o *IdentityUserDto) UnsetLockoutEnd() {
-	o.LockoutEnd.Unset()
-}
-
-// GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConcurrencyStamp returns the ConcurrencyStamp field value if set, zero value otherwise.
 func (o *IdentityUserDto) GetConcurrencyStamp() string {
-	if o == nil || IsNil(o.ConcurrencyStamp.Get()) {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		var ret string
 		return ret
 	}
-	return *o.ConcurrencyStamp.Get()
+	return *o.ConcurrencyStamp
 }
 
 // GetConcurrencyStampOk returns a tuple with the ConcurrencyStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserDto) GetConcurrencyStampOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ConcurrencyStamp) {
 		return nil, false
 	}
-	return o.ConcurrencyStamp.Get(), o.ConcurrencyStamp.IsSet()
+	return o.ConcurrencyStamp, true
 }
 
 // HasConcurrencyStamp returns a boolean if a field has been set.
 func (o *IdentityUserDto) HasConcurrencyStamp() bool {
-	if o != nil && o.ConcurrencyStamp.IsSet() {
+	if o != nil && !IsNil(o.ConcurrencyStamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetConcurrencyStamp gets a reference to the given NullableString and assigns it to the ConcurrencyStamp field.
+// SetConcurrencyStamp gets a reference to the given string and assigns it to the ConcurrencyStamp field.
 func (o *IdentityUserDto) SetConcurrencyStamp(v string) {
-	o.ConcurrencyStamp.Set(&v)
-}
-// SetConcurrencyStampNil sets the value for ConcurrencyStamp to be an explicit nil
-func (o *IdentityUserDto) SetConcurrencyStampNil() {
-	o.ConcurrencyStamp.Set(nil)
-}
-
-// UnsetConcurrencyStamp ensures that no value is present for ConcurrencyStamp, not even an explicit nil
-func (o *IdentityUserDto) UnsetConcurrencyStamp() {
-	o.ConcurrencyStamp.Unset()
+	o.ConcurrencyStamp = &v
 }
 
 // GetEntityVersion returns the EntityVersion field value if set, zero value otherwise.
@@ -906,53 +775,51 @@ func (o IdentityUserDto) MarshalJSON() ([]byte, error) {
 
 func (o IdentityUserDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ExtraProperties != nil {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
+	// skip: extraProperties is readOnly
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
 	}
-	if o.LastModificationTime.IsSet() {
-		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
-	if o.LastModifierId.IsSet() {
-		toSerialize["lastModifierId"] = o.LastModifierId.Get()
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.DeleterId.IsSet() {
-		toSerialize["deleterId"] = o.DeleterId.Get()
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
 	}
-	if o.DeletionTime.IsSet() {
-		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
 	}
-	if o.UserName.IsSet() {
-		toSerialize["userName"] = o.UserName.Get()
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Surname.IsSet() {
-		toSerialize["surname"] = o.Surname.Get()
+	if !IsNil(o.Surname) {
+		toSerialize["surname"] = o.Surname
 	}
-	if o.Email.IsSet() {
-		toSerialize["email"] = o.Email.Get()
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
 	}
 	if !IsNil(o.EmailConfirmed) {
 		toSerialize["emailConfirmed"] = o.EmailConfirmed
 	}
-	if o.PhoneNumber.IsSet() {
-		toSerialize["phoneNumber"] = o.PhoneNumber.Get()
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
 	}
 	if !IsNil(o.PhoneNumberConfirmed) {
 		toSerialize["phoneNumberConfirmed"] = o.PhoneNumberConfirmed
@@ -963,11 +830,11 @@ func (o IdentityUserDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LockoutEnabled) {
 		toSerialize["lockoutEnabled"] = o.LockoutEnabled
 	}
-	if o.LockoutEnd.IsSet() {
-		toSerialize["lockoutEnd"] = o.LockoutEnd.Get()
+	if !IsNil(o.LockoutEnd) {
+		toSerialize["lockoutEnd"] = o.LockoutEnd
 	}
-	if o.ConcurrencyStamp.IsSet() {
-		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp.Get()
+	if !IsNil(o.ConcurrencyStamp) {
+		toSerialize["concurrencyStamp"] = o.ConcurrencyStamp
 	}
 	if !IsNil(o.EntityVersion) {
 		toSerialize["entityVersion"] = o.EntityVersion

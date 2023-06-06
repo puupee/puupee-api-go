@@ -6,52 +6,52 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Title** | Pointer to **NullableString** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
 **IsHidden** | Pointer to **bool** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Text** | Pointer to **NullableString** |  | [optional] 
-**Content** | Pointer to **NullableString** |  | [optional] 
-**Format** | Pointer to **NullableString** |  | [optional] 
-**Password** | Pointer to **NullableString** |  | [optional] 
-**ParentId** | Pointer to **NullableString** |  | [optional] 
-**Key** | Pointer to **NullableString** |  | [optional] 
-**Md5** | Pointer to **NullableString** |  | [optional] 
-**SliceMd5** | Pointer to **NullableString** |  | [optional] 
-**RapidCode** | Pointer to **NullableString** |  | [optional] 
-**ContentType** | Pointer to **NullableString** |  | [optional] 
-**Type** | Pointer to **NullableString** |  | [optional] 
-**DisplayStyle** | Pointer to **NullableString** |  | [optional] 
-**Extension** | Pointer to **NullableString** |  | [optional] 
-**StorageClass** | Pointer to **NullableString** |  | [optional] 
-**StorageObjectCreatedAt** | Pointer to **NullableTime** |  | [optional] 
-**StorageObjectUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**Content** | Pointer to **string** |  | [optional] 
+**Format** | Pointer to **string** |  | [optional] 
+**Password** | Pointer to **string** |  | [optional] 
+**ParentId** | Pointer to **string** |  | [optional] 
+**Key** | Pointer to **string** |  | [optional] 
+**Md5** | Pointer to **string** |  | [optional] 
+**SliceMd5** | Pointer to **string** |  | [optional] 
+**RapidCode** | Pointer to **string** |  | [optional] 
+**ContentType** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**DisplayStyle** | Pointer to **string** |  | [optional] 
+**Extension** | Pointer to **string** |  | [optional] 
+**StorageClass** | Pointer to **string** |  | [optional] 
+**StorageObjectCreatedAt** | Pointer to **time.Time** |  | [optional] 
+**StorageObjectUpdatedAt** | Pointer to **time.Time** |  | [optional] 
 **SyncVersion** | Pointer to **int64** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**Priority** | Pointer to **NullableInt32** |  | [optional] 
-**StartAt** | Pointer to **NullableTime** |  | [optional] 
-**EndAt** | Pointer to **NullableTime** |  | [optional] 
-**NotifyAt** | Pointer to **NullableTime** |  | [optional] 
-**NotifyTimingType** | Pointer to **NullableString** |  | [optional] 
-**NotifyTimingUnit** | Pointer to **NullableString** |  | [optional] 
-**NotifyTimingValue** | Pointer to **NullableInt32** |  | [optional] 
-**Repeat** | Pointer to **NullableString** |  | [optional] 
-**RepeatOffAt** | Pointer to **NullableTime** |  | [optional] 
-**RepeatOffTimes** | Pointer to **NullableInt32** |  | [optional] 
-**Repetitions** | Pointer to **NullableInt32** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**Priority** | Pointer to **int32** |  | [optional] 
+**StartAt** | Pointer to **time.Time** |  | [optional] 
+**EndAt** | Pointer to **time.Time** |  | [optional] 
+**NotifyAt** | Pointer to **time.Time** |  | [optional] 
+**NotifyTimingType** | Pointer to **string** |  | [optional] 
+**NotifyTimingUnit** | Pointer to **string** |  | [optional] 
+**NotifyTimingValue** | Pointer to **int32** |  | [optional] 
+**Repeat** | Pointer to **string** |  | [optional] 
+**RepeatOffAt** | Pointer to **time.Time** |  | [optional] 
+**RepeatOffTimes** | Pointer to **int32** |  | [optional] 
+**Repetitions** | Pointer to **int32** |  | [optional] 
 **IsDone** | Pointer to **bool** |  | [optional] 
-**DoneAt** | Pointer to **NullableTime** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**Tagging** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**DoneAt** | Pointer to **time.Time** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**Tagging** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
-**LastModifierDeviceToken** | Pointer to **NullableString** |  | [optional] 
-**LastModifierDevice** | Pointer to **NullableString** |  | [optional] 
-**AppName** | Pointer to **NullableString** |  | [optional] 
+**LastModifierDeviceToken** | Pointer to **string** |  | [optional] 
+**LastModifierDevice** | Pointer to **string** |  | [optional] 
+**AppName** | Pointer to **string** |  | [optional] 
 **PushToUser** | Pointer to **bool** |  | [optional] 
 **SortIndex** | Pointer to **int32** |  | [optional] 
 
@@ -139,16 +139,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *CreateOrUpdatePuupeeDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetIsHidden
 
 `func (o *CreateOrUpdatePuupeeDto) GetIsHidden() bool`
@@ -199,16 +189,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *CreateOrUpdatePuupeeDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetText
 
 `func (o *CreateOrUpdatePuupeeDto) GetText() string`
@@ -234,16 +214,6 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *CreateOrUpdatePuupeeDto) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetContent
 
 `func (o *CreateOrUpdatePuupeeDto) GetContent() string`
@@ -269,16 +239,6 @@ SetContent sets Content field to given value.
 
 HasContent returns a boolean if a field has been set.
 
-### SetContentNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetContentNil(b bool)`
-
- SetContentNil sets the value for Content to be an explicit nil
-
-### UnsetContent
-`func (o *CreateOrUpdatePuupeeDto) UnsetContent()`
-
-UnsetContent ensures that no value is present for Content, not even an explicit nil
 ### GetFormat
 
 `func (o *CreateOrUpdatePuupeeDto) GetFormat() string`
@@ -304,16 +264,6 @@ SetFormat sets Format field to given value.
 
 HasFormat returns a boolean if a field has been set.
 
-### SetFormatNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetFormatNil(b bool)`
-
- SetFormatNil sets the value for Format to be an explicit nil
-
-### UnsetFormat
-`func (o *CreateOrUpdatePuupeeDto) UnsetFormat()`
-
-UnsetFormat ensures that no value is present for Format, not even an explicit nil
 ### GetPassword
 
 `func (o *CreateOrUpdatePuupeeDto) GetPassword() string`
@@ -339,16 +289,6 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
-### SetPasswordNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetPasswordNil(b bool)`
-
- SetPasswordNil sets the value for Password to be an explicit nil
-
-### UnsetPassword
-`func (o *CreateOrUpdatePuupeeDto) UnsetPassword()`
-
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetParentId
 
 `func (o *CreateOrUpdatePuupeeDto) GetParentId() string`
@@ -374,16 +314,6 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
-### SetParentIdNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetParentIdNil(b bool)`
-
- SetParentIdNil sets the value for ParentId to be an explicit nil
-
-### UnsetParentId
-`func (o *CreateOrUpdatePuupeeDto) UnsetParentId()`
-
-UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetKey
 
 `func (o *CreateOrUpdatePuupeeDto) GetKey() string`
@@ -409,16 +339,6 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
-### SetKeyNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *CreateOrUpdatePuupeeDto) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetMd5
 
 `func (o *CreateOrUpdatePuupeeDto) GetMd5() string`
@@ -444,16 +364,6 @@ SetMd5 sets Md5 field to given value.
 
 HasMd5 returns a boolean if a field has been set.
 
-### SetMd5Nil
-
-`func (o *CreateOrUpdatePuupeeDto) SetMd5Nil(b bool)`
-
- SetMd5Nil sets the value for Md5 to be an explicit nil
-
-### UnsetMd5
-`func (o *CreateOrUpdatePuupeeDto) UnsetMd5()`
-
-UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
 ### GetSliceMd5
 
 `func (o *CreateOrUpdatePuupeeDto) GetSliceMd5() string`
@@ -479,16 +389,6 @@ SetSliceMd5 sets SliceMd5 field to given value.
 
 HasSliceMd5 returns a boolean if a field has been set.
 
-### SetSliceMd5Nil
-
-`func (o *CreateOrUpdatePuupeeDto) SetSliceMd5Nil(b bool)`
-
- SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
-
-### UnsetSliceMd5
-`func (o *CreateOrUpdatePuupeeDto) UnsetSliceMd5()`
-
-UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
 ### GetRapidCode
 
 `func (o *CreateOrUpdatePuupeeDto) GetRapidCode() string`
@@ -514,16 +414,6 @@ SetRapidCode sets RapidCode field to given value.
 
 HasRapidCode returns a boolean if a field has been set.
 
-### SetRapidCodeNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetRapidCodeNil(b bool)`
-
- SetRapidCodeNil sets the value for RapidCode to be an explicit nil
-
-### UnsetRapidCode
-`func (o *CreateOrUpdatePuupeeDto) UnsetRapidCode()`
-
-UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
 ### GetContentType
 
 `func (o *CreateOrUpdatePuupeeDto) GetContentType() string`
@@ -549,16 +439,6 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
-### SetContentTypeNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetContentTypeNil(b bool)`
-
- SetContentTypeNil sets the value for ContentType to be an explicit nil
-
-### UnsetContentType
-`func (o *CreateOrUpdatePuupeeDto) UnsetContentType()`
-
-UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetType
 
 `func (o *CreateOrUpdatePuupeeDto) GetType() string`
@@ -584,16 +464,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *CreateOrUpdatePuupeeDto) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetDisplayStyle
 
 `func (o *CreateOrUpdatePuupeeDto) GetDisplayStyle() string`
@@ -619,16 +489,6 @@ SetDisplayStyle sets DisplayStyle field to given value.
 
 HasDisplayStyle returns a boolean if a field has been set.
 
-### SetDisplayStyleNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetDisplayStyleNil(b bool)`
-
- SetDisplayStyleNil sets the value for DisplayStyle to be an explicit nil
-
-### UnsetDisplayStyle
-`func (o *CreateOrUpdatePuupeeDto) UnsetDisplayStyle()`
-
-UnsetDisplayStyle ensures that no value is present for DisplayStyle, not even an explicit nil
 ### GetExtension
 
 `func (o *CreateOrUpdatePuupeeDto) GetExtension() string`
@@ -654,16 +514,6 @@ SetExtension sets Extension field to given value.
 
 HasExtension returns a boolean if a field has been set.
 
-### SetExtensionNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetExtensionNil(b bool)`
-
- SetExtensionNil sets the value for Extension to be an explicit nil
-
-### UnsetExtension
-`func (o *CreateOrUpdatePuupeeDto) UnsetExtension()`
-
-UnsetExtension ensures that no value is present for Extension, not even an explicit nil
 ### GetStorageClass
 
 `func (o *CreateOrUpdatePuupeeDto) GetStorageClass() string`
@@ -689,16 +539,6 @@ SetStorageClass sets StorageClass field to given value.
 
 HasStorageClass returns a boolean if a field has been set.
 
-### SetStorageClassNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetStorageClassNil(b bool)`
-
- SetStorageClassNil sets the value for StorageClass to be an explicit nil
-
-### UnsetStorageClass
-`func (o *CreateOrUpdatePuupeeDto) UnsetStorageClass()`
-
-UnsetStorageClass ensures that no value is present for StorageClass, not even an explicit nil
 ### GetStorageObjectCreatedAt
 
 `func (o *CreateOrUpdatePuupeeDto) GetStorageObjectCreatedAt() time.Time`
@@ -724,16 +564,6 @@ SetStorageObjectCreatedAt sets StorageObjectCreatedAt field to given value.
 
 HasStorageObjectCreatedAt returns a boolean if a field has been set.
 
-### SetStorageObjectCreatedAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetStorageObjectCreatedAtNil(b bool)`
-
- SetStorageObjectCreatedAtNil sets the value for StorageObjectCreatedAt to be an explicit nil
-
-### UnsetStorageObjectCreatedAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetStorageObjectCreatedAt()`
-
-UnsetStorageObjectCreatedAt ensures that no value is present for StorageObjectCreatedAt, not even an explicit nil
 ### GetStorageObjectUpdatedAt
 
 `func (o *CreateOrUpdatePuupeeDto) GetStorageObjectUpdatedAt() time.Time`
@@ -759,16 +589,6 @@ SetStorageObjectUpdatedAt sets StorageObjectUpdatedAt field to given value.
 
 HasStorageObjectUpdatedAt returns a boolean if a field has been set.
 
-### SetStorageObjectUpdatedAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetStorageObjectUpdatedAtNil(b bool)`
-
- SetStorageObjectUpdatedAtNil sets the value for StorageObjectUpdatedAt to be an explicit nil
-
-### UnsetStorageObjectUpdatedAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetStorageObjectUpdatedAt()`
-
-UnsetStorageObjectUpdatedAt ensures that no value is present for StorageObjectUpdatedAt, not even an explicit nil
 ### GetSyncVersion
 
 `func (o *CreateOrUpdatePuupeeDto) GetSyncVersion() int64`
@@ -844,16 +664,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *CreateOrUpdatePuupeeDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetCreationTime
 
 `func (o *CreateOrUpdatePuupeeDto) GetCreationTime() time.Time`
@@ -904,16 +714,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *CreateOrUpdatePuupeeDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetPriority
 
 `func (o *CreateOrUpdatePuupeeDto) GetPriority() int32`
@@ -939,16 +739,6 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
-### SetPriorityNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetPriorityNil(b bool)`
-
- SetPriorityNil sets the value for Priority to be an explicit nil
-
-### UnsetPriority
-`func (o *CreateOrUpdatePuupeeDto) UnsetPriority()`
-
-UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetStartAt
 
 `func (o *CreateOrUpdatePuupeeDto) GetStartAt() time.Time`
@@ -974,16 +764,6 @@ SetStartAt sets StartAt field to given value.
 
 HasStartAt returns a boolean if a field has been set.
 
-### SetStartAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetStartAtNil(b bool)`
-
- SetStartAtNil sets the value for StartAt to be an explicit nil
-
-### UnsetStartAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetStartAt()`
-
-UnsetStartAt ensures that no value is present for StartAt, not even an explicit nil
 ### GetEndAt
 
 `func (o *CreateOrUpdatePuupeeDto) GetEndAt() time.Time`
@@ -1009,16 +789,6 @@ SetEndAt sets EndAt field to given value.
 
 HasEndAt returns a boolean if a field has been set.
 
-### SetEndAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetEndAtNil(b bool)`
-
- SetEndAtNil sets the value for EndAt to be an explicit nil
-
-### UnsetEndAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetEndAt()`
-
-UnsetEndAt ensures that no value is present for EndAt, not even an explicit nil
 ### GetNotifyAt
 
 `func (o *CreateOrUpdatePuupeeDto) GetNotifyAt() time.Time`
@@ -1044,16 +814,6 @@ SetNotifyAt sets NotifyAt field to given value.
 
 HasNotifyAt returns a boolean if a field has been set.
 
-### SetNotifyAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetNotifyAtNil(b bool)`
-
- SetNotifyAtNil sets the value for NotifyAt to be an explicit nil
-
-### UnsetNotifyAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetNotifyAt()`
-
-UnsetNotifyAt ensures that no value is present for NotifyAt, not even an explicit nil
 ### GetNotifyTimingType
 
 `func (o *CreateOrUpdatePuupeeDto) GetNotifyTimingType() string`
@@ -1079,16 +839,6 @@ SetNotifyTimingType sets NotifyTimingType field to given value.
 
 HasNotifyTimingType returns a boolean if a field has been set.
 
-### SetNotifyTimingTypeNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetNotifyTimingTypeNil(b bool)`
-
- SetNotifyTimingTypeNil sets the value for NotifyTimingType to be an explicit nil
-
-### UnsetNotifyTimingType
-`func (o *CreateOrUpdatePuupeeDto) UnsetNotifyTimingType()`
-
-UnsetNotifyTimingType ensures that no value is present for NotifyTimingType, not even an explicit nil
 ### GetNotifyTimingUnit
 
 `func (o *CreateOrUpdatePuupeeDto) GetNotifyTimingUnit() string`
@@ -1114,16 +864,6 @@ SetNotifyTimingUnit sets NotifyTimingUnit field to given value.
 
 HasNotifyTimingUnit returns a boolean if a field has been set.
 
-### SetNotifyTimingUnitNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetNotifyTimingUnitNil(b bool)`
-
- SetNotifyTimingUnitNil sets the value for NotifyTimingUnit to be an explicit nil
-
-### UnsetNotifyTimingUnit
-`func (o *CreateOrUpdatePuupeeDto) UnsetNotifyTimingUnit()`
-
-UnsetNotifyTimingUnit ensures that no value is present for NotifyTimingUnit, not even an explicit nil
 ### GetNotifyTimingValue
 
 `func (o *CreateOrUpdatePuupeeDto) GetNotifyTimingValue() int32`
@@ -1149,16 +889,6 @@ SetNotifyTimingValue sets NotifyTimingValue field to given value.
 
 HasNotifyTimingValue returns a boolean if a field has been set.
 
-### SetNotifyTimingValueNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetNotifyTimingValueNil(b bool)`
-
- SetNotifyTimingValueNil sets the value for NotifyTimingValue to be an explicit nil
-
-### UnsetNotifyTimingValue
-`func (o *CreateOrUpdatePuupeeDto) UnsetNotifyTimingValue()`
-
-UnsetNotifyTimingValue ensures that no value is present for NotifyTimingValue, not even an explicit nil
 ### GetRepeat
 
 `func (o *CreateOrUpdatePuupeeDto) GetRepeat() string`
@@ -1184,16 +914,6 @@ SetRepeat sets Repeat field to given value.
 
 HasRepeat returns a boolean if a field has been set.
 
-### SetRepeatNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetRepeatNil(b bool)`
-
- SetRepeatNil sets the value for Repeat to be an explicit nil
-
-### UnsetRepeat
-`func (o *CreateOrUpdatePuupeeDto) UnsetRepeat()`
-
-UnsetRepeat ensures that no value is present for Repeat, not even an explicit nil
 ### GetRepeatOffAt
 
 `func (o *CreateOrUpdatePuupeeDto) GetRepeatOffAt() time.Time`
@@ -1219,16 +939,6 @@ SetRepeatOffAt sets RepeatOffAt field to given value.
 
 HasRepeatOffAt returns a boolean if a field has been set.
 
-### SetRepeatOffAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetRepeatOffAtNil(b bool)`
-
- SetRepeatOffAtNil sets the value for RepeatOffAt to be an explicit nil
-
-### UnsetRepeatOffAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetRepeatOffAt()`
-
-UnsetRepeatOffAt ensures that no value is present for RepeatOffAt, not even an explicit nil
 ### GetRepeatOffTimes
 
 `func (o *CreateOrUpdatePuupeeDto) GetRepeatOffTimes() int32`
@@ -1254,16 +964,6 @@ SetRepeatOffTimes sets RepeatOffTimes field to given value.
 
 HasRepeatOffTimes returns a boolean if a field has been set.
 
-### SetRepeatOffTimesNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetRepeatOffTimesNil(b bool)`
-
- SetRepeatOffTimesNil sets the value for RepeatOffTimes to be an explicit nil
-
-### UnsetRepeatOffTimes
-`func (o *CreateOrUpdatePuupeeDto) UnsetRepeatOffTimes()`
-
-UnsetRepeatOffTimes ensures that no value is present for RepeatOffTimes, not even an explicit nil
 ### GetRepetitions
 
 `func (o *CreateOrUpdatePuupeeDto) GetRepetitions() int32`
@@ -1289,16 +989,6 @@ SetRepetitions sets Repetitions field to given value.
 
 HasRepetitions returns a boolean if a field has been set.
 
-### SetRepetitionsNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetRepetitionsNil(b bool)`
-
- SetRepetitionsNil sets the value for Repetitions to be an explicit nil
-
-### UnsetRepetitions
-`func (o *CreateOrUpdatePuupeeDto) UnsetRepetitions()`
-
-UnsetRepetitions ensures that no value is present for Repetitions, not even an explicit nil
 ### GetIsDone
 
 `func (o *CreateOrUpdatePuupeeDto) GetIsDone() bool`
@@ -1349,16 +1039,6 @@ SetDoneAt sets DoneAt field to given value.
 
 HasDoneAt returns a boolean if a field has been set.
 
-### SetDoneAtNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetDoneAtNil(b bool)`
-
- SetDoneAtNil sets the value for DoneAt to be an explicit nil
-
-### UnsetDoneAt
-`func (o *CreateOrUpdatePuupeeDto) UnsetDoneAt()`
-
-UnsetDoneAt ensures that no value is present for DoneAt, not even an explicit nil
 ### GetCreatorId
 
 `func (o *CreateOrUpdatePuupeeDto) GetCreatorId() string`
@@ -1384,16 +1064,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *CreateOrUpdatePuupeeDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *CreateOrUpdatePuupeeDto) GetLastModifierId() string`
@@ -1419,16 +1089,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *CreateOrUpdatePuupeeDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetDeleterId
 
 `func (o *CreateOrUpdatePuupeeDto) GetDeleterId() string`
@@ -1454,16 +1114,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *CreateOrUpdatePuupeeDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetTagging
 
 `func (o *CreateOrUpdatePuupeeDto) GetTagging() string`
@@ -1489,16 +1139,6 @@ SetTagging sets Tagging field to given value.
 
 HasTagging returns a boolean if a field has been set.
 
-### SetTaggingNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetTaggingNil(b bool)`
-
- SetTaggingNil sets the value for Tagging to be an explicit nil
-
-### UnsetTagging
-`func (o *CreateOrUpdatePuupeeDto) UnsetTagging()`
-
-UnsetTagging ensures that no value is present for Tagging, not even an explicit nil
 ### GetUrl
 
 `func (o *CreateOrUpdatePuupeeDto) GetUrl() string`
@@ -1524,16 +1164,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *CreateOrUpdatePuupeeDto) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetSize
 
 `func (o *CreateOrUpdatePuupeeDto) GetSize() int64`
@@ -1584,16 +1214,6 @@ SetLastModifierDeviceToken sets LastModifierDeviceToken field to given value.
 
 HasLastModifierDeviceToken returns a boolean if a field has been set.
 
-### SetLastModifierDeviceTokenNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetLastModifierDeviceTokenNil(b bool)`
-
- SetLastModifierDeviceTokenNil sets the value for LastModifierDeviceToken to be an explicit nil
-
-### UnsetLastModifierDeviceToken
-`func (o *CreateOrUpdatePuupeeDto) UnsetLastModifierDeviceToken()`
-
-UnsetLastModifierDeviceToken ensures that no value is present for LastModifierDeviceToken, not even an explicit nil
 ### GetLastModifierDevice
 
 `func (o *CreateOrUpdatePuupeeDto) GetLastModifierDevice() string`
@@ -1619,16 +1239,6 @@ SetLastModifierDevice sets LastModifierDevice field to given value.
 
 HasLastModifierDevice returns a boolean if a field has been set.
 
-### SetLastModifierDeviceNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetLastModifierDeviceNil(b bool)`
-
- SetLastModifierDeviceNil sets the value for LastModifierDevice to be an explicit nil
-
-### UnsetLastModifierDevice
-`func (o *CreateOrUpdatePuupeeDto) UnsetLastModifierDevice()`
-
-UnsetLastModifierDevice ensures that no value is present for LastModifierDevice, not even an explicit nil
 ### GetAppName
 
 `func (o *CreateOrUpdatePuupeeDto) GetAppName() string`
@@ -1654,16 +1264,6 @@ SetAppName sets AppName field to given value.
 
 HasAppName returns a boolean if a field has been set.
 
-### SetAppNameNil
-
-`func (o *CreateOrUpdatePuupeeDto) SetAppNameNil(b bool)`
-
- SetAppNameNil sets the value for AppName to be an explicit nil
-
-### UnsetAppName
-`func (o *CreateOrUpdatePuupeeDto) UnsetAppName()`
-
-UnsetAppName ensures that no value is present for AppName, not even an explicit nil
 ### GetPushToUser
 
 `func (o *CreateOrUpdatePuupeeDto) GetPushToUser() bool`

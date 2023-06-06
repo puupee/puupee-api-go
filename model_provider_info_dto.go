@@ -19,8 +19,8 @@ var _ MappedNullable = &ProviderInfoDto{}
 
 // ProviderInfoDto struct for ProviderInfoDto
 type ProviderInfoDto struct {
-	ProviderName NullableString `json:"providerName,omitempty"`
-	ProviderKey NullableString `json:"providerKey,omitempty"`
+	ProviderName *string `json:"providerName,omitempty"`
+	ProviderKey *string `json:"providerKey,omitempty"`
 }
 
 // NewProviderInfoDto instantiates a new ProviderInfoDto object
@@ -40,88 +40,68 @@ func NewProviderInfoDtoWithDefaults() *ProviderInfoDto {
 	return &this
 }
 
-// GetProviderName returns the ProviderName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProviderName returns the ProviderName field value if set, zero value otherwise.
 func (o *ProviderInfoDto) GetProviderName() string {
-	if o == nil || IsNil(o.ProviderName.Get()) {
+	if o == nil || IsNil(o.ProviderName) {
 		var ret string
 		return ret
 	}
-	return *o.ProviderName.Get()
+	return *o.ProviderName
 }
 
 // GetProviderNameOk returns a tuple with the ProviderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProviderInfoDto) GetProviderNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProviderName) {
 		return nil, false
 	}
-	return o.ProviderName.Get(), o.ProviderName.IsSet()
+	return o.ProviderName, true
 }
 
 // HasProviderName returns a boolean if a field has been set.
 func (o *ProviderInfoDto) HasProviderName() bool {
-	if o != nil && o.ProviderName.IsSet() {
+	if o != nil && !IsNil(o.ProviderName) {
 		return true
 	}
 
 	return false
 }
 
-// SetProviderName gets a reference to the given NullableString and assigns it to the ProviderName field.
+// SetProviderName gets a reference to the given string and assigns it to the ProviderName field.
 func (o *ProviderInfoDto) SetProviderName(v string) {
-	o.ProviderName.Set(&v)
-}
-// SetProviderNameNil sets the value for ProviderName to be an explicit nil
-func (o *ProviderInfoDto) SetProviderNameNil() {
-	o.ProviderName.Set(nil)
+	o.ProviderName = &v
 }
 
-// UnsetProviderName ensures that no value is present for ProviderName, not even an explicit nil
-func (o *ProviderInfoDto) UnsetProviderName() {
-	o.ProviderName.Unset()
-}
-
-// GetProviderKey returns the ProviderKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProviderKey returns the ProviderKey field value if set, zero value otherwise.
 func (o *ProviderInfoDto) GetProviderKey() string {
-	if o == nil || IsNil(o.ProviderKey.Get()) {
+	if o == nil || IsNil(o.ProviderKey) {
 		var ret string
 		return ret
 	}
-	return *o.ProviderKey.Get()
+	return *o.ProviderKey
 }
 
 // GetProviderKeyOk returns a tuple with the ProviderKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProviderInfoDto) GetProviderKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProviderKey) {
 		return nil, false
 	}
-	return o.ProviderKey.Get(), o.ProviderKey.IsSet()
+	return o.ProviderKey, true
 }
 
 // HasProviderKey returns a boolean if a field has been set.
 func (o *ProviderInfoDto) HasProviderKey() bool {
-	if o != nil && o.ProviderKey.IsSet() {
+	if o != nil && !IsNil(o.ProviderKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetProviderKey gets a reference to the given NullableString and assigns it to the ProviderKey field.
+// SetProviderKey gets a reference to the given string and assigns it to the ProviderKey field.
 func (o *ProviderInfoDto) SetProviderKey(v string) {
-	o.ProviderKey.Set(&v)
-}
-// SetProviderKeyNil sets the value for ProviderKey to be an explicit nil
-func (o *ProviderInfoDto) SetProviderKeyNil() {
-	o.ProviderKey.Set(nil)
-}
-
-// UnsetProviderKey ensures that no value is present for ProviderKey, not even an explicit nil
-func (o *ProviderInfoDto) UnsetProviderKey() {
-	o.ProviderKey.Unset()
+	o.ProviderKey = &v
 }
 
 func (o ProviderInfoDto) MarshalJSON() ([]byte, error) {
@@ -134,11 +114,11 @@ func (o ProviderInfoDto) MarshalJSON() ([]byte, error) {
 
 func (o ProviderInfoDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ProviderName.IsSet() {
-		toSerialize["providerName"] = o.ProviderName.Get()
+	if !IsNil(o.ProviderName) {
+		toSerialize["providerName"] = o.ProviderName
 	}
-	if o.ProviderKey.IsSet() {
-		toSerialize["providerKey"] = o.ProviderKey.Get()
+	if !IsNil(o.ProviderKey) {
+		toSerialize["providerKey"] = o.ProviderKey
 	}
 	return toSerialize, nil
 }

@@ -19,8 +19,8 @@ var _ MappedNullable = &IValueValidator{}
 
 // IValueValidator struct for IValueValidator
 type IValueValidator struct {
-	Name NullableString `json:"name,omitempty"`
-	Properties map[string]interface{} `json:"properties,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Properties map[string]map[string]interface{} `json:"properties,omitempty"`
 }
 
 // NewIValueValidator instantiates a new IValueValidator object
@@ -40,52 +40,42 @@ func NewIValueValidatorWithDefaults() *IValueValidator {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *IValueValidator) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IValueValidator) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IValueValidator) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *IValueValidator) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *IValueValidator) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *IValueValidator) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IValueValidator) GetProperties() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetProperties returns the Properties field value if set, zero value otherwise.
+func (o *IValueValidator) GetProperties() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.Properties) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.Properties
@@ -93,25 +83,24 @@ func (o *IValueValidator) GetProperties() map[string]interface{} {
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IValueValidator) GetPropertiesOk() (map[string]interface{}, bool) {
+func (o *IValueValidator) GetPropertiesOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Properties) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.
 func (o *IValueValidator) HasProperties() bool {
-	if o != nil && IsNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
 	return false
 }
 
-// SetProperties gets a reference to the given map[string]interface{} and assigns it to the Properties field.
-func (o *IValueValidator) SetProperties(v map[string]interface{}) {
+// SetProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the Properties field.
+func (o *IValueValidator) SetProperties(v map[string]map[string]interface{}) {
 	o.Properties = v
 }
 
@@ -125,12 +114,8 @@ func (o IValueValidator) MarshalJSON() ([]byte, error) {
 
 func (o IValueValidator) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Properties != nil {
-		toSerialize["properties"] = o.Properties
-	}
+	// skip: name is readOnly
+	// skip: properties is readOnly
 	return toSerialize, nil
 }
 

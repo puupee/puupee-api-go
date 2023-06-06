@@ -19,7 +19,7 @@ var _ MappedNullable = &InterfaceMethodApiDescriptionModel{}
 
 // InterfaceMethodApiDescriptionModel struct for InterfaceMethodApiDescriptionModel
 type InterfaceMethodApiDescriptionModel struct {
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	ParametersOnMethod []MethodParameterApiDescriptionModel `json:"parametersOnMethod,omitempty"`
 	ReturnValue *ReturnValueApiDescriptionModel `json:"returnValue,omitempty"`
 }
@@ -41,51 +41,41 @@ func NewInterfaceMethodApiDescriptionModelWithDefaults() *InterfaceMethodApiDesc
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *InterfaceMethodApiDescriptionModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InterfaceMethodApiDescriptionModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *InterfaceMethodApiDescriptionModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *InterfaceMethodApiDescriptionModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *InterfaceMethodApiDescriptionModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *InterfaceMethodApiDescriptionModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetParametersOnMethod returns the ParametersOnMethod field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetParametersOnMethod returns the ParametersOnMethod field value if set, zero value otherwise.
 func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethod() []MethodParameterApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.ParametersOnMethod) {
 		var ret []MethodParameterApiDescriptionModel
 		return ret
 	}
@@ -94,7 +84,6 @@ func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethod() []MethodPar
 
 // GetParametersOnMethodOk returns a tuple with the ParametersOnMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethodOk() ([]MethodParameterApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.ParametersOnMethod) {
 		return nil, false
@@ -104,7 +93,7 @@ func (o *InterfaceMethodApiDescriptionModel) GetParametersOnMethodOk() ([]Method
 
 // HasParametersOnMethod returns a boolean if a field has been set.
 func (o *InterfaceMethodApiDescriptionModel) HasParametersOnMethod() bool {
-	if o != nil && IsNil(o.ParametersOnMethod) {
+	if o != nil && !IsNil(o.ParametersOnMethod) {
 		return true
 	}
 
@@ -158,10 +147,10 @@ func (o InterfaceMethodApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o InterfaceMethodApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.ParametersOnMethod != nil {
+	if !IsNil(o.ParametersOnMethod) {
 		toSerialize["parametersOnMethod"] = o.ParametersOnMethod
 	}
 	if !IsNil(o.ReturnValue) {

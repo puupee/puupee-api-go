@@ -19,8 +19,8 @@ var _ MappedNullable = &ReturnValueApiDescriptionModel{}
 
 // ReturnValueApiDescriptionModel struct for ReturnValueApiDescriptionModel
 type ReturnValueApiDescriptionModel struct {
-	Type NullableString `json:"type,omitempty"`
-	TypeSimple NullableString `json:"typeSimple,omitempty"`
+	Type *string `json:"type,omitempty"`
+	TypeSimple *string `json:"typeSimple,omitempty"`
 }
 
 // NewReturnValueApiDescriptionModel instantiates a new ReturnValueApiDescriptionModel object
@@ -40,88 +40,68 @@ func NewReturnValueApiDescriptionModelWithDefaults() *ReturnValueApiDescriptionM
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *ReturnValueApiDescriptionModel) GetType() string {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
-	return *o.Type.Get()
+	return *o.Type
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReturnValueApiDescriptionModel) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *ReturnValueApiDescriptionModel) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableString and assigns it to the Type field.
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *ReturnValueApiDescriptionModel) SetType(v string) {
-	o.Type.Set(&v)
-}
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *ReturnValueApiDescriptionModel) SetTypeNil() {
-	o.Type.Set(nil)
+	o.Type = &v
 }
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *ReturnValueApiDescriptionModel) UnsetType() {
-	o.Type.Unset()
-}
-
-// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypeSimple returns the TypeSimple field value if set, zero value otherwise.
 func (o *ReturnValueApiDescriptionModel) GetTypeSimple() string {
-	if o == nil || IsNil(o.TypeSimple.Get()) {
+	if o == nil || IsNil(o.TypeSimple) {
 		var ret string
 		return ret
 	}
-	return *o.TypeSimple.Get()
+	return *o.TypeSimple
 }
 
 // GetTypeSimpleOk returns a tuple with the TypeSimple field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReturnValueApiDescriptionModel) GetTypeSimpleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TypeSimple) {
 		return nil, false
 	}
-	return o.TypeSimple.Get(), o.TypeSimple.IsSet()
+	return o.TypeSimple, true
 }
 
 // HasTypeSimple returns a boolean if a field has been set.
 func (o *ReturnValueApiDescriptionModel) HasTypeSimple() bool {
-	if o != nil && o.TypeSimple.IsSet() {
+	if o != nil && !IsNil(o.TypeSimple) {
 		return true
 	}
 
 	return false
 }
 
-// SetTypeSimple gets a reference to the given NullableString and assigns it to the TypeSimple field.
+// SetTypeSimple gets a reference to the given string and assigns it to the TypeSimple field.
 func (o *ReturnValueApiDescriptionModel) SetTypeSimple(v string) {
-	o.TypeSimple.Set(&v)
-}
-// SetTypeSimpleNil sets the value for TypeSimple to be an explicit nil
-func (o *ReturnValueApiDescriptionModel) SetTypeSimpleNil() {
-	o.TypeSimple.Set(nil)
-}
-
-// UnsetTypeSimple ensures that no value is present for TypeSimple, not even an explicit nil
-func (o *ReturnValueApiDescriptionModel) UnsetTypeSimple() {
-	o.TypeSimple.Unset()
+	o.TypeSimple = &v
 }
 
 func (o ReturnValueApiDescriptionModel) MarshalJSON() ([]byte, error) {
@@ -134,11 +114,11 @@ func (o ReturnValueApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o ReturnValueApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
 	}
-	if o.TypeSimple.IsSet() {
-		toSerialize["typeSimple"] = o.TypeSimple.Get()
+	if !IsNil(o.TypeSimple) {
+		toSerialize["typeSimple"] = o.TypeSimple
 	}
 	return toSerialize, nil
 }

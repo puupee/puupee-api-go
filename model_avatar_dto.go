@@ -19,7 +19,7 @@ var _ MappedNullable = &AvatarDto{}
 
 // AvatarDto struct for AvatarDto
 type AvatarDto struct {
-	Key NullableString `json:"key,omitempty"`
+	Key *string `json:"key,omitempty"`
 }
 
 // NewAvatarDto instantiates a new AvatarDto object
@@ -39,46 +39,36 @@ func NewAvatarDtoWithDefaults() *AvatarDto {
 	return &this
 }
 
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value if set, zero value otherwise.
 func (o *AvatarDto) GetKey() string {
-	if o == nil || IsNil(o.Key.Get()) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+	return *o.Key
 }
 
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AvatarDto) GetKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Key) {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *AvatarDto) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
 	return false
 }
 
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey gets a reference to the given string and assigns it to the Key field.
 func (o *AvatarDto) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *AvatarDto) SetKeyNil() {
-	o.Key.Set(nil)
-}
-
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *AvatarDto) UnsetKey() {
-	o.Key.Unset()
+	o.Key = &v
 }
 
 func (o AvatarDto) MarshalJSON() ([]byte, error) {
@@ -91,8 +81,8 @@ func (o AvatarDto) MarshalJSON() ([]byte, error) {
 
 func (o AvatarDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
 	}
 	return toSerialize, nil
 }

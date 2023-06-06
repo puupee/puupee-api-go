@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceColor** | Pointer to **NullableString** |  | [optional] 
+**SourceColor** | Pointer to **string** |  | [optional] 
 **ThemeMode** | Pointer to [**AppThemeMode**](AppThemeMode.md) |  | [optional] 
 
 ## Methods
@@ -51,16 +51,6 @@ SetSourceColor sets SourceColor field to given value.
 
 HasSourceColor returns a boolean if a field has been set.
 
-### SetSourceColorNil
-
-`func (o *AppTheme) SetSourceColorNil(b bool)`
-
- SetSourceColorNil sets the value for SourceColor to be an explicit nil
-
-### UnsetSourceColor
-`func (o *AppTheme) UnsetSourceColor()`
-
-UnsetSourceColor ensures that no value is present for SourceColor, not even an explicit nil
 ### GetThemeMode
 
 `func (o *AppTheme) GetThemeMode() AppThemeMode`

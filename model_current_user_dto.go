@@ -20,18 +20,18 @@ var _ MappedNullable = &CurrentUserDto{}
 // CurrentUserDto struct for CurrentUserDto
 type CurrentUserDto struct {
 	IsAuthenticated *bool `json:"isAuthenticated,omitempty"`
-	Id NullableString `json:"id,omitempty"`
-	TenantId NullableString `json:"tenantId,omitempty"`
-	ImpersonatorUserId NullableString `json:"impersonatorUserId,omitempty"`
-	ImpersonatorTenantId NullableString `json:"impersonatorTenantId,omitempty"`
-	ImpersonatorUserName NullableString `json:"impersonatorUserName,omitempty"`
-	ImpersonatorTenantName NullableString `json:"impersonatorTenantName,omitempty"`
-	UserName NullableString `json:"userName,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	SurName NullableString `json:"surName,omitempty"`
-	Email NullableString `json:"email,omitempty"`
+	Id *string `json:"id,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
+	ImpersonatorUserId *string `json:"impersonatorUserId,omitempty"`
+	ImpersonatorTenantId *string `json:"impersonatorTenantId,omitempty"`
+	ImpersonatorUserName *string `json:"impersonatorUserName,omitempty"`
+	ImpersonatorTenantName *string `json:"impersonatorTenantName,omitempty"`
+	UserName *string `json:"userName,omitempty"`
+	Name *string `json:"name,omitempty"`
+	SurName *string `json:"surName,omitempty"`
+	Email *string `json:"email,omitempty"`
 	EmailVerified *bool `json:"emailVerified,omitempty"`
-	PhoneNumber NullableString `json:"phoneNumber,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	PhoneNumberVerified *bool `json:"phoneNumberVerified,omitempty"`
 	Roles []string `json:"roles,omitempty"`
 }
@@ -85,424 +85,324 @@ func (o *CurrentUserDto) SetIsAuthenticated(v bool) {
 	o.IsAuthenticated = &v
 }
 
-// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetId() string {
-	if o == nil || IsNil(o.Id.Get()) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
-	return *o.Id.Get()
+	return *o.Id
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.Id.Get(), o.Id.IsSet()
+	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasId() bool {
-	if o != nil && o.Id.IsSet() {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given NullableString and assigns it to the Id field.
+// SetId gets a reference to the given string and assigns it to the Id field.
 func (o *CurrentUserDto) SetId(v string) {
-	o.Id.Set(&v)
-}
-// SetIdNil sets the value for Id to be an explicit nil
-func (o *CurrentUserDto) SetIdNil() {
-	o.Id.Set(nil)
+	o.Id = &v
 }
 
-// UnsetId ensures that no value is present for Id, not even an explicit nil
-func (o *CurrentUserDto) UnsetId() {
-	o.Id.Unset()
-}
-
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId.Get()
+	return *o.TenantId
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId) {
 		return nil, false
 	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
+	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *CurrentUserDto) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *CurrentUserDto) SetTenantIdNil() {
-	o.TenantId.Set(nil)
+	o.TenantId = &v
 }
 
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *CurrentUserDto) UnsetTenantId() {
-	o.TenantId.Unset()
-}
-
-// GetImpersonatorUserId returns the ImpersonatorUserId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImpersonatorUserId returns the ImpersonatorUserId field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorUserId() string {
-	if o == nil || IsNil(o.ImpersonatorUserId.Get()) {
+	if o == nil || IsNil(o.ImpersonatorUserId) {
 		var ret string
 		return ret
 	}
-	return *o.ImpersonatorUserId.Get()
+	return *o.ImpersonatorUserId
 }
 
 // GetImpersonatorUserIdOk returns a tuple with the ImpersonatorUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetImpersonatorUserIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImpersonatorUserId) {
 		return nil, false
 	}
-	return o.ImpersonatorUserId.Get(), o.ImpersonatorUserId.IsSet()
+	return o.ImpersonatorUserId, true
 }
 
 // HasImpersonatorUserId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorUserId() bool {
-	if o != nil && o.ImpersonatorUserId.IsSet() {
+	if o != nil && !IsNil(o.ImpersonatorUserId) {
 		return true
 	}
 
 	return false
 }
 
-// SetImpersonatorUserId gets a reference to the given NullableString and assigns it to the ImpersonatorUserId field.
+// SetImpersonatorUserId gets a reference to the given string and assigns it to the ImpersonatorUserId field.
 func (o *CurrentUserDto) SetImpersonatorUserId(v string) {
-	o.ImpersonatorUserId.Set(&v)
-}
-// SetImpersonatorUserIdNil sets the value for ImpersonatorUserId to be an explicit nil
-func (o *CurrentUserDto) SetImpersonatorUserIdNil() {
-	o.ImpersonatorUserId.Set(nil)
+	o.ImpersonatorUserId = &v
 }
 
-// UnsetImpersonatorUserId ensures that no value is present for ImpersonatorUserId, not even an explicit nil
-func (o *CurrentUserDto) UnsetImpersonatorUserId() {
-	o.ImpersonatorUserId.Unset()
-}
-
-// GetImpersonatorTenantId returns the ImpersonatorTenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImpersonatorTenantId returns the ImpersonatorTenantId field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorTenantId() string {
-	if o == nil || IsNil(o.ImpersonatorTenantId.Get()) {
+	if o == nil || IsNil(o.ImpersonatorTenantId) {
 		var ret string
 		return ret
 	}
-	return *o.ImpersonatorTenantId.Get()
+	return *o.ImpersonatorTenantId
 }
 
 // GetImpersonatorTenantIdOk returns a tuple with the ImpersonatorTenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetImpersonatorTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImpersonatorTenantId) {
 		return nil, false
 	}
-	return o.ImpersonatorTenantId.Get(), o.ImpersonatorTenantId.IsSet()
+	return o.ImpersonatorTenantId, true
 }
 
 // HasImpersonatorTenantId returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorTenantId() bool {
-	if o != nil && o.ImpersonatorTenantId.IsSet() {
+	if o != nil && !IsNil(o.ImpersonatorTenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetImpersonatorTenantId gets a reference to the given NullableString and assigns it to the ImpersonatorTenantId field.
+// SetImpersonatorTenantId gets a reference to the given string and assigns it to the ImpersonatorTenantId field.
 func (o *CurrentUserDto) SetImpersonatorTenantId(v string) {
-	o.ImpersonatorTenantId.Set(&v)
-}
-// SetImpersonatorTenantIdNil sets the value for ImpersonatorTenantId to be an explicit nil
-func (o *CurrentUserDto) SetImpersonatorTenantIdNil() {
-	o.ImpersonatorTenantId.Set(nil)
+	o.ImpersonatorTenantId = &v
 }
 
-// UnsetImpersonatorTenantId ensures that no value is present for ImpersonatorTenantId, not even an explicit nil
-func (o *CurrentUserDto) UnsetImpersonatorTenantId() {
-	o.ImpersonatorTenantId.Unset()
-}
-
-// GetImpersonatorUserName returns the ImpersonatorUserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImpersonatorUserName returns the ImpersonatorUserName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorUserName() string {
-	if o == nil || IsNil(o.ImpersonatorUserName.Get()) {
+	if o == nil || IsNil(o.ImpersonatorUserName) {
 		var ret string
 		return ret
 	}
-	return *o.ImpersonatorUserName.Get()
+	return *o.ImpersonatorUserName
 }
 
 // GetImpersonatorUserNameOk returns a tuple with the ImpersonatorUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetImpersonatorUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImpersonatorUserName) {
 		return nil, false
 	}
-	return o.ImpersonatorUserName.Get(), o.ImpersonatorUserName.IsSet()
+	return o.ImpersonatorUserName, true
 }
 
 // HasImpersonatorUserName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorUserName() bool {
-	if o != nil && o.ImpersonatorUserName.IsSet() {
+	if o != nil && !IsNil(o.ImpersonatorUserName) {
 		return true
 	}
 
 	return false
 }
 
-// SetImpersonatorUserName gets a reference to the given NullableString and assigns it to the ImpersonatorUserName field.
+// SetImpersonatorUserName gets a reference to the given string and assigns it to the ImpersonatorUserName field.
 func (o *CurrentUserDto) SetImpersonatorUserName(v string) {
-	o.ImpersonatorUserName.Set(&v)
-}
-// SetImpersonatorUserNameNil sets the value for ImpersonatorUserName to be an explicit nil
-func (o *CurrentUserDto) SetImpersonatorUserNameNil() {
-	o.ImpersonatorUserName.Set(nil)
+	o.ImpersonatorUserName = &v
 }
 
-// UnsetImpersonatorUserName ensures that no value is present for ImpersonatorUserName, not even an explicit nil
-func (o *CurrentUserDto) UnsetImpersonatorUserName() {
-	o.ImpersonatorUserName.Unset()
-}
-
-// GetImpersonatorTenantName returns the ImpersonatorTenantName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetImpersonatorTenantName returns the ImpersonatorTenantName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetImpersonatorTenantName() string {
-	if o == nil || IsNil(o.ImpersonatorTenantName.Get()) {
+	if o == nil || IsNil(o.ImpersonatorTenantName) {
 		var ret string
 		return ret
 	}
-	return *o.ImpersonatorTenantName.Get()
+	return *o.ImpersonatorTenantName
 }
 
 // GetImpersonatorTenantNameOk returns a tuple with the ImpersonatorTenantName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetImpersonatorTenantNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ImpersonatorTenantName) {
 		return nil, false
 	}
-	return o.ImpersonatorTenantName.Get(), o.ImpersonatorTenantName.IsSet()
+	return o.ImpersonatorTenantName, true
 }
 
 // HasImpersonatorTenantName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasImpersonatorTenantName() bool {
-	if o != nil && o.ImpersonatorTenantName.IsSet() {
+	if o != nil && !IsNil(o.ImpersonatorTenantName) {
 		return true
 	}
 
 	return false
 }
 
-// SetImpersonatorTenantName gets a reference to the given NullableString and assigns it to the ImpersonatorTenantName field.
+// SetImpersonatorTenantName gets a reference to the given string and assigns it to the ImpersonatorTenantName field.
 func (o *CurrentUserDto) SetImpersonatorTenantName(v string) {
-	o.ImpersonatorTenantName.Set(&v)
-}
-// SetImpersonatorTenantNameNil sets the value for ImpersonatorTenantName to be an explicit nil
-func (o *CurrentUserDto) SetImpersonatorTenantNameNil() {
-	o.ImpersonatorTenantName.Set(nil)
+	o.ImpersonatorTenantName = &v
 }
 
-// UnsetImpersonatorTenantName ensures that no value is present for ImpersonatorTenantName, not even an explicit nil
-func (o *CurrentUserDto) UnsetImpersonatorTenantName() {
-	o.ImpersonatorTenantName.Unset()
-}
-
-// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetUserName() string {
-	if o == nil || IsNil(o.UserName.Get()) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
-	return *o.UserName.Get()
+	return *o.UserName
 }
 
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		return nil, false
 	}
-	return o.UserName.Get(), o.UserName.IsSet()
+	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasUserName() bool {
-	if o != nil && o.UserName.IsSet() {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
 	return false
 }
 
-// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *CurrentUserDto) SetUserName(v string) {
-	o.UserName.Set(&v)
-}
-// SetUserNameNil sets the value for UserName to be an explicit nil
-func (o *CurrentUserDto) SetUserNameNil() {
-	o.UserName.Set(nil)
+	o.UserName = &v
 }
 
-// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
-func (o *CurrentUserDto) UnsetUserName() {
-	o.UserName.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CurrentUserDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CurrentUserDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CurrentUserDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetSurName returns the SurName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSurName returns the SurName field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetSurName() string {
-	if o == nil || IsNil(o.SurName.Get()) {
+	if o == nil || IsNil(o.SurName) {
 		var ret string
 		return ret
 	}
-	return *o.SurName.Get()
+	return *o.SurName
 }
 
 // GetSurNameOk returns a tuple with the SurName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetSurNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SurName) {
 		return nil, false
 	}
-	return o.SurName.Get(), o.SurName.IsSet()
+	return o.SurName, true
 }
 
 // HasSurName returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasSurName() bool {
-	if o != nil && o.SurName.IsSet() {
+	if o != nil && !IsNil(o.SurName) {
 		return true
 	}
 
 	return false
 }
 
-// SetSurName gets a reference to the given NullableString and assigns it to the SurName field.
+// SetSurName gets a reference to the given string and assigns it to the SurName field.
 func (o *CurrentUserDto) SetSurName(v string) {
-	o.SurName.Set(&v)
-}
-// SetSurNameNil sets the value for SurName to be an explicit nil
-func (o *CurrentUserDto) SetSurNameNil() {
-	o.SurName.Set(nil)
+	o.SurName = &v
 }
 
-// UnsetSurName ensures that no value is present for SurName, not even an explicit nil
-func (o *CurrentUserDto) UnsetSurName() {
-	o.SurName.Unset()
-}
-
-// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetEmail() string {
-	if o == nil || IsNil(o.Email.Get()) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
-	return *o.Email.Get()
+	return *o.Email
 }
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Email) {
 		return nil, false
 	}
-	return o.Email.Get(), o.Email.IsSet()
+	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasEmail() bool {
-	if o != nil && o.Email.IsSet() {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
 	return false
 }
 
-// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *CurrentUserDto) SetEmail(v string) {
-	o.Email.Set(&v)
-}
-// SetEmailNil sets the value for Email to be an explicit nil
-func (o *CurrentUserDto) SetEmailNil() {
-	o.Email.Set(nil)
-}
-
-// UnsetEmail ensures that no value is present for Email, not even an explicit nil
-func (o *CurrentUserDto) UnsetEmail() {
-	o.Email.Unset()
+	o.Email = &v
 }
 
 // GetEmailVerified returns the EmailVerified field value if set, zero value otherwise.
@@ -537,46 +437,36 @@ func (o *CurrentUserDto) SetEmailVerified(v bool) {
 	o.EmailVerified = &v
 }
 
-// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetPhoneNumber() string {
-	if o == nil || IsNil(o.PhoneNumber.Get()) {
+	if o == nil || IsNil(o.PhoneNumber) {
 		var ret string
 		return ret
 	}
-	return *o.PhoneNumber.Get()
+	return *o.PhoneNumber
 }
 
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetPhoneNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PhoneNumber) {
 		return nil, false
 	}
-	return o.PhoneNumber.Get(), o.PhoneNumber.IsSet()
+	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasPhoneNumber() bool {
-	if o != nil && o.PhoneNumber.IsSet() {
+	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetPhoneNumber gets a reference to the given NullableString and assigns it to the PhoneNumber field.
+// SetPhoneNumber gets a reference to the given string and assigns it to the PhoneNumber field.
 func (o *CurrentUserDto) SetPhoneNumber(v string) {
-	o.PhoneNumber.Set(&v)
-}
-// SetPhoneNumberNil sets the value for PhoneNumber to be an explicit nil
-func (o *CurrentUserDto) SetPhoneNumberNil() {
-	o.PhoneNumber.Set(nil)
-}
-
-// UnsetPhoneNumber ensures that no value is present for PhoneNumber, not even an explicit nil
-func (o *CurrentUserDto) UnsetPhoneNumber() {
-	o.PhoneNumber.Unset()
+	o.PhoneNumber = &v
 }
 
 // GetPhoneNumberVerified returns the PhoneNumberVerified field value if set, zero value otherwise.
@@ -611,9 +501,9 @@ func (o *CurrentUserDto) SetPhoneNumberVerified(v bool) {
 	o.PhoneNumberVerified = &v
 }
 
-// GetRoles returns the Roles field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRoles returns the Roles field value if set, zero value otherwise.
 func (o *CurrentUserDto) GetRoles() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Roles) {
 		var ret []string
 		return ret
 	}
@@ -622,7 +512,6 @@ func (o *CurrentUserDto) GetRoles() []string {
 
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CurrentUserDto) GetRolesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Roles) {
 		return nil, false
@@ -632,7 +521,7 @@ func (o *CurrentUserDto) GetRolesOk() ([]string, bool) {
 
 // HasRoles returns a boolean if a field has been set.
 func (o *CurrentUserDto) HasRoles() bool {
-	if o != nil && IsNil(o.Roles) {
+	if o != nil && !IsNil(o.Roles) {
 		return true
 	}
 
@@ -657,46 +546,46 @@ func (o CurrentUserDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsAuthenticated) {
 		toSerialize["isAuthenticated"] = o.IsAuthenticated
 	}
-	if o.Id.IsSet() {
-		toSerialize["id"] = o.Id.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
 	}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
+	if !IsNil(o.TenantId) {
+		toSerialize["tenantId"] = o.TenantId
 	}
-	if o.ImpersonatorUserId.IsSet() {
-		toSerialize["impersonatorUserId"] = o.ImpersonatorUserId.Get()
+	if !IsNil(o.ImpersonatorUserId) {
+		toSerialize["impersonatorUserId"] = o.ImpersonatorUserId
 	}
-	if o.ImpersonatorTenantId.IsSet() {
-		toSerialize["impersonatorTenantId"] = o.ImpersonatorTenantId.Get()
+	if !IsNil(o.ImpersonatorTenantId) {
+		toSerialize["impersonatorTenantId"] = o.ImpersonatorTenantId
 	}
-	if o.ImpersonatorUserName.IsSet() {
-		toSerialize["impersonatorUserName"] = o.ImpersonatorUserName.Get()
+	if !IsNil(o.ImpersonatorUserName) {
+		toSerialize["impersonatorUserName"] = o.ImpersonatorUserName
 	}
-	if o.ImpersonatorTenantName.IsSet() {
-		toSerialize["impersonatorTenantName"] = o.ImpersonatorTenantName.Get()
+	if !IsNil(o.ImpersonatorTenantName) {
+		toSerialize["impersonatorTenantName"] = o.ImpersonatorTenantName
 	}
-	if o.UserName.IsSet() {
-		toSerialize["userName"] = o.UserName.Get()
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.SurName.IsSet() {
-		toSerialize["surName"] = o.SurName.Get()
+	if !IsNil(o.SurName) {
+		toSerialize["surName"] = o.SurName
 	}
-	if o.Email.IsSet() {
-		toSerialize["email"] = o.Email.Get()
+	if !IsNil(o.Email) {
+		toSerialize["email"] = o.Email
 	}
 	if !IsNil(o.EmailVerified) {
 		toSerialize["emailVerified"] = o.EmailVerified
 	}
-	if o.PhoneNumber.IsSet() {
-		toSerialize["phoneNumber"] = o.PhoneNumber.Get()
+	if !IsNil(o.PhoneNumber) {
+		toSerialize["phoneNumber"] = o.PhoneNumber
 	}
 	if !IsNil(o.PhoneNumberVerified) {
 		toSerialize["phoneNumberVerified"] = o.PhoneNumberVerified
 	}
-	if o.Roles != nil {
+	if !IsNil(o.Roles) {
 		toSerialize["roles"] = o.Roles
 	}
 	return toSerialize, nil

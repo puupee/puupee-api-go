@@ -344,11 +344,11 @@ type ApiApiAppAppSdkIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppSdkApiService
 	id string
-	createOrUpdateAppSdkDto *CreateOrUpdateAppSdkDto
+	body *CreateOrUpdateAppSdkDto
 }
 
-func (r ApiApiAppAppSdkIdPutRequest) CreateOrUpdateAppSdkDto(createOrUpdateAppSdkDto CreateOrUpdateAppSdkDto) ApiApiAppAppSdkIdPutRequest {
-	r.createOrUpdateAppSdkDto = &createOrUpdateAppSdkDto
+func (r ApiApiAppAppSdkIdPutRequest) Body(body CreateOrUpdateAppSdkDto) ApiApiAppAppSdkIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -411,7 +411,7 @@ func (a *AppSdkApiService) ApiAppAppSdkIdPutExecute(r ApiApiAppAppSdkIdPutReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppSdkDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -517,11 +517,11 @@ func (a *AppSdkApiService) ApiAppAppSdkIdPutExecute(r ApiApiAppAppSdkIdPutReques
 type ApiApiAppAppSdkPostRequest struct {
 	ctx context.Context
 	ApiService *AppSdkApiService
-	createOrUpdateAppSdkDto *CreateOrUpdateAppSdkDto
+	body *CreateOrUpdateAppSdkDto
 }
 
-func (r ApiApiAppAppSdkPostRequest) CreateOrUpdateAppSdkDto(createOrUpdateAppSdkDto CreateOrUpdateAppSdkDto) ApiApiAppAppSdkPostRequest {
-	r.createOrUpdateAppSdkDto = &createOrUpdateAppSdkDto
+func (r ApiApiAppAppSdkPostRequest) Body(body CreateOrUpdateAppSdkDto) ApiApiAppAppSdkPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -581,7 +581,7 @@ func (a *AppSdkApiService) ApiAppAppSdkPostExecute(r ApiApiAppAppSdkPostRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppSdkDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

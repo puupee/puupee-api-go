@@ -20,7 +20,7 @@ var _ MappedNullable = &ExtensionEnumDto{}
 // ExtensionEnumDto struct for ExtensionEnumDto
 type ExtensionEnumDto struct {
 	Fields []ExtensionEnumFieldDto `json:"fields,omitempty"`
-	LocalizationResource NullableString `json:"localizationResource,omitempty"`
+	LocalizationResource *string `json:"localizationResource,omitempty"`
 }
 
 // NewExtensionEnumDto instantiates a new ExtensionEnumDto object
@@ -40,9 +40,9 @@ func NewExtensionEnumDtoWithDefaults() *ExtensionEnumDto {
 	return &this
 }
 
-// GetFields returns the Fields field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFields returns the Fields field value if set, zero value otherwise.
 func (o *ExtensionEnumDto) GetFields() []ExtensionEnumFieldDto {
-	if o == nil {
+	if o == nil || IsNil(o.Fields) {
 		var ret []ExtensionEnumFieldDto
 		return ret
 	}
@@ -51,7 +51,6 @@ func (o *ExtensionEnumDto) GetFields() []ExtensionEnumFieldDto {
 
 // GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionEnumDto) GetFieldsOk() ([]ExtensionEnumFieldDto, bool) {
 	if o == nil || IsNil(o.Fields) {
 		return nil, false
@@ -61,7 +60,7 @@ func (o *ExtensionEnumDto) GetFieldsOk() ([]ExtensionEnumFieldDto, bool) {
 
 // HasFields returns a boolean if a field has been set.
 func (o *ExtensionEnumDto) HasFields() bool {
-	if o != nil && IsNil(o.Fields) {
+	if o != nil && !IsNil(o.Fields) {
 		return true
 	}
 
@@ -73,46 +72,36 @@ func (o *ExtensionEnumDto) SetFields(v []ExtensionEnumFieldDto) {
 	o.Fields = v
 }
 
-// GetLocalizationResource returns the LocalizationResource field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLocalizationResource returns the LocalizationResource field value if set, zero value otherwise.
 func (o *ExtensionEnumDto) GetLocalizationResource() string {
-	if o == nil || IsNil(o.LocalizationResource.Get()) {
+	if o == nil || IsNil(o.LocalizationResource) {
 		var ret string
 		return ret
 	}
-	return *o.LocalizationResource.Get()
+	return *o.LocalizationResource
 }
 
 // GetLocalizationResourceOk returns a tuple with the LocalizationResource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtensionEnumDto) GetLocalizationResourceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LocalizationResource) {
 		return nil, false
 	}
-	return o.LocalizationResource.Get(), o.LocalizationResource.IsSet()
+	return o.LocalizationResource, true
 }
 
 // HasLocalizationResource returns a boolean if a field has been set.
 func (o *ExtensionEnumDto) HasLocalizationResource() bool {
-	if o != nil && o.LocalizationResource.IsSet() {
+	if o != nil && !IsNil(o.LocalizationResource) {
 		return true
 	}
 
 	return false
 }
 
-// SetLocalizationResource gets a reference to the given NullableString and assigns it to the LocalizationResource field.
+// SetLocalizationResource gets a reference to the given string and assigns it to the LocalizationResource field.
 func (o *ExtensionEnumDto) SetLocalizationResource(v string) {
-	o.LocalizationResource.Set(&v)
-}
-// SetLocalizationResourceNil sets the value for LocalizationResource to be an explicit nil
-func (o *ExtensionEnumDto) SetLocalizationResourceNil() {
-	o.LocalizationResource.Set(nil)
-}
-
-// UnsetLocalizationResource ensures that no value is present for LocalizationResource, not even an explicit nil
-func (o *ExtensionEnumDto) UnsetLocalizationResource() {
-	o.LocalizationResource.Unset()
+	o.LocalizationResource = &v
 }
 
 func (o ExtensionEnumDto) MarshalJSON() ([]byte, error) {
@@ -125,11 +114,11 @@ func (o ExtensionEnumDto) MarshalJSON() ([]byte, error) {
 
 func (o ExtensionEnumDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Fields != nil {
+	if !IsNil(o.Fields) {
 		toSerialize["fields"] = o.Fields
 	}
-	if o.LocalizationResource.IsSet() {
-		toSerialize["localizationResource"] = o.LocalizationResource.Get()
+	if !IsNil(o.LocalizationResource) {
+		toSerialize["localizationResource"] = o.LocalizationResource
 	}
 	return toSerialize, nil
 }

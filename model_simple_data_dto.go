@@ -20,11 +20,11 @@ var _ MappedNullable = &SimpleDataDto{}
 
 // SimpleDataDto struct for SimpleDataDto
 type SimpleDataDto struct {
-	ExtraProperties map[string]interface{} `json:"extraProperties,omitempty"`
+	ExtraProperties map[string]map[string]interface{} `json:"extraProperties,omitempty"`
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	Collection NullableString `json:"collection,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	Collection *string `json:"collection,omitempty"`
 }
 
 // NewSimpleDataDto instantiates a new SimpleDataDto object
@@ -44,10 +44,10 @@ func NewSimpleDataDtoWithDefaults() *SimpleDataDto {
 	return &this
 }
 
-// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SimpleDataDto) GetExtraProperties() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetExtraProperties returns the ExtraProperties field value if set, zero value otherwise.
+func (o *SimpleDataDto) GetExtraProperties() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.ExtraProperties) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.ExtraProperties
@@ -55,25 +55,24 @@ func (o *SimpleDataDto) GetExtraProperties() map[string]interface{} {
 
 // GetExtraPropertiesOk returns a tuple with the ExtraProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SimpleDataDto) GetExtraPropertiesOk() (map[string]interface{}, bool) {
+func (o *SimpleDataDto) GetExtraPropertiesOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ExtraProperties) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.ExtraProperties, true
 }
 
 // HasExtraProperties returns a boolean if a field has been set.
 func (o *SimpleDataDto) HasExtraProperties() bool {
-	if o != nil && IsNil(o.ExtraProperties) {
+	if o != nil && !IsNil(o.ExtraProperties) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtraProperties gets a reference to the given map[string]interface{} and assigns it to the ExtraProperties field.
-func (o *SimpleDataDto) SetExtraProperties(v map[string]interface{}) {
+// SetExtraProperties gets a reference to the given map[string]map[string]interface{} and assigns it to the ExtraProperties field.
+func (o *SimpleDataDto) SetExtraProperties(v map[string]map[string]interface{}) {
 	o.ExtraProperties = v
 }
 
@@ -141,88 +140,68 @@ func (o *SimpleDataDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *SimpleDataDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SimpleDataDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *SimpleDataDto) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *SimpleDataDto) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *SimpleDataDto) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *SimpleDataDto) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetCollection returns the Collection field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCollection returns the Collection field value if set, zero value otherwise.
 func (o *SimpleDataDto) GetCollection() string {
-	if o == nil || IsNil(o.Collection.Get()) {
+	if o == nil || IsNil(o.Collection) {
 		var ret string
 		return ret
 	}
-	return *o.Collection.Get()
+	return *o.Collection
 }
 
 // GetCollectionOk returns a tuple with the Collection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SimpleDataDto) GetCollectionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Collection) {
 		return nil, false
 	}
-	return o.Collection.Get(), o.Collection.IsSet()
+	return o.Collection, true
 }
 
 // HasCollection returns a boolean if a field has been set.
 func (o *SimpleDataDto) HasCollection() bool {
-	if o != nil && o.Collection.IsSet() {
+	if o != nil && !IsNil(o.Collection) {
 		return true
 	}
 
 	return false
 }
 
-// SetCollection gets a reference to the given NullableString and assigns it to the Collection field.
+// SetCollection gets a reference to the given string and assigns it to the Collection field.
 func (o *SimpleDataDto) SetCollection(v string) {
-	o.Collection.Set(&v)
-}
-// SetCollectionNil sets the value for Collection to be an explicit nil
-func (o *SimpleDataDto) SetCollectionNil() {
-	o.Collection.Set(nil)
-}
-
-// UnsetCollection ensures that no value is present for Collection, not even an explicit nil
-func (o *SimpleDataDto) UnsetCollection() {
-	o.Collection.Unset()
+	o.Collection = &v
 }
 
 func (o SimpleDataDto) MarshalJSON() ([]byte, error) {
@@ -235,20 +214,18 @@ func (o SimpleDataDto) MarshalJSON() ([]byte, error) {
 
 func (o SimpleDataDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ExtraProperties != nil {
-		toSerialize["extraProperties"] = o.ExtraProperties
-	}
+	// skip: extraProperties is readOnly
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
 	}
-	if o.Collection.IsSet() {
-		toSerialize["collection"] = o.Collection.Get()
+	if !IsNil(o.Collection) {
+		toSerialize["collection"] = o.Collection
 	}
 	return toSerialize, nil
 }

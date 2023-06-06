@@ -708,11 +708,11 @@ type ApiApiIdentityRolesIdPutRequest struct {
 	ctx context.Context
 	ApiService *RoleApiService
 	id string
-	identityRoleUpdateDto *IdentityRoleUpdateDto
+	body *IdentityRoleUpdateDto
 }
 
-func (r ApiApiIdentityRolesIdPutRequest) IdentityRoleUpdateDto(identityRoleUpdateDto IdentityRoleUpdateDto) ApiApiIdentityRolesIdPutRequest {
-	r.identityRoleUpdateDto = &identityRoleUpdateDto
+func (r ApiApiIdentityRolesIdPutRequest) Body(body IdentityRoleUpdateDto) ApiApiIdentityRolesIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -775,7 +775,7 @@ func (a *RoleApiService) ApiIdentityRolesIdPutExecute(r ApiApiIdentityRolesIdPut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.identityRoleUpdateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -881,11 +881,11 @@ func (a *RoleApiService) ApiIdentityRolesIdPutExecute(r ApiApiIdentityRolesIdPut
 type ApiApiIdentityRolesPostRequest struct {
 	ctx context.Context
 	ApiService *RoleApiService
-	identityRoleCreateDto *IdentityRoleCreateDto
+	body *IdentityRoleCreateDto
 }
 
-func (r ApiApiIdentityRolesPostRequest) IdentityRoleCreateDto(identityRoleCreateDto IdentityRoleCreateDto) ApiApiIdentityRolesPostRequest {
-	r.identityRoleCreateDto = &identityRoleCreateDto
+func (r ApiApiIdentityRolesPostRequest) Body(body IdentityRoleCreateDto) ApiApiIdentityRolesPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -945,7 +945,7 @@ func (a *RoleApiService) ApiIdentityRolesPostExecute(r ApiApiIdentityRolesPostRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.identityRoleCreateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

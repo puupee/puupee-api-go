@@ -19,9 +19,9 @@ var _ MappedNullable = &CreateOrUpdateAppUserScoreDto{}
 
 // CreateOrUpdateAppUserScoreDto struct for CreateOrUpdateAppUserScoreDto
 type CreateOrUpdateAppUserScoreDto struct {
-	AppId NullableString `json:"appId,omitempty"`
+	AppId *string `json:"appId,omitempty"`
 	Score *int32 `json:"score,omitempty"`
-	Comment NullableString `json:"comment,omitempty"`
+	Comment *string `json:"comment,omitempty"`
 }
 
 // NewCreateOrUpdateAppUserScoreDto instantiates a new CreateOrUpdateAppUserScoreDto object
@@ -41,46 +41,36 @@ func NewCreateOrUpdateAppUserScoreDtoWithDefaults() *CreateOrUpdateAppUserScoreD
 	return &this
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppUserScoreDto) GetAppId() string {
-	if o == nil || IsNil(o.AppId.Get()) {
+	if o == nil || IsNil(o.AppId) {
 		var ret string
 		return ret
 	}
-	return *o.AppId.Get()
+	return *o.AppId
 }
 
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppUserScoreDto) GetAppIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AppId) {
 		return nil, false
 	}
-	return o.AppId.Get(), o.AppId.IsSet()
+	return o.AppId, true
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppUserScoreDto) HasAppId() bool {
-	if o != nil && o.AppId.IsSet() {
+	if o != nil && !IsNil(o.AppId) {
 		return true
 	}
 
 	return false
 }
 
-// SetAppId gets a reference to the given NullableString and assigns it to the AppId field.
+// SetAppId gets a reference to the given string and assigns it to the AppId field.
 func (o *CreateOrUpdateAppUserScoreDto) SetAppId(v string) {
-	o.AppId.Set(&v)
-}
-// SetAppIdNil sets the value for AppId to be an explicit nil
-func (o *CreateOrUpdateAppUserScoreDto) SetAppIdNil() {
-	o.AppId.Set(nil)
-}
-
-// UnsetAppId ensures that no value is present for AppId, not even an explicit nil
-func (o *CreateOrUpdateAppUserScoreDto) UnsetAppId() {
-	o.AppId.Unset()
+	o.AppId = &v
 }
 
 // GetScore returns the Score field value if set, zero value otherwise.
@@ -115,46 +105,36 @@ func (o *CreateOrUpdateAppUserScoreDto) SetScore(v int32) {
 	o.Score = &v
 }
 
-// GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComment returns the Comment field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppUserScoreDto) GetComment() string {
-	if o == nil || IsNil(o.Comment.Get()) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
-	return *o.Comment.Get()
+	return *o.Comment
 }
 
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppUserScoreDto) GetCommentOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
-	return o.Comment.Get(), o.Comment.IsSet()
+	return o.Comment, true
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppUserScoreDto) HasComment() bool {
-	if o != nil && o.Comment.IsSet() {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
 	return false
 }
 
-// SetComment gets a reference to the given NullableString and assigns it to the Comment field.
+// SetComment gets a reference to the given string and assigns it to the Comment field.
 func (o *CreateOrUpdateAppUserScoreDto) SetComment(v string) {
-	o.Comment.Set(&v)
-}
-// SetCommentNil sets the value for Comment to be an explicit nil
-func (o *CreateOrUpdateAppUserScoreDto) SetCommentNil() {
-	o.Comment.Set(nil)
-}
-
-// UnsetComment ensures that no value is present for Comment, not even an explicit nil
-func (o *CreateOrUpdateAppUserScoreDto) UnsetComment() {
-	o.Comment.Unset()
+	o.Comment = &v
 }
 
 func (o CreateOrUpdateAppUserScoreDto) MarshalJSON() ([]byte, error) {
@@ -167,14 +147,14 @@ func (o CreateOrUpdateAppUserScoreDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateOrUpdateAppUserScoreDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AppId.IsSet() {
-		toSerialize["appId"] = o.AppId.Get()
+	if !IsNil(o.AppId) {
+		toSerialize["appId"] = o.AppId
 	}
 	if !IsNil(o.Score) {
 		toSerialize["score"] = o.Score
 	}
-	if o.Comment.IsSet() {
-		toSerialize["comment"] = o.Comment.Get()
+	if !IsNil(o.Comment) {
+		toSerialize["comment"] = o.Comment
 	}
 	return toSerialize, nil
 }

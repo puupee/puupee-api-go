@@ -20,7 +20,7 @@ var _ MappedNullable = &MessageSourceCategoryDto{}
 // MessageSourceCategoryDto struct for MessageSourceCategoryDto
 type MessageSourceCategoryDto struct {
 	Id *string `json:"id,omitempty"`
-	Title NullableString `json:"title,omitempty"`
+	Title *string `json:"title,omitempty"`
 }
 
 // NewMessageSourceCategoryDto instantiates a new MessageSourceCategoryDto object
@@ -72,46 +72,36 @@ func (o *MessageSourceCategoryDto) SetId(v string) {
 	o.Id = &v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *MessageSourceCategoryDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+	return *o.Title
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageSourceCategoryDto) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *MessageSourceCategoryDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *MessageSourceCategoryDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *MessageSourceCategoryDto) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *MessageSourceCategoryDto) UnsetTitle() {
-	o.Title.Unset()
+	o.Title = &v
 }
 
 func (o MessageSourceCategoryDto) MarshalJSON() ([]byte, error) {
@@ -127,8 +117,8 @@ func (o MessageSourceCategoryDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
 	return toSerialize, nil
 }

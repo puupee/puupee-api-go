@@ -70,7 +70,7 @@ Other parameters are passed through a pointer to a apiApiAppSettingsGetRequest s
 
 ## ApiAppSettingsSetPost
 
-> ApiAppSettingsSetPost(ctx).SettingsDto(settingsDto).Execute()
+> ApiAppSettingsSetPost(ctx).Body(body).Execute()
 
 
 
@@ -87,11 +87,11 @@ import (
 )
 
 func main() {
-    settingsDto := *openapiclient.NewSettingsDto() // SettingsDto |  (optional)
+    body := *openapiclient.NewSettingsDto() // SettingsDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SettingsApi.ApiAppSettingsSetPost(context.Background()).SettingsDto(settingsDto).Execute()
+    r, err := apiClient.SettingsApi.ApiAppSettingsSetPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ApiAppSettingsSetPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -110,7 +110,7 @@ Other parameters are passed through a pointer to a apiApiAppSettingsSetPostReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settingsDto** | [**SettingsDto**](SettingsDto.md) |  | 
+ **body** | [**SettingsDto**](SettingsDto.md) |  | 
 
 ### Return type
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **interface{}** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -51,32 +51,22 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *ExtensionEnumFieldDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ExtensionEnumFieldDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValue
 
-`func (o *ExtensionEnumFieldDto) GetValue() interface{}`
+`func (o *ExtensionEnumFieldDto) GetValue() map[string]interface{}`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *ExtensionEnumFieldDto) GetValueOk() (*interface{}, bool)`
+`func (o *ExtensionEnumFieldDto) GetValueOk() (*map[string]interface{}, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *ExtensionEnumFieldDto) SetValue(v interface{})`
+`func (o *ExtensionEnumFieldDto) SetValue(v map[string]interface{})`
 
 SetValue sets Value field to given value.
 
@@ -86,16 +76,6 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
-### SetValueNil
-
-`func (o *ExtensionEnumFieldDto) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *ExtensionEnumFieldDto) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

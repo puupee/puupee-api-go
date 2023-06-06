@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppKeyValueSetBoolPost
 
-> ApiAppKeyValueSetBoolPost(ctx).Key(key).BooleanSetKeyValueDto(booleanSetKeyValueDto).Execute()
+> ApiAppKeyValueSetBoolPost(ctx).Key(key).Body(body).Execute()
 
 
 
@@ -359,11 +359,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
-    booleanSetKeyValueDto := *openapiclient.NewBooleanSetKeyValueDto() // BooleanSetKeyValueDto |  (optional)
+    body := *openapiclient.NewBooleanSetKeyValueDto() // BooleanSetKeyValueDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetBoolPost(context.Background()).Key(key).BooleanSetKeyValueDto(booleanSetKeyValueDto).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetBoolPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetBoolPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -383,7 +383,7 @@ Other parameters are passed through a pointer to a apiApiAppKeyValueSetBoolPostR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
- **booleanSetKeyValueDto** | [**BooleanSetKeyValueDto**](BooleanSetKeyValueDto.md) |  | 
+ **body** | [**BooleanSetKeyValueDto**](BooleanSetKeyValueDto.md) |  | 
 
 ### Return type
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppKeyValueSetDateTimePost
 
-> ApiAppKeyValueSetDateTimePost(ctx).Key(key).DateTimeSetKeyValueDto(dateTimeSetKeyValueDto).Execute()
+> ApiAppKeyValueSetDateTimePost(ctx).Key(key).Body(body).Execute()
 
 
 
@@ -423,11 +423,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
-    dateTimeSetKeyValueDto := *openapiclient.NewDateTimeSetKeyValueDto() // DateTimeSetKeyValueDto |  (optional)
+    body := *openapiclient.NewDateTimeSetKeyValueDto() // DateTimeSetKeyValueDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDateTimePost(context.Background()).Key(key).DateTimeSetKeyValueDto(dateTimeSetKeyValueDto).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDateTimePost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetDateTimePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -447,7 +447,7 @@ Other parameters are passed through a pointer to a apiApiAppKeyValueSetDateTimeP
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
- **dateTimeSetKeyValueDto** | [**DateTimeSetKeyValueDto**](DateTimeSetKeyValueDto.md) |  | 
+ **body** | [**DateTimeSetKeyValueDto**](DateTimeSetKeyValueDto.md) |  | 
 
 ### Return type
 
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppKeyValueSetDecimalPost
 
-> ApiAppKeyValueSetDecimalPost(ctx).Key(key).DecimalSetKeyValueDto(decimalSetKeyValueDto).Execute()
+> ApiAppKeyValueSetDecimalPost(ctx).Key(key).Body(body).Execute()
 
 
 
@@ -487,11 +487,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
-    decimalSetKeyValueDto := *openapiclient.NewDecimalSetKeyValueDto() // DecimalSetKeyValueDto |  (optional)
+    body := *openapiclient.NewDecimalSetKeyValueDto() // DecimalSetKeyValueDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDecimalPost(context.Background()).Key(key).DecimalSetKeyValueDto(decimalSetKeyValueDto).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDecimalPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetDecimalPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -511,7 +511,7 @@ Other parameters are passed through a pointer to a apiApiAppKeyValueSetDecimalPo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
- **decimalSetKeyValueDto** | [**DecimalSetKeyValueDto**](DecimalSetKeyValueDto.md) |  | 
+ **body** | [**DecimalSetKeyValueDto**](DecimalSetKeyValueDto.md) |  | 
 
 ### Return type
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppKeyValueSetDoublePost
 
-> ApiAppKeyValueSetDoublePost(ctx).Key(key).DoubleSetKeyValueDto(doubleSetKeyValueDto).Execute()
+> ApiAppKeyValueSetDoublePost(ctx).Key(key).Body(body).Execute()
 
 
 
@@ -551,11 +551,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
-    doubleSetKeyValueDto := *openapiclient.NewDoubleSetKeyValueDto() // DoubleSetKeyValueDto |  (optional)
+    body := *openapiclient.NewDoubleSetKeyValueDto() // DoubleSetKeyValueDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDoublePost(context.Background()).Key(key).DoubleSetKeyValueDto(doubleSetKeyValueDto).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetDoublePost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetDoublePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -575,7 +575,7 @@ Other parameters are passed through a pointer to a apiApiAppKeyValueSetDoublePos
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
- **doubleSetKeyValueDto** | [**DoubleSetKeyValueDto**](DoubleSetKeyValueDto.md) |  | 
+ **body** | [**DoubleSetKeyValueDto**](DoubleSetKeyValueDto.md) |  | 
 
 ### Return type
 
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppKeyValueSetIntPost
 
-> ApiAppKeyValueSetIntPost(ctx).Key(key).Int32SetKeyValueDto(int32SetKeyValueDto).Execute()
+> ApiAppKeyValueSetIntPost(ctx).Key(key).Body(body).Execute()
 
 
 
@@ -615,11 +615,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
-    int32SetKeyValueDto := *openapiclient.NewInt32SetKeyValueDto() // Int32SetKeyValueDto |  (optional)
+    body := *openapiclient.NewInt32SetKeyValueDto() // Int32SetKeyValueDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetIntPost(context.Background()).Key(key).Int32SetKeyValueDto(int32SetKeyValueDto).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetIntPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetIntPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -639,7 +639,7 @@ Other parameters are passed through a pointer to a apiApiAppKeyValueSetIntPostRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
- **int32SetKeyValueDto** | [**Int32SetKeyValueDto**](Int32SetKeyValueDto.md) |  | 
+ **body** | [**Int32SetKeyValueDto**](Int32SetKeyValueDto.md) |  | 
 
 ### Return type
 
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppKeyValueSetStringPost
 
-> ApiAppKeyValueSetStringPost(ctx).Key(key).StringSetKeyValueDto(stringSetKeyValueDto).Execute()
+> ApiAppKeyValueSetStringPost(ctx).Key(key).Body(body).Execute()
 
 
 
@@ -679,11 +679,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
-    stringSetKeyValueDto := *openapiclient.NewStringSetKeyValueDto() // StringSetKeyValueDto |  (optional)
+    body := *openapiclient.NewStringSetKeyValueDto() // StringSetKeyValueDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetStringPost(context.Background()).Key(key).StringSetKeyValueDto(stringSetKeyValueDto).Execute()
+    r, err := apiClient.KeyValueApi.ApiAppKeyValueSetStringPost(context.Background()).Key(key).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KeyValueApi.ApiAppKeyValueSetStringPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -703,7 +703,7 @@ Other parameters are passed through a pointer to a apiApiAppKeyValueSetStringPos
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
- **stringSetKeyValueDto** | [**StringSetKeyValueDto**](StringSetKeyValueDto.md) |  | 
+ **body** | [**StringSetKeyValueDto**](StringSetKeyValueDto.md) |  | 
 
 ### Return type
 

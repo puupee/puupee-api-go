@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**TenantId** | Pointer to **string** |  | [optional] [readonly] 
 **UserId** | Pointer to **string** |  | [optional] [readonly] 
 **RoleId** | Pointer to **string** |  | [optional] [readonly] 
 
@@ -52,16 +52,6 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
-### SetTenantIdNil
-
-`func (o *IdentityUserRole) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *IdentityUserRole) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetUserId
 
 `func (o *IdentityUserRole) GetUserId() string`

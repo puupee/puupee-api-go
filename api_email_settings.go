@@ -187,11 +187,11 @@ func (a *EmailSettingsApiService) ApiSettingManagementEmailingGetExecute(r ApiAp
 type ApiApiSettingManagementEmailingPostRequest struct {
 	ctx context.Context
 	ApiService *EmailSettingsApiService
-	updateEmailSettingsDto *UpdateEmailSettingsDto
+	body *UpdateEmailSettingsDto
 }
 
-func (r ApiApiSettingManagementEmailingPostRequest) UpdateEmailSettingsDto(updateEmailSettingsDto UpdateEmailSettingsDto) ApiApiSettingManagementEmailingPostRequest {
-	r.updateEmailSettingsDto = &updateEmailSettingsDto
+func (r ApiApiSettingManagementEmailingPostRequest) Body(body UpdateEmailSettingsDto) ApiApiSettingManagementEmailingPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -249,7 +249,7 @@ func (a *EmailSettingsApiService) ApiSettingManagementEmailingPostExecute(r ApiA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateEmailSettingsDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -346,11 +346,11 @@ func (a *EmailSettingsApiService) ApiSettingManagementEmailingPostExecute(r ApiA
 type ApiApiSettingManagementEmailingSendTestEmailPostRequest struct {
 	ctx context.Context
 	ApiService *EmailSettingsApiService
-	sendTestEmailInput *SendTestEmailInput
+	body *SendTestEmailInput
 }
 
-func (r ApiApiSettingManagementEmailingSendTestEmailPostRequest) SendTestEmailInput(sendTestEmailInput SendTestEmailInput) ApiApiSettingManagementEmailingSendTestEmailPostRequest {
-	r.sendTestEmailInput = &sendTestEmailInput
+func (r ApiApiSettingManagementEmailingSendTestEmailPostRequest) Body(body SendTestEmailInput) ApiApiSettingManagementEmailingSendTestEmailPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -408,7 +408,7 @@ func (a *EmailSettingsApiService) ApiSettingManagementEmailingSendTestEmailPostE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sendTestEmailInput
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

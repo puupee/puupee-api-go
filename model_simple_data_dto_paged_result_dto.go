@@ -40,9 +40,9 @@ func NewSimpleDataDtoPagedResultDtoWithDefaults() *SimpleDataDtoPagedResultDto {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *SimpleDataDtoPagedResultDto) GetItems() []SimpleDataDto {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []SimpleDataDto
 		return ret
 	}
@@ -51,7 +51,6 @@ func (o *SimpleDataDtoPagedResultDto) GetItems() []SimpleDataDto {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SimpleDataDtoPagedResultDto) GetItemsOk() ([]SimpleDataDto, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -61,7 +60,7 @@ func (o *SimpleDataDtoPagedResultDto) GetItemsOk() ([]SimpleDataDto, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *SimpleDataDtoPagedResultDto) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -115,7 +114,7 @@ func (o SimpleDataDtoPagedResultDto) MarshalJSON() ([]byte, error) {
 
 func (o SimpleDataDtoPagedResultDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
+	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
 	}
 	if !IsNil(o.TotalCount) {

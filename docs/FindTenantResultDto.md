@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Success** | Pointer to **bool** |  | [optional] 
-**TenantId** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**TenantId** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -78,16 +78,6 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
-### SetTenantIdNil
-
-`func (o *FindTenantResultDto) SetTenantIdNil(b bool)`
-
- SetTenantIdNil sets the value for TenantId to be an explicit nil
-
-### UnsetTenantId
-`func (o *FindTenantResultDto) UnsetTenantId()`
-
-UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetName
 
 `func (o *FindTenantResultDto) GetName() string`
@@ -113,16 +103,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *FindTenantResultDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FindTenantResultDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsActive
 
 `func (o *FindTenantResultDto) GetIsActive() bool`

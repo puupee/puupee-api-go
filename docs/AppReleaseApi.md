@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppReleaseIdPut
 
-> AppReleaseDto ApiAppAppReleaseIdPut(ctx, id).CreateOrUpdateAppReleaseDto(createOrUpdateAppReleaseDto).Execute()
+> AppReleaseDto ApiAppAppReleaseIdPut(ctx, id).Body(body).Execute()
 
 
 
@@ -243,11 +243,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    createOrUpdateAppReleaseDto := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseIdPut(context.Background(), id).CreateOrUpdateAppReleaseDto(createOrUpdateAppReleaseDto).Execute()
+    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseIdPut(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,7 +273,7 @@ Other parameters are passed through a pointer to a apiApiAppAppReleaseIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createOrUpdateAppReleaseDto** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
+ **body** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
 
 ### Return type
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppReleasePost
 
-> AppReleaseDto ApiAppAppReleasePost(ctx).CreateOrUpdateAppReleaseDto(createOrUpdateAppReleaseDto).Execute()
+> AppReleaseDto ApiAppAppReleasePost(ctx).Body(body).Execute()
 
 
 
@@ -382,11 +382,11 @@ import (
 )
 
 func main() {
-    createOrUpdateAppReleaseDto := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleasePost(context.Background()).CreateOrUpdateAppReleaseDto(createOrUpdateAppReleaseDto).Execute()
+    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleasePost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleasePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -407,7 +407,7 @@ Other parameters are passed through a pointer to a apiApiAppAppReleasePostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createOrUpdateAppReleaseDto** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
+ **body** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
 
 ### Return type
 

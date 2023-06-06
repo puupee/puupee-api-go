@@ -22,19 +22,19 @@ var _ MappedNullable = &DeviceDto{}
 type DeviceDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
-	LastModifierId NullableString `json:"lastModifierId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId NullableString `json:"deleterId,omitempty"`
-	DeletionTime NullableTime `json:"deletionTime,omitempty"`
-	Token NullableString `json:"token,omitempty"`
-	TpnsToken NullableString `json:"tpnsToken,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
+	Token *string `json:"token,omitempty"`
+	TpnsToken *string `json:"tpnsToken,omitempty"`
 	IsPhysicalDevice *bool `json:"isPhysicalDevice,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Platform NullableString `json:"platform,omitempty"`
-	Brand NullableString `json:"brand,omitempty"`
-	SystemVersion NullableString `json:"systemVersion,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Platform *string `json:"platform,omitempty"`
+	Brand *string `json:"brand,omitempty"`
+	SystemVersion *string `json:"systemVersion,omitempty"`
 }
 
 // NewDeviceDto instantiates a new DeviceDto object
@@ -118,130 +118,100 @@ func (o *DeviceDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *DeviceDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *DeviceDto) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *DeviceDto) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *DeviceDto) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *DeviceDto) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *DeviceDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime.Get()) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime.Get()
+	return *o.LastModificationTime
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
-	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
+	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *DeviceDto) HasLastModificationTime() bool {
-	if o != nil && o.LastModificationTime.IsSet() {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
 func (o *DeviceDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime.Set(&v)
-}
-// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-func (o *DeviceDto) SetLastModificationTimeNil() {
-	o.LastModificationTime.Set(nil)
+	o.LastModificationTime = &v
 }
 
-// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
-func (o *DeviceDto) UnsetLastModificationTime() {
-	o.LastModificationTime.Unset()
-}
-
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *DeviceDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId.Get()) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId.Get()
+	return *o.LastModifierId
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
-	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
+	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *DeviceDto) HasLastModifierId() bool {
-	if o != nil && o.LastModifierId.IsSet() {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
 func (o *DeviceDto) SetLastModifierId(v string) {
-	o.LastModifierId.Set(&v)
-}
-// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-func (o *DeviceDto) SetLastModifierIdNil() {
-	o.LastModifierId.Set(nil)
-}
-
-// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
-func (o *DeviceDto) UnsetLastModifierId() {
-	o.LastModifierId.Unset()
+	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -276,172 +246,132 @@ func (o *DeviceDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *DeviceDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId.Get()) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId.Get()
+	return *o.DeleterId
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
-	return o.DeleterId.Get(), o.DeleterId.IsSet()
+	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *DeviceDto) HasDeleterId() bool {
-	if o != nil && o.DeleterId.IsSet() {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
 func (o *DeviceDto) SetDeleterId(v string) {
-	o.DeleterId.Set(&v)
-}
-// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-func (o *DeviceDto) SetDeleterIdNil() {
-	o.DeleterId.Set(nil)
+	o.DeleterId = &v
 }
 
-// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
-func (o *DeviceDto) UnsetDeleterId() {
-	o.DeleterId.Unset()
-}
-
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *DeviceDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime.Get()) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime.Get()
+	return *o.DeletionTime
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
-	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *DeviceDto) HasDeletionTime() bool {
-	if o != nil && o.DeletionTime.IsSet() {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
 func (o *DeviceDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime.Set(&v)
-}
-// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-func (o *DeviceDto) SetDeletionTimeNil() {
-	o.DeletionTime.Set(nil)
+	o.DeletionTime = &v
 }
 
-// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
-func (o *DeviceDto) UnsetDeletionTime() {
-	o.DeletionTime.Unset()
-}
-
-// GetToken returns the Token field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetToken returns the Token field value if set, zero value otherwise.
 func (o *DeviceDto) GetToken() string {
-	if o == nil || IsNil(o.Token.Get()) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
-	return *o.Token.Get()
+	return *o.Token
 }
 
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Token) {
 		return nil, false
 	}
-	return o.Token.Get(), o.Token.IsSet()
+	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *DeviceDto) HasToken() bool {
-	if o != nil && o.Token.IsSet() {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
 	return false
 }
 
-// SetToken gets a reference to the given NullableString and assigns it to the Token field.
+// SetToken gets a reference to the given string and assigns it to the Token field.
 func (o *DeviceDto) SetToken(v string) {
-	o.Token.Set(&v)
-}
-// SetTokenNil sets the value for Token to be an explicit nil
-func (o *DeviceDto) SetTokenNil() {
-	o.Token.Set(nil)
+	o.Token = &v
 }
 
-// UnsetToken ensures that no value is present for Token, not even an explicit nil
-func (o *DeviceDto) UnsetToken() {
-	o.Token.Unset()
-}
-
-// GetTpnsToken returns the TpnsToken field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTpnsToken returns the TpnsToken field value if set, zero value otherwise.
 func (o *DeviceDto) GetTpnsToken() string {
-	if o == nil || IsNil(o.TpnsToken.Get()) {
+	if o == nil || IsNil(o.TpnsToken) {
 		var ret string
 		return ret
 	}
-	return *o.TpnsToken.Get()
+	return *o.TpnsToken
 }
 
 // GetTpnsTokenOk returns a tuple with the TpnsToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetTpnsTokenOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TpnsToken) {
 		return nil, false
 	}
-	return o.TpnsToken.Get(), o.TpnsToken.IsSet()
+	return o.TpnsToken, true
 }
 
 // HasTpnsToken returns a boolean if a field has been set.
 func (o *DeviceDto) HasTpnsToken() bool {
-	if o != nil && o.TpnsToken.IsSet() {
+	if o != nil && !IsNil(o.TpnsToken) {
 		return true
 	}
 
 	return false
 }
 
-// SetTpnsToken gets a reference to the given NullableString and assigns it to the TpnsToken field.
+// SetTpnsToken gets a reference to the given string and assigns it to the TpnsToken field.
 func (o *DeviceDto) SetTpnsToken(v string) {
-	o.TpnsToken.Set(&v)
-}
-// SetTpnsTokenNil sets the value for TpnsToken to be an explicit nil
-func (o *DeviceDto) SetTpnsTokenNil() {
-	o.TpnsToken.Set(nil)
-}
-
-// UnsetTpnsToken ensures that no value is present for TpnsToken, not even an explicit nil
-func (o *DeviceDto) UnsetTpnsToken() {
-	o.TpnsToken.Unset()
+	o.TpnsToken = &v
 }
 
 // GetIsPhysicalDevice returns the IsPhysicalDevice field value if set, zero value otherwise.
@@ -476,172 +406,132 @@ func (o *DeviceDto) SetIsPhysicalDevice(v bool) {
 	o.IsPhysicalDevice = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *DeviceDto) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *DeviceDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *DeviceDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *DeviceDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *DeviceDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPlatform returns the Platform field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPlatform returns the Platform field value if set, zero value otherwise.
 func (o *DeviceDto) GetPlatform() string {
-	if o == nil || IsNil(o.Platform.Get()) {
+	if o == nil || IsNil(o.Platform) {
 		var ret string
 		return ret
 	}
-	return *o.Platform.Get()
+	return *o.Platform
 }
 
 // GetPlatformOk returns a tuple with the Platform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetPlatformOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Platform) {
 		return nil, false
 	}
-	return o.Platform.Get(), o.Platform.IsSet()
+	return o.Platform, true
 }
 
 // HasPlatform returns a boolean if a field has been set.
 func (o *DeviceDto) HasPlatform() bool {
-	if o != nil && o.Platform.IsSet() {
+	if o != nil && !IsNil(o.Platform) {
 		return true
 	}
 
 	return false
 }
 
-// SetPlatform gets a reference to the given NullableString and assigns it to the Platform field.
+// SetPlatform gets a reference to the given string and assigns it to the Platform field.
 func (o *DeviceDto) SetPlatform(v string) {
-	o.Platform.Set(&v)
-}
-// SetPlatformNil sets the value for Platform to be an explicit nil
-func (o *DeviceDto) SetPlatformNil() {
-	o.Platform.Set(nil)
+	o.Platform = &v
 }
 
-// UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
-func (o *DeviceDto) UnsetPlatform() {
-	o.Platform.Unset()
-}
-
-// GetBrand returns the Brand field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBrand returns the Brand field value if set, zero value otherwise.
 func (o *DeviceDto) GetBrand() string {
-	if o == nil || IsNil(o.Brand.Get()) {
+	if o == nil || IsNil(o.Brand) {
 		var ret string
 		return ret
 	}
-	return *o.Brand.Get()
+	return *o.Brand
 }
 
 // GetBrandOk returns a tuple with the Brand field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetBrandOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Brand) {
 		return nil, false
 	}
-	return o.Brand.Get(), o.Brand.IsSet()
+	return o.Brand, true
 }
 
 // HasBrand returns a boolean if a field has been set.
 func (o *DeviceDto) HasBrand() bool {
-	if o != nil && o.Brand.IsSet() {
+	if o != nil && !IsNil(o.Brand) {
 		return true
 	}
 
 	return false
 }
 
-// SetBrand gets a reference to the given NullableString and assigns it to the Brand field.
+// SetBrand gets a reference to the given string and assigns it to the Brand field.
 func (o *DeviceDto) SetBrand(v string) {
-	o.Brand.Set(&v)
-}
-// SetBrandNil sets the value for Brand to be an explicit nil
-func (o *DeviceDto) SetBrandNil() {
-	o.Brand.Set(nil)
+	o.Brand = &v
 }
 
-// UnsetBrand ensures that no value is present for Brand, not even an explicit nil
-func (o *DeviceDto) UnsetBrand() {
-	o.Brand.Unset()
-}
-
-// GetSystemVersion returns the SystemVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSystemVersion returns the SystemVersion field value if set, zero value otherwise.
 func (o *DeviceDto) GetSystemVersion() string {
-	if o == nil || IsNil(o.SystemVersion.Get()) {
+	if o == nil || IsNil(o.SystemVersion) {
 		var ret string
 		return ret
 	}
-	return *o.SystemVersion.Get()
+	return *o.SystemVersion
 }
 
 // GetSystemVersionOk returns a tuple with the SystemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeviceDto) GetSystemVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SystemVersion) {
 		return nil, false
 	}
-	return o.SystemVersion.Get(), o.SystemVersion.IsSet()
+	return o.SystemVersion, true
 }
 
 // HasSystemVersion returns a boolean if a field has been set.
 func (o *DeviceDto) HasSystemVersion() bool {
-	if o != nil && o.SystemVersion.IsSet() {
+	if o != nil && !IsNil(o.SystemVersion) {
 		return true
 	}
 
 	return false
 }
 
-// SetSystemVersion gets a reference to the given NullableString and assigns it to the SystemVersion field.
+// SetSystemVersion gets a reference to the given string and assigns it to the SystemVersion field.
 func (o *DeviceDto) SetSystemVersion(v string) {
-	o.SystemVersion.Set(&v)
-}
-// SetSystemVersionNil sets the value for SystemVersion to be an explicit nil
-func (o *DeviceDto) SetSystemVersionNil() {
-	o.SystemVersion.Set(nil)
-}
-
-// UnsetSystemVersion ensures that no value is present for SystemVersion, not even an explicit nil
-func (o *DeviceDto) UnsetSystemVersion() {
-	o.SystemVersion.Unset()
+	o.SystemVersion = &v
 }
 
 func (o DeviceDto) MarshalJSON() ([]byte, error) {
@@ -660,44 +550,44 @@ func (o DeviceDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
 	}
-	if o.LastModificationTime.IsSet() {
-		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
-	if o.LastModifierId.IsSet() {
-		toSerialize["lastModifierId"] = o.LastModifierId.Get()
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.DeleterId.IsSet() {
-		toSerialize["deleterId"] = o.DeleterId.Get()
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
 	}
-	if o.DeletionTime.IsSet() {
-		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if o.Token.IsSet() {
-		toSerialize["token"] = o.Token.Get()
+	if !IsNil(o.Token) {
+		toSerialize["token"] = o.Token
 	}
-	if o.TpnsToken.IsSet() {
-		toSerialize["tpnsToken"] = o.TpnsToken.Get()
+	if !IsNil(o.TpnsToken) {
+		toSerialize["tpnsToken"] = o.TpnsToken
 	}
 	if !IsNil(o.IsPhysicalDevice) {
 		toSerialize["isPhysicalDevice"] = o.IsPhysicalDevice
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Platform.IsSet() {
-		toSerialize["platform"] = o.Platform.Get()
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
-	if o.Brand.IsSet() {
-		toSerialize["brand"] = o.Brand.Get()
+	if !IsNil(o.Brand) {
+		toSerialize["brand"] = o.Brand
 	}
-	if o.SystemVersion.IsSet() {
-		toSerialize["systemVersion"] = o.SystemVersion.Get()
+	if !IsNil(o.SystemVersion) {
+		toSerialize["systemVersion"] = o.SystemVersion
 	}
 	return toSerialize, nil
 }

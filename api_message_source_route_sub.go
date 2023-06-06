@@ -510,11 +510,11 @@ type ApiApiAppMessageSourceRouteSubIdPutRequest struct {
 	ctx context.Context
 	ApiService *MessageSourceRouteSubApiService
 	id string
-	createUpdateMessageSourceRouteSubDto *CreateUpdateMessageSourceRouteSubDto
+	body *CreateUpdateMessageSourceRouteSubDto
 }
 
-func (r ApiApiAppMessageSourceRouteSubIdPutRequest) CreateUpdateMessageSourceRouteSubDto(createUpdateMessageSourceRouteSubDto CreateUpdateMessageSourceRouteSubDto) ApiApiAppMessageSourceRouteSubIdPutRequest {
-	r.createUpdateMessageSourceRouteSubDto = &createUpdateMessageSourceRouteSubDto
+func (r ApiApiAppMessageSourceRouteSubIdPutRequest) Body(body CreateUpdateMessageSourceRouteSubDto) ApiApiAppMessageSourceRouteSubIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -575,7 +575,7 @@ func (a *MessageSourceRouteSubApiService) ApiAppMessageSourceRouteSubIdPutExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createUpdateMessageSourceRouteSubDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -672,11 +672,11 @@ func (a *MessageSourceRouteSubApiService) ApiAppMessageSourceRouteSubIdPutExecut
 type ApiApiAppMessageSourceRouteSubPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSourceRouteSubApiService
-	createUpdateMessageSourceRouteSubDto *CreateUpdateMessageSourceRouteSubDto
+	body *CreateUpdateMessageSourceRouteSubDto
 }
 
-func (r ApiApiAppMessageSourceRouteSubPostRequest) CreateUpdateMessageSourceRouteSubDto(createUpdateMessageSourceRouteSubDto CreateUpdateMessageSourceRouteSubDto) ApiApiAppMessageSourceRouteSubPostRequest {
-	r.createUpdateMessageSourceRouteSubDto = &createUpdateMessageSourceRouteSubDto
+func (r ApiApiAppMessageSourceRouteSubPostRequest) Body(body CreateUpdateMessageSourceRouteSubDto) ApiApiAppMessageSourceRouteSubPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -734,7 +734,7 @@ func (a *MessageSourceRouteSubApiService) ApiAppMessageSourceRouteSubPostExecute
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createUpdateMessageSourceRouteSubDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

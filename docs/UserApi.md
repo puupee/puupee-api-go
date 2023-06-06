@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 ## ApiIdentityUsersIdPut
 
-> IdentityUserDto ApiIdentityUsersIdPut(ctx, id).IdentityUserUpdateDto(identityUserUpdateDto).Execute()
+> IdentityUserDto ApiIdentityUsersIdPut(ctx, id).Body(body).Execute()
 
 
 
@@ -436,11 +436,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    identityUserUpdateDto := *openapiclient.NewIdentityUserUpdateDto("UserName_example", "Email_example") // IdentityUserUpdateDto |  (optional)
+    body := *openapiclient.NewIdentityUserUpdateDto("UserName_example", "Email_example") // IdentityUserUpdateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.ApiIdentityUsersIdPut(context.Background(), id).IdentityUserUpdateDto(identityUserUpdateDto).Execute()
+    resp, r, err := apiClient.UserApi.ApiIdentityUsersIdPut(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ApiIdentityUsersIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -466,7 +466,7 @@ Other parameters are passed through a pointer to a apiApiIdentityUsersIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **identityUserUpdateDto** | [**IdentityUserUpdateDto**](IdentityUserUpdateDto.md) |  | 
+ **body** | [**IdentityUserUpdateDto**](IdentityUserUpdateDto.md) |  | 
 
 ### Return type
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ## ApiIdentityUsersIdRolesPut
 
-> ApiIdentityUsersIdRolesPut(ctx, id).IdentityUserUpdateRolesDto(identityUserUpdateRolesDto).Execute()
+> ApiIdentityUsersIdRolesPut(ctx, id).Body(body).Execute()
 
 
 
@@ -574,11 +574,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    identityUserUpdateRolesDto := *openapiclient.NewIdentityUserUpdateRolesDto([]string{"RoleNames_example"}) // IdentityUserUpdateRolesDto |  (optional)
+    body := *openapiclient.NewIdentityUserUpdateRolesDto([]string{"RoleNames_example"}) // IdentityUserUpdateRolesDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.ApiIdentityUsersIdRolesPut(context.Background(), id).IdentityUserUpdateRolesDto(identityUserUpdateRolesDto).Execute()
+    r, err := apiClient.UserApi.ApiIdentityUsersIdRolesPut(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ApiIdentityUsersIdRolesPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -602,7 +602,7 @@ Other parameters are passed through a pointer to a apiApiIdentityUsersIdRolesPut
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **identityUserUpdateRolesDto** | [**IdentityUserUpdateRolesDto**](IdentityUserUpdateRolesDto.md) |  | 
+ **body** | [**IdentityUserUpdateRolesDto**](IdentityUserUpdateRolesDto.md) |  | 
 
 ### Return type
 
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 
 ## ApiIdentityUsersPost
 
-> IdentityUserDto ApiIdentityUsersPost(ctx).IdentityUserCreateDto(identityUserCreateDto).Execute()
+> IdentityUserDto ApiIdentityUsersPost(ctx).Body(body).Execute()
 
 
 
@@ -641,11 +641,11 @@ import (
 )
 
 func main() {
-    identityUserCreateDto := *openapiclient.NewIdentityUserCreateDto("UserName_example", "Email_example", "Password_example") // IdentityUserCreateDto |  (optional)
+    body := *openapiclient.NewIdentityUserCreateDto("UserName_example", "Email_example", "Password_example") // IdentityUserCreateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.ApiIdentityUsersPost(context.Background()).IdentityUserCreateDto(identityUserCreateDto).Execute()
+    resp, r, err := apiClient.UserApi.ApiIdentityUsersPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.ApiIdentityUsersPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -666,7 +666,7 @@ Other parameters are passed through a pointer to a apiApiIdentityUsersPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identityUserCreateDto** | [**IdentityUserCreateDto**](IdentityUserCreateDto.md) |  | 
+ **body** | [**IdentityUserCreateDto**](IdentityUserCreateDto.md) |  | 
 
 ### Return type
 

@@ -88,6 +88,11 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**ApiAccountSendPasswordResetCodePost**](docs/AccountApi.md#apiaccountsendpasswordresetcodepost) | **Post** /api/account/send-password-reset-code | 
 *AccountApi* | [**ApiAccountVerifyPasswordResetTokenPost**](docs/AccountApi.md#apiaccountverifypasswordresettokenpost) | **Post** /api/account/verify-password-reset-token | 
 *AccountApi* | [**ApiAppAccountDelete**](docs/AccountApi.md#apiappaccountdelete) | **Delete** /api/app/account | 
+*ApiKeysApi* | [**ApiApiKeysGet**](docs/ApiKeysApi.md#apiapikeysget) | **Get** /api/api-keys | 
+*ApiKeysApi* | [**ApiApiKeysIdDelete**](docs/ApiKeysApi.md#apiapikeysiddelete) | **Delete** /api/api-keys/{id} | 
+*ApiKeysApi* | [**ApiApiKeysIdGet**](docs/ApiKeysApi.md#apiapikeysidget) | **Get** /api/api-keys/{id} | 
+*ApiKeysApi* | [**ApiApiKeysIdPut**](docs/ApiKeysApi.md#apiapikeysidput) | **Put** /api/api-keys/{id} | 
+*ApiKeysApi* | [**ApiApiKeysPost**](docs/ApiKeysApi.md#apiapikeyspost) | **Post** /api/api-keys | 
 *AppApi* | [**ApiAppAppByDeveloperAllGet**](docs/AppApi.md#apiappappbydeveloperallget) | **Get** /api/app/app/by-developer-all | 
 *AppApi* | [**ApiAppAppByNameGet**](docs/AppApi.md#apiappappbynameget) | **Get** /api/app/app/by-name | 
 *AppApi* | [**ApiAppAppGet**](docs/AppApi.md#apiappappget) | **Get** /api/app/app | 
@@ -245,6 +250,10 @@ Class | Method | HTTP request | Description
 
  - [AbpLoginResult](docs/AbpLoginResult.md)
  - [ActionApiDescriptionModel](docs/ActionApiDescriptionModel.md)
+ - [ApiKeyCreateDto](docs/ApiKeyCreateDto.md)
+ - [ApiKeyDto](docs/ApiKeyDto.md)
+ - [ApiKeyDtoPagedResultDto](docs/ApiKeyDtoPagedResultDto.md)
+ - [ApiKeyUpdateDto](docs/ApiKeyUpdateDto.md)
  - [AppDto](docs/AppDto.md)
  - [AppDtoPagedResultDto](docs/AppDtoPagedResultDto.md)
  - [AppFeatureDto](docs/AppFeatureDto.md)

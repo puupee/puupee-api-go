@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppSimpleDataSavePost
 
-> SimpleDataDto ApiAppSimpleDataSavePost(ctx).SimpleDataDto(simpleDataDto).Execute()
+> SimpleDataDto ApiAppSimpleDataSavePost(ctx).Body(body).Execute()
 
 
 
@@ -234,11 +234,11 @@ import (
 )
 
 func main() {
-    simpleDataDto := *openapiclient.NewSimpleDataDto() // SimpleDataDto |  (optional)
+    body := *openapiclient.NewSimpleDataDto() // SimpleDataDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SimpleDataApi.ApiAppSimpleDataSavePost(context.Background()).SimpleDataDto(simpleDataDto).Execute()
+    resp, r, err := apiClient.SimpleDataApi.ApiAppSimpleDataSavePost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SimpleDataApi.ApiAppSimpleDataSavePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -259,7 +259,7 @@ Other parameters are passed through a pointer to a apiApiAppSimpleDataSavePostRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **simpleDataDto** | [**SimpleDataDto**](SimpleDataDto.md) |  | 
+ **body** | [**SimpleDataDto**](SimpleDataDto.md) |  | 
 
 ### Return type
 

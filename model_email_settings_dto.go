@@ -19,15 +19,15 @@ var _ MappedNullable = &EmailSettingsDto{}
 
 // EmailSettingsDto struct for EmailSettingsDto
 type EmailSettingsDto struct {
-	SmtpHost NullableString `json:"smtpHost,omitempty"`
+	SmtpHost *string `json:"smtpHost,omitempty"`
 	SmtpPort *int32 `json:"smtpPort,omitempty"`
-	SmtpUserName NullableString `json:"smtpUserName,omitempty"`
-	SmtpPassword NullableString `json:"smtpPassword,omitempty"`
-	SmtpDomain NullableString `json:"smtpDomain,omitempty"`
+	SmtpUserName *string `json:"smtpUserName,omitempty"`
+	SmtpPassword *string `json:"smtpPassword,omitempty"`
+	SmtpDomain *string `json:"smtpDomain,omitempty"`
 	SmtpEnableSsl *bool `json:"smtpEnableSsl,omitempty"`
 	SmtpUseDefaultCredentials *bool `json:"smtpUseDefaultCredentials,omitempty"`
-	DefaultFromAddress NullableString `json:"defaultFromAddress,omitempty"`
-	DefaultFromDisplayName NullableString `json:"defaultFromDisplayName,omitempty"`
+	DefaultFromAddress *string `json:"defaultFromAddress,omitempty"`
+	DefaultFromDisplayName *string `json:"defaultFromDisplayName,omitempty"`
 }
 
 // NewEmailSettingsDto instantiates a new EmailSettingsDto object
@@ -47,46 +47,36 @@ func NewEmailSettingsDtoWithDefaults() *EmailSettingsDto {
 	return &this
 }
 
-// GetSmtpHost returns the SmtpHost field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSmtpHost returns the SmtpHost field value if set, zero value otherwise.
 func (o *EmailSettingsDto) GetSmtpHost() string {
-	if o == nil || IsNil(o.SmtpHost.Get()) {
+	if o == nil || IsNil(o.SmtpHost) {
 		var ret string
 		return ret
 	}
-	return *o.SmtpHost.Get()
+	return *o.SmtpHost
 }
 
 // GetSmtpHostOk returns a tuple with the SmtpHost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSettingsDto) GetSmtpHostOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SmtpHost) {
 		return nil, false
 	}
-	return o.SmtpHost.Get(), o.SmtpHost.IsSet()
+	return o.SmtpHost, true
 }
 
 // HasSmtpHost returns a boolean if a field has been set.
 func (o *EmailSettingsDto) HasSmtpHost() bool {
-	if o != nil && o.SmtpHost.IsSet() {
+	if o != nil && !IsNil(o.SmtpHost) {
 		return true
 	}
 
 	return false
 }
 
-// SetSmtpHost gets a reference to the given NullableString and assigns it to the SmtpHost field.
+// SetSmtpHost gets a reference to the given string and assigns it to the SmtpHost field.
 func (o *EmailSettingsDto) SetSmtpHost(v string) {
-	o.SmtpHost.Set(&v)
-}
-// SetSmtpHostNil sets the value for SmtpHost to be an explicit nil
-func (o *EmailSettingsDto) SetSmtpHostNil() {
-	o.SmtpHost.Set(nil)
-}
-
-// UnsetSmtpHost ensures that no value is present for SmtpHost, not even an explicit nil
-func (o *EmailSettingsDto) UnsetSmtpHost() {
-	o.SmtpHost.Unset()
+	o.SmtpHost = &v
 }
 
 // GetSmtpPort returns the SmtpPort field value if set, zero value otherwise.
@@ -121,130 +111,100 @@ func (o *EmailSettingsDto) SetSmtpPort(v int32) {
 	o.SmtpPort = &v
 }
 
-// GetSmtpUserName returns the SmtpUserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSmtpUserName returns the SmtpUserName field value if set, zero value otherwise.
 func (o *EmailSettingsDto) GetSmtpUserName() string {
-	if o == nil || IsNil(o.SmtpUserName.Get()) {
+	if o == nil || IsNil(o.SmtpUserName) {
 		var ret string
 		return ret
 	}
-	return *o.SmtpUserName.Get()
+	return *o.SmtpUserName
 }
 
 // GetSmtpUserNameOk returns a tuple with the SmtpUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSettingsDto) GetSmtpUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SmtpUserName) {
 		return nil, false
 	}
-	return o.SmtpUserName.Get(), o.SmtpUserName.IsSet()
+	return o.SmtpUserName, true
 }
 
 // HasSmtpUserName returns a boolean if a field has been set.
 func (o *EmailSettingsDto) HasSmtpUserName() bool {
-	if o != nil && o.SmtpUserName.IsSet() {
+	if o != nil && !IsNil(o.SmtpUserName) {
 		return true
 	}
 
 	return false
 }
 
-// SetSmtpUserName gets a reference to the given NullableString and assigns it to the SmtpUserName field.
+// SetSmtpUserName gets a reference to the given string and assigns it to the SmtpUserName field.
 func (o *EmailSettingsDto) SetSmtpUserName(v string) {
-	o.SmtpUserName.Set(&v)
-}
-// SetSmtpUserNameNil sets the value for SmtpUserName to be an explicit nil
-func (o *EmailSettingsDto) SetSmtpUserNameNil() {
-	o.SmtpUserName.Set(nil)
+	o.SmtpUserName = &v
 }
 
-// UnsetSmtpUserName ensures that no value is present for SmtpUserName, not even an explicit nil
-func (o *EmailSettingsDto) UnsetSmtpUserName() {
-	o.SmtpUserName.Unset()
-}
-
-// GetSmtpPassword returns the SmtpPassword field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSmtpPassword returns the SmtpPassword field value if set, zero value otherwise.
 func (o *EmailSettingsDto) GetSmtpPassword() string {
-	if o == nil || IsNil(o.SmtpPassword.Get()) {
+	if o == nil || IsNil(o.SmtpPassword) {
 		var ret string
 		return ret
 	}
-	return *o.SmtpPassword.Get()
+	return *o.SmtpPassword
 }
 
 // GetSmtpPasswordOk returns a tuple with the SmtpPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSettingsDto) GetSmtpPasswordOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SmtpPassword) {
 		return nil, false
 	}
-	return o.SmtpPassword.Get(), o.SmtpPassword.IsSet()
+	return o.SmtpPassword, true
 }
 
 // HasSmtpPassword returns a boolean if a field has been set.
 func (o *EmailSettingsDto) HasSmtpPassword() bool {
-	if o != nil && o.SmtpPassword.IsSet() {
+	if o != nil && !IsNil(o.SmtpPassword) {
 		return true
 	}
 
 	return false
 }
 
-// SetSmtpPassword gets a reference to the given NullableString and assigns it to the SmtpPassword field.
+// SetSmtpPassword gets a reference to the given string and assigns it to the SmtpPassword field.
 func (o *EmailSettingsDto) SetSmtpPassword(v string) {
-	o.SmtpPassword.Set(&v)
-}
-// SetSmtpPasswordNil sets the value for SmtpPassword to be an explicit nil
-func (o *EmailSettingsDto) SetSmtpPasswordNil() {
-	o.SmtpPassword.Set(nil)
+	o.SmtpPassword = &v
 }
 
-// UnsetSmtpPassword ensures that no value is present for SmtpPassword, not even an explicit nil
-func (o *EmailSettingsDto) UnsetSmtpPassword() {
-	o.SmtpPassword.Unset()
-}
-
-// GetSmtpDomain returns the SmtpDomain field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSmtpDomain returns the SmtpDomain field value if set, zero value otherwise.
 func (o *EmailSettingsDto) GetSmtpDomain() string {
-	if o == nil || IsNil(o.SmtpDomain.Get()) {
+	if o == nil || IsNil(o.SmtpDomain) {
 		var ret string
 		return ret
 	}
-	return *o.SmtpDomain.Get()
+	return *o.SmtpDomain
 }
 
 // GetSmtpDomainOk returns a tuple with the SmtpDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSettingsDto) GetSmtpDomainOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SmtpDomain) {
 		return nil, false
 	}
-	return o.SmtpDomain.Get(), o.SmtpDomain.IsSet()
+	return o.SmtpDomain, true
 }
 
 // HasSmtpDomain returns a boolean if a field has been set.
 func (o *EmailSettingsDto) HasSmtpDomain() bool {
-	if o != nil && o.SmtpDomain.IsSet() {
+	if o != nil && !IsNil(o.SmtpDomain) {
 		return true
 	}
 
 	return false
 }
 
-// SetSmtpDomain gets a reference to the given NullableString and assigns it to the SmtpDomain field.
+// SetSmtpDomain gets a reference to the given string and assigns it to the SmtpDomain field.
 func (o *EmailSettingsDto) SetSmtpDomain(v string) {
-	o.SmtpDomain.Set(&v)
-}
-// SetSmtpDomainNil sets the value for SmtpDomain to be an explicit nil
-func (o *EmailSettingsDto) SetSmtpDomainNil() {
-	o.SmtpDomain.Set(nil)
-}
-
-// UnsetSmtpDomain ensures that no value is present for SmtpDomain, not even an explicit nil
-func (o *EmailSettingsDto) UnsetSmtpDomain() {
-	o.SmtpDomain.Unset()
+	o.SmtpDomain = &v
 }
 
 // GetSmtpEnableSsl returns the SmtpEnableSsl field value if set, zero value otherwise.
@@ -311,88 +271,68 @@ func (o *EmailSettingsDto) SetSmtpUseDefaultCredentials(v bool) {
 	o.SmtpUseDefaultCredentials = &v
 }
 
-// GetDefaultFromAddress returns the DefaultFromAddress field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultFromAddress returns the DefaultFromAddress field value if set, zero value otherwise.
 func (o *EmailSettingsDto) GetDefaultFromAddress() string {
-	if o == nil || IsNil(o.DefaultFromAddress.Get()) {
+	if o == nil || IsNil(o.DefaultFromAddress) {
 		var ret string
 		return ret
 	}
-	return *o.DefaultFromAddress.Get()
+	return *o.DefaultFromAddress
 }
 
 // GetDefaultFromAddressOk returns a tuple with the DefaultFromAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSettingsDto) GetDefaultFromAddressOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultFromAddress) {
 		return nil, false
 	}
-	return o.DefaultFromAddress.Get(), o.DefaultFromAddress.IsSet()
+	return o.DefaultFromAddress, true
 }
 
 // HasDefaultFromAddress returns a boolean if a field has been set.
 func (o *EmailSettingsDto) HasDefaultFromAddress() bool {
-	if o != nil && o.DefaultFromAddress.IsSet() {
+	if o != nil && !IsNil(o.DefaultFromAddress) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultFromAddress gets a reference to the given NullableString and assigns it to the DefaultFromAddress field.
+// SetDefaultFromAddress gets a reference to the given string and assigns it to the DefaultFromAddress field.
 func (o *EmailSettingsDto) SetDefaultFromAddress(v string) {
-	o.DefaultFromAddress.Set(&v)
-}
-// SetDefaultFromAddressNil sets the value for DefaultFromAddress to be an explicit nil
-func (o *EmailSettingsDto) SetDefaultFromAddressNil() {
-	o.DefaultFromAddress.Set(nil)
+	o.DefaultFromAddress = &v
 }
 
-// UnsetDefaultFromAddress ensures that no value is present for DefaultFromAddress, not even an explicit nil
-func (o *EmailSettingsDto) UnsetDefaultFromAddress() {
-	o.DefaultFromAddress.Unset()
-}
-
-// GetDefaultFromDisplayName returns the DefaultFromDisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaultFromDisplayName returns the DefaultFromDisplayName field value if set, zero value otherwise.
 func (o *EmailSettingsDto) GetDefaultFromDisplayName() string {
-	if o == nil || IsNil(o.DefaultFromDisplayName.Get()) {
+	if o == nil || IsNil(o.DefaultFromDisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DefaultFromDisplayName.Get()
+	return *o.DefaultFromDisplayName
 }
 
 // GetDefaultFromDisplayNameOk returns a tuple with the DefaultFromDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailSettingsDto) GetDefaultFromDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultFromDisplayName) {
 		return nil, false
 	}
-	return o.DefaultFromDisplayName.Get(), o.DefaultFromDisplayName.IsSet()
+	return o.DefaultFromDisplayName, true
 }
 
 // HasDefaultFromDisplayName returns a boolean if a field has been set.
 func (o *EmailSettingsDto) HasDefaultFromDisplayName() bool {
-	if o != nil && o.DefaultFromDisplayName.IsSet() {
+	if o != nil && !IsNil(o.DefaultFromDisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultFromDisplayName gets a reference to the given NullableString and assigns it to the DefaultFromDisplayName field.
+// SetDefaultFromDisplayName gets a reference to the given string and assigns it to the DefaultFromDisplayName field.
 func (o *EmailSettingsDto) SetDefaultFromDisplayName(v string) {
-	o.DefaultFromDisplayName.Set(&v)
-}
-// SetDefaultFromDisplayNameNil sets the value for DefaultFromDisplayName to be an explicit nil
-func (o *EmailSettingsDto) SetDefaultFromDisplayNameNil() {
-	o.DefaultFromDisplayName.Set(nil)
-}
-
-// UnsetDefaultFromDisplayName ensures that no value is present for DefaultFromDisplayName, not even an explicit nil
-func (o *EmailSettingsDto) UnsetDefaultFromDisplayName() {
-	o.DefaultFromDisplayName.Unset()
+	o.DefaultFromDisplayName = &v
 }
 
 func (o EmailSettingsDto) MarshalJSON() ([]byte, error) {
@@ -405,20 +345,20 @@ func (o EmailSettingsDto) MarshalJSON() ([]byte, error) {
 
 func (o EmailSettingsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.SmtpHost.IsSet() {
-		toSerialize["smtpHost"] = o.SmtpHost.Get()
+	if !IsNil(o.SmtpHost) {
+		toSerialize["smtpHost"] = o.SmtpHost
 	}
 	if !IsNil(o.SmtpPort) {
 		toSerialize["smtpPort"] = o.SmtpPort
 	}
-	if o.SmtpUserName.IsSet() {
-		toSerialize["smtpUserName"] = o.SmtpUserName.Get()
+	if !IsNil(o.SmtpUserName) {
+		toSerialize["smtpUserName"] = o.SmtpUserName
 	}
-	if o.SmtpPassword.IsSet() {
-		toSerialize["smtpPassword"] = o.SmtpPassword.Get()
+	if !IsNil(o.SmtpPassword) {
+		toSerialize["smtpPassword"] = o.SmtpPassword
 	}
-	if o.SmtpDomain.IsSet() {
-		toSerialize["smtpDomain"] = o.SmtpDomain.Get()
+	if !IsNil(o.SmtpDomain) {
+		toSerialize["smtpDomain"] = o.SmtpDomain
 	}
 	if !IsNil(o.SmtpEnableSsl) {
 		toSerialize["smtpEnableSsl"] = o.SmtpEnableSsl
@@ -426,11 +366,11 @@ func (o EmailSettingsDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SmtpUseDefaultCredentials) {
 		toSerialize["smtpUseDefaultCredentials"] = o.SmtpUseDefaultCredentials
 	}
-	if o.DefaultFromAddress.IsSet() {
-		toSerialize["defaultFromAddress"] = o.DefaultFromAddress.Get()
+	if !IsNil(o.DefaultFromAddress) {
+		toSerialize["defaultFromAddress"] = o.DefaultFromAddress
 	}
-	if o.DefaultFromDisplayName.IsSet() {
-		toSerialize["defaultFromDisplayName"] = o.DefaultFromDisplayName.Get()
+	if !IsNil(o.DefaultFromDisplayName) {
+		toSerialize["defaultFromDisplayName"] = o.DefaultFromDisplayName
 	}
 	return toSerialize, nil
 }

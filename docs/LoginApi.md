@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ApiAccountCheckPasswordPost
 
-> AbpLoginResult ApiAccountCheckPasswordPost(ctx).UserLoginInfo(userLoginInfo).Execute()
+> AbpLoginResult ApiAccountCheckPasswordPost(ctx).Body(body).Execute()
 
 
 
@@ -29,11 +29,11 @@ import (
 )
 
 func main() {
-    userLoginInfo := *openapiclient.NewUserLoginInfo("UserNameOrEmailAddress_example", "Password_example") // UserLoginInfo |  (optional)
+    body := *openapiclient.NewUserLoginInfo("UserNameOrEmailAddress_example", "Password_example") // UserLoginInfo |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LoginApi.ApiAccountCheckPasswordPost(context.Background()).UserLoginInfo(userLoginInfo).Execute()
+    resp, r, err := apiClient.LoginApi.ApiAccountCheckPasswordPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.ApiAccountCheckPasswordPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,7 +54,7 @@ Other parameters are passed through a pointer to a apiApiAccountCheckPasswordPos
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userLoginInfo** | [**UserLoginInfo**](UserLoginInfo.md) |  | 
+ **body** | [**UserLoginInfo**](UserLoginInfo.md) |  | 
 
 ### Return type
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## ApiAccountLoginPost
 
-> AbpLoginResult ApiAccountLoginPost(ctx).UserLoginInfo(userLoginInfo).Execute()
+> AbpLoginResult ApiAccountLoginPost(ctx).Body(body).Execute()
 
 
 
@@ -93,11 +93,11 @@ import (
 )
 
 func main() {
-    userLoginInfo := *openapiclient.NewUserLoginInfo("UserNameOrEmailAddress_example", "Password_example") // UserLoginInfo |  (optional)
+    body := *openapiclient.NewUserLoginInfo("UserNameOrEmailAddress_example", "Password_example") // UserLoginInfo |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LoginApi.ApiAccountLoginPost(context.Background()).UserLoginInfo(userLoginInfo).Execute()
+    resp, r, err := apiClient.LoginApi.ApiAccountLoginPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.ApiAccountLoginPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -118,7 +118,7 @@ Other parameters are passed through a pointer to a apiApiAccountLoginPostRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userLoginInfo** | [**UserLoginInfo**](UserLoginInfo.md) |  | 
+ **body** | [**UserLoginInfo**](UserLoginInfo.md) |  | 
 
 ### Return type
 

@@ -22,15 +22,15 @@ var _ MappedNullable = &MessageTemplateReleaseDto{}
 type MessageTemplateReleaseDto struct {
 	Id *string `json:"id,omitempty"`
 	CreationTime *time.Time `json:"creationTime,omitempty"`
-	CreatorId NullableString `json:"creatorId,omitempty"`
-	LastModificationTime NullableTime `json:"lastModificationTime,omitempty"`
-	LastModifierId NullableString `json:"lastModifierId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty"`
+	LastModificationTime *time.Time `json:"lastModificationTime,omitempty"`
+	LastModifierId *string `json:"lastModifierId,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	DeleterId NullableString `json:"deleterId,omitempty"`
-	DeletionTime NullableTime `json:"deletionTime,omitempty"`
-	TemplateName NullableString `json:"templateName,omitempty"`
+	DeleterId *string `json:"deleterId,omitempty"`
+	DeletionTime *time.Time `json:"deletionTime,omitempty"`
+	TemplateName *string `json:"templateName,omitempty"`
 	Version *int32 `json:"version,omitempty"`
-	Content NullableString `json:"content,omitempty"`
+	Content *string `json:"content,omitempty"`
 	TemplateId *string `json:"templateId,omitempty"`
 }
 
@@ -115,130 +115,100 @@ func (o *MessageTemplateReleaseDto) SetCreationTime(v time.Time) {
 	o.CreationTime = &v
 }
 
-// GetCreatorId returns the CreatorId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetCreatorId() string {
-	if o == nil || IsNil(o.CreatorId.Get()) {
+	if o == nil || IsNil(o.CreatorId) {
 		var ret string
 		return ret
 	}
-	return *o.CreatorId.Get()
+	return *o.CreatorId
 }
 
 // GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetCreatorIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatorId) {
 		return nil, false
 	}
-	return o.CreatorId.Get(), o.CreatorId.IsSet()
+	return o.CreatorId, true
 }
 
 // HasCreatorId returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasCreatorId() bool {
-	if o != nil && o.CreatorId.IsSet() {
+	if o != nil && !IsNil(o.CreatorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatorId gets a reference to the given NullableString and assigns it to the CreatorId field.
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
 func (o *MessageTemplateReleaseDto) SetCreatorId(v string) {
-	o.CreatorId.Set(&v)
-}
-// SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetCreatorIdNil() {
-	o.CreatorId.Set(nil)
+	o.CreatorId = &v
 }
 
-// UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetCreatorId() {
-	o.CreatorId.Unset()
-}
-
-// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModificationTime returns the LastModificationTime field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetLastModificationTime() time.Time {
-	if o == nil || IsNil(o.LastModificationTime.Get()) {
+	if o == nil || IsNil(o.LastModificationTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModificationTime.Get()
+	return *o.LastModificationTime
 }
 
 // GetLastModificationTimeOk returns a tuple with the LastModificationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetLastModificationTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModificationTime) {
 		return nil, false
 	}
-	return o.LastModificationTime.Get(), o.LastModificationTime.IsSet()
+	return o.LastModificationTime, true
 }
 
 // HasLastModificationTime returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasLastModificationTime() bool {
-	if o != nil && o.LastModificationTime.IsSet() {
+	if o != nil && !IsNil(o.LastModificationTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModificationTime gets a reference to the given NullableTime and assigns it to the LastModificationTime field.
+// SetLastModificationTime gets a reference to the given time.Time and assigns it to the LastModificationTime field.
 func (o *MessageTemplateReleaseDto) SetLastModificationTime(v time.Time) {
-	o.LastModificationTime.Set(&v)
-}
-// SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetLastModificationTimeNil() {
-	o.LastModificationTime.Set(nil)
+	o.LastModificationTime = &v
 }
 
-// UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetLastModificationTime() {
-	o.LastModificationTime.Unset()
-}
-
-// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastModifierId returns the LastModifierId field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetLastModifierId() string {
-	if o == nil || IsNil(o.LastModifierId.Get()) {
+	if o == nil || IsNil(o.LastModifierId) {
 		var ret string
 		return ret
 	}
-	return *o.LastModifierId.Get()
+	return *o.LastModifierId
 }
 
 // GetLastModifierIdOk returns a tuple with the LastModifierId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetLastModifierIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastModifierId) {
 		return nil, false
 	}
-	return o.LastModifierId.Get(), o.LastModifierId.IsSet()
+	return o.LastModifierId, true
 }
 
 // HasLastModifierId returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasLastModifierId() bool {
-	if o != nil && o.LastModifierId.IsSet() {
+	if o != nil && !IsNil(o.LastModifierId) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastModifierId gets a reference to the given NullableString and assigns it to the LastModifierId field.
+// SetLastModifierId gets a reference to the given string and assigns it to the LastModifierId field.
 func (o *MessageTemplateReleaseDto) SetLastModifierId(v string) {
-	o.LastModifierId.Set(&v)
-}
-// SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetLastModifierIdNil() {
-	o.LastModifierId.Set(nil)
-}
-
-// UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetLastModifierId() {
-	o.LastModifierId.Unset()
+	o.LastModifierId = &v
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
@@ -273,130 +243,100 @@ func (o *MessageTemplateReleaseDto) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetDeleterId returns the DeleterId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeleterId returns the DeleterId field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetDeleterId() string {
-	if o == nil || IsNil(o.DeleterId.Get()) {
+	if o == nil || IsNil(o.DeleterId) {
 		var ret string
 		return ret
 	}
-	return *o.DeleterId.Get()
+	return *o.DeleterId
 }
 
 // GetDeleterIdOk returns a tuple with the DeleterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetDeleterIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeleterId) {
 		return nil, false
 	}
-	return o.DeleterId.Get(), o.DeleterId.IsSet()
+	return o.DeleterId, true
 }
 
 // HasDeleterId returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasDeleterId() bool {
-	if o != nil && o.DeleterId.IsSet() {
+	if o != nil && !IsNil(o.DeleterId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleterId gets a reference to the given NullableString and assigns it to the DeleterId field.
+// SetDeleterId gets a reference to the given string and assigns it to the DeleterId field.
 func (o *MessageTemplateReleaseDto) SetDeleterId(v string) {
-	o.DeleterId.Set(&v)
-}
-// SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetDeleterIdNil() {
-	o.DeleterId.Set(nil)
+	o.DeleterId = &v
 }
 
-// UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetDeleterId() {
-	o.DeleterId.Unset()
-}
-
-// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeletionTime returns the DeletionTime field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetDeletionTime() time.Time {
-	if o == nil || IsNil(o.DeletionTime.Get()) {
+	if o == nil || IsNil(o.DeletionTime) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DeletionTime.Get()
+	return *o.DeletionTime
 }
 
 // GetDeletionTimeOk returns a tuple with the DeletionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetDeletionTimeOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeletionTime) {
 		return nil, false
 	}
-	return o.DeletionTime.Get(), o.DeletionTime.IsSet()
+	return o.DeletionTime, true
 }
 
 // HasDeletionTime returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasDeletionTime() bool {
-	if o != nil && o.DeletionTime.IsSet() {
+	if o != nil && !IsNil(o.DeletionTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeletionTime gets a reference to the given NullableTime and assigns it to the DeletionTime field.
+// SetDeletionTime gets a reference to the given time.Time and assigns it to the DeletionTime field.
 func (o *MessageTemplateReleaseDto) SetDeletionTime(v time.Time) {
-	o.DeletionTime.Set(&v)
-}
-// SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetDeletionTimeNil() {
-	o.DeletionTime.Set(nil)
+	o.DeletionTime = &v
 }
 
-// UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetDeletionTime() {
-	o.DeletionTime.Unset()
-}
-
-// GetTemplateName returns the TemplateName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTemplateName returns the TemplateName field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetTemplateName() string {
-	if o == nil || IsNil(o.TemplateName.Get()) {
+	if o == nil || IsNil(o.TemplateName) {
 		var ret string
 		return ret
 	}
-	return *o.TemplateName.Get()
+	return *o.TemplateName
 }
 
 // GetTemplateNameOk returns a tuple with the TemplateName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetTemplateNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TemplateName) {
 		return nil, false
 	}
-	return o.TemplateName.Get(), o.TemplateName.IsSet()
+	return o.TemplateName, true
 }
 
 // HasTemplateName returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasTemplateName() bool {
-	if o != nil && o.TemplateName.IsSet() {
+	if o != nil && !IsNil(o.TemplateName) {
 		return true
 	}
 
 	return false
 }
 
-// SetTemplateName gets a reference to the given NullableString and assigns it to the TemplateName field.
+// SetTemplateName gets a reference to the given string and assigns it to the TemplateName field.
 func (o *MessageTemplateReleaseDto) SetTemplateName(v string) {
-	o.TemplateName.Set(&v)
-}
-// SetTemplateNameNil sets the value for TemplateName to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetTemplateNameNil() {
-	o.TemplateName.Set(nil)
-}
-
-// UnsetTemplateName ensures that no value is present for TemplateName, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetTemplateName() {
-	o.TemplateName.Unset()
+	o.TemplateName = &v
 }
 
 // GetVersion returns the Version field value if set, zero value otherwise.
@@ -431,46 +371,36 @@ func (o *MessageTemplateReleaseDto) SetVersion(v int32) {
 	o.Version = &v
 }
 
-// GetContent returns the Content field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContent returns the Content field value if set, zero value otherwise.
 func (o *MessageTemplateReleaseDto) GetContent() string {
-	if o == nil || IsNil(o.Content.Get()) {
+	if o == nil || IsNil(o.Content) {
 		var ret string
 		return ret
 	}
-	return *o.Content.Get()
+	return *o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessageTemplateReleaseDto) GetContentOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Content) {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return o.Content, true
 }
 
 // HasContent returns a boolean if a field has been set.
 func (o *MessageTemplateReleaseDto) HasContent() bool {
-	if o != nil && o.Content.IsSet() {
+	if o != nil && !IsNil(o.Content) {
 		return true
 	}
 
 	return false
 }
 
-// SetContent gets a reference to the given NullableString and assigns it to the Content field.
+// SetContent gets a reference to the given string and assigns it to the Content field.
 func (o *MessageTemplateReleaseDto) SetContent(v string) {
-	o.Content.Set(&v)
-}
-// SetContentNil sets the value for Content to be an explicit nil
-func (o *MessageTemplateReleaseDto) SetContentNil() {
-	o.Content.Set(nil)
-}
-
-// UnsetContent ensures that no value is present for Content, not even an explicit nil
-func (o *MessageTemplateReleaseDto) UnsetContent() {
-	o.Content.Unset()
+	o.Content = &v
 }
 
 // GetTemplateId returns the TemplateId field value if set, zero value otherwise.
@@ -521,32 +451,32 @@ func (o MessageTemplateReleaseDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreationTime) {
 		toSerialize["creationTime"] = o.CreationTime
 	}
-	if o.CreatorId.IsSet() {
-		toSerialize["creatorId"] = o.CreatorId.Get()
+	if !IsNil(o.CreatorId) {
+		toSerialize["creatorId"] = o.CreatorId
 	}
-	if o.LastModificationTime.IsSet() {
-		toSerialize["lastModificationTime"] = o.LastModificationTime.Get()
+	if !IsNil(o.LastModificationTime) {
+		toSerialize["lastModificationTime"] = o.LastModificationTime
 	}
-	if o.LastModifierId.IsSet() {
-		toSerialize["lastModifierId"] = o.LastModifierId.Get()
+	if !IsNil(o.LastModifierId) {
+		toSerialize["lastModifierId"] = o.LastModifierId
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.DeleterId.IsSet() {
-		toSerialize["deleterId"] = o.DeleterId.Get()
+	if !IsNil(o.DeleterId) {
+		toSerialize["deleterId"] = o.DeleterId
 	}
-	if o.DeletionTime.IsSet() {
-		toSerialize["deletionTime"] = o.DeletionTime.Get()
+	if !IsNil(o.DeletionTime) {
+		toSerialize["deletionTime"] = o.DeletionTime
 	}
-	if o.TemplateName.IsSet() {
-		toSerialize["templateName"] = o.TemplateName.Get()
+	if !IsNil(o.TemplateName) {
+		toSerialize["templateName"] = o.TemplateName
 	}
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
-	if o.Content.IsSet() {
-		toSerialize["content"] = o.Content.Get()
+	if !IsNil(o.Content) {
+		toSerialize["content"] = o.Content
 	}
 	if !IsNil(o.TemplateId) {
 		toSerialize["templateId"] = o.TemplateId

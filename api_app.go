@@ -906,11 +906,11 @@ type ApiApiAppAppIdPutRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
-	createOrUpdateAppDto *CreateOrUpdateAppDto
+	body *CreateOrUpdateAppDto
 }
 
-func (r ApiApiAppAppIdPutRequest) CreateOrUpdateAppDto(createOrUpdateAppDto CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
-	r.createOrUpdateAppDto = &createOrUpdateAppDto
+func (r ApiApiAppAppIdPutRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -973,7 +973,7 @@ func (a *AppApiService) ApiAppAppIdPutExecute(r ApiApiAppAppIdPutRequest) (*AppD
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1080,11 +1080,11 @@ type ApiApiAppAppIdRunStatePutRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
 	id string
-	appRunRecordUpdateDto *AppRunRecordUpdateDto
+	body *AppRunRecordUpdateDto
 }
 
-func (r ApiApiAppAppIdRunStatePutRequest) AppRunRecordUpdateDto(appRunRecordUpdateDto AppRunRecordUpdateDto) ApiApiAppAppIdRunStatePutRequest {
-	r.appRunRecordUpdateDto = &appRunRecordUpdateDto
+func (r ApiApiAppAppIdRunStatePutRequest) Body(body AppRunRecordUpdateDto) ApiApiAppAppIdRunStatePutRequest {
+	r.body = &body
 	return r
 }
 
@@ -1147,7 +1147,7 @@ func (a *AppApiService) ApiAppAppIdRunStatePutExecute(r ApiApiAppAppIdRunStatePu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.appRunRecordUpdateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1428,11 +1428,11 @@ func (a *AppApiService) ApiAppAppIdWithUserGetExecute(r ApiApiAppAppIdWithUserGe
 type ApiApiAppAppPostRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	createOrUpdateAppDto *CreateOrUpdateAppDto
+	body *CreateOrUpdateAppDto
 }
 
-func (r ApiApiAppAppPostRequest) CreateOrUpdateAppDto(createOrUpdateAppDto CreateOrUpdateAppDto) ApiApiAppAppPostRequest {
-	r.createOrUpdateAppDto = &createOrUpdateAppDto
+func (r ApiApiAppAppPostRequest) Body(body CreateOrUpdateAppDto) ApiApiAppAppPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -1492,7 +1492,7 @@ func (a *AppApiService) ApiAppAppPostExecute(r ApiApiAppAppPostRequest) (*AppDto
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1787,11 +1787,11 @@ func (a *AppApiService) ApiAppAppPublicGetExecute(r ApiApiAppAppPublicGetRequest
 type ApiApiAppAppRunPostRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
-	appRunDto *AppRunDto
+	body *AppRunDto
 }
 
-func (r ApiApiAppAppRunPostRequest) AppRunDto(appRunDto AppRunDto) ApiApiAppAppRunPostRequest {
-	r.appRunDto = &appRunDto
+func (r ApiApiAppAppRunPostRequest) Body(body AppRunDto) ApiApiAppAppRunPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -1851,7 +1851,7 @@ func (a *AppApiService) ApiAppAppRunPostExecute(r ApiApiAppAppRunPostRequest) (*
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.appRunDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -25,11 +25,11 @@ type AppUserScoreApiService service
 type ApiApiAppAppUserScorePostRequest struct {
 	ctx context.Context
 	ApiService *AppUserScoreApiService
-	createOrUpdateAppUserScoreDto *CreateOrUpdateAppUserScoreDto
+	body *CreateOrUpdateAppUserScoreDto
 }
 
-func (r ApiApiAppAppUserScorePostRequest) CreateOrUpdateAppUserScoreDto(createOrUpdateAppUserScoreDto CreateOrUpdateAppUserScoreDto) ApiApiAppAppUserScorePostRequest {
-	r.createOrUpdateAppUserScoreDto = &createOrUpdateAppUserScoreDto
+func (r ApiApiAppAppUserScorePostRequest) Body(body CreateOrUpdateAppUserScoreDto) ApiApiAppAppUserScorePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -89,7 +89,7 @@ func (a *AppUserScoreApiService) ApiAppAppUserScorePostExecute(r ApiApiAppAppUse
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createOrUpdateAppUserScoreDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

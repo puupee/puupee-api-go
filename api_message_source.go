@@ -348,11 +348,11 @@ type ApiApiAppMessageSourceIdPutRequest struct {
 	ctx context.Context
 	ApiService *MessageSourceApiService
 	id string
-	createUpdateMessageSourceDto *CreateUpdateMessageSourceDto
+	body *CreateUpdateMessageSourceDto
 }
 
-func (r ApiApiAppMessageSourceIdPutRequest) CreateUpdateMessageSourceDto(createUpdateMessageSourceDto CreateUpdateMessageSourceDto) ApiApiAppMessageSourceIdPutRequest {
-	r.createUpdateMessageSourceDto = &createUpdateMessageSourceDto
+func (r ApiApiAppMessageSourceIdPutRequest) Body(body CreateUpdateMessageSourceDto) ApiApiAppMessageSourceIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -415,7 +415,7 @@ func (a *MessageSourceApiService) ApiAppMessageSourceIdPutExecute(r ApiApiAppMes
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createUpdateMessageSourceDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -521,11 +521,11 @@ func (a *MessageSourceApiService) ApiAppMessageSourceIdPutExecute(r ApiApiAppMes
 type ApiApiAppMessageSourcePostRequest struct {
 	ctx context.Context
 	ApiService *MessageSourceApiService
-	createUpdateMessageSourceDto *CreateUpdateMessageSourceDto
+	body *CreateUpdateMessageSourceDto
 }
 
-func (r ApiApiAppMessageSourcePostRequest) CreateUpdateMessageSourceDto(createUpdateMessageSourceDto CreateUpdateMessageSourceDto) ApiApiAppMessageSourcePostRequest {
-	r.createUpdateMessageSourceDto = &createUpdateMessageSourceDto
+func (r ApiApiAppMessageSourcePostRequest) Body(body CreateUpdateMessageSourceDto) ApiApiAppMessageSourcePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -585,7 +585,7 @@ func (a *MessageSourceApiService) ApiAppMessageSourcePostExecute(r ApiApiAppMess
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createUpdateMessageSourceDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Key** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Key** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *FeatureProviderDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FeatureProviderDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetKey
 
 `func (o *FeatureProviderDto) GetKey() string`
@@ -86,16 +76,6 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
-### SetKeyNil
-
-`func (o *FeatureProviderDto) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *FeatureProviderDto) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Token** | Pointer to **NullableString** |  | [optional] 
-**TpnsToken** | Pointer to **NullableString** |  | [optional] 
+**Token** | Pointer to **string** |  | [optional] 
+**TpnsToken** | Pointer to **string** |  | [optional] 
 **IsPhysicalDevice** | Pointer to **bool** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Platform** | Pointer to **NullableString** |  | [optional] 
-**Brand** | Pointer to **NullableString** |  | [optional] 
-**SystemVersion** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Platform** | Pointer to **string** |  | [optional] 
+**Brand** | Pointer to **string** |  | [optional] 
+**SystemVersion** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -56,16 +56,6 @@ SetToken sets Token field to given value.
 
 HasToken returns a boolean if a field has been set.
 
-### SetTokenNil
-
-`func (o *BindDeviceDto) SetTokenNil(b bool)`
-
- SetTokenNil sets the value for Token to be an explicit nil
-
-### UnsetToken
-`func (o *BindDeviceDto) UnsetToken()`
-
-UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetTpnsToken
 
 `func (o *BindDeviceDto) GetTpnsToken() string`
@@ -91,16 +81,6 @@ SetTpnsToken sets TpnsToken field to given value.
 
 HasTpnsToken returns a boolean if a field has been set.
 
-### SetTpnsTokenNil
-
-`func (o *BindDeviceDto) SetTpnsTokenNil(b bool)`
-
- SetTpnsTokenNil sets the value for TpnsToken to be an explicit nil
-
-### UnsetTpnsToken
-`func (o *BindDeviceDto) UnsetTpnsToken()`
-
-UnsetTpnsToken ensures that no value is present for TpnsToken, not even an explicit nil
 ### GetIsPhysicalDevice
 
 `func (o *BindDeviceDto) GetIsPhysicalDevice() bool`
@@ -151,16 +131,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *BindDeviceDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *BindDeviceDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPlatform
 
 `func (o *BindDeviceDto) GetPlatform() string`
@@ -186,16 +156,6 @@ SetPlatform sets Platform field to given value.
 
 HasPlatform returns a boolean if a field has been set.
 
-### SetPlatformNil
-
-`func (o *BindDeviceDto) SetPlatformNil(b bool)`
-
- SetPlatformNil sets the value for Platform to be an explicit nil
-
-### UnsetPlatform
-`func (o *BindDeviceDto) UnsetPlatform()`
-
-UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
 ### GetBrand
 
 `func (o *BindDeviceDto) GetBrand() string`
@@ -221,16 +181,6 @@ SetBrand sets Brand field to given value.
 
 HasBrand returns a boolean if a field has been set.
 
-### SetBrandNil
-
-`func (o *BindDeviceDto) SetBrandNil(b bool)`
-
- SetBrandNil sets the value for Brand to be an explicit nil
-
-### UnsetBrand
-`func (o *BindDeviceDto) UnsetBrand()`
-
-UnsetBrand ensures that no value is present for Brand, not even an explicit nil
 ### GetSystemVersion
 
 `func (o *BindDeviceDto) GetSystemVersion() string`
@@ -256,16 +206,6 @@ SetSystemVersion sets SystemVersion field to given value.
 
 HasSystemVersion returns a boolean if a field has been set.
 
-### SetSystemVersionNil
-
-`func (o *BindDeviceDto) SetSystemVersionNil(b bool)`
-
- SetSystemVersionNil sets the value for SystemVersion to be an explicit nil
-
-### UnsetSystemVersion
-`func (o *BindDeviceDto) UnsetSystemVersion()`
-
-UnsetSystemVersion ensures that no value is present for SystemVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

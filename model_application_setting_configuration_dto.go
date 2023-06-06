@@ -19,7 +19,7 @@ var _ MappedNullable = &ApplicationSettingConfigurationDto{}
 
 // ApplicationSettingConfigurationDto struct for ApplicationSettingConfigurationDto
 type ApplicationSettingConfigurationDto struct {
-	Values map[string]string `json:"values,omitempty"`
+	Values *map[string]string `json:"values,omitempty"`
 }
 
 // NewApplicationSettingConfigurationDto instantiates a new ApplicationSettingConfigurationDto object
@@ -39,28 +39,27 @@ func NewApplicationSettingConfigurationDtoWithDefaults() *ApplicationSettingConf
 	return &this
 }
 
-// GetValues returns the Values field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValues returns the Values field value if set, zero value otherwise.
 func (o *ApplicationSettingConfigurationDto) GetValues() map[string]string {
-	if o == nil {
+	if o == nil || IsNil(o.Values) {
 		var ret map[string]string
 		return ret
 	}
-	return o.Values
+	return *o.Values
 }
 
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationSettingConfigurationDto) GetValuesOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Values) {
 		return nil, false
 	}
-	return &o.Values, true
+	return o.Values, true
 }
 
 // HasValues returns a boolean if a field has been set.
 func (o *ApplicationSettingConfigurationDto) HasValues() bool {
-	if o != nil && IsNil(o.Values) {
+	if o != nil && !IsNil(o.Values) {
 		return true
 	}
 
@@ -69,7 +68,7 @@ func (o *ApplicationSettingConfigurationDto) HasValues() bool {
 
 // SetValues gets a reference to the given map[string]string and assigns it to the Values field.
 func (o *ApplicationSettingConfigurationDto) SetValues(v map[string]string) {
-	o.Values = v
+	o.Values = &v
 }
 
 func (o ApplicationSettingConfigurationDto) MarshalJSON() ([]byte, error) {
@@ -82,7 +81,7 @@ func (o ApplicationSettingConfigurationDto) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationSettingConfigurationDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Values != nil {
+	if !IsNil(o.Values) {
 		toSerialize["values"] = o.Values
 	}
 	return toSerialize, nil

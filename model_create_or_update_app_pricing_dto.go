@@ -20,21 +20,21 @@ var _ MappedNullable = &CreateOrUpdateAppPricingDto{}
 
 // CreateOrUpdateAppPricingDto struct for CreateOrUpdateAppPricingDto
 type CreateOrUpdateAppPricingDto struct {
-	Naming NullableString `json:"naming,omitempty"`
-	MonthProductId NullableString `json:"monthProductId,omitempty"`
-	YearProductId NullableString `json:"yearProductId,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Naming *string `json:"naming,omitempty"`
+	MonthProductId *string `json:"monthProductId,omitempty"`
+	YearProductId *string `json:"yearProductId,omitempty"`
+	Description *string `json:"description,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	MonthPrice *float64 `json:"monthPrice,omitempty"`
-	MonthDiscount NullableFloat64 `json:"monthDiscount,omitempty"`
-	MonthDiscountPrice NullableFloat64 `json:"monthDiscountPrice,omitempty"`
-	MonthDiscountStartAt NullableTime `json:"monthDiscountStartAt,omitempty"`
-	MonthDiscountEndAt NullableTime `json:"monthDiscountEndAt,omitempty"`
+	MonthDiscount *float64 `json:"monthDiscount,omitempty"`
+	MonthDiscountPrice *float64 `json:"monthDiscountPrice,omitempty"`
+	MonthDiscountStartAt *time.Time `json:"monthDiscountStartAt,omitempty"`
+	MonthDiscountEndAt *time.Time `json:"monthDiscountEndAt,omitempty"`
 	YearPrice *float64 `json:"yearPrice,omitempty"`
-	YearDiscount NullableFloat64 `json:"yearDiscount,omitempty"`
-	YearDiscountPrice NullableFloat64 `json:"yearDiscountPrice,omitempty"`
-	YearDiscountStartAt NullableTime `json:"yearDiscountStartAt,omitempty"`
-	YearDiscountEndAt NullableTime `json:"yearDiscountEndAt,omitempty"`
+	YearDiscount *float64 `json:"yearDiscount,omitempty"`
+	YearDiscountPrice *float64 `json:"yearDiscountPrice,omitempty"`
+	YearDiscountStartAt *time.Time `json:"yearDiscountStartAt,omitempty"`
+	YearDiscountEndAt *time.Time `json:"yearDiscountEndAt,omitempty"`
 	SortIndex *int32 `json:"sortIndex,omitempty"`
 	Items []CreateOrUpdateAppPricingItemDto `json:"items,omitempty"`
 }
@@ -56,172 +56,132 @@ func NewCreateOrUpdateAppPricingDtoWithDefaults() *CreateOrUpdateAppPricingDto {
 	return &this
 }
 
-// GetNaming returns the Naming field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNaming returns the Naming field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetNaming() string {
-	if o == nil || IsNil(o.Naming.Get()) {
+	if o == nil || IsNil(o.Naming) {
 		var ret string
 		return ret
 	}
-	return *o.Naming.Get()
+	return *o.Naming
 }
 
 // GetNamingOk returns a tuple with the Naming field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetNamingOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Naming) {
 		return nil, false
 	}
-	return o.Naming.Get(), o.Naming.IsSet()
+	return o.Naming, true
 }
 
 // HasNaming returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasNaming() bool {
-	if o != nil && o.Naming.IsSet() {
+	if o != nil && !IsNil(o.Naming) {
 		return true
 	}
 
 	return false
 }
 
-// SetNaming gets a reference to the given NullableString and assigns it to the Naming field.
+// SetNaming gets a reference to the given string and assigns it to the Naming field.
 func (o *CreateOrUpdateAppPricingDto) SetNaming(v string) {
-	o.Naming.Set(&v)
-}
-// SetNamingNil sets the value for Naming to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetNamingNil() {
-	o.Naming.Set(nil)
+	o.Naming = &v
 }
 
-// UnsetNaming ensures that no value is present for Naming, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetNaming() {
-	o.Naming.Unset()
-}
-
-// GetMonthProductId returns the MonthProductId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMonthProductId returns the MonthProductId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthProductId() string {
-	if o == nil || IsNil(o.MonthProductId.Get()) {
+	if o == nil || IsNil(o.MonthProductId) {
 		var ret string
 		return ret
 	}
-	return *o.MonthProductId.Get()
+	return *o.MonthProductId
 }
 
 // GetMonthProductIdOk returns a tuple with the MonthProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetMonthProductIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MonthProductId) {
 		return nil, false
 	}
-	return o.MonthProductId.Get(), o.MonthProductId.IsSet()
+	return o.MonthProductId, true
 }
 
 // HasMonthProductId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthProductId() bool {
-	if o != nil && o.MonthProductId.IsSet() {
+	if o != nil && !IsNil(o.MonthProductId) {
 		return true
 	}
 
 	return false
 }
 
-// SetMonthProductId gets a reference to the given NullableString and assigns it to the MonthProductId field.
+// SetMonthProductId gets a reference to the given string and assigns it to the MonthProductId field.
 func (o *CreateOrUpdateAppPricingDto) SetMonthProductId(v string) {
-	o.MonthProductId.Set(&v)
-}
-// SetMonthProductIdNil sets the value for MonthProductId to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetMonthProductIdNil() {
-	o.MonthProductId.Set(nil)
+	o.MonthProductId = &v
 }
 
-// UnsetMonthProductId ensures that no value is present for MonthProductId, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetMonthProductId() {
-	o.MonthProductId.Unset()
-}
-
-// GetYearProductId returns the YearProductId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetYearProductId returns the YearProductId field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearProductId() string {
-	if o == nil || IsNil(o.YearProductId.Get()) {
+	if o == nil || IsNil(o.YearProductId) {
 		var ret string
 		return ret
 	}
-	return *o.YearProductId.Get()
+	return *o.YearProductId
 }
 
 // GetYearProductIdOk returns a tuple with the YearProductId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetYearProductIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.YearProductId) {
 		return nil, false
 	}
-	return o.YearProductId.Get(), o.YearProductId.IsSet()
+	return o.YearProductId, true
 }
 
 // HasYearProductId returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearProductId() bool {
-	if o != nil && o.YearProductId.IsSet() {
+	if o != nil && !IsNil(o.YearProductId) {
 		return true
 	}
 
 	return false
 }
 
-// SetYearProductId gets a reference to the given NullableString and assigns it to the YearProductId field.
+// SetYearProductId gets a reference to the given string and assigns it to the YearProductId field.
 func (o *CreateOrUpdateAppPricingDto) SetYearProductId(v string) {
-	o.YearProductId.Set(&v)
-}
-// SetYearProductIdNil sets the value for YearProductId to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetYearProductIdNil() {
-	o.YearProductId.Set(nil)
+	o.YearProductId = &v
 }
 
-// UnsetYearProductId ensures that no value is present for YearProductId, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetYearProductId() {
-	o.YearProductId.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *CreateOrUpdateAppPricingDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
@@ -288,172 +248,132 @@ func (o *CreateOrUpdateAppPricingDto) SetMonthPrice(v float64) {
 	o.MonthPrice = &v
 }
 
-// GetMonthDiscount returns the MonthDiscount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMonthDiscount returns the MonthDiscount field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscount() float64 {
-	if o == nil || IsNil(o.MonthDiscount.Get()) {
+	if o == nil || IsNil(o.MonthDiscount) {
 		var ret float64
 		return ret
 	}
-	return *o.MonthDiscount.Get()
+	return *o.MonthDiscount
 }
 
 // GetMonthDiscountOk returns a tuple with the MonthDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MonthDiscount) {
 		return nil, false
 	}
-	return o.MonthDiscount.Get(), o.MonthDiscount.IsSet()
+	return o.MonthDiscount, true
 }
 
 // HasMonthDiscount returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscount() bool {
-	if o != nil && o.MonthDiscount.IsSet() {
+	if o != nil && !IsNil(o.MonthDiscount) {
 		return true
 	}
 
 	return false
 }
 
-// SetMonthDiscount gets a reference to the given NullableFloat64 and assigns it to the MonthDiscount field.
+// SetMonthDiscount gets a reference to the given float64 and assigns it to the MonthDiscount field.
 func (o *CreateOrUpdateAppPricingDto) SetMonthDiscount(v float64) {
-	o.MonthDiscount.Set(&v)
-}
-// SetMonthDiscountNil sets the value for MonthDiscount to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountNil() {
-	o.MonthDiscount.Set(nil)
+	o.MonthDiscount = &v
 }
 
-// UnsetMonthDiscount ensures that no value is present for MonthDiscount, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscount() {
-	o.MonthDiscount.Unset()
-}
-
-// GetMonthDiscountPrice returns the MonthDiscountPrice field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMonthDiscountPrice returns the MonthDiscountPrice field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountPrice() float64 {
-	if o == nil || IsNil(o.MonthDiscountPrice.Get()) {
+	if o == nil || IsNil(o.MonthDiscountPrice) {
 		var ret float64
 		return ret
 	}
-	return *o.MonthDiscountPrice.Get()
+	return *o.MonthDiscountPrice
 }
 
 // GetMonthDiscountPriceOk returns a tuple with the MonthDiscountPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountPriceOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MonthDiscountPrice) {
 		return nil, false
 	}
-	return o.MonthDiscountPrice.Get(), o.MonthDiscountPrice.IsSet()
+	return o.MonthDiscountPrice, true
 }
 
 // HasMonthDiscountPrice returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscountPrice() bool {
-	if o != nil && o.MonthDiscountPrice.IsSet() {
+	if o != nil && !IsNil(o.MonthDiscountPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetMonthDiscountPrice gets a reference to the given NullableFloat64 and assigns it to the MonthDiscountPrice field.
+// SetMonthDiscountPrice gets a reference to the given float64 and assigns it to the MonthDiscountPrice field.
 func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountPrice(v float64) {
-	o.MonthDiscountPrice.Set(&v)
-}
-// SetMonthDiscountPriceNil sets the value for MonthDiscountPrice to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountPriceNil() {
-	o.MonthDiscountPrice.Set(nil)
+	o.MonthDiscountPrice = &v
 }
 
-// UnsetMonthDiscountPrice ensures that no value is present for MonthDiscountPrice, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscountPrice() {
-	o.MonthDiscountPrice.Unset()
-}
-
-// GetMonthDiscountStartAt returns the MonthDiscountStartAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMonthDiscountStartAt returns the MonthDiscountStartAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountStartAt() time.Time {
-	if o == nil || IsNil(o.MonthDiscountStartAt.Get()) {
+	if o == nil || IsNil(o.MonthDiscountStartAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.MonthDiscountStartAt.Get()
+	return *o.MonthDiscountStartAt
 }
 
 // GetMonthDiscountStartAtOk returns a tuple with the MonthDiscountStartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountStartAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MonthDiscountStartAt) {
 		return nil, false
 	}
-	return o.MonthDiscountStartAt.Get(), o.MonthDiscountStartAt.IsSet()
+	return o.MonthDiscountStartAt, true
 }
 
 // HasMonthDiscountStartAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscountStartAt() bool {
-	if o != nil && o.MonthDiscountStartAt.IsSet() {
+	if o != nil && !IsNil(o.MonthDiscountStartAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetMonthDiscountStartAt gets a reference to the given NullableTime and assigns it to the MonthDiscountStartAt field.
+// SetMonthDiscountStartAt gets a reference to the given time.Time and assigns it to the MonthDiscountStartAt field.
 func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountStartAt(v time.Time) {
-	o.MonthDiscountStartAt.Set(&v)
-}
-// SetMonthDiscountStartAtNil sets the value for MonthDiscountStartAt to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountStartAtNil() {
-	o.MonthDiscountStartAt.Set(nil)
+	o.MonthDiscountStartAt = &v
 }
 
-// UnsetMonthDiscountStartAt ensures that no value is present for MonthDiscountStartAt, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscountStartAt() {
-	o.MonthDiscountStartAt.Unset()
-}
-
-// GetMonthDiscountEndAt returns the MonthDiscountEndAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMonthDiscountEndAt returns the MonthDiscountEndAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountEndAt() time.Time {
-	if o == nil || IsNil(o.MonthDiscountEndAt.Get()) {
+	if o == nil || IsNil(o.MonthDiscountEndAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.MonthDiscountEndAt.Get()
+	return *o.MonthDiscountEndAt
 }
 
 // GetMonthDiscountEndAtOk returns a tuple with the MonthDiscountEndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetMonthDiscountEndAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MonthDiscountEndAt) {
 		return nil, false
 	}
-	return o.MonthDiscountEndAt.Get(), o.MonthDiscountEndAt.IsSet()
+	return o.MonthDiscountEndAt, true
 }
 
 // HasMonthDiscountEndAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasMonthDiscountEndAt() bool {
-	if o != nil && o.MonthDiscountEndAt.IsSet() {
+	if o != nil && !IsNil(o.MonthDiscountEndAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetMonthDiscountEndAt gets a reference to the given NullableTime and assigns it to the MonthDiscountEndAt field.
+// SetMonthDiscountEndAt gets a reference to the given time.Time and assigns it to the MonthDiscountEndAt field.
 func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountEndAt(v time.Time) {
-	o.MonthDiscountEndAt.Set(&v)
-}
-// SetMonthDiscountEndAtNil sets the value for MonthDiscountEndAt to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetMonthDiscountEndAtNil() {
-	o.MonthDiscountEndAt.Set(nil)
-}
-
-// UnsetMonthDiscountEndAt ensures that no value is present for MonthDiscountEndAt, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetMonthDiscountEndAt() {
-	o.MonthDiscountEndAt.Unset()
+	o.MonthDiscountEndAt = &v
 }
 
 // GetYearPrice returns the YearPrice field value if set, zero value otherwise.
@@ -488,172 +408,132 @@ func (o *CreateOrUpdateAppPricingDto) SetYearPrice(v float64) {
 	o.YearPrice = &v
 }
 
-// GetYearDiscount returns the YearDiscount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetYearDiscount returns the YearDiscount field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscount() float64 {
-	if o == nil || IsNil(o.YearDiscount.Get()) {
+	if o == nil || IsNil(o.YearDiscount) {
 		var ret float64
 		return ret
 	}
-	return *o.YearDiscount.Get()
+	return *o.YearDiscount
 }
 
 // GetYearDiscountOk returns a tuple with the YearDiscount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.YearDiscount) {
 		return nil, false
 	}
-	return o.YearDiscount.Get(), o.YearDiscount.IsSet()
+	return o.YearDiscount, true
 }
 
 // HasYearDiscount returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscount() bool {
-	if o != nil && o.YearDiscount.IsSet() {
+	if o != nil && !IsNil(o.YearDiscount) {
 		return true
 	}
 
 	return false
 }
 
-// SetYearDiscount gets a reference to the given NullableFloat64 and assigns it to the YearDiscount field.
+// SetYearDiscount gets a reference to the given float64 and assigns it to the YearDiscount field.
 func (o *CreateOrUpdateAppPricingDto) SetYearDiscount(v float64) {
-	o.YearDiscount.Set(&v)
-}
-// SetYearDiscountNil sets the value for YearDiscount to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetYearDiscountNil() {
-	o.YearDiscount.Set(nil)
+	o.YearDiscount = &v
 }
 
-// UnsetYearDiscount ensures that no value is present for YearDiscount, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscount() {
-	o.YearDiscount.Unset()
-}
-
-// GetYearDiscountPrice returns the YearDiscountPrice field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetYearDiscountPrice returns the YearDiscountPrice field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountPrice() float64 {
-	if o == nil || IsNil(o.YearDiscountPrice.Get()) {
+	if o == nil || IsNil(o.YearDiscountPrice) {
 		var ret float64
 		return ret
 	}
-	return *o.YearDiscountPrice.Get()
+	return *o.YearDiscountPrice
 }
 
 // GetYearDiscountPriceOk returns a tuple with the YearDiscountPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountPriceOk() (*float64, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.YearDiscountPrice) {
 		return nil, false
 	}
-	return o.YearDiscountPrice.Get(), o.YearDiscountPrice.IsSet()
+	return o.YearDiscountPrice, true
 }
 
 // HasYearDiscountPrice returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscountPrice() bool {
-	if o != nil && o.YearDiscountPrice.IsSet() {
+	if o != nil && !IsNil(o.YearDiscountPrice) {
 		return true
 	}
 
 	return false
 }
 
-// SetYearDiscountPrice gets a reference to the given NullableFloat64 and assigns it to the YearDiscountPrice field.
+// SetYearDiscountPrice gets a reference to the given float64 and assigns it to the YearDiscountPrice field.
 func (o *CreateOrUpdateAppPricingDto) SetYearDiscountPrice(v float64) {
-	o.YearDiscountPrice.Set(&v)
-}
-// SetYearDiscountPriceNil sets the value for YearDiscountPrice to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetYearDiscountPriceNil() {
-	o.YearDiscountPrice.Set(nil)
+	o.YearDiscountPrice = &v
 }
 
-// UnsetYearDiscountPrice ensures that no value is present for YearDiscountPrice, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscountPrice() {
-	o.YearDiscountPrice.Unset()
-}
-
-// GetYearDiscountStartAt returns the YearDiscountStartAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetYearDiscountStartAt returns the YearDiscountStartAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountStartAt() time.Time {
-	if o == nil || IsNil(o.YearDiscountStartAt.Get()) {
+	if o == nil || IsNil(o.YearDiscountStartAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.YearDiscountStartAt.Get()
+	return *o.YearDiscountStartAt
 }
 
 // GetYearDiscountStartAtOk returns a tuple with the YearDiscountStartAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountStartAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.YearDiscountStartAt) {
 		return nil, false
 	}
-	return o.YearDiscountStartAt.Get(), o.YearDiscountStartAt.IsSet()
+	return o.YearDiscountStartAt, true
 }
 
 // HasYearDiscountStartAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscountStartAt() bool {
-	if o != nil && o.YearDiscountStartAt.IsSet() {
+	if o != nil && !IsNil(o.YearDiscountStartAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetYearDiscountStartAt gets a reference to the given NullableTime and assigns it to the YearDiscountStartAt field.
+// SetYearDiscountStartAt gets a reference to the given time.Time and assigns it to the YearDiscountStartAt field.
 func (o *CreateOrUpdateAppPricingDto) SetYearDiscountStartAt(v time.Time) {
-	o.YearDiscountStartAt.Set(&v)
-}
-// SetYearDiscountStartAtNil sets the value for YearDiscountStartAt to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetYearDiscountStartAtNil() {
-	o.YearDiscountStartAt.Set(nil)
+	o.YearDiscountStartAt = &v
 }
 
-// UnsetYearDiscountStartAt ensures that no value is present for YearDiscountStartAt, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscountStartAt() {
-	o.YearDiscountStartAt.Unset()
-}
-
-// GetYearDiscountEndAt returns the YearDiscountEndAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetYearDiscountEndAt returns the YearDiscountEndAt field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountEndAt() time.Time {
-	if o == nil || IsNil(o.YearDiscountEndAt.Get()) {
+	if o == nil || IsNil(o.YearDiscountEndAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.YearDiscountEndAt.Get()
+	return *o.YearDiscountEndAt
 }
 
 // GetYearDiscountEndAtOk returns a tuple with the YearDiscountEndAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetYearDiscountEndAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.YearDiscountEndAt) {
 		return nil, false
 	}
-	return o.YearDiscountEndAt.Get(), o.YearDiscountEndAt.IsSet()
+	return o.YearDiscountEndAt, true
 }
 
 // HasYearDiscountEndAt returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasYearDiscountEndAt() bool {
-	if o != nil && o.YearDiscountEndAt.IsSet() {
+	if o != nil && !IsNil(o.YearDiscountEndAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetYearDiscountEndAt gets a reference to the given NullableTime and assigns it to the YearDiscountEndAt field.
+// SetYearDiscountEndAt gets a reference to the given time.Time and assigns it to the YearDiscountEndAt field.
 func (o *CreateOrUpdateAppPricingDto) SetYearDiscountEndAt(v time.Time) {
-	o.YearDiscountEndAt.Set(&v)
-}
-// SetYearDiscountEndAtNil sets the value for YearDiscountEndAt to be an explicit nil
-func (o *CreateOrUpdateAppPricingDto) SetYearDiscountEndAtNil() {
-	o.YearDiscountEndAt.Set(nil)
-}
-
-// UnsetYearDiscountEndAt ensures that no value is present for YearDiscountEndAt, not even an explicit nil
-func (o *CreateOrUpdateAppPricingDto) UnsetYearDiscountEndAt() {
-	o.YearDiscountEndAt.Unset()
+	o.YearDiscountEndAt = &v
 }
 
 // GetSortIndex returns the SortIndex field value if set, zero value otherwise.
@@ -688,9 +568,9 @@ func (o *CreateOrUpdateAppPricingDto) SetSortIndex(v int32) {
 	o.SortIndex = &v
 }
 
-// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *CreateOrUpdateAppPricingDto) GetItems() []CreateOrUpdateAppPricingItemDto {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []CreateOrUpdateAppPricingItemDto
 		return ret
 	}
@@ -699,7 +579,6 @@ func (o *CreateOrUpdateAppPricingDto) GetItems() []CreateOrUpdateAppPricingItemD
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateOrUpdateAppPricingDto) GetItemsOk() ([]CreateOrUpdateAppPricingItemDto, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -709,7 +588,7 @@ func (o *CreateOrUpdateAppPricingDto) GetItemsOk() ([]CreateOrUpdateAppPricingIt
 
 // HasItems returns a boolean if a field has been set.
 func (o *CreateOrUpdateAppPricingDto) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -731,17 +610,17 @@ func (o CreateOrUpdateAppPricingDto) MarshalJSON() ([]byte, error) {
 
 func (o CreateOrUpdateAppPricingDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Naming.IsSet() {
-		toSerialize["naming"] = o.Naming.Get()
+	if !IsNil(o.Naming) {
+		toSerialize["naming"] = o.Naming
 	}
-	if o.MonthProductId.IsSet() {
-		toSerialize["monthProductId"] = o.MonthProductId.Get()
+	if !IsNil(o.MonthProductId) {
+		toSerialize["monthProductId"] = o.MonthProductId
 	}
-	if o.YearProductId.IsSet() {
-		toSerialize["yearProductId"] = o.YearProductId.Get()
+	if !IsNil(o.YearProductId) {
+		toSerialize["yearProductId"] = o.YearProductId
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.AppId) {
 		toSerialize["appId"] = o.AppId
@@ -749,37 +628,37 @@ func (o CreateOrUpdateAppPricingDto) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MonthPrice) {
 		toSerialize["monthPrice"] = o.MonthPrice
 	}
-	if o.MonthDiscount.IsSet() {
-		toSerialize["monthDiscount"] = o.MonthDiscount.Get()
+	if !IsNil(o.MonthDiscount) {
+		toSerialize["monthDiscount"] = o.MonthDiscount
 	}
-	if o.MonthDiscountPrice.IsSet() {
-		toSerialize["monthDiscountPrice"] = o.MonthDiscountPrice.Get()
+	if !IsNil(o.MonthDiscountPrice) {
+		toSerialize["monthDiscountPrice"] = o.MonthDiscountPrice
 	}
-	if o.MonthDiscountStartAt.IsSet() {
-		toSerialize["monthDiscountStartAt"] = o.MonthDiscountStartAt.Get()
+	if !IsNil(o.MonthDiscountStartAt) {
+		toSerialize["monthDiscountStartAt"] = o.MonthDiscountStartAt
 	}
-	if o.MonthDiscountEndAt.IsSet() {
-		toSerialize["monthDiscountEndAt"] = o.MonthDiscountEndAt.Get()
+	if !IsNil(o.MonthDiscountEndAt) {
+		toSerialize["monthDiscountEndAt"] = o.MonthDiscountEndAt
 	}
 	if !IsNil(o.YearPrice) {
 		toSerialize["yearPrice"] = o.YearPrice
 	}
-	if o.YearDiscount.IsSet() {
-		toSerialize["yearDiscount"] = o.YearDiscount.Get()
+	if !IsNil(o.YearDiscount) {
+		toSerialize["yearDiscount"] = o.YearDiscount
 	}
-	if o.YearDiscountPrice.IsSet() {
-		toSerialize["yearDiscountPrice"] = o.YearDiscountPrice.Get()
+	if !IsNil(o.YearDiscountPrice) {
+		toSerialize["yearDiscountPrice"] = o.YearDiscountPrice
 	}
-	if o.YearDiscountStartAt.IsSet() {
-		toSerialize["yearDiscountStartAt"] = o.YearDiscountStartAt.Get()
+	if !IsNil(o.YearDiscountStartAt) {
+		toSerialize["yearDiscountStartAt"] = o.YearDiscountStartAt
 	}
-	if o.YearDiscountEndAt.IsSet() {
-		toSerialize["yearDiscountEndAt"] = o.YearDiscountEndAt.Get()
+	if !IsNil(o.YearDiscountEndAt) {
+		toSerialize["yearDiscountEndAt"] = o.YearDiscountEndAt
 	}
 	if !IsNil(o.SortIndex) {
 		toSerialize["sortIndex"] = o.SortIndex
 	}
-	if o.Items != nil {
+	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
 	}
 	return toSerialize, nil

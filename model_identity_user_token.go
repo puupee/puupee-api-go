@@ -19,11 +19,11 @@ var _ MappedNullable = &IdentityUserToken{}
 
 // IdentityUserToken struct for IdentityUserToken
 type IdentityUserToken struct {
-	TenantId NullableString `json:"tenantId,omitempty"`
+	TenantId *string `json:"tenantId,omitempty"`
 	UserId *string `json:"userId,omitempty"`
-	LoginProvider NullableString `json:"loginProvider,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Value NullableString `json:"value,omitempty"`
+	LoginProvider *string `json:"loginProvider,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Value *string `json:"value,omitempty"`
 }
 
 // NewIdentityUserToken instantiates a new IdentityUserToken object
@@ -43,46 +43,36 @@ func NewIdentityUserTokenWithDefaults() *IdentityUserToken {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTenantId returns the TenantId field value if set, zero value otherwise.
 func (o *IdentityUserToken) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId.Get()) {
+	if o == nil || IsNil(o.TenantId) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId.Get()
+	return *o.TenantId
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserToken) GetTenantIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TenantId) {
 		return nil, false
 	}
-	return o.TenantId.Get(), o.TenantId.IsSet()
+	return o.TenantId, true
 }
 
 // HasTenantId returns a boolean if a field has been set.
 func (o *IdentityUserToken) HasTenantId() bool {
-	if o != nil && o.TenantId.IsSet() {
+	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *IdentityUserToken) SetTenantId(v string) {
-	o.TenantId.Set(&v)
-}
-// SetTenantIdNil sets the value for TenantId to be an explicit nil
-func (o *IdentityUserToken) SetTenantIdNil() {
-	o.TenantId.Set(nil)
-}
-
-// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
-func (o *IdentityUserToken) UnsetTenantId() {
-	o.TenantId.Unset()
+	o.TenantId = &v
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
@@ -117,130 +107,100 @@ func (o *IdentityUserToken) SetUserId(v string) {
 	o.UserId = &v
 }
 
-// GetLoginProvider returns the LoginProvider field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLoginProvider returns the LoginProvider field value if set, zero value otherwise.
 func (o *IdentityUserToken) GetLoginProvider() string {
-	if o == nil || IsNil(o.LoginProvider.Get()) {
+	if o == nil || IsNil(o.LoginProvider) {
 		var ret string
 		return ret
 	}
-	return *o.LoginProvider.Get()
+	return *o.LoginProvider
 }
 
 // GetLoginProviderOk returns a tuple with the LoginProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserToken) GetLoginProviderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LoginProvider) {
 		return nil, false
 	}
-	return o.LoginProvider.Get(), o.LoginProvider.IsSet()
+	return o.LoginProvider, true
 }
 
 // HasLoginProvider returns a boolean if a field has been set.
 func (o *IdentityUserToken) HasLoginProvider() bool {
-	if o != nil && o.LoginProvider.IsSet() {
+	if o != nil && !IsNil(o.LoginProvider) {
 		return true
 	}
 
 	return false
 }
 
-// SetLoginProvider gets a reference to the given NullableString and assigns it to the LoginProvider field.
+// SetLoginProvider gets a reference to the given string and assigns it to the LoginProvider field.
 func (o *IdentityUserToken) SetLoginProvider(v string) {
-	o.LoginProvider.Set(&v)
-}
-// SetLoginProviderNil sets the value for LoginProvider to be an explicit nil
-func (o *IdentityUserToken) SetLoginProviderNil() {
-	o.LoginProvider.Set(nil)
+	o.LoginProvider = &v
 }
 
-// UnsetLoginProvider ensures that no value is present for LoginProvider, not even an explicit nil
-func (o *IdentityUserToken) UnsetLoginProvider() {
-	o.LoginProvider.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *IdentityUserToken) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserToken) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *IdentityUserToken) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *IdentityUserToken) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *IdentityUserToken) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *IdentityUserToken) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value if set, zero value otherwise.
 func (o *IdentityUserToken) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+	return *o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserToken) GetValueOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *IdentityUserToken) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue gets a reference to the given string and assigns it to the Value field.
 func (o *IdentityUserToken) SetValue(v string) {
-	o.Value.Set(&v)
-}
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *IdentityUserToken) SetValueNil() {
-	o.Value.Set(nil)
-}
-
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *IdentityUserToken) UnsetValue() {
-	o.Value.Unset()
+	o.Value = &v
 }
 
 func (o IdentityUserToken) MarshalJSON() ([]byte, error) {
@@ -253,18 +213,12 @@ func (o IdentityUserToken) MarshalJSON() ([]byte, error) {
 
 func (o IdentityUserToken) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TenantId.IsSet() {
-		toSerialize["tenantId"] = o.TenantId.Get()
-	}
+	// skip: tenantId is readOnly
 	// skip: userId is readOnly
-	if o.LoginProvider.IsSet() {
-		toSerialize["loginProvider"] = o.LoginProvider.Get()
-	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	// skip: loginProvider is readOnly
+	// skip: name is readOnly
+	if !IsNil(o.Value) {
+		toSerialize["value"] = o.Value
 	}
 	return toSerialize, nil
 }

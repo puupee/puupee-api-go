@@ -1031,11 +1031,11 @@ type ApiApiMultiTenancyTenantsIdPutRequest struct {
 	ctx context.Context
 	ApiService *TenantApiService
 	id string
-	tenantUpdateDto *TenantUpdateDto
+	body *TenantUpdateDto
 }
 
-func (r ApiApiMultiTenancyTenantsIdPutRequest) TenantUpdateDto(tenantUpdateDto TenantUpdateDto) ApiApiMultiTenancyTenantsIdPutRequest {
-	r.tenantUpdateDto = &tenantUpdateDto
+func (r ApiApiMultiTenancyTenantsIdPutRequest) Body(body TenantUpdateDto) ApiApiMultiTenancyTenantsIdPutRequest {
+	r.body = &body
 	return r
 }
 
@@ -1098,7 +1098,7 @@ func (a *TenantApiService) ApiMultiTenancyTenantsIdPutExecute(r ApiApiMultiTenan
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tenantUpdateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1204,11 +1204,11 @@ func (a *TenantApiService) ApiMultiTenancyTenantsIdPutExecute(r ApiApiMultiTenan
 type ApiApiMultiTenancyTenantsPostRequest struct {
 	ctx context.Context
 	ApiService *TenantApiService
-	tenantCreateDto *TenantCreateDto
+	body *TenantCreateDto
 }
 
-func (r ApiApiMultiTenancyTenantsPostRequest) TenantCreateDto(tenantCreateDto TenantCreateDto) ApiApiMultiTenancyTenantsPostRequest {
-	r.tenantCreateDto = &tenantCreateDto
+func (r ApiApiMultiTenancyTenantsPostRequest) Body(body TenantCreateDto) ApiApiMultiTenancyTenantsPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -1268,7 +1268,7 @@ func (a *TenantApiService) ApiMultiTenancyTenantsPostExecute(r ApiApiMultiTenanc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tenantCreateDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -19,7 +19,7 @@ var _ MappedNullable = &WindowsTimeZone{}
 
 // WindowsTimeZone struct for WindowsTimeZone
 type WindowsTimeZone struct {
-	TimeZoneId NullableString `json:"timeZoneId,omitempty"`
+	TimeZoneId *string `json:"timeZoneId,omitempty"`
 }
 
 // NewWindowsTimeZone instantiates a new WindowsTimeZone object
@@ -39,46 +39,36 @@ func NewWindowsTimeZoneWithDefaults() *WindowsTimeZone {
 	return &this
 }
 
-// GetTimeZoneId returns the TimeZoneId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTimeZoneId returns the TimeZoneId field value if set, zero value otherwise.
 func (o *WindowsTimeZone) GetTimeZoneId() string {
-	if o == nil || IsNil(o.TimeZoneId.Get()) {
+	if o == nil || IsNil(o.TimeZoneId) {
 		var ret string
 		return ret
 	}
-	return *o.TimeZoneId.Get()
+	return *o.TimeZoneId
 }
 
 // GetTimeZoneIdOk returns a tuple with the TimeZoneId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WindowsTimeZone) GetTimeZoneIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TimeZoneId) {
 		return nil, false
 	}
-	return o.TimeZoneId.Get(), o.TimeZoneId.IsSet()
+	return o.TimeZoneId, true
 }
 
 // HasTimeZoneId returns a boolean if a field has been set.
 func (o *WindowsTimeZone) HasTimeZoneId() bool {
-	if o != nil && o.TimeZoneId.IsSet() {
+	if o != nil && !IsNil(o.TimeZoneId) {
 		return true
 	}
 
 	return false
 }
 
-// SetTimeZoneId gets a reference to the given NullableString and assigns it to the TimeZoneId field.
+// SetTimeZoneId gets a reference to the given string and assigns it to the TimeZoneId field.
 func (o *WindowsTimeZone) SetTimeZoneId(v string) {
-	o.TimeZoneId.Set(&v)
-}
-// SetTimeZoneIdNil sets the value for TimeZoneId to be an explicit nil
-func (o *WindowsTimeZone) SetTimeZoneIdNil() {
-	o.TimeZoneId.Set(nil)
-}
-
-// UnsetTimeZoneId ensures that no value is present for TimeZoneId, not even an explicit nil
-func (o *WindowsTimeZone) UnsetTimeZoneId() {
-	o.TimeZoneId.Unset()
+	o.TimeZoneId = &v
 }
 
 func (o WindowsTimeZone) MarshalJSON() ([]byte, error) {
@@ -91,8 +81,8 @@ func (o WindowsTimeZone) MarshalJSON() ([]byte, error) {
 
 func (o WindowsTimeZone) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TimeZoneId.IsSet() {
-		toSerialize["timeZoneId"] = o.TimeZoneId.Get()
+	if !IsNil(o.TimeZoneId) {
+		toSerialize["timeZoneId"] = o.TimeZoneId
 	}
 	return toSerialize, nil
 }

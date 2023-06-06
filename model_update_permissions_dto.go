@@ -39,9 +39,9 @@ func NewUpdatePermissionsDtoWithDefaults() *UpdatePermissionsDto {
 	return &this
 }
 
-// GetPermissions returns the Permissions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *UpdatePermissionsDto) GetPermissions() []UpdatePermissionDto {
-	if o == nil {
+	if o == nil || IsNil(o.Permissions) {
 		var ret []UpdatePermissionDto
 		return ret
 	}
@@ -50,7 +50,6 @@ func (o *UpdatePermissionsDto) GetPermissions() []UpdatePermissionDto {
 
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdatePermissionsDto) GetPermissionsOk() ([]UpdatePermissionDto, bool) {
 	if o == nil || IsNil(o.Permissions) {
 		return nil, false
@@ -60,7 +59,7 @@ func (o *UpdatePermissionsDto) GetPermissionsOk() ([]UpdatePermissionDto, bool) 
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *UpdatePermissionsDto) HasPermissions() bool {
-	if o != nil && IsNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -82,7 +81,7 @@ func (o UpdatePermissionsDto) MarshalJSON() ([]byte, error) {
 
 func (o UpdatePermissionsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Permissions != nil {
+	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}
 	return toSerialize, nil

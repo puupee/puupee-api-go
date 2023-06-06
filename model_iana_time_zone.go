@@ -19,7 +19,7 @@ var _ MappedNullable = &IanaTimeZone{}
 
 // IanaTimeZone struct for IanaTimeZone
 type IanaTimeZone struct {
-	TimeZoneName NullableString `json:"timeZoneName,omitempty"`
+	TimeZoneName *string `json:"timeZoneName,omitempty"`
 }
 
 // NewIanaTimeZone instantiates a new IanaTimeZone object
@@ -39,46 +39,36 @@ func NewIanaTimeZoneWithDefaults() *IanaTimeZone {
 	return &this
 }
 
-// GetTimeZoneName returns the TimeZoneName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTimeZoneName returns the TimeZoneName field value if set, zero value otherwise.
 func (o *IanaTimeZone) GetTimeZoneName() string {
-	if o == nil || IsNil(o.TimeZoneName.Get()) {
+	if o == nil || IsNil(o.TimeZoneName) {
 		var ret string
 		return ret
 	}
-	return *o.TimeZoneName.Get()
+	return *o.TimeZoneName
 }
 
 // GetTimeZoneNameOk returns a tuple with the TimeZoneName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IanaTimeZone) GetTimeZoneNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TimeZoneName) {
 		return nil, false
 	}
-	return o.TimeZoneName.Get(), o.TimeZoneName.IsSet()
+	return o.TimeZoneName, true
 }
 
 // HasTimeZoneName returns a boolean if a field has been set.
 func (o *IanaTimeZone) HasTimeZoneName() bool {
-	if o != nil && o.TimeZoneName.IsSet() {
+	if o != nil && !IsNil(o.TimeZoneName) {
 		return true
 	}
 
 	return false
 }
 
-// SetTimeZoneName gets a reference to the given NullableString and assigns it to the TimeZoneName field.
+// SetTimeZoneName gets a reference to the given string and assigns it to the TimeZoneName field.
 func (o *IanaTimeZone) SetTimeZoneName(v string) {
-	o.TimeZoneName.Set(&v)
-}
-// SetTimeZoneNameNil sets the value for TimeZoneName to be an explicit nil
-func (o *IanaTimeZone) SetTimeZoneNameNil() {
-	o.TimeZoneName.Set(nil)
-}
-
-// UnsetTimeZoneName ensures that no value is present for TimeZoneName, not even an explicit nil
-func (o *IanaTimeZone) UnsetTimeZoneName() {
-	o.TimeZoneName.Unset()
+	o.TimeZoneName = &v
 }
 
 func (o IanaTimeZone) MarshalJSON() ([]byte, error) {
@@ -91,8 +81,8 @@ func (o IanaTimeZone) MarshalJSON() ([]byte, error) {
 
 func (o IanaTimeZone) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TimeZoneName.IsSet() {
-		toSerialize["timeZoneName"] = o.TimeZoneName.Get()
+	if !IsNil(o.TimeZoneName) {
+		toSerialize["timeZoneName"] = o.TimeZoneName
 	}
 	return toSerialize, nil
 }

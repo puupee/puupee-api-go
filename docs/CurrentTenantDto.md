@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Id** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **IsAvailable** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -52,16 +52,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### SetIdNil
-
-`func (o *CurrentTenantDto) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *CurrentTenantDto) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *CurrentTenantDto) GetName() string`
@@ -87,16 +77,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *CurrentTenantDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CurrentTenantDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsAvailable
 
 `func (o *CurrentTenantDto) GetIsAvailable() bool`

@@ -19,7 +19,7 @@ var _ MappedNullable = &GetPermissionListResultDto{}
 
 // GetPermissionListResultDto struct for GetPermissionListResultDto
 type GetPermissionListResultDto struct {
-	EntityDisplayName NullableString `json:"entityDisplayName,omitempty"`
+	EntityDisplayName *string `json:"entityDisplayName,omitempty"`
 	Groups []PermissionGroupDto `json:"groups,omitempty"`
 }
 
@@ -40,51 +40,41 @@ func NewGetPermissionListResultDtoWithDefaults() *GetPermissionListResultDto {
 	return &this
 }
 
-// GetEntityDisplayName returns the EntityDisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEntityDisplayName returns the EntityDisplayName field value if set, zero value otherwise.
 func (o *GetPermissionListResultDto) GetEntityDisplayName() string {
-	if o == nil || IsNil(o.EntityDisplayName.Get()) {
+	if o == nil || IsNil(o.EntityDisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.EntityDisplayName.Get()
+	return *o.EntityDisplayName
 }
 
 // GetEntityDisplayNameOk returns a tuple with the EntityDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetPermissionListResultDto) GetEntityDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EntityDisplayName) {
 		return nil, false
 	}
-	return o.EntityDisplayName.Get(), o.EntityDisplayName.IsSet()
+	return o.EntityDisplayName, true
 }
 
 // HasEntityDisplayName returns a boolean if a field has been set.
 func (o *GetPermissionListResultDto) HasEntityDisplayName() bool {
-	if o != nil && o.EntityDisplayName.IsSet() {
+	if o != nil && !IsNil(o.EntityDisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEntityDisplayName gets a reference to the given NullableString and assigns it to the EntityDisplayName field.
+// SetEntityDisplayName gets a reference to the given string and assigns it to the EntityDisplayName field.
 func (o *GetPermissionListResultDto) SetEntityDisplayName(v string) {
-	o.EntityDisplayName.Set(&v)
-}
-// SetEntityDisplayNameNil sets the value for EntityDisplayName to be an explicit nil
-func (o *GetPermissionListResultDto) SetEntityDisplayNameNil() {
-	o.EntityDisplayName.Set(nil)
+	o.EntityDisplayName = &v
 }
 
-// UnsetEntityDisplayName ensures that no value is present for EntityDisplayName, not even an explicit nil
-func (o *GetPermissionListResultDto) UnsetEntityDisplayName() {
-	o.EntityDisplayName.Unset()
-}
-
-// GetGroups returns the Groups field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *GetPermissionListResultDto) GetGroups() []PermissionGroupDto {
-	if o == nil {
+	if o == nil || IsNil(o.Groups) {
 		var ret []PermissionGroupDto
 		return ret
 	}
@@ -93,7 +83,6 @@ func (o *GetPermissionListResultDto) GetGroups() []PermissionGroupDto {
 
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetPermissionListResultDto) GetGroupsOk() ([]PermissionGroupDto, bool) {
 	if o == nil || IsNil(o.Groups) {
 		return nil, false
@@ -103,7 +92,7 @@ func (o *GetPermissionListResultDto) GetGroupsOk() ([]PermissionGroupDto, bool) 
 
 // HasGroups returns a boolean if a field has been set.
 func (o *GetPermissionListResultDto) HasGroups() bool {
-	if o != nil && IsNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -125,10 +114,10 @@ func (o GetPermissionListResultDto) MarshalJSON() ([]byte, error) {
 
 func (o GetPermissionListResultDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.EntityDisplayName.IsSet() {
-		toSerialize["entityDisplayName"] = o.EntityDisplayName.Get()
+	if !IsNil(o.EntityDisplayName) {
+		toSerialize["entityDisplayName"] = o.EntityDisplayName
 	}
-	if o.Groups != nil {
+	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
 	return toSerialize, nil

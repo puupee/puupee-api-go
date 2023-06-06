@@ -7,6 +7,7 @@ api_abp_application_configuration.go
 api_abp_application_localization.go
 api_abp_tenant.go
 api_account.go
+api_api_keys.go
 api_app.go
 api_app_feature.go
 api_app_pricing.go
@@ -52,6 +53,11 @@ docs/AbpLoginResult.md
 docs/AbpTenantApi.md
 docs/AccountApi.md
 docs/ActionApiDescriptionModel.md
+docs/ApiKeyCreateDto.md
+docs/ApiKeyDto.md
+docs/ApiKeyDtoPagedResultDto.md
+docs/ApiKeyUpdateDto.md
+docs/ApiKeysApi.md
 docs/AppApi.md
 docs/AppDto.md
 docs/AppDtoPagedResultDto.md
@@ -283,6 +289,10 @@ go.mod
 go.sum
 model_abp_login_result.go
 model_action_api_description_model.go
+model_api_key_create_dto.go
+model_api_key_dto.go
+model_api_key_dto_paged_result_dto.go
+model_api_key_update_dto.go
 model_app_dto.go
 model_app_dto_paged_result_dto.go
 model_app_feature_dto.go
@@ -479,6 +489,7 @@ test/api_abp_application_configuration_test.go
 test/api_abp_application_localization_test.go
 test/api_abp_tenant_test.go
 test/api_account_test.go
+test/api_api_keys_test.go
 test/api_app_feature_test.go
 test/api_app_pricing_item_test.go
 test/api_app_pricing_test.go

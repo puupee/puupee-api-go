@@ -19,7 +19,7 @@ var _ MappedNullable = &RemoteServiceValidationErrorInfo{}
 
 // RemoteServiceValidationErrorInfo struct for RemoteServiceValidationErrorInfo
 type RemoteServiceValidationErrorInfo struct {
-	Message NullableString `json:"message,omitempty"`
+	Message *string `json:"message,omitempty"`
 	Members []string `json:"members,omitempty"`
 }
 
@@ -40,51 +40,41 @@ func NewRemoteServiceValidationErrorInfoWithDefaults() *RemoteServiceValidationE
 	return &this
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMessage returns the Message field value if set, zero value otherwise.
 func (o *RemoteServiceValidationErrorInfo) GetMessage() string {
-	if o == nil || IsNil(o.Message.Get()) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
-	return *o.Message.Get()
+	return *o.Message
 }
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteServiceValidationErrorInfo) GetMessageOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
-	return o.Message.Get(), o.Message.IsSet()
+	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *RemoteServiceValidationErrorInfo) HasMessage() bool {
-	if o != nil && o.Message.IsSet() {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
+// SetMessage gets a reference to the given string and assigns it to the Message field.
 func (o *RemoteServiceValidationErrorInfo) SetMessage(v string) {
-	o.Message.Set(&v)
-}
-// SetMessageNil sets the value for Message to be an explicit nil
-func (o *RemoteServiceValidationErrorInfo) SetMessageNil() {
-	o.Message.Set(nil)
+	o.Message = &v
 }
 
-// UnsetMessage ensures that no value is present for Message, not even an explicit nil
-func (o *RemoteServiceValidationErrorInfo) UnsetMessage() {
-	o.Message.Unset()
-}
-
-// GetMembers returns the Members field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMembers returns the Members field value if set, zero value otherwise.
 func (o *RemoteServiceValidationErrorInfo) GetMembers() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Members) {
 		var ret []string
 		return ret
 	}
@@ -93,7 +83,6 @@ func (o *RemoteServiceValidationErrorInfo) GetMembers() []string {
 
 // GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteServiceValidationErrorInfo) GetMembersOk() ([]string, bool) {
 	if o == nil || IsNil(o.Members) {
 		return nil, false
@@ -103,7 +92,7 @@ func (o *RemoteServiceValidationErrorInfo) GetMembersOk() ([]string, bool) {
 
 // HasMembers returns a boolean if a field has been set.
 func (o *RemoteServiceValidationErrorInfo) HasMembers() bool {
-	if o != nil && IsNil(o.Members) {
+	if o != nil && !IsNil(o.Members) {
 		return true
 	}
 
@@ -125,10 +114,10 @@ func (o RemoteServiceValidationErrorInfo) MarshalJSON() ([]byte, error) {
 
 func (o RemoteServiceValidationErrorInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Message.IsSet() {
-		toSerialize["message"] = o.Message.Get()
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
 	}
-	if o.Members != nil {
+	if !IsNil(o.Members) {
 		toSerialize["members"] = o.Members
 	}
 	return toSerialize, nil

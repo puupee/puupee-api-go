@@ -25,11 +25,11 @@ type AccountApiService service
 type ApiApiAccountRegisterPostRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	registerDto *RegisterDto
+	body *RegisterDto
 }
 
-func (r ApiApiAccountRegisterPostRequest) RegisterDto(registerDto RegisterDto) ApiApiAccountRegisterPostRequest {
-	r.registerDto = &registerDto
+func (r ApiApiAccountRegisterPostRequest) Body(body RegisterDto) ApiApiAccountRegisterPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -89,7 +89,7 @@ func (a *AccountApiService) ApiAccountRegisterPostExecute(r ApiApiAccountRegiste
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.registerDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -195,11 +195,11 @@ func (a *AccountApiService) ApiAccountRegisterPostExecute(r ApiApiAccountRegiste
 type ApiApiAccountResetPasswordPostRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	resetPasswordDto *ResetPasswordDto
+	body *ResetPasswordDto
 }
 
-func (r ApiApiAccountResetPasswordPostRequest) ResetPasswordDto(resetPasswordDto ResetPasswordDto) ApiApiAccountResetPasswordPostRequest {
-	r.resetPasswordDto = &resetPasswordDto
+func (r ApiApiAccountResetPasswordPostRequest) Body(body ResetPasswordDto) ApiApiAccountResetPasswordPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -257,7 +257,7 @@ func (a *AccountApiService) ApiAccountResetPasswordPostExecute(r ApiApiAccountRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.resetPasswordDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -354,11 +354,11 @@ func (a *AccountApiService) ApiAccountResetPasswordPostExecute(r ApiApiAccountRe
 type ApiApiAccountSendPasswordResetCodePostRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	sendPasswordResetCodeDto *SendPasswordResetCodeDto
+	body *SendPasswordResetCodeDto
 }
 
-func (r ApiApiAccountSendPasswordResetCodePostRequest) SendPasswordResetCodeDto(sendPasswordResetCodeDto SendPasswordResetCodeDto) ApiApiAccountSendPasswordResetCodePostRequest {
-	r.sendPasswordResetCodeDto = &sendPasswordResetCodeDto
+func (r ApiApiAccountSendPasswordResetCodePostRequest) Body(body SendPasswordResetCodeDto) ApiApiAccountSendPasswordResetCodePostRequest {
+	r.body = &body
 	return r
 }
 
@@ -416,7 +416,7 @@ func (a *AccountApiService) ApiAccountSendPasswordResetCodePostExecute(r ApiApiA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sendPasswordResetCodeDto
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -513,11 +513,11 @@ func (a *AccountApiService) ApiAccountSendPasswordResetCodePostExecute(r ApiApiA
 type ApiApiAccountVerifyPasswordResetTokenPostRequest struct {
 	ctx context.Context
 	ApiService *AccountApiService
-	verifyPasswordResetTokenInput *VerifyPasswordResetTokenInput
+	body *VerifyPasswordResetTokenInput
 }
 
-func (r ApiApiAccountVerifyPasswordResetTokenPostRequest) VerifyPasswordResetTokenInput(verifyPasswordResetTokenInput VerifyPasswordResetTokenInput) ApiApiAccountVerifyPasswordResetTokenPostRequest {
-	r.verifyPasswordResetTokenInput = &verifyPasswordResetTokenInput
+func (r ApiApiAccountVerifyPasswordResetTokenPostRequest) Body(body VerifyPasswordResetTokenInput) ApiApiAccountVerifyPasswordResetTokenPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -577,7 +577,7 @@ func (a *AccountApiService) ApiAccountVerifyPasswordResetTokenPostExecute(r ApiA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.verifyPasswordResetTokenInput
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

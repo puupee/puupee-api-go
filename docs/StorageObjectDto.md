@@ -6,26 +6,26 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **CreationTime** | Pointer to **time.Time** |  | [optional] 
-**CreatorId** | Pointer to **NullableString** |  | [optional] 
-**LastModificationTime** | Pointer to **NullableTime** |  | [optional] 
-**LastModifierId** | Pointer to **NullableString** |  | [optional] 
+**CreatorId** | Pointer to **string** |  | [optional] 
+**LastModificationTime** | Pointer to **time.Time** |  | [optional] 
+**LastModifierId** | Pointer to **string** |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
-**DeleterId** | Pointer to **NullableString** |  | [optional] 
-**DeletionTime** | Pointer to **NullableTime** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Key** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**DeleterId** | Pointer to **string** |  | [optional] 
+**DeletionTime** | Pointer to **time.Time** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Key** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
-**Md5** | Pointer to **NullableString** |  | [optional] 
-**SliceMd5** | Pointer to **NullableString** |  | [optional] 
-**RapidCode** | Pointer to **NullableString** |  | [optional] 
-**ContentType** | Pointer to **NullableString** |  | [optional] 
-**Extension** | Pointer to **NullableString** |  | [optional] 
-**StorageClass** | Pointer to **NullableString** |  | [optional] 
-**StorageObjectCreatedAt** | Pointer to **NullableTime** |  | [optional] 
-**StorageObjectUpdatedAt** | Pointer to **NullableTime** |  | [optional] 
+**Md5** | Pointer to **string** |  | [optional] 
+**SliceMd5** | Pointer to **string** |  | [optional] 
+**RapidCode** | Pointer to **string** |  | [optional] 
+**ContentType** | Pointer to **string** |  | [optional] 
+**Extension** | Pointer to **string** |  | [optional] 
+**StorageClass** | Pointer to **string** |  | [optional] 
+**StorageObjectCreatedAt** | Pointer to **time.Time** |  | [optional] 
+**StorageObjectUpdatedAt** | Pointer to **time.Time** |  | [optional] 
 **SyncVersion** | Pointer to **int64** |  | [optional] 
-**Password** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -121,16 +121,6 @@ SetCreatorId sets CreatorId field to given value.
 
 HasCreatorId returns a boolean if a field has been set.
 
-### SetCreatorIdNil
-
-`func (o *StorageObjectDto) SetCreatorIdNil(b bool)`
-
- SetCreatorIdNil sets the value for CreatorId to be an explicit nil
-
-### UnsetCreatorId
-`func (o *StorageObjectDto) UnsetCreatorId()`
-
-UnsetCreatorId ensures that no value is present for CreatorId, not even an explicit nil
 ### GetLastModificationTime
 
 `func (o *StorageObjectDto) GetLastModificationTime() time.Time`
@@ -156,16 +146,6 @@ SetLastModificationTime sets LastModificationTime field to given value.
 
 HasLastModificationTime returns a boolean if a field has been set.
 
-### SetLastModificationTimeNil
-
-`func (o *StorageObjectDto) SetLastModificationTimeNil(b bool)`
-
- SetLastModificationTimeNil sets the value for LastModificationTime to be an explicit nil
-
-### UnsetLastModificationTime
-`func (o *StorageObjectDto) UnsetLastModificationTime()`
-
-UnsetLastModificationTime ensures that no value is present for LastModificationTime, not even an explicit nil
 ### GetLastModifierId
 
 `func (o *StorageObjectDto) GetLastModifierId() string`
@@ -191,16 +171,6 @@ SetLastModifierId sets LastModifierId field to given value.
 
 HasLastModifierId returns a boolean if a field has been set.
 
-### SetLastModifierIdNil
-
-`func (o *StorageObjectDto) SetLastModifierIdNil(b bool)`
-
- SetLastModifierIdNil sets the value for LastModifierId to be an explicit nil
-
-### UnsetLastModifierId
-`func (o *StorageObjectDto) UnsetLastModifierId()`
-
-UnsetLastModifierId ensures that no value is present for LastModifierId, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *StorageObjectDto) GetIsDeleted() bool`
@@ -251,16 +221,6 @@ SetDeleterId sets DeleterId field to given value.
 
 HasDeleterId returns a boolean if a field has been set.
 
-### SetDeleterIdNil
-
-`func (o *StorageObjectDto) SetDeleterIdNil(b bool)`
-
- SetDeleterIdNil sets the value for DeleterId to be an explicit nil
-
-### UnsetDeleterId
-`func (o *StorageObjectDto) UnsetDeleterId()`
-
-UnsetDeleterId ensures that no value is present for DeleterId, not even an explicit nil
 ### GetDeletionTime
 
 `func (o *StorageObjectDto) GetDeletionTime() time.Time`
@@ -286,16 +246,6 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
-### SetDeletionTimeNil
-
-`func (o *StorageObjectDto) SetDeletionTimeNil(b bool)`
-
- SetDeletionTimeNil sets the value for DeletionTime to be an explicit nil
-
-### UnsetDeletionTime
-`func (o *StorageObjectDto) UnsetDeletionTime()`
-
-UnsetDeletionTime ensures that no value is present for DeletionTime, not even an explicit nil
 ### GetName
 
 `func (o *StorageObjectDto) GetName() string`
@@ -321,16 +271,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *StorageObjectDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *StorageObjectDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetKey
 
 `func (o *StorageObjectDto) GetKey() string`
@@ -356,16 +296,6 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
-### SetKeyNil
-
-`func (o *StorageObjectDto) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *StorageObjectDto) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetUrl
 
 `func (o *StorageObjectDto) GetUrl() string`
@@ -391,16 +321,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *StorageObjectDto) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *StorageObjectDto) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetSize
 
 `func (o *StorageObjectDto) GetSize() int64`
@@ -451,16 +371,6 @@ SetMd5 sets Md5 field to given value.
 
 HasMd5 returns a boolean if a field has been set.
 
-### SetMd5Nil
-
-`func (o *StorageObjectDto) SetMd5Nil(b bool)`
-
- SetMd5Nil sets the value for Md5 to be an explicit nil
-
-### UnsetMd5
-`func (o *StorageObjectDto) UnsetMd5()`
-
-UnsetMd5 ensures that no value is present for Md5, not even an explicit nil
 ### GetSliceMd5
 
 `func (o *StorageObjectDto) GetSliceMd5() string`
@@ -486,16 +396,6 @@ SetSliceMd5 sets SliceMd5 field to given value.
 
 HasSliceMd5 returns a boolean if a field has been set.
 
-### SetSliceMd5Nil
-
-`func (o *StorageObjectDto) SetSliceMd5Nil(b bool)`
-
- SetSliceMd5Nil sets the value for SliceMd5 to be an explicit nil
-
-### UnsetSliceMd5
-`func (o *StorageObjectDto) UnsetSliceMd5()`
-
-UnsetSliceMd5 ensures that no value is present for SliceMd5, not even an explicit nil
 ### GetRapidCode
 
 `func (o *StorageObjectDto) GetRapidCode() string`
@@ -521,16 +421,6 @@ SetRapidCode sets RapidCode field to given value.
 
 HasRapidCode returns a boolean if a field has been set.
 
-### SetRapidCodeNil
-
-`func (o *StorageObjectDto) SetRapidCodeNil(b bool)`
-
- SetRapidCodeNil sets the value for RapidCode to be an explicit nil
-
-### UnsetRapidCode
-`func (o *StorageObjectDto) UnsetRapidCode()`
-
-UnsetRapidCode ensures that no value is present for RapidCode, not even an explicit nil
 ### GetContentType
 
 `func (o *StorageObjectDto) GetContentType() string`
@@ -556,16 +446,6 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
-### SetContentTypeNil
-
-`func (o *StorageObjectDto) SetContentTypeNil(b bool)`
-
- SetContentTypeNil sets the value for ContentType to be an explicit nil
-
-### UnsetContentType
-`func (o *StorageObjectDto) UnsetContentType()`
-
-UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetExtension
 
 `func (o *StorageObjectDto) GetExtension() string`
@@ -591,16 +471,6 @@ SetExtension sets Extension field to given value.
 
 HasExtension returns a boolean if a field has been set.
 
-### SetExtensionNil
-
-`func (o *StorageObjectDto) SetExtensionNil(b bool)`
-
- SetExtensionNil sets the value for Extension to be an explicit nil
-
-### UnsetExtension
-`func (o *StorageObjectDto) UnsetExtension()`
-
-UnsetExtension ensures that no value is present for Extension, not even an explicit nil
 ### GetStorageClass
 
 `func (o *StorageObjectDto) GetStorageClass() string`
@@ -626,16 +496,6 @@ SetStorageClass sets StorageClass field to given value.
 
 HasStorageClass returns a boolean if a field has been set.
 
-### SetStorageClassNil
-
-`func (o *StorageObjectDto) SetStorageClassNil(b bool)`
-
- SetStorageClassNil sets the value for StorageClass to be an explicit nil
-
-### UnsetStorageClass
-`func (o *StorageObjectDto) UnsetStorageClass()`
-
-UnsetStorageClass ensures that no value is present for StorageClass, not even an explicit nil
 ### GetStorageObjectCreatedAt
 
 `func (o *StorageObjectDto) GetStorageObjectCreatedAt() time.Time`
@@ -661,16 +521,6 @@ SetStorageObjectCreatedAt sets StorageObjectCreatedAt field to given value.
 
 HasStorageObjectCreatedAt returns a boolean if a field has been set.
 
-### SetStorageObjectCreatedAtNil
-
-`func (o *StorageObjectDto) SetStorageObjectCreatedAtNil(b bool)`
-
- SetStorageObjectCreatedAtNil sets the value for StorageObjectCreatedAt to be an explicit nil
-
-### UnsetStorageObjectCreatedAt
-`func (o *StorageObjectDto) UnsetStorageObjectCreatedAt()`
-
-UnsetStorageObjectCreatedAt ensures that no value is present for StorageObjectCreatedAt, not even an explicit nil
 ### GetStorageObjectUpdatedAt
 
 `func (o *StorageObjectDto) GetStorageObjectUpdatedAt() time.Time`
@@ -696,16 +546,6 @@ SetStorageObjectUpdatedAt sets StorageObjectUpdatedAt field to given value.
 
 HasStorageObjectUpdatedAt returns a boolean if a field has been set.
 
-### SetStorageObjectUpdatedAtNil
-
-`func (o *StorageObjectDto) SetStorageObjectUpdatedAtNil(b bool)`
-
- SetStorageObjectUpdatedAtNil sets the value for StorageObjectUpdatedAt to be an explicit nil
-
-### UnsetStorageObjectUpdatedAt
-`func (o *StorageObjectDto) UnsetStorageObjectUpdatedAt()`
-
-UnsetStorageObjectUpdatedAt ensures that no value is present for StorageObjectUpdatedAt, not even an explicit nil
 ### GetSyncVersion
 
 `func (o *StorageObjectDto) GetSyncVersion() int64`
@@ -756,16 +596,6 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
-### SetPasswordNil
-
-`func (o *StorageObjectDto) SetPasswordNil(b bool)`
-
- SetPasswordNil sets the value for Password to be an explicit nil
-
-### UnsetPassword
-`func (o *StorageObjectDto) UnsetPassword()`
-
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

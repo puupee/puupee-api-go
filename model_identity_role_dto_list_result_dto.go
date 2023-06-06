@@ -39,9 +39,9 @@ func NewIdentityRoleDtoListResultDtoWithDefaults() *IdentityRoleDtoListResultDto
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *IdentityRoleDtoListResultDto) GetItems() []IdentityRoleDto {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []IdentityRoleDto
 		return ret
 	}
@@ -50,7 +50,6 @@ func (o *IdentityRoleDtoListResultDto) GetItems() []IdentityRoleDto {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityRoleDtoListResultDto) GetItemsOk() ([]IdentityRoleDto, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -60,7 +59,7 @@ func (o *IdentityRoleDtoListResultDto) GetItemsOk() ([]IdentityRoleDto, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *IdentityRoleDtoListResultDto) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -82,7 +81,7 @@ func (o IdentityRoleDtoListResultDto) MarshalJSON() ([]byte, error) {
 
 func (o IdentityRoleDtoListResultDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
+	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
 	}
 	return toSerialize, nil

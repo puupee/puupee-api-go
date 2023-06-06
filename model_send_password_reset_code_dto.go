@@ -21,8 +21,8 @@ var _ MappedNullable = &SendPasswordResetCodeDto{}
 type SendPasswordResetCodeDto struct {
 	Email string `json:"email"`
 	AppName string `json:"appName"`
-	ReturnUrl NullableString `json:"returnUrl,omitempty"`
-	ReturnUrlHash NullableString `json:"returnUrlHash,omitempty"`
+	ReturnUrl *string `json:"returnUrl,omitempty"`
+	ReturnUrlHash *string `json:"returnUrlHash,omitempty"`
 }
 
 // NewSendPasswordResetCodeDto instantiates a new SendPasswordResetCodeDto object
@@ -92,88 +92,68 @@ func (o *SendPasswordResetCodeDto) SetAppName(v string) {
 	o.AppName = v
 }
 
-// GetReturnUrl returns the ReturnUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReturnUrl returns the ReturnUrl field value if set, zero value otherwise.
 func (o *SendPasswordResetCodeDto) GetReturnUrl() string {
-	if o == nil || IsNil(o.ReturnUrl.Get()) {
+	if o == nil || IsNil(o.ReturnUrl) {
 		var ret string
 		return ret
 	}
-	return *o.ReturnUrl.Get()
+	return *o.ReturnUrl
 }
 
 // GetReturnUrlOk returns a tuple with the ReturnUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SendPasswordResetCodeDto) GetReturnUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReturnUrl) {
 		return nil, false
 	}
-	return o.ReturnUrl.Get(), o.ReturnUrl.IsSet()
+	return o.ReturnUrl, true
 }
 
 // HasReturnUrl returns a boolean if a field has been set.
 func (o *SendPasswordResetCodeDto) HasReturnUrl() bool {
-	if o != nil && o.ReturnUrl.IsSet() {
+	if o != nil && !IsNil(o.ReturnUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetReturnUrl gets a reference to the given NullableString and assigns it to the ReturnUrl field.
+// SetReturnUrl gets a reference to the given string and assigns it to the ReturnUrl field.
 func (o *SendPasswordResetCodeDto) SetReturnUrl(v string) {
-	o.ReturnUrl.Set(&v)
-}
-// SetReturnUrlNil sets the value for ReturnUrl to be an explicit nil
-func (o *SendPasswordResetCodeDto) SetReturnUrlNil() {
-	o.ReturnUrl.Set(nil)
+	o.ReturnUrl = &v
 }
 
-// UnsetReturnUrl ensures that no value is present for ReturnUrl, not even an explicit nil
-func (o *SendPasswordResetCodeDto) UnsetReturnUrl() {
-	o.ReturnUrl.Unset()
-}
-
-// GetReturnUrlHash returns the ReturnUrlHash field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReturnUrlHash returns the ReturnUrlHash field value if set, zero value otherwise.
 func (o *SendPasswordResetCodeDto) GetReturnUrlHash() string {
-	if o == nil || IsNil(o.ReturnUrlHash.Get()) {
+	if o == nil || IsNil(o.ReturnUrlHash) {
 		var ret string
 		return ret
 	}
-	return *o.ReturnUrlHash.Get()
+	return *o.ReturnUrlHash
 }
 
 // GetReturnUrlHashOk returns a tuple with the ReturnUrlHash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SendPasswordResetCodeDto) GetReturnUrlHashOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ReturnUrlHash) {
 		return nil, false
 	}
-	return o.ReturnUrlHash.Get(), o.ReturnUrlHash.IsSet()
+	return o.ReturnUrlHash, true
 }
 
 // HasReturnUrlHash returns a boolean if a field has been set.
 func (o *SendPasswordResetCodeDto) HasReturnUrlHash() bool {
-	if o != nil && o.ReturnUrlHash.IsSet() {
+	if o != nil && !IsNil(o.ReturnUrlHash) {
 		return true
 	}
 
 	return false
 }
 
-// SetReturnUrlHash gets a reference to the given NullableString and assigns it to the ReturnUrlHash field.
+// SetReturnUrlHash gets a reference to the given string and assigns it to the ReturnUrlHash field.
 func (o *SendPasswordResetCodeDto) SetReturnUrlHash(v string) {
-	o.ReturnUrlHash.Set(&v)
-}
-// SetReturnUrlHashNil sets the value for ReturnUrlHash to be an explicit nil
-func (o *SendPasswordResetCodeDto) SetReturnUrlHashNil() {
-	o.ReturnUrlHash.Set(nil)
-}
-
-// UnsetReturnUrlHash ensures that no value is present for ReturnUrlHash, not even an explicit nil
-func (o *SendPasswordResetCodeDto) UnsetReturnUrlHash() {
-	o.ReturnUrlHash.Unset()
+	o.ReturnUrlHash = &v
 }
 
 func (o SendPasswordResetCodeDto) MarshalJSON() ([]byte, error) {
@@ -188,11 +168,11 @@ func (o SendPasswordResetCodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["email"] = o.Email
 	toSerialize["appName"] = o.AppName
-	if o.ReturnUrl.IsSet() {
-		toSerialize["returnUrl"] = o.ReturnUrl.Get()
+	if !IsNil(o.ReturnUrl) {
+		toSerialize["returnUrl"] = o.ReturnUrl
 	}
-	if o.ReturnUrlHash.IsSet() {
-		toSerialize["returnUrlHash"] = o.ReturnUrlHash.Get()
+	if !IsNil(o.ReturnUrlHash) {
+		toSerialize["returnUrlHash"] = o.ReturnUrlHash
 	}
 	return toSerialize, nil
 }

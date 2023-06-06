@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Path** | Pointer to **NullableString** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Path** | Pointer to **string** |  | [optional] 
 **SourceId** | Pointer to **string** |  | [optional] 
-**Extra** | Pointer to **NullableString** |  | [optional] 
+**Extra** | Pointer to **string** |  | [optional] 
 **Anticrawler** | Pointer to **bool** |  | [optional] 
 **Radar** | Pointer to **bool** |  | [optional] 
 **Rssbud** | Pointer to **bool** |  | [optional] 
 **IsPublished** | Pointer to **bool** |  | [optional] 
-**IconUrl** | Pointer to **NullableString** |  | [optional] 
+**IconUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -59,16 +59,6 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
-### SetTitleNil
-
-`func (o *MessageSourceRouteDto) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *MessageSourceRouteDto) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetDescription
 
 `func (o *MessageSourceRouteDto) GetDescription() string`
@@ -94,16 +84,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *MessageSourceRouteDto) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *MessageSourceRouteDto) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetPath
 
 `func (o *MessageSourceRouteDto) GetPath() string`
@@ -129,16 +109,6 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
-### SetPathNil
-
-`func (o *MessageSourceRouteDto) SetPathNil(b bool)`
-
- SetPathNil sets the value for Path to be an explicit nil
-
-### UnsetPath
-`func (o *MessageSourceRouteDto) UnsetPath()`
-
-UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetSourceId
 
 `func (o *MessageSourceRouteDto) GetSourceId() string`
@@ -189,16 +159,6 @@ SetExtra sets Extra field to given value.
 
 HasExtra returns a boolean if a field has been set.
 
-### SetExtraNil
-
-`func (o *MessageSourceRouteDto) SetExtraNil(b bool)`
-
- SetExtraNil sets the value for Extra to be an explicit nil
-
-### UnsetExtra
-`func (o *MessageSourceRouteDto) UnsetExtra()`
-
-UnsetExtra ensures that no value is present for Extra, not even an explicit nil
 ### GetAnticrawler
 
 `func (o *MessageSourceRouteDto) GetAnticrawler() bool`
@@ -324,16 +284,6 @@ SetIconUrl sets IconUrl field to given value.
 
 HasIconUrl returns a boolean if a field has been set.
 
-### SetIconUrlNil
-
-`func (o *MessageSourceRouteDto) SetIconUrlNil(b bool)`
-
- SetIconUrlNil sets the value for IconUrl to be an explicit nil
-
-### UnsetIconUrl
-`func (o *MessageSourceRouteDto) UnsetIconUrl()`
-
-UnsetIconUrl ensures that no value is present for IconUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

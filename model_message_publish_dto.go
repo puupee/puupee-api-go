@@ -19,11 +19,11 @@ var _ MappedNullable = &MessagePublishDto{}
 
 // MessagePublishDto struct for MessagePublishDto
 type MessagePublishDto struct {
-	Title NullableString `json:"title,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Title *string `json:"title,omitempty"`
+	Description *string `json:"description,omitempty"`
 	AppId *string `json:"appId,omitempty"`
-	Template NullableString `json:"template,omitempty"`
-	Data map[string]interface{} `json:"data,omitempty"`
+	Template *string `json:"template,omitempty"`
+	Data map[string]map[string]interface{} `json:"data,omitempty"`
 }
 
 // NewMessagePublishDto instantiates a new MessagePublishDto object
@@ -43,88 +43,68 @@ func NewMessagePublishDtoWithDefaults() *MessagePublishDto {
 	return &this
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+	return *o.Title
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessagePublishDto) GetTitleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Title) {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle gets a reference to the given string and assigns it to the Title field.
 func (o *MessagePublishDto) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *MessagePublishDto) SetTitleNil() {
-	o.Title.Set(nil)
+	o.Title = &v
 }
 
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *MessagePublishDto) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessagePublishDto) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *MessagePublishDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *MessagePublishDto) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *MessagePublishDto) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
@@ -159,52 +139,42 @@ func (o *MessagePublishDto) SetAppId(v string) {
 	o.AppId = &v
 }
 
-// GetTemplate returns the Template field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTemplate returns the Template field value if set, zero value otherwise.
 func (o *MessagePublishDto) GetTemplate() string {
-	if o == nil || IsNil(o.Template.Get()) {
+	if o == nil || IsNil(o.Template) {
 		var ret string
 		return ret
 	}
-	return *o.Template.Get()
+	return *o.Template
 }
 
 // GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MessagePublishDto) GetTemplateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Template) {
 		return nil, false
 	}
-	return o.Template.Get(), o.Template.IsSet()
+	return o.Template, true
 }
 
 // HasTemplate returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasTemplate() bool {
-	if o != nil && o.Template.IsSet() {
+	if o != nil && !IsNil(o.Template) {
 		return true
 	}
 
 	return false
 }
 
-// SetTemplate gets a reference to the given NullableString and assigns it to the Template field.
+// SetTemplate gets a reference to the given string and assigns it to the Template field.
 func (o *MessagePublishDto) SetTemplate(v string) {
-	o.Template.Set(&v)
-}
-// SetTemplateNil sets the value for Template to be an explicit nil
-func (o *MessagePublishDto) SetTemplateNil() {
-	o.Template.Set(nil)
+	o.Template = &v
 }
 
-// UnsetTemplate ensures that no value is present for Template, not even an explicit nil
-func (o *MessagePublishDto) UnsetTemplate() {
-	o.Template.Unset()
-}
-
-// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MessagePublishDto) GetData() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
+// GetData returns the Data field value if set, zero value otherwise.
+func (o *MessagePublishDto) GetData() map[string]map[string]interface{} {
+	if o == nil || IsNil(o.Data) {
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return o.Data
@@ -212,25 +182,24 @@ func (o *MessagePublishDto) GetData() map[string]interface{} {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MessagePublishDto) GetDataOk() (map[string]interface{}, bool) {
+func (o *MessagePublishDto) GetDataOk() (map[string]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Data) {
-		return map[string]interface{}{}, false
+		return map[string]map[string]interface{}{}, false
 	}
 	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *MessagePublishDto) HasData() bool {
-	if o != nil && IsNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given map[string]interface{} and assigns it to the Data field.
-func (o *MessagePublishDto) SetData(v map[string]interface{}) {
+// SetData gets a reference to the given map[string]map[string]interface{} and assigns it to the Data field.
+func (o *MessagePublishDto) SetData(v map[string]map[string]interface{}) {
 	o.Data = v
 }
 
@@ -244,19 +213,19 @@ func (o MessagePublishDto) MarshalJSON() ([]byte, error) {
 
 func (o MessagePublishDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	if !IsNil(o.AppId) {
 		toSerialize["appId"] = o.AppId
 	}
-	if o.Template.IsSet() {
-		toSerialize["template"] = o.Template.Get()
+	if !IsNil(o.Template) {
+		toSerialize["template"] = o.Template
 	}
-	if o.Data != nil {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 	return toSerialize, nil

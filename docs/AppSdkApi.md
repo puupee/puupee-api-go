@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppSdkIdPut
 
-> AppSdkDto ApiAppAppSdkIdPut(ctx, id).CreateOrUpdateAppSdkDto(createOrUpdateAppSdkDto).Execute()
+> AppSdkDto ApiAppAppSdkIdPut(ctx, id).Body(body).Execute()
 
 
 
@@ -156,11 +156,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    createOrUpdateAppSdkDto := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkIdPut(context.Background(), id).CreateOrUpdateAppSdkDto(createOrUpdateAppSdkDto).Execute()
+    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkIdPut(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.ApiAppAppSdkIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,7 +186,7 @@ Other parameters are passed through a pointer to a apiApiAppAppSdkIdPutRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createOrUpdateAppSdkDto** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
+ **body** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
 
 ### Return type
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## ApiAppAppSdkPost
 
-> AppSdkDto ApiAppAppSdkPost(ctx).CreateOrUpdateAppSdkDto(createOrUpdateAppSdkDto).Execute()
+> AppSdkDto ApiAppAppSdkPost(ctx).Body(body).Execute()
 
 
 
@@ -225,11 +225,11 @@ import (
 )
 
 func main() {
-    createOrUpdateAppSdkDto := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkPost(context.Background()).CreateOrUpdateAppSdkDto(createOrUpdateAppSdkDto).Execute()
+    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkPost(context.Background()).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.ApiAppAppSdkPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -250,7 +250,7 @@ Other parameters are passed through a pointer to a apiApiAppAppSdkPostRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createOrUpdateAppSdkDto** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
+ **body** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
 
 ### Return type
 

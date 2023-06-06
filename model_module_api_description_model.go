@@ -19,9 +19,9 @@ var _ MappedNullable = &ModuleApiDescriptionModel{}
 
 // ModuleApiDescriptionModel struct for ModuleApiDescriptionModel
 type ModuleApiDescriptionModel struct {
-	RootPath NullableString `json:"rootPath,omitempty"`
-	RemoteServiceName NullableString `json:"remoteServiceName,omitempty"`
-	Controllers map[string]ControllerApiDescriptionModel `json:"controllers,omitempty"`
+	RootPath *string `json:"rootPath,omitempty"`
+	RemoteServiceName *string `json:"remoteServiceName,omitempty"`
+	Controllers *map[string]ControllerApiDescriptionModel `json:"controllers,omitempty"`
 }
 
 // NewModuleApiDescriptionModel instantiates a new ModuleApiDescriptionModel object
@@ -41,112 +41,91 @@ func NewModuleApiDescriptionModelWithDefaults() *ModuleApiDescriptionModel {
 	return &this
 }
 
-// GetRootPath returns the RootPath field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRootPath returns the RootPath field value if set, zero value otherwise.
 func (o *ModuleApiDescriptionModel) GetRootPath() string {
-	if o == nil || IsNil(o.RootPath.Get()) {
+	if o == nil || IsNil(o.RootPath) {
 		var ret string
 		return ret
 	}
-	return *o.RootPath.Get()
+	return *o.RootPath
 }
 
 // GetRootPathOk returns a tuple with the RootPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModuleApiDescriptionModel) GetRootPathOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RootPath) {
 		return nil, false
 	}
-	return o.RootPath.Get(), o.RootPath.IsSet()
+	return o.RootPath, true
 }
 
 // HasRootPath returns a boolean if a field has been set.
 func (o *ModuleApiDescriptionModel) HasRootPath() bool {
-	if o != nil && o.RootPath.IsSet() {
+	if o != nil && !IsNil(o.RootPath) {
 		return true
 	}
 
 	return false
 }
 
-// SetRootPath gets a reference to the given NullableString and assigns it to the RootPath field.
+// SetRootPath gets a reference to the given string and assigns it to the RootPath field.
 func (o *ModuleApiDescriptionModel) SetRootPath(v string) {
-	o.RootPath.Set(&v)
-}
-// SetRootPathNil sets the value for RootPath to be an explicit nil
-func (o *ModuleApiDescriptionModel) SetRootPathNil() {
-	o.RootPath.Set(nil)
+	o.RootPath = &v
 }
 
-// UnsetRootPath ensures that no value is present for RootPath, not even an explicit nil
-func (o *ModuleApiDescriptionModel) UnsetRootPath() {
-	o.RootPath.Unset()
-}
-
-// GetRemoteServiceName returns the RemoteServiceName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRemoteServiceName returns the RemoteServiceName field value if set, zero value otherwise.
 func (o *ModuleApiDescriptionModel) GetRemoteServiceName() string {
-	if o == nil || IsNil(o.RemoteServiceName.Get()) {
+	if o == nil || IsNil(o.RemoteServiceName) {
 		var ret string
 		return ret
 	}
-	return *o.RemoteServiceName.Get()
+	return *o.RemoteServiceName
 }
 
 // GetRemoteServiceNameOk returns a tuple with the RemoteServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModuleApiDescriptionModel) GetRemoteServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RemoteServiceName) {
 		return nil, false
 	}
-	return o.RemoteServiceName.Get(), o.RemoteServiceName.IsSet()
+	return o.RemoteServiceName, true
 }
 
 // HasRemoteServiceName returns a boolean if a field has been set.
 func (o *ModuleApiDescriptionModel) HasRemoteServiceName() bool {
-	if o != nil && o.RemoteServiceName.IsSet() {
+	if o != nil && !IsNil(o.RemoteServiceName) {
 		return true
 	}
 
 	return false
 }
 
-// SetRemoteServiceName gets a reference to the given NullableString and assigns it to the RemoteServiceName field.
+// SetRemoteServiceName gets a reference to the given string and assigns it to the RemoteServiceName field.
 func (o *ModuleApiDescriptionModel) SetRemoteServiceName(v string) {
-	o.RemoteServiceName.Set(&v)
-}
-// SetRemoteServiceNameNil sets the value for RemoteServiceName to be an explicit nil
-func (o *ModuleApiDescriptionModel) SetRemoteServiceNameNil() {
-	o.RemoteServiceName.Set(nil)
+	o.RemoteServiceName = &v
 }
 
-// UnsetRemoteServiceName ensures that no value is present for RemoteServiceName, not even an explicit nil
-func (o *ModuleApiDescriptionModel) UnsetRemoteServiceName() {
-	o.RemoteServiceName.Unset()
-}
-
-// GetControllers returns the Controllers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetControllers returns the Controllers field value if set, zero value otherwise.
 func (o *ModuleApiDescriptionModel) GetControllers() map[string]ControllerApiDescriptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.Controllers) {
 		var ret map[string]ControllerApiDescriptionModel
 		return ret
 	}
-	return o.Controllers
+	return *o.Controllers
 }
 
 // GetControllersOk returns a tuple with the Controllers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ModuleApiDescriptionModel) GetControllersOk() (*map[string]ControllerApiDescriptionModel, bool) {
 	if o == nil || IsNil(o.Controllers) {
 		return nil, false
 	}
-	return &o.Controllers, true
+	return o.Controllers, true
 }
 
 // HasControllers returns a boolean if a field has been set.
 func (o *ModuleApiDescriptionModel) HasControllers() bool {
-	if o != nil && IsNil(o.Controllers) {
+	if o != nil && !IsNil(o.Controllers) {
 		return true
 	}
 
@@ -155,7 +134,7 @@ func (o *ModuleApiDescriptionModel) HasControllers() bool {
 
 // SetControllers gets a reference to the given map[string]ControllerApiDescriptionModel and assigns it to the Controllers field.
 func (o *ModuleApiDescriptionModel) SetControllers(v map[string]ControllerApiDescriptionModel) {
-	o.Controllers = v
+	o.Controllers = &v
 }
 
 func (o ModuleApiDescriptionModel) MarshalJSON() ([]byte, error) {
@@ -168,13 +147,13 @@ func (o ModuleApiDescriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o ModuleApiDescriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.RootPath.IsSet() {
-		toSerialize["rootPath"] = o.RootPath.Get()
+	if !IsNil(o.RootPath) {
+		toSerialize["rootPath"] = o.RootPath
 	}
-	if o.RemoteServiceName.IsSet() {
-		toSerialize["remoteServiceName"] = o.RemoteServiceName.Get()
+	if !IsNil(o.RemoteServiceName) {
+		toSerialize["remoteServiceName"] = o.RemoteServiceName
 	}
-	if o.Controllers != nil {
+	if !IsNil(o.Controllers) {
 		toSerialize["controllers"] = o.Controllers
 	}
 	return toSerialize, nil

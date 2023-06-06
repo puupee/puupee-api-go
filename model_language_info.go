@@ -19,11 +19,11 @@ var _ MappedNullable = &LanguageInfo{}
 
 // LanguageInfo struct for LanguageInfo
 type LanguageInfo struct {
-	CultureName NullableString `json:"cultureName,omitempty"`
-	UiCultureName NullableString `json:"uiCultureName,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	TwoLetterISOLanguageName NullableString `json:"twoLetterISOLanguageName,omitempty"`
-	FlagIcon NullableString `json:"flagIcon,omitempty"`
+	CultureName *string `json:"cultureName,omitempty"`
+	UiCultureName *string `json:"uiCultureName,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	TwoLetterISOLanguageName *string `json:"twoLetterISOLanguageName,omitempty"`
+	FlagIcon *string `json:"flagIcon,omitempty"`
 }
 
 // NewLanguageInfo instantiates a new LanguageInfo object
@@ -43,214 +43,164 @@ func NewLanguageInfoWithDefaults() *LanguageInfo {
 	return &this
 }
 
-// GetCultureName returns the CultureName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCultureName returns the CultureName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetCultureName() string {
-	if o == nil || IsNil(o.CultureName.Get()) {
+	if o == nil || IsNil(o.CultureName) {
 		var ret string
 		return ret
 	}
-	return *o.CultureName.Get()
+	return *o.CultureName
 }
 
 // GetCultureNameOk returns a tuple with the CultureName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LanguageInfo) GetCultureNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CultureName) {
 		return nil, false
 	}
-	return o.CultureName.Get(), o.CultureName.IsSet()
+	return o.CultureName, true
 }
 
 // HasCultureName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasCultureName() bool {
-	if o != nil && o.CultureName.IsSet() {
+	if o != nil && !IsNil(o.CultureName) {
 		return true
 	}
 
 	return false
 }
 
-// SetCultureName gets a reference to the given NullableString and assigns it to the CultureName field.
+// SetCultureName gets a reference to the given string and assigns it to the CultureName field.
 func (o *LanguageInfo) SetCultureName(v string) {
-	o.CultureName.Set(&v)
-}
-// SetCultureNameNil sets the value for CultureName to be an explicit nil
-func (o *LanguageInfo) SetCultureNameNil() {
-	o.CultureName.Set(nil)
+	o.CultureName = &v
 }
 
-// UnsetCultureName ensures that no value is present for CultureName, not even an explicit nil
-func (o *LanguageInfo) UnsetCultureName() {
-	o.CultureName.Unset()
-}
-
-// GetUiCultureName returns the UiCultureName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUiCultureName returns the UiCultureName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetUiCultureName() string {
-	if o == nil || IsNil(o.UiCultureName.Get()) {
+	if o == nil || IsNil(o.UiCultureName) {
 		var ret string
 		return ret
 	}
-	return *o.UiCultureName.Get()
+	return *o.UiCultureName
 }
 
 // GetUiCultureNameOk returns a tuple with the UiCultureName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LanguageInfo) GetUiCultureNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UiCultureName) {
 		return nil, false
 	}
-	return o.UiCultureName.Get(), o.UiCultureName.IsSet()
+	return o.UiCultureName, true
 }
 
 // HasUiCultureName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasUiCultureName() bool {
-	if o != nil && o.UiCultureName.IsSet() {
+	if o != nil && !IsNil(o.UiCultureName) {
 		return true
 	}
 
 	return false
 }
 
-// SetUiCultureName gets a reference to the given NullableString and assigns it to the UiCultureName field.
+// SetUiCultureName gets a reference to the given string and assigns it to the UiCultureName field.
 func (o *LanguageInfo) SetUiCultureName(v string) {
-	o.UiCultureName.Set(&v)
-}
-// SetUiCultureNameNil sets the value for UiCultureName to be an explicit nil
-func (o *LanguageInfo) SetUiCultureNameNil() {
-	o.UiCultureName.Set(nil)
+	o.UiCultureName = &v
 }
 
-// UnsetUiCultureName ensures that no value is present for UiCultureName, not even an explicit nil
-func (o *LanguageInfo) UnsetUiCultureName() {
-	o.UiCultureName.Unset()
-}
-
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName.Get()) {
+	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName.Get()
+	return *o.DisplayName
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LanguageInfo) GetDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayName) {
 		return nil, false
 	}
-	return o.DisplayName.Get(), o.DisplayName.IsSet()
+	return o.DisplayName, true
 }
 
 // HasDisplayName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasDisplayName() bool {
-	if o != nil && o.DisplayName.IsSet() {
+	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
 func (o *LanguageInfo) SetDisplayName(v string) {
-	o.DisplayName.Set(&v)
-}
-// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-func (o *LanguageInfo) SetDisplayNameNil() {
-	o.DisplayName.Set(nil)
+	o.DisplayName = &v
 }
 
-// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-func (o *LanguageInfo) UnsetDisplayName() {
-	o.DisplayName.Unset()
-}
-
-// GetTwoLetterISOLanguageName returns the TwoLetterISOLanguageName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTwoLetterISOLanguageName returns the TwoLetterISOLanguageName field value if set, zero value otherwise.
 func (o *LanguageInfo) GetTwoLetterISOLanguageName() string {
-	if o == nil || IsNil(o.TwoLetterISOLanguageName.Get()) {
+	if o == nil || IsNil(o.TwoLetterISOLanguageName) {
 		var ret string
 		return ret
 	}
-	return *o.TwoLetterISOLanguageName.Get()
+	return *o.TwoLetterISOLanguageName
 }
 
 // GetTwoLetterISOLanguageNameOk returns a tuple with the TwoLetterISOLanguageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LanguageInfo) GetTwoLetterISOLanguageNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TwoLetterISOLanguageName) {
 		return nil, false
 	}
-	return o.TwoLetterISOLanguageName.Get(), o.TwoLetterISOLanguageName.IsSet()
+	return o.TwoLetterISOLanguageName, true
 }
 
 // HasTwoLetterISOLanguageName returns a boolean if a field has been set.
 func (o *LanguageInfo) HasTwoLetterISOLanguageName() bool {
-	if o != nil && o.TwoLetterISOLanguageName.IsSet() {
+	if o != nil && !IsNil(o.TwoLetterISOLanguageName) {
 		return true
 	}
 
 	return false
 }
 
-// SetTwoLetterISOLanguageName gets a reference to the given NullableString and assigns it to the TwoLetterISOLanguageName field.
+// SetTwoLetterISOLanguageName gets a reference to the given string and assigns it to the TwoLetterISOLanguageName field.
 func (o *LanguageInfo) SetTwoLetterISOLanguageName(v string) {
-	o.TwoLetterISOLanguageName.Set(&v)
-}
-// SetTwoLetterISOLanguageNameNil sets the value for TwoLetterISOLanguageName to be an explicit nil
-func (o *LanguageInfo) SetTwoLetterISOLanguageNameNil() {
-	o.TwoLetterISOLanguageName.Set(nil)
+	o.TwoLetterISOLanguageName = &v
 }
 
-// UnsetTwoLetterISOLanguageName ensures that no value is present for TwoLetterISOLanguageName, not even an explicit nil
-func (o *LanguageInfo) UnsetTwoLetterISOLanguageName() {
-	o.TwoLetterISOLanguageName.Unset()
-}
-
-// GetFlagIcon returns the FlagIcon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFlagIcon returns the FlagIcon field value if set, zero value otherwise.
 func (o *LanguageInfo) GetFlagIcon() string {
-	if o == nil || IsNil(o.FlagIcon.Get()) {
+	if o == nil || IsNil(o.FlagIcon) {
 		var ret string
 		return ret
 	}
-	return *o.FlagIcon.Get()
+	return *o.FlagIcon
 }
 
 // GetFlagIconOk returns a tuple with the FlagIcon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LanguageInfo) GetFlagIconOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FlagIcon) {
 		return nil, false
 	}
-	return o.FlagIcon.Get(), o.FlagIcon.IsSet()
+	return o.FlagIcon, true
 }
 
 // HasFlagIcon returns a boolean if a field has been set.
 func (o *LanguageInfo) HasFlagIcon() bool {
-	if o != nil && o.FlagIcon.IsSet() {
+	if o != nil && !IsNil(o.FlagIcon) {
 		return true
 	}
 
 	return false
 }
 
-// SetFlagIcon gets a reference to the given NullableString and assigns it to the FlagIcon field.
+// SetFlagIcon gets a reference to the given string and assigns it to the FlagIcon field.
 func (o *LanguageInfo) SetFlagIcon(v string) {
-	o.FlagIcon.Set(&v)
-}
-// SetFlagIconNil sets the value for FlagIcon to be an explicit nil
-func (o *LanguageInfo) SetFlagIconNil() {
-	o.FlagIcon.Set(nil)
-}
-
-// UnsetFlagIcon ensures that no value is present for FlagIcon, not even an explicit nil
-func (o *LanguageInfo) UnsetFlagIcon() {
-	o.FlagIcon.Unset()
+	o.FlagIcon = &v
 }
 
 func (o LanguageInfo) MarshalJSON() ([]byte, error) {
@@ -263,20 +213,18 @@ func (o LanguageInfo) MarshalJSON() ([]byte, error) {
 
 func (o LanguageInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CultureName.IsSet() {
-		toSerialize["cultureName"] = o.CultureName.Get()
+	if !IsNil(o.CultureName) {
+		toSerialize["cultureName"] = o.CultureName
 	}
-	if o.UiCultureName.IsSet() {
-		toSerialize["uiCultureName"] = o.UiCultureName.Get()
+	if !IsNil(o.UiCultureName) {
+		toSerialize["uiCultureName"] = o.UiCultureName
 	}
-	if o.DisplayName.IsSet() {
-		toSerialize["displayName"] = o.DisplayName.Get()
+	if !IsNil(o.DisplayName) {
+		toSerialize["displayName"] = o.DisplayName
 	}
-	if o.TwoLetterISOLanguageName.IsSet() {
-		toSerialize["twoLetterISOLanguageName"] = o.TwoLetterISOLanguageName.Get()
-	}
-	if o.FlagIcon.IsSet() {
-		toSerialize["flagIcon"] = o.FlagIcon.Get()
+	// skip: twoLetterISOLanguageName is readOnly
+	if !IsNil(o.FlagIcon) {
+		toSerialize["flagIcon"] = o.FlagIcon
 	}
 	return toSerialize, nil
 }

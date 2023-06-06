@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**DisplayName** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**DisplayName** | Pointer to **string** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
 **CurrentSize** | Pointer to **int64** |  | [optional] 
 **TotalCount** | Pointer to **int32** |  | [optional] 
@@ -56,16 +56,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *UserStorageDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *UserStorageDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDisplayName
 
 `func (o *UserStorageDto) GetDisplayName() string`
@@ -91,16 +81,6 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
-### SetDisplayNameNil
-
-`func (o *UserStorageDto) SetDisplayNameNil(b bool)`
-
- SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-
-### UnsetDisplayName
-`func (o *UserStorageDto) UnsetDisplayName()`
-
-UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetSize
 
 `func (o *UserStorageDto) GetSize() int64`
@@ -226,16 +206,6 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
-### SetItemsNil
-
-`func (o *UserStorageDto) SetItemsNil(b bool)`
-
- SetItemsNil sets the value for Items to be an explicit nil
-
-### UnsetItems
-`func (o *UserStorageDto) UnsetItems()`
-
-UnsetItems ensures that no value is present for Items, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
