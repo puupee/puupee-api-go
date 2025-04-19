@@ -98,7 +98,6 @@ docs/ApplicationSettingConfigurationDto.md
 docs/ArtifactType.md
 docs/AvatarApi.md
 docs/AvatarDto.md
-docs/BarkNotificationLevel.md
 docs/BindDeviceDto.md
 docs/ChangePasswordDto.md
 docs/ChangePasswordInput.md
@@ -308,7 +307,6 @@ model_application_localization_resource_dto.go
 model_application_setting_configuration_dto.go
 model_artifact_type.go
 model_avatar_dto.go
-model_bark_notification_level.go
 model_bind_device_dto.go
 model_change_password_dto.go
 model_change_password_input.go

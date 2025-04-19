@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AppleNotifications**](SubscriptionApi.md#AppleNotifications) | **Post** /api/app/subscription/apple-notifications | 苹果订阅 Callback 地址
 [**CreateOrder**](SubscriptionApi.md#CreateOrder) | **Post** /api/app/subscription/order | 
-[**GetById**](SubscriptionApi.md#GetById) | **Get** /api/app/subscription | 
+[**GetSubscriptionById**](SubscriptionApi.md#GetSubscriptionById) | **Get** /api/app/subscription | 
 [**VerifyReceipt**](SubscriptionApi.md#VerifyReceipt) | **Post** /api/app/subscription/verify-receipt | 
 
 
@@ -137,9 +137,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetSubscriptionById
 
-> SubscriptionDto GetById(ctx).AppId(appId).Execute()
+> SubscriptionDto GetSubscriptionById(ctx).AppId(appId).Execute()
 
 
 
@@ -160,13 +160,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.GetById(context.Background()).AppId(appId).Execute()
+    resp, r, err := apiClient.SubscriptionApi.GetSubscriptionById(context.Background()).AppId(appId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.GetSubscriptionById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: SubscriptionDto
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.GetById`: %v\n", resp)
+    // response from `GetSubscriptionById`: SubscriptionDto
+    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.GetSubscriptionById`: %v\n", resp)
 }
 ```
 
@@ -176,7 +176,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSubscriptionByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

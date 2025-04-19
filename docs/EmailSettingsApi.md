@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get**](EmailSettingsApi.md#Get) | **Get** /api/setting-management/emailing | 
+[**GetEmailSettings**](EmailSettingsApi.md#GetEmailSettings) | **Get** /api/setting-management/emailing | 
 [**SendTestEmail**](EmailSettingsApi.md#SendTestEmail) | **Post** /api/setting-management/emailing/send-test-email | 
-[**Update**](EmailSettingsApi.md#Update) | **Post** /api/setting-management/emailing | 
+[**UpdateEmailSettings**](EmailSettingsApi.md#UpdateEmailSettings) | **Post** /api/setting-management/emailing | 
 
 
 
-## Get
+## GetEmailSettings
 
-> EmailSettingsDto Get(ctx).Execute()
+> EmailSettingsDto GetEmailSettings(ctx).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EmailSettingsApi.Get(context.Background()).Execute()
+    resp, r, err := apiClient.EmailSettingsApi.GetEmailSettings(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.GetEmailSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: EmailSettingsDto
-    fmt.Fprintf(os.Stdout, "Response from `EmailSettingsApi.Get`: %v\n", resp)
+    // response from `GetEmailSettings`: EmailSettingsDto
+    fmt.Fprintf(os.Stdout, "Response from `EmailSettingsApi.GetEmailSettings`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetEmailSettingsRequest struct via the builder pattern
 
 
 ### Return type
@@ -131,9 +131,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateEmailSettings
 
-> Update(ctx).Body(body).Execute()
+> UpdateEmailSettings(ctx).Body(body).Execute()
 
 
 
@@ -154,9 +154,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.EmailSettingsApi.Update(context.Background()).Body(body).Execute()
+    r, err := apiClient.EmailSettingsApi.UpdateEmailSettings(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.UpdateEmailSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -168,7 +168,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateEmailSettingsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetFileOrCredentials
 
-> StorageObjectOrCredentialsDto GetFileOrCredentials(ctx).RapidCode(rapidCode).Execute()
+> StorageObjectOrCredentialsDto GetFileOrCredentials(ctx).RapidCode(rapidCode).Bucket(bucket).Execute()
 
 
 
@@ -29,10 +29,11 @@ import (
 
 func main() {
     rapidCode := "rapidCode_example" // string |  (optional)
+    bucket := "bucket_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StorageObjectApi.GetFileOrCredentials(context.Background()).RapidCode(rapidCode).Execute()
+    resp, r, err := apiClient.StorageObjectApi.GetFileOrCredentials(context.Background()).RapidCode(rapidCode).Bucket(bucket).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectApi.GetFileOrCredentials``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,6 +55,7 @@ Other parameters are passed through a pointer to a apiGetFileOrCredentialsReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **rapidCode** | **string** |  | 
+ **bucket** | **string** |  | 
 
 ### Return type
 
@@ -75,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## PreSignUrl
 
-> string PreSignUrl(ctx).Key(key).Execute()
+> string PreSignUrl(ctx).Key(key).Bucket(bucket).Execute()
 
 
 
@@ -93,10 +95,11 @@ import (
 
 func main() {
     key := "key_example" // string |  (optional)
+    bucket := "bucket_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StorageObjectApi.PreSignUrl(context.Background()).Key(key).Execute()
+    resp, r, err := apiClient.StorageObjectApi.PreSignUrl(context.Background()).Key(key).Bucket(bucket).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectApi.PreSignUrl``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -118,6 +121,7 @@ Other parameters are passed through a pointer to a apiPreSignUrlRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **string** |  | 
+ **bucket** | **string** |  | 
 
 ### Return type
 

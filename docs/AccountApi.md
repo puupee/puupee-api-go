@@ -4,10 +4,10 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ChangePassword**](AccountApi.md#ChangePassword) | **Post** /api/app/account/change-password | 
+[**ChangeAccountPassword**](AccountApi.md#ChangeAccountPassword) | **Post** /api/app/account/change-password | 
 [**CheckSyncAuth**](AccountApi.md#CheckSyncAuth) | **Post** /api/app/account/check-sync-auth | 检查同步认证
 [**DestroyAccount**](AccountApi.md#DestroyAccount) | **Post** /api/app/account/destroy-account | 
-[**Get**](AccountApi.md#Get) | **Get** /api/app/account | 
+[**GetAccount**](AccountApi.md#GetAccount) | **Get** /api/app/account | 
 [**Register**](AccountApi.md#Register) | **Post** /api/account/register | 
 [**ResetPassword**](AccountApi.md#ResetPassword) | **Post** /api/account/reset-password | 
 [**SendPasswordResetCode**](AccountApi.md#SendPasswordResetCode) | **Post** /api/account/send-password-reset-code | 
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 
 
-## ChangePassword
+## ChangeAccountPassword
 
-> ChangePassword(ctx).Body(body).Execute()
+> ChangeAccountPassword(ctx).Body(body).Execute()
 
 
 
@@ -38,9 +38,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ChangePassword(context.Background()).Body(body).Execute()
+    r, err := apiClient.AccountApi.ChangeAccountPassword(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ChangePassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ChangeAccountPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiChangePasswordRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiChangeAccountPasswordRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -198,9 +198,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Get
+## GetAccount
 
-> UserProfileDto Get(ctx).Execute()
+> UserProfileDto GetAccount(ctx).Execute()
 
 
 
@@ -220,13 +220,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.Get(context.Background()).Execute()
+    resp, r, err := apiClient.AccountApi.GetAccount(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.GetAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: UserProfileDto
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.Get`: %v\n", resp)
+    // response from `GetAccount`: UserProfileDto
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.GetAccount`: %v\n", resp)
 }
 ```
 
@@ -236,7 +236,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAccountRequest struct via the builder pattern
 
 
 ### Return type

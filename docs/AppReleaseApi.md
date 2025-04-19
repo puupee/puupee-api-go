@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](AppReleaseApi.md#Create) | **Post** /api/app/app-release | 创建新版本
-[**Delete**](AppReleaseApi.md#Delete) | **Delete** /api/app/app-release/{id} | 删除版本
-[**GetById**](AppReleaseApi.md#GetById) | **Get** /api/app/app-release/{id} | 获取版本
+[**CreateAppRelease**](AppReleaseApi.md#CreateAppRelease) | **Post** /api/app/app-release | 创建新版本
+[**DeleteAppReleaseById**](AppReleaseApi.md#DeleteAppReleaseById) | **Delete** /api/app/app-release/{id} | 删除版本
+[**GetAppReleaseById**](AppReleaseApi.md#GetAppReleaseById) | **Get** /api/app/app-release/{id} | 获取版本
+[**GetAppReleaseList**](AppReleaseApi.md#GetAppReleaseList) | **Get** /api/app/app-release | 获取版本列表
 [**GetLatest**](AppReleaseApi.md#GetLatest) | **Get** /api/app/app-release/latest | 获取最新版本
-[**GetList**](AppReleaseApi.md#GetList) | **Get** /api/app/app-release | 获取版本列表
-[**Update**](AppReleaseApi.md#Update) | **Put** /api/app/app-release/{id} | 更新版本
+[**UpdateAppRelease**](AppReleaseApi.md#UpdateAppRelease) | **Put** /api/app/app-release/{id} | 更新版本
 
 
 
-## Create
+## CreateAppRelease
 
-> AppReleaseDto Create(ctx).Body(body).Execute()
+> AppReleaseDto CreateAppRelease(ctx).Body(body).Execute()
 
 创建新版本
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppReleaseApi.CreateAppRelease(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.CreateAppRelease``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.Create`: %v\n", resp)
+    // response from `CreateAppRelease`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.CreateAppRelease`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateAppReleaseRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteAppReleaseById
 
-> Delete(ctx, id).Execute()
+> DeleteAppReleaseById(ctx, id).Execute()
 
 删除版本
 
@@ -100,9 +100,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppReleaseApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.AppReleaseApi.DeleteAppReleaseById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.DeleteAppReleaseById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteAppReleaseByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -143,9 +143,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetAppReleaseById
 
-> AppReleaseDto GetById(ctx, id).Execute()
+> AppReleaseDto GetAppReleaseById(ctx, id).Execute()
 
 获取版本
 
@@ -166,13 +166,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.AppReleaseApi.GetAppReleaseById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetAppReleaseById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetById`: %v\n", resp)
+    // response from `GetAppReleaseById`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetAppReleaseById`: %v\n", resp)
 }
 ```
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAppReleaseByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -196,6 +196,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AppReleaseDto**](AppReleaseDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAppReleaseList
+
+> AppReleaseDtoPagedResultDto GetAppReleaseList(ctx).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+获取版本列表
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+    environment := "environment_example" // string |  (optional)
+    platform := "platform_example" // string |  (optional)
+    sorting := "sorting_example" // string |  (optional)
+    skipCount := int32(56) // int32 |  (optional)
+    maxResultCount := int32(56) // int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppReleaseApi.GetAppReleaseList(context.Background()).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetAppReleaseList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAppReleaseList`: AppReleaseDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetAppReleaseList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAppReleaseListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string** |  | 
+ **environment** | **string** |  | 
+ **platform** | **string** |  | 
+ **sorting** | **string** |  | 
+ **skipCount** | **int32** |  | 
+ **maxResultCount** | **int32** |  | 
+
+### Return type
+
+[**AppReleaseDtoPagedResultDto**](AppReleaseDtoPagedResultDto.md)
 
 ### Authorization
 
@@ -231,8 +305,8 @@ import (
 
 func main() {
     appName := "appName_example" // string |  (optional)
-    platform := TODO // interface{} |  (optional)
-    productType := TODO // interface{} |  (optional)
+    platform := "platform_example" // string |  (optional)
+    productType := "productType_example" // string |  (optional)
     environment := "environment_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -259,8 +333,8 @@ Other parameters are passed through a pointer to a apiGetLatestRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appName** | **string** |  | 
- **platform** | [**interface{}**](interface{}.md) |  | 
- **productType** | [**interface{}**](interface{}.md) |  | 
+ **platform** | **string** |  | 
+ **productType** | **string** |  | 
  **environment** | **string** |  | 
 
 ### Return type
@@ -281,83 +355,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## UpdateAppRelease
 
-> AppReleaseDtoPagedResultDto GetList(ctx).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-
-获取版本列表
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    environment := "environment_example" // string |  (optional)
-    platform := TODO // interface{} |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.GetList(context.Background()).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetList`: AppReleaseDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetList`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appId** | **string** |  | 
- **environment** | **string** |  | 
- **platform** | [**interface{}**](interface{}.md) |  | 
- **sorting** | **string** |  | 
- **skipCount** | **int32** |  | 
- **maxResultCount** | **int32** |  | 
-
-### Return type
-
-[**AppReleaseDtoPagedResultDto**](AppReleaseDtoPagedResultDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## Update
-
-> AppReleaseDto Update(ctx, id).Body(body).Execute()
+> AppReleaseDto UpdateAppRelease(ctx, id).Body(body).Execute()
 
 更新版本
 
@@ -379,13 +379,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppReleaseApi.UpdateAppRelease(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.UpdateAppRelease``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.Update`: %v\n", resp)
+    // response from `UpdateAppRelease`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.UpdateAppRelease`: %v\n", resp)
 }
 ```
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateAppReleaseRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

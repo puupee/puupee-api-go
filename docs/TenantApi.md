@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](TenantApi.md#Create) | **Post** /api/multi-tenancy/tenants | 
-[**Delete**](TenantApi.md#Delete) | **Delete** /api/multi-tenancy/tenants/{id} | 
+[**CreateTenant**](TenantApi.md#CreateTenant) | **Post** /api/multi-tenancy/tenants | 
 [**DeleteDefaultConnectionString**](TenantApi.md#DeleteDefaultConnectionString) | **Delete** /api/multi-tenancy/tenants/{id}/default-connection-string | 
-[**GetById**](TenantApi.md#GetById) | **Get** /api/multi-tenancy/tenants/{id} | 
+[**DeleteTenantById**](TenantApi.md#DeleteTenantById) | **Delete** /api/multi-tenancy/tenants/{id} | 
 [**GetDefaultConnectionString**](TenantApi.md#GetDefaultConnectionString) | **Get** /api/multi-tenancy/tenants/{id}/default-connection-string | 
-[**GetList**](TenantApi.md#GetList) | **Get** /api/multi-tenancy/tenants | 
-[**Update**](TenantApi.md#Update) | **Put** /api/multi-tenancy/tenants/{id} | 
+[**GetTenantById**](TenantApi.md#GetTenantById) | **Get** /api/multi-tenancy/tenants/{id} | 
+[**GetTenantList**](TenantApi.md#GetTenantList) | **Get** /api/multi-tenancy/tenants | 
 [**UpdateDefaultConnectionString**](TenantApi.md#UpdateDefaultConnectionString) | **Put** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[**UpdateTenant**](TenantApi.md#UpdateTenant) | **Put** /api/multi-tenancy/tenants/{id} | 
 
 
 
-## Create
+## CreateTenant
 
-> TenantDto Create(ctx).Body(body).Execute()
+> TenantDto CreateTenant(ctx).Body(body).Execute()
 
 
 
@@ -38,13 +38,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.TenantApi.CreateTenant(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.CreateTenant``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: TenantDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.Create`: %v\n", resp)
+    // response from `CreateTenant`: TenantDto
+    fmt.Fprintf(os.Stdout, "Response from `TenantApi.CreateTenant`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTenantRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -72,72 +72,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## Delete
-
-> Delete(ctx, id).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TenantApi.Delete(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.Delete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -211,9 +145,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## DeleteTenantById
 
-> TenantDto GetById(ctx, id).Execute()
+> DeleteTenantById(ctx, id).Execute()
 
 
 
@@ -234,13 +168,11 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.GetById(context.Background(), id).Execute()
+    r, err := apiClient.TenantApi.DeleteTenantById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.DeleteTenantById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: TenantDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetById`: %v\n", resp)
 }
 ```
 
@@ -254,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteTenantByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -263,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TenantDto**](TenantDto.md)
+ (empty response body)
 
 ### Authorization
 
@@ -347,9 +279,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetTenantById
 
-> TenantDtoPagedResultDto GetList(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> TenantDto GetTenantById(ctx, id).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TenantApi.GetTenantById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetTenantById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTenantById`: TenantDto
+    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetTenantById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTenantByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**TenantDto**](TenantDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTenantList
+
+> TenantDtoPagedResultDto GetTenantList(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -373,13 +373,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.GetList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.TenantApi.GetTenantList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetTenantList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: TenantDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetList`: %v\n", resp)
+    // response from `GetTenantList`: TenantDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetTenantList`: %v\n", resp)
 }
 ```
 
@@ -389,7 +389,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTenantListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -410,76 +410,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## Update
-
-> TenantDto Update(ctx, id).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewTenantUpdateDto("Name_example") // TenantUpdateDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.Update(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.Update``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Update`: TenantDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.Update`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | [**TenantUpdateDto**](TenantUpdateDto.md) |  | 
-
-### Return type
-
-[**TenantDto**](TenantDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -548,6 +478,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateTenant
+
+> TenantDto UpdateTenant(ctx, id).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    body := *openapiclient.NewTenantUpdateDto("Name_example") // TenantUpdateDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TenantApi.UpdateTenant(context.Background(), id).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.UpdateTenant``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateTenant`: TenantDto
+    fmt.Fprintf(os.Stdout, "Response from `TenantApi.UpdateTenant`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateTenantRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**TenantUpdateDto**](TenantUpdateDto.md) |  | 
+
+### Return type
+
+[**TenantDto**](TenantDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

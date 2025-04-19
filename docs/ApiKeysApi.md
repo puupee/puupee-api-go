@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](ApiKeysApi.md#Create) | **Post** /api/api-keys | 
-[**Delete**](ApiKeysApi.md#Delete) | **Delete** /api/api-keys/{id} | 
-[**GetById**](ApiKeysApi.md#GetById) | **Get** /api/api-keys/{id} | 
-[**GetList**](ApiKeysApi.md#GetList) | **Get** /api/api-keys | 
-[**Update**](ApiKeysApi.md#Update) | **Put** /api/api-keys/{id} | 
+[**CreateApiKeys**](ApiKeysApi.md#CreateApiKeys) | **Post** /api/api-keys | 
+[**DeleteApiKeysById**](ApiKeysApi.md#DeleteApiKeysById) | **Delete** /api/api-keys/{id} | 
+[**GetApiKeysById**](ApiKeysApi.md#GetApiKeysById) | **Get** /api/api-keys/{id} | 
+[**GetApiKeysList**](ApiKeysApi.md#GetApiKeysList) | **Get** /api/api-keys | 
+[**UpdateApiKeys**](ApiKeysApi.md#UpdateApiKeys) | **Put** /api/api-keys/{id} | 
 
 
 
-## Create
+## CreateApiKeys
 
-> ApiKeyDto Create(ctx).Body(body).Execute()
+> ApiKeyDto CreateApiKeys(ctx).Body(body).Execute()
 
 
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.ApiKeysApi.CreateApiKeys(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.CreateApiKeys``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: ApiKeyDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.Create`: %v\n", resp)
+    // response from `CreateApiKeys`: ApiKeyDto
+    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.CreateApiKeys`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateApiKeysRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteApiKeysById
 
-> Delete(ctx, id).Execute()
+> DeleteApiKeysById(ctx, id).Execute()
 
 
 
@@ -99,9 +99,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApiKeysApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.ApiKeysApi.DeleteApiKeysById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.DeleteApiKeysById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteApiKeysByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -142,9 +142,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetApiKeysById
 
-> ApiKeyDto GetById(ctx, id).Execute()
+> ApiKeyDto GetApiKeysById(ctx, id).Execute()
 
 
 
@@ -165,13 +165,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.ApiKeysApi.GetApiKeysById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.GetApiKeysById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: ApiKeyDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.GetById`: %v\n", resp)
+    // response from `GetApiKeysById`: ApiKeyDto
+    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.GetApiKeysById`: %v\n", resp)
 }
 ```
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetApiKeysByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -210,9 +210,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetApiKeysList
 
-> ApiKeyDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> ApiKeyDtoPagedResultDto GetApiKeysList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -235,13 +235,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.ApiKeysApi.GetApiKeysList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.GetApiKeysList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: ApiKeyDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.GetList`: %v\n", resp)
+    // response from `GetApiKeysList`: ApiKeyDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.GetApiKeysList`: %v\n", resp)
 }
 ```
 
@@ -251,7 +251,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetApiKeysListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -278,9 +278,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateApiKeys
 
-> ApiKeyDto Update(ctx, id).Body(body).Execute()
+> ApiKeyDto UpdateApiKeys(ctx, id).Body(body).Execute()
 
 
 
@@ -302,13 +302,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.ApiKeysApi.UpdateApiKeys(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.UpdateApiKeys``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: ApiKeyDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.Update`: %v\n", resp)
+    // response from `UpdateApiKeys`: ApiKeyDto
+    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.UpdateApiKeys`: %v\n", resp)
 }
 ```
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateApiKeysRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

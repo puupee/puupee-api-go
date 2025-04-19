@@ -4,22 +4,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](UserApi.md#Create) | **Post** /api/identity/users | 
-[**Delete**](UserApi.md#Delete) | **Delete** /api/identity/users/{id} | 
+[**CreateIdentityUser**](UserApi.md#CreateIdentityUser) | **Post** /api/identity/users | 
+[**DeleteIdentityUserById**](UserApi.md#DeleteIdentityUserById) | **Delete** /api/identity/users/{id} | 
 [**FindByEmail**](UserApi.md#FindByEmail) | **Get** /api/identity/users/by-email/{email} | 
 [**FindByUsername**](UserApi.md#FindByUsername) | **Get** /api/identity/users/by-username/{userName} | 
 [**GetAssignableRoles**](UserApi.md#GetAssignableRoles) | **Get** /api/identity/users/assignable-roles | 
-[**GetById**](UserApi.md#GetById) | **Get** /api/identity/users/{id} | 
-[**GetList**](UserApi.md#GetList) | **Get** /api/identity/users | 
+[**GetIdentityUserById**](UserApi.md#GetIdentityUserById) | **Get** /api/identity/users/{id} | 
+[**GetIdentityUserList**](UserApi.md#GetIdentityUserList) | **Get** /api/identity/users | 
 [**GetRoles**](UserApi.md#GetRoles) | **Get** /api/identity/users/{id}/roles | 
-[**Update**](UserApi.md#Update) | **Put** /api/identity/users/{id} | 
+[**UpdateIdentityUser**](UserApi.md#UpdateIdentityUser) | **Put** /api/identity/users/{id} | 
 [**UpdateRoles**](UserApi.md#UpdateRoles) | **Put** /api/identity/users/{id}/roles | 
 
 
 
-## Create
+## CreateIdentityUser
 
-> IdentityUserDto Create(ctx).Body(body).Execute()
+> IdentityUserDto CreateIdentityUser(ctx).Body(body).Execute()
 
 
 
@@ -40,13 +40,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.UserApi.CreateIdentityUser(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.CreateIdentityUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: IdentityUserDto
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.Create`: %v\n", resp)
+    // response from `CreateIdentityUser`: IdentityUserDto
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.CreateIdentityUser`: %v\n", resp)
 }
 ```
 
@@ -56,7 +56,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateIdentityUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteIdentityUserById
 
-> Delete(ctx, id).Execute()
+> DeleteIdentityUserById(ctx, id).Execute()
 
 
 
@@ -104,9 +104,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.UserApi.DeleteIdentityUserById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.DeleteIdentityUserById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteIdentityUserByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -342,9 +342,9 @@ Other parameters are passed through a pointer to a apiGetAssignableRolesRequest 
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetIdentityUserById
 
-> IdentityUserDto GetById(ctx, id).Execute()
+> IdentityUserDto GetIdentityUserById(ctx, id).Execute()
 
 
 
@@ -365,13 +365,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.UserApi.GetIdentityUserById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetIdentityUserById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: IdentityUserDto
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetById`: %v\n", resp)
+    // response from `GetIdentityUserById`: IdentityUserDto
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetIdentityUserById`: %v\n", resp)
 }
 ```
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIdentityUserByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -410,9 +410,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetIdentityUserList
 
-> IdentityUserDtoPagedResultDto GetList(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> IdentityUserDtoPagedResultDto GetIdentityUserList(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -436,13 +436,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.GetList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.UserApi.GetIdentityUserList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.GetIdentityUserList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: IdentityUserDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetList`: %v\n", resp)
+    // response from `GetIdentityUserList`: IdentityUserDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.GetIdentityUserList`: %v\n", resp)
 }
 ```
 
@@ -452,7 +452,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIdentityUserListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -548,9 +548,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateIdentityUser
 
-> IdentityUserDto Update(ctx, id).Body(body).Execute()
+> IdentityUserDto UpdateIdentityUser(ctx, id).Body(body).Execute()
 
 
 
@@ -572,13 +572,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.UserApi.UpdateIdentityUser(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UpdateIdentityUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: IdentityUserDto
-    fmt.Fprintf(os.Stdout, "Response from `UserApi.Update`: %v\n", resp)
+    // response from `UpdateIdentityUser`: IdentityUserDto
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UpdateIdentityUser`: %v\n", resp)
 }
 ```
 
@@ -592,7 +592,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateIdentityUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

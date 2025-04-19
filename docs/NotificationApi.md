@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Bark**](NotificationApi.md#Bark) | **Get** /api/app/notification/bark/{apiKey}/{message} | Bark 推送，兼容 Bark 推送协议  TODO: 验证 API KEY 功能, 添加[个人访问令牌]功能
-[**GetList**](NotificationApi.md#GetList) | **Get** /api/app/notification | 
+[**GetNotificationList**](NotificationApi.md#GetNotificationList) | **Get** /api/app/notification | 
 [**Push**](NotificationApi.md#Push) | **Post** /api/app/notification/push | 
 
 
@@ -37,7 +37,7 @@ func main() {
     isArchive := "isArchive_example" // string | 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。\\n如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。 (optional)
     group := "group_example" // string | 指定推送消息分组，可在历史记录中按分组查看推送。 (optional)
     icon := "icon_example" // string | 指定推送消息图标, icon (仅 iOS15 或以上支持） (optional)
-    level := TODO // interface{} | 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\\ntimeSensitive：时效性通知，可在专注状态下显示通知。\\npassive：仅将通知添加到通知列表，不会亮屏提醒 (optional)
+    level := "level_example" // string | 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\\ntimeSensitive：时效性通知，可在专注状态下显示通知。\\npassive：仅将通知添加到通知列表，不会亮屏提醒 (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
  **isArchive** | **string** | 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。\\n如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。 | 
  **group** | **string** | 指定推送消息分组，可在历史记录中按分组查看推送。 | 
  **icon** | **string** | 指定推送消息图标, icon (仅 iOS15 或以上支持） | 
- **level** | [**interface{}**](interface{}.md) | 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\\ntimeSensitive：时效性通知，可在专注状态下显示通知。\\npassive：仅将通知添加到通知列表，不会亮屏提醒 | 
+ **level** | **string** | 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\\ntimeSensitive：时效性通知，可在专注状态下显示通知。\\npassive：仅将通知添加到通知列表，不会亮屏提醒 | 
 
 ### Return type
 
@@ -93,9 +93,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetNotificationList
 
-> NotificationInfoDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> NotificationInfoDtoPagedResultDto GetNotificationList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -118,13 +118,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NotificationApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.NotificationApi.GetNotificationList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.GetNotificationList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: NotificationInfoDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `NotificationApi.GetList`: %v\n", resp)
+    // response from `GetNotificationList`: NotificationInfoDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `NotificationApi.GetNotificationList`: %v\n", resp)
 }
 ```
 
@@ -134,7 +134,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetNotificationListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

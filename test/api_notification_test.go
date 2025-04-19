@@ -36,11 +36,11 @@ func Test_puupee_NotificationApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test NotificationApiService GetList", func(t *testing.T) {
+	t.Run("Test NotificationApiService GetNotificationList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.NotificationApi.GetList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.NotificationApi.GetNotificationList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,37 +22,37 @@ func Test_puupee_MessageSourceRouteSubApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageSourceRouteSubApiService Create", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteSubApiService CreateMessageSourceRouteSub", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.MessageSourceRouteSubApi.Create(context.Background()).Execute()
+		httpRes, err := apiClient.MessageSourceRouteSubApi.CreateMessageSourceRouteSub(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageSourceRouteSubApiService Delete", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteSubApiService DeleteMessageSourceRouteSubById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.MessageSourceRouteSubApi.Delete(context.Background(), id).Execute()
+		httpRes, err := apiClient.MessageSourceRouteSubApi.DeleteMessageSourceRouteSubById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageSourceRouteSubApiService GetById", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteSubApiService GetMessageSourceRouteSubById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageSourceRouteSubApi.GetById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MessageSourceRouteSubApi.GetMessageSourceRouteSubById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,11 +60,11 @@ func Test_puupee_MessageSourceRouteSubApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageSourceRouteSubApiService GetList", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteSubApiService GetMessageSourceRouteSubList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageSourceRouteSubApi.GetList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageSourceRouteSubApi.GetMessageSourceRouteSubList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +72,13 @@ func Test_puupee_MessageSourceRouteSubApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageSourceRouteSubApiService Update", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteSubApiService UpdateMessageSourceRouteSub", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.MessageSourceRouteSubApi.Update(context.Background(), id).Execute()
+		httpRes, err := apiClient.MessageSourceRouteSubApi.UpdateMessageSourceRouteSub(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

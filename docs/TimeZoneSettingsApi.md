@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get**](TimeZoneSettingsApi.md#Get) | **Get** /api/setting-management/timezone | 
+[**GetTimeZoneSettings**](TimeZoneSettingsApi.md#GetTimeZoneSettings) | **Get** /api/setting-management/timezone | 
 [**GetTimezones**](TimeZoneSettingsApi.md#GetTimezones) | **Get** /api/setting-management/timezone/timezones | 
-[**Update**](TimeZoneSettingsApi.md#Update) | **Post** /api/setting-management/timezone | 
+[**UpdateTimeZoneSettings**](TimeZoneSettingsApi.md#UpdateTimeZoneSettings) | **Post** /api/setting-management/timezone | 
 
 
 
-## Get
+## GetTimeZoneSettings
 
-> string Get(ctx).Execute()
+> string GetTimeZoneSettings(ctx).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TimeZoneSettingsApi.Get(context.Background()).Execute()
+    resp, r, err := apiClient.TimeZoneSettingsApi.GetTimeZoneSettings(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.GetTimeZoneSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: string
-    fmt.Fprintf(os.Stdout, "Response from `TimeZoneSettingsApi.Get`: %v\n", resp)
+    // response from `GetTimeZoneSettings`: string
+    fmt.Fprintf(os.Stdout, "Response from `TimeZoneSettingsApi.GetTimeZoneSettings`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTimeZoneSettingsRequest struct via the builder pattern
 
 
 ### Return type
@@ -128,9 +128,9 @@ Other parameters are passed through a pointer to a apiGetTimezonesRequest struct
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateTimeZoneSettings
 
-> Update(ctx).Timezone(timezone).Execute()
+> UpdateTimeZoneSettings(ctx).Timezone(timezone).Execute()
 
 
 
@@ -151,9 +151,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TimeZoneSettingsApi.Update(context.Background()).Timezone(timezone).Execute()
+    r, err := apiClient.TimeZoneSettingsApi.UpdateTimeZoneSettings(context.Background()).Timezone(timezone).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.UpdateTimeZoneSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -165,7 +165,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateTimeZoneSettingsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

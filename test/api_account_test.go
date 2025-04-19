@@ -22,11 +22,11 @@ func Test_puupee_AccountApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AccountApiService ChangePassword", func(t *testing.T) {
+	t.Run("Test AccountApiService ChangeAccountPassword", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AccountApi.ChangePassword(context.Background()).Execute()
+		httpRes, err := apiClient.AccountApi.ChangeAccountPassword(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -56,11 +56,11 @@ func Test_puupee_AccountApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountApiService Get", func(t *testing.T) {
+	t.Run("Test AccountApiService GetAccount", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountApi.Get(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountApi.GetAccount(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

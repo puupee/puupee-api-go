@@ -4,19 +4,19 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](AppPricingApi.md#Create) | **Post** /api/app/app-pricing | 
-[**Delete**](AppPricingApi.md#Delete) | **Delete** /api/app/app-pricing/{id} | 
-[**GetById**](AppPricingApi.md#GetById) | **Get** /api/app/app-pricing/{id} | 
-[**GetList**](AppPricingApi.md#GetList) | **Get** /api/app/app-pricing | 
+[**CreateAppPricing**](AppPricingApi.md#CreateAppPricing) | **Post** /api/app/app-pricing | 
+[**DeleteAppPricingById**](AppPricingApi.md#DeleteAppPricingById) | **Delete** /api/app/app-pricing/{id} | 
+[**GetAppPricingById**](AppPricingApi.md#GetAppPricingById) | **Get** /api/app/app-pricing/{id} | 
+[**GetAppPricingList**](AppPricingApi.md#GetAppPricingList) | **Get** /api/app/app-pricing | 
 [**GetListByAppId**](AppPricingApi.md#GetListByAppId) | **Get** /api/app/app-pricing/by-app-id/{appId} | 
 [**GetPricingItemsByAppId**](AppPricingApi.md#GetPricingItemsByAppId) | **Get** /api/app/app-pricing/pricing-items-by-app-id/{appId} | 
-[**Update**](AppPricingApi.md#Update) | **Put** /api/app/app-pricing/{id} | 
+[**UpdateAppPricing**](AppPricingApi.md#UpdateAppPricing) | **Put** /api/app/app-pricing/{id} | 
 
 
 
-## Create
+## CreateAppPricing
 
-> AppPricingDto Create(ctx).Body(body).Execute()
+> AppPricingDto CreateAppPricing(ctx).Body(body).Execute()
 
 
 
@@ -37,13 +37,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppPricingApi.CreateAppPricing(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.CreateAppPricing``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.Create`: %v\n", resp)
+    // response from `CreateAppPricing`: AppPricingDto
+    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.CreateAppPricing`: %v\n", resp)
 }
 ```
 
@@ -53,7 +53,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateAppPricingRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteAppPricingById
 
-> Delete(ctx, id).Execute()
+> DeleteAppPricingById(ctx, id).Execute()
 
 
 
@@ -101,9 +101,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppPricingApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.AppPricingApi.DeleteAppPricingById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.DeleteAppPricingById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteAppPricingByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -144,9 +144,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetAppPricingById
 
-> AppPricingDto GetById(ctx, id).Execute()
+> AppPricingDto GetAppPricingById(ctx, id).Execute()
 
 
 
@@ -167,13 +167,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.AppPricingApi.GetAppPricingById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetAppPricingById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetById`: %v\n", resp)
+    // response from `GetAppPricingById`: AppPricingDto
+    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetAppPricingById`: %v\n", resp)
 }
 ```
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAppPricingByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -212,9 +212,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetAppPricingList
 
-> AppPricingDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppPricingDtoPagedResultDto GetAppPricingList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -237,13 +237,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.AppPricingApi.GetAppPricingList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetAppPricingList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: AppPricingDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetList`: %v\n", resp)
+    // response from `GetAppPricingList`: AppPricingDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetAppPricingList`: %v\n", resp)
 }
 ```
 
@@ -253,7 +253,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAppPricingListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -416,9 +416,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateAppPricing
 
-> AppPricingDto Update(ctx, id).Body(body).Execute()
+> AppPricingDto UpdateAppPricing(ctx, id).Body(body).Execute()
 
 
 
@@ -440,13 +440,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppPricingApi.UpdateAppPricing(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.UpdateAppPricing``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.Update`: %v\n", resp)
+    // response from `UpdateAppPricing`: AppPricingDto
+    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.UpdateAppPricing`: %v\n", resp)
 }
 ```
 
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateAppPricingRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

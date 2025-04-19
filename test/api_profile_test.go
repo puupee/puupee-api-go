@@ -33,11 +33,11 @@ func Test_puupee_ProfileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProfileApiService Get", func(t *testing.T) {
+	t.Run("Test ProfileApiService GetProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProfileApi.Get(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProfileApi.GetProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -45,11 +45,11 @@ func Test_puupee_ProfileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProfileApiService Update", func(t *testing.T) {
+	t.Run("Test ProfileApiService UpdateProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProfileApi.Update(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProfileApi.UpdateProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

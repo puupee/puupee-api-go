@@ -22,11 +22,11 @@ func Test_puupee_MessageTemplateApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageTemplateApiService Create", func(t *testing.T) {
+	t.Run("Test MessageTemplateApiService CreateMessageTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageTemplateApi.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateApi.CreateMessageTemplate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,26 @@ func Test_puupee_MessageTemplateApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageTemplateApiService Delete", func(t *testing.T) {
+	t.Run("Test MessageTemplateApiService DeleteMessageTemplateById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.MessageTemplateApi.Delete(context.Background(), id).Execute()
+		httpRes, err := apiClient.MessageTemplateApi.DeleteMessageTemplateById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageTemplateApiService GetById", func(t *testing.T) {
+	t.Run("Test MessageTemplateApiService GetMessageTemplateById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageTemplateApi.GetById(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MessageTemplateApiService GetList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.MessageTemplateApi.GetList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateApi.GetMessageTemplateById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +61,25 @@ func Test_puupee_MessageTemplateApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageTemplateApiService Update", func(t *testing.T) {
+	t.Run("Test MessageTemplateApiService GetMessageTemplateList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MessageTemplateApi.GetMessageTemplateList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MessageTemplateApiService UpdateMessageTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageTemplateApi.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateApi.UpdateMessageTemplate(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

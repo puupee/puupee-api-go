@@ -45,11 +45,11 @@ func Test_puupee_SubscriptionApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test SubscriptionApiService GetById", func(t *testing.T) {
+	t.Run("Test SubscriptionApiService GetSubscriptionById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SubscriptionApi.GetById(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SubscriptionApi.GetSubscriptionById(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

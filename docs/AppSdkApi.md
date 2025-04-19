@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](AppSdkApi.md#Create) | **Post** /api/app/app-sdk | 
-[**Delete**](AppSdkApi.md#Delete) | **Delete** /api/app/app-sdk/{id} | 
-[**GetList**](AppSdkApi.md#GetList) | **Get** /api/app/app-sdk | 
-[**Update**](AppSdkApi.md#Update) | **Put** /api/app/app-sdk/{id} | 
+[**CreateAppSdk**](AppSdkApi.md#CreateAppSdk) | **Post** /api/app/app-sdk | 
+[**DeleteAppSdkById**](AppSdkApi.md#DeleteAppSdkById) | **Delete** /api/app/app-sdk/{id} | 
+[**GetAppSdkList**](AppSdkApi.md#GetAppSdkList) | **Get** /api/app/app-sdk | 
+[**UpdateAppSdk**](AppSdkApi.md#UpdateAppSdk) | **Put** /api/app/app-sdk/{id} | 
 
 
 
-## Create
+## CreateAppSdk
 
-> AppSdkDto Create(ctx).Body(body).Execute()
+> AppSdkDto CreateAppSdk(ctx).Body(body).Execute()
 
 
 
@@ -34,13 +34,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppSdkApi.CreateAppSdk(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.CreateAppSdk``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.Create`: %v\n", resp)
+    // response from `CreateAppSdk`: AppSdkDto
+    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.CreateAppSdk`: %v\n", resp)
 }
 ```
 
@@ -50,7 +50,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateAppSdkRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -75,9 +75,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteAppSdkById
 
-> Delete(ctx, id).Execute()
+> DeleteAppSdkById(ctx, id).Execute()
 
 
 
@@ -98,9 +98,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppSdkApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.AppSdkApi.DeleteAppSdkById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.DeleteAppSdkById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteAppSdkByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -141,9 +141,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetAppSdkList
 
-> AppSdkDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppSdkDtoPagedResultDto GetAppSdkList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -166,13 +166,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.AppSdkApi.GetAppSdkList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.GetAppSdkList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: AppSdkDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.GetList`: %v\n", resp)
+    // response from `GetAppSdkList`: AppSdkDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.GetAppSdkList`: %v\n", resp)
 }
 ```
 
@@ -182,7 +182,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAppSdkListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -209,9 +209,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateAppSdk
 
-> AppSdkDto Update(ctx, id).Body(body).Execute()
+> AppSdkDto UpdateAppSdk(ctx, id).Body(body).Execute()
 
 
 
@@ -233,13 +233,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppSdkApi.UpdateAppSdk(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.UpdateAppSdk``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.Update`: %v\n", resp)
+    // response from `UpdateAppSdk`: AppSdkDto
+    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.UpdateAppSdk`: %v\n", resp)
 }
 ```
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateAppSdkRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

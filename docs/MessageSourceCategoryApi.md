@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetList**](MessageSourceCategoryApi.md#GetList) | **Get** /api/app/message-source-category | 
+[**GetMessageSourceCategoryList**](MessageSourceCategoryApi.md#GetMessageSourceCategoryList) | **Get** /api/app/message-source-category | 
 
 
 
-## GetList
+## GetMessageSourceCategoryList
 
-> []MessageSourceCategoryDto GetList(ctx).Execute()
+> []MessageSourceCategoryDto GetMessageSourceCategoryList(ctx).Execute()
 
 
 
@@ -30,13 +30,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceCategoryApi.GetList(context.Background()).Execute()
+    resp, r, err := apiClient.MessageSourceCategoryApi.GetMessageSourceCategoryList(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceCategoryApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceCategoryApi.GetMessageSourceCategoryList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: []MessageSourceCategoryDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceCategoryApi.GetList`: %v\n", resp)
+    // response from `GetMessageSourceCategoryList`: []MessageSourceCategoryDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceCategoryApi.GetMessageSourceCategoryList`: %v\n", resp)
 }
 ```
 
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMessageSourceCategoryListRequest struct via the builder pattern
 
 
 ### Return type

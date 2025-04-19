@@ -22,11 +22,11 @@ func Test_puupee_TimeZoneSettingsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TimeZoneSettingsApiService Get", func(t *testing.T) {
+	t.Run("Test TimeZoneSettingsApiService GetTimeZoneSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TimeZoneSettingsApi.Get(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TimeZoneSettingsApi.GetTimeZoneSettings(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_puupee_TimeZoneSettingsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TimeZoneSettingsApiService Update", func(t *testing.T) {
+	t.Run("Test TimeZoneSettingsApiService UpdateTimeZoneSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.TimeZoneSettingsApi.Update(context.Background()).Execute()
+		httpRes, err := apiClient.TimeZoneSettingsApi.UpdateTimeZoneSettings(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get**](AbpApiDefinitionApi.md#Get) | **Get** /api/abp/api-definition | 
+[**GetAbpApiDefinition**](AbpApiDefinitionApi.md#GetAbpApiDefinition) | **Get** /api/abp/api-definition | 
 
 
 
-## Get
+## GetAbpApiDefinition
 
-> ApplicationApiDescriptionModel Get(ctx).IncludeTypes(includeTypes).Execute()
+> ApplicationApiDescriptionModel GetAbpApiDefinition(ctx).IncludeTypes(includeTypes).Execute()
 
 
 
@@ -31,13 +31,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpApiDefinitionApi.Get(context.Background()).IncludeTypes(includeTypes).Execute()
+    resp, r, err := apiClient.AbpApiDefinitionApi.GetAbpApiDefinition(context.Background()).IncludeTypes(includeTypes).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpApiDefinitionApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AbpApiDefinitionApi.GetAbpApiDefinition``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: ApplicationApiDescriptionModel
-    fmt.Fprintf(os.Stdout, "Response from `AbpApiDefinitionApi.Get`: %v\n", resp)
+    // response from `GetAbpApiDefinition`: ApplicationApiDescriptionModel
+    fmt.Fprintf(os.Stdout, "Response from `AbpApiDefinitionApi.GetAbpApiDefinition`: %v\n", resp)
 }
 ```
 
@@ -47,7 +47,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAbpApiDefinitionRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

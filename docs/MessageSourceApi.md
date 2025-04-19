@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](MessageSourceApi.md#Create) | **Post** /api/app/message-source | 
-[**Delete**](MessageSourceApi.md#Delete) | **Delete** /api/app/message-source/{id} | 
-[**GetById**](MessageSourceApi.md#GetById) | **Get** /api/app/message-source/{id} | 
-[**GetPublishedList**](MessageSourceApi.md#GetPublishedList) | **Get** /api/app/message-source/published-list/{categoryId} | 
-[**Update**](MessageSourceApi.md#Update) | **Put** /api/app/message-source/{id} | 
+[**CreateMessageSource**](MessageSourceApi.md#CreateMessageSource) | **Post** /api/app/message-source | 
+[**DeleteMessageSourceById**](MessageSourceApi.md#DeleteMessageSourceById) | **Delete** /api/app/message-source/{id} | 
+[**GetMessageSourceById**](MessageSourceApi.md#GetMessageSourceById) | **Get** /api/app/message-source/{id} | 
+[**GetMessageSourceList**](MessageSourceApi.md#GetMessageSourceList) | **Get** /api/app/message-source | 
+[**UpdateMessageSource**](MessageSourceApi.md#UpdateMessageSource) | **Put** /api/app/message-source/{id} | 
 
 
 
-## Create
+## CreateMessageSource
 
-> CreateUpdateMessageSourceDto Create(ctx).Body(body).Execute()
+> CreateUpdateMessageSourceDto CreateMessageSource(ctx).Body(body).Execute()
 
 
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.MessageSourceApi.CreateMessageSource(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.CreateMessageSource``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: CreateUpdateMessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.Create`: %v\n", resp)
+    // response from `CreateMessageSource`: CreateUpdateMessageSourceDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.CreateMessageSource`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateMessageSourceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteMessageSourceById
 
-> Delete(ctx, id).Execute()
+> DeleteMessageSourceById(ctx, id).Execute()
 
 
 
@@ -99,9 +99,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.MessageSourceApi.DeleteMessageSourceById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.DeleteMessageSourceById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteMessageSourceByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -142,9 +142,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetMessageSourceById
 
-> MessageSourceDto GetById(ctx, id).Execute()
+> MessageSourceDto GetMessageSourceById(ctx, id).Execute()
 
 
 
@@ -165,13 +165,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.MessageSourceApi.GetMessageSourceById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.GetMessageSourceById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: MessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.GetById`: %v\n", resp)
+    // response from `GetMessageSourceById`: MessageSourceDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.GetMessageSourceById`: %v\n", resp)
 }
 ```
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMessageSourceByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -210,9 +210,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetPublishedList
+## GetMessageSourceList
 
-> []MessageSourceDto GetPublishedList(ctx, categoryId).Execute()
+> []MessageSourceDto GetMessageSourceList(ctx).CategoryId(categoryId).Execute()
 
 
 
@@ -229,36 +229,32 @@ import (
 )
 
 func main() {
-    categoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    categoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.GetPublishedList(context.Background(), categoryId).Execute()
+    resp, r, err := apiClient.MessageSourceApi.GetMessageSourceList(context.Background()).CategoryId(categoryId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.GetPublishedList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.GetMessageSourceList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPublishedList`: []MessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.GetPublishedList`: %v\n", resp)
+    // response from `GetMessageSourceList`: []MessageSourceDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.GetMessageSourceList`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**categoryId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetPublishedListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMessageSourceListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
+ **categoryId** | **string** |  | 
 
 ### Return type
 
@@ -278,9 +274,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateMessageSource
 
-> CreateUpdateMessageSourceDto Update(ctx, id).Body(body).Execute()
+> CreateUpdateMessageSourceDto UpdateMessageSource(ctx, id).Body(body).Execute()
 
 
 
@@ -302,13 +298,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.MessageSourceApi.UpdateMessageSource(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.UpdateMessageSource``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: CreateUpdateMessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.Update`: %v\n", resp)
+    // response from `UpdateMessageSource`: CreateUpdateMessageSourceDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.UpdateMessageSource`: %v\n", resp)
 }
 ```
 
@@ -322,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateMessageSourceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

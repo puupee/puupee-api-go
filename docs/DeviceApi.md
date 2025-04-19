@@ -5,10 +5,10 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Bind**](DeviceApi.md#Bind) | **Post** /api/app/device/bind | 
-[**GetById**](DeviceApi.md#GetById) | **Get** /api/app/device/{id} | 
 [**GetByToken**](DeviceApi.md#GetByToken) | **Get** /api/app/device/by-token | 
-[**GetList**](DeviceApi.md#GetList) | **Get** /api/app/device | 
-[**Refresh**](DeviceApi.md#Refresh) | **Post** /api/app/device/refresh | 
+[**GetDeviceById**](DeviceApi.md#GetDeviceById) | **Get** /api/app/device/{id} | 
+[**GetDeviceList**](DeviceApi.md#GetDeviceList) | **Get** /api/app/device | 
+[**RefreshDevice**](DeviceApi.md#RefreshDevice) | **Post** /api/app/device/refresh-device | 
 [**Remove**](DeviceApi.md#Remove) | **Delete** /api/app/device | 
 
 
@@ -68,74 +68,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetById
-
-> DeviceDto GetById(ctx, id).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.GetById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetById`: DeviceDto
-    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetById`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DeviceDto**](DeviceDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -207,9 +139,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetDeviceById
 
-> DeviceDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> DeviceDto GetDeviceById(ctx, id).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeviceApi.GetDeviceById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetDeviceById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetDeviceById`: DeviceDto
+    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetDeviceById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDeviceByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DeviceDto**](DeviceDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDeviceList
+
+> DeviceDtoPagedResultDto GetDeviceList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -232,13 +232,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.DeviceApi.GetDeviceList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetDeviceList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: DeviceDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetList`: %v\n", resp)
+    // response from `GetDeviceList`: DeviceDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetDeviceList`: %v\n", resp)
 }
 ```
 
@@ -248,7 +248,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDeviceListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -275,9 +275,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Refresh
+## RefreshDevice
 
-> Refresh(ctx).Body(body).Execute()
+> RefreshDevice(ctx).Body(body).Execute()
 
 
 
@@ -298,9 +298,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeviceApi.Refresh(context.Background()).Body(body).Execute()
+    r, err := apiClient.DeviceApi.RefreshDevice(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.Refresh``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.RefreshDevice``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -312,7 +312,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRefreshRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRefreshDeviceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

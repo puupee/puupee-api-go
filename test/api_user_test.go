@@ -22,11 +22,11 @@ func Test_puupee_UserApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UserApiService Create", func(t *testing.T) {
+	t.Run("Test UserApiService CreateIdentityUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserApi.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserApi.CreateIdentityUser(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_puupee_UserApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserApiService Delete", func(t *testing.T) {
+	t.Run("Test UserApiService DeleteIdentityUserById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.UserApi.Delete(context.Background(), id).Execute()
+		httpRes, err := apiClient.UserApi.DeleteIdentityUserById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -87,13 +87,13 @@ func Test_puupee_UserApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserApiService GetById", func(t *testing.T) {
+	t.Run("Test UserApiService GetIdentityUserById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.UserApi.GetById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.UserApi.GetIdentityUserById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,11 +101,11 @@ func Test_puupee_UserApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserApiService GetList", func(t *testing.T) {
+	t.Run("Test UserApiService GetIdentityUserList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserApi.GetList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserApi.GetIdentityUserList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -127,13 +127,13 @@ func Test_puupee_UserApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserApiService Update", func(t *testing.T) {
+	t.Run("Test UserApiService UpdateIdentityUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.UserApi.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.UserApi.UpdateIdentityUser(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

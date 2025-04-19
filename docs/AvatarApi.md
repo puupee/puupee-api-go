@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](AvatarApi.md#Create) | **Post** /api/app/avatar | 
+[**CreateAvatar**](AvatarApi.md#CreateAvatar) | **Post** /api/app/avatar | 
 [**GetCredentials**](AvatarApi.md#GetCredentials) | **Get** /api/app/avatar/credentials | 
 
 
 
-## Create
+## CreateAvatar
 
-> AvatarDto Create(ctx).Body(body).Execute()
+> AvatarDto CreateAvatar(ctx).Body(body).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AvatarApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AvatarApi.CreateAvatar(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.CreateAvatar``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: AvatarDto
-    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.Create`: %v\n", resp)
+    // response from `CreateAvatar`: AvatarDto
+    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.CreateAvatar`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateAvatarRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

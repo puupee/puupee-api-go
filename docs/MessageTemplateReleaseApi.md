@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](MessageTemplateReleaseApi.md#Create) | **Post** /api/app/message-template-release | 
-[**GetById**](MessageTemplateReleaseApi.md#GetById) | **Get** /api/app/message-template-release/{id} | 
-[**GetList**](MessageTemplateReleaseApi.md#GetList) | **Get** /api/app/message-template-release | 
+[**CreateMessageTemplateRelease**](MessageTemplateReleaseApi.md#CreateMessageTemplateRelease) | **Post** /api/app/message-template-release | 
+[**GetMessageTemplateReleaseById**](MessageTemplateReleaseApi.md#GetMessageTemplateReleaseById) | **Get** /api/app/message-template-release/{id} | 
+[**GetMessageTemplateReleaseList**](MessageTemplateReleaseApi.md#GetMessageTemplateReleaseList) | **Get** /api/app/message-template-release | 
 
 
 
-## Create
+## CreateMessageTemplateRelease
 
-> MessageTemplateReleaseDto Create(ctx).Body(body).Execute()
+> MessageTemplateReleaseDto CreateMessageTemplateRelease(ctx).Body(body).Execute()
 
 
 
@@ -33,13 +33,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.MessageTemplateReleaseApi.CreateMessageTemplateRelease(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.CreateMessageTemplateRelease``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: MessageTemplateReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.Create`: %v\n", resp)
+    // response from `CreateMessageTemplateRelease`: MessageTemplateReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.CreateMessageTemplateRelease`: %v\n", resp)
 }
 ```
 
@@ -49,7 +49,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateMessageTemplateReleaseRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -74,9 +74,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetMessageTemplateReleaseById
 
-> MessageTemplateReleaseDto GetById(ctx, id).Execute()
+> MessageTemplateReleaseDto GetMessageTemplateReleaseById(ctx, id).Execute()
 
 
 
@@ -97,13 +97,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.MessageTemplateReleaseApi.GetMessageTemplateReleaseById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.GetMessageTemplateReleaseById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: MessageTemplateReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.GetById`: %v\n", resp)
+    // response from `GetMessageTemplateReleaseById`: MessageTemplateReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.GetMessageTemplateReleaseById`: %v\n", resp)
 }
 ```
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMessageTemplateReleaseByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -142,9 +142,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetMessageTemplateReleaseList
 
-> []MessageTemplateReleaseDto GetList(ctx).TemplateId(templateId).Execute()
+> []MessageTemplateReleaseDto GetMessageTemplateReleaseList(ctx).TemplateId(templateId).Execute()
 
 
 
@@ -165,13 +165,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.GetList(context.Background()).TemplateId(templateId).Execute()
+    resp, r, err := apiClient.MessageTemplateReleaseApi.GetMessageTemplateReleaseList(context.Background()).TemplateId(templateId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.GetMessageTemplateReleaseList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: []MessageTemplateReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.GetList`: %v\n", resp)
+    // response from `GetMessageTemplateReleaseList`: []MessageTemplateReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.GetMessageTemplateReleaseList`: %v\n", resp)
 }
 ```
 
@@ -181,7 +181,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetMessageTemplateReleaseListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

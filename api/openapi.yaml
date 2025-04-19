@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Puupee API
-  version: 1.17.4
+  version: 1.0.0
 servers:
 - url: /
 security:
@@ -9,7 +9,7 @@ security:
 paths:
   /api/abp/api-definition:
     get:
-      operationId: Get
+      operationId: GetAbpApiDefinition
       parameters:
       - in: query
         name: IncludeTypes
@@ -104,7 +104,7 @@ paths:
       - AbpApiDefinition
   /api/abp/application-configuration:
     get:
-      operationId: Get
+      operationId: GetAbpApplicationConfiguration
       parameters:
       - in: query
         name: IncludeLocalizationResources
@@ -199,7 +199,7 @@ paths:
       - AbpApplicationConfiguration
   /api/abp/application-localization:
     get:
-      operationId: Get
+      operationId: GetAbpApplicationLocalization
       parameters:
       - in: query
         name: CultureName
@@ -980,7 +980,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/account:
     get:
-      operationId: Get
+      operationId: GetAccount
       responses:
         "200":
           content:
@@ -1070,7 +1070,7 @@ paths:
       - Account
   /api/app/account/change-password:
     post:
-      operationId: ChangePassword
+      operationId: ChangeAccountPassword
       requestBody:
         content:
           application/json:
@@ -1255,7 +1255,7 @@ paths:
       - Account
   /api/api-keys/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteApiKeysById
       parameters:
       - in: path
         name: id
@@ -1342,7 +1342,7 @@ paths:
       tags:
       - ApiKeys
     get:
-      operationId: GetById
+      operationId: GetApiKeysById
       parameters:
       - in: path
         name: id
@@ -1438,7 +1438,7 @@ paths:
       tags:
       - ApiKeys
     put:
-      operationId: Update
+      operationId: UpdateApiKeys
       parameters:
       - in: path
         name: id
@@ -1548,7 +1548,7 @@ paths:
       x-codegen-request-body-name: body
   /api/api-keys:
     get:
-      operationId: GetList
+      operationId: GetApiKeysList
       parameters:
       - in: query
         name: Sorting
@@ -1656,7 +1656,7 @@ paths:
       tags:
       - ApiKeys
     post:
-      operationId: Create
+      operationId: CreateApiKeys
       requestBody:
         content:
           application/json:
@@ -1759,7 +1759,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app:
     get:
-      operationId: GetList
+      operationId: GetAppList
       parameters:
       - in: query
         name: CreatorId
@@ -1873,7 +1873,7 @@ paths:
       tags:
       - App
     post:
-      operationId: Create
+      operationId: CreateApp
       requestBody:
         content:
           application/json:
@@ -1977,7 +1977,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteAppById
       parameters:
       - in: path
         name: id
@@ -2065,7 +2065,7 @@ paths:
       tags:
       - App
     get:
-      operationId: GetById
+      operationId: GetAppById
       parameters:
       - in: path
         name: id
@@ -2162,7 +2162,7 @@ paths:
       tags:
       - App
     put:
-      operationId: Update
+      operationId: UpdateApp
       parameters:
       - in: path
         name: id
@@ -2881,9 +2881,9 @@ paths:
           description: Server Error
       tags:
       - App
-  /api/app/app/features/{appId}:
+  /api/app/app/feature-list/{appId}:
     get:
-      operationId: GetFeatures
+      operationId: GetFeatureList
       parameters:
       - in: path
         name: appId
@@ -2994,7 +2994,8 @@ paths:
       parameters:
       - in: query
         name: Type
-        schema: {}
+        schema:
+          type: string
       - in: query
         name: DeveloperAccount
         schema:
@@ -3097,7 +3098,8 @@ paths:
       parameters:
       - in: query
         name: Type
-        schema: {}
+        schema:
+          type: string
       - in: query
         name: SearchKey
         schema:
@@ -3306,7 +3308,7 @@ paths:
       - App
   /api/app/app-feature:
     get:
-      operationId: GetList
+      operationId: GetAppFeatureList
       parameters:
       - in: query
         name: Sorting
@@ -3414,7 +3416,7 @@ paths:
       tags:
       - AppFeature
     post:
-      operationId: Create
+      operationId: CreateAppFeature
       requestBody:
         content:
           application/json:
@@ -3517,7 +3519,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-feature/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteAppFeatureById
       parameters:
       - in: path
         name: id
@@ -3604,7 +3606,7 @@ paths:
       tags:
       - AppFeature
     put:
-      operationId: Update
+      operationId: UpdateAppFeature
       parameters:
       - in: path
         name: id
@@ -3714,7 +3716,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-pricing:
     get:
-      operationId: GetList
+      operationId: GetAppPricingList
       parameters:
       - in: query
         name: Sorting
@@ -3822,7 +3824,7 @@ paths:
       tags:
       - AppPricing
     post:
-      operationId: Create
+      operationId: CreateAppPricing
       requestBody:
         content:
           application/json:
@@ -3925,7 +3927,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-pricing/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteAppPricingById
       parameters:
       - in: path
         name: id
@@ -4012,7 +4014,7 @@ paths:
       tags:
       - AppPricing
     get:
-      operationId: GetById
+      operationId: GetAppPricingById
       parameters:
       - in: path
         name: id
@@ -4108,7 +4110,7 @@ paths:
       tags:
       - AppPricing
     put:
-      operationId: Update
+      operationId: UpdateAppPricing
       parameters:
       - in: path
         name: id
@@ -4424,7 +4426,7 @@ paths:
       - AppPricing
   /api/app/app-pricing-item:
     get:
-      operationId: GetList
+      operationId: GetAppPricingItemList
       responses:
         "200":
           content:
@@ -4519,7 +4521,7 @@ paths:
       tags:
       - AppPricingItem
     post:
-      operationId: Create
+      operationId: CreateAppPricingItem
       requestBody:
         content:
           application/json:
@@ -4622,7 +4624,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-pricing-item/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteAppPricingItemById
       parameters:
       - in: path
         name: id
@@ -4709,7 +4711,7 @@ paths:
       tags:
       - AppPricingItem
     get:
-      operationId: GetById
+      operationId: GetAppPricingItemById
       parameters:
       - in: path
         name: id
@@ -4805,7 +4807,7 @@ paths:
       tags:
       - AppPricingItem
     put:
-      operationId: Update
+      operationId: UpdateAppPricingItem
       parameters:
       - in: path
         name: id
@@ -4915,7 +4917,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-release:
     get:
-      operationId: GetList
+      operationId: GetAppReleaseList
       parameters:
       - in: query
         name: AppId
@@ -4928,7 +4930,8 @@ paths:
           type: string
       - in: query
         name: Platform
-        schema: {}
+        schema:
+          type: string
       - in: query
         name: Sorting
         schema:
@@ -5036,7 +5039,7 @@ paths:
       tags:
       - AppRelease
     post:
-      operationId: Create
+      operationId: CreateAppRelease
       requestBody:
         content:
           application/json:
@@ -5140,7 +5143,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-release/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteAppReleaseById
       parameters:
       - in: path
         name: id
@@ -5228,7 +5231,7 @@ paths:
       tags:
       - AppRelease
     get:
-      operationId: GetById
+      operationId: GetAppReleaseById
       parameters:
       - in: path
         name: id
@@ -5325,7 +5328,7 @@ paths:
       tags:
       - AppRelease
     put:
-      operationId: Update
+      operationId: UpdateAppRelease
       parameters:
       - in: path
         name: id
@@ -5444,10 +5447,12 @@ paths:
           type: string
       - in: query
         name: Platform
-        schema: {}
+        schema:
+          type: string
       - in: query
         name: ProductType
-        schema: {}
+        schema:
+          type: string
       - in: query
         name: Environment
         schema:
@@ -5542,7 +5547,7 @@ paths:
       - AppRelease
   /api/app/app-sdk:
     get:
-      operationId: GetList
+      operationId: GetAppSdkList
       parameters:
       - in: query
         name: Sorting
@@ -5650,7 +5655,7 @@ paths:
       tags:
       - AppSdk
     post:
-      operationId: Create
+      operationId: CreateAppSdk
       requestBody:
         content:
           application/json:
@@ -5753,7 +5758,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-sdk/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteAppSdkById
       parameters:
       - in: path
         name: id
@@ -5840,7 +5845,7 @@ paths:
       tags:
       - AppSdk
     put:
-      operationId: Update
+      operationId: UpdateAppSdk
       parameters:
       - in: path
         name: id
@@ -5950,7 +5955,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/app-user-score:
     post:
-      operationId: Create
+      operationId: CreateAppUserScore
       requestBody:
         content:
           application/json:
@@ -6053,7 +6058,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/avatar:
     post:
-      operationId: Create
+      operationId: CreateAvatar
       requestBody:
         content:
           application/json:
@@ -6430,7 +6435,7 @@ paths:
       tags:
       - Device
     get:
-      operationId: GetList
+      operationId: GetDeviceList
       parameters:
       - in: query
         name: Sorting
@@ -6537,9 +6542,9 @@ paths:
           description: Server Error
       tags:
       - Device
-  /api/app/device/refresh:
+  /api/app/device/refresh-device:
     post:
-      operationId: Refresh
+      operationId: RefreshDevice
       requestBody:
         content:
           application/json:
@@ -6633,7 +6638,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/device/{id}:
     get:
-      operationId: GetById
+      operationId: GetDeviceById
       parameters:
       - in: path
         name: id
@@ -6906,7 +6911,7 @@ paths:
       - DynamicClaims
   /api/setting-management/emailing:
     get:
-      operationId: Get
+      operationId: GetEmailSettings
       responses:
         "200":
           content:
@@ -6995,7 +7000,7 @@ paths:
       tags:
       - EmailSettings
     post:
-      operationId: Update
+      operationId: UpdateEmailSettings
       requestBody:
         content:
           application/json:
@@ -7183,7 +7188,7 @@ paths:
       x-codegen-request-body-name: body
   /api/feature-management/features:
     delete:
-      operationId: Delete
+      operationId: DeleteFeatures
       parameters:
       - in: query
         name: providerName
@@ -7272,7 +7277,7 @@ paths:
       tags:
       - Features
     get:
-      operationId: Get
+      operationId: GetFeatures
       parameters:
       - in: query
         name: providerName
@@ -7370,7 +7375,7 @@ paths:
       tags:
       - Features
     put:
-      operationId: Update
+      operationId: UpdateFeatures
       parameters:
       - in: query
         name: providerName
@@ -8135,8 +8140,109 @@ paths:
       - Message
       x-codegen-request-body-name: body
   /api/app/message-source:
+    get:
+      operationId: GetMessageSourceList
+      parameters:
+      - in: query
+        name: categoryId
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageSourceDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageSourceDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageSourceDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - MessageSource
     post:
-      operationId: Create
+      operationId: CreateMessageSource
       requestBody:
         content:
           application/json:
@@ -8239,7 +8345,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-source/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteMessageSourceById
       parameters:
       - in: path
         name: id
@@ -8326,7 +8432,7 @@ paths:
       tags:
       - MessageSource
     get:
-      operationId: GetById
+      operationId: GetMessageSourceById
       parameters:
       - in: path
         name: id
@@ -8422,7 +8528,7 @@ paths:
       tags:
       - MessageSource
     put:
-      operationId: Update
+      operationId: UpdateMessageSource
       parameters:
       - in: path
         name: id
@@ -8530,112 +8636,9 @@ paths:
       tags:
       - MessageSource
       x-codegen-request-body-name: body
-  /api/app/message-source/published-list/{categoryId}:
-    get:
-      operationId: GetPublishedList
-      parameters:
-      - in: path
-        name: categoryId
-        required: true
-        schema:
-          format: uuid
-          type: string
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                items:
-                  $ref: '#/components/schemas/MessageSourceDto'
-                type: array
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/MessageSourceDto'
-                type: array
-            text/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/MessageSourceDto'
-                type: array
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - MessageSource
   /api/app/message-source-category:
     get:
-      operationId: GetList
+      operationId: GetMessageSourceCategoryList
       responses:
         "200":
           content:
@@ -8730,8 +8733,109 @@ paths:
       tags:
       - MessageSourceCategory
   /api/app/message-source-route:
+    get:
+      operationId: GetMessageSourceRouteList
+      parameters:
+      - in: query
+        name: sourceId
+        schema:
+          format: uuid
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageSourceRouteDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageSourceRouteDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageSourceRouteDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - MessageSourceRoute
     post:
-      operationId: Create
+      operationId: CreateMessageSourceRoute
       requestBody:
         content:
           application/json:
@@ -8825,7 +8929,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-source-route/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteMessageSourceRouteById
       parameters:
       - in: path
         name: id
@@ -8912,7 +9016,7 @@ paths:
       tags:
       - MessageSourceRoute
     get:
-      operationId: GetById
+      operationId: GetMessageSourceRouteById
       parameters:
       - in: path
         name: id
@@ -9008,7 +9112,7 @@ paths:
       tags:
       - MessageSourceRoute
     put:
-      operationId: Update
+      operationId: UpdateMessageSourceRoute
       parameters:
       - in: path
         name: id
@@ -9107,112 +9211,9 @@ paths:
       tags:
       - MessageSourceRoute
       x-codegen-request-body-name: body
-  /api/app/message-source-route/published-list/{sourceId}:
-    get:
-      operationId: GetPublishedList
-      parameters:
-      - in: path
-        name: sourceId
-        required: true
-        schema:
-          format: uuid
-          type: string
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                items:
-                  $ref: '#/components/schemas/MessageSourceRouteDto'
-                type: array
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/MessageSourceRouteDto'
-                type: array
-            text/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/MessageSourceRouteDto'
-                type: array
-          description: Success
-        "403":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Forbidden
-        "401":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Unauthorized
-        "400":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Bad Request
-        "404":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Not Found
-        "501":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-        "500":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/RemoteServiceErrorResponse'
-          description: Server Error
-      tags:
-      - MessageSourceRoute
   /api/app/message-source-route-sub:
     get:
-      operationId: GetList
+      operationId: GetMessageSourceRouteSubList
       responses:
         "200":
           content:
@@ -9307,7 +9308,7 @@ paths:
       tags:
       - MessageSourceRouteSub
     post:
-      operationId: Create
+      operationId: CreateMessageSourceRouteSub
       requestBody:
         content:
           application/json:
@@ -9401,7 +9402,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-source-route-sub/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteMessageSourceRouteSubById
       parameters:
       - in: path
         name: id
@@ -9488,7 +9489,7 @@ paths:
       tags:
       - MessageSourceRouteSub
     get:
-      operationId: GetById
+      operationId: GetMessageSourceRouteSubById
       parameters:
       - in: path
         name: id
@@ -9584,7 +9585,7 @@ paths:
       tags:
       - MessageSourceRouteSub
     put:
-      operationId: Update
+      operationId: UpdateMessageSourceRouteSub
       parameters:
       - in: path
         name: id
@@ -9685,7 +9686,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-template:
     get:
-      operationId: GetList
+      operationId: GetMessageTemplateList
       responses:
         "200":
           content:
@@ -9780,7 +9781,7 @@ paths:
       tags:
       - MessageTemplate
     post:
-      operationId: Create
+      operationId: CreateMessageTemplate
       requestBody:
         content:
           application/json:
@@ -9883,7 +9884,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-template/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteMessageTemplateById
       parameters:
       - in: path
         name: id
@@ -9970,7 +9971,7 @@ paths:
       tags:
       - MessageTemplate
     get:
-      operationId: GetById
+      operationId: GetMessageTemplateById
       parameters:
       - in: path
         name: id
@@ -10066,7 +10067,7 @@ paths:
       tags:
       - MessageTemplate
     put:
-      operationId: Update
+      operationId: UpdateMessageTemplate
       parameters:
       - in: path
         name: id
@@ -10176,7 +10177,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-template-release:
     get:
-      operationId: GetList
+      operationId: GetMessageTemplateReleaseList
       parameters:
       - in: query
         name: templateId
@@ -10277,7 +10278,7 @@ paths:
       tags:
       - MessageTemplateRelease
     post:
-      operationId: Create
+      operationId: CreateMessageTemplateRelease
       requestBody:
         content:
           application/json:
@@ -10380,7 +10381,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/message-template-release/{id}:
     get:
-      operationId: GetById
+      operationId: GetMessageTemplateReleaseById
       parameters:
       - in: path
         name: id
@@ -10526,7 +10527,8 @@ paths:
       - description: 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\ntimeSensitive：时效性通知，可在专注状态下显示通知。\npassive：仅将通知添加到通知列表，不会亮屏提醒
         in: query
         name: level
-        schema: {}
+        schema:
+          type: string
       responses:
         "200":
           content: {}
@@ -10608,7 +10610,7 @@ paths:
       - Notification
   /api/app/notification:
     get:
-      operationId: GetList
+      operationId: GetNotificationList
       parameters:
       - in: query
         name: Sorting
@@ -10811,7 +10813,7 @@ paths:
       x-codegen-request-body-name: body
   /api/permission-management/permissions:
     get:
-      operationId: Get
+      operationId: GetPermissions
       parameters:
       - in: query
         name: providerName
@@ -10909,7 +10911,7 @@ paths:
       tags:
       - Permissions
     put:
-      operationId: Update
+      operationId: UpdatePermissions
       parameters:
       - in: query
         name: providerName
@@ -11012,7 +11014,7 @@ paths:
       x-codegen-request-body-name: body
   /api/account/my-profile:
     get:
-      operationId: Get
+      operationId: GetProfile
       responses:
         "200":
           content:
@@ -11101,7 +11103,7 @@ paths:
       tags:
       - Profile
     put:
-      operationId: Update
+      operationId: UpdateProfile
       requestBody:
         content:
           application/json:
@@ -11388,7 +11390,7 @@ paths:
       - Role
   /api/identity/roles:
     get:
-      operationId: GetList
+      operationId: GetIdentityRoleList
       parameters:
       - in: query
         name: Filter
@@ -11500,7 +11502,7 @@ paths:
       tags:
       - Role
     post:
-      operationId: Create
+      operationId: CreateIdentityRole
       requestBody:
         content:
           application/json:
@@ -11603,7 +11605,7 @@ paths:
       x-codegen-request-body-name: body
   /api/identity/roles/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteIdentityRoleById
       parameters:
       - in: path
         name: id
@@ -11690,7 +11692,7 @@ paths:
       tags:
       - Role
     get:
-      operationId: GetById
+      operationId: GetIdentityRoleById
       parameters:
       - in: path
         name: id
@@ -11786,7 +11788,7 @@ paths:
       tags:
       - Role
     put:
-      operationId: Update
+      operationId: UpdateIdentityRole
       parameters:
       - in: path
         name: id
@@ -11902,6 +11904,10 @@ paths:
         name: rapidCode
         schema:
           type: string
+      - in: query
+        name: bucket
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -11995,6 +12001,10 @@ paths:
       parameters:
       - in: query
         name: key
+        schema:
+          type: string
+      - in: query
+        name: bucket
         schema:
           type: string
       responses:
@@ -12387,7 +12397,7 @@ paths:
       x-codegen-request-body-name: body
   /api/app/subscription:
     get:
-      operationId: GetById
+      operationId: GetSubscriptionById
       parameters:
       - in: query
         name: appId
@@ -12483,7 +12493,7 @@ paths:
       - Subscription
   /api/multi-tenancy/tenants/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteTenantById
       parameters:
       - in: path
         name: id
@@ -12570,7 +12580,7 @@ paths:
       tags:
       - Tenant
     get:
-      operationId: GetById
+      operationId: GetTenantById
       parameters:
       - in: path
         name: id
@@ -12666,7 +12676,7 @@ paths:
       tags:
       - Tenant
     put:
-      operationId: Update
+      operationId: UpdateTenant
       parameters:
       - in: path
         name: id
@@ -12776,7 +12786,7 @@ paths:
       x-codegen-request-body-name: body
   /api/multi-tenancy/tenants:
     get:
-      operationId: GetList
+      operationId: GetTenantList
       parameters:
       - in: query
         name: Filter
@@ -12888,7 +12898,7 @@ paths:
       tags:
       - Tenant
     post:
-      operationId: Create
+      operationId: CreateTenant
       requestBody:
         content:
           application/json:
@@ -13266,7 +13276,7 @@ paths:
       - Tenant
   /api/setting-management/timezone:
     get:
-      operationId: Get
+      operationId: GetTimeZoneSettings
       responses:
         "200":
           content:
@@ -13355,7 +13365,7 @@ paths:
       tags:
       - TimeZoneSettings
     post:
-      operationId: Update
+      operationId: UpdateTimeZoneSettings
       parameters:
       - in: query
         name: timezone
@@ -13537,7 +13547,7 @@ paths:
       - TimeZoneSettings
   /api/identity/users/{id}:
     delete:
-      operationId: Delete
+      operationId: DeleteIdentityUserById
       parameters:
       - in: path
         name: id
@@ -13624,7 +13634,7 @@ paths:
       tags:
       - User
     get:
-      operationId: GetById
+      operationId: GetIdentityUserById
       parameters:
       - in: path
         name: id
@@ -13720,7 +13730,7 @@ paths:
       tags:
       - User
     put:
-      operationId: Update
+      operationId: UpdateIdentityUser
       parameters:
       - in: path
         name: id
@@ -13830,7 +13840,7 @@ paths:
       x-codegen-request-body-name: body
   /api/identity/users:
     get:
-      operationId: GetList
+      operationId: GetIdentityUserList
       parameters:
       - in: query
         name: Filter
@@ -13942,7 +13952,7 @@ paths:
       tags:
       - User
     post:
-      operationId: Create
+      operationId: CreateIdentityUser
       requestBody:
         content:
           application/json:
@@ -18195,12 +18205,6 @@ components:
         key:
           type: string
       type: object
-    BarkNotificationLevel:
-      enum:
-      - Active
-      - TimeSensitive
-      - Passive
-      type: string
     BindDeviceDto:
       example:
         name: name

@@ -22,11 +22,11 @@ func Test_puupee_AppFeatureApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppFeatureApiService Create", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService CreateAppFeature", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppFeatureApi.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppFeatureApi.CreateAppFeature(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,24 @@ func Test_puupee_AppFeatureApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppFeatureApiService Delete", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService DeleteAppFeatureById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppFeatureApi.Delete(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppFeatureApi.DeleteAppFeatureById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppFeatureApiService GetList", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService GetAppFeatureList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppFeatureApi.GetList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppFeatureApi.GetAppFeatureList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +59,13 @@ func Test_puupee_AppFeatureApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppFeatureApiService Update", func(t *testing.T) {
+	t.Run("Test AppFeatureApiService UpdateAppFeature", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppFeatureApi.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppFeatureApi.UpdateAppFeature(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

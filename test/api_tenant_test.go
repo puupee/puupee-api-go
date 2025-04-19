@@ -22,27 +22,14 @@ func Test_puupee_TenantApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TenantApiService Create", func(t *testing.T) {
+	t.Run("Test TenantApiService CreateTenant", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TenantApi.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TenantApi.CreateTenant(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test TenantApiService Delete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		httpRes, err := apiClient.TenantApi.Delete(context.Background(), id).Execute()
-
-		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -60,16 +47,15 @@ func Test_puupee_TenantApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TenantApiService GetById", func(t *testing.T) {
+	t.Run("Test TenantApiService DeleteTenantById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.TenantApi.GetById(context.Background(), id).Execute()
+		httpRes, err := apiClient.TenantApi.DeleteTenantById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -88,11 +74,13 @@ func Test_puupee_TenantApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TenantApiService GetList", func(t *testing.T) {
+	t.Run("Test TenantApiService GetTenantById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TenantApi.GetList(context.Background()).Execute()
+		var id string
+
+		resp, httpRes, err := apiClient.TenantApi.GetTenantById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,13 +88,11 @@ func Test_puupee_TenantApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TenantApiService Update", func(t *testing.T) {
+	t.Run("Test TenantApiService GetTenantList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id string
-
-		resp, httpRes, err := apiClient.TenantApi.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.TenantApi.GetTenantList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -123,6 +109,20 @@ func Test_puupee_TenantApiService(t *testing.T) {
 		httpRes, err := apiClient.TenantApi.UpdateDefaultConnectionString(context.Background(), id).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TenantApiService UpdateTenant", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.TenantApi.UpdateTenant(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

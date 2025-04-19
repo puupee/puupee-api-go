@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create**](RoleApi.md#Create) | **Post** /api/identity/roles | 
-[**Delete**](RoleApi.md#Delete) | **Delete** /api/identity/roles/{id} | 
+[**CreateIdentityRole**](RoleApi.md#CreateIdentityRole) | **Post** /api/identity/roles | 
+[**DeleteIdentityRoleById**](RoleApi.md#DeleteIdentityRoleById) | **Delete** /api/identity/roles/{id} | 
 [**GetAllList**](RoleApi.md#GetAllList) | **Get** /api/identity/roles/all | 
-[**GetById**](RoleApi.md#GetById) | **Get** /api/identity/roles/{id} | 
-[**GetList**](RoleApi.md#GetList) | **Get** /api/identity/roles | 
-[**Update**](RoleApi.md#Update) | **Put** /api/identity/roles/{id} | 
+[**GetIdentityRoleById**](RoleApi.md#GetIdentityRoleById) | **Get** /api/identity/roles/{id} | 
+[**GetIdentityRoleList**](RoleApi.md#GetIdentityRoleList) | **Get** /api/identity/roles | 
+[**UpdateIdentityRole**](RoleApi.md#UpdateIdentityRole) | **Put** /api/identity/roles/{id} | 
 
 
 
-## Create
+## CreateIdentityRole
 
-> IdentityRoleDto Create(ctx).Body(body).Execute()
+> IdentityRoleDto CreateIdentityRole(ctx).Body(body).Execute()
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.Create(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.RoleApi.CreateIdentityRole(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.Create``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.CreateIdentityRole``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Create`: IdentityRoleDto
-    fmt.Fprintf(os.Stdout, "Response from `RoleApi.Create`: %v\n", resp)
+    // response from `CreateIdentityRole`: IdentityRoleDto
+    fmt.Fprintf(os.Stdout, "Response from `RoleApi.CreateIdentityRole`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateIdentityRoleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Delete
+## DeleteIdentityRoleById
 
-> Delete(ctx, id).Execute()
+> DeleteIdentityRoleById(ctx, id).Execute()
 
 
 
@@ -100,9 +100,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.RoleApi.Delete(context.Background(), id).Execute()
+    r, err := apiClient.RoleApi.DeleteIdentityRoleById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.DeleteIdentityRoleById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteIdentityRoleByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -202,9 +202,9 @@ Other parameters are passed through a pointer to a apiGetAllListRequest struct v
 [[Back to README]](../README.md)
 
 
-## GetById
+## GetIdentityRoleById
 
-> IdentityRoleDto GetById(ctx, id).Execute()
+> IdentityRoleDto GetIdentityRoleById(ctx, id).Execute()
 
 
 
@@ -225,13 +225,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.GetById(context.Background(), id).Execute()
+    resp, r, err := apiClient.RoleApi.GetIdentityRoleById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.GetById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.GetIdentityRoleById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetById`: IdentityRoleDto
-    fmt.Fprintf(os.Stdout, "Response from `RoleApi.GetById`: %v\n", resp)
+    // response from `GetIdentityRoleById`: IdentityRoleDto
+    fmt.Fprintf(os.Stdout, "Response from `RoleApi.GetIdentityRoleById`: %v\n", resp)
 }
 ```
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIdentityRoleByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -270,9 +270,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetList
+## GetIdentityRoleList
 
-> IdentityRoleDtoPagedResultDto GetList(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> IdentityRoleDtoPagedResultDto GetIdentityRoleList(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -296,13 +296,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.GetList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.RoleApi.GetIdentityRoleList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.GetIdentityRoleList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetList`: IdentityRoleDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `RoleApi.GetList`: %v\n", resp)
+    // response from `GetIdentityRoleList`: IdentityRoleDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `RoleApi.GetIdentityRoleList`: %v\n", resp)
 }
 ```
 
@@ -312,7 +312,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIdentityRoleListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -340,9 +340,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateIdentityRole
 
-> IdentityRoleDto Update(ctx, id).Body(body).Execute()
+> IdentityRoleDto UpdateIdentityRole(ctx, id).Body(body).Execute()
 
 
 
@@ -364,13 +364,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoleApi.Update(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.RoleApi.UpdateIdentityRole(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoleApi.UpdateIdentityRole``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Update`: IdentityRoleDto
-    fmt.Fprintf(os.Stdout, "Response from `RoleApi.Update`: %v\n", resp)
+    // response from `UpdateIdentityRole`: IdentityRoleDto
+    fmt.Fprintf(os.Stdout, "Response from `RoleApi.UpdateIdentityRole`: %v\n", resp)
 }
 ```
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateIdentityRoleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

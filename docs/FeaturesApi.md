@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Delete**](FeaturesApi.md#Delete) | **Delete** /api/feature-management/features | 
-[**Get**](FeaturesApi.md#Get) | **Get** /api/feature-management/features | 
-[**Update**](FeaturesApi.md#Update) | **Put** /api/feature-management/features | 
+[**DeleteFeatures**](FeaturesApi.md#DeleteFeatures) | **Delete** /api/feature-management/features | 
+[**GetFeatures**](FeaturesApi.md#GetFeatures) | **Get** /api/feature-management/features | 
+[**UpdateFeatures**](FeaturesApi.md#UpdateFeatures) | **Put** /api/feature-management/features | 
 
 
 
-## Delete
+## DeleteFeatures
 
-> Delete(ctx).ProviderName(providerName).ProviderKey(providerKey).Execute()
+> DeleteFeatures(ctx).ProviderName(providerName).ProviderKey(providerKey).Execute()
 
 
 
@@ -34,9 +34,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.FeaturesApi.Delete(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
+    r, err := apiClient.FeaturesApi.DeleteFeatures(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.DeleteFeatures``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteFeaturesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -74,9 +74,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Get
+## GetFeatures
 
-> GetFeatureListResultDto Get(ctx).ProviderName(providerName).ProviderKey(providerKey).Execute()
+> GetFeatureListResultDto GetFeatures(ctx).ProviderName(providerName).ProviderKey(providerKey).Execute()
 
 
 
@@ -98,13 +98,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FeaturesApi.Get(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
+    resp, r, err := apiClient.FeaturesApi.GetFeatures(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.GetFeatures``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `Get`: GetFeatureListResultDto
-    fmt.Fprintf(os.Stdout, "Response from `FeaturesApi.Get`: %v\n", resp)
+    // response from `GetFeatures`: GetFeatureListResultDto
+    fmt.Fprintf(os.Stdout, "Response from `FeaturesApi.GetFeatures`: %v\n", resp)
 }
 ```
 
@@ -114,7 +114,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetFeaturesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -140,9 +140,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Update
+## UpdateFeatures
 
-> Update(ctx).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+> UpdateFeatures(ctx).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
 
 
 
@@ -165,9 +165,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.FeaturesApi.Update(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+    r, err := apiClient.FeaturesApi.UpdateFeatures(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.UpdateFeatures``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -179,7 +179,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateFeaturesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
