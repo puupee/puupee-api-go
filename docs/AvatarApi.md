@@ -4,78 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppAvatarCredentialsGet**](AvatarApi.md#ApiAppAvatarCredentialsGet) | **Get** /api/app/avatar/credentials | 
-[**ApiAppAvatarPost**](AvatarApi.md#ApiAppAvatarPost) | **Post** /api/app/avatar | 
+[**Create**](AvatarApi.md#Create) | **Post** /api/app/avatar | 
+[**GetCredentials**](AvatarApi.md#GetCredentials) | **Get** /api/app/avatar/credentials | 
 
 
 
-## ApiAppAvatarCredentialsGet
+## Create
 
-> StorageObjectCredentials ApiAppAvatarCredentialsGet(ctx).Key(key).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    key := "key_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AvatarApi.ApiAppAvatarCredentialsGet(context.Background()).Key(key).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.ApiAppAvatarCredentialsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAvatarCredentialsGet`: StorageObjectCredentials
-    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.ApiAppAvatarCredentialsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAvatarCredentialsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **key** | **string** |  | 
-
-### Return type
-
-[**StorageObjectCredentials**](StorageObjectCredentials.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAvatarPost
-
-> AvatarDto ApiAppAvatarPost(ctx).Body(body).Execute()
+> AvatarDto Create(ctx).Body(body).Execute()
 
 
 
@@ -96,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AvatarApi.ApiAppAvatarPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AvatarApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.ApiAppAvatarPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAvatarPost`: AvatarDto
-    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.ApiAppAvatarPost`: %v\n", resp)
+    // response from `Create`: AvatarDto
+    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.Create`: %v\n", resp)
 }
 ```
 
@@ -112,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAvatarPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -130,6 +66,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCredentials
+
+> StorageObjectCredentials GetCredentials(ctx).Key(key).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    key := "key_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AvatarApi.GetCredentials(context.Background()).Key(key).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.GetCredentials``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCredentials`: StorageObjectCredentials
+    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.GetCredentials`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCredentialsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **string** |  | 
+
+### Return type
+
+[**StorageObjectCredentials**](StorageObjectCredentials.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

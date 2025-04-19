@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ReceiptType** | Pointer to **string** |  | [optional] 
-**AdamId** | Pointer to **int32** |  | [optional] 
-**AppItemId** | Pointer to **int32** |  | [optional] 
+**AdamId** | Pointer to **int64** |  | [optional] 
+**AppItemId** | Pointer to **int64** |  | [optional] 
 **BundleId** | Pointer to **string** |  | [optional] 
 **ApplicationVersion** | Pointer to **string** |  | [optional] 
-**DownloadId** | Pointer to **int32** |  | [optional] 
+**DownloadId** | Pointer to **int64** |  | [optional] 
 **VersionExternalIdentifier** | Pointer to **int32** |  | [optional] 
 **ReceiptCreationDate** | Pointer to **string** |  | [optional] 
 **ReceiptCreationDateMs** | Pointer to **string** |  | [optional] 
@@ -69,20 +69,20 @@ HasReceiptType returns a boolean if a field has been set.
 
 ### GetAdamId
 
-`func (o *Receipt) GetAdamId() int32`
+`func (o *Receipt) GetAdamId() int64`
 
 GetAdamId returns the AdamId field if non-nil, zero value otherwise.
 
 ### GetAdamIdOk
 
-`func (o *Receipt) GetAdamIdOk() (*int32, bool)`
+`func (o *Receipt) GetAdamIdOk() (*int64, bool)`
 
 GetAdamIdOk returns a tuple with the AdamId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdamId
 
-`func (o *Receipt) SetAdamId(v int32)`
+`func (o *Receipt) SetAdamId(v int64)`
 
 SetAdamId sets AdamId field to given value.
 
@@ -94,20 +94,20 @@ HasAdamId returns a boolean if a field has been set.
 
 ### GetAppItemId
 
-`func (o *Receipt) GetAppItemId() int32`
+`func (o *Receipt) GetAppItemId() int64`
 
 GetAppItemId returns the AppItemId field if non-nil, zero value otherwise.
 
 ### GetAppItemIdOk
 
-`func (o *Receipt) GetAppItemIdOk() (*int32, bool)`
+`func (o *Receipt) GetAppItemIdOk() (*int64, bool)`
 
 GetAppItemIdOk returns a tuple with the AppItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppItemId
 
-`func (o *Receipt) SetAppItemId(v int32)`
+`func (o *Receipt) SetAppItemId(v int64)`
 
 SetAppItemId sets AppItemId field to given value.
 
@@ -169,20 +169,20 @@ HasApplicationVersion returns a boolean if a field has been set.
 
 ### GetDownloadId
 
-`func (o *Receipt) GetDownloadId() int32`
+`func (o *Receipt) GetDownloadId() int64`
 
 GetDownloadId returns the DownloadId field if non-nil, zero value otherwise.
 
 ### GetDownloadIdOk
 
-`func (o *Receipt) GetDownloadIdOk() (*int32, bool)`
+`func (o *Receipt) GetDownloadIdOk() (*int64, bool)`
 
 GetDownloadIdOk returns a tuple with the DownloadId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDownloadId
 
-`func (o *Receipt) SetDownloadId(v int32)`
+`func (o *Receipt) SetDownloadId(v int64)`
 
 SetDownloadId sets DownloadId field to given value.
 

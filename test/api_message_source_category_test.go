@@ -22,11 +22,11 @@ func Test_puupee_MessageSourceCategoryApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageSourceCategoryApiService ApiAppMessageSourceCategoryGet", func(t *testing.T) {
+	t.Run("Test MessageSourceCategoryApiService GetList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageSourceCategoryApi.ApiAppMessageSourceCategoryGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageSourceCategoryApi.GetList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

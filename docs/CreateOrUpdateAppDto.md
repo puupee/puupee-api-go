@@ -6,26 +6,24 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
-**Framework** | Pointer to **string** |  | [optional] 
-**AppType** | Pointer to **string** |  | [optional] 
+**Framework** | Pointer to [**AppFramework**](AppFramework.md) |  | [optional] 
+**AppType** | Pointer to [**AppType**](AppType.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
-**HomePage** | Pointer to **string** |  | [optional] 
-**SortIndex** | Pointer to **int32** |  | [optional] 
+**HomePage** | Pointer to **string** | 产品首页 | [optional] 
+**SortIndex** | Pointer to **int32** | 显示排序 | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
-**GitRepositoryType** | Pointer to **string** |  | [optional] 
+**GitRepositoryType** | Pointer to [**GitRepositoryType**](GitRepositoryType.md) |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
-**WebhookUrl** | Pointer to **string** |  | [optional] 
-**BusinessDomain** | Pointer to **string** |  | [optional] 
-**BusinessUrl** | Pointer to **string** |  | [optional] 
-**SubscriptionPlatforms** | Pointer to **string** |  | [optional] 
-**FreePlatforms** | Pointer to **string** |  | [optional] 
-**SpecJsonSchema** | Pointer to **string** |  | [optional] 
-**DefaultStorageSize** | Pointer to **int64** |  | [optional] 
-**DefaultSingleFileMaxSize** | Pointer to **int64** |  | [optional] 
-**IsPublished** | Pointer to **bool** |  | [optional] 
-**Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
-**Sdks** | Pointer to [**[]AppSdkDto**](AppSdkDto.md) |  | [optional] 
+**WebhookUrl** | Pointer to **string** | Webhook Url 各种事件回调地址 | [optional] 
+**BusinessDomain** | Pointer to **string** | 业务域名 | [optional] 
+**BusinessUrl** | Pointer to **string** | 业务地址 | [optional] 
+**SubscriptionPlatforms** | Pointer to **string** | 可以订阅的平台 Platform 枚举, 并用\&quot;,\&quot;分割 | [optional] 
+**FreePlatforms** | Pointer to **string** | 暂时免费的平台, 付费功能免费用的平台, 用\&quot;,\&quot;分割 | [optional] 
+**SpecJsonSchema** | Pointer to **string** | 声明格式 | [optional] 
+**DefaultStorageSize** | Pointer to **int64** | 默认存储空间大小 | [optional] 
+**DefaultSingleFileMaxSize** | Pointer to **int64** | 默认单文件最大大小 | [optional] 
+**IsPublished** | Pointer to **bool** | 是否已经发布, 决定了是否给终端用户看见, 主要有一些 APP 自己使用 | [optional] 
 **OpenClient** | Pointer to [**CreateOpenIddictApplicationDto**](CreateOpenIddictApplicationDto.md) |  | [optional] 
 
 ## Methods
@@ -99,20 +97,20 @@ HasDisplayName returns a boolean if a field has been set.
 
 ### GetFramework
 
-`func (o *CreateOrUpdateAppDto) GetFramework() string`
+`func (o *CreateOrUpdateAppDto) GetFramework() AppFramework`
 
 GetFramework returns the Framework field if non-nil, zero value otherwise.
 
 ### GetFrameworkOk
 
-`func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*string, bool)`
+`func (o *CreateOrUpdateAppDto) GetFrameworkOk() (*AppFramework, bool)`
 
 GetFrameworkOk returns a tuple with the Framework field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFramework
 
-`func (o *CreateOrUpdateAppDto) SetFramework(v string)`
+`func (o *CreateOrUpdateAppDto) SetFramework(v AppFramework)`
 
 SetFramework sets Framework field to given value.
 
@@ -124,20 +122,20 @@ HasFramework returns a boolean if a field has been set.
 
 ### GetAppType
 
-`func (o *CreateOrUpdateAppDto) GetAppType() string`
+`func (o *CreateOrUpdateAppDto) GetAppType() AppType`
 
 GetAppType returns the AppType field if non-nil, zero value otherwise.
 
 ### GetAppTypeOk
 
-`func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*string, bool)`
+`func (o *CreateOrUpdateAppDto) GetAppTypeOk() (*AppType, bool)`
 
 GetAppTypeOk returns a tuple with the AppType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppType
 
-`func (o *CreateOrUpdateAppDto) SetAppType(v string)`
+`func (o *CreateOrUpdateAppDto) SetAppType(v AppType)`
 
 SetAppType sets AppType field to given value.
 
@@ -274,20 +272,20 @@ HasGitRepository returns a boolean if a field has been set.
 
 ### GetGitRepositoryType
 
-`func (o *CreateOrUpdateAppDto) GetGitRepositoryType() string`
+`func (o *CreateOrUpdateAppDto) GetGitRepositoryType() GitRepositoryType`
 
 GetGitRepositoryType returns the GitRepositoryType field if non-nil, zero value otherwise.
 
 ### GetGitRepositoryTypeOk
 
-`func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*string, bool)`
+`func (o *CreateOrUpdateAppDto) GetGitRepositoryTypeOk() (*GitRepositoryType, bool)`
 
 GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGitRepositoryType
 
-`func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v string)`
+`func (o *CreateOrUpdateAppDto) SetGitRepositoryType(v GitRepositoryType)`
 
 SetGitRepositoryType sets GitRepositoryType field to given value.
 
@@ -546,56 +544,6 @@ SetIsPublished sets IsPublished field to given value.
 `func (o *CreateOrUpdateAppDto) HasIsPublished() bool`
 
 HasIsPublished returns a boolean if a field has been set.
-
-### GetFeatures
-
-`func (o *CreateOrUpdateAppDto) GetFeatures() []AppFeatureDto`
-
-GetFeatures returns the Features field if non-nil, zero value otherwise.
-
-### GetFeaturesOk
-
-`func (o *CreateOrUpdateAppDto) GetFeaturesOk() (*[]AppFeatureDto, bool)`
-
-GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFeatures
-
-`func (o *CreateOrUpdateAppDto) SetFeatures(v []AppFeatureDto)`
-
-SetFeatures sets Features field to given value.
-
-### HasFeatures
-
-`func (o *CreateOrUpdateAppDto) HasFeatures() bool`
-
-HasFeatures returns a boolean if a field has been set.
-
-### GetSdks
-
-`func (o *CreateOrUpdateAppDto) GetSdks() []AppSdkDto`
-
-GetSdks returns the Sdks field if non-nil, zero value otherwise.
-
-### GetSdksOk
-
-`func (o *CreateOrUpdateAppDto) GetSdksOk() (*[]AppSdkDto, bool)`
-
-GetSdksOk returns a tuple with the Sdks field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSdks
-
-`func (o *CreateOrUpdateAppDto) SetSdks(v []AppSdkDto)`
-
-SetSdks sets Sdks field to given value.
-
-### HasSdks
-
-`func (o *CreateOrUpdateAppDto) HasSdks() bool`
-
-HasSdks returns a boolean if a field has been set.
 
 ### GetOpenClient
 

@@ -14,14 +14,14 @@ Name | Type | Description | Notes
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **OrderId** | **string** |  | 
 **ReceiptData** | **string** |  | 
-**Platform** | **string** |  | 
+**Platform** | [**AppPlatform**](AppPlatform.md) |  | 
 **DeviceToken** | **string** |  | 
 
 ## Methods
 
 ### NewVerifyReceiptDto
 
-`func NewVerifyReceiptDto(orderId string, receiptData string, platform string, deviceToken string, ) *VerifyReceiptDto`
+`func NewVerifyReceiptDto(orderId string, receiptData string, platform AppPlatform, deviceToken string, ) *VerifyReceiptDto`
 
 NewVerifyReceiptDto instantiates a new VerifyReceiptDto object
 This constructor will assign default values to properties that have it defined,
@@ -278,20 +278,20 @@ SetReceiptData sets ReceiptData field to given value.
 
 ### GetPlatform
 
-`func (o *VerifyReceiptDto) GetPlatform() string`
+`func (o *VerifyReceiptDto) GetPlatform() AppPlatform`
 
 GetPlatform returns the Platform field if non-nil, zero value otherwise.
 
 ### GetPlatformOk
 
-`func (o *VerifyReceiptDto) GetPlatformOk() (*string, bool)`
+`func (o *VerifyReceiptDto) GetPlatformOk() (*AppPlatform, bool)`
 
 GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlatform
 
-`func (o *VerifyReceiptDto) SetPlatform(v string)`
+`func (o *VerifyReceiptDto) SetPlatform(v AppPlatform)`
 
 SetPlatform sets Platform field to given value.
 

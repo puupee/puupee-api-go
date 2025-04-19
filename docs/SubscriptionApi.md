@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppSubscriptionAppleNotificationsPost**](SubscriptionApi.md#ApiAppSubscriptionAppleNotificationsPost) | **Post** /api/app/subscription/apple-notifications | 
-[**ApiAppSubscriptionGet**](SubscriptionApi.md#ApiAppSubscriptionGet) | **Get** /api/app/subscription | 
-[**ApiAppSubscriptionOrderPost**](SubscriptionApi.md#ApiAppSubscriptionOrderPost) | **Post** /api/app/subscription/order | 
-[**ApiAppSubscriptionVerifyReceiptPost**](SubscriptionApi.md#ApiAppSubscriptionVerifyReceiptPost) | **Post** /api/app/subscription/verify-receipt | 
+[**AppleNotifications**](SubscriptionApi.md#AppleNotifications) | **Post** /api/app/subscription/apple-notifications | 苹果订阅 Callback 地址
+[**CreateOrder**](SubscriptionApi.md#CreateOrder) | **Post** /api/app/subscription/order | 
+[**GetById**](SubscriptionApi.md#GetById) | **Get** /api/app/subscription | 
+[**VerifyReceipt**](SubscriptionApi.md#VerifyReceipt) | **Post** /api/app/subscription/verify-receipt | 
 
 
 
-## ApiAppSubscriptionAppleNotificationsPost
+## AppleNotifications
 
-> ApiAppSubscriptionAppleNotificationsPost(ctx).Body(body).Execute()
+> AppleNotifications(ctx).Body(body).Execute()
 
-
+苹果订阅 Callback 地址
 
 ### Example
 
@@ -34,9 +34,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.SubscriptionApi.AppleNotifications(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionAppleNotificationsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.AppleNotifications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppSubscriptionAppleNotificationsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAppleNotificationsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -73,73 +73,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppSubscriptionGet
+## CreateOrder
 
-> SubscriptionDto ApiAppSubscriptionGet(ctx).AppId(appId).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionGet(context.Background()).AppId(appId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppSubscriptionGet`: SubscriptionDto
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.ApiAppSubscriptionGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppSubscriptionGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appId** | **string** |  | 
-
-### Return type
-
-[**SubscriptionDto**](SubscriptionDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppSubscriptionOrderPost
-
-> SubscriptionOrderDto ApiAppSubscriptionOrderPost(ctx).Body(body).Execute()
+> SubscriptionOrderDto CreateOrder(ctx).Body(body).Execute()
 
 
 
@@ -160,13 +96,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionOrderPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.SubscriptionApi.CreateOrder(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionOrderPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.CreateOrder``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppSubscriptionOrderPost`: SubscriptionOrderDto
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.ApiAppSubscriptionOrderPost`: %v\n", resp)
+    // response from `CreateOrder`: SubscriptionOrderDto
+    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.CreateOrder`: %v\n", resp)
 }
 ```
 
@@ -176,7 +112,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppSubscriptionOrderPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateOrderRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -201,9 +137,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppSubscriptionVerifyReceiptPost
+## GetById
 
-> VerifyReceiptResult ApiAppSubscriptionVerifyReceiptPost(ctx).Body(body).Execute()
+> SubscriptionDto GetById(ctx).AppId(appId).Execute()
 
 
 
@@ -220,17 +156,17 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", "Platform_example", "DeviceToken_example") // VerifyReceiptDto |  (optional)
+    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.ApiAppSubscriptionVerifyReceiptPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.SubscriptionApi.GetById(context.Background()).AppId(appId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.ApiAppSubscriptionVerifyReceiptPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.GetById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppSubscriptionVerifyReceiptPost`: VerifyReceiptResult
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.ApiAppSubscriptionVerifyReceiptPost`: %v\n", resp)
+    // response from `GetById`: SubscriptionDto
+    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.GetById`: %v\n", resp)
 }
 ```
 
@@ -240,7 +176,71 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppSubscriptionVerifyReceiptPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string** |  | 
+
+### Return type
+
+[**SubscriptionDto**](SubscriptionDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VerifyReceipt
+
+> VerifyReceiptResult VerifyReceipt(ctx).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    body := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", openapiclient.AppPlatform("None"), "DeviceToken_example") // VerifyReceiptDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SubscriptionApi.VerifyReceipt(context.Background()).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.VerifyReceipt``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `VerifyReceipt`: VerifyReceiptResult
+    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.VerifyReceipt`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVerifyReceiptRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

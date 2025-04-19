@@ -3,15 +3,15 @@
 ## Enum
 
 
-* `SUCCESS` (value: `"Success"`)
+* `_1` (value: `1`)
 
-* `INVALID_USER_NAME_OR_PASSWORD` (value: `"InvalidUserNameOrPassword"`)
+* `_2` (value: `2`)
 
-* `NOT_ALLOWED` (value: `"NotAllowed"`)
+* `_3` (value: `3`)
 
-* `LOCKED_OUT` (value: `"LockedOut"`)
+* `_4` (value: `4`)
 
-* `REQUIRES_TWO_FACTOR` (value: `"RequiresTwoFactor"`)
+* `_5` (value: `5`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

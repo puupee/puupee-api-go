@@ -22,22 +22,22 @@ func Test_puupee_FeaturesApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test FeaturesApiService ApiFeatureManagementFeaturesDelete", func(t *testing.T) {
+	t.Run("Test FeaturesApiService Delete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.FeaturesApi.ApiFeatureManagementFeaturesDelete(context.Background()).Execute()
+		httpRes, err := apiClient.FeaturesApi.Delete(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test FeaturesApiService ApiFeatureManagementFeaturesGet", func(t *testing.T) {
+	t.Run("Test FeaturesApiService Get", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.FeaturesApi.ApiFeatureManagementFeaturesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.FeaturesApi.Get(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -45,11 +45,11 @@ func Test_puupee_FeaturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test FeaturesApiService ApiFeatureManagementFeaturesPut", func(t *testing.T) {
+	t.Run("Test FeaturesApiService Update", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.FeaturesApi.ApiFeatureManagementFeaturesPut(context.Background()).Execute()
+		httpRes, err := apiClient.FeaturesApi.Update(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

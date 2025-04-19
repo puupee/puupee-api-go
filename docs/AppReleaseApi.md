@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppAppReleaseGet**](AppReleaseApi.md#ApiAppAppReleaseGet) | **Get** /api/app/app-release | 
-[**ApiAppAppReleaseIdDelete**](AppReleaseApi.md#ApiAppAppReleaseIdDelete) | **Delete** /api/app/app-release/{id} | 
-[**ApiAppAppReleaseIdGet**](AppReleaseApi.md#ApiAppAppReleaseIdGet) | **Get** /api/app/app-release/{id} | 
-[**ApiAppAppReleaseIdPut**](AppReleaseApi.md#ApiAppAppReleaseIdPut) | **Put** /api/app/app-release/{id} | 
-[**ApiAppAppReleaseLatestGet**](AppReleaseApi.md#ApiAppAppReleaseLatestGet) | **Get** /api/app/app-release/latest | 
-[**ApiAppAppReleasePost**](AppReleaseApi.md#ApiAppAppReleasePost) | **Post** /api/app/app-release | 
+[**Create**](AppReleaseApi.md#Create) | **Post** /api/app/app-release | 创建新版本
+[**Delete**](AppReleaseApi.md#Delete) | **Delete** /api/app/app-release/{id} | 删除版本
+[**GetById**](AppReleaseApi.md#GetById) | **Get** /api/app/app-release/{id} | 获取版本
+[**GetLatest**](AppReleaseApi.md#GetLatest) | **Get** /api/app/app-release/latest | 获取最新版本
+[**GetList**](AppReleaseApi.md#GetList) | **Get** /api/app/app-release | 获取版本列表
+[**Update**](AppReleaseApi.md#Update) | **Put** /api/app/app-release/{id} | 更新版本
 
 
 
-## ApiAppAppReleaseGet
+## Create
 
-> AppReleaseDtoPagedResultDto ApiAppAppReleaseGet(ctx).AppId(appId).Environment(environment).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppReleaseDto Create(ctx).Body(body).Execute()
 
-
+创建新版本
 
 ### Example
 
@@ -32,23 +32,17 @@ import (
 )
 
 func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    environment := "environment_example" // string |  (optional)
-    platformName := "platformName_example" // string |  (optional)
-    platformValue := "platformValue_example" // string |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseGet(context.Background()).AppId(appId).Environment(environment).PlatformName(platformName).PlatformValue(platformValue).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.AppReleaseApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppReleaseGet`: AppReleaseDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.ApiAppAppReleaseGet`: %v\n", resp)
+    // response from `Create`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.Create`: %v\n", resp)
 }
 ```
 
@@ -58,22 +52,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppReleaseGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appId** | **string** |  | 
- **environment** | **string** |  | 
- **platformName** | **string** |  | 
- **platformValue** | **string** |  | 
- **sorting** | **string** |  | 
- **skipCount** | **int32** |  | 
- **maxResultCount** | **int32** |  | 
+ **body** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
 
 ### Return type
 
-[**AppReleaseDtoPagedResultDto**](AppReleaseDtoPagedResultDto.md)
+[**AppReleaseDto**](AppReleaseDto.md)
 
 ### Authorization
 
@@ -81,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -89,11 +77,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppReleaseIdDelete
+## Delete
 
-> ApiAppAppReleaseIdDelete(ctx, id).Execute()
+> Delete(ctx, id).Execute()
 
-
+删除版本
 
 ### Example
 
@@ -112,9 +100,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppReleaseApi.ApiAppAppReleaseIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.AppReleaseApi.Delete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.Delete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -130,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppReleaseIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -155,11 +143,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppReleaseIdGet
+## GetById
 
-> AppReleaseDto ApiAppAppReleaseIdGet(ctx, id).Execute()
+> AppReleaseDto GetById(ctx, id).Execute()
 
-
+获取版本
 
 ### Example
 
@@ -178,13 +166,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseIdGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.AppReleaseApi.GetById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppReleaseIdGet`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.ApiAppAppReleaseIdGet`: %v\n", resp)
+    // response from `GetById`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetById`: %v\n", resp)
 }
 ```
 
@@ -198,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppReleaseIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -223,81 +211,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppReleaseIdPut
+## GetLatest
 
-> AppReleaseDto ApiAppAppReleaseIdPut(ctx, id).Body(body).Execute()
+> AppReleaseDto GetLatest(ctx).AppName(appName).Platform(platform).ProductType(productType).Environment(environment).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseIdPut(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseIdPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppReleaseIdPut`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.ApiAppAppReleaseIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppReleaseIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
-
-### Return type
-
-[**AppReleaseDto**](AppReleaseDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppReleaseLatestGet
-
-> AppReleaseDto ApiAppAppReleaseLatestGet(ctx).AppName(appName).Platform(platform).ProductType(productType).Environment(environment).Execute()
-
-
+获取最新版本
 
 ### Example
 
@@ -313,19 +231,19 @@ import (
 
 func main() {
     appName := "appName_example" // string |  (optional)
-    platform := "platform_example" // string |  (optional)
-    productType := "productType_example" // string |  (optional)
+    platform := TODO // interface{} |  (optional)
+    productType := TODO // interface{} |  (optional)
     environment := "environment_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleaseLatestGet(context.Background()).AppName(appName).Platform(platform).ProductType(productType).Environment(environment).Execute()
+    resp, r, err := apiClient.AppReleaseApi.GetLatest(context.Background()).AppName(appName).Platform(platform).ProductType(productType).Environment(environment).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleaseLatestGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetLatest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppReleaseLatestGet`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.ApiAppAppReleaseLatestGet`: %v\n", resp)
+    // response from `GetLatest`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetLatest`: %v\n", resp)
 }
 ```
 
@@ -335,14 +253,14 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppReleaseLatestGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetLatestRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appName** | **string** |  | 
- **platform** | **string** |  | 
- **productType** | **string** |  | 
+ **platform** | [**interface{}**](interface{}.md) |  | 
+ **productType** | [**interface{}**](interface{}.md) |  | 
  **environment** | **string** |  | 
 
 ### Return type
@@ -363,11 +281,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppReleasePost
+## GetList
 
-> AppReleaseDto ApiAppAppReleasePost(ctx).Body(body).Execute()
+> AppReleaseDtoPagedResultDto GetList(ctx).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
-
+获取版本列表
 
 ### Example
 
@@ -382,17 +300,22 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
+    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+    environment := "environment_example" // string |  (optional)
+    platform := TODO // interface{} |  (optional)
+    sorting := "sorting_example" // string |  (optional)
+    skipCount := int32(56) // int32 |  (optional)
+    maxResultCount := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.ApiAppAppReleasePost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppReleaseApi.GetList(context.Background()).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.ApiAppAppReleasePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppReleasePost`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.ApiAppAppReleasePost`: %v\n", resp)
+    // response from `GetList`: AppReleaseDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetList`: %v\n", resp)
 }
 ```
 
@@ -402,11 +325,86 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppReleasePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **appId** | **string** |  | 
+ **environment** | **string** |  | 
+ **platform** | [**interface{}**](interface{}.md) |  | 
+ **sorting** | **string** |  | 
+ **skipCount** | **int32** |  | 
+ **maxResultCount** | **int32** |  | 
+
+### Return type
+
+[**AppReleaseDtoPagedResultDto**](AppReleaseDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Update
+
+> AppReleaseDto Update(ctx, id).Body(body).Execute()
+
+更新版本
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppReleaseApi.Update(context.Background(), id).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Update`: AppReleaseDto
+    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.Update`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
  **body** | [**CreateOrUpdateAppReleaseDto**](CreateOrUpdateAppReleaseDto.md) |  | 
 
 ### Return type

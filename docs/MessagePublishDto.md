@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Title** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
-**Template** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
+**Template** | Pointer to **string** | 模板名称, 包含版本号  puupee/wechat-app-msg?version&#x3D;1 微信应用消息模板  puupee/wechat-official-msg?version&#x3D;2 微信公众号消息模板 | [optional] 
+**Data** | Pointer to **map[string]map[string]interface{}** | JSON格式数据 | [optional] 
 
 ## Methods
 

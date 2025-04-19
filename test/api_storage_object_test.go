@@ -22,22 +22,11 @@ func Test_puupee_StorageObjectApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test StorageObjectApiService ApiAppStorageObjectFileGet", func(t *testing.T) {
+	t.Run("Test StorageObjectApiService GetFileOrCredentials", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.StorageObjectApi.ApiAppStorageObjectFileGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test StorageObjectApiService ApiAppStorageObjectFileOrCredentialsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.StorageObjectApi.ApiAppStorageObjectFileOrCredentialsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StorageObjectApi.GetFileOrCredentials(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -45,25 +34,14 @@ func Test_puupee_StorageObjectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test StorageObjectApiService ApiAppStorageObjectPreSignUrlPost", func(t *testing.T) {
+	t.Run("Test StorageObjectApiService PreSignUrl", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.StorageObjectApi.ApiAppStorageObjectPreSignUrlPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StorageObjectApi.PreSignUrl(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test StorageObjectApiService ApiAppStorageObjectThumbGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.StorageObjectApi.ApiAppStorageObjectThumbGet(context.Background()).Execute()
-
-		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

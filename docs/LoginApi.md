@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAccountCheckPasswordPost**](LoginApi.md#ApiAccountCheckPasswordPost) | **Post** /api/account/check-password | 
-[**ApiAccountLoginPost**](LoginApi.md#ApiAccountLoginPost) | **Post** /api/account/login | 
-[**ApiAccountLogoutGet**](LoginApi.md#ApiAccountLogoutGet) | **Get** /api/account/logout | 
+[**CheckPassword**](LoginApi.md#CheckPassword) | **Post** /api/account/check-password | 
+[**Login**](LoginApi.md#Login) | **Post** /api/account/login | 
+[**Logout**](LoginApi.md#Logout) | **Get** /api/account/logout | 
 
 
 
-## ApiAccountCheckPasswordPost
+## CheckPassword
 
-> AbpLoginResult ApiAccountCheckPasswordPost(ctx).Body(body).Execute()
+> AbpLoginResult CheckPassword(ctx).Body(body).Execute()
 
 
 
@@ -33,13 +33,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LoginApi.ApiAccountCheckPasswordPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.LoginApi.CheckPassword(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.ApiAccountCheckPasswordPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.CheckPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAccountCheckPasswordPost`: AbpLoginResult
-    fmt.Fprintf(os.Stdout, "Response from `LoginApi.ApiAccountCheckPasswordPost`: %v\n", resp)
+    // response from `CheckPassword`: AbpLoginResult
+    fmt.Fprintf(os.Stdout, "Response from `LoginApi.CheckPassword`: %v\n", resp)
 }
 ```
 
@@ -49,7 +49,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountCheckPasswordPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCheckPasswordRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -74,9 +74,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAccountLoginPost
+## Login
 
-> AbpLoginResult ApiAccountLoginPost(ctx).Body(body).Execute()
+> AbpLoginResult Login(ctx).Body(body).Execute()
 
 
 
@@ -97,13 +97,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LoginApi.ApiAccountLoginPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.LoginApi.Login(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.ApiAccountLoginPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.Login``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAccountLoginPost`: AbpLoginResult
-    fmt.Fprintf(os.Stdout, "Response from `LoginApi.ApiAccountLoginPost`: %v\n", resp)
+    // response from `Login`: AbpLoginResult
+    fmt.Fprintf(os.Stdout, "Response from `LoginApi.Login`: %v\n", resp)
 }
 ```
 
@@ -113,7 +113,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountLoginPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiLoginRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -138,9 +138,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAccountLogoutGet
+## Logout
 
-> ApiAccountLogoutGet(ctx).Execute()
+> Logout(ctx).Execute()
 
 
 
@@ -160,9 +160,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.LoginApi.ApiAccountLogoutGet(context.Background()).Execute()
+    r, err := apiClient.LoginApi.Logout(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.ApiAccountLogoutGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LoginApi.Logout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -174,7 +174,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountLogoutGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiLogoutRequest struct via the builder pattern
 
 
 ### Return type

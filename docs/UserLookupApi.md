@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiIdentityUsersLookupByUsernameUserNameGet**](UserLookupApi.md#ApiIdentityUsersLookupByUsernameUserNameGet) | **Get** /api/identity/users/lookup/by-username/{userName} | 
-[**ApiIdentityUsersLookupCountGet**](UserLookupApi.md#ApiIdentityUsersLookupCountGet) | **Get** /api/identity/users/lookup/count | 
-[**ApiIdentityUsersLookupIdGet**](UserLookupApi.md#ApiIdentityUsersLookupIdGet) | **Get** /api/identity/users/lookup/{id} | 
-[**ApiIdentityUsersLookupSearchGet**](UserLookupApi.md#ApiIdentityUsersLookupSearchGet) | **Get** /api/identity/users/lookup/search | 
+[**FindById**](UserLookupApi.md#FindById) | **Get** /api/identity/users/lookup/{id} | 
+[**FindByUserName**](UserLookupApi.md#FindByUserName) | **Get** /api/identity/users/lookup/by-username/{userName} | 
+[**GetCount**](UserLookupApi.md#GetCount) | **Get** /api/identity/users/lookup/count | 
+[**Search**](UserLookupApi.md#Search) | **Get** /api/identity/users/lookup/search | 
 
 
 
-## ApiIdentityUsersLookupByUsernameUserNameGet
+## FindById
 
-> UserData ApiIdentityUsersLookupByUsernameUserNameGet(ctx, userName).Execute()
+> UserData FindById(ctx, id).Execute()
 
 
 
@@ -30,17 +30,17 @@ import (
 )
 
 func main() {
-    userName := "userName_example" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.ApiIdentityUsersLookupByUsernameUserNameGet(context.Background(), userName).Execute()
+    resp, r, err := apiClient.UserLookupApi.FindById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.ApiIdentityUsersLookupByUsernameUserNameGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.FindById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiIdentityUsersLookupByUsernameUserNameGet`: UserData
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.ApiIdentityUsersLookupByUsernameUserNameGet`: %v\n", resp)
+    // response from `FindById`: UserData
+    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.FindById`: %v\n", resp)
 }
 ```
 
@@ -50,11 +50,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**userName** | **string** |  | 
+**id** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiIdentityUsersLookupByUsernameUserNameGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiFindByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -79,9 +79,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiIdentityUsersLookupCountGet
+## FindByUserName
 
-> int64 ApiIdentityUsersLookupCountGet(ctx).Filter(filter).Execute()
+> UserData FindByUserName(ctx, userName).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    userName := "userName_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserLookupApi.FindByUserName(context.Background(), userName).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.FindByUserName``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `FindByUserName`: UserData
+    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.FindByUserName`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userName** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFindByUserNameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**UserData**](UserData.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCount
+
+> int64 GetCount(ctx).Filter(filter).Execute()
 
 
 
@@ -102,13 +170,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.ApiIdentityUsersLookupCountGet(context.Background()).Filter(filter).Execute()
+    resp, r, err := apiClient.UserLookupApi.GetCount(context.Background()).Filter(filter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.ApiIdentityUsersLookupCountGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.GetCount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiIdentityUsersLookupCountGet`: int64
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.ApiIdentityUsersLookupCountGet`: %v\n", resp)
+    // response from `GetCount`: int64
+    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.GetCount`: %v\n", resp)
 }
 ```
 
@@ -118,7 +186,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiIdentityUsersLookupCountGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCountRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -143,77 +211,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiIdentityUsersLookupIdGet
+## Search
 
-> UserData ApiIdentityUsersLookupIdGet(ctx, id).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.ApiIdentityUsersLookupIdGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.ApiIdentityUsersLookupIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiIdentityUsersLookupIdGet`: UserData
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.ApiIdentityUsersLookupIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiIdentityUsersLookupIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**UserData**](UserData.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiIdentityUsersLookupSearchGet
-
-> UserDataListResultDto ApiIdentityUsersLookupSearchGet(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> UserDataListResultDto Search(ctx).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -237,13 +237,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.ApiIdentityUsersLookupSearchGet(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.UserLookupApi.Search(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.ApiIdentityUsersLookupSearchGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.Search``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiIdentityUsersLookupSearchGet`: UserDataListResultDto
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.ApiIdentityUsersLookupSearchGet`: %v\n", resp)
+    // response from `Search`: UserDataListResultDto
+    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.Search`: %v\n", resp)
 }
 ```
 
@@ -253,7 +253,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiIdentityUsersLookupSearchGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSearchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

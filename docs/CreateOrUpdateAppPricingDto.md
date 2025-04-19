@@ -4,23 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Naming** | Pointer to **string** |  | [optional] 
-**MonthProductId** | Pointer to **string** |  | [optional] 
-**YearProductId** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
-**MonthPrice** | Pointer to **float64** |  | [optional] 
-**MonthDiscount** | Pointer to **float64** |  | [optional] 
-**MonthDiscountPrice** | Pointer to **float64** |  | [optional] 
-**MonthDiscountStartAt** | Pointer to **time.Time** |  | [optional] 
-**MonthDiscountEndAt** | Pointer to **time.Time** |  | [optional] 
-**YearPrice** | Pointer to **float64** |  | [optional] 
-**YearDiscount** | Pointer to **float64** |  | [optional] 
-**YearDiscountPrice** | Pointer to **float64** |  | [optional] 
-**YearDiscountStartAt** | Pointer to **time.Time** |  | [optional] 
-**YearDiscountEndAt** | Pointer to **time.Time** |  | [optional] 
-**SortIndex** | Pointer to **int32** |  | [optional] 
-**Items** | Pointer to [**[]CreateOrUpdateAppPricingItemDto**](CreateOrUpdateAppPricingItemDto.md) |  | [optional] 
+**Naming** | Pointer to [**AppPriceNaming**](AppPriceNaming.md) |  | [optional] 
+**MonthProductId** | Pointer to **string** | 商店订阅产品 ID | [optional] 
+**YearProductId** | Pointer to **string** | 商店订阅产品 ID | [optional] 
+**Description** | Pointer to **string** | 简单描述  适用于个人网站和任何想用基本的聊天方式与游客交流的人。  适用于希望改善客户关系的早期创业公司。  为需要全功能解决方案与客户沟通的公司而设。 | [optional] 
+**AppId** | Pointer to **string** | APPID | [optional] 
+**MonthPrice** | Pointer to **float64** | 价格 | [optional] 
+**MonthDiscount** | Pointer to **float64** | 折扣 | [optional] 
+**MonthDiscountPrice** | Pointer to **float64** | 折扣后价格 DiscountPrice &#x3D; Price * Discount | [optional] 
+**MonthDiscountStartAt** | Pointer to **time.Time** | 折扣开始时间 | [optional] 
+**MonthDiscountEndAt** | Pointer to **time.Time** | 折扣结束时间 | [optional] 
+**YearPrice** | Pointer to **float64** | 价格 | [optional] 
+**YearDiscount** | Pointer to **float64** | 折扣 | [optional] 
+**YearDiscountPrice** | Pointer to **float64** | 折扣后价格 DiscountPrice &#x3D; Price * Discount | [optional] 
+**YearDiscountStartAt** | Pointer to **time.Time** | 折扣开始时间 | [optional] 
+**YearDiscountEndAt** | Pointer to **time.Time** | 折扣结束时间 | [optional] 
+**SortIndex** | Pointer to **int32** | 排序 | [optional] 
+**Items** | Pointer to [**[]AppPricingItemValueDto**](AppPricingItemValueDto.md) | 收费点 | [optional] 
 
 ## Methods
 
@@ -43,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNaming
 
-`func (o *CreateOrUpdateAppPricingDto) GetNaming() string`
+`func (o *CreateOrUpdateAppPricingDto) GetNaming() AppPriceNaming`
 
 GetNaming returns the Naming field if non-nil, zero value otherwise.
 
 ### GetNamingOk
 
-`func (o *CreateOrUpdateAppPricingDto) GetNamingOk() (*string, bool)`
+`func (o *CreateOrUpdateAppPricingDto) GetNamingOk() (*AppPriceNaming, bool)`
 
 GetNamingOk returns a tuple with the Naming field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNaming
 
-`func (o *CreateOrUpdateAppPricingDto) SetNaming(v string)`
+`func (o *CreateOrUpdateAppPricingDto) SetNaming(v AppPriceNaming)`
 
 SetNaming sets Naming field to given value.
 
@@ -443,20 +443,20 @@ HasSortIndex returns a boolean if a field has been set.
 
 ### GetItems
 
-`func (o *CreateOrUpdateAppPricingDto) GetItems() []CreateOrUpdateAppPricingItemDto`
+`func (o *CreateOrUpdateAppPricingDto) GetItems() []AppPricingItemValueDto`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *CreateOrUpdateAppPricingDto) GetItemsOk() (*[]CreateOrUpdateAppPricingItemDto, bool)`
+`func (o *CreateOrUpdateAppPricingDto) GetItemsOk() (*[]AppPricingItemValueDto, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *CreateOrUpdateAppPricingDto) SetItems(v []CreateOrUpdateAppPricingItemDto)`
+`func (o *CreateOrUpdateAppPricingDto) SetItems(v []AppPricingItemValueDto)`
 
 SetItems sets Items field to given value.
 

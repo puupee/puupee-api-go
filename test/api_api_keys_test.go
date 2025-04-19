@@ -22,11 +22,11 @@ func Test_puupee_ApiKeysApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ApiKeysApiService ApiApiKeysGet", func(t *testing.T) {
+	t.Run("Test ApiKeysApiService Create", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApiKeysApi.ApiApiKeysGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApiKeysApi.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,40 +34,26 @@ func Test_puupee_ApiKeysApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApiKeysApiService ApiApiKeysIdDelete", func(t *testing.T) {
+	t.Run("Test ApiKeysApiService Delete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.ApiKeysApi.ApiApiKeysIdDelete(context.Background(), id).Execute()
+		httpRes, err := apiClient.ApiKeysApi.Delete(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApiKeysApiService ApiApiKeysIdGet", func(t *testing.T) {
+	t.Run("Test ApiKeysApiService GetById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.ApiKeysApi.ApiApiKeysIdGet(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApiKeysApiService ApiApiKeysIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		resp, httpRes, err := apiClient.ApiKeysApi.ApiApiKeysIdPut(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.ApiKeysApi.GetById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -75,11 +61,25 @@ func Test_puupee_ApiKeysApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApiKeysApiService ApiApiKeysPost", func(t *testing.T) {
+	t.Run("Test ApiKeysApiService GetList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApiKeysApi.ApiApiKeysPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApiKeysApi.GetList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApiKeysApiService Update", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.ApiKeysApi.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

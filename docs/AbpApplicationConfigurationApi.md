@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAbpApplicationConfigurationGet**](AbpApplicationConfigurationApi.md#ApiAbpApplicationConfigurationGet) | **Get** /api/abp/application-configuration | 
+[**Get**](AbpApplicationConfigurationApi.md#Get) | **Get** /api/abp/application-configuration | 
 
 
 
-## ApiAbpApplicationConfigurationGet
+## Get
 
-> ApplicationConfigurationDto ApiAbpApplicationConfigurationGet(ctx).IncludeLocalizationResources(includeLocalizationResources).Execute()
+> ApplicationConfigurationDto Get(ctx).IncludeLocalizationResources(includeLocalizationResources).Execute()
 
 
 
@@ -31,13 +31,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpApplicationConfigurationApi.ApiAbpApplicationConfigurationGet(context.Background()).IncludeLocalizationResources(includeLocalizationResources).Execute()
+    resp, r, err := apiClient.AbpApplicationConfigurationApi.Get(context.Background()).IncludeLocalizationResources(includeLocalizationResources).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationConfigurationApi.ApiAbpApplicationConfigurationGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationConfigurationApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAbpApplicationConfigurationGet`: ApplicationConfigurationDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpApplicationConfigurationApi.ApiAbpApplicationConfigurationGet`: %v\n", resp)
+    // response from `Get`: ApplicationConfigurationDto
+    fmt.Fprintf(os.Stdout, "Response from `AbpApplicationConfigurationApi.Get`: %v\n", resp)
 }
 ```
 
@@ -47,7 +47,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAbpApplicationConfigurationGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

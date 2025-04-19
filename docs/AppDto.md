@@ -14,22 +14,24 @@ Name | Type | Description | Notes
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
-**Framework** | Pointer to **string** |  | [optional] 
-**AppType** | Pointer to **string** |  | [optional] 
+**Framework** | Pointer to [**AppFramework**](AppFramework.md) |  | [optional] 
+**AppType** | Pointer to [**AppType**](AppType.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Icon** | Pointer to **string** |  | [optional] 
-**HomePage** | Pointer to **string** |  | [optional] 
-**SortIndex** | Pointer to **int32** |  | [optional] 
+**HomePage** | Pointer to **string** | 产品首页 | [optional] 
+**SortIndex** | Pointer to **int32** | 显示排序 | [optional] 
 **GitRepository** | Pointer to **string** |  | [optional] 
-**GitRepositoryType** | Pointer to **string** |  | [optional] 
+**GitRepositoryType** | Pointer to [**GitRepositoryType**](GitRepositoryType.md) |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
-**IsPublished** | Pointer to **bool** |  | [optional] 
-**WebhookUrl** | Pointer to **string** |  | [optional] 
-**BusinessDomain** | Pointer to **string** |  | [optional] 
-**BusinessUrl** | Pointer to **string** |  | [optional] 
-**SubscriptionPlatforms** | Pointer to **string** |  | [optional] 
-**FreePlatforms** | Pointer to **string** |  | [optional] 
-**SpecJsonSchema** | Pointer to **string** |  | [optional] 
+**IsPublished** | Pointer to **bool** | 是否已经发布, 决定了是否给终端用户看见, 主要有一些 APP 自己使用 | [optional] 
+**WebhookUrl** | Pointer to **string** | Webhook Url 各种事件回调地址 | [optional] 
+**BusinessDomain** | Pointer to **string** | 业务域名 | [optional] 
+**BusinessUrl** | Pointer to **string** | 业务地址 | [optional] 
+**SubscriptionPlatforms** | Pointer to **string** | 可以订阅的平台 Platform 枚举, 并用\&quot;,\&quot;分割 | [optional] 
+**FreePlatforms** | Pointer to **string** | 暂时免费的平台, 付费功能免费用的平台, 用\&quot;,\&quot;分割 | [optional] 
+**SpecJsonSchema** | Pointer to **string** | 声明格式 | [optional] 
+**DefaultStorageSize** | Pointer to **int64** | 默认存储空间大小 | [optional] 
+**DefaultSingleFileMaxSize** | Pointer to **int64** | 默认单文件最大大小 | [optional] 
 **LatestReleases** | Pointer to [**[]AppReleaseDto**](AppReleaseDto.md) |  | [optional] 
 **Creator** | Pointer to [**IdentityUserDto**](IdentityUserDto.md) |  | [optional] 
 **Features** | Pointer to [**[]AppFeatureDto**](AppFeatureDto.md) |  | [optional] 
@@ -306,20 +308,20 @@ HasDisplayName returns a boolean if a field has been set.
 
 ### GetFramework
 
-`func (o *AppDto) GetFramework() string`
+`func (o *AppDto) GetFramework() AppFramework`
 
 GetFramework returns the Framework field if non-nil, zero value otherwise.
 
 ### GetFrameworkOk
 
-`func (o *AppDto) GetFrameworkOk() (*string, bool)`
+`func (o *AppDto) GetFrameworkOk() (*AppFramework, bool)`
 
 GetFrameworkOk returns a tuple with the Framework field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFramework
 
-`func (o *AppDto) SetFramework(v string)`
+`func (o *AppDto) SetFramework(v AppFramework)`
 
 SetFramework sets Framework field to given value.
 
@@ -331,20 +333,20 @@ HasFramework returns a boolean if a field has been set.
 
 ### GetAppType
 
-`func (o *AppDto) GetAppType() string`
+`func (o *AppDto) GetAppType() AppType`
 
 GetAppType returns the AppType field if non-nil, zero value otherwise.
 
 ### GetAppTypeOk
 
-`func (o *AppDto) GetAppTypeOk() (*string, bool)`
+`func (o *AppDto) GetAppTypeOk() (*AppType, bool)`
 
 GetAppTypeOk returns a tuple with the AppType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppType
 
-`func (o *AppDto) SetAppType(v string)`
+`func (o *AppDto) SetAppType(v AppType)`
 
 SetAppType sets AppType field to given value.
 
@@ -481,20 +483,20 @@ HasGitRepository returns a boolean if a field has been set.
 
 ### GetGitRepositoryType
 
-`func (o *AppDto) GetGitRepositoryType() string`
+`func (o *AppDto) GetGitRepositoryType() GitRepositoryType`
 
 GetGitRepositoryType returns the GitRepositoryType field if non-nil, zero value otherwise.
 
 ### GetGitRepositoryTypeOk
 
-`func (o *AppDto) GetGitRepositoryTypeOk() (*string, bool)`
+`func (o *AppDto) GetGitRepositoryTypeOk() (*GitRepositoryType, bool)`
 
 GetGitRepositoryTypeOk returns a tuple with the GitRepositoryType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGitRepositoryType
 
-`func (o *AppDto) SetGitRepositoryType(v string)`
+`func (o *AppDto) SetGitRepositoryType(v GitRepositoryType)`
 
 SetGitRepositoryType sets GitRepositoryType field to given value.
 
@@ -703,6 +705,56 @@ SetSpecJsonSchema sets SpecJsonSchema field to given value.
 `func (o *AppDto) HasSpecJsonSchema() bool`
 
 HasSpecJsonSchema returns a boolean if a field has been set.
+
+### GetDefaultStorageSize
+
+`func (o *AppDto) GetDefaultStorageSize() int64`
+
+GetDefaultStorageSize returns the DefaultStorageSize field if non-nil, zero value otherwise.
+
+### GetDefaultStorageSizeOk
+
+`func (o *AppDto) GetDefaultStorageSizeOk() (*int64, bool)`
+
+GetDefaultStorageSizeOk returns a tuple with the DefaultStorageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultStorageSize
+
+`func (o *AppDto) SetDefaultStorageSize(v int64)`
+
+SetDefaultStorageSize sets DefaultStorageSize field to given value.
+
+### HasDefaultStorageSize
+
+`func (o *AppDto) HasDefaultStorageSize() bool`
+
+HasDefaultStorageSize returns a boolean if a field has been set.
+
+### GetDefaultSingleFileMaxSize
+
+`func (o *AppDto) GetDefaultSingleFileMaxSize() int64`
+
+GetDefaultSingleFileMaxSize returns the DefaultSingleFileMaxSize field if non-nil, zero value otherwise.
+
+### GetDefaultSingleFileMaxSizeOk
+
+`func (o *AppDto) GetDefaultSingleFileMaxSizeOk() (*int64, bool)`
+
+GetDefaultSingleFileMaxSizeOk returns a tuple with the DefaultSingleFileMaxSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultSingleFileMaxSize
+
+`func (o *AppDto) SetDefaultSingleFileMaxSize(v int64)`
+
+SetDefaultSingleFileMaxSize sets DefaultSingleFileMaxSize field to given value.
+
+### HasDefaultSingleFileMaxSize
+
+`func (o *AppDto) HasDefaultSingleFileMaxSize() bool`
+
+HasDefaultSingleFileMaxSize returns a boolean if a field has been set.
 
 ### GetLatestReleases
 

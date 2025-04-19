@@ -22,11 +22,11 @@ func Test_puupee_EmailSettingsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test EmailSettingsApiService ApiSettingManagementEmailingGet", func(t *testing.T) {
+	t.Run("Test EmailSettingsApiService Get", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailSettingsApi.Get(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,22 +34,22 @@ func Test_puupee_EmailSettingsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailSettingsApiService ApiSettingManagementEmailingPost", func(t *testing.T) {
+	t.Run("Test EmailSettingsApiService SendTestEmail", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingPost(context.Background()).Execute()
+		httpRes, err := apiClient.EmailSettingsApi.SendTestEmail(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test EmailSettingsApiService ApiSettingManagementEmailingSendTestEmailPost", func(t *testing.T) {
+	t.Run("Test EmailSettingsApiService Update", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.EmailSettingsApi.ApiSettingManagementEmailingSendTestEmailPost(context.Background()).Execute()
+		httpRes, err := apiClient.EmailSettingsApi.Update(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppAppSdkGet**](AppSdkApi.md#ApiAppAppSdkGet) | **Get** /api/app/app-sdk | 
-[**ApiAppAppSdkIdDelete**](AppSdkApi.md#ApiAppAppSdkIdDelete) | **Delete** /api/app/app-sdk/{id} | 
-[**ApiAppAppSdkIdPut**](AppSdkApi.md#ApiAppAppSdkIdPut) | **Put** /api/app/app-sdk/{id} | 
-[**ApiAppAppSdkPost**](AppSdkApi.md#ApiAppAppSdkPost) | **Post** /api/app/app-sdk | 
+[**Create**](AppSdkApi.md#Create) | **Post** /api/app/app-sdk | 
+[**Delete**](AppSdkApi.md#Delete) | **Delete** /api/app/app-sdk/{id} | 
+[**GetList**](AppSdkApi.md#GetList) | **Get** /api/app/app-sdk | 
+[**Update**](AppSdkApi.md#Update) | **Put** /api/app/app-sdk/{id} | 
 
 
 
-## ApiAppAppSdkGet
+## Create
 
-> []AppSdkDto ApiAppAppSdkGet(ctx).Execute()
+> AppSdkDto Create(ctx).Body(body).Execute()
 
 
 
@@ -30,31 +30,36 @@ import (
 )
 
 func main() {
+    body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkGet(context.Background()).Execute()
+    resp, r, err := apiClient.AppSdkApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.ApiAppAppSdkGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppSdkGet`: []AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.ApiAppAppSdkGet`: %v\n", resp)
+    // response from `Create`: AppSdkDto
+    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.Create`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppSdkGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
 
 ### Return type
 
-[**[]AppSdkDto**](AppSdkDto.md)
+[**AppSdkDto**](AppSdkDto.md)
 
 ### Authorization
 
@@ -62,7 +67,7 @@ Other parameters are passed through a pointer to a apiApiAppAppSdkGetRequest str
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -70,9 +75,9 @@ Other parameters are passed through a pointer to a apiApiAppAppSdkGetRequest str
 [[Back to README]](../README.md)
 
 
-## ApiAppAppSdkIdDelete
+## Delete
 
-> ApiAppAppSdkIdDelete(ctx, id).Execute()
+> Delete(ctx, id).Execute()
 
 
 
@@ -93,9 +98,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppSdkApi.ApiAppAppSdkIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.AppSdkApi.Delete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.ApiAppAppSdkIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.Delete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -111,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppSdkIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -136,9 +141,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppSdkIdPut
+## GetList
 
-> AppSdkDto ApiAppAppSdkIdPut(ctx, id).Body(body).Execute()
+> AppSdkDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    sorting := "sorting_example" // string |  (optional)
+    skipCount := int32(56) // int32 |  (optional)
+    maxResultCount := int32(56) // int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppSdkApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetList`: AppSdkDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.GetList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sorting** | **string** |  | 
+ **skipCount** | **int32** |  | 
+ **maxResultCount** | **int32** |  | 
+
+### Return type
+
+[**AppSdkDtoPagedResultDto**](AppSdkDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Update
+
+> AppSdkDto Update(ctx, id).Body(body).Execute()
 
 
 
@@ -160,13 +233,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppSdkApi.Update(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.ApiAppAppSdkIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.Update``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppSdkIdPut`: AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.ApiAppAppSdkIdPut`: %v\n", resp)
+    // response from `Update`: AppSdkDto
+    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.Update`: %v\n", resp)
 }
 ```
 
@@ -180,76 +253,12 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppSdkIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
-
-### Return type
-
-[**AppSdkDto**](AppSdkDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppSdkPost
-
-> AppSdkDto ApiAppAppSdkPost(ctx).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.ApiAppAppSdkPost(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.ApiAppAppSdkPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppSdkPost`: AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.ApiAppAppSdkPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppSdkPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
  **body** | [**CreateOrUpdateAppSdkDto**](CreateOrUpdateAppSdkDto.md) |  | 
 
 ### Return type

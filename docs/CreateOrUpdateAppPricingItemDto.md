@@ -4,14 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
-**LinkUrl** | Pointer to **string** |  | [optional] 
-**Display** | Pointer to **string** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
-**IsAvailable** | Pointer to **bool** |  | [optional] 
-**HasValue** | Pointer to **bool** |  | [optional] 
-**SortIndex** | Pointer to **int32** |  | [optional] 
+**Name** | Pointer to **string** | 名称: 坐席 | [optional] 
+**Description** | Pointer to **string** | 描述, 使用 Markdown 格式, 允许包含图片 | [optional] 
+**LinkUrl** | Pointer to **string** | 链接地址 | [optional] 
+**Display** | Pointer to **string** | 显示模板: 包括{0}个坐席 | [optional] 
+**SortIndex** | Pointer to **int32** | 排序 | [optional] 
 
 ## Methods
 
@@ -131,81 +128,6 @@ SetDisplay sets Display field to given value.
 `func (o *CreateOrUpdateAppPricingItemDto) HasDisplay() bool`
 
 HasDisplay returns a boolean if a field has been set.
-
-### GetAppId
-
-`func (o *CreateOrUpdateAppPricingItemDto) GetAppId() string`
-
-GetAppId returns the AppId field if non-nil, zero value otherwise.
-
-### GetAppIdOk
-
-`func (o *CreateOrUpdateAppPricingItemDto) GetAppIdOk() (*string, bool)`
-
-GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAppId
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetAppId(v string)`
-
-SetAppId sets AppId field to given value.
-
-### HasAppId
-
-`func (o *CreateOrUpdateAppPricingItemDto) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
-
-### GetIsAvailable
-
-`func (o *CreateOrUpdateAppPricingItemDto) GetIsAvailable() bool`
-
-GetIsAvailable returns the IsAvailable field if non-nil, zero value otherwise.
-
-### GetIsAvailableOk
-
-`func (o *CreateOrUpdateAppPricingItemDto) GetIsAvailableOk() (*bool, bool)`
-
-GetIsAvailableOk returns a tuple with the IsAvailable field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsAvailable
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetIsAvailable(v bool)`
-
-SetIsAvailable sets IsAvailable field to given value.
-
-### HasIsAvailable
-
-`func (o *CreateOrUpdateAppPricingItemDto) HasIsAvailable() bool`
-
-HasIsAvailable returns a boolean if a field has been set.
-
-### GetHasValue
-
-`func (o *CreateOrUpdateAppPricingItemDto) GetHasValue() bool`
-
-GetHasValue returns the HasValue field if non-nil, zero value otherwise.
-
-### GetHasValueOk
-
-`func (o *CreateOrUpdateAppPricingItemDto) GetHasValueOk() (*bool, bool)`
-
-GetHasValueOk returns a tuple with the HasValue field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHasValue
-
-`func (o *CreateOrUpdateAppPricingItemDto) SetHasValue(v bool)`
-
-SetHasValue sets HasValue field to given value.
-
-### HasHasValue
-
-`func (o *CreateOrUpdateAppPricingItemDto) HasHasValue() bool`
-
-HasHasValue returns a boolean if a field has been set.
 
 ### GetSortIndex
 

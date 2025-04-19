@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CodeSender** | Pointer to **string** |  | [optional] 
-**Account** | Pointer to **string** |  | [optional] 
-**Purpose** | Pointer to **string** |  | [optional] 
+**CodeSender** | Pointer to **string** | 验证码发送器 暂时支持: SMS: 手机短信验证码 | [optional] 
+**Account** | Pointer to **string** | 验证码接受者, 用户账户 | [optional] 
+**Purpose** | Pointer to **string** | 验证码用途 | [optional] 
 
 ## Methods
 

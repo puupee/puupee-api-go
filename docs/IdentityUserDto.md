@@ -23,9 +23,11 @@ Name | Type | Description | Notes
 **PhoneNumberConfirmed** | Pointer to **bool** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
 **LockoutEnabled** | Pointer to **bool** |  | [optional] 
+**AccessFailedCount** | Pointer to **int32** |  | [optional] 
 **LockoutEnd** | Pointer to **time.Time** |  | [optional] 
 **ConcurrencyStamp** | Pointer to **string** |  | [optional] 
 **EntityVersion** | Pointer to **int32** |  | [optional] 
+**LastPasswordChangeTime** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -521,6 +523,31 @@ SetLockoutEnabled sets LockoutEnabled field to given value.
 
 HasLockoutEnabled returns a boolean if a field has been set.
 
+### GetAccessFailedCount
+
+`func (o *IdentityUserDto) GetAccessFailedCount() int32`
+
+GetAccessFailedCount returns the AccessFailedCount field if non-nil, zero value otherwise.
+
+### GetAccessFailedCountOk
+
+`func (o *IdentityUserDto) GetAccessFailedCountOk() (*int32, bool)`
+
+GetAccessFailedCountOk returns a tuple with the AccessFailedCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessFailedCount
+
+`func (o *IdentityUserDto) SetAccessFailedCount(v int32)`
+
+SetAccessFailedCount sets AccessFailedCount field to given value.
+
+### HasAccessFailedCount
+
+`func (o *IdentityUserDto) HasAccessFailedCount() bool`
+
+HasAccessFailedCount returns a boolean if a field has been set.
+
 ### GetLockoutEnd
 
 `func (o *IdentityUserDto) GetLockoutEnd() time.Time`
@@ -595,6 +622,31 @@ SetEntityVersion sets EntityVersion field to given value.
 `func (o *IdentityUserDto) HasEntityVersion() bool`
 
 HasEntityVersion returns a boolean if a field has been set.
+
+### GetLastPasswordChangeTime
+
+`func (o *IdentityUserDto) GetLastPasswordChangeTime() time.Time`
+
+GetLastPasswordChangeTime returns the LastPasswordChangeTime field if non-nil, zero value otherwise.
+
+### GetLastPasswordChangeTimeOk
+
+`func (o *IdentityUserDto) GetLastPasswordChangeTimeOk() (*time.Time, bool)`
+
+GetLastPasswordChangeTimeOk returns a tuple with the LastPasswordChangeTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastPasswordChangeTime
+
+`func (o *IdentityUserDto) SetLastPasswordChangeTime(v time.Time)`
+
+SetLastPasswordChangeTime sets LastPasswordChangeTime field to given value.
+
+### HasLastPasswordChangeTime
+
+`func (o *IdentityUserDto) HasLastPasswordChangeTime() bool`
+
+HasLastPasswordChangeTime returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

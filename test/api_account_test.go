@@ -22,11 +22,22 @@ func Test_puupee_AccountApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AccountApiService ApiAccountRegisterPost", func(t *testing.T) {
+	t.Run("Test AccountApiService ChangePassword", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountApi.ApiAccountRegisterPost(context.Background()).Execute()
+		httpRes, err := apiClient.AccountApi.ChangePassword(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountApiService CheckSyncAuth", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AccountApi.CheckSyncAuth(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,33 +45,22 @@ func Test_puupee_AccountApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountApiService ApiAccountResetPasswordPost", func(t *testing.T) {
+	t.Run("Test AccountApiService DestroyAccount", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AccountApi.ApiAccountResetPasswordPost(context.Background()).Execute()
+		httpRes, err := apiClient.AccountApi.DestroyAccount(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AccountApiService ApiAccountSendPasswordResetCodePost", func(t *testing.T) {
+	t.Run("Test AccountApiService Get", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AccountApi.ApiAccountSendPasswordResetCodePost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AccountApiService ApiAccountVerifyPasswordResetTokenPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AccountApi.ApiAccountVerifyPasswordResetTokenPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountApi.Get(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -68,13 +68,48 @@ func Test_puupee_AccountApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountApiService ApiAppAccountDelete", func(t *testing.T) {
+	t.Run("Test AccountApiService Register", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AccountApi.ApiAppAccountDelete(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountApi.Register(context.Background()).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountApiService ResetPassword", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.AccountApi.ResetPassword(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountApiService SendPasswordResetCode", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.AccountApi.SendPasswordResetCode(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AccountApiService VerifyPasswordResetToken", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AccountApi.VerifyPasswordResetToken(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

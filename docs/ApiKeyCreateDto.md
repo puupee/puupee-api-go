@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Key** | **string** |  | 
 **Active** | Pointer to **bool** |  | [optional] 
 **ExpireAt** | Pointer to **time.Time** |  | [optional] 
 
@@ -13,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewApiKeyCreateDto
 
-`func NewApiKeyCreateDto(name string, key string, ) *ApiKeyCreateDto`
+`func NewApiKeyCreateDto(name string, ) *ApiKeyCreateDto`
 
 NewApiKeyCreateDto instantiates a new ApiKeyCreateDto object
 This constructor will assign default values to properties that have it defined,
@@ -46,26 +45,6 @@ and a boolean to check if the value has been set.
 `func (o *ApiKeyCreateDto) SetName(v string)`
 
 SetName sets Name field to given value.
-
-
-### GetKey
-
-`func (o *ApiKeyCreateDto) GetKey() string`
-
-GetKey returns the Key field if non-nil, zero value otherwise.
-
-### GetKeyOk
-
-`func (o *ApiKeyCreateDto) GetKeyOk() (*string, bool)`
-
-GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKey
-
-`func (o *ApiKeyCreateDto) SetKey(v string)`
-
-SetKey sets Key field to given value.
 
 
 ### GetActive

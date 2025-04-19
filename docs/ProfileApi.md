@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAccountMyProfileChangePasswordPost**](ProfileApi.md#ApiAccountMyProfileChangePasswordPost) | **Post** /api/account/my-profile/change-password | 
-[**ApiAccountMyProfileGet**](ProfileApi.md#ApiAccountMyProfileGet) | **Get** /api/account/my-profile | 
-[**ApiAccountMyProfilePut**](ProfileApi.md#ApiAccountMyProfilePut) | **Put** /api/account/my-profile | 
+[**ChangePassword**](ProfileApi.md#ChangePassword) | **Post** /api/account/my-profile/change-password | 
+[**Get**](ProfileApi.md#Get) | **Get** /api/account/my-profile | 
+[**Update**](ProfileApi.md#Update) | **Put** /api/account/my-profile | 
 
 
 
-## ApiAccountMyProfileChangePasswordPost
+## ChangePassword
 
-> ApiAccountMyProfileChangePasswordPost(ctx).Body(body).Execute()
+> ChangePassword(ctx).Body(body).Execute()
 
 
 
@@ -33,9 +33,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProfileApi.ApiAccountMyProfileChangePasswordPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.ProfileApi.ChangePassword(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ApiAccountMyProfileChangePasswordPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ChangePassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -47,7 +47,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountMyProfileChangePasswordPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiChangePasswordRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -72,9 +72,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAccountMyProfileGet
+## Get
 
-> ProfileDto ApiAccountMyProfileGet(ctx).Execute()
+> ProfileDto Get(ctx).Execute()
 
 
 
@@ -94,13 +94,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProfileApi.ApiAccountMyProfileGet(context.Background()).Execute()
+    resp, r, err := apiClient.ProfileApi.Get(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ApiAccountMyProfileGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAccountMyProfileGet`: ProfileDto
-    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.ApiAccountMyProfileGet`: %v\n", resp)
+    // response from `Get`: ProfileDto
+    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.Get`: %v\n", resp)
 }
 ```
 
@@ -110,7 +110,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountMyProfileGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
 
 
 ### Return type
@@ -131,9 +131,9 @@ Other parameters are passed through a pointer to a apiApiAccountMyProfileGetRequ
 [[Back to README]](../README.md)
 
 
-## ApiAccountMyProfilePut
+## Update
 
-> ProfileDto ApiAccountMyProfilePut(ctx).Body(body).Execute()
+> ProfileDto Update(ctx).Body(body).Execute()
 
 
 
@@ -154,13 +154,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProfileApi.ApiAccountMyProfilePut(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.ProfileApi.Update(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ApiAccountMyProfilePut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.Update``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAccountMyProfilePut`: ProfileDto
-    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.ApiAccountMyProfilePut`: %v\n", resp)
+    // response from `Update`: ProfileDto
+    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.Update`: %v\n", resp)
 }
 ```
 
@@ -170,7 +170,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountMyProfilePutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

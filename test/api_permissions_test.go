@@ -22,11 +22,11 @@ func Test_puupee_PermissionsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PermissionsApiService ApiPermissionManagementPermissionsGet", func(t *testing.T) {
+	t.Run("Test PermissionsApiService Get", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PermissionsApi.ApiPermissionManagementPermissionsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PermissionsApi.Get(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_puupee_PermissionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PermissionsApiService ApiPermissionManagementPermissionsPut", func(t *testing.T) {
+	t.Run("Test PermissionsApiService Update", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.PermissionsApi.ApiPermissionManagementPermissionsPut(context.Background()).Execute()
+		httpRes, err := apiClient.PermissionsApi.Update(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

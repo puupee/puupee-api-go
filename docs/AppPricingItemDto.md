@@ -12,15 +12,13 @@ Name | Type | Description | Notes
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
-**LinkUrl** | Pointer to **string** |  | [optional] 
-**Display** | Pointer to **string** |  | [optional] 
-**Values** | Pointer to **[]string** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
-**IsAvailable** | Pointer to **bool** |  | [optional] 
-**HasValue** | Pointer to **bool** |  | [optional] 
-**SortIndex** | Pointer to **int32** |  | [optional] 
+**Key** | Pointer to **string** | 键值, 例如: Seat, SingleFileMaxSize, UserStorageSize, MaxPuupeeCount, 见 AppPricingItemKeys.cs | [optional] 
+**Name** | Pointer to **string** | 名称: 坐席 | [optional] 
+**Description** | Pointer to **string** | 描述, 使用 Markdown 格式, 允许包含图片 | [optional] 
+**LinkUrl** | Pointer to **string** | 链接地址 | [optional] 
+**Display** | Pointer to **string** | 显示模板: 包括{0}个坐席 | [optional] 
+**IsAvailable** | Pointer to **bool** | 是否可用 | [optional] 
+**SortIndex** | Pointer to **int32** | 排序 | [optional] 
 
 ## Methods
 
@@ -241,6 +239,31 @@ SetDeletionTime sets DeletionTime field to given value.
 
 HasDeletionTime returns a boolean if a field has been set.
 
+### GetKey
+
+`func (o *AppPricingItemDto) GetKey() string`
+
+GetKey returns the Key field if non-nil, zero value otherwise.
+
+### GetKeyOk
+
+`func (o *AppPricingItemDto) GetKeyOk() (*string, bool)`
+
+GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKey
+
+`func (o *AppPricingItemDto) SetKey(v string)`
+
+SetKey sets Key field to given value.
+
+### HasKey
+
+`func (o *AppPricingItemDto) HasKey() bool`
+
+HasKey returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *AppPricingItemDto) GetName() string`
@@ -341,56 +364,6 @@ SetDisplay sets Display field to given value.
 
 HasDisplay returns a boolean if a field has been set.
 
-### GetValues
-
-`func (o *AppPricingItemDto) GetValues() []string`
-
-GetValues returns the Values field if non-nil, zero value otherwise.
-
-### GetValuesOk
-
-`func (o *AppPricingItemDto) GetValuesOk() (*[]string, bool)`
-
-GetValuesOk returns a tuple with the Values field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetValues
-
-`func (o *AppPricingItemDto) SetValues(v []string)`
-
-SetValues sets Values field to given value.
-
-### HasValues
-
-`func (o *AppPricingItemDto) HasValues() bool`
-
-HasValues returns a boolean if a field has been set.
-
-### GetAppId
-
-`func (o *AppPricingItemDto) GetAppId() string`
-
-GetAppId returns the AppId field if non-nil, zero value otherwise.
-
-### GetAppIdOk
-
-`func (o *AppPricingItemDto) GetAppIdOk() (*string, bool)`
-
-GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAppId
-
-`func (o *AppPricingItemDto) SetAppId(v string)`
-
-SetAppId sets AppId field to given value.
-
-### HasAppId
-
-`func (o *AppPricingItemDto) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
-
 ### GetIsAvailable
 
 `func (o *AppPricingItemDto) GetIsAvailable() bool`
@@ -415,31 +388,6 @@ SetIsAvailable sets IsAvailable field to given value.
 `func (o *AppPricingItemDto) HasIsAvailable() bool`
 
 HasIsAvailable returns a boolean if a field has been set.
-
-### GetHasValue
-
-`func (o *AppPricingItemDto) GetHasValue() bool`
-
-GetHasValue returns the HasValue field if non-nil, zero value otherwise.
-
-### GetHasValueOk
-
-`func (o *AppPricingItemDto) GetHasValueOk() (*bool, bool)`
-
-GetHasValueOk returns a tuple with the HasValue field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHasValue
-
-`func (o *AppPricingItemDto) SetHasValue(v bool)`
-
-SetHasValue sets HasValue field to given value.
-
-### HasHasValue
-
-`func (o *AppPricingItemDto) HasHasValue() bool`
-
-HasHasValue returns a boolean if a field has been set.
 
 ### GetSortIndex
 

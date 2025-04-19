@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiPermissionManagementPermissionsGet**](PermissionsApi.md#ApiPermissionManagementPermissionsGet) | **Get** /api/permission-management/permissions | 
-[**ApiPermissionManagementPermissionsPut**](PermissionsApi.md#ApiPermissionManagementPermissionsPut) | **Put** /api/permission-management/permissions | 
+[**Get**](PermissionsApi.md#Get) | **Get** /api/permission-management/permissions | 
+[**Update**](PermissionsApi.md#Update) | **Put** /api/permission-management/permissions | 
 
 
 
-## ApiPermissionManagementPermissionsGet
+## Get
 
-> GetPermissionListResultDto ApiPermissionManagementPermissionsGet(ctx).ProviderName(providerName).ProviderKey(providerKey).Execute()
+> GetPermissionListResultDto Get(ctx).ProviderName(providerName).ProviderKey(providerKey).Execute()
 
 
 
@@ -33,13 +33,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.ApiPermissionManagementPermissionsGet(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
+    resp, r, err := apiClient.PermissionsApi.Get(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.ApiPermissionManagementPermissionsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiPermissionManagementPermissionsGet`: GetPermissionListResultDto
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.ApiPermissionManagementPermissionsGet`: %v\n", resp)
+    // response from `Get`: GetPermissionListResultDto
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.Get`: %v\n", resp)
 }
 ```
 
@@ -49,7 +49,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiPermissionManagementPermissionsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -75,9 +75,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiPermissionManagementPermissionsPut
+## Update
 
-> ApiPermissionManagementPermissionsPut(ctx).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+> Update(ctx).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
 
 
 
@@ -100,9 +100,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsApi.ApiPermissionManagementPermissionsPut(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+    r, err := apiClient.PermissionsApi.Update(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.ApiPermissionManagementPermissionsPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.Update``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -114,7 +114,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiPermissionManagementPermissionsPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

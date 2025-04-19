@@ -4,27 +4,29 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppAppByDeveloperAllGet**](AppApi.md#ApiAppAppByDeveloperAllGet) | **Get** /api/app/app/by-developer-all | 
-[**ApiAppAppByNameGet**](AppApi.md#ApiAppAppByNameGet) | **Get** /api/app/app/by-name | 
-[**ApiAppAppGet**](AppApi.md#ApiAppAppGet) | **Get** /api/app/app | 
-[**ApiAppAppIdDelete**](AppApi.md#ApiAppAppIdDelete) | **Delete** /api/app/app/{id} | 
-[**ApiAppAppIdGet**](AppApi.md#ApiAppAppIdGet) | **Get** /api/app/app/{id} | 
-[**ApiAppAppIdPut**](AppApi.md#ApiAppAppIdPut) | **Put** /api/app/app/{id} | 
-[**ApiAppAppIdRunStatePut**](AppApi.md#ApiAppAppIdRunStatePut) | **Put** /api/app/app/{id}/run-state | 
-[**ApiAppAppIdWithUserGet**](AppApi.md#ApiAppAppIdWithUserGet) | **Get** /api/app/app/{id}/with-user | 
-[**ApiAppAppPost**](AppApi.md#ApiAppAppPost) | **Post** /api/app/app | 
-[**ApiAppAppPublicGet**](AppApi.md#ApiAppAppPublicGet) | **Get** /api/app/app/public | 
-[**ApiAppAppRunPost**](AppApi.md#ApiAppAppRunPost) | **Post** /api/app/app/run | 
-[**ApiAppAppUploadCredentialsGet**](AppApi.md#ApiAppAppUploadCredentialsGet) | **Get** /api/app/app/upload-credentials | 
-[**ApiAppAppWithUserGet**](AppApi.md#ApiAppAppWithUserGet) | **Get** /api/app/app/with-user | 
+[**Create**](AppApi.md#Create) | **Post** /api/app/app | 创建新应用
+[**Delete**](AppApi.md#Delete) | **Delete** /api/app/app/{id} | 删除应用
+[**GetById**](AppApi.md#GetById) | **Get** /api/app/app/{id} | 获取 APP 详情
+[**GetByName**](AppApi.md#GetByName) | **Get** /api/app/app/by-name | 获取 APP 详情
+[**GetFeatures**](AppApi.md#GetFeatures) | **Get** /api/app/app/features/{appId} | 
+[**GetList**](AppApi.md#GetList) | **Get** /api/app/app | 获取当前用户的应用列表
+[**GetListByDeveloperAll**](AppApi.md#GetListByDeveloperAll) | **Get** /api/app/app/by-developer-all | 获取开发者所有 APP 包括未发布的
+[**GetListPublic**](AppApi.md#GetListPublic) | **Get** /api/app/app/public | 所有开发者已发布 APP 列表
+[**GetListWithUser**](AppApi.md#GetListWithUser) | **Get** /api/app/app/with-user | 获取APP列表包含用户订阅信息
+[**GetSdksById**](AppApi.md#GetSdksById) | **Get** /api/app/app/sdks-by-id/{appId} | 
+[**GetUploadCredentials**](AppApi.md#GetUploadCredentials) | **Get** /api/app/app/upload-credentials | 获取上传凭证
+[**GetWithUser**](AppApi.md#GetWithUser) | **Get** /api/app/app/{id}/with-user | 获取 APP 详情
+[**Run**](AppApi.md#Run) | **Post** /api/app/app/run | 
+[**Update**](AppApi.md#Update) | **Put** /api/app/app/{id} | 更新 APP 信息
+[**UpdateRunState**](AppApi.md#UpdateRunState) | **Put** /api/app/app/{id}/run-state | 
 
 
 
-## ApiAppAppByDeveloperAllGet
+## Create
 
-> AppDtoPagedResultDto ApiAppAppByDeveloperAllGet(ctx).DeveloperAccount(developerAccount).Execute()
+> AppDto Create(ctx).Body(body).Execute()
 
-
+创建新应用
 
 ### Example
 
@@ -39,17 +41,17 @@ import (
 )
 
 func main() {
-    developerAccount := "developerAccount_example" // string |  (optional)
+    body := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppByDeveloperAllGet(context.Background()).DeveloperAccount(developerAccount).Execute()
+    resp, r, err := apiClient.AppApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByDeveloperAllGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppByDeveloperAllGet`: AppDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppByDeveloperAllGet`: %v\n", resp)
+    // response from `Create`: AppDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.Create`: %v\n", resp)
 }
 ```
 
@@ -59,16 +61,82 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppByDeveloperAllGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **developerAccount** | **string** |  | 
+ **body** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
 
 ### Return type
 
-[**AppDtoPagedResultDto**](AppDtoPagedResultDto.md)
+[**AppDto**](AppDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Delete
+
+> Delete(ctx, id).Execute()
+
+删除应用
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AppApi.Delete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.Delete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -84,11 +152,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppByNameGet
+## GetById
 
-> AppDto ApiAppAppByNameGet(ctx).Name(name).Env(env).Execute()
+> AppDto GetById(ctx, id).Execute()
 
-
+获取 APP 详情
 
 ### Example
 
@@ -103,34 +171,36 @@ import (
 )
 
 func main() {
-    name := "name_example" // string |  (optional)
-    env := "env_example" // string |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppByNameGet(context.Background()).Name(name).Env(env).Execute()
+    resp, r, err := apiClient.AppApi.GetById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppByNameGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppByNameGet`: AppDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppByNameGet`: %v\n", resp)
+    // response from `GetById`: AppDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetById`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppByNameGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string** |  | 
- **env** | **string** |  | 
+
 
 ### Return type
 
@@ -150,11 +220,145 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppGet
+## GetByName
 
-> AppDtoPagedResultDto ApiAppAppGet(ctx).CreatorId(creatorId).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppDto GetByName(ctx).Name(name).Execute()
+
+获取 APP 详情
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    name := "name_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.GetByName(context.Background()).Name(name).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetByName``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetByName`: AppDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetByName`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetByNameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string** |  | 
+
+### Return type
+
+[**AppDto**](AppDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetFeatures
+
+> []AppFeatureDto GetFeatures(ctx, appId).Env(env).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    env := "env_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.GetFeatures(context.Background(), appId).Env(env).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetFeatures``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetFeatures`: []AppFeatureDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetFeatures`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**appId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetFeaturesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **env** | **string** |  | 
+
+### Return type
+
+[**[]AppFeatureDto**](AppFeatureDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetList
+
+> AppDtoPagedResultDto GetList(ctx).CreatorId(creatorId).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+获取当前用户的应用列表
 
 ### Example
 
@@ -176,13 +380,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppGet(context.Background()).CreatorId(creatorId).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.AppApi.GetList(context.Background()).CreatorId(creatorId).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppGet`: AppDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppGet`: %v\n", resp)
+    // response from `GetList`: AppDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetList`: %v\n", resp)
 }
 ```
 
@@ -192,7 +396,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -220,11 +424,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppIdDelete
+## GetListByDeveloperAll
 
-> ApiAppAppIdDelete(ctx, id).Execute()
+> AppDtoPagedResultDto GetListByDeveloperAll(ctx).DeveloperAccount(developerAccount).Execute()
 
-
+获取开发者所有 APP 包括未发布的
 
 ### Example
 
@@ -239,38 +443,36 @@ import (
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    developerAccount := "developerAccount_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppApi.ApiAppAppIdDelete(context.Background(), id).Execute()
+    resp, r, err := apiClient.AppApi.GetListByDeveloperAll(context.Background()).DeveloperAccount(developerAccount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetListByDeveloperAll``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `GetListByDeveloperAll`: AppDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetListByDeveloperAll`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetListByDeveloperAllRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
+ **developerAccount** | **string** |  | 
 
 ### Return type
 
- (empty response body)
+[**AppDtoPagedResultDto**](AppDtoPagedResultDto.md)
 
 ### Authorization
 
@@ -286,81 +488,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppIdGet
+## GetListPublic
 
-> AppDto ApiAppAppIdGet(ctx, id).Env(env).Execute()
+> AppDtoPagedResultDto GetListPublic(ctx).Type_(type_).DeveloperAccount(developerAccount).CurrentAppName(currentAppName).Execute()
 
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    env := "env_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdGet(context.Background(), id).Env(env).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppIdGet`: AppDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **env** | **string** |  | 
-
-### Return type
-
-[**AppDto**](AppDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppIdPut
-
-> AppDto ApiAppAppIdPut(ctx, id).Body(body).Execute()
-
-
+所有开发者已发布 APP 列表
 
 ### Example
 
@@ -375,293 +507,19 @@ import (
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdPut(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppIdPut`: AppDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
-
-### Return type
-
-[**AppDto**](AppDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppIdRunStatePut
-
-> AppRunRecordDto ApiAppAppIdRunStatePut(ctx, id).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewAppRunRecordUpdateDto("Status_example", "WorkerId_example", "WorkerName_example") // AppRunRecordUpdateDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdRunStatePut(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdRunStatePut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppIdRunStatePut`: AppRunRecordDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdRunStatePut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppIdRunStatePutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | [**AppRunRecordUpdateDto**](AppRunRecordUpdateDto.md) |  | 
-
-### Return type
-
-[**AppRunRecordDto**](AppRunRecordDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppIdWithUserGet
-
-> AppWithUserDto ApiAppAppIdWithUserGet(ctx, id).Env(env).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    env := "env_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppIdWithUserGet(context.Background(), id).Env(env).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppIdWithUserGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppIdWithUserGet`: AppWithUserDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppIdWithUserGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppIdWithUserGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **env** | **string** |  | 
-
-### Return type
-
-[**AppWithUserDto**](AppWithUserDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppPost
-
-> AppDto ApiAppAppPost(ctx).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    body := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppPost(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppPost`: AppDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
-
-### Return type
-
-[**AppDto**](AppDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppPublicGet
-
-> AppDtoPagedResultDto ApiAppAppPublicGet(ctx).Type_(type_).DeveloperAccount(developerAccount).CurrentAppName(currentAppName).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    type_ := "type__example" // string |  (optional)
+    type_ := TODO // interface{} |  (optional)
     developerAccount := "developerAccount_example" // string |  (optional)
     currentAppName := "currentAppName_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppPublicGet(context.Background()).Type_(type_).DeveloperAccount(developerAccount).CurrentAppName(currentAppName).Execute()
+    resp, r, err := apiClient.AppApi.GetListPublic(context.Background()).Type_(type_).DeveloperAccount(developerAccount).CurrentAppName(currentAppName).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppPublicGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetListPublic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppPublicGet`: AppDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppPublicGet`: %v\n", resp)
+    // response from `GetListPublic`: AppDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetListPublic`: %v\n", resp)
 }
 ```
 
@@ -671,12 +529,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppPublicGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetListPublicRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | **string** |  | 
+ **type_** | [**interface{}**](interface{}.md) |  | 
  **developerAccount** | **string** |  | 
  **currentAppName** | **string** |  | 
 
@@ -698,9 +556,81 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppRunPost
+## GetListWithUser
 
-> AppRunRecordDto ApiAppAppRunPost(ctx).Body(body).Execute()
+> AppWithUserDtoPagedResultDto GetListWithUser(ctx).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+获取APP列表包含用户订阅信息
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    type_ := TODO // interface{} |  (optional)
+    searchKey := "searchKey_example" // string |  (optional)
+    sorting := "sorting_example" // string |  (optional)
+    skipCount := int32(56) // int32 |  (optional)
+    maxResultCount := int32(56) // int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.GetListWithUser(context.Background()).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetListWithUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetListWithUser`: AppWithUserDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetListWithUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetListWithUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | [**interface{}**](interface{}.md) |  | 
+ **searchKey** | **string** |  | 
+ **sorting** | **string** |  | 
+ **skipCount** | **int32** |  | 
+ **maxResultCount** | **int32** |  | 
+
+### Return type
+
+[**AppWithUserDtoPagedResultDto**](AppWithUserDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSdksById
+
+> []AppSdkDto GetSdksById(ctx, appId).Env(env).Execute()
 
 
 
@@ -717,36 +647,42 @@ import (
 )
 
 func main() {
-    body := *openapiclient.NewAppRunDto() // AppRunDto |  (optional)
+    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    env := "env_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppRunPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppApi.GetSdksById(context.Background(), appId).Env(env).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppRunPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetSdksById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppRunPost`: AppRunRecordDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppRunPost`: %v\n", resp)
+    // response from `GetSdksById`: []AppSdkDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetSdksById`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**appId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppRunPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSdksByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AppRunDto**](AppRunDto.md) |  | 
+
+ **env** | **string** |  | 
 
 ### Return type
 
-[**AppRunRecordDto**](AppRunRecordDto.md)
+[**[]AppSdkDto**](AppSdkDto.md)
 
 ### Authorization
 
@@ -754,7 +690,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -762,11 +698,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppUploadCredentialsGet
+## GetUploadCredentials
 
-> StorageObjectCredentials ApiAppAppUploadCredentialsGet(ctx).Key(key).Execute()
+> StorageObjectCredentials GetUploadCredentials(ctx).Key(key).Execute()
 
-
+获取上传凭证
 
 ### Example
 
@@ -785,13 +721,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppUploadCredentialsGet(context.Background()).Key(key).Execute()
+    resp, r, err := apiClient.AppApi.GetUploadCredentials(context.Background()).Key(key).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppUploadCredentialsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetUploadCredentials``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppUploadCredentialsGet`: StorageObjectCredentials
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppUploadCredentialsGet`: %v\n", resp)
+    // response from `GetUploadCredentials`: StorageObjectCredentials
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetUploadCredentials`: %v\n", resp)
 }
 ```
 
@@ -801,7 +737,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppUploadCredentialsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUploadCredentialsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -826,9 +762,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppWithUserGet
+## GetWithUser
 
-> AppWithUserDtoPagedResultDto ApiAppAppWithUserGet(ctx).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> AppWithUserDto GetWithUser(ctx, id).Execute()
+
+获取 APP 详情
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.GetWithUser(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.GetWithUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWithUser`: AppWithUserDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.GetWithUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWithUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AppWithUserDto**](AppWithUserDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Run
+
+> AppRunRecordDto Run(ctx).Body(body).Execute()
 
 
 
@@ -845,21 +849,17 @@ import (
 )
 
 func main() {
-    type_ := "type__example" // string |  (optional)
-    searchKey := "searchKey_example" // string |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+    body := *openapiclient.NewAppRunDto() // AppRunDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppApi.ApiAppAppWithUserGet(context.Background()).Type_(type_).SearchKey(searchKey).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.AppApi.Run(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppAppWithUserGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.Run``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppWithUserGet`: AppWithUserDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppApi.ApiAppAppWithUserGet`: %v\n", resp)
+    // response from `Run`: AppRunRecordDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.Run`: %v\n", resp)
 }
 ```
 
@@ -869,20 +869,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppWithUserGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRunRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | **string** |  | 
- **searchKey** | **string** |  | 
- **sorting** | **string** |  | 
- **skipCount** | **int32** |  | 
- **maxResultCount** | **int32** |  | 
+ **body** | [**AppRunDto**](AppRunDto.md) |  | 
 
 ### Return type
 
-[**AppWithUserDtoPagedResultDto**](AppWithUserDtoPagedResultDto.md)
+[**AppRunRecordDto**](AppRunRecordDto.md)
 
 ### Authorization
 
@@ -890,7 +886,147 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Update
+
+> AppDto Update(ctx, id).Body(body).Execute()
+
+更新 APP 信息
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    body := *openapiclient.NewCreateOrUpdateAppDto() // CreateOrUpdateAppDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.Update(context.Background(), id).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.Update``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Update`: AppDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.Update`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**CreateOrUpdateAppDto**](CreateOrUpdateAppDto.md) |  | 
+
+### Return type
+
+[**AppDto**](AppDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateRunState
+
+> AppRunRecordDto UpdateRunState(ctx, id).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    body := *openapiclient.NewAppRunRecordUpdateDto(openapiclient.AppRunStatus("Pending"), "WorkerId_example", "WorkerName_example") // AppRunRecordUpdateDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.UpdateRunState(context.Background(), id).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.UpdateRunState``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateRunState`: AppRunRecordDto
+    fmt.Fprintf(os.Stdout, "Response from `AppApi.UpdateRunState`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRunStateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**AppRunRecordUpdateDto**](AppRunRecordUpdateDto.md) |  | 
+
+### Return type
+
+[**AppRunRecordDto**](AppRunRecordDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -22,11 +22,22 @@ func Test_puupee_VerificationApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test VerificationApiService ApiAppVerificationSendCodePost", func(t *testing.T) {
+	t.Run("Test VerificationApiService SendCode", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.VerificationApi.ApiAppVerificationSendCodePost(context.Background()).Execute()
+		httpRes, err := apiClient.VerificationApi.SendCode(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test VerificationApiService SendCodeAnonymous", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.VerificationApi.SendCodeAnonymous(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

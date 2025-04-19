@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Key** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
+**SyncVersion** | Pointer to **int64** |  | [optional] 
+**Key** | Pointer to **string** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
 **Md5** | Pointer to **string** |  | [optional] 
 **SliceMd5** | Pointer to **string** |  | [optional] 
@@ -24,7 +25,6 @@ Name | Type | Description | Notes
 **StorageClass** | Pointer to **string** |  | [optional] 
 **StorageObjectCreatedAt** | Pointer to **time.Time** |  | [optional] 
 **StorageObjectUpdatedAt** | Pointer to **time.Time** |  | [optional] 
-**SyncVersion** | Pointer to **int64** |  | [optional] 
 **Password** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -271,31 +271,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetKey
-
-`func (o *StorageObjectDto) GetKey() string`
-
-GetKey returns the Key field if non-nil, zero value otherwise.
-
-### GetKeyOk
-
-`func (o *StorageObjectDto) GetKeyOk() (*string, bool)`
-
-GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKey
-
-`func (o *StorageObjectDto) SetKey(v string)`
-
-SetKey sets Key field to given value.
-
-### HasKey
-
-`func (o *StorageObjectDto) HasKey() bool`
-
-HasKey returns a boolean if a field has been set.
-
 ### GetUrl
 
 `func (o *StorageObjectDto) GetUrl() string`
@@ -320,6 +295,56 @@ SetUrl sets Url field to given value.
 `func (o *StorageObjectDto) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
+
+### GetSyncVersion
+
+`func (o *StorageObjectDto) GetSyncVersion() int64`
+
+GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
+
+### GetSyncVersionOk
+
+`func (o *StorageObjectDto) GetSyncVersionOk() (*int64, bool)`
+
+GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyncVersion
+
+`func (o *StorageObjectDto) SetSyncVersion(v int64)`
+
+SetSyncVersion sets SyncVersion field to given value.
+
+### HasSyncVersion
+
+`func (o *StorageObjectDto) HasSyncVersion() bool`
+
+HasSyncVersion returns a boolean if a field has been set.
+
+### GetKey
+
+`func (o *StorageObjectDto) GetKey() string`
+
+GetKey returns the Key field if non-nil, zero value otherwise.
+
+### GetKeyOk
+
+`func (o *StorageObjectDto) GetKeyOk() (*string, bool)`
+
+GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKey
+
+`func (o *StorageObjectDto) SetKey(v string)`
+
+SetKey sets Key field to given value.
+
+### HasKey
+
+`func (o *StorageObjectDto) HasKey() bool`
+
+HasKey returns a boolean if a field has been set.
 
 ### GetSize
 
@@ -545,31 +570,6 @@ SetStorageObjectUpdatedAt sets StorageObjectUpdatedAt field to given value.
 `func (o *StorageObjectDto) HasStorageObjectUpdatedAt() bool`
 
 HasStorageObjectUpdatedAt returns a boolean if a field has been set.
-
-### GetSyncVersion
-
-`func (o *StorageObjectDto) GetSyncVersion() int64`
-
-GetSyncVersion returns the SyncVersion field if non-nil, zero value otherwise.
-
-### GetSyncVersionOk
-
-`func (o *StorageObjectDto) GetSyncVersionOk() (*int64, bool)`
-
-GetSyncVersionOk returns a tuple with the SyncVersion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSyncVersion
-
-`func (o *StorageObjectDto) SetSyncVersion(v int64)`
-
-SetSyncVersion sets SyncVersion field to given value.
-
-### HasSyncVersion
-
-`func (o *StorageObjectDto) HasSyncVersion() bool`
-
-HasSyncVersion returns a boolean if a field has been set.
 
 ### GetPassword
 

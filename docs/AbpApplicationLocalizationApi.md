@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAbpApplicationLocalizationGet**](AbpApplicationLocalizationApi.md#ApiAbpApplicationLocalizationGet) | **Get** /api/abp/application-localization | 
+[**Get**](AbpApplicationLocalizationApi.md#Get) | **Get** /api/abp/application-localization | 
 
 
 
-## ApiAbpApplicationLocalizationGet
+## Get
 
-> ApplicationLocalizationDto ApiAbpApplicationLocalizationGet(ctx).CultureName(cultureName).OnlyDynamics(onlyDynamics).Execute()
+> ApplicationLocalizationDto Get(ctx).CultureName(cultureName).OnlyDynamics(onlyDynamics).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpApplicationLocalizationApi.ApiAbpApplicationLocalizationGet(context.Background()).CultureName(cultureName).OnlyDynamics(onlyDynamics).Execute()
+    resp, r, err := apiClient.AbpApplicationLocalizationApi.Get(context.Background()).CultureName(cultureName).OnlyDynamics(onlyDynamics).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationLocalizationApi.ApiAbpApplicationLocalizationGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationLocalizationApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAbpApplicationLocalizationGet`: ApplicationLocalizationDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpApplicationLocalizationApi.ApiAbpApplicationLocalizationGet`: %v\n", resp)
+    // response from `Get`: ApplicationLocalizationDto
+    fmt.Fprintf(os.Stdout, "Response from `AbpApplicationLocalizationApi.Get`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAbpApplicationLocalizationGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

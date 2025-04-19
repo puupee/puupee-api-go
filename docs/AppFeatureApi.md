@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppAppFeatureGet**](AppFeatureApi.md#ApiAppAppFeatureGet) | **Get** /api/app/app-feature | 
-[**ApiAppAppFeatureIdDelete**](AppFeatureApi.md#ApiAppAppFeatureIdDelete) | **Delete** /api/app/app-feature/{id} | 
-[**ApiAppAppFeatureIdPut**](AppFeatureApi.md#ApiAppAppFeatureIdPut) | **Put** /api/app/app-feature/{id} | 
-[**ApiAppAppFeaturePost**](AppFeatureApi.md#ApiAppAppFeaturePost) | **Post** /api/app/app-feature | 
+[**Create**](AppFeatureApi.md#Create) | **Post** /api/app/app-feature | 
+[**Delete**](AppFeatureApi.md#Delete) | **Delete** /api/app/app-feature/{id} | 
+[**GetList**](AppFeatureApi.md#GetList) | **Get** /api/app/app-feature | 
+[**Update**](AppFeatureApi.md#Update) | **Put** /api/app/app-feature/{id} | 
 
 
 
-## ApiAppAppFeatureGet
+## Create
 
-> []AppFeatureDto ApiAppAppFeatureGet(ctx).Execute()
+> AppFeatureDto Create(ctx).Body(body).Execute()
 
 
 
@@ -30,31 +30,36 @@ import (
 )
 
 func main() {
+    body := *openapiclient.NewCreateOrUpdateAppFeatureDto() // CreateOrUpdateAppFeatureDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppFeatureApi.ApiAppAppFeatureGet(context.Background()).Execute()
+    resp, r, err := apiClient.AppFeatureApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.ApiAppAppFeatureGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppFeatureGet`: []AppFeatureDto
-    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.ApiAppAppFeatureGet`: %v\n", resp)
+    // response from `Create`: AppFeatureDto
+    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.Create`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppFeatureGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateOrUpdateAppFeatureDto**](CreateOrUpdateAppFeatureDto.md) |  | 
 
 ### Return type
 
-[**[]AppFeatureDto**](AppFeatureDto.md)
+[**AppFeatureDto**](AppFeatureDto.md)
 
 ### Authorization
 
@@ -62,7 +67,7 @@ Other parameters are passed through a pointer to a apiApiAppAppFeatureGetRequest
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -70,9 +75,9 @@ Other parameters are passed through a pointer to a apiApiAppAppFeatureGetRequest
 [[Back to README]](../README.md)
 
 
-## ApiAppAppFeatureIdDelete
+## Delete
 
-> ApiAppAppFeatureIdDelete(ctx, id).Execute()
+> Delete(ctx, id).Execute()
 
 
 
@@ -93,9 +98,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppFeatureApi.ApiAppAppFeatureIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.AppFeatureApi.Delete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.ApiAppAppFeatureIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.Delete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -111,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppFeatureIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -136,9 +141,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppAppFeatureIdPut
+## GetList
 
-> AppFeatureDto ApiAppAppFeatureIdPut(ctx, id).Body(body).Execute()
+> AppFeatureDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    sorting := "sorting_example" // string |  (optional)
+    skipCount := int32(56) // int32 |  (optional)
+    maxResultCount := int32(56) // int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppFeatureApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetList`: AppFeatureDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.GetList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sorting** | **string** |  | 
+ **skipCount** | **int32** |  | 
+ **maxResultCount** | **int32** |  | 
+
+### Return type
+
+[**AppFeatureDtoPagedResultDto**](AppFeatureDtoPagedResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Update
+
+> AppFeatureDto Update(ctx, id).Body(body).Execute()
 
 
 
@@ -160,13 +233,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppFeatureApi.ApiAppAppFeatureIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.AppFeatureApi.Update(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.ApiAppAppFeatureIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.Update``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppFeatureIdPut`: AppFeatureDto
-    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.ApiAppAppFeatureIdPut`: %v\n", resp)
+    // response from `Update`: AppFeatureDto
+    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.Update`: %v\n", resp)
 }
 ```
 
@@ -180,76 +253,12 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppFeatureIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateOrUpdateAppFeatureDto**](CreateOrUpdateAppFeatureDto.md) |  | 
-
-### Return type
-
-[**AppFeatureDto**](AppFeatureDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAppFeaturePost
-
-> AppFeatureDto ApiAppAppFeaturePost(ctx).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    body := *openapiclient.NewCreateOrUpdateAppFeatureDto() // CreateOrUpdateAppFeatureDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppFeatureApi.ApiAppAppFeaturePost(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.ApiAppAppFeaturePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppAppFeaturePost`: AppFeatureDto
-    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.ApiAppAppFeaturePost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAppFeaturePostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
  **body** | [**CreateOrUpdateAppFeatureDto**](CreateOrUpdateAppFeatureDto.md) |  | 
 
 ### Return type

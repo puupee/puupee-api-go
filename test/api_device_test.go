@@ -22,33 +22,24 @@ func Test_puupee_DeviceApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DeviceApiService ApiAppDeviceBindPost", func(t *testing.T) {
+	t.Run("Test DeviceApiService Bind", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.DeviceApi.ApiAppDeviceBindPost(context.Background()).Execute()
+		httpRes, err := apiClient.DeviceApi.Bind(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeviceApiService ApiAppDeviceDelete", func(t *testing.T) {
+	t.Run("Test DeviceApiService GetById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.DeviceApi.ApiAppDeviceDelete(context.Background()).Execute()
+		var id string
 
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DeviceApiService ApiAppDeviceGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DeviceApi.ApiAppDeviceGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DeviceApi.GetById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -56,11 +47,46 @@ func Test_puupee_DeviceApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DeviceApiService ApiAppDeviceRefreshPost", func(t *testing.T) {
+	t.Run("Test DeviceApiService GetByToken", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.DeviceApi.ApiAppDeviceRefreshPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DeviceApi.GetByToken(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeviceApiService GetList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DeviceApi.GetList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeviceApiService Refresh", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.DeviceApi.Refresh(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeviceApiService Remove", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.DeviceApi.Remove(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

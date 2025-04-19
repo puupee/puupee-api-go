@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppMessagePublishPost**](MessageApi.md#ApiAppMessagePublishPost) | **Post** /api/app/message/publish | 
-[**ApiAppMessageRecallPost**](MessageApi.md#ApiAppMessageRecallPost) | **Post** /api/app/message/recall | 
-[**ApiAppMessageSubscribePost**](MessageApi.md#ApiAppMessageSubscribePost) | **Post** /api/app/message/subscribe | 
-[**ApiAppMessageUnsubscribePost**](MessageApi.md#ApiAppMessageUnsubscribePost) | **Post** /api/app/message/unsubscribe | 
+[**Publish**](MessageApi.md#Publish) | **Post** /api/app/message/publish | 
+[**Recall**](MessageApi.md#Recall) | **Post** /api/app/message/recall | 
+[**Subscribe**](MessageApi.md#Subscribe) | **Post** /api/app/message/subscribe | 
+[**Unsubscribe**](MessageApi.md#Unsubscribe) | **Post** /api/app/message/unsubscribe | 
 
 
 
-## ApiAppMessagePublishPost
+## Publish
 
-> ApiAppMessagePublishPost(ctx).Body(body).Execute()
+> Publish(ctx).Body(body).Execute()
 
 
 
@@ -34,9 +34,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageApi.ApiAppMessagePublishPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.MessageApi.Publish(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.ApiAppMessagePublishPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.Publish``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessagePublishPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPublishRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageRecallPost
+## Recall
 
-> ApiAppMessageRecallPost(ctx).Body(body).Execute()
+> Recall(ctx).Body(body).Execute()
 
 
 
@@ -96,9 +96,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageApi.ApiAppMessageRecallPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.MessageApi.Recall(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.ApiAppMessageRecallPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.Recall``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -110,7 +110,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageRecallPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRecallRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -135,9 +135,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageSubscribePost
+## Subscribe
 
-> ApiAppMessageSubscribePost(ctx).Body(body).Execute()
+> Subscribe(ctx).Body(body).Execute()
 
 
 
@@ -158,9 +158,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageApi.ApiAppMessageSubscribePost(context.Background()).Body(body).Execute()
+    r, err := apiClient.MessageApi.Subscribe(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.ApiAppMessageSubscribePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.Subscribe``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -172,7 +172,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageSubscribePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSubscribeRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -197,9 +197,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageUnsubscribePost
+## Unsubscribe
 
-> ApiAppMessageUnsubscribePost(ctx).Body(body).Execute()
+> Unsubscribe(ctx).Body(body).Execute()
 
 
 
@@ -220,9 +220,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageApi.ApiAppMessageUnsubscribePost(context.Background()).Body(body).Execute()
+    r, err := apiClient.MessageApi.Unsubscribe(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.ApiAppMessageUnsubscribePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageApi.Unsubscribe``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -234,7 +234,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageUnsubscribePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUnsubscribeRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

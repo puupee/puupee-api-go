@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **EmailConfirmed** | Pointer to **bool** |  | [optional] 
 **PhoneNumber** | Pointer to **string** |  | [optional] 
 **PhoneNumberConfirmed** | Pointer to **bool** |  | [optional] 
+**ExtraProperties** | Pointer to **map[string]map[string]interface{}** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -283,6 +284,31 @@ SetPhoneNumberConfirmed sets PhoneNumberConfirmed field to given value.
 `func (o *UserData) HasPhoneNumberConfirmed() bool`
 
 HasPhoneNumberConfirmed returns a boolean if a field has been set.
+
+### GetExtraProperties
+
+`func (o *UserData) GetExtraProperties() map[string]map[string]interface{}`
+
+GetExtraProperties returns the ExtraProperties field if non-nil, zero value otherwise.
+
+### GetExtraPropertiesOk
+
+`func (o *UserData) GetExtraPropertiesOk() (*map[string]map[string]interface{}, bool)`
+
+GetExtraPropertiesOk returns a tuple with the ExtraProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtraProperties
+
+`func (o *UserData) SetExtraProperties(v map[string]map[string]interface{})`
+
+SetExtraProperties sets ExtraProperties field to given value.
+
+### HasExtraProperties
+
+`func (o *UserData) HasExtraProperties() bool`
+
+HasExtraProperties returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppNotificationBarkApiKeyMessageGet**](NotificationApi.md#ApiAppNotificationBarkApiKeyMessageGet) | **Get** /api/app/notification/bark/{apiKey}/{message} | 
-[**ApiAppNotificationGet**](NotificationApi.md#ApiAppNotificationGet) | **Get** /api/app/notification | 
-[**ApiAppNotificationPushPost**](NotificationApi.md#ApiAppNotificationPushPost) | **Post** /api/app/notification/push | 
+[**Bark**](NotificationApi.md#Bark) | **Get** /api/app/notification/bark/{apiKey}/{message} | Bark 推送，兼容 Bark 推送协议  TODO: 验证 API KEY 功能, 添加[个人访问令牌]功能
+[**GetList**](NotificationApi.md#GetList) | **Get** /api/app/notification | 
+[**Push**](NotificationApi.md#Push) | **Post** /api/app/notification/push | 
 
 
 
-## ApiAppNotificationBarkApiKeyMessageGet
+## Bark
 
-> ApiAppNotificationBarkApiKeyMessageGet(ctx, apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Name(name).Value(value).Execute()
+> Bark(ctx, apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Level(level).Execute()
 
-
+Bark 推送，兼容 Bark 推送协议  TODO: 验证 API KEY 功能, 添加[个人访问令牌]功能
 
 ### Example
 
@@ -29,22 +29,21 @@ import (
 )
 
 func main() {
-    apiKey := "apiKey_example" // string | 
-    message := "message_example" // string | 
-    automaticallyCopy := int32(56) // int32 |  (optional) (default to 0)
-    copy := "copy_example" // string |  (optional)
-    url := "url_example" // string |  (optional)
-    isArchive := "isArchive_example" // string |  (optional)
-    group := "group_example" // string |  (optional)
-    icon := "icon_example" // string |  (optional)
-    name := "name_example" // string |  (optional)
-    value := "value_example" // string |  (optional)
+    apiKey := "apiKey_example" // string | Bark apiKey, 需要申请，注意不要泄露，泄露后产生安全问题请及时移除或禁用 apiKey
+    message := "message_example" // string | 消息内容
+    automaticallyCopy := int32(56) // int32 | 携带参数 automaticallyCopy=1， 收到推送时，推送内容会自动复制到粘贴板（如发现不能自动复制，可尝试重启一下手机） (optional) (default to 0)
+    copy := "copy_example" // string | 携带copy参数， 则上面两种复制操作，将只复制copy参数的值 (optional)
+    url := "url_example" // string | 点击推送将跳转到url的地址（发送时，URL参数需要编码） (optional)
+    isArchive := "isArchive_example" // string | 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。\\n如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。 (optional)
+    group := "group_example" // string | 指定推送消息分组，可在历史记录中按分组查看推送。 (optional)
+    icon := "icon_example" // string | 指定推送消息图标, icon (仅 iOS15 或以上支持） (optional)
+    level := TODO // interface{} | 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\\ntimeSensitive：时效性通知，可在专注状态下显示通知。\\npassive：仅将通知添加到通知列表，不会亮屏提醒 (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.NotificationApi.ApiAppNotificationBarkApiKeyMessageGet(context.Background(), apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Name(name).Value(value).Execute()
+    r, err := apiClient.NotificationApi.Bark(context.Background(), apiKey, message).AutomaticallyCopy(automaticallyCopy).Copy(copy).Url(url).IsArchive(isArchive).Group(group).Icon(icon).Level(level).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationBarkApiKeyMessageGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.Bark``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -56,26 +55,25 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**apiKey** | **string** |  | 
-**message** | **string** |  | 
+**apiKey** | **string** | Bark apiKey, 需要申请，注意不要泄露，泄露后产生安全问题请及时移除或禁用 apiKey | 
+**message** | **string** | 消息内容 | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppNotificationBarkApiKeyMessageGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiBarkRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **automaticallyCopy** | **int32** |  | [default to 0]
- **copy** | **string** |  | 
- **url** | **string** |  | 
- **isArchive** | **string** |  | 
- **group** | **string** |  | 
- **icon** | **string** |  | 
- **name** | **string** |  | 
- **value** | **string** |  | 
+ **automaticallyCopy** | **int32** | 携带参数 automaticallyCopy&#x3D;1， 收到推送时，推送内容会自动复制到粘贴板（如发现不能自动复制，可尝试重启一下手机） | [default to 0]
+ **copy** | **string** | 携带copy参数， 则上面两种复制操作，将只复制copy参数的值 | 
+ **url** | **string** | 点击推送将跳转到url的地址（发送时，URL参数需要编码） | 
+ **isArchive** | **string** | 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。\\n如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。 | 
+ **group** | **string** | 指定推送消息分组，可在历史记录中按分组查看推送。 | 
+ **icon** | **string** | 指定推送消息图标, icon (仅 iOS15 或以上支持） | 
+ **level** | [**interface{}**](interface{}.md) | 设置时效性通知 active：不设置时的默认值，系统会立即亮屏显示通知。\\ntimeSensitive：时效性通知，可在专注状态下显示通知。\\npassive：仅将通知添加到通知列表，不会亮屏提醒 | 
 
 ### Return type
 
@@ -95,9 +93,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppNotificationGet
+## GetList
 
-> NotificationInfoDtoPagedResultDto ApiAppNotificationGet(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+> NotificationInfoDtoPagedResultDto GetList(ctx).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
 
 
 
@@ -120,13 +118,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NotificationApi.ApiAppNotificationGet(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+    resp, r, err := apiClient.NotificationApi.GetList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.GetList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppNotificationGet`: NotificationInfoDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `NotificationApi.ApiAppNotificationGet`: %v\n", resp)
+    // response from `GetList`: NotificationInfoDtoPagedResultDto
+    fmt.Fprintf(os.Stdout, "Response from `NotificationApi.GetList`: %v\n", resp)
 }
 ```
 
@@ -136,7 +134,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppNotificationGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -163,9 +161,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppNotificationPushPost
+## Push
 
-> ApiAppNotificationPushPost(ctx).Body(body).Execute()
+> Push(ctx).Body(body).Execute()
 
 
 
@@ -186,9 +184,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.NotificationApi.ApiAppNotificationPushPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.NotificationApi.Push(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.ApiAppNotificationPushPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `NotificationApi.Push``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -200,7 +198,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppNotificationPushPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPushRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

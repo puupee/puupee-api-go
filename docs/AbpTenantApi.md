@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAbpMultiTenancyTenantsByIdIdGet**](AbpTenantApi.md#ApiAbpMultiTenancyTenantsByIdIdGet) | **Get** /api/abp/multi-tenancy/tenants/by-id/{id} | 
-[**ApiAbpMultiTenancyTenantsByNameNameGet**](AbpTenantApi.md#ApiAbpMultiTenancyTenantsByNameNameGet) | **Get** /api/abp/multi-tenancy/tenants/by-name/{name} | 
+[**FindTenantById**](AbpTenantApi.md#FindTenantById) | **Get** /api/abp/multi-tenancy/tenants/by-id/{id} | 
+[**FindTenantByName**](AbpTenantApi.md#FindTenantByName) | **Get** /api/abp/multi-tenancy/tenants/by-name/{name} | 
 
 
 
-## ApiAbpMultiTenancyTenantsByIdIdGet
+## FindTenantById
 
-> FindTenantResultDto ApiAbpMultiTenancyTenantsByIdIdGet(ctx, id).Execute()
+> FindTenantResultDto FindTenantById(ctx, id).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpTenantApi.ApiAbpMultiTenancyTenantsByIdIdGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.AbpTenantApi.FindTenantById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantApi.ApiAbpMultiTenancyTenantsByIdIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantApi.FindTenantById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAbpMultiTenancyTenantsByIdIdGet`: FindTenantResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpTenantApi.ApiAbpMultiTenancyTenantsByIdIdGet`: %v\n", resp)
+    // response from `FindTenantById`: FindTenantResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AbpTenantApi.FindTenantById`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAbpMultiTenancyTenantsByIdIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiFindTenantByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAbpMultiTenancyTenantsByNameNameGet
+## FindTenantByName
 
-> FindTenantResultDto ApiAbpMultiTenancyTenantsByNameNameGet(ctx, name).Execute()
+> FindTenantResultDto FindTenantByName(ctx, name).Execute()
 
 
 
@@ -100,13 +100,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpTenantApi.ApiAbpMultiTenancyTenantsByNameNameGet(context.Background(), name).Execute()
+    resp, r, err := apiClient.AbpTenantApi.FindTenantByName(context.Background(), name).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantApi.ApiAbpMultiTenancyTenantsByNameNameGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantApi.FindTenantByName``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAbpMultiTenancyTenantsByNameNameGet`: FindTenantResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpTenantApi.ApiAbpMultiTenancyTenantsByNameNameGet`: %v\n", resp)
+    // response from `FindTenantByName`: FindTenantResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AbpTenantApi.FindTenantByName`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAbpMultiTenancyTenantsByNameNameGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiFindTenantByNameRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

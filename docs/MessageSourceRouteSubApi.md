@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppMessageSourceRouteSubGet**](MessageSourceRouteSubApi.md#ApiAppMessageSourceRouteSubGet) | **Get** /api/app/message-source-route-sub | 
-[**ApiAppMessageSourceRouteSubIdDelete**](MessageSourceRouteSubApi.md#ApiAppMessageSourceRouteSubIdDelete) | **Delete** /api/app/message-source-route-sub/{id} | 
-[**ApiAppMessageSourceRouteSubIdGet**](MessageSourceRouteSubApi.md#ApiAppMessageSourceRouteSubIdGet) | **Get** /api/app/message-source-route-sub/{id} | 
-[**ApiAppMessageSourceRouteSubIdPut**](MessageSourceRouteSubApi.md#ApiAppMessageSourceRouteSubIdPut) | **Put** /api/app/message-source-route-sub/{id} | 
-[**ApiAppMessageSourceRouteSubPost**](MessageSourceRouteSubApi.md#ApiAppMessageSourceRouteSubPost) | **Post** /api/app/message-source-route-sub | 
+[**Create**](MessageSourceRouteSubApi.md#Create) | **Post** /api/app/message-source-route-sub | 
+[**Delete**](MessageSourceRouteSubApi.md#Delete) | **Delete** /api/app/message-source-route-sub/{id} | 
+[**GetById**](MessageSourceRouteSubApi.md#GetById) | **Get** /api/app/message-source-route-sub/{id} | 
+[**GetList**](MessageSourceRouteSubApi.md#GetList) | **Get** /api/app/message-source-route-sub | 
+[**Update**](MessageSourceRouteSubApi.md#Update) | **Put** /api/app/message-source-route-sub/{id} | 
 
 
 
-## ApiAppMessageSourceRouteSubGet
+## Create
 
-> []MessageSourceRouteSubDto ApiAppMessageSourceRouteSubGet(ctx).Execute()
+> Create(ctx).Body(body).Execute()
 
 
 
@@ -31,31 +31,34 @@ import (
 )
 
 func main() {
+    body := *openapiclient.NewCreateUpdateMessageSourceRouteSubDto() // CreateUpdateMessageSourceRouteSubDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubGet(context.Background()).Execute()
+    r, err := apiClient.MessageSourceRouteSubApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageSourceRouteSubGet`: []MessageSourceRouteSubDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubGet`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSubGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateUpdateMessageSourceRouteSubDto**](CreateUpdateMessageSourceRouteSubDto.md) |  | 
 
 ### Return type
 
-[**[]MessageSourceRouteSubDto**](MessageSourceRouteSubDto.md)
+ (empty response body)
 
 ### Authorization
 
@@ -63,7 +66,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSu
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -71,9 +74,9 @@ Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSu
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageSourceRouteSubIdDelete
+## Delete
 
-> ApiAppMessageSourceRouteSubIdDelete(ctx, id).Execute()
+> Delete(ctx, id).Execute()
 
 
 
@@ -94,9 +97,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.MessageSourceRouteSubApi.Delete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.Delete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -112,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSubIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -137,9 +140,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageSourceRouteSubIdGet
+## GetById
 
-> MessageSourceRouteSubDto ApiAppMessageSourceRouteSubIdGet(ctx, id).Execute()
+> MessageSourceRouteSubDto GetById(ctx, id).Execute()
 
 
 
@@ -160,13 +163,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.MessageSourceRouteSubApi.GetById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.GetById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageSourceRouteSubIdGet`: MessageSourceRouteSubDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdGet`: %v\n", resp)
+    // response from `GetById`: MessageSourceRouteSubDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubApi.GetById`: %v\n", resp)
 }
 ```
 
@@ -180,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSubIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -205,9 +208,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageSourceRouteSubIdPut
+## GetList
 
-> ApiAppMessageSourceRouteSubIdPut(ctx, id).Body(body).Execute()
+> []MessageSourceRouteSubDto GetList(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MessageSourceRouteSubApi.GetList(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetList`: []MessageSourceRouteSubDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubApi.GetList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]MessageSourceRouteSubDto**](MessageSourceRouteSubDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Update
+
+> Update(ctx, id).Body(body).Execute()
 
 
 
@@ -229,9 +291,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdPut(context.Background(), id).Body(body).Execute()
+    r, err := apiClient.MessageSourceRouteSubApi.Update(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.Update``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -247,74 +309,12 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSubIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateUpdateMessageSourceRouteSubDto**](CreateUpdateMessageSourceRouteSubDto.md) |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppMessageSourceRouteSubPost
-
-> ApiAppMessageSourceRouteSubPost(ctx).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    body := *openapiclient.NewCreateUpdateMessageSourceRouteSubDto() // CreateUpdateMessageSourceRouteSubDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubPost(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.ApiAppMessageSourceRouteSubPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppMessageSourceRouteSubPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
  **body** | [**CreateUpdateMessageSourceRouteSubDto**](CreateUpdateMessageSourceRouteSubDto.md) |  | 
 
 ### Return type

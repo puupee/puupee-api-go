@@ -22,26 +22,37 @@ func Test_puupee_MessageSourceRouteApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageSourceRouteApiService ApiAppMessageSourceRouteIdDelete", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteApiService Create", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id string
-
-		httpRes, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRouteIdDelete(context.Background(), id).Execute()
+		httpRes, err := apiClient.MessageSourceRouteApi.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageSourceRouteApiService ApiAppMessageSourceRouteIdGet", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteApiService Delete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRouteIdGet(context.Background(), id).Execute()
+		httpRes, err := apiClient.MessageSourceRouteApi.Delete(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MessageSourceRouteApiService GetById", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.MessageSourceRouteApi.GetById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -49,40 +60,29 @@ func Test_puupee_MessageSourceRouteApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageSourceRouteApiService ApiAppMessageSourceRouteIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		httpRes, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRouteIdPut(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MessageSourceRouteApiService ApiAppMessageSourceRoutePost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		httpRes, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRoutePost(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MessageSourceRouteApiService ApiAppMessageSourceRoutePublishedListSourceIdGet", func(t *testing.T) {
+	t.Run("Test MessageSourceRouteApiService GetPublishedList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var sourceId string
 
-		resp, httpRes, err := apiClient.MessageSourceRouteApi.ApiAppMessageSourceRoutePublishedListSourceIdGet(context.Background(), sourceId).Execute()
+		resp, httpRes, err := apiClient.MessageSourceRouteApi.GetPublishedList(context.Background(), sourceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MessageSourceRouteApiService Update", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.MessageSourceRouteApi.Update(context.Background(), id).Execute()
+
+		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

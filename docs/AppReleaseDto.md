@@ -13,17 +13,17 @@ Name | Type | Description | Notes
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
-**VersionName** | Pointer to **string** |  | [optional] 
-**VersionCode** | Pointer to **int64** |  | [optional] 
+**VersionName** | Pointer to **string** | 版本名称 | [optional] 
+**VersionCode** | Pointer to **int64** | 构建编号 | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
-**Platform** | Pointer to **string** |  | [optional] 
+**Platform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
 **Key** | Pointer to **string** |  | [optional] 
 **RapidCode** | Pointer to **string** |  | [optional] 
 **Size** | Pointer to **int64** |  | [optional] 
 **Md5** | Pointer to **string** |  | [optional] 
 **SliceMd5** | Pointer to **string** |  | [optional] 
 **DownloadUrl** | Pointer to **string** |  | [optional] 
-**ProductType** | Pointer to **string** |  | [optional] 
+**ArtifactType** | Pointer to [**ArtifactType**](ArtifactType.md) |  | [optional] 
 **IsForceUpdate** | Pointer to **bool** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
@@ -351,20 +351,20 @@ HasNotes returns a boolean if a field has been set.
 
 ### GetPlatform
 
-`func (o *AppReleaseDto) GetPlatform() string`
+`func (o *AppReleaseDto) GetPlatform() AppPlatform`
 
 GetPlatform returns the Platform field if non-nil, zero value otherwise.
 
 ### GetPlatformOk
 
-`func (o *AppReleaseDto) GetPlatformOk() (*string, bool)`
+`func (o *AppReleaseDto) GetPlatformOk() (*AppPlatform, bool)`
 
 GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlatform
 
-`func (o *AppReleaseDto) SetPlatform(v string)`
+`func (o *AppReleaseDto) SetPlatform(v AppPlatform)`
 
 SetPlatform sets Platform field to given value.
 
@@ -524,30 +524,30 @@ SetDownloadUrl sets DownloadUrl field to given value.
 
 HasDownloadUrl returns a boolean if a field has been set.
 
-### GetProductType
+### GetArtifactType
 
-`func (o *AppReleaseDto) GetProductType() string`
+`func (o *AppReleaseDto) GetArtifactType() ArtifactType`
 
-GetProductType returns the ProductType field if non-nil, zero value otherwise.
+GetArtifactType returns the ArtifactType field if non-nil, zero value otherwise.
 
-### GetProductTypeOk
+### GetArtifactTypeOk
 
-`func (o *AppReleaseDto) GetProductTypeOk() (*string, bool)`
+`func (o *AppReleaseDto) GetArtifactTypeOk() (*ArtifactType, bool)`
 
-GetProductTypeOk returns a tuple with the ProductType field if it's non-nil, zero value otherwise
+GetArtifactTypeOk returns a tuple with the ArtifactType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProductType
+### SetArtifactType
 
-`func (o *AppReleaseDto) SetProductType(v string)`
+`func (o *AppReleaseDto) SetArtifactType(v ArtifactType)`
 
-SetProductType sets ProductType field to given value.
+SetArtifactType sets ArtifactType field to given value.
 
-### HasProductType
+### HasArtifactType
 
-`func (o *AppReleaseDto) HasProductType() bool`
+`func (o *AppReleaseDto) HasArtifactType() bool`
 
-HasProductType returns a boolean if a field has been set.
+HasArtifactType returns a boolean if a field has been set.
 
 ### GetIsForceUpdate
 

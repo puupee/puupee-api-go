@@ -22,11 +22,11 @@ func Test_puupee_AppSdkApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppSdkApiService ApiAppAppSdkGet", func(t *testing.T) {
+	t.Run("Test AppSdkApiService Create", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppSdkApi.ApiAppAppSdkGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppSdkApi.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,26 +34,24 @@ func Test_puupee_AppSdkApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppSdkApiService ApiAppAppSdkIdDelete", func(t *testing.T) {
+	t.Run("Test AppSdkApiService Delete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppSdkApi.ApiAppAppSdkIdDelete(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppSdkApi.Delete(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppSdkApiService ApiAppAppSdkIdPut", func(t *testing.T) {
+	t.Run("Test AppSdkApiService GetList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id string
-
-		resp, httpRes, err := apiClient.AppSdkApi.ApiAppAppSdkIdPut(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppSdkApi.GetList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,11 +59,13 @@ func Test_puupee_AppSdkApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppSdkApiService ApiAppAppSdkPost", func(t *testing.T) {
+	t.Run("Test AppSdkApiService Update", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppSdkApi.ApiAppAppSdkPost(context.Background()).Execute()
+		var id string
+
+		resp, httpRes, err := apiClient.AppSdkApi.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

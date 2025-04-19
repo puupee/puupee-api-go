@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Token** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to [**DeviceStatus**](DeviceStatus.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasToken returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *RefreshDeviceStatusDto) GetStatus() string`
+`func (o *RefreshDeviceStatusDto) GetStatus() DeviceStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RefreshDeviceStatusDto) GetStatusOk() (*string, bool)`
+`func (o *RefreshDeviceStatusDto) GetStatusOk() (*DeviceStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RefreshDeviceStatusDto) SetStatus(v string)`
+`func (o *RefreshDeviceStatusDto) SetStatus(v DeviceStatus)`
 
 SetStatus sets Status field to given value.
 

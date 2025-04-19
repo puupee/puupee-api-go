@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **LastModifier** | Pointer to [**IdentityUser**](IdentityUser.md) |  | [optional] 
 **OrderId** | Pointer to **string** |  | [optional] 
 **ReceiptData** | Pointer to **string** |  | [optional] 
-**Platform** | Pointer to **string** |  | [optional] 
+**Platform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
 **DeviceToken** | Pointer to **string** |  | [optional] 
 **Ok** | Pointer to **bool** |  | [optional] 
 **StatusCode** | Pointer to **string** |  | [optional] 
@@ -372,20 +372,20 @@ HasReceiptData returns a boolean if a field has been set.
 
 ### GetPlatform
 
-`func (o *VerifyReceiptResult) GetPlatform() string`
+`func (o *VerifyReceiptResult) GetPlatform() AppPlatform`
 
 GetPlatform returns the Platform field if non-nil, zero value otherwise.
 
 ### GetPlatformOk
 
-`func (o *VerifyReceiptResult) GetPlatformOk() (*string, bool)`
+`func (o *VerifyReceiptResult) GetPlatformOk() (*AppPlatform, bool)`
 
 GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlatform
 
-`func (o *VerifyReceiptResult) SetPlatform(v string)`
+`func (o *VerifyReceiptResult) SetPlatform(v AppPlatform)`
 
 SetPlatform sets Platform field to given value.
 

@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **DeleterId** | Pointer to **string** |  | [optional] 
 **DeletionTime** | Pointer to **time.Time** |  | [optional] 
-**ExpireAt** | Pointer to **time.Time** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
-**PriceNaming** | Pointer to **string** |  | [optional] 
+**ExpireAt** | Pointer to **time.Time** | 会员过期时间 | [optional] 
+**AppId** | Pointer to **string** | 应用 ID | [optional] 
+**PriceNaming** | Pointer to [**AppPriceNaming**](AppPriceNaming.md) |  | [optional] 
 **PricingId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -288,20 +288,20 @@ HasAppId returns a boolean if a field has been set.
 
 ### GetPriceNaming
 
-`func (o *SubscriptionDto) GetPriceNaming() string`
+`func (o *SubscriptionDto) GetPriceNaming() AppPriceNaming`
 
 GetPriceNaming returns the PriceNaming field if non-nil, zero value otherwise.
 
 ### GetPriceNamingOk
 
-`func (o *SubscriptionDto) GetPriceNamingOk() (*string, bool)`
+`func (o *SubscriptionDto) GetPriceNamingOk() (*AppPriceNaming, bool)`
 
 GetPriceNamingOk returns a tuple with the PriceNaming field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriceNaming
 
-`func (o *SubscriptionDto) SetPriceNaming(v string)`
+`func (o *SubscriptionDto) SetPriceNaming(v AppPriceNaming)`
 
 SetPriceNaming sets PriceNaming field to given value.
 

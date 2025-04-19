@@ -22,11 +22,11 @@ func Test_puupee_MessageTemplateReleaseApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageTemplateReleaseApiService ApiAppMessageTemplateReleaseGet", func(t *testing.T) {
+	t.Run("Test MessageTemplateReleaseApiService Create", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.ApiAppMessageTemplateReleaseGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_puupee_MessageTemplateReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageTemplateReleaseApiService ApiAppMessageTemplateReleaseIdGet", func(t *testing.T) {
+	t.Run("Test MessageTemplateReleaseApiService GetById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.ApiAppMessageTemplateReleaseIdGet(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.GetById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_puupee_MessageTemplateReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageTemplateReleaseApiService ApiAppMessageTemplateReleasePost", func(t *testing.T) {
+	t.Run("Test MessageTemplateReleaseApiService GetList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.ApiAppMessageTemplateReleasePost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.GetList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

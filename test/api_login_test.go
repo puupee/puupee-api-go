@@ -22,11 +22,11 @@ func Test_puupee_LoginApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test LoginApiService ApiAccountCheckPasswordPost", func(t *testing.T) {
+	t.Run("Test LoginApiService CheckPassword", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LoginApi.ApiAccountCheckPasswordPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.LoginApi.CheckPassword(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_puupee_LoginApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test LoginApiService ApiAccountLoginPost", func(t *testing.T) {
+	t.Run("Test LoginApiService Login", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LoginApi.ApiAccountLoginPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.LoginApi.Login(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_puupee_LoginApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test LoginApiService ApiAccountLogoutGet", func(t *testing.T) {
+	t.Run("Test LoginApiService Logout", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.LoginApi.ApiAccountLogoutGet(context.Background()).Execute()
+		httpRes, err := apiClient.LoginApi.Logout(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

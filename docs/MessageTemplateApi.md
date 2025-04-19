@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppMessageTemplateGet**](MessageTemplateApi.md#ApiAppMessageTemplateGet) | **Get** /api/app/message-template | 
-[**ApiAppMessageTemplateIdDelete**](MessageTemplateApi.md#ApiAppMessageTemplateIdDelete) | **Delete** /api/app/message-template/{id} | 
-[**ApiAppMessageTemplateIdGet**](MessageTemplateApi.md#ApiAppMessageTemplateIdGet) | **Get** /api/app/message-template/{id} | 
-[**ApiAppMessageTemplateIdPut**](MessageTemplateApi.md#ApiAppMessageTemplateIdPut) | **Put** /api/app/message-template/{id} | 
-[**ApiAppMessageTemplatePost**](MessageTemplateApi.md#ApiAppMessageTemplatePost) | **Post** /api/app/message-template | 
+[**Create**](MessageTemplateApi.md#Create) | **Post** /api/app/message-template | 
+[**Delete**](MessageTemplateApi.md#Delete) | **Delete** /api/app/message-template/{id} | 
+[**GetById**](MessageTemplateApi.md#GetById) | **Get** /api/app/message-template/{id} | 
+[**GetList**](MessageTemplateApi.md#GetList) | **Get** /api/app/message-template | 
+[**Update**](MessageTemplateApi.md#Update) | **Put** /api/app/message-template/{id} | 
 
 
 
-## ApiAppMessageTemplateGet
+## Create
 
-> []MessageTemplateDto ApiAppMessageTemplateGet(ctx).Execute()
+> MessageTemplateDto Create(ctx).Body(body).Execute()
 
 
 
@@ -31,31 +31,36 @@ import (
 )
 
 func main() {
+    body := *openapiclient.NewCreateOrUpdateMessageTemplateDto() // CreateOrUpdateMessageTemplateDto |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplateGet(context.Background()).Execute()
+    resp, r, err := apiClient.MessageTemplateApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplateGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageTemplateGet`: []MessageTemplateDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.ApiAppMessageTemplateGet`: %v\n", resp)
+    // response from `Create`: MessageTemplateDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.Create`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageTemplateGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
 
 ### Return type
 
-[**[]MessageTemplateDto**](MessageTemplateDto.md)
+[**MessageTemplateDto**](MessageTemplateDto.md)
 
 ### Authorization
 
@@ -63,7 +68,7 @@ Other parameters are passed through a pointer to a apiApiAppMessageTemplateGetRe
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -71,9 +76,9 @@ Other parameters are passed through a pointer to a apiApiAppMessageTemplateGetRe
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageTemplateIdDelete
+## Delete
 
-> ApiAppMessageTemplateIdDelete(ctx, id).Execute()
+> Delete(ctx, id).Execute()
 
 
 
@@ -94,9 +99,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplateIdDelete(context.Background(), id).Execute()
+    r, err := apiClient.MessageTemplateApi.Delete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplateIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.Delete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -112,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageTemplateIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -137,9 +142,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageTemplateIdGet
+## GetById
 
-> MessageTemplateDto ApiAppMessageTemplateIdGet(ctx, id).Execute()
+> MessageTemplateDto GetById(ctx, id).Execute()
 
 
 
@@ -160,13 +165,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplateIdGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.MessageTemplateApi.GetById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplateIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.GetById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageTemplateIdGet`: MessageTemplateDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.ApiAppMessageTemplateIdGet`: %v\n", resp)
+    // response from `GetById`: MessageTemplateDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.GetById`: %v\n", resp)
 }
 ```
 
@@ -180,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageTemplateIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -205,9 +210,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAppMessageTemplateIdPut
+## GetList
 
-> MessageTemplateDto ApiAppMessageTemplateIdPut(ctx, id).Body(body).Execute()
+> []MessageTemplateDto GetList(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MessageTemplateApi.GetList(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.GetList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetList`: []MessageTemplateDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.GetList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetListRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]MessageTemplateDto**](MessageTemplateDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Update
+
+> MessageTemplateDto Update(ctx, id).Body(body).Execute()
 
 
 
@@ -229,13 +293,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplateIdPut(context.Background(), id).Body(body).Execute()
+    resp, r, err := apiClient.MessageTemplateApi.Update(context.Background(), id).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplateIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.Update``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppMessageTemplateIdPut`: MessageTemplateDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.ApiAppMessageTemplateIdPut`: %v\n", resp)
+    // response from `Update`: MessageTemplateDto
+    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.Update`: %v\n", resp)
 }
 ```
 
@@ -249,76 +313,12 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppMessageTemplateIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
-
-### Return type
-
-[**MessageTemplateDto**](MessageTemplateDto.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppMessageTemplatePost
-
-> MessageTemplateDto ApiAppMessageTemplatePost(ctx).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-    body := *openapiclient.NewCreateOrUpdateMessageTemplateDto() // CreateOrUpdateMessageTemplateDto |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateApi.ApiAppMessageTemplatePost(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateApi.ApiAppMessageTemplatePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiAppMessageTemplatePost`: MessageTemplateDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateApi.ApiAppMessageTemplatePost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppMessageTemplatePostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
  **body** | [**CreateOrUpdateMessageTemplateDto**](CreateOrUpdateMessageTemplateDto.md) |  | 
 
 ### Return type

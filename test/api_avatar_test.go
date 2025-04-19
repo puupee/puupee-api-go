@@ -22,11 +22,11 @@ func Test_puupee_AvatarApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AvatarApiService ApiAppAvatarCredentialsGet", func(t *testing.T) {
+	t.Run("Test AvatarApiService Create", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AvatarApi.ApiAppAvatarCredentialsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AvatarApi.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_puupee_AvatarApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AvatarApiService ApiAppAvatarPost", func(t *testing.T) {
+	t.Run("Test AvatarApiService GetCredentials", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AvatarApi.ApiAppAvatarPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AvatarApi.GetCredentials(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TpnsToken** | Pointer to **string** |  | [optional] 
 **IsPhysicalDevice** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Platform** | Pointer to **string** |  | [optional] 
+**Platform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
 **Brand** | Pointer to **string** |  | [optional] 
 **SystemVersion** | Pointer to **string** |  | [optional] 
 
@@ -133,20 +133,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetPlatform
 
-`func (o *BindDeviceDto) GetPlatform() string`
+`func (o *BindDeviceDto) GetPlatform() AppPlatform`
 
 GetPlatform returns the Platform field if non-nil, zero value otherwise.
 
 ### GetPlatformOk
 
-`func (o *BindDeviceDto) GetPlatformOk() (*string, bool)`
+`func (o *BindDeviceDto) GetPlatformOk() (*AppPlatform, bool)`
 
 GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlatform
 
-`func (o *BindDeviceDto) SetPlatform(v string)`
+`func (o *BindDeviceDto) SetPlatform(v AppPlatform)`
 
 SetPlatform sets Platform field to given value.
 

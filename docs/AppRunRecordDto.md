@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **AppName** | Pointer to **string** |  | [optional] 
 **Args** | Pointer to **map[string]interface{}** |  | [optional] 
 **Envs** | Pointer to **map[string]interface{}** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to [**AppRunStatus**](AppRunStatus.md) |  | [optional] 
 **Result** | Pointer to **string** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
 **FinishAt** | Pointer to **time.Time** |  | [optional] 
@@ -345,20 +345,20 @@ HasEnvs returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *AppRunRecordDto) GetStatus() string`
+`func (o *AppRunRecordDto) GetStatus() AppRunStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *AppRunRecordDto) GetStatusOk() (*string, bool)`
+`func (o *AppRunRecordDto) GetStatusOk() (*AppRunStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *AppRunRecordDto) SetStatus(v string)`
+`func (o *AppRunRecordDto) SetStatus(v AppRunStatus)`
 
 SetStatus sets Status field to given value.
 

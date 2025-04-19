@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAppAppUserScorePost**](AppUserScoreApi.md#ApiAppAppUserScorePost) | **Post** /api/app/app-user-score | 
+[**Create**](AppUserScoreApi.md#Create) | **Post** /api/app/app-user-score | 
 
 
 
-## ApiAppAppUserScorePost
+## Create
 
-> AppUserScoreDto ApiAppAppUserScorePost(ctx).Body(body).Execute()
+> AppUserScoreDto Create(ctx).Body(body).Execute()
 
 
 
@@ -31,13 +31,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppUserScoreApi.ApiAppAppUserScorePost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AppUserScoreApi.Create(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppUserScoreApi.ApiAppAppUserScorePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppUserScoreApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAppAppUserScorePost`: AppUserScoreDto
-    fmt.Fprintf(os.Stdout, "Response from `AppUserScoreApi.ApiAppAppUserScorePost`: %v\n", resp)
+    // response from `Create`: AppUserScoreDto
+    fmt.Fprintf(os.Stdout, "Response from `AppUserScoreApi.Create`: %v\n", resp)
 }
 ```
 
@@ -47,7 +47,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAppAppUserScorePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

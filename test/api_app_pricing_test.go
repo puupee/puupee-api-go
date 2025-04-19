@@ -22,13 +22,64 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppPricingApiService ApiAppAppPricingByAppIdAppIdGet", func(t *testing.T) {
+	t.Run("Test AppPricingApiService Create", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AppPricingApi.Create(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppPricingApiService Delete", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.AppPricingApi.Delete(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppPricingApiService GetById", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.AppPricingApi.GetById(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppPricingApiService GetList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AppPricingApi.GetList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppPricingApiService GetListByAppId", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var appId string
 
-		resp, httpRes, err := apiClient.AppPricingApi.ApiAppAppPricingByAppIdAppIdGet(context.Background(), appId).Execute()
+		resp, httpRes, err := apiClient.AppPricingApi.GetListByAppId(context.Background(), appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +87,13 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService ApiAppAppPricingGet", func(t *testing.T) {
+	t.Run("Test AppPricingApiService GetPricingItemsByAppId", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppPricingApi.ApiAppAppPricingGet(context.Background()).Execute()
+		var appId string
+
+		resp, httpRes, err := apiClient.AppPricingApi.GetPricingItemsByAppId(context.Background(), appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,52 +101,13 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService ApiAppAppPricingIdDelete", func(t *testing.T) {
+	t.Run("Test AppPricingApiService Update", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppPricingApi.ApiAppAppPricingIdDelete(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppPricingApiService ApiAppAppPricingIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		resp, httpRes, err := apiClient.AppPricingApi.ApiAppAppPricingIdGet(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppPricingApiService ApiAppAppPricingIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		resp, httpRes, err := apiClient.AppPricingApi.ApiAppAppPricingIdPut(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppPricingApiService ApiAppAppPricingPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AppPricingApi.ApiAppAppPricingPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppPricingApi.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

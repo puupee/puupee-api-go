@@ -4,17 +4,262 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiAccountRegisterPost**](AccountApi.md#ApiAccountRegisterPost) | **Post** /api/account/register | 
-[**ApiAccountResetPasswordPost**](AccountApi.md#ApiAccountResetPasswordPost) | **Post** /api/account/reset-password | 
-[**ApiAccountSendPasswordResetCodePost**](AccountApi.md#ApiAccountSendPasswordResetCodePost) | **Post** /api/account/send-password-reset-code | 
-[**ApiAccountVerifyPasswordResetTokenPost**](AccountApi.md#ApiAccountVerifyPasswordResetTokenPost) | **Post** /api/account/verify-password-reset-token | 
-[**ApiAppAccountDelete**](AccountApi.md#ApiAppAccountDelete) | **Delete** /api/app/account | 
+[**ChangePassword**](AccountApi.md#ChangePassword) | **Post** /api/app/account/change-password | 
+[**CheckSyncAuth**](AccountApi.md#CheckSyncAuth) | **Post** /api/app/account/check-sync-auth | 检查同步认证
+[**DestroyAccount**](AccountApi.md#DestroyAccount) | **Post** /api/app/account/destroy-account | 
+[**Get**](AccountApi.md#Get) | **Get** /api/app/account | 
+[**Register**](AccountApi.md#Register) | **Post** /api/account/register | 
+[**ResetPassword**](AccountApi.md#ResetPassword) | **Post** /api/account/reset-password | 
+[**SendPasswordResetCode**](AccountApi.md#SendPasswordResetCode) | **Post** /api/account/send-password-reset-code | 
+[**VerifyPasswordResetToken**](AccountApi.md#VerifyPasswordResetToken) | **Post** /api/account/verify-password-reset-token | 
 
 
 
-## ApiAccountRegisterPost
+## ChangePassword
 
-> IdentityUserDto ApiAccountRegisterPost(ctx).Body(body).Execute()
+> ChangePassword(ctx).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    body := *openapiclient.NewChangePasswordDto() // ChangePasswordDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AccountApi.ChangePassword(context.Background()).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ChangePassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiChangePasswordRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ChangePasswordDto**](ChangePasswordDto.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CheckSyncAuth
+
+> CheckSyncAuthResultDto CheckSyncAuth(ctx).Execute()
+
+检查同步认证
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AccountApi.CheckSyncAuth(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.CheckSyncAuth``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CheckSyncAuth`: CheckSyncAuthResultDto
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.CheckSyncAuth`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCheckSyncAuthRequest struct via the builder pattern
+
+
+### Return type
+
+[**CheckSyncAuthResultDto**](CheckSyncAuthResultDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DestroyAccount
+
+> DestroyAccount(ctx).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+    body := *openapiclient.NewAccountDeletionDto() // AccountDeletionDto |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AccountApi.DestroyAccount(context.Background()).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.DestroyAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDestroyAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AccountDeletionDto**](AccountDeletionDto.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Get
+
+> UserProfileDto Get(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AccountApi.Get(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.Get``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Get`: UserProfileDto
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.Get`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
+
+
+### Return type
+
+[**UserProfileDto**](UserProfileDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Register
+
+> IdentityUserDto Register(ctx).Body(body).Execute()
 
 
 
@@ -35,13 +280,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.ApiAccountRegisterPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AccountApi.Register(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountRegisterPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.Register``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAccountRegisterPost`: IdentityUserDto
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.ApiAccountRegisterPost`: %v\n", resp)
+    // response from `Register`: IdentityUserDto
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.Register`: %v\n", resp)
 }
 ```
 
@@ -51,7 +296,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountRegisterPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRegisterRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -76,9 +321,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAccountResetPasswordPost
+## ResetPassword
 
-> ApiAccountResetPasswordPost(ctx).Body(body).Execute()
+> ResetPassword(ctx).Body(body).Execute()
 
 
 
@@ -99,9 +344,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ApiAccountResetPasswordPost(context.Background()).Body(body).Execute()
+    r, err := apiClient.AccountApi.ResetPassword(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountResetPasswordPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ResetPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -113,7 +358,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountResetPasswordPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiResetPasswordRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -138,9 +383,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAccountSendPasswordResetCodePost
+## SendPasswordResetCode
 
-> ApiAccountSendPasswordResetCodePost(ctx).Body(body).Execute()
+> SendPasswordResetCode(ctx).Body(body).Execute()
 
 
 
@@ -161,9 +406,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ApiAccountSendPasswordResetCodePost(context.Background()).Body(body).Execute()
+    r, err := apiClient.AccountApi.SendPasswordResetCode(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountSendPasswordResetCodePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.SendPasswordResetCode``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -175,7 +420,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountSendPasswordResetCodePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSendPasswordResetCodeRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -200,9 +445,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiAccountVerifyPasswordResetTokenPost
+## VerifyPasswordResetToken
 
-> bool ApiAccountVerifyPasswordResetTokenPost(ctx).Body(body).Execute()
+> bool VerifyPasswordResetToken(ctx).Body(body).Execute()
 
 
 
@@ -223,13 +468,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.ApiAccountVerifyPasswordResetTokenPost(context.Background()).Body(body).Execute()
+    resp, r, err := apiClient.AccountApi.VerifyPasswordResetToken(context.Background()).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountVerifyPasswordResetTokenPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.VerifyPasswordResetToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiAccountVerifyPasswordResetTokenPost`: bool
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.ApiAccountVerifyPasswordResetTokenPost`: %v\n", resp)
+    // response from `VerifyPasswordResetToken`: bool
+    fmt.Fprintf(os.Stdout, "Response from `AccountApi.VerifyPasswordResetToken`: %v\n", resp)
 }
 ```
 
@@ -239,7 +484,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiApiAccountVerifyPasswordResetTokenPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiVerifyPasswordResetTokenRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -257,63 +502,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiAppAccountDelete
-
-> ApiAppAccountDelete(ctx).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ApiAppAccountDelete(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAppAccountDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiAppAccountDeleteRequest struct via the builder pattern
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
