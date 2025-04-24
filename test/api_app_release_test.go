@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AppReleaseApiService
+Testing AppReleaseAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AppReleaseApiService(t *testing.T) {
+func Test_puupee_AppReleaseAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppReleaseApiService CreateAppRelease", func(t *testing.T) {
+	t.Run("Test AppReleaseAPIService CreateAppRelease", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppReleaseApi.CreateAppRelease(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppReleaseAPI.CreateAppRelease(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,26 +34,26 @@ func Test_puupee_AppReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppReleaseApiService DeleteAppReleaseById", func(t *testing.T) {
+	t.Run("Test AppReleaseAPIService DeleteAppReleaseById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppReleaseApi.DeleteAppReleaseById(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppReleaseAPI.DeleteAppReleaseById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppReleaseApiService GetAppReleaseById", func(t *testing.T) {
+	t.Run("Test AppReleaseAPIService GetAppReleaseById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppReleaseApi.GetAppReleaseById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppReleaseAPI.GetAppReleaseById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,11 +61,11 @@ func Test_puupee_AppReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppReleaseApiService GetAppReleaseList", func(t *testing.T) {
+	t.Run("Test AppReleaseAPIService GetAppReleaseList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppReleaseApi.GetAppReleaseList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppReleaseAPI.GetAppReleaseList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,11 +73,11 @@ func Test_puupee_AppReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppReleaseApiService GetLatest", func(t *testing.T) {
+	t.Run("Test AppReleaseAPIService GetLatest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppReleaseApi.GetLatest(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppReleaseAPI.GetLatest(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -85,13 +85,13 @@ func Test_puupee_AppReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppReleaseApiService UpdateAppRelease", func(t *testing.T) {
+	t.Run("Test AppReleaseAPIService UpdateAppRelease", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppReleaseApi.UpdateAppRelease(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppReleaseAPI.UpdateAppRelease(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

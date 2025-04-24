@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing VerificationApiService
+Testing VerificationAPIService
 
 */
 
@@ -17,27 +17,27 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_VerificationApiService(t *testing.T) {
+func Test_puupee_VerificationAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test VerificationApiService SendCode", func(t *testing.T) {
+	t.Run("Test VerificationAPIService SendCode", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.VerificationApi.SendCode(context.Background()).Execute()
+		httpRes, err := apiClient.VerificationAPI.SendCode(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test VerificationApiService SendCodeAnonymous", func(t *testing.T) {
+	t.Run("Test VerificationAPIService SendCodeAnonymous", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.VerificationApi.SendCodeAnonymous(context.Background()).Execute()
+		httpRes, err := apiClient.VerificationAPI.SendCodeAnonymous(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

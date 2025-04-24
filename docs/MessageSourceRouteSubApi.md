@@ -1,14 +1,14 @@
-# \MessageSourceRouteSubApi
+# \MessageSourceRouteSubAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMessageSourceRouteSub**](MessageSourceRouteSubApi.md#CreateMessageSourceRouteSub) | **Post** /api/app/message-source-route-sub | 
-[**DeleteMessageSourceRouteSubById**](MessageSourceRouteSubApi.md#DeleteMessageSourceRouteSubById) | **Delete** /api/app/message-source-route-sub/{id} | 
-[**GetMessageSourceRouteSubById**](MessageSourceRouteSubApi.md#GetMessageSourceRouteSubById) | **Get** /api/app/message-source-route-sub/{id} | 
-[**GetMessageSourceRouteSubList**](MessageSourceRouteSubApi.md#GetMessageSourceRouteSubList) | **Get** /api/app/message-source-route-sub | 
-[**UpdateMessageSourceRouteSub**](MessageSourceRouteSubApi.md#UpdateMessageSourceRouteSub) | **Put** /api/app/message-source-route-sub/{id} | 
+[**CreateMessageSourceRouteSub**](MessageSourceRouteSubAPI.md#CreateMessageSourceRouteSub) | **Post** /api/app/message-source-route-sub | 
+[**DeleteMessageSourceRouteSubById**](MessageSourceRouteSubAPI.md#DeleteMessageSourceRouteSubById) | **Delete** /api/app/message-source-route-sub/{id} | 
+[**GetMessageSourceRouteSubById**](MessageSourceRouteSubAPI.md#GetMessageSourceRouteSubById) | **Get** /api/app/message-source-route-sub/{id} | 
+[**GetMessageSourceRouteSubList**](MessageSourceRouteSubAPI.md#GetMessageSourceRouteSubList) | **Get** /api/app/message-source-route-sub | 
+[**UpdateMessageSourceRouteSub**](MessageSourceRouteSubAPI.md#UpdateMessageSourceRouteSub) | **Put** /api/app/message-source-route-sub/{id} | 
 
 
 
@@ -24,22 +24,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateUpdateMessageSourceRouteSubDto() // CreateUpdateMessageSourceRouteSubDto |  (optional)
+	body := *openapiclient.NewCreateUpdateMessageSourceRouteSubDto() // CreateUpdateMessageSourceRouteSubDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteSubApi.CreateMessageSourceRouteSub(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.CreateMessageSourceRouteSub``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceRouteSubAPI.CreateMessageSourceRouteSub(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubAPI.CreateMessageSourceRouteSub``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -86,22 +86,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteSubApi.DeleteMessageSourceRouteSubById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.DeleteMessageSourceRouteSubById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceRouteSubAPI.DeleteMessageSourceRouteSubById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubAPI.DeleteMessageSourceRouteSubById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -152,24 +152,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceRouteSubApi.GetMessageSourceRouteSubById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.GetMessageSourceRouteSubById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceRouteSubById`: MessageSourceRouteSubDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubApi.GetMessageSourceRouteSubById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceRouteSubAPI.GetMessageSourceRouteSubById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubAPI.GetMessageSourceRouteSubById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceRouteSubById`: MessageSourceRouteSubDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubAPI.GetMessageSourceRouteSubById`: %v\n", resp)
 }
 ```
 
@@ -220,23 +220,23 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceRouteSubApi.GetMessageSourceRouteSubList(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.GetMessageSourceRouteSubList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceRouteSubList`: []MessageSourceRouteSubDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubApi.GetMessageSourceRouteSubList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceRouteSubAPI.GetMessageSourceRouteSubList(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubAPI.GetMessageSourceRouteSubList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceRouteSubList`: []MessageSourceRouteSubDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteSubAPI.GetMessageSourceRouteSubList`: %v\n", resp)
 }
 ```
 
@@ -279,23 +279,23 @@ Other parameters are passed through a pointer to a apiGetMessageSourceRouteSubLi
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateUpdateMessageSourceRouteSubDto() // CreateUpdateMessageSourceRouteSubDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateUpdateMessageSourceRouteSubDto() // CreateUpdateMessageSourceRouteSubDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteSubApi.UpdateMessageSourceRouteSub(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubApi.UpdateMessageSourceRouteSub``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceRouteSubAPI.UpdateMessageSourceRouteSub(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteSubAPI.UpdateMessageSourceRouteSub``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

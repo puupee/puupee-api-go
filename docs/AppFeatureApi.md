@@ -1,13 +1,13 @@
-# \AppFeatureApi
+# \AppFeatureAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAppFeature**](AppFeatureApi.md#CreateAppFeature) | **Post** /api/app/app-feature | 
-[**DeleteAppFeatureById**](AppFeatureApi.md#DeleteAppFeatureById) | **Delete** /api/app/app-feature/{id} | 
-[**GetAppFeatureList**](AppFeatureApi.md#GetAppFeatureList) | **Get** /api/app/app-feature | 
-[**UpdateAppFeature**](AppFeatureApi.md#UpdateAppFeature) | **Put** /api/app/app-feature/{id} | 
+[**CreateAppFeature**](AppFeatureAPI.md#CreateAppFeature) | **Post** /api/app/app-feature | 
+[**DeleteAppFeatureById**](AppFeatureAPI.md#DeleteAppFeatureById) | **Delete** /api/app/app-feature/{id} | 
+[**GetAppFeatureList**](AppFeatureAPI.md#GetAppFeatureList) | **Get** /api/app/app-feature | 
+[**UpdateAppFeature**](AppFeatureAPI.md#UpdateAppFeature) | **Put** /api/app/app-feature/{id} | 
 
 
 
@@ -23,24 +23,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppFeatureDto() // CreateOrUpdateAppFeatureDto |  (optional)
+	body := *openapiclient.NewCreateOrUpdateAppFeatureDto() // CreateOrUpdateAppFeatureDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppFeatureApi.CreateAppFeature(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.CreateAppFeature``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAppFeature`: AppFeatureDto
-    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.CreateAppFeature`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppFeatureAPI.CreateAppFeature(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureAPI.CreateAppFeature``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAppFeature`: AppFeatureDto
+	fmt.Fprintf(os.Stdout, "Response from `AppFeatureAPI.CreateAppFeature`: %v\n", resp)
 }
 ```
 
@@ -87,22 +87,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppFeatureApi.DeleteAppFeatureById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.DeleteAppFeatureById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AppFeatureAPI.DeleteAppFeatureById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureAPI.DeleteAppFeatureById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -153,26 +153,26 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppFeatureApi.GetAppFeatureList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.GetAppFeatureList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAppFeatureList`: AppFeatureDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.GetAppFeatureList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppFeatureAPI.GetAppFeatureList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureAPI.GetAppFeatureList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAppFeatureList`: AppFeatureDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AppFeatureAPI.GetAppFeatureList`: %v\n", resp)
 }
 ```
 
@@ -221,25 +221,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppFeatureDto() // CreateOrUpdateAppFeatureDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateOrUpdateAppFeatureDto() // CreateOrUpdateAppFeatureDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppFeatureApi.UpdateAppFeature(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureApi.UpdateAppFeature``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateAppFeature`: AppFeatureDto
-    fmt.Fprintf(os.Stdout, "Response from `AppFeatureApi.UpdateAppFeature`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppFeatureAPI.UpdateAppFeature(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppFeatureAPI.UpdateAppFeature``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateAppFeature`: AppFeatureDto
+	fmt.Fprintf(os.Stdout, "Response from `AppFeatureAPI.UpdateAppFeature`: %v\n", resp)
 }
 ```
 

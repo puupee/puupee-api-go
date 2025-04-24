@@ -1,17 +1,17 @@
-# \AccountApi
+# \AccountAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ChangeAccountPassword**](AccountApi.md#ChangeAccountPassword) | **Post** /api/app/account/change-password | 
-[**CheckSyncAuth**](AccountApi.md#CheckSyncAuth) | **Post** /api/app/account/check-sync-auth | 检查同步认证
-[**DestroyAccount**](AccountApi.md#DestroyAccount) | **Post** /api/app/account/destroy-account | 
-[**GetAccount**](AccountApi.md#GetAccount) | **Get** /api/app/account | 
-[**Register**](AccountApi.md#Register) | **Post** /api/account/register | 
-[**ResetPassword**](AccountApi.md#ResetPassword) | **Post** /api/account/reset-password | 
-[**SendPasswordResetCode**](AccountApi.md#SendPasswordResetCode) | **Post** /api/account/send-password-reset-code | 
-[**VerifyPasswordResetToken**](AccountApi.md#VerifyPasswordResetToken) | **Post** /api/account/verify-password-reset-token | 
+[**ChangeAccountPassword**](AccountAPI.md#ChangeAccountPassword) | **Post** /api/app/account/change-password | 
+[**CheckSyncAuth**](AccountAPI.md#CheckSyncAuth) | **Post** /api/app/account/check-sync-auth | 检查同步认证
+[**DestroyAccount**](AccountAPI.md#DestroyAccount) | **Post** /api/app/account/destroy-account | 
+[**GetAccount**](AccountAPI.md#GetAccount) | **Get** /api/app/account | 
+[**Register**](AccountAPI.md#Register) | **Post** /api/account/register | 
+[**ResetPassword**](AccountAPI.md#ResetPassword) | **Post** /api/account/reset-password | 
+[**SendPasswordResetCode**](AccountAPI.md#SendPasswordResetCode) | **Post** /api/account/send-password-reset-code | 
+[**VerifyPasswordResetToken**](AccountAPI.md#VerifyPasswordResetToken) | **Post** /api/account/verify-password-reset-token | 
 
 
 
@@ -27,22 +27,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewChangePasswordDto() // ChangePasswordDto |  (optional)
+	body := *openapiclient.NewChangePasswordDto() // ChangePasswordDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ChangeAccountPassword(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ChangeAccountPassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AccountAPI.ChangeAccountPassword(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.ChangeAccountPassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -89,23 +89,23 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.CheckSyncAuth(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.CheckSyncAuth``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CheckSyncAuth`: CheckSyncAuthResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.CheckSyncAuth`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountAPI.CheckSyncAuth(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CheckSyncAuth``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CheckSyncAuth`: CheckSyncAuthResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CheckSyncAuth`: %v\n", resp)
 }
 ```
 
@@ -148,22 +148,22 @@ Other parameters are passed through a pointer to a apiCheckSyncAuthRequest struc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewAccountDeletionDto() // AccountDeletionDto |  (optional)
+	body := *openapiclient.NewAccountDeletionDto() // AccountDeletionDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.DestroyAccount(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.DestroyAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AccountAPI.DestroyAccount(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.DestroyAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -210,23 +210,23 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.GetAccount(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.GetAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAccount`: UserProfileDto
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.GetAccount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountAPI.GetAccount(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.GetAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAccount`: UserProfileDto
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.GetAccount`: %v\n", resp)
 }
 ```
 
@@ -269,24 +269,24 @@ Other parameters are passed through a pointer to a apiGetAccountRequest struct v
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewRegisterDto("UserName_example", "EmailAddress_example", "Password_example", "AppName_example") // RegisterDto |  (optional)
+	body := *openapiclient.NewRegisterDto("UserName_example", "EmailAddress_example", "Password_example", "AppName_example") // RegisterDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.Register(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.Register``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Register`: IdentityUserDto
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.Register`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountAPI.Register(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.Register``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Register`: IdentityUserDto
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.Register`: %v\n", resp)
 }
 ```
 
@@ -333,22 +333,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewResetPasswordDto("ResetToken_example", "Password_example") // ResetPasswordDto |  (optional)
+	body := *openapiclient.NewResetPasswordDto("ResetToken_example", "Password_example") // ResetPasswordDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.ResetPassword(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ResetPassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AccountAPI.ResetPassword(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.ResetPassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -395,22 +395,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewSendPasswordResetCodeDto("Email_example", "AppName_example") // SendPasswordResetCodeDto |  (optional)
+	body := *openapiclient.NewSendPasswordResetCodeDto("Email_example", "AppName_example") // SendPasswordResetCodeDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountApi.SendPasswordResetCode(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.SendPasswordResetCode``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AccountAPI.SendPasswordResetCode(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.SendPasswordResetCode``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -457,24 +457,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewVerifyPasswordResetTokenInput("ResetToken_example") // VerifyPasswordResetTokenInput |  (optional)
+	body := *openapiclient.NewVerifyPasswordResetTokenInput("ResetToken_example") // VerifyPasswordResetTokenInput |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountApi.VerifyPasswordResetToken(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.VerifyPasswordResetToken``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VerifyPasswordResetToken`: bool
-    fmt.Fprintf(os.Stdout, "Response from `AccountApi.VerifyPasswordResetToken`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountAPI.VerifyPasswordResetToken(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.VerifyPasswordResetToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VerifyPasswordResetToken`: bool
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.VerifyPasswordResetToken`: %v\n", resp)
 }
 ```
 

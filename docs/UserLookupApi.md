@@ -1,13 +1,13 @@
-# \UserLookupApi
+# \UserLookupAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FindById**](UserLookupApi.md#FindById) | **Get** /api/identity/users/lookup/{id} | 
-[**FindByUserName**](UserLookupApi.md#FindByUserName) | **Get** /api/identity/users/lookup/by-username/{userName} | 
-[**GetCount**](UserLookupApi.md#GetCount) | **Get** /api/identity/users/lookup/count | 
-[**Search**](UserLookupApi.md#Search) | **Get** /api/identity/users/lookup/search | 
+[**FindById**](UserLookupAPI.md#FindById) | **Get** /api/identity/users/lookup/{id} | 
+[**FindByUserName**](UserLookupAPI.md#FindByUserName) | **Get** /api/identity/users/lookup/by-username/{userName} | 
+[**GetCount**](UserLookupAPI.md#GetCount) | **Get** /api/identity/users/lookup/count | 
+[**Search**](UserLookupAPI.md#Search) | **Get** /api/identity/users/lookup/search | 
 
 
 
@@ -23,24 +23,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.FindById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.FindById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `FindById`: UserData
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.FindById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserLookupAPI.FindById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserLookupAPI.FindById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FindById`: UserData
+	fmt.Fprintf(os.Stdout, "Response from `UserLookupAPI.FindById`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    userName := "userName_example" // string | 
+	userName := "userName_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.FindByUserName(context.Background(), userName).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.FindByUserName``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `FindByUserName`: UserData
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.FindByUserName`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserLookupAPI.FindByUserName(context.Background(), userName).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserLookupAPI.FindByUserName``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FindByUserName`: UserData
+	fmt.Fprintf(os.Stdout, "Response from `UserLookupAPI.FindByUserName`: %v\n", resp)
 }
 ```
 
@@ -159,24 +159,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    filter := "filter_example" // string |  (optional)
+	filter := "filter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.GetCount(context.Background()).Filter(filter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.GetCount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCount`: int64
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.GetCount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserLookupAPI.GetCount(context.Background()).Filter(filter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserLookupAPI.GetCount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCount`: int64
+	fmt.Fprintf(os.Stdout, "Response from `UserLookupAPI.GetCount`: %v\n", resp)
 }
 ```
 
@@ -223,27 +223,27 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    filter := "filter_example" // string |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	filter := "filter_example" // string |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserLookupApi.Search(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserLookupApi.Search``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Search`: UserDataListResultDto
-    fmt.Fprintf(os.Stdout, "Response from `UserLookupApi.Search`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserLookupAPI.Search(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserLookupAPI.Search``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Search`: UserDataListResultDto
+	fmt.Fprintf(os.Stdout, "Response from `UserLookupAPI.Search`: %v\n", resp)
 }
 ```
 

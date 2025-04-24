@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AppApiService
+Testing AppAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AppApiService(t *testing.T) {
+func Test_puupee_AppAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppApiService CreateApp", func(t *testing.T) {
+	t.Run("Test AppAPIService CreateApp", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.CreateApp(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.CreateApp(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,26 +34,26 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService DeleteAppById", func(t *testing.T) {
+	t.Run("Test AppAPIService DeleteAppById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppApi.DeleteAppById(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppAPI.DeleteAppById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppApiService GetAppById", func(t *testing.T) {
+	t.Run("Test AppAPIService GetAppById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppApi.GetAppById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetAppById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,11 +61,11 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetAppList", func(t *testing.T) {
+	t.Run("Test AppAPIService GetAppList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.GetAppList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetAppList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,11 +73,11 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetByName", func(t *testing.T) {
+	t.Run("Test AppAPIService GetByName", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.GetByName(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetByName(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -85,13 +85,13 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetFeatureList", func(t *testing.T) {
+	t.Run("Test AppAPIService GetFeatureList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var appId string
 
-		resp, httpRes, err := apiClient.AppApi.GetFeatureList(context.Background(), appId).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetFeatureList(context.Background(), appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -99,11 +99,11 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetListByDeveloperAll", func(t *testing.T) {
+	t.Run("Test AppAPIService GetListByDeveloperAll", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.GetListByDeveloperAll(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetListByDeveloperAll(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -111,11 +111,11 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetListPublic", func(t *testing.T) {
+	t.Run("Test AppAPIService GetListPublic", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.GetListPublic(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetListPublic(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -123,11 +123,11 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetListWithUser", func(t *testing.T) {
+	t.Run("Test AppAPIService GetListWithUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.GetListWithUser(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetListWithUser(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -135,13 +135,13 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetSdksById", func(t *testing.T) {
+	t.Run("Test AppAPIService GetSdksById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var appId string
 
-		resp, httpRes, err := apiClient.AppApi.GetSdksById(context.Background(), appId).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetSdksById(context.Background(), appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -149,11 +149,11 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetUploadCredentials", func(t *testing.T) {
+	t.Run("Test AppAPIService GetUploadCredentials", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppApi.GetUploadCredentials(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetUploadCredentials(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -161,39 +161,13 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService GetWithUser", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		resp, httpRes, err := apiClient.AppApi.GetWithUser(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppApiService Run", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AppApi.Run(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppApiService UpdateApp", func(t *testing.T) {
+	t.Run("Test AppAPIService GetWithUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppApi.UpdateApp(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppAPI.GetWithUser(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -201,13 +175,39 @@ func Test_puupee_AppApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppApiService UpdateRunState", func(t *testing.T) {
+	t.Run("Test AppAPIService Run", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AppAPI.Run(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppAPIService UpdateApp", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppApi.UpdateRunState(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppAPI.UpdateApp(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppAPIService UpdateRunState", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.AppAPI.UpdateRunState(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

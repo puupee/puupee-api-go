@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AbpTenantApiService
+Testing AbpTenantAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AbpTenantApiService(t *testing.T) {
+func Test_puupee_AbpTenantAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AbpTenantApiService FindTenantById", func(t *testing.T) {
+	t.Run("Test AbpTenantAPIService FindTenantById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AbpTenantApi.FindTenantById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AbpTenantAPI.FindTenantById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_puupee_AbpTenantApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AbpTenantApiService FindTenantByName", func(t *testing.T) {
+	t.Run("Test AbpTenantAPIService FindTenantByName", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		resp, httpRes, err := apiClient.AbpTenantApi.FindTenantByName(context.Background(), name).Execute()
+		resp, httpRes, err := apiClient.AbpTenantAPI.FindTenantByName(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

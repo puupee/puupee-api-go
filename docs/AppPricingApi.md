@@ -1,16 +1,16 @@
-# \AppPricingApi
+# \AppPricingAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAppPricing**](AppPricingApi.md#CreateAppPricing) | **Post** /api/app/app-pricing | 
-[**DeleteAppPricingById**](AppPricingApi.md#DeleteAppPricingById) | **Delete** /api/app/app-pricing/{id} | 
-[**GetAppPricingById**](AppPricingApi.md#GetAppPricingById) | **Get** /api/app/app-pricing/{id} | 
-[**GetAppPricingList**](AppPricingApi.md#GetAppPricingList) | **Get** /api/app/app-pricing | 
-[**GetListByAppId**](AppPricingApi.md#GetListByAppId) | **Get** /api/app/app-pricing/by-app-id/{appId} | 
-[**GetPricingItemsByAppId**](AppPricingApi.md#GetPricingItemsByAppId) | **Get** /api/app/app-pricing/pricing-items-by-app-id/{appId} | 
-[**UpdateAppPricing**](AppPricingApi.md#UpdateAppPricing) | **Put** /api/app/app-pricing/{id} | 
+[**CreateAppPricing**](AppPricingAPI.md#CreateAppPricing) | **Post** /api/app/app-pricing | 
+[**DeleteAppPricingById**](AppPricingAPI.md#DeleteAppPricingById) | **Delete** /api/app/app-pricing/{id} | 
+[**GetAppPricingById**](AppPricingAPI.md#GetAppPricingById) | **Get** /api/app/app-pricing/{id} | 
+[**GetAppPricingList**](AppPricingAPI.md#GetAppPricingList) | **Get** /api/app/app-pricing | 
+[**GetListByAppId**](AppPricingAPI.md#GetListByAppId) | **Get** /api/app/app-pricing/by-app-id/{appId} | 
+[**GetPricingItemsByAppId**](AppPricingAPI.md#GetPricingItemsByAppId) | **Get** /api/app/app-pricing/pricing-items-by-app-id/{appId} | 
+[**UpdateAppPricing**](AppPricingAPI.md#UpdateAppPricing) | **Put** /api/app/app-pricing/{id} | 
 
 
 
@@ -26,24 +26,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
+	body := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.CreateAppPricing(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.CreateAppPricing``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAppPricing`: AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.CreateAppPricing`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppPricingAPI.CreateAppPricing(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.CreateAppPricing``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAppPricing`: AppPricingDto
+	fmt.Fprintf(os.Stdout, "Response from `AppPricingAPI.CreateAppPricing`: %v\n", resp)
 }
 ```
 
@@ -90,22 +90,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppPricingApi.DeleteAppPricingById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.DeleteAppPricingById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AppPricingAPI.DeleteAppPricingById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.DeleteAppPricingById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -156,24 +156,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.GetAppPricingById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetAppPricingById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAppPricingById`: AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetAppPricingById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppPricingAPI.GetAppPricingById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.GetAppPricingById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAppPricingById`: AppPricingDto
+	fmt.Fprintf(os.Stdout, "Response from `AppPricingAPI.GetAppPricingById`: %v\n", resp)
 }
 ```
 
@@ -224,26 +224,26 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.GetAppPricingList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetAppPricingList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAppPricingList`: AppPricingDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetAppPricingList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppPricingAPI.GetAppPricingList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.GetAppPricingList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAppPricingList`: AppPricingDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AppPricingAPI.GetAppPricingList`: %v\n", resp)
 }
 ```
 
@@ -292,24 +292,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.GetListByAppId(context.Background(), appId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetListByAppId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetListByAppId`: []AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetListByAppId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppPricingAPI.GetListByAppId(context.Background(), appId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.GetListByAppId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetListByAppId`: []AppPricingDto
+	fmt.Fprintf(os.Stdout, "Response from `AppPricingAPI.GetListByAppId`: %v\n", resp)
 }
 ```
 
@@ -360,24 +360,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.GetPricingItemsByAppId(context.Background(), appId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.GetPricingItemsByAppId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPricingItemsByAppId`: []AppPricingItemDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.GetPricingItemsByAppId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppPricingAPI.GetPricingItemsByAppId(context.Background(), appId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.GetPricingItemsByAppId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPricingItemsByAppId`: []AppPricingItemDto
+	fmt.Fprintf(os.Stdout, "Response from `AppPricingAPI.GetPricingItemsByAppId`: %v\n", resp)
 }
 ```
 
@@ -428,25 +428,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateOrUpdateAppPricingDto() // CreateOrUpdateAppPricingDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppPricingApi.UpdateAppPricing(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppPricingApi.UpdateAppPricing``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateAppPricing`: AppPricingDto
-    fmt.Fprintf(os.Stdout, "Response from `AppPricingApi.UpdateAppPricing`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppPricingAPI.UpdateAppPricing(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppPricingAPI.UpdateAppPricing``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateAppPricing`: AppPricingDto
+	fmt.Fprintf(os.Stdout, "Response from `AppPricingAPI.UpdateAppPricing`: %v\n", resp)
 }
 ```
 

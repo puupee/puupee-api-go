@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing FeaturesApiService
+Testing FeaturesAPIService
 
 */
 
@@ -17,27 +17,27 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_FeaturesApiService(t *testing.T) {
+func Test_puupee_FeaturesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test FeaturesApiService DeleteFeatures", func(t *testing.T) {
+	t.Run("Test FeaturesAPIService DeleteFeatures", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.FeaturesApi.DeleteFeatures(context.Background()).Execute()
+		httpRes, err := apiClient.FeaturesAPI.DeleteFeatures(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test FeaturesApiService GetFeatures", func(t *testing.T) {
+	t.Run("Test FeaturesAPIService GetFeatures", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.FeaturesApi.GetFeatures(context.Background()).Execute()
+		resp, httpRes, err := apiClient.FeaturesAPI.GetFeatures(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -45,11 +45,11 @@ func Test_puupee_FeaturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test FeaturesApiService UpdateFeatures", func(t *testing.T) {
+	t.Run("Test FeaturesAPIService UpdateFeatures", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.FeaturesApi.UpdateFeatures(context.Background()).Execute()
+		httpRes, err := apiClient.FeaturesAPI.UpdateFeatures(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

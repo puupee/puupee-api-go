@@ -1,17 +1,17 @@
-# \StorageObjectApi
+# \StorageObjectAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFileOrCredentials**](StorageObjectApi.md#GetFileOrCredentials) | **Get** /api/app/storage-object/file-or-credentials | 
-[**PreSignUrl**](StorageObjectApi.md#PreSignUrl) | **Post** /api/app/storage-object/pre-sign-url | 
+[**GetFileOrCredentials**](StorageObjectAPI.md#GetFileOrCredentials) | **Get** /api/app/storage-object/file-or-credentials | 
+[**PreSignUrl**](StorageObjectAPI.md#PreSignUrl) | **Post** /api/app/storage-object/pre-sign-url | 
 
 
 
 ## GetFileOrCredentials
 
-> StorageObjectOrCredentialsDto GetFileOrCredentials(ctx).RapidCode(rapidCode).Bucket(bucket).Execute()
+> StorageObjectOrCredentialsDto GetFileOrCredentials(ctx).RapidCode(rapidCode).Bucket(bucket).Key(key).Execute()
 
 
 
@@ -21,25 +21,26 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    rapidCode := "rapidCode_example" // string |  (optional)
-    bucket := "bucket_example" // string |  (optional)
+	rapidCode := "rapidCode_example" // string |  (optional)
+	bucket := "bucket_example" // string |  (optional)
+	key := "key_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StorageObjectApi.GetFileOrCredentials(context.Background()).RapidCode(rapidCode).Bucket(bucket).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectApi.GetFileOrCredentials``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetFileOrCredentials`: StorageObjectOrCredentialsDto
-    fmt.Fprintf(os.Stdout, "Response from `StorageObjectApi.GetFileOrCredentials`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StorageObjectAPI.GetFileOrCredentials(context.Background()).RapidCode(rapidCode).Bucket(bucket).Key(key).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectAPI.GetFileOrCredentials``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetFileOrCredentials`: StorageObjectOrCredentialsDto
+	fmt.Fprintf(os.Stdout, "Response from `StorageObjectAPI.GetFileOrCredentials`: %v\n", resp)
 }
 ```
 
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **rapidCode** | **string** |  | 
  **bucket** | **string** |  | 
+ **key** | **string** |  | 
 
 ### Return type
 
@@ -87,25 +89,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    key := "key_example" // string |  (optional)
-    bucket := "bucket_example" // string |  (optional)
+	key := "key_example" // string |  (optional)
+	bucket := "bucket_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StorageObjectApi.PreSignUrl(context.Background()).Key(key).Bucket(bucket).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectApi.PreSignUrl``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PreSignUrl`: string
-    fmt.Fprintf(os.Stdout, "Response from `StorageObjectApi.PreSignUrl`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StorageObjectAPI.PreSignUrl(context.Background()).Key(key).Bucket(bucket).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectAPI.PreSignUrl``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PreSignUrl`: string
+	fmt.Fprintf(os.Stdout, "Response from `StorageObjectAPI.PreSignUrl`: %v\n", resp)
 }
 ```
 

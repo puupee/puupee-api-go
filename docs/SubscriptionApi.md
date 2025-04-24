@@ -1,13 +1,13 @@
-# \SubscriptionApi
+# \SubscriptionAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AppleNotifications**](SubscriptionApi.md#AppleNotifications) | **Post** /api/app/subscription/apple-notifications | 苹果订阅 Callback 地址
-[**CreateOrder**](SubscriptionApi.md#CreateOrder) | **Post** /api/app/subscription/order | 
-[**GetSubscriptionById**](SubscriptionApi.md#GetSubscriptionById) | **Get** /api/app/subscription | 
-[**VerifyReceipt**](SubscriptionApi.md#VerifyReceipt) | **Post** /api/app/subscription/verify-receipt | 
+[**AppleNotifications**](SubscriptionAPI.md#AppleNotifications) | **Post** /api/app/subscription/apple-notifications | 苹果订阅 Callback 地址
+[**CreateOrder**](SubscriptionAPI.md#CreateOrder) | **Post** /api/app/subscription/order | 
+[**GetSubscriptionById**](SubscriptionAPI.md#GetSubscriptionById) | **Get** /api/app/subscription | 
+[**VerifyReceipt**](SubscriptionAPI.md#VerifyReceipt) | **Post** /api/app/subscription/verify-receipt | 
 
 
 
@@ -23,22 +23,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewAppleNotificaionDto() // AppleNotificaionDto |  (optional)
+	body := *openapiclient.NewAppleNotificaionDto() // AppleNotificaionDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SubscriptionApi.AppleNotifications(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.AppleNotifications``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SubscriptionAPI.AppleNotifications(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.AppleNotifications``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -85,24 +85,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrGetSubscriptionOrderDto() // CreateOrGetSubscriptionOrderDto |  (optional)
+	body := *openapiclient.NewCreateOrGetSubscriptionOrderDto() // CreateOrGetSubscriptionOrderDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.CreateOrder(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.CreateOrder``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateOrder`: SubscriptionOrderDto
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.CreateOrder`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.CreateOrder(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.CreateOrder``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateOrder`: SubscriptionOrderDto
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.CreateOrder`: %v\n", resp)
 }
 ```
 
@@ -149,24 +149,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.GetSubscriptionById(context.Background()).AppId(appId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.GetSubscriptionById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetSubscriptionById`: SubscriptionDto
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.GetSubscriptionById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.GetSubscriptionById(context.Background()).AppId(appId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.GetSubscriptionById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSubscriptionById`: SubscriptionDto
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.GetSubscriptionById`: %v\n", resp)
 }
 ```
 
@@ -213,24 +213,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", openapiclient.AppPlatform("None"), "DeviceToken_example") // VerifyReceiptDto |  (optional)
+	body := *openapiclient.NewVerifyReceiptDto("OrderId_example", "ReceiptData_example", openapiclient.AppPlatform("None"), "DeviceToken_example") // VerifyReceiptDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SubscriptionApi.VerifyReceipt(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionApi.VerifyReceipt``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VerifyReceipt`: VerifyReceiptResult
-    fmt.Fprintf(os.Stdout, "Response from `SubscriptionApi.VerifyReceipt`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.VerifyReceipt(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.VerifyReceipt``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VerifyReceipt`: VerifyReceiptResult
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.VerifyReceipt`: %v\n", resp)
 }
 ```
 

@@ -1,10 +1,10 @@
-# \AppUserScoreApi
+# \AppUserScoreAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAppUserScore**](AppUserScoreApi.md#CreateAppUserScore) | **Post** /api/app/app-user-score | 
+[**CreateAppUserScore**](AppUserScoreAPI.md#CreateAppUserScore) | **Post** /api/app/app-user-score | 
 
 
 
@@ -20,24 +20,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppUserScoreDto() // CreateOrUpdateAppUserScoreDto |  (optional)
+	body := *openapiclient.NewCreateOrUpdateAppUserScoreDto() // CreateOrUpdateAppUserScoreDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppUserScoreApi.CreateAppUserScore(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppUserScoreApi.CreateAppUserScore``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAppUserScore`: AppUserScoreDto
-    fmt.Fprintf(os.Stdout, "Response from `AppUserScoreApi.CreateAppUserScore`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppUserScoreAPI.CreateAppUserScore(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppUserScoreAPI.CreateAppUserScore``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAppUserScore`: AppUserScoreDto
+	fmt.Fprintf(os.Stdout, "Response from `AppUserScoreAPI.CreateAppUserScore`: %v\n", resp)
 }
 ```
 

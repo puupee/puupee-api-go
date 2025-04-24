@@ -1,15 +1,15 @@
-# \DeviceApi
+# \DeviceAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Bind**](DeviceApi.md#Bind) | **Post** /api/app/device/bind | 
-[**GetByToken**](DeviceApi.md#GetByToken) | **Get** /api/app/device/by-token | 
-[**GetDeviceById**](DeviceApi.md#GetDeviceById) | **Get** /api/app/device/{id} | 
-[**GetDeviceList**](DeviceApi.md#GetDeviceList) | **Get** /api/app/device | 
-[**RefreshDevice**](DeviceApi.md#RefreshDevice) | **Post** /api/app/device/refresh-device | 
-[**Remove**](DeviceApi.md#Remove) | **Delete** /api/app/device | 
+[**Bind**](DeviceAPI.md#Bind) | **Post** /api/app/device/bind | 
+[**GetByToken**](DeviceAPI.md#GetByToken) | **Get** /api/app/device/by-token | 
+[**GetDeviceById**](DeviceAPI.md#GetDeviceById) | **Get** /api/app/device/{id} | 
+[**GetDeviceList**](DeviceAPI.md#GetDeviceList) | **Get** /api/app/device | 
+[**RefreshDevice**](DeviceAPI.md#RefreshDevice) | **Post** /api/app/device/refresh-device | 
+[**Remove**](DeviceAPI.md#Remove) | **Delete** /api/app/device | 
 
 
 
@@ -25,22 +25,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewBindDeviceDto() // BindDeviceDto |  (optional)
+	body := *openapiclient.NewBindDeviceDto() // BindDeviceDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeviceApi.Bind(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.Bind``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DeviceAPI.Bind(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeviceAPI.Bind``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -87,24 +87,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    token := "token_example" // string |  (optional)
+	token := "token_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.GetByToken(context.Background()).Token(token).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetByToken``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetByToken`: DeviceDto
-    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetByToken`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeviceAPI.GetByToken(context.Background()).Token(token).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeviceAPI.GetByToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetByToken`: DeviceDto
+	fmt.Fprintf(os.Stdout, "Response from `DeviceAPI.GetByToken`: %v\n", resp)
 }
 ```
 
@@ -151,24 +151,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.GetDeviceById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetDeviceById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDeviceById`: DeviceDto
-    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetDeviceById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeviceAPI.GetDeviceById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeviceAPI.GetDeviceById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDeviceById`: DeviceDto
+	fmt.Fprintf(os.Stdout, "Response from `DeviceAPI.GetDeviceById`: %v\n", resp)
 }
 ```
 
@@ -219,26 +219,26 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeviceApi.GetDeviceList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.GetDeviceList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDeviceList`: DeviceDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `DeviceApi.GetDeviceList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeviceAPI.GetDeviceList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeviceAPI.GetDeviceList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDeviceList`: DeviceDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `DeviceAPI.GetDeviceList`: %v\n", resp)
 }
 ```
 
@@ -287,22 +287,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewRefreshDeviceStatusDto() // RefreshDeviceStatusDto |  (optional)
+	body := *openapiclient.NewRefreshDeviceStatusDto() // RefreshDeviceStatusDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeviceApi.RefreshDevice(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.RefreshDevice``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DeviceAPI.RefreshDevice(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeviceAPI.RefreshDevice``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -349,22 +349,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    token := "token_example" // string |  (optional)
+	token := "token_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeviceApi.Remove(context.Background()).Token(token).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeviceApi.Remove``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DeviceAPI.Remove(context.Background()).Token(token).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeviceAPI.Remove``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

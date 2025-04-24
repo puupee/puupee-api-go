@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AppPricingItemApiService
+Testing AppPricingItemAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AppPricingItemApiService(t *testing.T) {
+func Test_puupee_AppPricingItemAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppPricingItemApiService CreateAppPricingItem", func(t *testing.T) {
+	t.Run("Test AppPricingItemAPIService CreateAppPricingItem", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppPricingItemApi.CreateAppPricingItem(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppPricingItemAPI.CreateAppPricingItem(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,26 @@ func Test_puupee_AppPricingItemApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingItemApiService DeleteAppPricingItemById", func(t *testing.T) {
+	t.Run("Test AppPricingItemAPIService DeleteAppPricingItemById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppPricingItemApi.DeleteAppPricingItemById(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppPricingItemAPI.DeleteAppPricingItemById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppPricingItemApiService GetAppPricingItemById", func(t *testing.T) {
+	t.Run("Test AppPricingItemAPIService GetAppPricingItemById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppPricingItemApi.GetAppPricingItemById(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppPricingItemApiService GetAppPricingItemList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AppPricingItemApi.GetAppPricingItemList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppPricingItemAPI.GetAppPricingItemById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +61,25 @@ func Test_puupee_AppPricingItemApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingItemApiService UpdateAppPricingItem", func(t *testing.T) {
+	t.Run("Test AppPricingItemAPIService GetAppPricingItemList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AppPricingItemAPI.GetAppPricingItemList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppPricingItemAPIService UpdateAppPricingItem", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppPricingItemApi.UpdateAppPricingItem(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppPricingItemAPI.UpdateAppPricingItem(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

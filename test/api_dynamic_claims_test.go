@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing DynamicClaimsApiService
+Testing DynamicClaimsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_DynamicClaimsApiService(t *testing.T) {
+func Test_puupee_DynamicClaimsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DynamicClaimsApiService Refresh", func(t *testing.T) {
+	t.Run("Test DynamicClaimsAPIService Refresh", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.DynamicClaimsApi.Refresh(context.Background()).Execute()
+		httpRes, err := apiClient.DynamicClaimsAPI.Refresh(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

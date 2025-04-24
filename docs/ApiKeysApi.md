@@ -1,14 +1,14 @@
-# \ApiKeysApi
+# \ApiKeysAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateApiKeys**](ApiKeysApi.md#CreateApiKeys) | **Post** /api/api-keys | 
-[**DeleteApiKeysById**](ApiKeysApi.md#DeleteApiKeysById) | **Delete** /api/api-keys/{id} | 
-[**GetApiKeysById**](ApiKeysApi.md#GetApiKeysById) | **Get** /api/api-keys/{id} | 
-[**GetApiKeysList**](ApiKeysApi.md#GetApiKeysList) | **Get** /api/api-keys | 
-[**UpdateApiKeys**](ApiKeysApi.md#UpdateApiKeys) | **Put** /api/api-keys/{id} | 
+[**CreateApiKeys**](ApiKeysAPI.md#CreateApiKeys) | **Post** /api/api-keys | 
+[**DeleteApiKeysById**](ApiKeysAPI.md#DeleteApiKeysById) | **Delete** /api/api-keys/{id} | 
+[**GetApiKeysById**](ApiKeysAPI.md#GetApiKeysById) | **Get** /api/api-keys/{id} | 
+[**GetApiKeysList**](ApiKeysAPI.md#GetApiKeysList) | **Get** /api/api-keys | 
+[**UpdateApiKeys**](ApiKeysAPI.md#UpdateApiKeys) | **Put** /api/api-keys/{id} | 
 
 
 
@@ -24,24 +24,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewApiKeyCreateDto("Name_example") // ApiKeyCreateDto |  (optional)
+	body := *openapiclient.NewApiKeyCreateDto("Name_example") // ApiKeyCreateDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.CreateApiKeys(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.CreateApiKeys``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateApiKeys`: ApiKeyDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.CreateApiKeys`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApiKeysAPI.CreateApiKeys(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.CreateApiKeys``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateApiKeys`: ApiKeyDto
+	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.CreateApiKeys`: %v\n", resp)
 }
 ```
 
@@ -88,22 +88,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApiKeysApi.DeleteApiKeysById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.DeleteApiKeysById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApiKeysAPI.DeleteApiKeysById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.DeleteApiKeysById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -154,24 +154,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.GetApiKeysById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.GetApiKeysById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetApiKeysById`: ApiKeyDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.GetApiKeysById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApiKeysAPI.GetApiKeysById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.GetApiKeysById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiKeysById`: ApiKeyDto
+	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.GetApiKeysById`: %v\n", resp)
 }
 ```
 
@@ -222,26 +222,26 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.GetApiKeysList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.GetApiKeysList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetApiKeysList`: ApiKeyDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.GetApiKeysList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApiKeysAPI.GetApiKeysList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.GetApiKeysList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiKeysList`: ApiKeyDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.GetApiKeysList`: %v\n", resp)
 }
 ```
 
@@ -290,25 +290,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewApiKeyUpdateDto("Name_example") // ApiKeyUpdateDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewApiKeyUpdateDto("Name_example") // ApiKeyUpdateDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApiKeysApi.UpdateApiKeys(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysApi.UpdateApiKeys``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateApiKeys`: ApiKeyDto
-    fmt.Fprintf(os.Stdout, "Response from `ApiKeysApi.UpdateApiKeys`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApiKeysAPI.UpdateApiKeys(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApiKeysAPI.UpdateApiKeys``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateApiKeys`: ApiKeyDto
+	fmt.Fprintf(os.Stdout, "Response from `ApiKeysAPI.UpdateApiKeys`: %v\n", resp)
 }
 ```
 

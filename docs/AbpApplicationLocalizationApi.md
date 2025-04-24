@@ -1,10 +1,10 @@
-# \AbpApplicationLocalizationApi
+# \AbpApplicationLocalizationAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAbpApplicationLocalization**](AbpApplicationLocalizationApi.md#GetAbpApplicationLocalization) | **Get** /api/abp/application-localization | 
+[**GetAbpApplicationLocalization**](AbpApplicationLocalizationAPI.md#GetAbpApplicationLocalization) | **Get** /api/abp/application-localization | 
 
 
 
@@ -20,25 +20,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    cultureName := "cultureName_example" // string | 
-    onlyDynamics := true // bool |  (optional)
+	cultureName := "cultureName_example" // string | 
+	onlyDynamics := true // bool |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpApplicationLocalizationApi.GetAbpApplicationLocalization(context.Background()).CultureName(cultureName).OnlyDynamics(onlyDynamics).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationLocalizationApi.GetAbpApplicationLocalization``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAbpApplicationLocalization`: ApplicationLocalizationDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpApplicationLocalizationApi.GetAbpApplicationLocalization`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AbpApplicationLocalizationAPI.GetAbpApplicationLocalization(context.Background()).CultureName(cultureName).OnlyDynamics(onlyDynamics).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationLocalizationAPI.GetAbpApplicationLocalization``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAbpApplicationLocalization`: ApplicationLocalizationDto
+	fmt.Fprintf(os.Stdout, "Response from `AbpApplicationLocalizationAPI.GetAbpApplicationLocalization`: %v\n", resp)
 }
 ```
 

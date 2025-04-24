@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing RoleApiService
+Testing RoleAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_RoleApiService(t *testing.T) {
+func Test_puupee_RoleAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RoleApiService CreateIdentityRole", func(t *testing.T) {
+	t.Run("Test RoleAPIService CreateIdentityRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RoleApi.CreateIdentityRole(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RoleAPI.CreateIdentityRole(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,24 @@ func Test_puupee_RoleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RoleApiService DeleteIdentityRoleById", func(t *testing.T) {
+	t.Run("Test RoleAPIService DeleteIdentityRoleById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.RoleApi.DeleteIdentityRoleById(context.Background(), id).Execute()
+		httpRes, err := apiClient.RoleAPI.DeleteIdentityRoleById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test RoleApiService GetAllList", func(t *testing.T) {
+	t.Run("Test RoleAPIService GetAllList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RoleApi.GetAllList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RoleAPI.GetAllList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +59,13 @@ func Test_puupee_RoleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RoleApiService GetIdentityRoleById", func(t *testing.T) {
+	t.Run("Test RoleAPIService GetIdentityRoleById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.RoleApi.GetIdentityRoleById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.RoleAPI.GetIdentityRoleById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,11 +73,11 @@ func Test_puupee_RoleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RoleApiService GetIdentityRoleList", func(t *testing.T) {
+	t.Run("Test RoleAPIService GetIdentityRoleList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RoleApi.GetIdentityRoleList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RoleAPI.GetIdentityRoleList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -85,13 +85,13 @@ func Test_puupee_RoleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RoleApiService UpdateIdentityRole", func(t *testing.T) {
+	t.Run("Test RoleAPIService UpdateIdentityRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.RoleApi.UpdateIdentityRole(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.RoleAPI.UpdateIdentityRole(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

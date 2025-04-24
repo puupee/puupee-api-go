@@ -1,14 +1,14 @@
-# \MessageSourceRouteApi
+# \MessageSourceRouteAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMessageSourceRoute**](MessageSourceRouteApi.md#CreateMessageSourceRoute) | **Post** /api/app/message-source-route | 
-[**DeleteMessageSourceRouteById**](MessageSourceRouteApi.md#DeleteMessageSourceRouteById) | **Delete** /api/app/message-source-route/{id} | 
-[**GetMessageSourceRouteById**](MessageSourceRouteApi.md#GetMessageSourceRouteById) | **Get** /api/app/message-source-route/{id} | 
-[**GetMessageSourceRouteList**](MessageSourceRouteApi.md#GetMessageSourceRouteList) | **Get** /api/app/message-source-route | 
-[**UpdateMessageSourceRoute**](MessageSourceRouteApi.md#UpdateMessageSourceRoute) | **Put** /api/app/message-source-route/{id} | 
+[**CreateMessageSourceRoute**](MessageSourceRouteAPI.md#CreateMessageSourceRoute) | **Post** /api/app/message-source-route | 
+[**DeleteMessageSourceRouteById**](MessageSourceRouteAPI.md#DeleteMessageSourceRouteById) | **Delete** /api/app/message-source-route/{id} | 
+[**GetMessageSourceRouteById**](MessageSourceRouteAPI.md#GetMessageSourceRouteById) | **Get** /api/app/message-source-route/{id} | 
+[**GetMessageSourceRouteList**](MessageSourceRouteAPI.md#GetMessageSourceRouteList) | **Get** /api/app/message-source-route | 
+[**UpdateMessageSourceRoute**](MessageSourceRouteAPI.md#UpdateMessageSourceRoute) | **Put** /api/app/message-source-route/{id} | 
 
 
 
@@ -24,22 +24,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
+	body := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteApi.CreateMessageSourceRoute(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.CreateMessageSourceRoute``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceRouteAPI.CreateMessageSourceRoute(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteAPI.CreateMessageSourceRoute``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -86,22 +86,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteApi.DeleteMessageSourceRouteById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.DeleteMessageSourceRouteById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceRouteAPI.DeleteMessageSourceRouteById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteAPI.DeleteMessageSourceRouteById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -152,24 +152,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceRouteApi.GetMessageSourceRouteById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.GetMessageSourceRouteById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceRouteById`: MessageSourceRouteDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteApi.GetMessageSourceRouteById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceRouteAPI.GetMessageSourceRouteById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteAPI.GetMessageSourceRouteById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceRouteById`: MessageSourceRouteDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteAPI.GetMessageSourceRouteById`: %v\n", resp)
 }
 ```
 
@@ -220,24 +220,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    sourceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	sourceId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceRouteApi.GetMessageSourceRouteList(context.Background()).SourceId(sourceId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.GetMessageSourceRouteList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceRouteList`: []MessageSourceRouteDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteApi.GetMessageSourceRouteList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceRouteAPI.GetMessageSourceRouteList(context.Background()).SourceId(sourceId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteAPI.GetMessageSourceRouteList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceRouteList`: []MessageSourceRouteDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceRouteAPI.GetMessageSourceRouteList`: %v\n", resp)
 }
 ```
 
@@ -284,23 +284,23 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateUpdateMessageSourceRouteDto() // CreateUpdateMessageSourceRouteDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceRouteApi.UpdateMessageSourceRoute(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteApi.UpdateMessageSourceRoute``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceRouteAPI.UpdateMessageSourceRoute(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceRouteAPI.UpdateMessageSourceRoute``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

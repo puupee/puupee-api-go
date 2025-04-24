@@ -1,10 +1,10 @@
-# \AbpApiDefinitionApi
+# \AbpApiDefinitionAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAbpApiDefinition**](AbpApiDefinitionApi.md#GetAbpApiDefinition) | **Get** /api/abp/api-definition | 
+[**GetAbpApiDefinition**](AbpApiDefinitionAPI.md#GetAbpApiDefinition) | **Get** /api/abp/api-definition | 
 
 
 
@@ -20,24 +20,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    includeTypes := true // bool |  (optional)
+	includeTypes := true // bool |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpApiDefinitionApi.GetAbpApiDefinition(context.Background()).IncludeTypes(includeTypes).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpApiDefinitionApi.GetAbpApiDefinition``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAbpApiDefinition`: ApplicationApiDescriptionModel
-    fmt.Fprintf(os.Stdout, "Response from `AbpApiDefinitionApi.GetAbpApiDefinition`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AbpApiDefinitionAPI.GetAbpApiDefinition(context.Background()).IncludeTypes(includeTypes).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AbpApiDefinitionAPI.GetAbpApiDefinition``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAbpApiDefinition`: ApplicationApiDescriptionModel
+	fmt.Fprintf(os.Stdout, "Response from `AbpApiDefinitionAPI.GetAbpApiDefinition`: %v\n", resp)
 }
 ```
 

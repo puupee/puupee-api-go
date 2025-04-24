@@ -1,15 +1,15 @@
-# \AppReleaseApi
+# \AppReleaseAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAppRelease**](AppReleaseApi.md#CreateAppRelease) | **Post** /api/app/app-release | 创建新版本
-[**DeleteAppReleaseById**](AppReleaseApi.md#DeleteAppReleaseById) | **Delete** /api/app/app-release/{id} | 删除版本
-[**GetAppReleaseById**](AppReleaseApi.md#GetAppReleaseById) | **Get** /api/app/app-release/{id} | 获取版本
-[**GetAppReleaseList**](AppReleaseApi.md#GetAppReleaseList) | **Get** /api/app/app-release | 获取版本列表
-[**GetLatest**](AppReleaseApi.md#GetLatest) | **Get** /api/app/app-release/latest | 获取最新版本
-[**UpdateAppRelease**](AppReleaseApi.md#UpdateAppRelease) | **Put** /api/app/app-release/{id} | 更新版本
+[**CreateAppRelease**](AppReleaseAPI.md#CreateAppRelease) | **Post** /api/app/app-release | 创建新版本
+[**DeleteAppReleaseById**](AppReleaseAPI.md#DeleteAppReleaseById) | **Delete** /api/app/app-release/{id} | 删除版本
+[**GetAppReleaseById**](AppReleaseAPI.md#GetAppReleaseById) | **Get** /api/app/app-release/{id} | 获取版本
+[**GetAppReleaseList**](AppReleaseAPI.md#GetAppReleaseList) | **Get** /api/app/app-release | 获取版本列表
+[**GetLatest**](AppReleaseAPI.md#GetLatest) | **Get** /api/app/app-release/latest | 获取最新版本
+[**UpdateAppRelease**](AppReleaseAPI.md#UpdateAppRelease) | **Put** /api/app/app-release/{id} | 更新版本
 
 
 
@@ -25,24 +25,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
+	body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.CreateAppRelease(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.CreateAppRelease``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAppRelease`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.CreateAppRelease`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppReleaseAPI.CreateAppRelease(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseAPI.CreateAppRelease``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAppRelease`: AppReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `AppReleaseAPI.CreateAppRelease`: %v\n", resp)
 }
 ```
 
@@ -89,22 +89,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppReleaseApi.DeleteAppReleaseById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.DeleteAppReleaseById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AppReleaseAPI.DeleteAppReleaseById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseAPI.DeleteAppReleaseById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -155,24 +155,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.GetAppReleaseById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetAppReleaseById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAppReleaseById`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetAppReleaseById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppReleaseAPI.GetAppReleaseById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseAPI.GetAppReleaseById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAppReleaseById`: AppReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `AppReleaseAPI.GetAppReleaseById`: %v\n", resp)
 }
 ```
 
@@ -223,29 +223,29 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    environment := "environment_example" // string |  (optional)
-    platform := "platform_example" // string |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	appId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	environment := "environment_example" // string |  (optional)
+	platform := "platform_example" // string |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.GetAppReleaseList(context.Background()).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetAppReleaseList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAppReleaseList`: AppReleaseDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetAppReleaseList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppReleaseAPI.GetAppReleaseList(context.Background()).AppId(appId).Environment(environment).Platform(platform).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseAPI.GetAppReleaseList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAppReleaseList`: AppReleaseDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AppReleaseAPI.GetAppReleaseList`: %v\n", resp)
 }
 ```
 
@@ -297,27 +297,27 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    appName := "appName_example" // string |  (optional)
-    platform := "platform_example" // string |  (optional)
-    productType := "productType_example" // string |  (optional)
-    environment := "environment_example" // string |  (optional)
+	appName := "appName_example" // string |  (optional)
+	platform := "platform_example" // string |  (optional)
+	productType := "productType_example" // string |  (optional)
+	environment := "environment_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.GetLatest(context.Background()).AppName(appName).Platform(platform).ProductType(productType).Environment(environment).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.GetLatest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetLatest`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.GetLatest`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppReleaseAPI.GetLatest(context.Background()).AppName(appName).Platform(platform).ProductType(productType).Environment(environment).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseAPI.GetLatest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLatest`: AppReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `AppReleaseAPI.GetLatest`: %v\n", resp)
 }
 ```
 
@@ -367,25 +367,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateOrUpdateAppReleaseDto() // CreateOrUpdateAppReleaseDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppReleaseApi.UpdateAppRelease(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseApi.UpdateAppRelease``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateAppRelease`: AppReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `AppReleaseApi.UpdateAppRelease`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppReleaseAPI.UpdateAppRelease(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppReleaseAPI.UpdateAppRelease``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateAppRelease`: AppReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `AppReleaseAPI.UpdateAppRelease`: %v\n", resp)
 }
 ```
 

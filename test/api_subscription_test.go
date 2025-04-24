@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing SubscriptionApiService
+Testing SubscriptionAPIService
 
 */
 
@@ -17,39 +17,27 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_SubscriptionApiService(t *testing.T) {
+func Test_puupee_SubscriptionAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SubscriptionApiService AppleNotifications", func(t *testing.T) {
+	t.Run("Test SubscriptionAPIService AppleNotifications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.SubscriptionApi.AppleNotifications(context.Background()).Execute()
+		httpRes, err := apiClient.SubscriptionAPI.AppleNotifications(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test SubscriptionApiService CreateOrder", func(t *testing.T) {
+	t.Run("Test SubscriptionAPIService CreateOrder", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SubscriptionApi.CreateOrder(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SubscriptionApiService GetSubscriptionById", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.SubscriptionApi.GetSubscriptionById(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SubscriptionAPI.CreateOrder(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -57,11 +45,23 @@ func Test_puupee_SubscriptionApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test SubscriptionApiService VerifyReceipt", func(t *testing.T) {
+	t.Run("Test SubscriptionAPIService GetSubscriptionById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SubscriptionApi.VerifyReceipt(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SubscriptionAPI.GetSubscriptionById(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SubscriptionAPIService VerifyReceipt", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SubscriptionAPI.VerifyReceipt(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

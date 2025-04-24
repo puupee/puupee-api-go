@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing MessageTemplateReleaseApiService
+Testing MessageTemplateReleaseAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_MessageTemplateReleaseApiService(t *testing.T) {
+func Test_puupee_MessageTemplateReleaseAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageTemplateReleaseApiService CreateMessageTemplateRelease", func(t *testing.T) {
+	t.Run("Test MessageTemplateReleaseAPIService CreateMessageTemplateRelease", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.CreateMessageTemplateRelease(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateReleaseAPI.CreateMessageTemplateRelease(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_puupee_MessageTemplateReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageTemplateReleaseApiService GetMessageTemplateReleaseById", func(t *testing.T) {
+	t.Run("Test MessageTemplateReleaseAPIService GetMessageTemplateReleaseById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.GetMessageTemplateReleaseById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateReleaseAPI.GetMessageTemplateReleaseById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_puupee_MessageTemplateReleaseApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageTemplateReleaseApiService GetMessageTemplateReleaseList", func(t *testing.T) {
+	t.Run("Test MessageTemplateReleaseAPIService GetMessageTemplateReleaseList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageTemplateReleaseApi.GetMessageTemplateReleaseList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageTemplateReleaseAPI.GetMessageTemplateReleaseList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,17 +1,17 @@
-# \TenantApi
+# \TenantAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateTenant**](TenantApi.md#CreateTenant) | **Post** /api/multi-tenancy/tenants | 
-[**DeleteDefaultConnectionString**](TenantApi.md#DeleteDefaultConnectionString) | **Delete** /api/multi-tenancy/tenants/{id}/default-connection-string | 
-[**DeleteTenantById**](TenantApi.md#DeleteTenantById) | **Delete** /api/multi-tenancy/tenants/{id} | 
-[**GetDefaultConnectionString**](TenantApi.md#GetDefaultConnectionString) | **Get** /api/multi-tenancy/tenants/{id}/default-connection-string | 
-[**GetTenantById**](TenantApi.md#GetTenantById) | **Get** /api/multi-tenancy/tenants/{id} | 
-[**GetTenantList**](TenantApi.md#GetTenantList) | **Get** /api/multi-tenancy/tenants | 
-[**UpdateDefaultConnectionString**](TenantApi.md#UpdateDefaultConnectionString) | **Put** /api/multi-tenancy/tenants/{id}/default-connection-string | 
-[**UpdateTenant**](TenantApi.md#UpdateTenant) | **Put** /api/multi-tenancy/tenants/{id} | 
+[**CreateTenant**](TenantAPI.md#CreateTenant) | **Post** /api/multi-tenancy/tenants | 
+[**DeleteDefaultConnectionString**](TenantAPI.md#DeleteDefaultConnectionString) | **Delete** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[**DeleteTenantById**](TenantAPI.md#DeleteTenantById) | **Delete** /api/multi-tenancy/tenants/{id} | 
+[**GetDefaultConnectionString**](TenantAPI.md#GetDefaultConnectionString) | **Get** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[**GetTenantById**](TenantAPI.md#GetTenantById) | **Get** /api/multi-tenancy/tenants/{id} | 
+[**GetTenantList**](TenantAPI.md#GetTenantList) | **Get** /api/multi-tenancy/tenants | 
+[**UpdateDefaultConnectionString**](TenantAPI.md#UpdateDefaultConnectionString) | **Put** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[**UpdateTenant**](TenantAPI.md#UpdateTenant) | **Put** /api/multi-tenancy/tenants/{id} | 
 
 
 
@@ -27,24 +27,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewTenantCreateDto("Name_example", "AdminEmailAddress_example", "AdminPassword_example") // TenantCreateDto |  (optional)
+	body := *openapiclient.NewTenantCreateDto("Name_example", "AdminEmailAddress_example", "AdminPassword_example") // TenantCreateDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.CreateTenant(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.CreateTenant``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateTenant`: TenantDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.CreateTenant`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantAPI.CreateTenant(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.CreateTenant``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateTenant`: TenantDto
+	fmt.Fprintf(os.Stdout, "Response from `TenantAPI.CreateTenant`: %v\n", resp)
 }
 ```
 
@@ -91,22 +91,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TenantApi.DeleteDefaultConnectionString(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.DeleteDefaultConnectionString``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TenantAPI.DeleteDefaultConnectionString(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.DeleteDefaultConnectionString``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -157,22 +157,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TenantApi.DeleteTenantById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.DeleteTenantById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TenantAPI.DeleteTenantById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.DeleteTenantById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -223,24 +223,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.GetDefaultConnectionString(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetDefaultConnectionString``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDefaultConnectionString`: string
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetDefaultConnectionString`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantAPI.GetDefaultConnectionString(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.GetDefaultConnectionString``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDefaultConnectionString`: string
+	fmt.Fprintf(os.Stdout, "Response from `TenantAPI.GetDefaultConnectionString`: %v\n", resp)
 }
 ```
 
@@ -291,24 +291,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.GetTenantById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetTenantById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTenantById`: TenantDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetTenantById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantAPI.GetTenantById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.GetTenantById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTenantById`: TenantDto
+	fmt.Fprintf(os.Stdout, "Response from `TenantAPI.GetTenantById`: %v\n", resp)
 }
 ```
 
@@ -359,27 +359,27 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    filter := "filter_example" // string |  (optional)
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	filter := "filter_example" // string |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.GetTenantList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.GetTenantList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTenantList`: TenantDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.GetTenantList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantAPI.GetTenantList(context.Background()).Filter(filter).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.GetTenantList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTenantList`: TenantDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `TenantAPI.GetTenantList`: %v\n", resp)
 }
 ```
 
@@ -429,23 +429,23 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    defaultConnectionString := "defaultConnectionString_example" // string |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	defaultConnectionString := "defaultConnectionString_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TenantApi.UpdateDefaultConnectionString(context.Background(), id).DefaultConnectionString(defaultConnectionString).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.UpdateDefaultConnectionString``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TenantAPI.UpdateDefaultConnectionString(context.Background(), id).DefaultConnectionString(defaultConnectionString).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.UpdateDefaultConnectionString``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -497,25 +497,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewTenantUpdateDto("Name_example") // TenantUpdateDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewTenantUpdateDto("Name_example") // TenantUpdateDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TenantApi.UpdateTenant(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TenantApi.UpdateTenant``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateTenant`: TenantDto
-    fmt.Fprintf(os.Stdout, "Response from `TenantApi.UpdateTenant`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TenantAPI.UpdateTenant(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.UpdateTenant``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateTenant`: TenantDto
+	fmt.Fprintf(os.Stdout, "Response from `TenantAPI.UpdateTenant`: %v\n", resp)
 }
 ```
 

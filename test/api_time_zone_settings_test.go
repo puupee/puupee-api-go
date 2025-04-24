@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing TimeZoneSettingsApiService
+Testing TimeZoneSettingsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_TimeZoneSettingsApiService(t *testing.T) {
+func Test_puupee_TimeZoneSettingsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TimeZoneSettingsApiService GetTimeZoneSettings", func(t *testing.T) {
+	t.Run("Test TimeZoneSettingsAPIService GetTimeZoneSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TimeZoneSettingsApi.GetTimeZoneSettings(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TimeZoneSettingsAPI.GetTimeZoneSettings(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_puupee_TimeZoneSettingsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TimeZoneSettingsApiService GetTimezones", func(t *testing.T) {
+	t.Run("Test TimeZoneSettingsAPIService GetTimezones", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TimeZoneSettingsApi.GetTimezones(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TimeZoneSettingsAPI.GetTimezones(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_puupee_TimeZoneSettingsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TimeZoneSettingsApiService UpdateTimeZoneSettings", func(t *testing.T) {
+	t.Run("Test TimeZoneSettingsAPIService UpdateTimeZoneSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.TimeZoneSettingsApi.UpdateTimeZoneSettings(context.Background()).Execute()
+		httpRes, err := apiClient.TimeZoneSettingsAPI.UpdateTimeZoneSettings(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

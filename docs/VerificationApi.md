@@ -1,11 +1,11 @@
-# \VerificationApi
+# \VerificationAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SendCode**](VerificationApi.md#SendCode) | **Post** /api/app/verification/send-code | 
-[**SendCodeAnonymous**](VerificationApi.md#SendCodeAnonymous) | **Post** /api/app/verification/send-code-anonymous | 
+[**SendCode**](VerificationAPI.md#SendCode) | **Post** /api/app/verification/send-code | 
+[**SendCodeAnonymous**](VerificationAPI.md#SendCodeAnonymous) | **Post** /api/app/verification/send-code-anonymous | 
 
 
 
@@ -21,22 +21,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewSendVerificationCodeDto() // SendVerificationCodeDto |  (optional)
+	body := *openapiclient.NewSendVerificationCodeDto() // SendVerificationCodeDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.VerificationApi.SendCode(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `VerificationApi.SendCode``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.VerificationAPI.SendCode(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VerificationAPI.SendCode``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -83,22 +83,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewSendVerificationCodeDto() // SendVerificationCodeDto |  (optional)
+	body := *openapiclient.NewSendVerificationCodeDto() // SendVerificationCodeDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.VerificationApi.SendCodeAnonymous(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `VerificationApi.SendCodeAnonymous``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.VerificationAPI.SendCodeAnonymous(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VerificationAPI.SendCodeAnonymous``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

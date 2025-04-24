@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AvatarApiService
+Testing AvatarAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AvatarApiService(t *testing.T) {
+func Test_puupee_AvatarAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AvatarApiService CreateAvatar", func(t *testing.T) {
+	t.Run("Test AvatarAPIService CreateAvatar", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AvatarApi.CreateAvatar(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AvatarAPI.CreateAvatar(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_puupee_AvatarApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AvatarApiService GetCredentials", func(t *testing.T) {
+	t.Run("Test AvatarAPIService GetCredentials", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AvatarApi.GetCredentials(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AvatarAPI.GetCredentials(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

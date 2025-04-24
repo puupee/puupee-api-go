@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing MessageSourceApiService
+Testing MessageSourceAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_MessageSourceApiService(t *testing.T) {
+func Test_puupee_MessageSourceAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageSourceApiService CreateMessageSource", func(t *testing.T) {
+	t.Run("Test MessageSourceAPIService CreateMessageSource", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MessageSourceApi.CreateMessageSource(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageSourceAPI.CreateMessageSource(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,26 @@ func Test_puupee_MessageSourceApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageSourceApiService DeleteMessageSourceById", func(t *testing.T) {
+	t.Run("Test MessageSourceAPIService DeleteMessageSourceById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.MessageSourceApi.DeleteMessageSourceById(context.Background(), id).Execute()
+		httpRes, err := apiClient.MessageSourceAPI.DeleteMessageSourceById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageSourceApiService GetMessageSourceById", func(t *testing.T) {
+	t.Run("Test MessageSourceAPIService GetMessageSourceById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageSourceApi.GetMessageSourceById(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MessageSourceApiService GetMessageSourceList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.MessageSourceApi.GetMessageSourceList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MessageSourceAPI.GetMessageSourceById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +61,25 @@ func Test_puupee_MessageSourceApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test MessageSourceApiService UpdateMessageSource", func(t *testing.T) {
+	t.Run("Test MessageSourceAPIService GetMessageSourceList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MessageSourceAPI.GetMessageSourceList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MessageSourceAPIService UpdateMessageSource", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.MessageSourceApi.UpdateMessageSource(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MessageSourceAPI.UpdateMessageSource(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

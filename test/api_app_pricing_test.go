@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AppPricingApiService
+Testing AppPricingAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AppPricingApiService(t *testing.T) {
+func Test_puupee_AppPricingAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppPricingApiService CreateAppPricing", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService CreateAppPricing", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppPricingApi.CreateAppPricing(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppPricingAPI.CreateAppPricing(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,26 +34,26 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService DeleteAppPricingById", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService DeleteAppPricingById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppPricingApi.DeleteAppPricingById(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppPricingAPI.DeleteAppPricingById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppPricingApiService GetAppPricingById", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService GetAppPricingById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppPricingApi.GetAppPricingById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppPricingAPI.GetAppPricingById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,11 +61,11 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService GetAppPricingList", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService GetAppPricingList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppPricingApi.GetAppPricingList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppPricingAPI.GetAppPricingList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +73,13 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService GetListByAppId", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService GetListByAppId", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var appId string
 
-		resp, httpRes, err := apiClient.AppPricingApi.GetListByAppId(context.Background(), appId).Execute()
+		resp, httpRes, err := apiClient.AppPricingAPI.GetListByAppId(context.Background(), appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +87,13 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService GetPricingItemsByAppId", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService GetPricingItemsByAppId", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var appId string
 
-		resp, httpRes, err := apiClient.AppPricingApi.GetPricingItemsByAppId(context.Background(), appId).Execute()
+		resp, httpRes, err := apiClient.AppPricingAPI.GetPricingItemsByAppId(context.Background(), appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,13 +101,13 @@ func Test_puupee_AppPricingApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AppPricingApiService UpdateAppPricing", func(t *testing.T) {
+	t.Run("Test AppPricingAPIService UpdateAppPricing", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppPricingApi.UpdateAppPricing(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppPricingAPI.UpdateAppPricing(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

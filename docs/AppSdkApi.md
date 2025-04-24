@@ -1,13 +1,13 @@
-# \AppSdkApi
+# \AppSdkAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAppSdk**](AppSdkApi.md#CreateAppSdk) | **Post** /api/app/app-sdk | 
-[**DeleteAppSdkById**](AppSdkApi.md#DeleteAppSdkById) | **Delete** /api/app/app-sdk/{id} | 
-[**GetAppSdkList**](AppSdkApi.md#GetAppSdkList) | **Get** /api/app/app-sdk | 
-[**UpdateAppSdk**](AppSdkApi.md#UpdateAppSdk) | **Put** /api/app/app-sdk/{id} | 
+[**CreateAppSdk**](AppSdkAPI.md#CreateAppSdk) | **Post** /api/app/app-sdk | 
+[**DeleteAppSdkById**](AppSdkAPI.md#DeleteAppSdkById) | **Delete** /api/app/app-sdk/{id} | 
+[**GetAppSdkList**](AppSdkAPI.md#GetAppSdkList) | **Get** /api/app/app-sdk | 
+[**UpdateAppSdk**](AppSdkAPI.md#UpdateAppSdk) | **Put** /api/app/app-sdk/{id} | 
 
 
 
@@ -23,24 +23,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
+	body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.CreateAppSdk(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.CreateAppSdk``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAppSdk`: AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.CreateAppSdk`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppSdkAPI.CreateAppSdk(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppSdkAPI.CreateAppSdk``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAppSdk`: AppSdkDto
+	fmt.Fprintf(os.Stdout, "Response from `AppSdkAPI.CreateAppSdk`: %v\n", resp)
 }
 ```
 
@@ -87,22 +87,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppSdkApi.DeleteAppSdkById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.DeleteAppSdkById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AppSdkAPI.DeleteAppSdkById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppSdkAPI.DeleteAppSdkById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -153,26 +153,26 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    sorting := "sorting_example" // string |  (optional)
-    skipCount := int32(56) // int32 |  (optional)
-    maxResultCount := int32(56) // int32 |  (optional)
+	sorting := "sorting_example" // string |  (optional)
+	skipCount := int32(56) // int32 |  (optional)
+	maxResultCount := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.GetAppSdkList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.GetAppSdkList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAppSdkList`: AppSdkDtoPagedResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.GetAppSdkList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppSdkAPI.GetAppSdkList(context.Background()).Sorting(sorting).SkipCount(skipCount).MaxResultCount(maxResultCount).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppSdkAPI.GetAppSdkList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAppSdkList`: AppSdkDtoPagedResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AppSdkAPI.GetAppSdkList`: %v\n", resp)
 }
 ```
 
@@ -221,25 +221,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateOrUpdateAppSdkDto() // CreateOrUpdateAppSdkDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppSdkApi.UpdateAppSdk(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppSdkApi.UpdateAppSdk``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateAppSdk`: AppSdkDto
-    fmt.Fprintf(os.Stdout, "Response from `AppSdkApi.UpdateAppSdk`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AppSdkAPI.UpdateAppSdk(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AppSdkAPI.UpdateAppSdk``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateAppSdk`: AppSdkDto
+	fmt.Fprintf(os.Stdout, "Response from `AppSdkAPI.UpdateAppSdk`: %v\n", resp)
 }
 ```
 

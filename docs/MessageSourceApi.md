@@ -1,14 +1,14 @@
-# \MessageSourceApi
+# \MessageSourceAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMessageSource**](MessageSourceApi.md#CreateMessageSource) | **Post** /api/app/message-source | 
-[**DeleteMessageSourceById**](MessageSourceApi.md#DeleteMessageSourceById) | **Delete** /api/app/message-source/{id} | 
-[**GetMessageSourceById**](MessageSourceApi.md#GetMessageSourceById) | **Get** /api/app/message-source/{id} | 
-[**GetMessageSourceList**](MessageSourceApi.md#GetMessageSourceList) | **Get** /api/app/message-source | 
-[**UpdateMessageSource**](MessageSourceApi.md#UpdateMessageSource) | **Put** /api/app/message-source/{id} | 
+[**CreateMessageSource**](MessageSourceAPI.md#CreateMessageSource) | **Post** /api/app/message-source | 
+[**DeleteMessageSourceById**](MessageSourceAPI.md#DeleteMessageSourceById) | **Delete** /api/app/message-source/{id} | 
+[**GetMessageSourceById**](MessageSourceAPI.md#GetMessageSourceById) | **Get** /api/app/message-source/{id} | 
+[**GetMessageSourceList**](MessageSourceAPI.md#GetMessageSourceList) | **Get** /api/app/message-source | 
+[**UpdateMessageSource**](MessageSourceAPI.md#UpdateMessageSource) | **Put** /api/app/message-source/{id} | 
 
 
 
@@ -24,24 +24,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateUpdateMessageSourceDto() // CreateUpdateMessageSourceDto |  (optional)
+	body := *openapiclient.NewCreateUpdateMessageSourceDto() // CreateUpdateMessageSourceDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.CreateMessageSource(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.CreateMessageSource``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateMessageSource`: CreateUpdateMessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.CreateMessageSource`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceAPI.CreateMessageSource(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceAPI.CreateMessageSource``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMessageSource`: CreateUpdateMessageSourceDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceAPI.CreateMessageSource`: %v\n", resp)
 }
 ```
 
@@ -88,22 +88,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MessageSourceApi.DeleteMessageSourceById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.DeleteMessageSourceById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MessageSourceAPI.DeleteMessageSourceById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceAPI.DeleteMessageSourceById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -154,24 +154,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.GetMessageSourceById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.GetMessageSourceById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceById`: MessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.GetMessageSourceById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceAPI.GetMessageSourceById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceAPI.GetMessageSourceById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceById`: MessageSourceDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceAPI.GetMessageSourceById`: %v\n", resp)
 }
 ```
 
@@ -222,24 +222,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    categoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	categoryId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.GetMessageSourceList(context.Background()).CategoryId(categoryId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.GetMessageSourceList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceList`: []MessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.GetMessageSourceList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceAPI.GetMessageSourceList(context.Background()).CategoryId(categoryId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceAPI.GetMessageSourceList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceList`: []MessageSourceDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceAPI.GetMessageSourceList`: %v\n", resp)
 }
 ```
 
@@ -286,25 +286,25 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    body := *openapiclient.NewCreateUpdateMessageSourceDto() // CreateUpdateMessageSourceDto |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	body := *openapiclient.NewCreateUpdateMessageSourceDto() // CreateUpdateMessageSourceDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceApi.UpdateMessageSource(context.Background(), id).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceApi.UpdateMessageSource``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateMessageSource`: CreateUpdateMessageSourceDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceApi.UpdateMessageSource`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceAPI.UpdateMessageSource(context.Background(), id).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceAPI.UpdateMessageSource``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateMessageSource`: CreateUpdateMessageSourceDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceAPI.UpdateMessageSource`: %v\n", resp)
 }
 ```
 

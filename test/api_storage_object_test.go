@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing StorageObjectApiService
+Testing StorageObjectAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_StorageObjectApiService(t *testing.T) {
+func Test_puupee_StorageObjectAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test StorageObjectApiService GetFileOrCredentials", func(t *testing.T) {
+	t.Run("Test StorageObjectAPIService GetFileOrCredentials", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.StorageObjectApi.GetFileOrCredentials(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StorageObjectAPI.GetFileOrCredentials(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_puupee_StorageObjectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test StorageObjectApiService PreSignUrl", func(t *testing.T) {
+	t.Run("Test StorageObjectAPIService PreSignUrl", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.StorageObjectApi.PreSignUrl(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StorageObjectAPI.PreSignUrl(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing AbpApplicationConfigurationApiService
+Testing AbpApplicationConfigurationAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_AbpApplicationConfigurationApiService(t *testing.T) {
+func Test_puupee_AbpApplicationConfigurationAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AbpApplicationConfigurationApiService GetAbpApplicationConfiguration", func(t *testing.T) {
+	t.Run("Test AbpApplicationConfigurationAPIService GetAbpApplicationConfiguration", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AbpApplicationConfigurationApi.GetAbpApplicationConfiguration(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AbpApplicationConfigurationAPI.GetAbpApplicationConfiguration(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

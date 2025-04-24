@@ -1,12 +1,12 @@
-# \ProfileApi
+# \ProfileAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ChangePassword**](ProfileApi.md#ChangePassword) | **Post** /api/account/my-profile/change-password | 
-[**GetProfile**](ProfileApi.md#GetProfile) | **Get** /api/account/my-profile | 
-[**UpdateProfile**](ProfileApi.md#UpdateProfile) | **Put** /api/account/my-profile | 
+[**ChangePassword**](ProfileAPI.md#ChangePassword) | **Post** /api/account/my-profile/change-password | 
+[**GetProfile**](ProfileAPI.md#GetProfile) | **Get** /api/account/my-profile | 
+[**UpdateProfile**](ProfileAPI.md#UpdateProfile) | **Put** /api/account/my-profile | 
 
 
 
@@ -22,22 +22,22 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewChangePasswordInput("NewPassword_example") // ChangePasswordInput |  (optional)
+	body := *openapiclient.NewChangePasswordInput("NewPassword_example") // ChangePasswordInput |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProfileApi.ChangePassword(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.ChangePassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProfileAPI.ChangePassword(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProfileAPI.ChangePassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -84,23 +84,23 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProfileApi.GetProfile(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.GetProfile``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetProfile`: ProfileDto
-    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.GetProfile`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProfileAPI.GetProfile(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProfileAPI.GetProfile``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetProfile`: ProfileDto
+	fmt.Fprintf(os.Stdout, "Response from `ProfileAPI.GetProfile`: %v\n", resp)
 }
 ```
 
@@ -143,24 +143,24 @@ Other parameters are passed through a pointer to a apiGetProfileRequest struct v
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewUpdateProfileDto() // UpdateProfileDto |  (optional)
+	body := *openapiclient.NewUpdateProfileDto() // UpdateProfileDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProfileApi.UpdateProfile(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProfileApi.UpdateProfile``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateProfile`: ProfileDto
-    fmt.Fprintf(os.Stdout, "Response from `ProfileApi.UpdateProfile`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProfileAPI.UpdateProfile(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProfileAPI.UpdateProfile``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateProfile`: ProfileDto
+	fmt.Fprintf(os.Stdout, "Response from `ProfileAPI.UpdateProfile`: %v\n", resp)
 }
 ```
 

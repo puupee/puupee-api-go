@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing EmailSettingsApiService
+Testing EmailSettingsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_EmailSettingsApiService(t *testing.T) {
+func Test_puupee_EmailSettingsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test EmailSettingsApiService GetEmailSettings", func(t *testing.T) {
+	t.Run("Test EmailSettingsAPIService GetEmailSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.EmailSettingsApi.GetEmailSettings(context.Background()).Execute()
+		resp, httpRes, err := apiClient.EmailSettingsAPI.GetEmailSettings(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,22 +34,22 @@ func Test_puupee_EmailSettingsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test EmailSettingsApiService SendTestEmail", func(t *testing.T) {
+	t.Run("Test EmailSettingsAPIService SendTestEmail", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.EmailSettingsApi.SendTestEmail(context.Background()).Execute()
+		httpRes, err := apiClient.EmailSettingsAPI.SendTestEmail(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test EmailSettingsApiService UpdateEmailSettings", func(t *testing.T) {
+	t.Run("Test EmailSettingsAPIService UpdateEmailSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.EmailSettingsApi.UpdateEmailSettings(context.Background()).Execute()
+		httpRes, err := apiClient.EmailSettingsAPI.UpdateEmailSettings(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

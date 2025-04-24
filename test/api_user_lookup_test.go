@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing UserLookupApiService
+Testing UserLookupAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_UserLookupApiService(t *testing.T) {
+func Test_puupee_UserLookupAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UserLookupApiService FindById", func(t *testing.T) {
+	t.Run("Test UserLookupAPIService FindById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.UserLookupApi.FindById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.UserLookupAPI.FindById(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_puupee_UserLookupApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserLookupApiService FindByUserName", func(t *testing.T) {
+	t.Run("Test UserLookupAPIService FindByUserName", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var userName string
 
-		resp, httpRes, err := apiClient.UserLookupApi.FindByUserName(context.Background(), userName).Execute()
+		resp, httpRes, err := apiClient.UserLookupAPI.FindByUserName(context.Background(), userName).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,11 +50,11 @@ func Test_puupee_UserLookupApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserLookupApiService GetCount", func(t *testing.T) {
+	t.Run("Test UserLookupAPIService GetCount", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserLookupApi.GetCount(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserLookupAPI.GetCount(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,11 +62,11 @@ func Test_puupee_UserLookupApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserLookupApiService Search", func(t *testing.T) {
+	t.Run("Test UserLookupAPIService Search", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserLookupApi.Search(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserLookupAPI.Search(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,11 +1,11 @@
-# \AbpTenantApi
+# \AbpTenantAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FindTenantById**](AbpTenantApi.md#FindTenantById) | **Get** /api/abp/multi-tenancy/tenants/by-id/{id} | 
-[**FindTenantByName**](AbpTenantApi.md#FindTenantByName) | **Get** /api/abp/multi-tenancy/tenants/by-name/{name} | 
+[**FindTenantById**](AbpTenantAPI.md#FindTenantById) | **Get** /api/abp/multi-tenancy/tenants/by-id/{id} | 
+[**FindTenantByName**](AbpTenantAPI.md#FindTenantByName) | **Get** /api/abp/multi-tenancy/tenants/by-name/{name} | 
 
 
 
@@ -21,24 +21,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpTenantApi.FindTenantById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantApi.FindTenantById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `FindTenantById`: FindTenantResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpTenantApi.FindTenantById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AbpTenantAPI.FindTenantById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantAPI.FindTenantById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FindTenantById`: FindTenantResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AbpTenantAPI.FindTenantById`: %v\n", resp)
 }
 ```
 
@@ -89,24 +89,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    name := "name_example" // string | 
+	name := "name_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpTenantApi.FindTenantByName(context.Background(), name).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantApi.FindTenantByName``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `FindTenantByName`: FindTenantResultDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpTenantApi.FindTenantByName`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AbpTenantAPI.FindTenantByName(context.Background(), name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AbpTenantAPI.FindTenantByName``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FindTenantByName`: FindTenantResultDto
+	fmt.Fprintf(os.Stdout, "Response from `AbpTenantAPI.FindTenantByName`: %v\n", resp)
 }
 ```
 

@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing ProfileApiService
+Testing ProfileAPIService
 
 */
 
@@ -17,27 +17,27 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_ProfileApiService(t *testing.T) {
+func Test_puupee_ProfileAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ProfileApiService ChangePassword", func(t *testing.T) {
+	t.Run("Test ProfileAPIService ChangePassword", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ProfileApi.ChangePassword(context.Background()).Execute()
+		httpRes, err := apiClient.ProfileAPI.ChangePassword(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ProfileApiService GetProfile", func(t *testing.T) {
+	t.Run("Test ProfileAPIService GetProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProfileApi.GetProfile(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProfileAPI.GetProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -45,11 +45,11 @@ func Test_puupee_ProfileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ProfileApiService UpdateProfile", func(t *testing.T) {
+	t.Run("Test ProfileAPIService UpdateProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProfileApi.UpdateProfile(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ProfileAPI.UpdateProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

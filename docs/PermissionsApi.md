@@ -1,11 +1,11 @@
-# \PermissionsApi
+# \PermissionsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPermissions**](PermissionsApi.md#GetPermissions) | **Get** /api/permission-management/permissions | 
-[**UpdatePermissions**](PermissionsApi.md#UpdatePermissions) | **Put** /api/permission-management/permissions | 
+[**GetPermissions**](PermissionsAPI.md#GetPermissions) | **Get** /api/permission-management/permissions | 
+[**UpdatePermissions**](PermissionsAPI.md#UpdatePermissions) | **Put** /api/permission-management/permissions | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    providerName := "providerName_example" // string |  (optional)
-    providerKey := "providerKey_example" // string |  (optional)
+	providerName := "providerName_example" // string |  (optional)
+	providerKey := "providerKey_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.GetPermissions(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.GetPermissions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPermissions`: GetPermissionListResultDto
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.GetPermissions`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PermissionsAPI.GetPermissions(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.GetPermissions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPermissions`: GetPermissionListResultDto
+	fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.GetPermissions`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    providerName := "providerName_example" // string |  (optional)
-    providerKey := "providerKey_example" // string |  (optional)
-    body := *openapiclient.NewUpdatePermissionsDto() // UpdatePermissionsDto |  (optional)
+	providerName := "providerName_example" // string |  (optional)
+	providerKey := "providerKey_example" // string |  (optional)
+	body := *openapiclient.NewUpdatePermissionsDto() // UpdatePermissionsDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsApi.UpdatePermissions(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.UpdatePermissions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.PermissionsAPI.UpdatePermissions(context.Background()).ProviderName(providerName).ProviderKey(providerKey).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.UpdatePermissions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

@@ -1,12 +1,12 @@
-# \EmailSettingsApi
+# \EmailSettingsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetEmailSettings**](EmailSettingsApi.md#GetEmailSettings) | **Get** /api/setting-management/emailing | 
-[**SendTestEmail**](EmailSettingsApi.md#SendTestEmail) | **Post** /api/setting-management/emailing/send-test-email | 
-[**UpdateEmailSettings**](EmailSettingsApi.md#UpdateEmailSettings) | **Post** /api/setting-management/emailing | 
+[**GetEmailSettings**](EmailSettingsAPI.md#GetEmailSettings) | **Get** /api/setting-management/emailing | 
+[**SendTestEmail**](EmailSettingsAPI.md#SendTestEmail) | **Post** /api/setting-management/emailing/send-test-email | 
+[**UpdateEmailSettings**](EmailSettingsAPI.md#UpdateEmailSettings) | **Post** /api/setting-management/emailing | 
 
 
 
@@ -22,23 +22,23 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EmailSettingsApi.GetEmailSettings(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.GetEmailSettings``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetEmailSettings`: EmailSettingsDto
-    fmt.Fprintf(os.Stdout, "Response from `EmailSettingsApi.GetEmailSettings`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EmailSettingsAPI.GetEmailSettings(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsAPI.GetEmailSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetEmailSettings`: EmailSettingsDto
+	fmt.Fprintf(os.Stdout, "Response from `EmailSettingsAPI.GetEmailSettings`: %v\n", resp)
 }
 ```
 
@@ -81,22 +81,22 @@ Other parameters are passed through a pointer to a apiGetEmailSettingsRequest st
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewSendTestEmailInput("SenderEmailAddress_example", "TargetEmailAddress_example", "Subject_example") // SendTestEmailInput |  (optional)
+	body := *openapiclient.NewSendTestEmailInput("SenderEmailAddress_example", "TargetEmailAddress_example", "Subject_example") // SendTestEmailInput |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.EmailSettingsApi.SendTestEmail(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.SendTestEmail``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.EmailSettingsAPI.SendTestEmail(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsAPI.SendTestEmail``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -143,22 +143,22 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewUpdateEmailSettingsDto("DefaultFromAddress_example", "DefaultFromDisplayName_example") // UpdateEmailSettingsDto |  (optional)
+	body := *openapiclient.NewUpdateEmailSettingsDto("DefaultFromAddress_example", "DefaultFromDisplayName_example") // UpdateEmailSettingsDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.EmailSettingsApi.UpdateEmailSettings(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsApi.UpdateEmailSettings``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.EmailSettingsAPI.UpdateEmailSettings(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EmailSettingsAPI.UpdateEmailSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

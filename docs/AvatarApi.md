@@ -1,11 +1,11 @@
-# \AvatarApi
+# \AvatarAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAvatar**](AvatarApi.md#CreateAvatar) | **Post** /api/app/avatar | 
-[**GetCredentials**](AvatarApi.md#GetCredentials) | **Get** /api/app/avatar/credentials | 
+[**CreateAvatar**](AvatarAPI.md#CreateAvatar) | **Post** /api/app/avatar | 
+[**GetCredentials**](AvatarAPI.md#GetCredentials) | **Get** /api/app/avatar/credentials | 
 
 
 
@@ -21,24 +21,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateAvatarDto() // CreateAvatarDto |  (optional)
+	body := *openapiclient.NewCreateAvatarDto() // CreateAvatarDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AvatarApi.CreateAvatar(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.CreateAvatar``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAvatar`: AvatarDto
-    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.CreateAvatar`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AvatarAPI.CreateAvatar(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AvatarAPI.CreateAvatar``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAvatar`: AvatarDto
+	fmt.Fprintf(os.Stdout, "Response from `AvatarAPI.CreateAvatar`: %v\n", resp)
 }
 ```
 
@@ -85,24 +85,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    key := "key_example" // string |  (optional)
+	key := "key_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AvatarApi.GetCredentials(context.Background()).Key(key).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AvatarApi.GetCredentials``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCredentials`: StorageObjectCredentials
-    fmt.Fprintf(os.Stdout, "Response from `AvatarApi.GetCredentials`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AvatarAPI.GetCredentials(context.Background()).Key(key).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AvatarAPI.GetCredentials``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCredentials`: StorageObjectCredentials
+	fmt.Fprintf(os.Stdout, "Response from `AvatarAPI.GetCredentials`: %v\n", resp)
 }
 ```
 

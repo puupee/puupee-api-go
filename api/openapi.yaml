@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Puupee API
-  version: 1.0.0
+  version: 1.17.11
 servers:
 - url: /
 security:
@@ -11908,6 +11908,10 @@ paths:
         name: bucket
         schema:
           type: string
+      - in: query
+        name: key
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -15128,7 +15132,7 @@ components:
   schemas:
     AbpLoginResult:
       example:
-        result: null
+        result: 0
         description: description
       properties:
         result:
@@ -15373,11 +15377,11 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           screenshotKeys: screenshotKeys
         isDeleted: true
-        appType: null
+        appType: Client
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         latestReleases:
-        - artifactType: null
+        - artifactType: Apk
           notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15386,7 +15390,7 @@ components:
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
           versionName: versionName
-          platform: null
+          platform: None
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15402,7 +15406,7 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
-        - artifactType: null
+        - artifactType: Apk
           notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15411,7 +15415,7 @@ components:
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
           versionName: versionName
-          platform: null
+          platform: None
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15455,12 +15459,12 @@ components:
           email: email
           lockoutEnd: 2000-01-23T04:56:07.000+00:00
         isPublished: true
-        gitRepositoryType: null
+        gitRepositoryType: GitHub
         webhookUrl: webhookUrl
         gitRepository: gitRepository
         subscriptionPlatforms: subscriptionPlatforms
         freePlatforms: freePlatforms
-        framework: null
+        framework: Flutter
         isEnabled: true
         name: name
         businessDomain: businessDomain
@@ -15629,11 +15633,11 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             screenshotKeys: screenshotKeys
           isDeleted: true
-          appType: null
+          appType: Client
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           latestReleases:
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15642,7 +15646,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15658,7 +15662,7 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15667,7 +15671,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15711,12 +15715,12 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
-          gitRepositoryType: null
+          gitRepositoryType: GitHub
           webhookUrl: webhookUrl
           gitRepository: gitRepository
           subscriptionPlatforms: subscriptionPlatforms
           freePlatforms: freePlatforms
-          framework: null
+          framework: Flutter
           isEnabled: true
           name: name
           businessDomain: businessDomain
@@ -15788,11 +15792,11 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             screenshotKeys: screenshotKeys
           isDeleted: true
-          appType: null
+          appType: Client
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           latestReleases:
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15801,7 +15805,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15817,7 +15821,7 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -15826,7 +15830,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15870,12 +15874,12 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
-          gitRepositoryType: null
+          gitRepositoryType: GitHub
           webhookUrl: webhookUrl
           gitRepository: gitRepository
           subscriptionPlatforms: subscriptionPlatforms
           freePlatforms: freePlatforms
-          framework: null
+          framework: Flutter
           isEnabled: true
           name: name
           businessDomain: businessDomain
@@ -16034,7 +16038,7 @@ components:
         yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
         yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
         monthPrice: 0.8008281904610115
-        naming: null
+        naming: Free
         monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         items:
@@ -16181,7 +16185,7 @@ components:
           yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
           monthPrice: 0.8008281904610115
-          naming: null
+          naming: Free
           monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           items:
@@ -16234,7 +16238,7 @@ components:
           yearDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
           monthPrice: 0.8008281904610115
-          naming: null
+          naming: Free
           monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           items:
@@ -16401,7 +16405,7 @@ components:
       type: object
     AppReleaseDto:
       example:
-        artifactType: null
+        artifactType: Apk
         notes: notes
         creationTime: 2000-01-23T04:56:07.000+00:00
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -16410,7 +16414,7 @@ components:
         channel: channel
         deletionTime: 2000-01-23T04:56:07.000+00:00
         versionName: versionName
-        platform: null
+        platform: None
         isDeleted: true
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -16494,7 +16498,7 @@ components:
       example:
         totalCount: 0
         items:
-        - artifactType: null
+        - artifactType: Apk
           notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -16503,7 +16507,7 @@ components:
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
           versionName: versionName
-          platform: null
+          platform: None
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -16519,7 +16523,7 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
-        - artifactType: null
+        - artifactType: Apk
           notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -16528,7 +16532,7 @@ components:
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
           versionName: versionName
-          platform: null
+          platform: None
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -16621,7 +16625,7 @@ components:
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         workerName: workerName
         finishAt: 2000-01-23T04:56:07.000+00:00
-        status: null
+        status: Pending
       properties:
         id:
           format: uuid
@@ -16687,7 +16691,7 @@ components:
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         workerName: workerName
         finishAt: 2000-01-23T04:56:07.000+00:00
-        status: null
+        status: Pending
       properties:
         id:
           format: uuid
@@ -16961,11 +16965,11 @@ components:
           screenshotKeys: screenshotKeys
         subscribed: true
         isDeleted: true
-        appType: null
+        appType: Client
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         latestReleases:
-        - artifactType: null
+        - artifactType: Apk
           notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -16974,7 +16978,7 @@ components:
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
           versionName: versionName
-          platform: null
+          platform: None
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -16990,7 +16994,7 @@ components:
           deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           isForceUpdate: true
           md5: md5
-        - artifactType: null
+        - artifactType: Apk
           notes: notes
           creationTime: 2000-01-23T04:56:07.000+00:00
           lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -16999,7 +17003,7 @@ components:
           channel: channel
           deletionTime: 2000-01-23T04:56:07.000+00:00
           versionName: versionName
-          platform: null
+          platform: None
           isDeleted: true
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17043,12 +17047,12 @@ components:
           email: email
           lockoutEnd: 2000-01-23T04:56:07.000+00:00
         isPublished: true
-        gitRepositoryType: null
+        gitRepositoryType: GitHub
         webhookUrl: webhookUrl
         gitRepository: gitRepository
         subscriptionPlatforms: subscriptionPlatforms
         freePlatforms: freePlatforms
-        framework: null
+        framework: Flutter
         isEnabled: true
         name: name
         businessDomain: businessDomain
@@ -17221,11 +17225,11 @@ components:
             screenshotKeys: screenshotKeys
           subscribed: true
           isDeleted: true
-          appType: null
+          appType: Client
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           latestReleases:
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -17234,7 +17238,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17250,7 +17254,7 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -17259,7 +17263,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17303,12 +17307,12 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
-          gitRepositoryType: null
+          gitRepositoryType: GitHub
           webhookUrl: webhookUrl
           gitRepository: gitRepository
           subscriptionPlatforms: subscriptionPlatforms
           freePlatforms: freePlatforms
-          framework: null
+          framework: Flutter
           isEnabled: true
           name: name
           businessDomain: businessDomain
@@ -17381,11 +17385,11 @@ components:
             screenshotKeys: screenshotKeys
           subscribed: true
           isDeleted: true
-          appType: null
+          appType: Client
           lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           latestReleases:
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -17394,7 +17398,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17410,7 +17414,7 @@ components:
             deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             isForceUpdate: true
             md5: md5
-          - artifactType: null
+          - artifactType: Apk
             notes: notes
             creationTime: 2000-01-23T04:56:07.000+00:00
             lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -17419,7 +17423,7 @@ components:
             channel: channel
             deletionTime: 2000-01-23T04:56:07.000+00:00
             versionName: versionName
-            platform: null
+            platform: None
             isDeleted: true
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17463,12 +17467,12 @@ components:
             email: email
             lockoutEnd: 2000-01-23T04:56:07.000+00:00
           isPublished: true
-          gitRepositoryType: null
+          gitRepositoryType: GitHub
           webhookUrl: webhookUrl
           gitRepository: gitRepository
           subscriptionPlatforms: subscriptionPlatforms
           freePlatforms: freePlatforms
-          framework: null
+          framework: Flutter
           isEnabled: true
           name: name
           businessDomain: businessDomain
@@ -18212,7 +18216,7 @@ components:
         isPhysicalDevice: true
         brand: brand
         systemVersion: systemVersion
-        platform: null
+        platform: None
         token: token
       properties:
         token:
@@ -18558,7 +18562,7 @@ components:
         deletionTime: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        type: null
+        type: AppleAuto
         pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
@@ -18606,7 +18610,7 @@ components:
         description: description
         defaultSingleFileMaxSize: 1
         homePage: homePage
-        gitRepositoryType: null
+        gitRepositoryType: GitHub
         webhookUrl: webhookUrl
         specJsonSchema: specJsonSchema
         openClient:
@@ -18631,8 +18635,8 @@ components:
         gitRepository: gitRepository
         subscriptionPlatforms: subscriptionPlatforms
         freePlatforms: freePlatforms
-        framework: null
-        appType: null
+        framework: Flutter
+        appType: Client
         isEnabled: true
         name: name
         businessDomain: businessDomain
@@ -18724,7 +18728,7 @@ components:
         yearDiscountStartAt: 2000-01-23T04:56:07.000+00:00
         monthPrice: 0.8008281904610115
         yearDiscountPrice: 2.3021358869347655
-        naming: null
+        naming: Free
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         monthDiscountEndAt: 2000-01-23T04:56:07.000+00:00
         monthDiscountStartAt: 2000-01-23T04:56:07.000+00:00
@@ -18854,13 +18858,13 @@ components:
       type: object
     CreateOrUpdateAppReleaseDto:
       example:
-        artifactType: null
+        artifactType: Apk
         notes: notes
         channel: channel
         versionName: versionName
         version: version
         versionCode: 0
-        platform: null
+        platform: None
         environment: environment
         size: 6
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19191,7 +19195,7 @@ components:
         deletionTime: 2000-01-23T04:56:07.000+00:00
         isPhysicalDevice: true
         systemVersion: systemVersion
-        platform: null
+        platform: None
         token: token
         isDeleted: true
         name: name
@@ -19249,7 +19253,7 @@ components:
           deletionTime: 2000-01-23T04:56:07.000+00:00
           isPhysicalDevice: true
           systemVersion: systemVersion
-          platform: null
+          platform: None
           token: token
           isDeleted: true
           name: name
@@ -19264,7 +19268,7 @@ components:
           deletionTime: 2000-01-23T04:56:07.000+00:00
           isPhysicalDevice: true
           systemVersion: systemVersion
-          platform: null
+          platform: None
           token: token
           isDeleted: true
           name: name
@@ -21735,7 +21739,7 @@ components:
     RefreshDeviceStatusDto:
       example:
         token: token
-        status: null
+        status: None
       properties:
         token:
           type: string
@@ -21780,6 +21784,21 @@ components:
       - userName
       type: object
     RemoteServiceErrorInfo:
+      example:
+        code: code
+        data:
+          key: "{}"
+        validationErrors:
+        - members:
+          - members
+          - members
+          message: message
+        - members:
+          - members
+          - members
+          message: message
+        details: details
+        message: message
       properties:
         code:
           type: string
@@ -21797,11 +21816,32 @@ components:
           type: array
       type: object
     RemoteServiceErrorResponse:
+      example:
+        error:
+          code: code
+          data:
+            key: "{}"
+          validationErrors:
+          - members:
+            - members
+            - members
+            message: message
+          - members:
+            - members
+            - members
+            message: message
+          details: details
+          message: message
       properties:
         error:
           $ref: '#/components/schemas/RemoteServiceErrorInfo'
       type: object
     RemoteServiceValidationErrorInfo:
+      example:
+        members:
+        - members
+        - members
+        message: message
       properties:
         message:
           type: string
@@ -22065,7 +22105,7 @@ components:
       type: object
     SubscriptionDto:
       example:
-        priceNaming: null
+        priceNaming: Free
         creationTime: 2000-01-23T04:56:07.000+00:00
         isDeleted: true
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
@@ -22122,14 +22162,14 @@ components:
         lastModificationTime: 2000-01-23T04:56:07.000+00:00
         creatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deletionTime: 2000-01-23T04:56:07.000+00:00
-        type: null
+        type: AppleAuto
         pricingId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isDeleted: true
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         lastModifierId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        status: null
+        status: Waiting
       properties:
         id:
           format: uuid
@@ -22638,7 +22678,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deleterId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         receiptData: receiptData
-        platform: null
+        platform: None
         deviceToken: deviceToken
       properties:
         id:
@@ -23054,7 +23094,7 @@ components:
             userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             providerKey: providerKey
           securityStamp: securityStamp
-        platform: null
+        platform: None
         deviceToken: deviceToken
         recordId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         isDeleted: true

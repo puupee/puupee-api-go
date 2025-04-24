@@ -1,12 +1,12 @@
-# \TimeZoneSettingsApi
+# \TimeZoneSettingsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetTimeZoneSettings**](TimeZoneSettingsApi.md#GetTimeZoneSettings) | **Get** /api/setting-management/timezone | 
-[**GetTimezones**](TimeZoneSettingsApi.md#GetTimezones) | **Get** /api/setting-management/timezone/timezones | 
-[**UpdateTimeZoneSettings**](TimeZoneSettingsApi.md#UpdateTimeZoneSettings) | **Post** /api/setting-management/timezone | 
+[**GetTimeZoneSettings**](TimeZoneSettingsAPI.md#GetTimeZoneSettings) | **Get** /api/setting-management/timezone | 
+[**GetTimezones**](TimeZoneSettingsAPI.md#GetTimezones) | **Get** /api/setting-management/timezone/timezones | 
+[**UpdateTimeZoneSettings**](TimeZoneSettingsAPI.md#UpdateTimeZoneSettings) | **Post** /api/setting-management/timezone | 
 
 
 
@@ -22,23 +22,23 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TimeZoneSettingsApi.GetTimeZoneSettings(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.GetTimeZoneSettings``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTimeZoneSettings`: string
-    fmt.Fprintf(os.Stdout, "Response from `TimeZoneSettingsApi.GetTimeZoneSettings`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TimeZoneSettingsAPI.GetTimeZoneSettings(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsAPI.GetTimeZoneSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTimeZoneSettings`: string
+	fmt.Fprintf(os.Stdout, "Response from `TimeZoneSettingsAPI.GetTimeZoneSettings`: %v\n", resp)
 }
 ```
 
@@ -81,23 +81,23 @@ Other parameters are passed through a pointer to a apiGetTimeZoneSettingsRequest
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TimeZoneSettingsApi.GetTimezones(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.GetTimezones``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTimezones`: []NameValue
-    fmt.Fprintf(os.Stdout, "Response from `TimeZoneSettingsApi.GetTimezones`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TimeZoneSettingsAPI.GetTimezones(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsAPI.GetTimezones``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTimezones`: []NameValue
+	fmt.Fprintf(os.Stdout, "Response from `TimeZoneSettingsAPI.GetTimezones`: %v\n", resp)
 }
 ```
 
@@ -140,22 +140,22 @@ Other parameters are passed through a pointer to a apiGetTimezonesRequest struct
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    timezone := "timezone_example" // string |  (optional)
+	timezone := "timezone_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TimeZoneSettingsApi.UpdateTimeZoneSettings(context.Background()).Timezone(timezone).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsApi.UpdateTimeZoneSettings``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TimeZoneSettingsAPI.UpdateTimeZoneSettings(context.Background()).Timezone(timezone).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TimeZoneSettingsAPI.UpdateTimeZoneSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

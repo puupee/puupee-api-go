@@ -1,10 +1,10 @@
-# \AbpApplicationConfigurationApi
+# \AbpApplicationConfigurationAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAbpApplicationConfiguration**](AbpApplicationConfigurationApi.md#GetAbpApplicationConfiguration) | **Get** /api/abp/application-configuration | 
+[**GetAbpApplicationConfiguration**](AbpApplicationConfigurationAPI.md#GetAbpApplicationConfiguration) | **Get** /api/abp/application-configuration | 
 
 
 
@@ -20,24 +20,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    includeLocalizationResources := true // bool |  (optional)
+	includeLocalizationResources := true // bool |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AbpApplicationConfigurationApi.GetAbpApplicationConfiguration(context.Background()).IncludeLocalizationResources(includeLocalizationResources).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationConfigurationApi.GetAbpApplicationConfiguration``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAbpApplicationConfiguration`: ApplicationConfigurationDto
-    fmt.Fprintf(os.Stdout, "Response from `AbpApplicationConfigurationApi.GetAbpApplicationConfiguration`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AbpApplicationConfigurationAPI.GetAbpApplicationConfiguration(context.Background()).IncludeLocalizationResources(includeLocalizationResources).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AbpApplicationConfigurationAPI.GetAbpApplicationConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAbpApplicationConfiguration`: ApplicationConfigurationDto
+	fmt.Fprintf(os.Stdout, "Response from `AbpApplicationConfigurationAPI.GetAbpApplicationConfiguration`: %v\n", resp)
 }
 ```
 

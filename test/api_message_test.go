@@ -1,7 +1,7 @@
 /*
 Puupee API
 
-Testing MessageApiService
+Testing MessageAPIService
 
 */
 
@@ -17,49 +17,49 @@ import (
 	openapiclient "github.com/puupee/puupee-api-go"
 )
 
-func Test_puupee_MessageApiService(t *testing.T) {
+func Test_puupee_MessageAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MessageApiService Publish", func(t *testing.T) {
+	t.Run("Test MessageAPIService Publish", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.MessageApi.Publish(context.Background()).Execute()
+		httpRes, err := apiClient.MessageAPI.Publish(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageApiService Recall", func(t *testing.T) {
+	t.Run("Test MessageAPIService Recall", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.MessageApi.Recall(context.Background()).Execute()
+		httpRes, err := apiClient.MessageAPI.Recall(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageApiService Subscribe", func(t *testing.T) {
+	t.Run("Test MessageAPIService Subscribe", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.MessageApi.Subscribe(context.Background()).Execute()
+		httpRes, err := apiClient.MessageAPI.Subscribe(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MessageApiService Unsubscribe", func(t *testing.T) {
+	t.Run("Test MessageAPIService Unsubscribe", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.MessageApi.Unsubscribe(context.Background()).Execute()
+		httpRes, err := apiClient.MessageAPI.Unsubscribe(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

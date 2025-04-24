@@ -1,12 +1,12 @@
-# \MessageTemplateReleaseApi
+# \MessageTemplateReleaseAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMessageTemplateRelease**](MessageTemplateReleaseApi.md#CreateMessageTemplateRelease) | **Post** /api/app/message-template-release | 
-[**GetMessageTemplateReleaseById**](MessageTemplateReleaseApi.md#GetMessageTemplateReleaseById) | **Get** /api/app/message-template-release/{id} | 
-[**GetMessageTemplateReleaseList**](MessageTemplateReleaseApi.md#GetMessageTemplateReleaseList) | **Get** /api/app/message-template-release | 
+[**CreateMessageTemplateRelease**](MessageTemplateReleaseAPI.md#CreateMessageTemplateRelease) | **Post** /api/app/message-template-release | 
+[**GetMessageTemplateReleaseById**](MessageTemplateReleaseAPI.md#GetMessageTemplateReleaseById) | **Get** /api/app/message-template-release/{id} | 
+[**GetMessageTemplateReleaseList**](MessageTemplateReleaseAPI.md#GetMessageTemplateReleaseList) | **Get** /api/app/message-template-release | 
 
 
 
@@ -22,24 +22,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    body := *openapiclient.NewCreateMessageTemplateReleaseDto() // CreateMessageTemplateReleaseDto |  (optional)
+	body := *openapiclient.NewCreateMessageTemplateReleaseDto() // CreateMessageTemplateReleaseDto |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.CreateMessageTemplateRelease(context.Background()).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.CreateMessageTemplateRelease``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateMessageTemplateRelease`: MessageTemplateReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.CreateMessageTemplateRelease`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageTemplateReleaseAPI.CreateMessageTemplateRelease(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseAPI.CreateMessageTemplateRelease``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMessageTemplateRelease`: MessageTemplateReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseAPI.CreateMessageTemplateRelease`: %v\n", resp)
 }
 ```
 
@@ -86,24 +86,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.GetMessageTemplateReleaseById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.GetMessageTemplateReleaseById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageTemplateReleaseById`: MessageTemplateReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.GetMessageTemplateReleaseById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageTemplateReleaseAPI.GetMessageTemplateReleaseById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseAPI.GetMessageTemplateReleaseById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageTemplateReleaseById`: MessageTemplateReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseAPI.GetMessageTemplateReleaseById`: %v\n", resp)
 }
 ```
 
@@ -154,24 +154,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
-    templateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	templateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageTemplateReleaseApi.GetMessageTemplateReleaseList(context.Background()).TemplateId(templateId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseApi.GetMessageTemplateReleaseList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageTemplateReleaseList`: []MessageTemplateReleaseDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseApi.GetMessageTemplateReleaseList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageTemplateReleaseAPI.GetMessageTemplateReleaseList(context.Background()).TemplateId(templateId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageTemplateReleaseAPI.GetMessageTemplateReleaseList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageTemplateReleaseList`: []MessageTemplateReleaseDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageTemplateReleaseAPI.GetMessageTemplateReleaseList`: %v\n", resp)
 }
 ```
 

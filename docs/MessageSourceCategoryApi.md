@@ -1,10 +1,10 @@
-# \MessageSourceCategoryApi
+# \MessageSourceCategoryAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetMessageSourceCategoryList**](MessageSourceCategoryApi.md#GetMessageSourceCategoryList) | **Get** /api/app/message-source-category | 
+[**GetMessageSourceCategoryList**](MessageSourceCategoryAPI.md#GetMessageSourceCategoryList) | **Get** /api/app/message-source-category | 
 
 
 
@@ -20,23 +20,23 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/puupee/puupee-api-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSourceCategoryApi.GetMessageSourceCategoryList(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceCategoryApi.GetMessageSourceCategoryList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMessageSourceCategoryList`: []MessageSourceCategoryDto
-    fmt.Fprintf(os.Stdout, "Response from `MessageSourceCategoryApi.GetMessageSourceCategoryList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MessageSourceCategoryAPI.GetMessageSourceCategoryList(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MessageSourceCategoryAPI.GetMessageSourceCategoryList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMessageSourceCategoryList`: []MessageSourceCategoryDto
+	fmt.Fprintf(os.Stdout, "Response from `MessageSourceCategoryAPI.GetMessageSourceCategoryList`: %v\n", resp)
 }
 ```
 
