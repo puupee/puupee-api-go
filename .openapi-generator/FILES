@@ -256,6 +256,8 @@ docs/UserDataListResultDto.md
 docs/UserLoginInfo.md
 docs/UserLookupAPI.md
 docs/UserProfileDto.md
+docs/UserStorageDto.md
+docs/UserStorageItemDto.md
 docs/VerificationAPI.md
 docs/VerifyPasswordResetTokenInput.md
 docs/VerifyReceiptDto.md
@@ -443,6 +445,8 @@ model_user_data.go
 model_user_data_list_result_dto.go
 model_user_login_info.go
 model_user_profile_dto.go
+model_user_storage_dto.go
+model_user_storage_item_dto.go
 model_verify_password_reset_token_input.go
 model_verify_receipt_dto.go
 model_verify_receipt_result.go

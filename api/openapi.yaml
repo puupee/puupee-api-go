@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Puupee API
-  version: 1.17.11
+  version: 1.17.12
 servers:
 - url: /
 security:
@@ -12098,6 +12098,102 @@ paths:
           description: Server Error
       tags:
       - StorageObject
+  /api/app/storage-object/user-storages:
+    get:
+      operationId: GetUserStorages
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserStorageDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserStorageDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserStorageDto'
+                type: array
+          description: Success
+        "403":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Forbidden
+        "401":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Unauthorized
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Not Found
+        "501":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+        "500":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RemoteServiceErrorResponse'
+          description: Server Error
+      tags:
+      - StorageObject
   /api/app/subscription/apple-notifications:
     post:
       operationId: AppleNotifications
@@ -22651,6 +22747,77 @@ components:
           type: string
         hasPassword:
           type: boolean
+      type: object
+    UserStorageDto:
+      example:
+        priceNaming: Free
+        size: 0
+        appName: appName
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        singleFileMaxSize: 5
+        totalCount: 1
+        expireAt: 2000-01-23T04:56:07.000+00:00
+        items:
+        - size: 2
+          name: name
+          count: 5
+          title: title
+        - size: 2
+          name: name
+          count: 5
+          title: title
+        currentSize: 6
+      properties:
+        appId:
+          description: 所属应用
+          format: uuid
+          type: string
+        appName:
+          description: 应用名称
+          type: string
+        priceNaming:
+          $ref: '#/components/schemas/AppPriceNaming'
+        size:
+          description: 用户存储容量
+          format: int64
+          type: integer
+        currentSize:
+          description: 当前使用大小
+          format: int64
+          type: integer
+        totalCount:
+          format: int32
+          type: integer
+        singleFileMaxSize:
+          description: 单文件最大大小
+          format: int64
+          type: integer
+        expireAt:
+          description: "过期时间, 为空表示永久有效, 一般是订阅产品的过期时间"
+          format: date-time
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/UserStorageItemDto'
+          type: array
+      type: object
+    UserStorageItemDto:
+      example:
+        size: 2
+        name: name
+        count: 5
+        title: title
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        count:
+          format: int32
+          type: integer
+        size:
+          format: int64
+          type: integer
       type: object
     VerifyPasswordResetTokenInput:
       example:

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetFileOrCredentials**](StorageObjectAPI.md#GetFileOrCredentials) | **Get** /api/app/storage-object/file-or-credentials | 
+[**GetUserStorages**](StorageObjectAPI.md#GetUserStorages) | **Get** /api/app/storage-object/user-storages | 
 [**PreSignUrl**](StorageObjectAPI.md#PreSignUrl) | **Post** /api/app/storage-object/pre-sign-url | 
 
 
@@ -62,6 +63,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorageObjectOrCredentialsDto**](StorageObjectOrCredentialsDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserStorages
+
+> []UserStorageDto GetUserStorages(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/puupee/puupee-api-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StorageObjectAPI.GetUserStorages(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StorageObjectAPI.GetUserStorages``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserStorages`: []UserStorageDto
+	fmt.Fprintf(os.Stdout, "Response from `StorageObjectAPI.GetUserStorages`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserStoragesRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]UserStorageDto**](UserStorageDto.md)
 
 ### Authorization
 
